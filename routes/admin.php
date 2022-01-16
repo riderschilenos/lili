@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\DisciplinaController;
 
 use App\Http\Controllers\Admin\PrecioController;
 
-Route::get('',[HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
+Route::get('/',[HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 
 Route::resource('roles', RoleController::class)->names('roles');
 

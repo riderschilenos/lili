@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoObserver
 {   
-    /*
+    
     public function creating(Video $video){
         $url = $video->url;
         $platform_id = $video->platform_id;
@@ -44,5 +44,5 @@ class VideoObserver
             $video->resource->delete();
         }
     }
-        */
+        
 }

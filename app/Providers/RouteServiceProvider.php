@@ -56,7 +56,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web','auth')
                 ->name('filmmaker.')
                 ->prefix('filmmaker')
-                ->namespace($this->namespace)
+               // ->namespace($this->namespace)
                 ->group(base_path('routes/filmmaker.php'));   
 
             Route::middleware('web')

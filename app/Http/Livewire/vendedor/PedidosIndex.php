@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Livewire\vendedor;
+
+use App\Models\Invitado;
+use App\Models\Pedido;
+use App\Models\Socio;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+class PedidosIndex extends Component
+{   
+    use WithPagination;
+
+    public $search, $periodo="mensual";
+
+    public function render()
+    {   $invitados= Invitado::all();
+        $socios= Socio::all();
+        $periodo=$this->periodo;
+
+        if($this->periodo=="mensual"){
+        
+        $pedidos= Pedido::where('user_id',auth()->user()->id)
+                        ->where('created_at', '>=', now()->subDays(30))
+                        ->orderby('status','DESC')
+                        ->latest('id')
+                        ->get();
+                    }
+        if($this->periodo=="anual"){
+        
+            $pedidos= Pedido::where('user_id',auth()->user()->id)
+                            ->where('created_at', '>=', now()->subDays(365))
+                            ->orderby('status','DESC')
+                            ->latest('id')
+                            ->get();
+                       }
+        
+
+
+        return view('livewire.vendedor.pedidos-index',compact('pedidos','invitados','socios','periodo'));
+    }
+    
+    public function limpiar_page(){
+        $this->resetPage();
+    }
+
+    public function periodo(){
+        if ($this->periodo=="mensual"){
+            $this->periodo="anual";
+        }else{
+            $this->periodo="mensual";
+     }
+    }
+}

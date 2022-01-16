@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Orden extends Model
+{
+    use HasFactory;
+    
+    protected $guarded = ['id','status'];
+
+    const BORRADOR =1;
+    const REVISION =2;
+    const PUBLICADO =3;
+
+    //relacion uno a muchos inversa 
+
+    public function pedido(){
+        return $this->belongsTo('App\Models\Pedido');
+    }
+
+    public function producto(){
+        return $this->belongsTo('App\Models\Producto');
+    }
+
+    public function modelo(){
+        return $this->belongsTo('App\Models\Modelo');
+    }
+    public function smartphone(){
+        return $this->belongsTo('App\Models\Smartphone');
+    }
+
+    //relacion uno a muchos polimorfica 
+    public function comentarios(){
+        return $this->morphMany('App\Models\Comentario','comentable');
+    }
+
+    public function reactions(){
+        return $this->morphMany('App\Models\Reaction','reactionable');
+    }
+
+}

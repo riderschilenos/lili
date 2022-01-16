@@ -1,0 +1,121 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
+
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
+    use HasRoles;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    //relacion uno a uno
+
+    public function vendedor(){
+        return $this->hasOne('App\Models\Vendedor');
+    }
+
+    public function serie(){
+        return $this->hasOne('App\Models\Serie');
+    }
+
+    public function socio(){
+        return $this->hasOne('App\Models\Socio');
+    }
+
+    //relacion uno a muchos
+
+    public function seriesby(){
+        return $this->hasMany('App\Models\Serie');
+    }
+    
+    public function reviews(){
+        return $this->hasMany('App\Models\Review');
+    }
+
+    public function comentarios(){
+        return $this->hasMany('App\Models\Comentario');
+    }
+
+    public function reactions(){
+        return $this->hasMany('App\Models\Reaction');
+    }
+
+    public function pedidos(){
+        return $this->hasMany('App\Models\pedido');
+    }
+
+    public function vehiculos(){
+        return $this->hasMany('App\Models\Vehiculo');
+    }
+
+    public function filmmakers(){
+        return $this->hasMany('App\Models\Filmmaker');
+    }
+    
+
+    //relacion Muchos a muchos
+
+    public function serie_enrolled(){
+        return $this->belongsToMany('App\Models\Serie');
+    }
+    
+    public function videos(){
+        return $this->belongsToMany('App\Models\Video');
+    }
+
+    
+}

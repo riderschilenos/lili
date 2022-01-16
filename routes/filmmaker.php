@@ -5,7 +5,7 @@ use App\Http\Controllers\Filmmaker\SerieController;
 use App\Http\Livewire\Filmmaker\SeriesSponsors;
 use App\Http\Livewire\Filmmaker\SeriesVideos;
 
-
+//Route::redirect('/', 'filmmaker/series')->name('index');
 
 Route::resource('serie', SerieController::class)->middleware('can:Actualizar series')->names('series');
 

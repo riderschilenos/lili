@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('vendedor\pedidos\index');
+        return view('vendedor.pedidos.index');
     }
 
     /**

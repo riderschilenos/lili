@@ -4,13 +4,13 @@
         {{$pedido->id}}
     </x-slot>
 
-    <div class="flex">
-    <h1 class="text-2xl font-bold">INFORMACIÓN DE DESPACHO</h1>
+    <div class="hidden sm:flex">
+        <h1 class="text-xl font-bold">INFORMACIÓN DE DESPACHO</h1>
 
         @if ($pedido->pedidoable_type == "App\Models\Invitado")
             @foreach ($invitados as $invitado)
                 @if ($invitado->id == $pedido->pedidoable_id )
-
+                    
                         <p class="ml-auto font-bold mr-4">Nombre:</p>{{$invitado->name}}
                         <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-yellow-100 text-yellow-800">
                             Invitado
@@ -37,6 +37,41 @@
         @endif
 
     </div>
+    <div class="max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-2 gap-y-2 sm:hidden ">
+        <h1 class="text-xl font-bold col-span-3">INFORMACIÓN DE DESPACHO</h1>
+
+        @if ($pedido->pedidoable_type == "App\Models\Invitado")
+            @foreach ($invitados as $invitado)
+                @if ($invitado->id == $pedido->pedidoable_id )
+                    <div class="col-span-3">
+                        <p class="ml-auto font-bold mr-4">Nombre:</p>{{$invitado->name}}
+                        <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                            Invitado
+                        </span>
+                        <p class="ml-auto font-bold mr-4">Rut:</p>{{$invitado->rut}}
+                    </div>
+                @endif
+            @endforeach
+        @endif
+
+        @if ($pedido->pedidoable_type == "App\Models\Socio")
+            @foreach ($socios as $socio)
+                @if ($socio->id == $pedido->pedidoable_id )
+
+                        <p class="ml-auto mr-4 font-bold">Nombre:</p>{{$socio->user->name}}
+                        <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-green-100 text-green-800">
+                            Socio
+                        </span>
+                        <p class="ml-auto mr-4 font-bold">Rut:</p>{{$socio->rut}}
+                       
+
+                @endif
+            @endforeach
+        @endif
+
+    </div>
+
+
 
     <hr class="mt-2 mb-6">
 

@@ -257,8 +257,17 @@
             </article>
             
         @endforeach
+        @if($pedido->ordens->count()>0)
+            <div class="flex justify-center">
+                                
+                <form action="" method="POST">
+                    @csrf
 
+                    <button class="btn btn-success justify-center mt-4" type="submit">Finalizar->Pagar</button>
+                </form>
 
+            </div>
+        @endif
     </div>
 
 </div>

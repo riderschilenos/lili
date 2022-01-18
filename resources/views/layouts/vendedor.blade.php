@@ -34,7 +34,7 @@
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
                         <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
-                            <a href="">Información de la serie</a>
+                            <a href="">Información de seguimiento</a>
                         </li>
                         <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
                             <a href="">Videos de la serie</a>
@@ -45,11 +45,7 @@
                         </li>
                     </ul>
 
-                    <form action="" method="POST">
-                        @csrf
-
-                        <button class="btn btn-danger" type="submit">Solicitar Revisión</button>
-                    </form>
+                    
         
                 </aside>
 

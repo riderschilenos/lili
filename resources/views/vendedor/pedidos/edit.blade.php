@@ -122,6 +122,9 @@
                         <div class="mt-4" name="productos">
                             @livewire('vendedor.pedidos-ordens', ['pedido' => $pedido], key('pedidos-ordens.'.$pedido->id))
                         </div>
+
+                        
+                        
                         
                     @else
 
@@ -201,7 +204,7 @@
                         <div class="mt-4" name="productos">
 
                             @livewire('vendedor.pedidos-ordens', ['pedido' => $pedido], key('pedidos-ordens.'.$pedido->id))
-                        
+                            
                         </div>
                         
                         
@@ -238,7 +241,7 @@
             @endforeach
         @endif
         
-        
+    
   
     
     

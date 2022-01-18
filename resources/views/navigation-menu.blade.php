@@ -266,15 +266,16 @@
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Perfil') }}
                 </x-jet-responsive-nav-link>
-
-                <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('admin.home')">
-                    {{ __('Admin') }}
-                </x-jet-responsive-nav-link>
-
-                <x-jet-responsive-nav-link href="{{ route('filmmaker.series.index') }}" :active="request()->routeIs('filmmaker.series.index')">
-                    {{ __('Filmmaker') }}
-                </x-jet-responsive-nav-link>
-
+                @can('Ver dashboard')
+                    <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('admin.home')">
+                        {{ __('Admin') }}
+                    </x-jet-responsive-nav-link>
+                @endcan
+                @can('Leer series')
+                    <x-jet-responsive-nav-link href="{{ route('filmmaker.series.index') }}" :active="request()->routeIs('filmmaker.series.index')">
+                        {{ __('Filmmaker') }}
+                    </x-jet-responsive-nav-link>
+                @endcan
                 
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

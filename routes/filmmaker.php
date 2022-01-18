@@ -9,9 +9,9 @@ Route::redirect('/', 'filmmaker/series')->name('index');
 
 Route::resource('serie', SerieController::class)->middleware('can:Actualizar series')->names('series');
 
-//Route::get('serie/{serie}/videos',App\Http\Livewire\Filmmaker\SeriesVideos::class)->name('series.videos');
+Route::get('serie/{serie}/videos',[SerieController::class, 'videos'])->name('series.videos');
 
-//Route::get('serie/{serie}/sponsors',App\Http\Livewire\Filmmaker\SeriesSponsors::class)->middleware('can:Actualizar series')->name('series.sponsors');
+Route::get('serie/{serie}/sponsors',[SerieController::class, 'sponsors'])->middleware('can:Actualizar series')->name('series.sponsors');
 
 Route::post('serie/{serie}/status',[SerieController::class, 'status'])->name('series.status');
 

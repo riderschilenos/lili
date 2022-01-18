@@ -103,6 +103,28 @@ class SerieController extends Controller
         return view('filmmaker.series.edit', compact('serie','disciplinas','precios'));
     }
 
+    public function videos(Serie $serie)
+    {   
+        $this->authorize('dicatated',$serie);
+
+        $disciplinas= Disciplina::pluck('name','id');
+
+        $precios= Precio::pluck('name','id');
+        
+        return view('filmmaker.series.videos', compact('serie','disciplinas','precios'));
+    }
+
+    public function sponsors(Serie $serie)
+    {   
+        $this->authorize('dicatated',$serie);
+
+        $disciplinas= Disciplina::pluck('name','id');
+
+        $precios= Precio::pluck('name','id');
+        
+        return view('filmmaker.series.sponsors', compact('serie','disciplinas','precios'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

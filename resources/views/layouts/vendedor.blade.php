@@ -26,9 +26,9 @@
             @livewire('navigation-menu')
 
             <!-- Page Content -->
-            <div class="container py-8 grid grid-cols-5">
+            <div class="container py-8 grid grid-cols-5 ">
 
-                <aside>
+                <aside class="hidden sm:block">
                     <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la pedidos</a>
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
@@ -51,9 +51,14 @@
                     </form>
         
                 </aside>
-        
-                <div class="col-span-4 card">
+
+                <div class="block sm:hidden py-4 px-5 col-span-5">
+                    <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la pedidos</a>
+                </div>
+
+                <div class="col-span-5 sm:col-span-4 card">
                     
+
                     <main class="card-body text-gray-600">
         
                         {{$slot}}

@@ -3,9 +3,9 @@
         <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
                 @isset($serie->image)
-                    <img class="h-60 w-full object-cover" src="{{Storage::url($serie->image->url)}}" alt="">
+                    <img class="h-60 w-full object-cover object-center" src="{{Storage::url($serie->image->url)}}" alt="">
                 @else
-                    <img class="h-60 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                    <img class="h-60 w-full object-cover object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
                 @endisset
             </figure>
 
@@ -35,7 +35,7 @@
                     <p class="text-gray-700 text-base">{!!$serie->descripcion!!}</p>
 
                     <h1 class="font-bold text-xl my-4 text-gray-800">Si te haces Sponsor, automáticamente tendrás acceso a {{$serie->videos_count}} videos exclusivos.</h1>
-                    <ul class="grid grid-cols-4 gap-x-4 gap-y-2 mt-8">
+                    <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
                         @foreach ($videos as $video)
                             @if ($video->image)
                             <li><img class="h-24 w-full object-cover" src=" {{Storage::url($video->image->url)}}" alt="">{{$video->name }} </li>

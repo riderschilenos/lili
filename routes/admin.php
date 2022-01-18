@@ -7,9 +7,9 @@ use App\Http\Controllers\Admin\HomeController;
 
 use App\Http\Controllers\Admin\RoleController;
 
-use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\Admin\UserController;
 
-use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\Admin\ProductController;
 
 use App\Http\Controllers\Admin\SerieController;
 

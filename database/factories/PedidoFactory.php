@@ -19,7 +19,7 @@ class PedidoFactory extends Factory
         return [
 
             'status'=>$this->faker->numberBetween($min = 1, $max = 3),
-            'user_id'=> $this->faker->numberBetween($min = 1, $max = 3),
+            'user_id'=> $this->faker->numberBetween($min = 1, $max = 2),
             'transportista_id'=> Transportista::all()->random()->id,
             'pedidoable_id'=> Invitado::all()->random()->id,
             'pedidoable_type' => $this->faker->randomElement(['App\Models\Invitado', 'App\Models\Socio'])

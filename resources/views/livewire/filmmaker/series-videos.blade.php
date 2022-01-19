@@ -67,7 +67,7 @@
                                     @else
                                     <li><img class="h-40 w-full object-cover" src=" {{Storage::url($serie->image->url)}}" alt=""></li>
                                     @endif
-                                    <img class="h-40 w-full object-cover" src=" {{Storage::url($item->image->url)}}" alt="">
+                                    
                                     
                                 </div>
                             

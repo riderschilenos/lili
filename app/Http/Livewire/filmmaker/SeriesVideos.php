@@ -19,7 +19,7 @@ class SeriesVideos extends Component
 
     use AuthorizesRequests;
 
-    public $serie, $video, $platforms, $name, $platform_id=1, $url, $image;
+    public $serie, $video, $platforms, $name, $platform_id=1, $url, $image, $videoimage, $file;
 
     protected $rules = [
         'video.name'=>'required',
@@ -41,6 +41,7 @@ class SeriesVideos extends Component
         $rules = [
             'name'=>'required',
             'platform_id'=>'required',
+            'image'=>'required|image|max:2048',
             'url'=>['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
         ];
         if($this->platform_id == 2){
@@ -77,6 +78,10 @@ class SeriesVideos extends Component
         $this->resetValidation();
         $this->video = $video;
     }
+    public function editimage(Video $video){
+
+        $this->videoimage = $video;
+    }
 
     public function update(Video $video){
        if($this->video->platform_id == 2){
@@ -89,6 +94,32 @@ class SeriesVideos extends Component
 
         $this->serie = Serie::find($this->serie->id);
         $this->reset(['name','platform_id','url','image']);
+    }
+
+    public function imageupdate()
+    {   
+        $this->validate([
+            'file'=>'required|image|max:2048'
+        ]);
+
+        $url = $this->file->store('videos');
+        
+        if($this->videoimage->image){
+            Storage::delete($this->videoimage->image->url);
+            $this->videoimage->image->update([
+                'url'=>$url
+            ]);
+        }
+        else{
+            $this->videoimage->image->create([
+                'url'=>$url
+            ]);
+        }
+
+        $this->reset(['videoimage']);
+        $this->serie = Serie::find($this->serie->id);
+
+        $this->reset(['file']);
     }
 
     public function destroy(Video $video){

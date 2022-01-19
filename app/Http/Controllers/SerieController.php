@@ -18,7 +18,6 @@ class SerieController extends Controller
         $this->authorize('published',$serie);
         
         $videos= Video::where('serie_id',$serie->id)
-                        ->latest('id')
                         ->paginate();
         $similares = Serie::where('disciplina_id',$serie->disciplina_id)
                             ->where('id','!=',$serie->id)

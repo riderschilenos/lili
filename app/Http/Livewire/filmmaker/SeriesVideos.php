@@ -11,6 +11,7 @@ use App\Observers\VideoObserver;
 use Livewire\WithFileUploads;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Storage;
 
 class SeriesVideos extends Component
 {   
@@ -23,7 +24,6 @@ class SeriesVideos extends Component
     protected $rules = [
         'video.name'=>'required',
         'video.platform_id'=>'required',
-        'video.image'=>'required|image|max:2048',
         'video.url'=>['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
     ];
 
@@ -41,7 +41,6 @@ class SeriesVideos extends Component
         $rules = [
             'name'=>'required',
             'platform_id'=>'required',
-            'image'=>'required',
             'url'=>['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
         ];
         if($this->platform_id == 2){
@@ -83,17 +82,22 @@ class SeriesVideos extends Component
        if($this->video->platform_id == 2){
             $this->rules['video.url'] = ['required', 'regex:/\/\/(www\.)?vimeo.com\/(\d+)($|\/)/'];
         }
-
+        
         $this->validate();
         $this->video -> save();
         $this->video = new Video();
 
         $this->serie = Serie::find($this->serie->id);
+        $this->reset(['name','platform_id','url','image']);
     }
 
     public function destroy(Video $video){
 
         $video->delete();
+        if($video->image){
+            Storage::delete($video->image->url);
+            $video->image->delete();
+        }
         $this->serie = Serie::find($this->serie->id);
 
     }

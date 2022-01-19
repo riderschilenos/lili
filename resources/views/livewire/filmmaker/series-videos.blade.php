@@ -40,6 +40,9 @@
 
                             </select>
                         </div>
+                        @error('video.platform_id')
+                            <span class="text-sm text-red-500">{{$message}}</span>
+                        @enderror
 
                         <div class="flex items-center mt-2">
                             <label class="w-32">URL:</label>
@@ -48,7 +51,41 @@
                         @error('video.url')
                             <span class="text-sm text-red-500">{{$message}}</span>
                         @enderror
+{{-- comment 
 
+                        <label class="w-32"><strong>Imagen de Portada: (Max 2 MB)</strong></label>
+                        <div class="grid grid-cols-3 ">
+        
+                            @if ($image)
+        
+                                <div class="">
+                                              
+                                    <img src="{{$image->temporaryUrl()}}" alt="">                      
+                                
+                                </div>
+                            @else
+                                @if ($item->image)
+                                     <li><img class="h-40 w-full object-cover" src=" {{Storage::url($item->image->url)}}" alt=""></li>
+                                @endif
+                            @endif
+
+        
+                            <div class="col-span-2 ml-2 mt-6">
+                                <div class="flex items-center mt-2">
+                                    
+                                    <input type="file" wire:model="image">
+                                </div>
+                                
+                                
+                                @error('image')
+                                    <span class="text-sm text-red-500">{{$message}}</span>
+                                @enderror
+                                    
+                        
+        
+                            </div>
+                        </div>
+--}}
                         <div class="mt-4 flex justify-end">
                             <button type="submit" class="btn btn-primary text-sm">Actualizar</button>
                             <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
@@ -61,11 +98,11 @@
 
                         <div class="grid grid-cols-3 ">
 
-                                <div class="">
-                                    @if ($video->image)
-                                    <li><img class="h-40 w-full object-cover" src=" {{Storage::url($item->image->url)}}" alt=""></li>
+                                <div>
+                                    @if ($item->image)
+                                    <img class="h-40 w-full object-cover" src=" {{Storage::url($item->image->url)}}" alt="">
                                     @else
-                                    <li><img class="h-40 w-full object-cover" src=" {{Storage::url($serie->image->url)}}" alt=""></li>
+                                    <img class="h-40 w-full object-cover" src=" {{Storage::url($serie->image->url)}}" alt="">
                                     @endif
                                     
                                     

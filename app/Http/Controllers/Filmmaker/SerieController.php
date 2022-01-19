@@ -56,7 +56,7 @@ class SerieController extends Controller
             'descripcion'=>'required',
             'disciplina_id'=>'required',
             'precio_id'=>'required',
-            'file'=>'image'
+            'file'=>'image|max:2048'
 
         ]);
 

@@ -4,7 +4,7 @@
     @can('enrolled', $serie)
     <article class="my-4">
         @can('valued', $serie)
-        <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="¿Que te parecio la serie? Comenta..."></textarea>
+        <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="¿Qué te pareció la serie? Comenta..."></textarea>
 
         <div class="flex">
             <button class="btn btn-primary mr-2 mb-2" wire:click="store">Guardar</button>

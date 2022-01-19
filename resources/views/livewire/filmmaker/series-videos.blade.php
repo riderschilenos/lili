@@ -109,11 +109,7 @@
                                 </div>
                             
                             <div class="col-span-2 ml-2 mt-0">
-                                {{-- comment 
                                 
-                                <div class="mt-4">
-                                    @livewire('filmmaker.video-image', ['video' => $item], key('video-image.'.$item->id))
-                                </div>--}}
                                 <div class="" x-data="{key: false}">
                                     <div class=" bg-gray-100">
                                 

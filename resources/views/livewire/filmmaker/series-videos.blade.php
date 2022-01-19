@@ -139,7 +139,7 @@
                     <span class="text-sm text-red-500">{{$message}}</span>
                 @enderror
                 
-                <label class="w-32"><strong>Imagen de Portada:</strong></label>
+                <label class="w-32"><strong>Imagen de Portada: (Max 2 MB)</strong></label>
                 <div class="grid grid-cols-3 ">
 
                     @if ($image)

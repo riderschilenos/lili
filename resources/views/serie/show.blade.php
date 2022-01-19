@@ -36,7 +36,7 @@
 
                     <h1 class="font-bold text-xl my-4 text-gray-800">Si te haces Sponsor, automáticamente tendrás acceso a {{$serie->videos_count}} videos exclusivos.</h1>
                     <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
-                        @foreach ($videos->reverse() as $video)
+                        @foreach ($videos as $video)
                             @if ($video->image)
                             <li><img class="h-24 w-full object-cover" src=" {{Storage::url($video->image->url)}}" alt="">{{$video->name }} </li>
                             @else

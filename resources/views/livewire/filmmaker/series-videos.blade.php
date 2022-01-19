@@ -110,19 +110,26 @@
                             
                             <div class="col-span-2 ml-2 mt-0">
                                 
-                                <div class="" x-data="{key: false}">
+                                <div class="">
                                     <div class=" bg-gray-100">
                                 
                                             
                                             <div class="flex">
-                                                <p class="text-sm">Imagen del Video: <h5 class="text-red-600 font-bold text-sm cursor-pointer" x-on:click="key=!key" x-show="key">(Cancelar)</h5></p>
+                                                <p class="text-sm">Imagen del Video: 
+                                                @if ($videoimage)
+                                                    <h5 class="text-red-600 font-bold text-sm cursor-pointer" wire:click="cancel" >(Cancelar)</h5>
+                                                @endif
+                                                </p>
                                             </div> 
-                                            <div class="flex" x-show="!key" >
-                                                <p class="text-sm">{{$item->image->url}} <h5 class="text-blue-600 font-bold text-sm cursor-pointer" x-on:click="key=!key" wire:click="editimage({{$item}})">(Editar)</h5></p>
-                                            </div>
-                                
-                                        
-                                                <div x-show="key">
+                                            @if (is_null($videoimage))
+                                                <div class="flex" >
+                                                    <p class="text-sm">{{$item->image->url}} <h5 class="text-blue-600 font-bold text-sm cursor-pointer" x-on:click="key=!key" wire:click="editimage({{$item}})">(Editar)</h5></p>
+                                                </div>
+                                            @endif
+                                            @if ($videoimage)
+                                                
+                                            
+                                                <div >
                                                     <form wire:submit.prevent="imageupdate">
                                                         <div class="flex items-center" >
                                                             <input wire:model="file" type="file" class="form-input flex-1 bg-gray-200"> 
@@ -139,6 +146,8 @@
                                                         @enderror
                                                     </form>
                                                 </div>
+
+                                            @endif
                                             
                                             
                                     </div>

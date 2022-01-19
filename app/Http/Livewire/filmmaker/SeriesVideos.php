@@ -137,6 +137,10 @@ class SeriesVideos extends Component
         $this->video = new Video();
     }
 
+    public function cancelimage(){
+        $this->reset(['videoimage']);
+    }
+
     
     
 }

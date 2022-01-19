@@ -117,7 +117,7 @@
                                             <div class="flex">
                                                 <p class="text-sm">Imagen del Video: 
                                                 @if ($videoimage)
-                                                    <h5 class="text-red-600 font-bold text-sm cursor-pointer" wire:click="cancel" >(Cancelar)</h5>
+                                                    <h5 class="text-red-600 font-bold text-sm cursor-pointer" wire:click="cancelimage" >(Cancelar)</h5>
                                                 @endif
                                                 </p>
                                             </div> 

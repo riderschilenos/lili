@@ -61,9 +61,9 @@
 
                         <div class="grid grid-cols-3 ">
 
-                                <div class="embed-responsive my-6">
+                                <div class="">
                                     
-                                    {!!$item->iframe!!}
+                                    <img class="h-40 w-full object-cover" src=" {{Storage::url($item->image->url)}}" alt="">
                                     
                                 </div>
                             
@@ -134,6 +134,35 @@
                 @error('url')
                     <span class="text-sm text-red-500">{{$message}}</span>
                 @enderror
+                
+                <label class="w-32"><strong>Imagen de Portada:</strong></label>
+                <div class="grid grid-cols-3 ">
+
+                    @if ($image)
+
+                        <div class="">
+                                      
+                            <img src="{{$image->temporaryUrl()}}" alt="">                      
+                        
+                        </div>
+                    @endif
+
+                    <div class="col-span-2 ml-2 mt-6">
+                        <div class="flex items-center mt-2">
+                            
+                            <input type="file" wire:model="image">
+                        </div>
+                        
+                        
+                        @error('image')
+                            <span class="text-sm text-red-500">{{$message}}</span>
+                        @enderror
+                            
+                
+
+                    </div>
+                </div>
+               
 
                 <div class="flex justify-end mt-4">
                     <button class="btn btn-danger" x-on:click="open=false">Cancelar</button>

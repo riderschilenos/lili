@@ -8,19 +8,22 @@ use App\Models\Video;
 use BaconQrCode\Renderer\PlainTextRenderer;
 use Livewire\Component;
 use App\Observers\VideoObserver;
+use Livewire\WithFileUploads;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class SeriesVideos extends Component
 {   
+    use WithFileUploads;
 
     use AuthorizesRequests;
 
-    public $serie, $video, $platforms, $name, $platform_id=1, $url;
+    public $serie, $video, $platforms, $name, $platform_id=1, $url, $image;
 
     protected $rules = [
         'video.name'=>'required',
         'video.platform_id'=>'required',
+        'video.image'=>'required|image|max:2048',
         'video.url'=>['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
     ];
 
@@ -38,6 +41,7 @@ class SeriesVideos extends Component
         $rules = [
             'name'=>'required',
             'platform_id'=>'required',
+            'image'=>'required',
             'url'=>['required', 'regex:%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x']
         ];
         if($this->platform_id == 2){
@@ -45,14 +49,21 @@ class SeriesVideos extends Component
         }
         $this->validate ($rules);
 
-        Video::create([
+        $image = $this->image->store('videos');
+
+
+        $video = Video::create([
             'name'=> $this->name,
             'platform_id'=> $this->platform_id,
             'url'=> $this->url,
             'serie_id'=>$this->serie->id
         ]);
+
+        $video->image()->create([
+            'url'=>$image
+        ]);
         
-        $this->reset(['name','platform_id','url']);
+        $this->reset(['name','platform_id','url','image']);
         $this->serie = Serie::find($this->serie->id);
 
     }

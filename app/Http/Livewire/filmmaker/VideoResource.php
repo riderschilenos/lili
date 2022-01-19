@@ -39,6 +39,9 @@ class VideoResource extends Component
 
         $this->video = Video::find($this->video->id);
     }
+
+
+
     
     public function download(){
         return response()->download(storage_path('app/public/'.$this->video->resource->url));

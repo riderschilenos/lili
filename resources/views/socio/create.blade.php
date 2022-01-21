@@ -20,7 +20,7 @@
                 {!! Form::open(['route'=>'filmmaker.series.store','files'=>true , 'autocomplete'=>'off']) !!}
                     
 
-                    <div class="card-body max-w-5xl items-center">
+                    <div class="card-body max-w-full items-center">
                         @include('socio.partials.form')
                     </div>
                     <div class="flex justify-end">

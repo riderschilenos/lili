@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Socio;
 
 use App\Http\Controllers\Controller;
+use App\Models\Disciplina;
 use App\Models\Socio;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('socio.create');
+    {   
+        $disciplinas= Disciplina::pluck('name','id');
+
+        return view('socio.create',compact('disciplinas'));
     }
 
     /**

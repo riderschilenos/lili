@@ -17,16 +17,16 @@
         'active'=>request()->routeIs('usados.*')
 
     ]
-    ,[   
+    /*,[   
         'name'=>'SociosRCH',
-        'route'=>'#',
-        'active'=>false
+        'route'=>route('socio.index'),
+        'active'=>request()->routeIs('socios.*')
 
-    ]
+    ]*/
     ,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),
-        'active'=>request()->routeIs('vendedores.*')
+        'active'=>request()->routeIs('vendedor.*')
 
     ]
     ,[   

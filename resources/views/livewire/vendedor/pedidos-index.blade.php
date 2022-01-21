@@ -78,7 +78,8 @@
                 </div>
              
                 
-        </div>
+            </div>
+            
     <div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
 
         <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">

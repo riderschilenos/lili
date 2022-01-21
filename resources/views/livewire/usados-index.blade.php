@@ -12,9 +12,9 @@
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-4 mx-auto">
 
                 <div class=" lg:col-span-3 mx-auto">
-                <button class="btn btn-block bg-white shadow h-12 px-4 rounded-lg text-gray-700 mr-4" wire:click="resetFilters">
+                <button class="btn btn-block bg-white shadow h-14 px-4 rounded-lg text-gray-700 mr-4" wire:click="resetFilters">
                     <i class="fas fa-archway text-xs mr-2"></i>
-                    Todos los videos
+                    Todos los vehiculos
                 </button>
                 </div>
                 
@@ -22,7 +22,7 @@
                 <!-- Dropdown vehiculo_type -->
                 <div class="relative" x-data="{ open: false}" >
                     <div>
-                        <button class="btn btn-block z-100 bg-white shadow h-12 px-4 rounded-lg text-gray-700 mr-4" x-on:click="open = true">
+                        <button class="btn btn-block z-100 bg-white shadow h-14 px-4 rounded-lg text-gray-700 mr-4" x-on:click="open = true">
                             <i class="fas fa-biking text-sm mr-2"></i>
                             Tipo de Vehiculo
                             <i class="fas fa-angle-down text-sm ml-2"></i>

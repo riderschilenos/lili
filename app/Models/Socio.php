@@ -11,6 +11,11 @@ class Socio extends Model
 
     protected $guarded = ['id'];
 
+    public function getRouteKeyName()
+    {
+        return 'rut';
+    }
+
     //relacion uno uno inversa
 
     public function user(){

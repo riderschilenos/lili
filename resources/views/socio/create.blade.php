@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container py-8">
+    <div class="max-w-7xl mx-auto px-4 py-8">
 
         <div class="card">
             <div class="card-body">
@@ -20,7 +20,7 @@
                 {!! Form::open(['route'=>'filmmaker.series.store','files'=>true , 'autocomplete'=>'off']) !!}
                     
 
-                    <div class="card-body max-w-full items-center">
+                    <div class="max-w-full items-center">
                         @include('socio.partials.form')
                     </div>
                     <div class="flex justify-end">

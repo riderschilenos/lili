@@ -33,9 +33,5 @@ return [
     'mercadopago' => [
         'key' => env('MP_PUBLIC_KEY'),
         'token' => env('MP_ACCESS_TOKEN'),
-    ],
-
-    'sendgrid' => [
-        'api_key' => env('SENDGRID_API_KEY'),
-    ],
+    ]
 ];

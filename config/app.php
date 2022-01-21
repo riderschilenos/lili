@@ -189,9 +189,6 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-    'providers' => [
-        Sichikawa\LaravelSendgridDriver\SendgridTransportServiceProvider::class
-    ],
 
     'aliases' => [
 

@@ -19,7 +19,7 @@
 
                 {!! Form::open(['route'=>'filmmaker.series.store','files'=>true , 'autocomplete'=>'off']) !!}
                     
-                    {!! Form::hidden('user_id',auth()->user()->id) !!}
+
                     <div class="card-body max-w-5xl items-center">
                         @include('socio.partials.form')
                     </div>

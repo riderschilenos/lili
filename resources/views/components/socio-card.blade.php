@@ -12,7 +12,7 @@
                     </div>
 
 
-                    <div class="flex flex-1 flex-col">
+                    <div class="card-body flex flex-1 flex-col">
                         <a href= "{{route('socio.show', $socio)}}">
                         <h3 class="text-center cursor-pointer text-xl text-gray-900 font-medium leading-8">{{$socio->name}}</h3>
                         </a>

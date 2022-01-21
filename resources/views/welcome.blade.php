@@ -17,7 +17,7 @@
     </section>
 
     <section class="mt-16">
-        <h1 class="text-gray-600 text-center text-3xl mb-12"> Contenido </h1>
+        
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
             <article>

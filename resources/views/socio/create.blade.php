@@ -23,8 +23,8 @@
                     <div class="max-w-full items-center">
                         @include('socio.partials.form')
                     </div>
-                    <div class="flex justify-end">
-                        {!! Form::submit('Crear nueva serie', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                    <div class="flex justify-center">
+                        {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
                     </div>
 
                 {!! Form::close() !!}

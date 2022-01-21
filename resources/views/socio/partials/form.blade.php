@@ -1,7 +1,23 @@
 
 
                     <div class="mb-4">
-                        {!! Form::label('nombre', 'Nombre') !!}
+                        {!! Form::label('nombre', 'Primer Nombre') !!}
+                        {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                        @error('nombre')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
+                        {!! Form::label('nombre', 'Segundo y Tercer Nombre (En caso de tener)') !!}
+                        {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                        @error('nombre')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
+                        {!! Form::label('nombre', 'Apellidos') !!}
                         {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                         @error('nombre')

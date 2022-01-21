@@ -22,26 +22,26 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
             <article>
                 <figure>
-                    <img class="rounded-xl h-40 w-55 object-cover" src="{{asset('img/home/home4.jpeg')}}" alt="">
+                    <img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home4.jpeg')}}" alt="">
                 </figure>
 
               
             </article>
             <article>
                 <figure>
-                    <img class="rounded-xl h-40 w-55 object-cover" src="{{asset('img/home/home2.jpeg')}}" alt="">
+                    <img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home2.jpeg')}}" alt="">
                 </figure>
               
             </article>
             <article>
                 <figure>
-                    <img class="rounded-xl h-40 w-55 object-cover" src="{{asset('img/home/home1.jpeg')}}" alt="">
+                    <img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home1.jpeg')}}" alt="">
                 </figure>
                
             </article>
             <article>
                 <figure>
-                    <a href="{{route('series.index')}}"><img class="rounded-xl h-40 w-55 object-cover" src="{{asset('img/home/home3.jpeg')}}" alt=""></a>
+                    <a href="{{route('series.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home3.jpeg')}}" alt=""></a>
                 </figure>
                 
             </article>

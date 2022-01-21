@@ -17,12 +17,12 @@
         'active'=>request()->routeIs('usados.*')
 
     ]
-    ,[   
+    /*,[   
         'name'=>'SociosRCH',
         'route'=>route('socio.index'),
         'active'=>request()->routeIs('socios.*')
 
-    ]
+    ]*/
     ,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),

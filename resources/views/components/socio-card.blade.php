@@ -2,7 +2,7 @@
 
 <article class="flex items-center w-full justify-center">
 
-            <div class="max-w-xs flex flex-col">
+            <div class="flex flex-col">
                 <div class="bg-white shadow-xl rounded-lg">
 
                     <div class="photo-wrapper p-2">

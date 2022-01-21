@@ -16,6 +16,10 @@ class CreateSociosTable extends Migration
         Schema::create('socios', function (Blueprint $table) {
             $table->id();
 
+            $table->string('name');
+            $table->string('second_name');
+            $table->string('last_name');
+            $table->string('slug');
             $table->string('rut');
             $table->string('born_date');
             $table->string('prevision');
@@ -26,8 +30,9 @@ class CreateSociosTable extends Migration
             ->onDelete('cascade');
 
             $table  ->foreignId('disciplina_id')
+            ->nullable()
             ->constrained()
-            ->onDelete('cascade');
+            ->onDelete('set null');
 
 
 

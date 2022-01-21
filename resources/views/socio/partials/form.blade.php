@@ -1,7 +1,7 @@
 
 
                     <div class="mb-4">
-                        {!! Form::label('nombre', 'Primer Nombre') !!}
+                        {!! Form::label('nombre', 'Primer Nombre *') !!}
                         {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                         @error('nombre')
@@ -9,7 +9,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        {!! Form::label('nombre', 'Segundo y Tercer Nombre (En caso de tener)') !!}
+                        {!! Form::label('nombre', 'Segundo/Tercer Nombre (Opcional)') !!}
                         {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                         @error('nombre')
@@ -17,7 +17,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        {!! Form::label('nombre', 'Apellidos') !!}
+                        {!! Form::label('nombre', 'Apellidos*') !!}
                         {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                         @error('nombre')
@@ -25,7 +25,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        {!! Form::label('rut', 'Rut') !!}
+                        {!! Form::label('rut', 'Rut*') !!}
                         {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                         @error('nombre')
@@ -33,7 +33,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        {!! Form::label('nro', 'Nro') !!}
+                        {!! Form::label('nro', 'Numero Rider (Moto/Bicicleta)') !!}
                         {!! Form::text('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                         @error('nro')
@@ -43,21 +43,22 @@
 
                     <div class="mb-4">
                         
-                        <div class="grid grid-cols-2 gap-6">
-                           <div>
-                                    {!! Form::label('username', 'Username') !!}
+                        
+                            <div>
+                                    {!! Form::label('username', 'Url de tu perfil') !!}
                                     {!! Form::text('username', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
                                     @error('username')
                                         <strong class="text-xs text-red-600">{{$message}}</strong>
                                     @enderror
                             </div>
-                                <div>
+
+                            <div>
                                     <div class="mb-4">
-                                        {!! Form::label('slug', 'Slug (Optimizado)') !!}
-                                        {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1']) !!}
+                                        {!! Form::label('slug', 'Slug',['class'=>'hidden']) !!}
+                                        {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1','placeholder'=>'www.riderschilenos.cl/']) !!}
                                     </div>
                             </div>
-                        </div>
+                        
                         
                         
                     </div>

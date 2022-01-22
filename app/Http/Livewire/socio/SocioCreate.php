@@ -4,15 +4,18 @@ namespace App\Http\Livewire\Socio;
 
 use App\Models\Disciplina;
 use App\Models\Socio;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class SocioCreate extends Component
 {   
-    public $invitados, $selectedSocios, $selectedInvitado, $search, $socio_id, $transportista_id;
+    public  $selectedSocios, $selectedInvitado, $search, $socio_id, $now ;
 
     public function render()
     {   
         $disciplinas= Disciplina::pluck('name','id');
+
+        $now = Carbon::now();
 
         if(auth()->user()->socio)
         {
@@ -22,6 +25,7 @@ class SocioCreate extends Component
             $socio=null;
         }
 
-        return view('livewire.socio.socio-create',compact('disciplinas','socio'));
+        return view('livewire.socio.socio-create',compact('disciplinas','socio','now'));
     }
+
 }

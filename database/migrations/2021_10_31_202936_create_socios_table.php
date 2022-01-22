@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Socio;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,6 +25,8 @@ class CreateSociosTable extends Migration
             $table->string('born_date');
             $table->string('prevision');
             $table->string('nro');
+
+            $table->enum('status',[Socio::ACTIVE,Socio::INACTIVE])->default(Socio::INACTIVE);
 
             $table ->foreignId('user_id')
             ->constrained()

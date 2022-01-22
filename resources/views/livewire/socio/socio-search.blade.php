@@ -127,9 +127,13 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-2 gap-y-8">
 
                     @foreach ($socios as $socio)
+
+                        @if ($socio->status==1)
+
+                            <x-socio-card :socio="$socio" />
+
+                        @endif
         
-                        <x-socio-card :socio="$socio" />
-                        
                     @endforeach
         
                 </div>

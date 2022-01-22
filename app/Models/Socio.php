@@ -11,6 +11,9 @@ class Socio extends Model
 
     protected $guarded = ['id'];
 
+    const ACTIVE =1;
+    const INACTIVE =2;
+
     public function getRouteKeyName()
     {
         return 'slug';

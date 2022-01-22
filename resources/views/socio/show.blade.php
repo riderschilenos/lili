@@ -149,7 +149,7 @@
                                 @if($socio->fono)
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                        <div class="px-4 py-2">+11 998001001</div>
+                                        <div class="px-4 py-2">{{ $socio->fono }}</div>
                                     </div>
                                 @endif
                                 <div class="grid grid-cols-2">

@@ -82,10 +82,38 @@
 
                             <article class="flex items-center grid-cols-6">
 
-                                
-                                <h1 class="text-lg ml-2">1 AÑO</h1>
+                                <div class="max-w-[20px]">
+                                    <div
+                                        class="flex flex-row border h-10 w-24 rounded-lg border-gray-400 relative"
+                                    >
+                                        <button
+                                        class="font-semibold border-r bg-red-700 hover:bg-red-600 text-white border-gray-400 h-full w-20 flex rounded-l focus:outline-none cursor-pointer"
+                                        >
+                                        <span class="m-auto">-</span>
+                                        </button>
+                                        <input
+                                        type="hidden"
+                                        class="md:p-2 p-1 text-xs md:text-base border-gray-400 focus:outline-none text-center"
+                                        readonly
+                                        name="custom-input-number"
+                                        />
+                                        <div
+                                        class="bg-white w-24 text-xs md:text-base flex items-center justify-center cursor-default"
+                                        >
+                                        <span>2</span>
+                                        </div>
+
+                                        <button
+                                        class="font-semibold border-l  bg-blue-700 hover:bg-blue-600 text-white border-gray-400 h-full w-20 flex rounded-r focus:outline-none cursor-pointer"
+                                        >
+                                        <span class="m-auto">+</span>
+                                        </button>
+                                    
+                                    </div>
+                                </div>
+                                <h1 class="text-lg ml-2">AÑO</h1>
                                
-                                <h1 class="text-lg ml-2"><i class="fas fa-calendar-check text-white-800"></i> Suscripcion {{$now}}</h1>
+                                <h1 class="text-lg ml-2"><i class="fas fa-calendar-check text-white-800"></i> Suscripcion</h1>
                                 <p class="text-xl font-bold ml-auto">$25.000</p>
                             </article>
                             <div class="cho-container flex justify-end mt-2 mb-4">

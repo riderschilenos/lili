@@ -18,7 +18,7 @@
                         <div class="flex justify-end mr-4 ">
 
                             <a href="{{route('socio.create')}}">
-                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">+ Registrarme</button>
+                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
                             </a>
 
                         </div>
@@ -27,7 +27,7 @@
                         <div class="flex justify-center ">
 
                             <a href="{{route('socio.create')}}">
-                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">+ Registrarme</button>
+                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
                             </a>
 
                         </div>

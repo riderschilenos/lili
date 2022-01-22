@@ -28,6 +28,7 @@ class CreateSociosTable extends Migration
             $table->string('nro');
 
             $table->enum('status',[Socio::ACTIVE,Socio::INACTIVE])->default(Socio::INACTIVE);
+            $table->enum('email_view',[Socio::ACTIVE,Socio::INACTIVE])->default(Socio::INACTIVE);
 
             $table ->foreignId('user_id')
             ->constrained()

@@ -161,7 +161,7 @@
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Email.</div>
                                     <div class="px-4 py-2">
-                                        <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                        <a class="text-blue-800" href="mailto:jane@example.com">{{$socio->user->email}}</a>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2">

@@ -22,7 +22,7 @@
                         <table class="text-xs mt-auto">
                             <tbody>
                                 
-                            @if($socio->direccion)
+                            @if(!is_null($socio->direccion))
                                 <tr>
                                     <td class="px-2 py-2 text-gray-500 font-semibold">Localidad</td>
                                     <td class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</td>

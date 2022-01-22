@@ -57,6 +57,7 @@ class HomeController extends Controller
                     'slug'=> $request->slug,
                     'born_date'=> $request->born_date,
                     'prevision'=> $request->prevision,
+                    'fono'=> $request->fono,
                     'rut'=> $request->rut,
                     'nro'=> $request->nro,
                     'disciplina_id'=> $request->disciplina_id,

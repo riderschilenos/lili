@@ -42,6 +42,14 @@
                                     <strong class="text-xs text-red-600">{{$message}}</strong>
                                 @enderror
                             </div>
+                            <div class="mb-4">
+                                {!! Form::label('fono', 'Fono (Opcional)') !!}
+                                {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                                @error('fono')
+                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                @enderror
+                            </div>
                         </div>
                         <div>
                             <h1 class="text-xl mb-2 text-center">Foto frontal del carnet</h1>

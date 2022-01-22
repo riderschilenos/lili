@@ -16,13 +16,13 @@
             <div class="md: col-span-2 lg:col-span-3">
                 @if (!is_null($socio->direccion))
                         <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
-                            <h1 class="font-bold text-lg text-gray-800">Direccion</h1>
+                            <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
                         </header>
                         <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 shadow-lg rounded-b-lg">
                             
 
                             <div>
-                                <p class="font-bold mr-2s">Comuna: </p>{{$socio->direccion->comuna}}{{$socio->direccion->id}}
+                                <p class="font-bold mr-2s">Comuna: </p>{{$socio->direccion->comuna}}
                             </div>
                             <div>
                                 <p class="font-bold mr-2s">Calle: </p>{{$socio->direccion->calle}}

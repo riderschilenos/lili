@@ -22,6 +22,7 @@ class CreateSociosTable extends Migration
             $table->string('last_name');
             $table->string('slug');
             $table->string('rut');
+            $table->string('fono')->nullable();
             $table->string('born_date');
             $table->string('prevision');
             $table->string('nro');

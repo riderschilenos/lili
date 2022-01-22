@@ -146,11 +146,12 @@
                                     <div class="px-4 py-2 font-semibold">Apellido</div>
                                     <div class="px-4 py-2">{{ $socio->last_name }}</div>
                                 </div>
-                                
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                    <div class="px-4 py-2">+11 998001001</div>
-                                </div>
+                                @if($socio->fono)
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
+                                        <div class="px-4 py-2">+11 998001001</div>
+                                    </div>
+                                @endif
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Localidad</div>
                                         @if($socio->direccion)

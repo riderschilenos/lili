@@ -26,9 +26,9 @@ class HomeController extends Controller
      */
     public function create()
     {   
-        $disciplinas= Disciplina::pluck('name','id');
+        $socios= Socio::all();
 
-        return view('socio.create',compact('disciplinas'));
+        return view('socio.create',compact('socios'));
     }
 
     /**
@@ -39,7 +39,31 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'last_name'=>'required',
+            'born_date'=>'required',
+            'prevision'=>'required',
+            'rut'=>'required',
+            'nro'=>'required',
+            'disciplina_id'=>'required'
+            ]);
+    
+            
+        Socio::create([
+                    'name'=> $request->name,
+                    'second_name'=> $request->second_name,
+                    'last_name'=> $request->last_name,
+                    'slug'=> $request->slug,
+                    'born_date'=> $request->born_date,
+                    'prevision'=> $request->prevision,
+                    'rut'=> $request->rut,
+                    'nro'=> $request->nro,
+                    'disciplina_id'=> $request->disciplina_id,
+                    'user_id'=> $request->user_id]);
+            
+    
+        return redirect()->route('socio.create');
     }
 
     /**

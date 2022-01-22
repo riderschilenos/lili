@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Livewire\Socio;
+
+use App\Models\Disciplina;
+use App\Models\Socio;
+use Livewire\Component;
+
+class SocioCreate extends Component
+{   
+    public $invitados, $selectedSocios, $selectedInvitado, $search, $socio_id, $transportista_id;
+
+    public function render()
+    {   
+        $disciplinas= Disciplina::pluck('name','id');
+
+        if(auth()->user()->socio)
+        {
+            $socio = Socio::where('user_id',auth()->user()->id)->first();
+        }
+        else{
+            $socio=null;
+        }
+
+        return view('livewire.socio.socio-create',compact('disciplinas','socio'));
+    }
+}

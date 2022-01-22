@@ -44,7 +44,7 @@
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
                         <button @click="open = !open"
                             class="flex flex-row items-center space-x-2 w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent hover:bg-blue-800 md:w-auto md:inline md:mt-0 md:ml-4 hover:bg-gray-200 focus:bg-blue-800 focus:outline-none focus:shadow-outline">
-                            <span>{{ $socio->user->name }}</span>
+                            <span>{{ $socio->name }}</span>
                             <img class="inline h-6 rounded-full"
                                 src="{{ $socio->user->profile_photo_url }}">
                             <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
@@ -88,7 +88,7 @@
                                 src="{{ $socio->user->profile_photo_url }}"
                                 alt="">
                         </div>
-                        <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ $socio->user->name }}</h1>
+                        <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio->slug }}</h1>
                         <h3 class="text-gray-600 font-lg text-semibold leading-6">Auspiciadores:</h3>
                         <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
                             consectetur adipisicing elit.
@@ -131,23 +131,22 @@
                             <div class="grid md:grid-cols-2 text-sm">
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Nombre</div>
-                                    <div class="px-4 py-2">Jane</div>
+                                    <div class="px-4 py-2">{{ $socio->name." ".$socio->second_name }}</div>
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Apellido</div>
-                                    <div class="px-4 py-2">Doe</div>
+                                    <div class="px-4 py-2">{{ $socio->last_name }}</div>
                                 </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Género</div>
-                                    <div class="px-4 py-2">Female</div>
-                                </div>
+                                
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
                                     <div class="px-4 py-2">+11 998001001</div>
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Localidad</div>
-                                    <div class="px-4 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</div>
+                                        @if($socio->direccion)
+                                            <div class="px-4 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</div>
+                                        @endif
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Email.</div>

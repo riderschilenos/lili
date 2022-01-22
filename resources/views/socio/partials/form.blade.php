@@ -27,10 +27,10 @@
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                {!! Form::label('nacimiento', 'Fecha de nacimiento') !!}
-                                {!! Form::text('nacimiento', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}
+                                {!! Form::label('born_date', 'Fecha de nacimiento') !!}
+                                {!! Form::text('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}
         
-                                @error('nacimiento')
+                                @error('born_date')
                                     <strong class="text-xs text-red-600">{{$message}}</strong>
                                 @enderror
                             </div>

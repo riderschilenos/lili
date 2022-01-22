@@ -20,10 +20,15 @@
                             <p>Socio RidersChilenos</p>
                         </div>
                         <table class="text-xs mt-auto">
-                            <tbody><tr>
-                                <td class="px-2 py-2 text-gray-500 font-semibold">Localidad</td>
-                                <td class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</td>
-                            </tr>
+                            <tbody>
+                                
+                            @if($socio->direccion)
+                                <tr>
+                                    <td class="px-2 py-2 text-gray-500 font-semibold">Localidad</td>
+                                    <td class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</td>
+                                </tr>
+                            @endif
+                            
                             <tr>
                                 <td class="px-2 py-2 text-gray-500 font-semibold">Disciplina</td>
                                 <td class="px-2 py-2">{{$socio->disciplina->name}}</td>

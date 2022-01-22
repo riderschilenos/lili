@@ -124,7 +124,7 @@
             </table>--}}
             <section class="my-4 py-12">
                
-                <div class="max-w-7xl mx-auto px-4 sm:px-2 lg:px-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-2 gap-y-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-2 gap-y-8">
 
                     @foreach ($socios as $socio)
         

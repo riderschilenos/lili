@@ -13,7 +13,7 @@ class Socio extends Model
 
     public function getRouteKeyName()
     {
-        return 'rut';
+        return 'slug';
     }
 
     //relacion uno uno inversa

@@ -53,19 +53,18 @@ class PedidoController extends Controller
         ]);
 
         if($request->pedidoable_type == 'App\Models\Invitado'){
-        $invitado =  Invitado::create([
-                         'name'=> $request->name,
-                         'rut'=> $request->rut,
-                         'fono'=> $request->fono,
-                         'email'=>$request->email]);
-                    
-        $pedido = Pedido::create([
-            'user_id'=> $request->user_id,
-            'transportista_id'=> $request->transportista_id,
-            'pedidoable_id'=> $invitado->id,
-            'pedidoable_type'=> $request->pedidoable_type]);
-
-        }
+                $invitado =  Invitado::create([
+                                'name'=> $request->name,
+                                'rut'=> $request->rut,
+                                'fono'=> $request->fono,
+                                'email'=>$request->email]);
+                            
+                $pedido = Pedido::create([
+                    'user_id'=> $request->user_id,
+                    'transportista_id'=> $request->transportista_id,
+                    'pedidoable_id'=> $invitado->id,
+                    'pedidoable_type'=> $request->pedidoable_type]);
+            }
         else{
             $pedido = Pedido::create([
                 'user_id'=> $request->user_id,

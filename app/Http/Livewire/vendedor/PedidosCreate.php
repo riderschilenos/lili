@@ -28,7 +28,7 @@ class PedidosCreate extends Component
                     ->select('socios.*','users.name','users.email')
                     ->where('rut','LIKE','%'. $this->search .'%')
                     ->orwhere('email','LIKE','%'. $this->search .'%')
-                    ->orwhere('name','LIKE','%'. $this->search .'%')
+                    ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->latest('id')
                     ->paginate(8);
 

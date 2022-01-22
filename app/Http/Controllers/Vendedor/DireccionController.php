@@ -47,11 +47,19 @@ class DireccionController extends Controller
             'direccionable_type'=> $request->direccionable_type
         ]);
 
-        
-        $pedido = Pedido::find($request->pedido_id);
+        if($request->pedido_id=='suscripcion'){
+            
+                
+                return redirect()->route('socio.create');
+            }
+            else{
+
+                $pedido = Pedido::find($request->pedido_id);
+                return redirect()->route('vendedor.pedidos.edit',$pedido);
+            }
 
 
-    return redirect()->route('vendedor.pedidos.edit',$pedido);
+    
 
     }
 

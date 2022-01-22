@@ -17,17 +17,10 @@
                    
                 </div>
 
-                {!! Form::open(['route'=>'filmmaker.series.store','files'=>true , 'autocomplete'=>'off']) !!}
-                    
+                
+                @livewire('socio.socio-create')
 
-                    <div class="max-w-full items-center">
-                        @include('socio.partials.form')
-                    </div>
-                    <div class="flex justify-center">
-                        {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
-                    </div>
-
-                {!! Form::close() !!}
+                
                 
             </div>
         </div>

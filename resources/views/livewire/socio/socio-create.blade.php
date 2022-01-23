@@ -91,7 +91,7 @@
                                         
                                         <h1 class="text-lg ml-4">1 Año Suscripcion <i class="fas fa-calendar-check text-white-800"></i></h1>
                                     </div>
-                                    <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now))}}</p>
+                                    <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now.'+ 1 year'))}}</p>
                                 </div>
                             <p class="text-xl font-bold ml-auto">$25.000</p>
                             </article>

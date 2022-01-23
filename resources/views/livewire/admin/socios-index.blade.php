@@ -35,7 +35,7 @@
             </div>
 
             <div class="card-footer">
-                {{$socio->links()}}
+                {{$socios->links()}}
             </div>
             
         @else

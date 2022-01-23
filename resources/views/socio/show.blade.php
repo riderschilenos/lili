@@ -231,7 +231,7 @@
                                     </span>
                                     <span>MovieColection</span>
                                 </div>
-                                <div class="grid grid-cols-4">
+                                <div class="grid grid-cols-4 gap-4">
                                  
                                     @if ($socio->user->serie_enrolled)
                                         

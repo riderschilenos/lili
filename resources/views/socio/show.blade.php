@@ -147,7 +147,16 @@
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </span>
-                            <span class="tracking-wide">Información General</span>
+                            <p class="tracking-wide">Información General 
+
+                                @can('perfil_propio', $socio)
+
+                                
+                                    <a href="{{route('socio.edit',$socio)}}"><h5 class="text-blue-600 font-bold text-sm cursor-pointer">(Editar)</h5></a>
+                                
+                                @endcan
+                                
+                                   </p>
                         </div>
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">

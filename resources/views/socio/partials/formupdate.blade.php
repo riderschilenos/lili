@@ -100,22 +100,17 @@
                         
                         
                             <div>
-                                    {!! Form::label('username', 'Url de tu perfil') !!}
-                                    {!! Form::text('username', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
-                                    @error('username')
+                                    {!! Form::label('slug', 'Url de tu perfil') !!}
+                                    {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1']) !!}
+                                    
+                                    @error('slug')
                                         <strong class="text-xs text-red-600">{{$message}}</strong>
                                     @enderror
                             </div>
 
                             <div>
-                                    <div class="mb-4">
-                                        {!! Form::label('slug2', 'Slug',['class'=>'hidden']) !!}
-                                        {!! Form::text('slug2', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1','placeholder'=>'www.riderschilenos.cl/']) !!}
-                                    </div>
-                                    <div class="mb-4 hidden">
-                                        {!! Form::label('slug', 'Slug',['class'=>'hidden']) !!}
-                                        {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1','placeholder'=>'www.riderschilenos.cl/']) !!}
-                                    </div>
+                                    
+                                    
                             </div>
                         
                         

@@ -20,7 +20,11 @@ class SocioPolicy
         //
     }
 
-    public function asociado(User $user, Socio $socio){
-        return $socio->user->contains($user->id);
+    public function perfil_propio(User $user, Socio $socio){
+        if($socio->user_id == $user->id){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

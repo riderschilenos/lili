@@ -84,9 +84,11 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit(Socio $socio)
+    {   
+        $disciplinas=Disciplina::pluck('name','id');
+
+        return view('socio.edit',compact('socio','disciplinas'));
     }
 
     /**
@@ -96,9 +98,14 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Socio $socio)
     {
-        //
+        
+
+        $socio->update($request->all());
+
+        return redirect()->route('socio.edit',$socio)->with('info','La disciplina se actualizo con éxito.');
+
     }
 
     /**

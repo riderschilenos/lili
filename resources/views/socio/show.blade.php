@@ -90,9 +90,22 @@
                         </div>
                         <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio->slug }}</h1>
                         <h3 class="text-gray-600 font-lg text-semibold leading-6">Auspiciadores:</h3>
-                        <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit.
-                            Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+                            <div class="grid grid-cols-3">
+                                    @if ($socio->user->serie_enrolled)
+                                    
+                                        @foreach ($socio->user->serie_enrolled as $serie)
+                                            <div class="text-center my-2">
+                                                <a href="{{route('series.show', $serie)}}" class="text-main-color">
+                                                    <img class="h-16 w-20 mx-auto"
+                                                    src="{{Storage::url($serie->image->url)}}"
+                                                    alt="">
+                                                </a>
+                                            </div>
+                                        @endforeach
+
+                                    @endif
+
+                            </div>
                         <ul
                             class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                             <li class="flex items-center py-3">
@@ -226,7 +239,7 @@
                                         @foreach ($socio->user->serie_enrolled as $serie)
                                             <div class="text-center my-2">
                                                 <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                    <img class="h-16 w-16 mx-auto"
+                                                    <img class="h-16 w-20 mx-auto"
                                                     src="{{Storage::url($serie->image->url)}}"
                                                     alt="">
                                                 </a>

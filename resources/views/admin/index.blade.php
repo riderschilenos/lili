@@ -3,11 +3,13 @@
 @section('title', 'RidersChilenos')
 
 @section('content_header')
-    <h1>RidersChilenos</h1>
+    <h1 class="text-center">RIDERS CHILENOS</h1>
 @stop
 
 @section('content')
-    <p>Panel administrativo:</p>
+   
+
+    @livewire('admin.pedidos-index')
 @stop
 
 @section('css')

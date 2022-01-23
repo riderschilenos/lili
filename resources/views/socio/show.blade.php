@@ -219,16 +219,17 @@
                                     <span>MovieColection</span>
                                 </div>
                                 <div class="grid grid-cols-4">
-                                    
-                                    @if ($socio->user->series)
+                                 
+                                    @if ($socio->user->serie_enrolled)
                                         
                                     
-                                        @foreach ($socio->user->series as $serie)
+                                        @foreach ($socio->user->serie_enrolled as $serie)
                                             <div class="text-center my-2">
-                                                <img class="h-16 w-16 mx-auto"
+                                                <a href="{{route('series.show', $serie)}}" class="text-main-color">
+                                                    <img class="h-16 w-16 mx-auto"
                                                     src="{{Storage::url($serie->image->url)}}"
                                                     alt="">
-                                                <a href="#" class="text-main-color">Kojstantin</a>
+                                                </a>
                                             </div>
                                         @endforeach
 

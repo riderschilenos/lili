@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SerieController;
 use App\Http\Controllers\Admin\DisciplinaController;
 
 use App\Http\Controllers\Admin\PrecioController;
+use App\Http\Controllers\Admin\SocioController;
 
 Route::get('/',[HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 
@@ -30,6 +31,8 @@ Route::resource('disciplinas', DisciplinaController::class )->names('disciplinas
 Route::resource('precio', PrecioController::class)->names('precios');
 
 Route::get('series',[SerieController::class, 'index'])->name('series.index');
+
+Route::get('socios',[SocioController::class, 'index'])->name('socios.index');
 
 Route::get('series/{serie}',[SerieController::class,'show'])->name('series.show');
 

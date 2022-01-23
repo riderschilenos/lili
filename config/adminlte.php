@@ -260,14 +260,21 @@ return [
             'active'     => ['admin/roles*']
         ],
         [
-            'text'        => 'Usuarios',
+            'text'        => 'Rol Usuarios',
             'route'         => 'admin.users.index',
             'icon'        => 'fas fa-fw fa-users',
             'can'         => 'Leer usuarios',
             'active'     => ['admin/users*']
            
         ],
-        
+        [
+            'text'        => 'Socios',
+            'route'         => 'admin.socios.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/socios*']
+           
+        ],
         ['header' => 'Opciones RCH-TV'],
         
         [

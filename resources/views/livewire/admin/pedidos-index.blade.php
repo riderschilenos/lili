@@ -56,30 +56,22 @@
         <table class="table table-striped">
             <tr>
                 <td>
-                    <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                    <div class="bg-white rounded-xl shadow-lg flex items-center justify-around">
                                                      <div class="text-center">
                         <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
                         <span class="text-gray-500">TOTAL</span>
                         </div>
                     </div>
                 </td>
-                <td>
-                    <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
-                                                     <div class="text-center">
-                        <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
-                        <span class="text-gray-500">Pagos Pendientes</span>
-                        <span class="text-blue-500 font-bold">PAGAR</span>
-                        </div>
-                    </div>
-                </td>
+                
                 
                 <td>
-                    <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                    <div class="bg-white rounded-xl shadow-lg flex items-center justify-around">
                         
                         <div class="text-center">
                         <h1 class="text-4xl font-bold text-gray-800">${{number_format($comisiones)}}</h1>
                         <span class="text-gray-500">Comisiones</span>
-                        <span class="text-blue-500 font-bold">RETIRAR</span>
+                        <span class="text-blue-500 font-bold">PAGAR</span>
                         </div>
                     </div>
                 </td>

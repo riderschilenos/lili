@@ -14,6 +14,8 @@ class PaymentController extends Controller
         return view('payment.checkout',compact('serie'));
     }
 
+    
+
     public function serie(Serie $serie, Request $request){
 
         $payment_id = $request->get('payment_id');

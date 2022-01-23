@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class SocioCreate extends Component
 {   
-    public $invitados, $selectedSocios, $selectedInvitado, $search, $socio_id, $transportista_id;
+    public $invitados, $selectedSocios, $selectedInvitado, $search, $socio_id, $transportista_id, $socio;
 
     public function render()
     {   

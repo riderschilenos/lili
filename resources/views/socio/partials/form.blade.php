@@ -28,7 +28,7 @@
                             </div>
                             <div class="mb-4">
                                 {!! Form::label('born_date', 'Fecha de nacimiento') !!}
-                                {!! Form::text('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}
+                                {!! Form::date('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}
         
                                 @error('born_date')
                                     <strong class="text-xs text-red-600">{{$message}}</strong>

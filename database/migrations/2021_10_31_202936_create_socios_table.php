@@ -23,7 +23,7 @@ class CreateSociosTable extends Migration
             $table->string('slug');
             $table->string('rut');
             $table->string('fono')->nullable();
-            $table->string('born_date');
+            $table->date('born_date');
             $table->string('prevision');
             $table->string('nro');
 

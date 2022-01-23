@@ -27,7 +27,7 @@ class PedidosIndex extends Component
 
         $pedidos=Pedido::where('id','LIKE','%'.$this->search.'%')
                 ->orwhere('user_id','LIKE', '%'.$this->search.'%' )
-                ->paginate(15);
+                ->paginate(100);
 
         return view('livewire.admin.pedidos-index',compact('pedidos','users','invitados','socios'));
     }

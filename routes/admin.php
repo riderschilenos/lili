@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SerieController;
 
 use App\Http\Controllers\Admin\DisciplinaController;
-
+use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
 use App\Http\Controllers\Admin\SocioController;
 
@@ -27,6 +27,8 @@ Route::resource('users', UserController::class)->only(['index','edit','update'])
 Route::resource('products', ProductController::class)->names('products');
 
 Route::resource('disciplinas', DisciplinaController::class )->names('disciplinas');
+
+Route::resource('pedidos', PedidoController::class )->names('pedidos');
 
 Route::resource('precio', PrecioController::class)->names('precios');
 

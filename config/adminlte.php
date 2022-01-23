@@ -275,6 +275,14 @@ return [
             'active'     => ['admin/socios*']
            
         ],
+        [
+            'text'        => 'Pedidos',
+            'route'         => 'admin.pedidos.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/pedidos*']
+           
+        ],
         ['header' => 'Opciones RCH-TV'],
         
         [

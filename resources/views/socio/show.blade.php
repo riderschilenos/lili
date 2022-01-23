@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Fecha de Nacimiento</div>
-                                    <div class="px-4 py-2">Feb 06, 1998</div>
+                                    <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
                                 </div>
                             </div>
                         </div>
@@ -219,12 +219,21 @@
                                     <span>MovieColection</span>
                                 </div>
                                 <div class="grid grid-cols-4">
-                                        <div class="text-center my-2">
-                                            <img class="h-16 w-16 rounded-full mx-auto"
-                                                src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                                                alt="">
-                                            <a href="#" class="text-main-color">Kojstantin</a>
-                                        </div>
+                                    
+                                    @if ($socio->user->series)
+                                        
+                                    
+                                        @foreach ($socio->user->series as $serie)
+                                            <div class="text-center my-2">
+                                                <img class="h-16 w-16 mx-auto"
+                                                    src="{{Storage::url($serie->image->url)}}"
+                                                    alt="">
+                                                <a href="#" class="text-main-color">Kojstantin</a>
+                                            </div>
+                                        @endforeach
+
+                                    @endif
+                                        {{-- 
                                         <div class="text-center my-2">
                                             <img class="h-16 w-16 rounded-full mx-auto"
                                                 src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
@@ -243,6 +252,8 @@
                                                 alt="">
                                             <a href="#" class="text-main-color">Casey</a>
                                         </div>
+                                         --}}
+                                        
                                 </div>
                             </div>
                         </div>

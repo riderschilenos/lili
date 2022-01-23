@@ -13,7 +13,7 @@
 
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold pb-4 text-center">Inscripción Club Riders Chilenos</h1>
+                        <h1 class="text-2xl font-bold pb-4 text-center">Suscripcion Club Riders Chilenos</h1>
                         
                     </div>
                    

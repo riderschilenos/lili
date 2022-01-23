@@ -147,12 +147,16 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
+                            <x-jet-dropdown-link href="{{ route('socio.create') }}">
+                                {{ __('Perfil Rider') }}
+                            </x-jet-dropdown-link>
+
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Configuración y Privacidad') }}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Ver tu Perfil') }}
+                                {{ __('Configuración') }}
                             </x-jet-dropdown-link>
 
                             @can('Ver dashboard')

@@ -19,7 +19,7 @@
 
     $preference = new MercadoPago\Preference();
     //...
-    if ($socio) {
+    if($socio){
     $preference->back_urls = array(
         "success" => route('payment.socio', $socio),
         "failure" => "http://www.tu-sitio/failure",
@@ -29,7 +29,7 @@
 
     $preference->items = array($item);
     $preference->save();
-    }
+}
     @endphp
     
         @if ($socio)
@@ -51,6 +51,7 @@
                     <div>
                         <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex">
                             <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
+                            <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle" wire:click="destroydireccion({{$socio->direccion}})" alt="Eliminar"></i>
                         </header>
                         <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 shadow-lg rounded-b-lg">
                             
@@ -90,7 +91,7 @@
                                         
                                         <h1 class="text-lg ml-4">1 Año Suscripcion <i class="fas fa-calendar-check text-white-800"></i></h1>
                                     </div>
-                                    <p class="pt-2 ml-3">{{$now->format('d/m/Y')}}-{{$now->format('d/m/Y')}}</p>
+                                    <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now))}}</p>
                                 </div>
                             <p class="text-xl font-bold ml-auto">$25.000</p>
                             </article>
@@ -160,7 +161,7 @@
         <script src="https://sdk.mercadopago.com/js/v2"></script>
   
   
-  <script>
+    <script>
         // Agrega credenciales de SDK
           const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
                 locale: 'es-AR'

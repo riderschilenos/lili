@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Socio;
 
+use App\Models\Direccion;
 use App\Models\Disciplina;
 use App\Models\Socio;
 use Illuminate\Support\Carbon;
@@ -9,7 +10,7 @@ use Livewire\Component;
 
 class SocioCreate extends Component
 {   
-    public $invitados, $selectedSocios, $selectedInvitado, $search, $socio_id, $transportista_id, $socio;
+    public $invitados, $selectedSocios, $selectedInvitado, $search, $socio_id, $transportista_id;
 
     public function render()
     {   
@@ -26,5 +27,11 @@ class SocioCreate extends Component
         }
 
         return view('livewire.socio.socio-create',compact('disciplinas','socio','now'));
+    }
+
+    public function destroydireccion(Direccion $direccion){
+
+        $direccion->delete();
+
     }
 }

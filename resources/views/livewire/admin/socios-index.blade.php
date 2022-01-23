@@ -24,7 +24,7 @@
                                 <td>{{$socio->name}}</td>
                                 <td>{{$socio->user->email}}</td>
                                 <td width="10px">
-                                    <a class="btn btn-primary" href="">Editar</a>
+                                    <a class="btn btn-primary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
                                 </td>
                             </tr>
                             

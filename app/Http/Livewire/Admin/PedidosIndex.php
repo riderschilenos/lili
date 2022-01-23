@@ -25,11 +25,13 @@ class PedidosIndex extends Component
         $invitados= Invitado::all();
         $socios= Socio::all();
 
+        $total=0;
+
         $pedidos=Pedido::where('id','LIKE','%'.$this->search.'%')
                 ->orwhere('user_id','LIKE', '%'.$this->search.'%' )
                 ->paginate(100);
 
-        return view('livewire.admin.pedidos-index',compact('pedidos','users','invitados','socios'));
+        return view('livewire.admin.pedidos-index',compact('pedidos','users','invitados','socios','total'));
     }
 
     public function limpiar_page(){

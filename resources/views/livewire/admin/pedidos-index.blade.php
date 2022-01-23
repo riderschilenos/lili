@@ -1,4 +1,57 @@
 <div>
+    @php
+    $total=0;
+    $comisiones=0;
+    @endphp
+
+    @foreach ($pedidos as $pedido)
+        
+        @if($pedido->pedidoable_type=="App\Models\Socio")
+            @foreach ($pedido->ordens as $orden)
+            @php
+                
+                $total+=$orden->producto->precio-$orden->producto->comision_invitado;
+
+            @endphp    
+            @endforeach
+
+        @endif
+        @if($pedido->pedidoable_type=="App\Models\Invitado")
+            @foreach ($pedido->ordens as $orden)
+            @php
+                
+                $total+=$orden->producto->precio;
+
+            @endphp    
+            @endforeach
+
+        @endif
+
+        @if($pedido->pedidoable_type=="App\Models\Socio")
+            @foreach ($pedido->ordens as $orden)
+            @php
+                
+                $comisiones+=$orden->producto->comision_socio;
+
+            @endphp    
+            @endforeach
+
+        @endif
+        @if($pedido->pedidoable_type=="App\Models\Invitado")
+            @foreach ($pedido->ordens as $orden)
+            @php
+                
+                $comisiones+=$orden->producto->comision_invitado;
+
+            @endphp    
+            @endforeach
+
+        @endif
+
+    @endforeach
+
+
+
     <div class="card">
         <div class="card-header">
             <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nonbre">
@@ -8,6 +61,7 @@
             
       
             <div class="card-body">
+                <h1 class="text-center">TOTAL: {{$total}}</h1>
                 <table class="table table-striped">
                     <thead>
                         <th>ID</th>
@@ -82,6 +136,7 @@
 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900 ml-3">${{number_format($subtotal)}}</div>
+                                    
                                     
                                 </td>
 

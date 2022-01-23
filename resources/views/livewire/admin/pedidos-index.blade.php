@@ -4,7 +4,7 @@
     $comisiones=0;
     @endphp
 
-    @foreach ($pedidos as $pedido)
+    @foreach ($pedidosint as $pedido)
         
         @if($pedido->pedidoable_type=="App\Models\Socio")
             @foreach ($pedido->ordens as $orden)
@@ -53,6 +53,38 @@
 
 
     <div class="card">
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                                                     <div class="text-center">
+                        <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
+                        <span class="text-gray-500">TOTAL</span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                                                     <div class="text-center">
+                        <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
+                        <span class="text-gray-500">Pagos Pendientes</span>
+                        <span class="text-blue-500 font-bold">PAGAR</span>
+                        </div>
+                    </div>
+                </td>
+                
+                <td>
+                    <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                        
+                        <div class="text-center">
+                        <h1 class="text-4xl font-bold text-gray-800">${{number_format($comisiones)}}</h1>
+                        <span class="text-gray-500">Comisiones</span>
+                        <span class="text-blue-500 font-bold">RETIRAR</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
         <div class="card-header">
             <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nonbre">
         </div>
@@ -61,7 +93,11 @@
             
       
             <div class="card-body">
-                <h1 class="text-center">TOTAL: {{$total}}</h1>
+
+               
+               
+
+
                 <table class="table table-striped">
                     <thead>
                         <th>ID</th>

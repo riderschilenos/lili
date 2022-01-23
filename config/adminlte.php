@@ -275,14 +275,23 @@ return [
             'active'     => ['admin/socios*']
            
         ],
+        ['header' => 'Portal Vendedores'],
         [
             'text'        => 'Pedidos',
             'route'         => 'admin.pedidos.index',
-            'icon'        => 'fas fa-fw fa-users',
+            'icon'        => 'fas fa-fw fa-shopping-cart',
             'can'         => 'Leer usuarios',
             'active'     => ['admin/pedidos*']
            
         ],
+        [
+            'text'        => 'Lista de Productos',
+            'route'         => 'admin.products.index',
+            'icon'        => 'fas fa-fw fa-bars',
+            'active'     => ['admin/products*']
+           
+        ],
+       
         ['header' => 'Opciones RCH-TV'],
         
         [
@@ -302,11 +311,7 @@ return [
             'icon' => 'fas fa-fw fa-dollar-sign',
             'active'     => ['admin/precios*']
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+      
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -345,14 +350,7 @@ return [
                 ],
             ],
         ],
-        ['header' => 'Portal Vendedores'],
-        [
-            'text'        => 'Lista de Productos',
-            'route'         => 'admin.products.index',
-            'icon'        => 'fas fa-fw fa-bars',
-            'active'     => ['admin/products*']
-           
-        ],
+        
         ['header' => 'labels'],
         [
             'text'       => 'important',

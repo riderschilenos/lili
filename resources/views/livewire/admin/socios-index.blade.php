@@ -4,7 +4,7 @@
             <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nonbre">
         </div>
 
-        @if ($users->count())
+        @if ($socios->count())
             
       
             <div class="card-body">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="card-footer">
-                {{$users->links()}}
+                {{$socio->links()}}
             </div>
             
         @else

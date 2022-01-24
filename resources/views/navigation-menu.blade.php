@@ -13,7 +13,7 @@
     ] 
     ,[   
         'name'=>'División Usados',
-        'route'=>route('usados.vehiculo.index'),
+        'route'=>route('garage.usados'),
         'active'=>request()->routeIs('usados.*')
 
     ]

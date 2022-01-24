@@ -35,7 +35,7 @@
             </article>
             <article>
                 <figure>
-                    <img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home1.jpeg')}}" alt="">
+                    <a href="{{route('garage.usados')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home1.jpeg')}}" alt=""></a>
                 </figure>
                
             </article>

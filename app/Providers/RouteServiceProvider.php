@@ -60,10 +60,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/filmmaker.php'));   
 
             Route::middleware('web')
-                ->name('usados.')
-                ->prefix('usados')
+                ->name('garage.')
+                ->prefix('garage')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/usado.php'));  
+                ->group(base_path('routes/garage.php'));  
 
             Route::middleware('web','auth')
                 ->name('vendedor.')

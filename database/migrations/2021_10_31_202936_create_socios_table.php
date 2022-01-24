@@ -18,7 +18,7 @@ class CreateSociosTable extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('second_name');
+            $table->string('second_name')->nullable();
             $table->string('last_name');
             $table->string('slug');
             $table->string('rut');

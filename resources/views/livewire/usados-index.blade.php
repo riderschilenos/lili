@@ -5,7 +5,7 @@
     
     <!-- seccion pequeña -->
     <div class="">
-        <div class="bg-gray-200 py-4 mb-8 mx-auto">
+        <div class="bg-gray-200 pb-4 mb-8 mx-auto">
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex ">
                 

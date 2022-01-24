@@ -23,6 +23,7 @@ class CreateSociosTable extends Migration
             $table->string('slug');
             $table->string('rut');
             $table->string('fono')->nullable();
+            $table->enum('fono_view',[Socio::ACTIVE,Socio::INACTIVE])->default(Socio::INACTIVE);
             $table->date('born_date');
             $table->string('prevision');
             $table->string('nro');

@@ -4,9 +4,10 @@
         
         <div class="card">
             <div class="card-body">
-                <h1 class="text-2xl font-bold text-center">Formulario Vehiculo Rider</h1>
+                <h1 class="text-2xl font-bold text-center">Admin Vehiculos Rider</h1>
                 <hr class="mt-2 mb-6">
 
+                
                 @livewire('vehiculo.vehiculo-create')
 
             </div>

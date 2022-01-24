@@ -4,15 +4,18 @@
                
                <div class="card-body">
                    <div class="grid grid-cols-2">
-                   <h1 class="card-tittle">{{$vehiculo->marca.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
+                        <h1 class="card-tittle">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                    </a>
                    <h1 class="ml-auto card-tittle mr-2 mt-2">${{number_format($vehiculo->precio, 0, '.', '.')}}-.</h1>
                     </div>
                     <p class="text-gray-500 text-sm mb-2">Vendedor: {{$vehiculo->user->name}}</p>
                     <div class="grid grid-cols-5">
                         <div class="col-span-3">
-                            
-                            <img class="h-72 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
-                        </div>
+                            <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
+                                <img class="h-72 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                            </a>
+                            </div>
                         <div class="col-span-2 ml-2 mt-2">
 
                             <p class="text-gray-500 text-sm ">Tipo:</p> 
@@ -39,7 +42,7 @@
 
                     
                     
-                    <a href= "{{route('usados.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger btn-block">
+                    <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger btn-block">
                         Ver Más Información
                     </a>
                     

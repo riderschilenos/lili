@@ -70,7 +70,7 @@ class PedidoController extends Controller
                 'user_id'=> $request->user_id,
                 'transportista_id'=> $request->transportista_id,
                 'pedidoable_id'=> $request->pedidoable_id,
-                'pedidoable_type'=> $request->pedidoable_type]);;
+                'pedidoable_type'=> $request->pedidoable_type]);
         }
 
         return redirect()->route('vendedor.pedidos.edit',$pedido);

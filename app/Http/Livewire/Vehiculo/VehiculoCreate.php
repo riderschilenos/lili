@@ -3,11 +3,15 @@
 namespace App\Http\Livewire\Vehiculo;
 
 use App\Models\Marca;
+use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
 use Livewire\Component;
 
 class VehiculoCreate extends Component
-{   public $selectedvehiculotype, $marcas;
+{   public $selectedvehiculotype, $selectedmarca, $marca, $marcas, $name, $modelo, $file, $cilindrada, $año, $aro_front, $aro_back, $slug, $precio;
+
+    public $vehiculo_type;
+    
     public function render()
     {   
         $vehiculo_types= Vehiculo_type::all();
@@ -25,7 +29,17 @@ class VehiculoCreate extends Component
 
         $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();
         
-        $this->vehiculo_type = $vehiculo_type;
+        $this->selectedvehiculo_type = $vehiculo_type;
     
     }
+
+    public function updatedselectedmarca($marca){
+
+
+        $this->selectedmarca = $marca;
+
+    
+    }
+
+  
 }

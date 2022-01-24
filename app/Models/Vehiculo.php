@@ -32,6 +32,10 @@ class Vehiculo extends Model
         return $this->BelongsTo('App\Models\Vehiculo_type');
     }
 
+    public function marca(){
+        return $this->BelongsTo('App\Models\Marca');
+    }
+
 
      // relacion muchos a muchos
 

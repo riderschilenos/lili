@@ -1,5 +1,5 @@
 <div>
-    {!! Form::open(['route'=>'filmmaker.series.store','files'=>true , 'autocomplete'=>'off']) !!}
+    
 
         <div class="flex justify-center mt-4">
 
@@ -21,47 +21,107 @@
         
             @if(!is_null($marcas))
             
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8 mt-6">
+                
+                {!! Form::open(['route'=>'garage.vehiculo.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                    @csrf
 
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8 mt-6">
 
-                <div class="flex items-center mt-4">
-                    <Label class="w-80">Marca:</Label>
-                    <select class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option value="">--Marca--</option>
+                        <div class="flex items-center mt-4">
+                            <Label class="w-80">Marca:</Label>
+                            <select wire:model="selectedmarca" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option value="">--Marca--</option>
+                                        
                                 
+                                @foreach ($marcas as $marca)
+                                    
+
+                                    <option value="{{$marca->id}}">{{$marca->name}}</option>
+                
+                                    
+                                    
+                                @endforeach
+
+                            </select>
+                        </div>
                         
-                        @foreach ($marcas as $marca)
+
+                        <div class="mb-4">
                             
+                            {!! Form::label('modelo', 'Modelo:*') !!}
+                            {!! Form::text('modelo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
-                            <option value="{{$marca->id}}">{{$marca->name}}</option>
-        
+                            @error('modelo')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
+                            {!! Form::label('cilindrada', 'Cilindrada:*') !!}
+                            {!! Form::text('cilindrada', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                            @error('cilindrada')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
+                            {!! Form::label('año', 'Año:*') !!}
+                            {!! Form::text('año', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                            @error('año')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            {!! Form::label('precio', 'Precio:*') !!}
+                            {!! Form::text('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                            @error('precio')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        
+                    </div>
+
+                    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del vehiculo</h1>
+                    <div class="grid grid-cols-2 gap-4">
+                        <figure>
+                            @isset($vehiculo->image)
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($vehiculo->image->url)}}" alt="">
+                            @else
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                
                             
-                            
-                        @endforeach
+                            @endisset
+                            </figure>
+                        <div>
+                            <p class="mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, in magnam sunt ipsa blanditiis eaque libero sed aliquam vel perspiciatis, rem cum ratione alias dignissimos totam unde beatae quo nostrum.</p>
+                            {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                            @error('file')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+                    </div>
 
-                    </select>
-                </div>
-                
-                <div class="flex items-center mt-4">
-                    <label class="w-32">MODELO:</label>
-                    <input wire:model="name" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-                </div>
+                    {!! Form::hidden('user_id',auth()->user()->id) !!}
 
-                <div class="flex items-center mt-4">
-                    <label class="w-32">Año:</label>
-                    <input wire:model="name" class="form-date w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-                </div>
+                    {!! Form::hidden('marca_id',$selectedmarca) !!}
 
-                <div class="flex items-center mt-4">
-                    <label class="w-32">Cilindrada:</label>
-                    <input wire:model="name" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-                </div>
-                
-            </div>
+                    {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
+
+                    <div class="flex justify-end">
+                        {!! Form::submit('Crear Vehiculo', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                    </div>
+
+                {!! Form::close() !!}
+
+            
 
             @endif
         
         
-        
+     
+
 </div>

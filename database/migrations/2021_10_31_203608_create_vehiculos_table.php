@@ -17,7 +17,6 @@ class CreateVehiculosTable extends Migration
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->id();
 
-            $table->string('marca')->nullable();
             $table->string('modelo')->nullable();
             $table->string('cilindrada')->nullable();
             $table->integer('aro_front')->nullable();
@@ -31,6 +30,11 @@ class CreateVehiculosTable extends Migration
             ->constrained()
             ->onDelete('cascade');
 
+            $table ->foreignId('marca_id')
+            ->nullable()
+            ->constrained()
+            ->onDelete('set null');
+            
             $table ->foreignId('vehiculo_type_id')
             ->nullable()
             ->constrained()

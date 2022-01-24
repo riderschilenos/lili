@@ -11,6 +11,13 @@
                 
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-4 mx-auto">
 
+                <div class=" col-span-2 lg:col-span-3 mx-auto">
+                    <button class="btn btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mr-4" wire:click="resetFilters">
+                        
+                        Vende tu Juguete
+                    </button>
+                </div>
+
                 <div class=" lg:col-span-3 mx-auto">
                 <button class="btn btn-block bg-white shadow h-14 px-4 rounded-lg text-gray-700 mr-4" wire:click="resetFilters">
                     <i class="fas fa-archway text-xs mr-2"></i>

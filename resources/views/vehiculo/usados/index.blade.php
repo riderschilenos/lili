@@ -13,7 +13,7 @@
         </div>
 
     </section>
-
+    
     @livewire('usados-index')
 
 </x-app-layout>

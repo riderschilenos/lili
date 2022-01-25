@@ -14,6 +14,8 @@ class Vehiculo extends Model
     const BORRADOR =1;
     const REVISION =2;
     const PUBLICADO =3;
+    const PAGO =1;
+    const PORCENTAJE =2;
 
     public function scopeVehiculo_type($query,$vehiculo_type_id){
         if($vehiculo_type_id){

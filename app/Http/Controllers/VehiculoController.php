@@ -75,9 +75,17 @@ class VehiculoController extends Controller
         }
         elseif($request->status==1){
 
-            return redirect()->route('garage.usados');
+            return redirect()->route('garage.comision');
         }
 
+    }
+
+    public function comision(Vehiculo $vehiculo)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+        
+        return view('vehiculo.usados.comision', compact('vehiculo'));
     }
 
     

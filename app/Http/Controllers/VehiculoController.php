@@ -14,9 +14,18 @@ class VehiculoController extends Controller
         return view('vehiculo.usados.index');
     }
 
+    public function personalindex(){
+        return view('vehiculo.garage.index');
+    }
+
     public function create(){
 
         return view('vehiculo.garage.create');
+    }
+
+    public function vender(){
+
+        return view('vehiculo.usados.create');
     }
 
     public function show(Vehiculo $vehiculo){
@@ -42,7 +51,7 @@ class VehiculoController extends Controller
             'aro_back'=> $request->aro_back,
             'año'=> $request->año,
             'slug'=> 'test',
-            'status'=> 3,
+            'status'=> $request->status,
             'precio'=> $request->precio,
             'user_id'=> $request->user_id,
             'vehiculo_type_id'=> $request->vehiculo_type_id
@@ -58,9 +67,16 @@ class VehiculoController extends Controller
                     'url'=>$url
                 ]);
             }
-    
-            return redirect()->route('garage.vehiculo.index');
 
+        if($request->status==2){
+    
+            return redirect()->route('garage.vehiculos.index');
+
+        }
+        elseif($request->status==1){
+
+            return redirect()->route('garage.usados');
+        }
 
     }
 

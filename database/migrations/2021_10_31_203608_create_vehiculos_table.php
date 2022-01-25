@@ -25,6 +25,7 @@ class CreateVehiculosTable extends Migration
             $table->string('slug')->nullable();
             $table->enum('status',[Vehiculo::BORRADOR,Vehiculo::REVISION,Vehiculo::PUBLICADO])->default(Vehiculo::BORRADOR);
             $table->integer('precio')->nullable();
+            $table->string('nro_serie')->nullable();
             
             $table ->foreignId('user_id')
             ->constrained()

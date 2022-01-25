@@ -12,7 +12,7 @@
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-4 mx-auto">
 
                 <div class=" col-span-2 lg:col-span-3 mx-auto">
-                    <a href="{{route('garage.vehiculo.create')}}">
+                    <a href="{{route('garage.vehiculo.vender')}}">
                         <button class="btn btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mr-4" wire:click="resetFilters">
                         
                             Vende tu Juguete

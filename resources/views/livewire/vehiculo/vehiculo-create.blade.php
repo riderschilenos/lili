@@ -49,7 +49,7 @@
                         <div class="mb-4">
                             
                             {!! Form::label('modelo', 'Modelo:*') !!}
-                            {!! Form::text('modelo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                            {!! Form::text('modelo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('modelo')?' border-red-600':'')]) !!}
 
                             @error('modelo')
                                 <strong class="text-xs text-red-600">{{$message}}</strong>
@@ -58,7 +58,7 @@
 
                         <div class="mb-4">
                             {!! Form::label('cilindrada', 'Cilindrada:*') !!}
-                            {!! Form::text('cilindrada', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                            {!! Form::text('cilindrada', null , ['class' => 'form-input block w-full mt-1'.($errors->has('cilindrada')?' border-red-600':'')]) !!}
 
                             @error('cilindrada')
                                 <strong class="text-xs text-red-600">{{$message}}</strong>
@@ -67,7 +67,7 @@
 
                         <div class="mb-4">
                             {!! Form::label('año', 'Año:*') !!}
-                            {!! Form::text('año', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                            {!! Form::text('año', null , ['class' => 'form-input block w-full mt-1'.($errors->has('año')?' border-red-600':'')]) !!}
 
                             @error('año')
                                 <strong class="text-xs text-red-600">{{$message}}</strong>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="mb-4">
                             {!! Form::label('precio', 'Precio:*') !!}
-                            {!! Form::text('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                            {!! Form::text('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('precio')?' border-red-600':'')]) !!}
 
                             @error('precio')
                                 <strong class="text-xs text-red-600">{{$message}}</strong>
@@ -105,9 +105,13 @@
                         </div>
                     </div>
 
+
+
                     {!! Form::hidden('user_id',auth()->user()->id) !!}
 
                     {!! Form::hidden('marca_id',$selectedmarca) !!}
+
+                    {!! Form::hidden('status', 1 ) !!}
 
                     {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
 

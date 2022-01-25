@@ -151,6 +151,10 @@
                                 {{ __('Perfil Rider') }}
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('garage.vehiculos.index') }}">
+                                {{ __('Mis vehiculos') }}
+                            </x-jet-dropdown-link>
+
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Configuración y Privacidad') }}
                             </div>

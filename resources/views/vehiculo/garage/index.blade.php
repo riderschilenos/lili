@@ -4,12 +4,11 @@
         
         <div class="card">
             <div class="card-body">
-                <h1 class="text-2xl font-bold text-center">Inscribe tu Juguete Rider</h1>
+                <h1 class="text-2xl font-bold text-center">Mis Vehiculos</h1>
                 <hr class="mt-2 mb-6">
 
                 
                 @livewire('vehiculo.vehiculo-inscripcion')
-
 
             </div>
         </div>

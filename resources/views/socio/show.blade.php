@@ -204,13 +204,36 @@
 
                         <div class="grid grid-cols-1 sm:grid-cols-2">
                             <div class="bg-white p-3 hover:shadow">
-                                <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8">
                                     <span class="text-red-500">
                                         <i class="fas fa-car text-white-800"></i>
                                     </span>
                                     <span>Mi Garage</span>
+
+                                    <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-32 align-middle"> (Inscribir Vehiculo)</span></a>
                                 </div>
+                                
                                 <div class="grid grid-cols-2">
+
+                                    @if ($socio->vehiculos)
+                                        
+                                    
+                                        @foreach ($socio->vehiculos as $vehiculo)
+                                            <div class="text-center my-2">
+                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
+                                                    <img class="h-24 w-34 mx-auto"
+                                                    src="{{Storage::url($vehiculo->image->url)}}"
+                                                    alt="">
+                                                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
+                                                        <h1 class="card-tittle">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                                                    </a>
+                                                </a>
+                                            </div>
+                                        @endforeach
+
+                                    @endif
+                                    {{-- comment 
+                                    
                                         <div class="text-center my-2">
                                             <img class="h-24 w-34 mx-auto"
                                                 src="https://www.canyon.com/on/demandware.static/-/Sites-canyon-master/default/dwb5b29ea2/images/full/full_2021_/2021/full_2021_sender-cfr_2251_tm_P5.png"
@@ -229,7 +252,7 @@
                                                 alt="">
                                             <a href="#" class="text-main-color">Natie</a>
                                         </div>
-                                       
+                                       --}}
                                 </div>
                             </div>
 

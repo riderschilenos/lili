@@ -3,11 +3,11 @@
 namespace App\Http\Livewire\Vehiculo;
 
 use App\Models\Marca;
-use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
 use Livewire\Component;
 
-class VehiculoCreate extends Component
+class VehiculoInscripcion extends Component
+
 {   public $selectedvehiculotype, $selectedmarca, $marca, $marcas, $name, $modelo, $file, $cilindrada, $año, $aro_front, $aro_back, $slug, $precio;
 
     public $vehiculo_type;
@@ -16,7 +16,7 @@ class VehiculoCreate extends Component
     {   
         $vehiculo_types= Vehiculo_type::all();
 
-        return view('livewire.vehiculo.vehiculo-create',compact('vehiculo_types'));
+        return view('livewire.vehiculo.vehiculo-inscripcion',compact('vehiculo_types'));
     }
 
 
@@ -40,6 +40,5 @@ class VehiculoCreate extends Component
 
     
     }
-
-  
+    
 }

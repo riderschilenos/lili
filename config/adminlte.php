@@ -275,6 +275,15 @@ return [
             'active'     => ['admin/socios*']
            
         ],
+        ['header' => 'Vehiculos'],
+        [
+            'text'        => 'Tipos de Vehiculo',
+            'route'         => 'admin.vehiculotype.index',
+            'icon'        => 'fas fa-fw fa-shopping-cart',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/pedidos*']
+           
+        ],
         ['header' => 'Portal Vendedores'],
         [
             'text'        => 'Pedidos',

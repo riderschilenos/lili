@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::post('vehiculo/store', [VehiculoController::class,'store'])->name('vehicu
 
 
 Route::get('vehiculo/create', [VehiculoController::class,'create'])->middleware('auth')->name('vehiculo.create');
+

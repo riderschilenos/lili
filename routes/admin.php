@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\DisciplinaController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
 use App\Http\Controllers\Admin\SocioController;
+use App\Http\Controllers\Admin\Vehiculo_typeController;
 
 Route::get('/',[HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 
@@ -31,6 +32,8 @@ Route::resource('disciplinas', DisciplinaController::class )->names('disciplinas
 Route::resource('pedidos', PedidoController::class )->names('pedidos');
 
 Route::resource('precio', PrecioController::class)->names('precios');
+
+Route::resource('vehiculotypes',Vehiculo_typeController::class)->names('vehiculotype');
 
 Route::get('series',[SerieController::class, 'index'])->name('series.index');
 

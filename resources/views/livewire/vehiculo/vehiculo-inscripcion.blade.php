@@ -126,6 +126,8 @@
 
                 {!! Form::hidden('marca_id',$selectedmarca) !!}
 
+                {!! Form::hidden('socio_id',$socio->id) !!}
+
                 {!! Form::hidden('status', 2 ) !!}
 
                 {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}

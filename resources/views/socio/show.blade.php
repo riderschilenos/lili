@@ -222,7 +222,7 @@
                                             <div class="text-center my-2">
                                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
                                                     <img class="h-24 w-34 mx-auto"
-                                                    src="{{Storage::url($vehiculo->image->url)}}"
+                                                    src="{{Storage::url($vehiculo->image->first()->url)}}"
                                                     alt="">
                                                     <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                                         <h1 class="card-tittle">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>

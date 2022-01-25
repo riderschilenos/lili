@@ -14,9 +14,11 @@ class VehiculoInscripcion extends Component
     
     public function render()
     {   
+        $socio=auth()->user()->socio;
+
         $vehiculo_types= Vehiculo_type::all();
 
-        return view('livewire.vehiculo.vehiculo-inscripcion',compact('vehiculo_types'));
+        return view('livewire.vehiculo.vehiculo-inscripcion',compact('vehiculo_types','socio'));
     }
 
 

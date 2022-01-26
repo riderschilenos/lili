@@ -12,8 +12,9 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8">
                     
                     <div>
-                    @if(auth()->user()->vehiculos->count())
                         <h1 class="text-xl text-center mb-4 font-bold">Vehiculos disponibles para la venta</h1>
+                    @if(auth()->user()->vehiculos->count())
+                        
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-8">
 
                             @foreach (auth()->user()->vehiculos as $vehiculo)
@@ -26,7 +27,7 @@
                     
                     @else
                         <div class="px-6 py-4 text-center">
-                            No hay ningun registro 
+                            No hay ningun registro de vehiculo en venta
                         </div>
                         <div class="mx-auto flex justify-center">
                             
@@ -43,7 +44,7 @@
                     <div>
                     @if(auth()->user()->socio)
                         <h1 class="text-xl text-center mb-4 font-bold">Mi registro de vehiculos</h1>
-                        @if(auth()->user()->socio->count())
+                        @if(auth()->user()->socio->vehiculos->count())
                             
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-8">
 
@@ -61,10 +62,10 @@
                             </div>
                             <div class="mx-auto flex justify-center">
                                 
-                                <a href="{{route('garage.vehiculo.vender')}}">
+                                <a href="{{route('garage.vehiculo.create')}}">
                                     <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mr-4" wire:click="resetFilters">
                                     
-                                        Vende tu Juguete
+                                        Inscribe tu Juguete
             
                                     </button>
                                 </a>

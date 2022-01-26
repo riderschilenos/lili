@@ -15,7 +15,7 @@ Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name(
 
 Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('precioupdate');
 
-Route::get('misvehiculos', [VehiculoController::class,'personalindex'])->name('vehiculos.index');
+Route::get('misvehiculos', [VehiculoController::class,'personalindex'])->middleware('auth')->name('vehiculos.index');
 
 
 Route::get('{vehiculo}', [VehiculoController::class,'show'])->name('vehiculo.show');

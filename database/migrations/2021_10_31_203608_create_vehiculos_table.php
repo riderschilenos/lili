@@ -27,7 +27,7 @@ class CreateVehiculosTable extends Migration
             $table->integer('precio')->nullable();
             $table->string('nro_serie')->nullable();
             $table->enum('comision',[Vehiculo::PAGO,Vehiculo::PORCENTAJE])->default(Vehiculo::PAGO);
-            
+            $table->text('descripcion')->nullable();
             $table ->foreignId('user_id')
             ->constrained()
             ->onDelete('cascade');

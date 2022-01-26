@@ -10,7 +10,7 @@
                 <select wire:model="selectedvehiculotype" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Selecciona una opción</option>
                     @foreach ($vehiculo_types as $vehiculo_type)
-
+        
                         <option value="{{$vehiculo_type->id}}">{{$vehiculo_type->name}}</option>
                         
                     @endforeach
@@ -18,7 +18,7 @@
             </div>
 
         </div>
-        
+      
             @if(!is_null($marcas))
             
                 
@@ -73,14 +73,7 @@
                                 <strong class="text-xs text-red-600">{{$message}}</strong>
                             @enderror
                         </div>
-                        <div class="mb-4">
-                            {!! Form::label('precio', 'Precio:*') !!}
-                            {!! Form::text('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('precio')?' border-red-600':'')]) !!}
-
-                            @error('precio')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
+                        
 
                         
                     </div>
@@ -116,7 +109,7 @@
                     {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
 
                     <div class="flex justify-end">
-                        {!! Form::submit('Crear Vehiculo', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                        {!! Form::submit('Siguiente Paso (Precio y comisión)', ['class'=>'btn btn-primary cursor-pointer']) !!}
                     </div>
 
                 {!! Form::close() !!}

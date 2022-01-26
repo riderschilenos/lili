@@ -158,10 +158,11 @@
 
             {!! Form::close() !!}
         @endif
+    
+    
         <script src="https://sdk.mercadopago.com/js/v2"></script>
   
-  
-    <script>
+        <script>
         // Agrega credenciales de SDK
           const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
                 locale: 'es-AR'

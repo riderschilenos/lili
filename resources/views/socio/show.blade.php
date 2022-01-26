@@ -72,27 +72,29 @@
                                     @endif
 
                             </div>
-                        <ul
-                            class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                            <li class="flex items-center py-3">
-                                <span>Suscripción</span>
-                                @switch($socio->status)
-                                            @case(1)
-                                                <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
-                                                @break
-                                            @case(2)
-                                                <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVA</span></span>
-                                                @break
-                                            @default
-                                                
-                                    @endswitch
-                                    
-                            </li>
-                            <li class="flex items-center py-3">
-                                <span>Fecha Vencimiento</span>
-                                <span class="ml-auto">Nov 07, 2016</span>
-                            </li>
-                        </ul>
+                        <a href="{{ route('socio.create') }}">
+                            <ul
+                                class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                <li class="flex items-center py-3">
+                                    <span>Suscripción</span>
+                                    @switch($socio->status)
+                                                @case(1)
+                                                    <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
+                                                    @break
+                                                @case(2)
+                                                    <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVA</span></span>
+                                                    @break
+                                                @default
+                                                    
+                                        @endswitch
+                                        
+                                </li>
+                                <li class="flex items-center py-3">
+                                    <span>Fecha Vencimiento</span>
+                                    <span class="ml-auto">Nov 07, 2016</span>
+                                </li>
+                            </ul>
+                        </a>
                     </div>
                     <!-- End of profile card -->
                     <div class="my-4"></div>

@@ -29,17 +29,13 @@ class UsadosIndex extends Component
         $vehiculo_types = Vehiculo_type::all();
         
         $vehiculos = Vehiculo::where('status',3)
+                        ->orwhere('status',4)
+                        ->orwhere('status',6)
                         ->Vehiculo_type($this->vehiculo_types_id)
                         ->latest('id')
                         ->paginate(5);
 
-        $series = Serie::where('status',3)
-                        ->Disciplina($this->disciplina_id)
-                        ->Filmmaker($this->filmmaker_id)
-                        ->latest('id')
-                        ->paginate(8);
-
-        return view('livewire.usados-index',compact('series','disciplinas','filmmakers','vehiculos','vehiculo_types'));
+        return view('livewire.usados-index',compact('disciplinas','filmmakers','vehiculos','vehiculo_types'));
     }
 
     public function resetFilters(){

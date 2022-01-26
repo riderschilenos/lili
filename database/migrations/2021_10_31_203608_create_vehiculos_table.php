@@ -13,7 +13,7 @@ class CreateVehiculosTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->id();
 
@@ -23,7 +23,7 @@ class CreateVehiculosTable extends Migration
             $table->integer('aro_back')->nullable();
             $table->integer('año')->nullable();
             $table->string('slug')->nullable();
-            $table->enum('status',[Vehiculo::BORRADOR,Vehiculo::REVISION,Vehiculo::PUBLICADO])->default(Vehiculo::BORRADOR);
+            $table->enum('status',[Vehiculo::DESACTIVADO,Vehiculo::BORRADOR,Vehiculo::REVISION,Vehiculo::PUBLICADOOK,Vehiculo::PUBLICADOPENDIENTE,Vehiculo::REGISTRADO,Vehiculo::REGISTRADOVENTA])->default(Vehiculo::BORRADOR);
             $table->integer('precio')->nullable();
             $table->string('nro_serie')->nullable();
             $table->enum('comision',[Vehiculo::PAGO,Vehiculo::PORCENTAJE])->default(Vehiculo::PAGO);

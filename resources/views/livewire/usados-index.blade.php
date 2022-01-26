@@ -21,6 +21,16 @@
                     </a>
                 </div>
 
+                <div class=" col-span-2 lg:col-span-3 mx-auto">
+                    <a href="{{route('garage.vehiculos.index')}}">
+                        <button class="w-full btn btn-block bg-blue-800 shadow h-10 px-4 rounded-lg text-white mr-4" wire:click="resetFilters">
+                        
+                            Administrar Publicaciones
+
+                        </button>
+                    </a>
+                </div>
+
                 <div class=" lg:col-span-3 mx-auto">
                 <button class="btn btn-block bg-white shadow h-14 px-4 rounded-lg text-gray-700 mr-4" wire:click="resetFilters">
                     <i class="fas fa-archway text-xs mr-2"></i>

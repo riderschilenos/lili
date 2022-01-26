@@ -13,6 +13,8 @@ Route::get('vehiculo/vender', [VehiculoController::class,'vender'])->middleware(
 
 Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name('comision');
 
+Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('precioupdate');
+
 Route::get('misvehiculos', [VehiculoController::class,'personalindex'])->name('vehiculos.index');
 
 

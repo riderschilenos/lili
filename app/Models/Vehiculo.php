@@ -11,9 +11,14 @@ class Vehiculo extends Model
 
     protected $guarded = ['id'];
 
+    const DESACTIVADO =0;
     const BORRADOR =1;
     const REVISION =2;
-    const PUBLICADO =3;
+    const PUBLICADOOK =3;
+    const PUBLICADOPENDIENTE=4;
+    const REGISTRADO =5;
+    const REGISTRADOVENTA =6;
+
     const PAGO =1;
     const PORCENTAJE =2;
 

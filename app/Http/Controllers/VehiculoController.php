@@ -77,7 +77,7 @@ class VehiculoController extends Controller
         }
         elseif($request->status==1){
 
-            return redirect()->route('garage.comision');
+            return redirect()->route('garage.comision',$vehiculo);
         }
 
     }
@@ -88,6 +88,17 @@ class VehiculoController extends Controller
 
         
         return view('vehiculo.usados.comision', compact('vehiculo'));
+    }
+
+    public function precio(Request $request, Vehiculo $vehiculo)
+    {   
+        $request->validate([
+            'precio'=>'required'
+        ]);
+
+        $vehiculo->update($request->all());
+        
+        return redirect()->route('garage.comision',$vehiculo);
     }
 
     

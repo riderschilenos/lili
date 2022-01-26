@@ -53,7 +53,7 @@ class PaymentController extends Controller
             $socio->status=1;
             $socio->save();
 
-            return redirect()->route('socio.create');
+            return redirect()->route('socio.show',$socio);
         }
         else{
             

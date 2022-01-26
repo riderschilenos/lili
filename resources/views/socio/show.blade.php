@@ -48,7 +48,7 @@
                 <!-- Left Side -->
                 <div class="w-full md:w-3/12 md:mx-2">
                     <!-- Profile Card -->
-                    <div class="bg-white p-3 border-t-4 border-green-400">
+                    <div class="bg-white p-3 border-t-4 border-red-400">
                         <div class="image overflow-hidden">
                             <img class="h-auto w-full mx-auto object-cover"
                                 src="{{ $socio->user->profile_photo_url }}"

@@ -84,13 +84,13 @@
                             @isset($vehiculo->image)
                                 <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($vehiculo->image->url)}}" alt="">
                             @else
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://congresosdeformacion.com/wp-content/uploads/2018/12/fotografia2.jpg" alt="">
                                 
                             
                             @endisset
-                            </figure>
+                        </figure>
                         <div>
-                            <p class="mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, in magnam sunt ipsa blanditiis eaque libero sed aliquam vel perspiciatis, rem cum ratione alias dignissimos totam unde beatae quo nostrum.</p>
+                            <p class="mb-2">Saca una foto donde se vea el vehiculo completo y sea facil identidificar sus detalles principales.</p>
                             {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
                             @error('file')
                                 <strong class="text-xs text-red-600">{{$message}}</strong>

@@ -8,23 +8,41 @@
   
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
-
+    if($vehiculo->comision==1){
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
     $item->title = 'Comision:';
     $item->quantity = 1;
     $item->unit_price = 5000;
+    }
+    elseif($vehiculo->comision==2){
+        // Crea un ítem en la preferencia
+    $item = new MercadoPago\Item();
+    $item->title = 'Comision:';
+    $item->quantity = 1;
+    $item->unit_price = $vehiculo->precio*0.01;
+
+    }
 
     
 
     $preference = new MercadoPago\Preference();
     //...
- 
-    $preference->back_urls = array(
+    if($vehiculo->comision==1){
+        $preference->back_urls = array(
         "success" => route('payment.vehiculo', $vehiculo),
         "failure" => "http://www.tu-sitio/failure",
         "pending" => "http://www.tu-sitio/pending"
+        );
+    }
+    elseif($vehiculo->comision==2){
+        $preference->back_urls = array(
+        "success" => route('payment.vehiculodown', $vehiculo),
+        "failure" => "http://www.tu-sitio/failure",
+        "pending" => "http://www.tu-sitio/pending"
     );
+    }
+   
     $preference->auto_return = "approved";
 
     $preference->items = array($item);
@@ -35,6 +53,9 @@
 
     
 @if(is_null($vehiculo->precio))
+
+            <p class="text-center">Para finalizar la publicacion de su vehiculo debe asignar un valor de venta y la modalidad de comision que desea pagar.</p>
+                
             <div class="flex justify-center mt-4">
 
 
@@ -78,6 +99,8 @@
 
 @else               
                     
+            @if ($vehiculo->status==1)
+                
             
                 
                 
@@ -133,6 +156,58 @@
                                 
                     @endswitch
                
+            @else
+                @if ($vehiculo->status==4)
+                    <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 py-12">
+                        <div class="flex justify-center mt-6">
+                            
+                            <img class="h-24 w-30 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                        </div>
+                            
+                    <div class="card"><div class="card-body">
+                        <article class="flex items-center">
+                            @switch($vehiculo->comision)
+                                @case(1)
+                                    <h1 class="text-lg ml-2 font-bold">Tipo de comision:</h1>
+                                    <h1 class="text-lg ml-2">Pago al momento de publicar</h1>
+                                    
+                    
+                                    <p class="text-xl font-bold ml-auto">$5.000</p>
+                                    @break
+                                @case(2)
+                                    <h1 class="text-lg ml-2">Tipo de comision: 1% al momento de vender</h1>
+                                    
+                    
+                                    <p class="text-xl font-bold ml-auto">${{number_format($vehiculo->precio*0.01, 0, '.', '.')}}</p>
+                                    @break
+                                
+                                @default
+                                    
+                            @endswitch
+                                
+                                
+                            
+                        </article>
+                        
+                        
+                        
+                    </div></div></div>
+                    <div class="cho-container flex justify-center mt-2 mb-4">
+                        <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                    </div>
+
+
+                @else
+                <div class="flex justify-center mt-2 mb-4">
+
+                    <button wire:click="vehiculodown({{$vehiculo}})" class="btn btn-primary cursor-pointer">Bajar publicación</button>
+                       
+                </div>
+                @endif
+               
+            @endif
+
+
 @endif
                     
 
@@ -141,22 +216,42 @@
     
 
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-  
-        <script>
-        // Agrega credenciales de SDK
-          const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
-                locale: 'es-AR'
-          });
-        
-          // Inicializa el checkout
-          mp.checkout({
-              preference: {
-                  id: '{{ $preference->id }}'
-              },
-              render: {
-                    container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                    label: 'Pagar y Publicar', // Cambia el texto del botón de pago (opcional)
-              }
-        });
-    </script>
+        @if ($vehiculo->comision==1)
+            <script>
+                // Agrega credenciales de SDK
+                const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+                        locale: 'es-AR'
+                });
+                
+                // Inicializa el checkout
+                mp.checkout({
+                    preference: {
+                        id: '{{ $preference->id }}'
+                    },
+                    render: {
+                            container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
+                            label: 'Pagar y Publicar', // Cambia el texto del botón de pago (opcional)
+                    }
+                });
+            </script>
+        @else
+            <script>
+                // Agrega credenciales de SDK
+                const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+                        locale: 'es-AR'
+                });
+                
+                // Inicializa el checkout
+                mp.checkout({
+                    preference: {
+                        id: '{{ $preference->id }}'
+                    },
+                    render: {
+                            container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
+                            label: 'Pagar y Cerrar Publicación', // Cambia el texto del botón de pago (opcional)
+                    }
+                });
+            </script>
+        @endif
+       
 </div>

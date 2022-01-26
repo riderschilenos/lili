@@ -28,8 +28,8 @@ class UsadosIndex extends Component
 
         $vehiculo_types = Vehiculo_type::all();
         
-        $vehiculos = Vehiculo::where('status',3)
-                        ->orwhere('status',4)
+        $vehiculos = Vehiculo::where('status',4)
+                        ->orwhere('status',5)
                         ->orwhere('status',6)
                         ->Vehiculo_type($this->vehiculo_types_id)
                         ->latest('id')

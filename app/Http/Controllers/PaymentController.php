@@ -75,10 +75,35 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
-            $vehiculo->status=3;
+            $vehiculo->status=4;
             $vehiculo->save();
 
             return redirect()->route('garage.usados');
+        }
+        else{
+            
+        }
+
+        
+
+      
+    }
+
+    public function vehiculodown(Vehiculo $vehiculo, Request $request){
+
+        $payment_id = $request->get('payment_id');
+
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-8905249143413936-011117-dffe1a66c367246ec8bd92d5e2afbc78-1055006538");
+
+        $response = json_decode($response);
+
+        $status = $response->status;
+
+        if($status == 'approved'){
+            $vehiculo->status=1;
+            $vehiculo->save();
+
+            return redirect()->route('garage.vehiculos.index');
         }
         else{
             

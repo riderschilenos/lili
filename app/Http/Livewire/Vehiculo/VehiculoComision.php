@@ -38,11 +38,21 @@ class VehiculoComision extends Component
 
     public function publicar(Vehiculo $vehiculo){
 
-        $vehiculo->status=4;
+        $vehiculo->status=5;
 
         $vehiculo->save();
 
         return redirect()->route('garage.usados');
+
+    }
+
+    public function vehiculodown(Vehiculo $vehiculo){
+
+        $vehiculo->status=1;
+
+        $vehiculo->save();
+
+        return redirect()->route('garage.vehiculos.index');
 
     }
 }

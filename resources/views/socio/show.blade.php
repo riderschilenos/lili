@@ -77,7 +77,7 @@
                                 class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                 <li class="flex items-center py-3">
                                     <span>Suscripción</span>
-                                    @switch($socio->status)
+                                        @switch($socio->status)
                                                 @case(1)
                                                     <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
                                                     @break
@@ -177,9 +177,21 @@
                                         <i class="fas fa-car text-white-800"></i>
                                     </span>
                                     <span>Mi Garage</span>
-                                    @can('perfil_propio', $socio)
-                                        <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Inscribir Vehiculo)</span></a>
-                                    @endcan
+                                        @switch($socio->status)
+                                                @case(1)
+                                                    @can('perfil_propio', $socio)
+                                                    <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Inscribir Vehiculo)</span></a>
+                                                    @endcan
+                                                @break
+                                                @case(2)
+                                                    @can('perfil_propio', $socio)
+                                                    <a href="{{route('socio.create')}}"><span class="text-blue-600 font-bold text-xs align-middle"> Activa tu cuenta para registrar vehiculos</span></a>
+                                                    @endcan
+                                                @break
+                                                @default
+                                                    
+                                        @endswitch
+                                    
                                 </div>
                                 
                                 <div class="grid grid-cols-2">

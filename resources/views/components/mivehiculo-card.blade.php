@@ -35,7 +35,7 @@
 
                     <div class="grid grid-cols-2">
                         <div>
-                            <a href= "{{route('garage.comision', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
+                            <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
                                 Ver Publicacion
                             </a>
                         </div>

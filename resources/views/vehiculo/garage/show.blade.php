@@ -13,10 +13,10 @@
             <div class="text-white">
                 <h1 class="text-4xl">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                 <h2 class="text xl mb-3">Vendedor: {{$vehiculo->user->name}}</h2>
-                <p class="mb-2"><i class="fas fa-film"></i> <b>3</b> Mantenciones registradas</p>
+                <p class="mb-2"><i class="fas fa-wrench"></i> <b>3</b> Mantenciones registradas</p>
                 <p class="mb-2"><i class="fas fa-biking"></i> Tipo de vehiculo: {{$vehiculo->vehiculo_type->name}}</p>
-                <p class="mb-2"><i class="fas fa-camera"></i> Año: {{$vehiculo->año}}</p>
-                <p class="mb-2"><i class="fas fa-users"></i> Aro: </p>
+                <p class="mb-2"><i class="fas fa-clock"></i> Año: {{$vehiculo->año}}</p>
+                <p class="mb-2"><i class="fas fa-adjust"></i> Aro: </p>
                 <p class="mb-2"><i class="fas fa-star"></i> Ofertas: 40</p>
 
             </div>
@@ -69,42 +69,36 @@
                     </div>
                     
 
-                    <h1 class="font-bold text-xl my-4 text-gray-800">Si te haces Sponsor, automáticamente tendrás acceso a 5 videos exclusivos.</h1>
-                    <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
-                        
-                            @if ($vehiculo->image)
-                       
-                            <li><img class="h-24 w-full object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">{{$vehiculo->modelo }} </li>
-                            
-                            @endif
-                            
-                            
-                        
-                    </ul>
+                    
                 </div>
 
             </section>
 
-    {{-- comment         
+         
+{{-- comment
 
             <section class="mb-8">
                 
 
                 <header class="border border-gray-200 px-4 py-2 cursor bg-gray-200 mt-6">
-                    <h1 class="font-bold text-lg text-gray-800">Sponsors</h1>
+                    <h1 class="font-bold text-lg text-gray-800">Mantenciones</h1>
                 </header>
 
                 <div class="bg-white py-2 px-4">
                     <ul class="sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-6 mt-8">
-                        @foreach ($serie->sponsors->reverse() as $sponsor)
-                            <li><img class="flex ml-3 h-12 w-12 rounded-full object-cover" src="{{ $sponsor->profile_photo_url }}" alt=""  />{{ Str::limit($sponsor->name, 10) }}</li>
-                            @endforeach
+                        
+                            <li><img class="flex ml-3 h-12 w-12 rounded-full object-cover" src="" alt=""  /></li>
+                            
                     </ul>
                     
                 </div>
             </section>
 
-            @livewire('series-reviews',['serie' => $serie])
+             --}}
+
+             @livewire('vehiculo.vehiculo-mantencion',['vehiculo' => $vehiculo])
+
+            
 
         </div>
 
@@ -113,33 +107,19 @@
             <section class="card mb-4">
                 <div class="card-body">
                     <div class="flex items-center">
-                        <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $serie->productor->profile_photo_url }}" alt="{{ $serie->productor->name }}"  />
+                        <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
                         <div class="ml-4">
-                            <h1 class="font-fold text-gray-500 text-lg">Filmmaker: {{ $serie->productor->name }}</h1>
-                            <a class="text-blue-400 text-sm font-bold" href="">{{'@'.Str::slug($serie->productor->filmmakers->first()->name,'')}}</a>
+                            <h1 class="font-fold text-gray-500 text-lg">Vendedor: {{ $vehiculo->user->name }}</h1>
+                            @if($vehiculo->user->socio)
+                                <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $vehiculo->user->socio)}}">{{'@'.$vehiculo->user->socio->slug}}</a>
+
+                            @endif
                         </div>
                     </div>
-                    @can('enrolled', $serie)
-
-                        <a class="btn btn-danger btn-block mt-4" href="{{route('series.status',$serie)}}">Ver la Serie</a>
-
-                    @else 
-                        @if ($serie->precio->value == 0)
-                            <p class="text-2xl font-bold text-gray-500 mt-3 mb-2 text-center">GRATIS</p>
-                            
-                            <form action="{{route('serie.enrolled',$serie)}}" method="POST">
-                                @csrf
-                                <button class="btn btn-danger btn-block" type="submit">Obtener serie</button>
-                            </form>
-
-                        @else
-                            <p class="text-2xl font-bold text-gray-500 mt-3 mb-2 text-center">${{number_format($serie->precio->value)}}</p>
-                            <a href="{{route('payment.checkout', $serie)}}" class="btn btn-danger btn-block"> Ser Sponsor </a>
-                        @endif
-                   @endcan
+                    
                 </div>
             </section>
-
+ {{-- comment   
             <aside class="hidden lg:block">
                 @foreach ($similares as $similar)
                     <article class="flex mb-6">

@@ -57,7 +57,7 @@
                     
                     ClassicEditor
                     .create( document.querySelector( '#descripcion' ), {
-                            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote' ],
+                            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote', 'undo', 'redo', 'numberedList', 'bulletedList'  ],
                             heading: {
                             options: [
                                     { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
@@ -71,6 +71,7 @@
                             } );
                             
                                 //Cambiar imagen
+
                     document.getElementById("file").addEventListener('change', cambiarImagen);
 
                     function cambiarImagen(event){
@@ -82,6 +83,8 @@
                         };
 
                         reader.readAsDataURL(file);
+
+                    
 }
                 </script>
             

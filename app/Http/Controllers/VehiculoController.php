@@ -53,6 +53,7 @@ class VehiculoController extends Controller
             'slug'=> 'test',
             'status'=> $request->status,
             'precio'=> $request->precio,
+            'descripcion'=> $request->descripcion,
             'user_id'=> $request->user_id,
             'vehiculo_type_id'=> $request->vehiculo_type_id
             ]);

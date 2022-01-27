@@ -46,74 +46,44 @@
                         </div>
                         
 
-                        <div class="mb-4">
-                            
-                            {!! Form::label('modelo', 'Modelo:*') !!}
-                            {!! Form::text('modelo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('modelo')?' border-red-600':'')]) !!}
+                        @include('vehiculo.usados.partials.formmoto')
 
-                            @error('modelo')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
-
-                        <div class="mb-4">
-                            {!! Form::label('cilindrada', 'Cilindrada:*') !!}
-                            {!! Form::text('cilindrada', null , ['class' => 'form-input block w-full mt-1'.($errors->has('cilindrada')?' border-red-600':'')]) !!}
-
-                            @error('cilindrada')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
-
-                        <div class="mb-4">
-                            {!! Form::label('año', 'Año:*') !!}
-                            {!! Form::text('año', null , ['class' => 'form-input block w-full mt-1'.($errors->has('año')?' border-red-600':'')]) !!}
-
-                            @error('año')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
-                        
-
-                        
-                    </div>
-
-                    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del vehiculo</h1>
-                    <div class="grid grid-cols-2 gap-4">
-                        <figure>
-                            @isset($vehiculo->image)
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($vehiculo->image->url)}}" alt="">
-                            @else
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://congresosdeformacion.com/wp-content/uploads/2018/12/fotografia2.jpg" alt="">
-                                
-                            
-                            @endisset
-                        </figure>
-                        <div>
-                            <p class="mb-2">Saca una foto donde se vea el vehiculo completo y sea facil identidificar sus detalles principales.</p>
-                            {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                            @error('file')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
-                    </div>
-
-
-
-                    {!! Form::hidden('user_id',auth()->user()->id) !!}
-
-                    {!! Form::hidden('marca_id',$selectedmarca) !!}
-
-                    {!! Form::hidden('status', 1 ) !!}
-
-                    {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
-
-                    <div class="flex justify-end">
-                        {!! Form::submit('Siguiente Paso (Precio y comisión)', ['class'=>'btn btn-primary cursor-pointer']) !!}
-                    </div>
 
                 {!! Form::close() !!}
 
+                
+                <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+                <script>
+                    
+                    ClassicEditor
+                    .create( document.querySelector( '#descripcion' ), {
+                            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote' ],
+                            heading: {
+                            options: [
+                                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                                ]
+                            }
+                        } )
+                        .catch( error => {
+                            console.log( error );
+                            } );
+                            
+                                //Cambiar imagen
+                    document.getElementById("file").addEventListener('change', cambiarImagen);
+
+                    function cambiarImagen(event){
+                        var file = event.target.files[0];
+
+                        var reader = new FileReader();
+                        reader.onload = (event) => {
+                            document.getElementById("picture").setAttribute('src', event.target.result); 
+                        };
+
+                        reader.readAsDataURL(file);
+}
+                </script>
             
 
             @endif

@@ -45,13 +45,18 @@
                             </select>
                         </div>
                         
-
-                        @include('vehiculo.usados.partials.formmoto')
+                        @if($selecteddisciplina==1)
+                            @include('vehiculo.usados.partials.formmoto')
+                        @elseif($selecteddisciplina==2)
+                            @include('vehiculo.usados.partials.formbici')
+                        @endif
 
 
                 {!! Form::close() !!}
 
                 
+
+
                 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
                 <script>
                     

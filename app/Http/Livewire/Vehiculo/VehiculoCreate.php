@@ -8,7 +8,7 @@ use App\Models\Vehiculo_type;
 use Livewire\Component;
 
 class VehiculoCreate extends Component
-{   public $selectedvehiculotype, $selectedmarca, $marca, $marcas, $name, $modelo, $file, $cilindrada, $año, $aro_front, $aro_back, $slug, $precio;
+{   public $selectedvehiculotype, $selectedmarca, $selecteddisciplina, $marca, $marcas, $name, $modelo, $file, $cilindrada, $año, $aro_front, $aro_back, $slug, $precio;
 
     public $vehiculo_type;
     
@@ -26,10 +26,19 @@ class VehiculoCreate extends Component
             $disciplina_id=1;
         }
 
+        if($vehiculo_type==9 or $vehiculo_type==10 or $vehiculo_type==3){
+            $disciplina_id=2;
+        }
+
+        $this->selecteddisciplina=$disciplina_id;
         
         $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();
         
         $this->selectedvehiculo_type = $vehiculo_type;
+
+        
+
+
     
     }
 
@@ -37,6 +46,8 @@ class VehiculoCreate extends Component
 
 
         $this->selectedmarca = $marca;
+
+
 
     
     }

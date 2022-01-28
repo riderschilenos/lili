@@ -37,9 +37,8 @@ class VehiculoController extends Controller
         $request->validate([
             'marca_id'=>'required',
             'modelo'=>'required',
-            'año'=>'required',
+            'año'=>'required'
            // 'slug'=>'required|unique:vehiculos',
-            'file'=>'required|image|max:2048'
 
         ]);
 
@@ -73,12 +72,12 @@ class VehiculoController extends Controller
             
             $vehiculo->socios()->attach($request->socio_id);
 
-            return redirect()->route('garage.vehiculos.index');
+            return redirect()->route('garage.image',$vehiculo);
 
         }
         elseif($request->status==1){
 
-            return redirect()->route('garage.comision',$vehiculo);
+            return redirect()->route('garage.image',$vehiculo);
         }
 
     }
@@ -89,6 +88,14 @@ class VehiculoController extends Controller
 
         
         return view('vehiculo.usados.comision', compact('vehiculo'));
+    }
+
+    public function imageupload(Vehiculo $vehiculo)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+        
+        return view('vehiculo.fotos', compact('vehiculo'));
     }
 
     public function precio(Request $request, Vehiculo $vehiculo)

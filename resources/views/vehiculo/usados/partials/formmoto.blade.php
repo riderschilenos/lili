@@ -36,15 +36,15 @@
     </div>
 
     </div>
-
+{{-- comment
     <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del vehiculo</h1>
-{{-- comment --}}
+
 
     
         <div class="grid grid-cols-2 gap-4">
             <figure>
                 @isset($vehiculo->image)
-                    <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($vehiculo->image->url)}}" alt="">
+                    <img id="picture" class="w-full h-64 object-cover object-contain"src="{{Storage::url($vehiculo->image->url)}}" alt="">
                 @else
                     <img id="picture" class="w-full h-64 object-cover object-center"src="https://congresosdeformacion.com/wp-content/uploads/2018/12/fotografia2.jpg" alt="">
                     
@@ -59,7 +59,7 @@
                 @enderror
             </div>
         </div>
-
+ --}}
         
 
 
@@ -72,8 +72,8 @@
 
     {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
 
-    <div class="flex justify-end">
-    {!! Form::submit('Siguiente Paso (Precio y comisión)', ['class'=>'btn btn-primary cursor-pointer']) !!}
+    <div class="flex justify-center">
+    {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
     </div>
 
     

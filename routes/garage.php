@@ -11,6 +11,8 @@ Route::get('usados', [VehiculoController::class,'index'])->name('usados');
 
 Route::get('vehiculo/vender', [VehiculoController::class,'vender'])->middleware('auth')->name('vehiculo.vender');
 
+Route::get('{vehiculo}/fotos', [VehiculoController::class,'imageupload'])->name('image');
+
 Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name('comision');
 
 Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('precioupdate');

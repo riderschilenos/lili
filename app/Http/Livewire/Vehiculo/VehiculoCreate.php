@@ -8,7 +8,7 @@ use App\Models\Vehiculo_type;
 use Livewire\Component;
 
 class VehiculoCreate extends Component
-{   public $selectedvehiculotype, $selectedmarca, $selecteddisciplina, $marca, $marcas, $name, $modelo, $file, $cilindrada, $año, $aro_front, $aro_back, $slug, $precio;
+{   public $selectedvehiculotype, $selectedmarca, $selecteddisciplina, $advance, $marca, $marcas, $name, $modelo, $file, $cilindrada, $año, $aro_front, $aro_back, $slug, $precio;
 
     public $vehiculo_type;
     
@@ -36,7 +36,7 @@ class VehiculoCreate extends Component
         
         $this->selectedvehiculo_type = $vehiculo_type;
 
-        
+        $this->advance=33;
 
 
     
@@ -47,7 +47,7 @@ class VehiculoCreate extends Component
 
         $this->selectedmarca = $marca;
 
-
+        $this->advance=66;
         
     
     }

@@ -38,6 +38,7 @@
     </div>
 
     <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del vehiculo</h1>
+{{-- comment --}}
 
     
         <div class="grid grid-cols-2 gap-4">

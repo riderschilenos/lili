@@ -38,7 +38,6 @@
     </div>
 
     <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del vehiculo</h1>
-    <h1 class="text-2xl font-bold mt-8 mb-2">7 Fotos</h1>
 {{-- comment --}}
 
     

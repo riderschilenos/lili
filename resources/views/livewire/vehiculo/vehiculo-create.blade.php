@@ -51,52 +51,56 @@
                             @include('vehiculo.usados.partials.formbici')
                         @endif
 
+                        
 
                 {!! Form::close() !!}
-
                 
 
+                
+                     
+        <script>
 
-                <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
-                <script>
-                    
-                    ClassicEditor
-                    .create( document.querySelector( '#descripcion' ), {
-                            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote', 'undo', 'redo', 'numberedList', 'bulletedList'  ],
-                            heading: {
-                            options: [
-                                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-                                ]
-                            }
-                        } )
-                        .catch( error => {
-                            console.log( error );
-                            } );
-                            
-                                //Cambiar imagen
+// Select the file input and use 
+// create() to turn it into a pond
+        ClassicEditor
+        .create( document.querySelector( '#descripcion' ), {
+                toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote', 'undo', 'redo', 'numberedList', 'bulletedList'  ],
+                heading: {
+                options: [
+                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                    ]
+                }
+            } )
+            .catch( error => {
+                console.log( error );
+                } );
+                
+                    //Cambiar imagen
+            
+        document.getElementById("file").addEventListener('change', cambiarImagen);
 
-                    document.getElementById("file").addEventListener('change', cambiarImagen);
+        function cambiarImagen(event){
+            var file = event.target.files[0];
 
-                    function cambiarImagen(event){
-                        var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById("picture").setAttribute('src', event.target.result); 
+            };
 
-                        var reader = new FileReader();
-                        reader.onload = (event) => {
-                            document.getElementById("picture").setAttribute('src', event.target.result); 
-                        };
+            reader.readAsDataURL(file);
 
-                        reader.readAsDataURL(file);
+        
+                }
+        </script>
 
-                    
-}
-                </script>
             
 
             @endif
         
         
      
-
+            
 </div>
+

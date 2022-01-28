@@ -48,7 +48,7 @@ class VehiculoCreate extends Component
         $this->selectedmarca = $marca;
 
 
-
+        
     
     }
 

@@ -96,6 +96,9 @@
 
              --}}
 
+        
+
+
              @livewire('vehiculo.vehiculo-mantencion',['vehiculo' => $vehiculo])
 
             
@@ -144,4 +147,7 @@
     </div>
 
     --}}
+
+    
+
 </x-app-layout>

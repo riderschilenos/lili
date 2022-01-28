@@ -17,7 +17,7 @@
         @enderror
     </div>
 
-    <div class="mb-4 col-pan-1 md:col-span-2">
+    <div class="mb-4 col-pan-1 md:col-span-2" wire:ignore>
         {!! Form::label('descripcion', 'Descripción') !!}
         {!! Form::textarea('descripcion', null , ['class' => 'form-input block w-full mt-1']) !!}
         

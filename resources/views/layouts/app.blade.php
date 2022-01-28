@@ -35,7 +35,6 @@
 
         @livewireScripts
 
-        
         @isset($js)
 
             {{$js}}

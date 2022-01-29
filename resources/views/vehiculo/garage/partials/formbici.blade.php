@@ -9,14 +9,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-4">
-                        {!! Form::label('cilindrada', 'Cilindrada:*') !!}
-                        {!! Form::text('cilindrada', null , ['class' => 'form-input block w-full mt-1'.($errors->has('cilindrada')?' border-red-600':'')]) !!}
-
-                        @error('cilindrada')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                    </div>
+                   
 
                     <div class="mb-4">
                         {!! Form::label('año', 'Año:*') !!}
@@ -35,22 +28,14 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        {!! Form::label('aro_front', 'Aro delantero:') !!}
+                        {!! Form::label('aro_front', 'Aro:') !!}
                         {!! Form::text('aro_front', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':'')]) !!}
 
                         @error('aro_front')
                             <strong class="text-xs text-red-600">{{$message}}</strong>
                         @enderror
                     </div>
-                    <div class="mb-4">
-                        {!! Form::label('aro_back', 'Aro trasero:') !!}
-                        {!! Form::text('aro_back', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':'')]) !!}
-
-                        @error('aro_back')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                    </div>
-
+                   
                     
                 </div>
 
@@ -73,4 +58,3 @@
                     {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
                 </div>
                 
-               

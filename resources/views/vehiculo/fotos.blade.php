@@ -13,9 +13,13 @@
 
               <div class="flex justify-center">
                 <div class="flex p-5 mt-4 space-x-4 items-center shadow-xl max-w-sm rounded-md">
-                  @if($vehiculo->marca->image)  
+                  @isset($vehiculo->marca->image))
+                      
+                  
                     <img src="https://avatars.githubusercontent.com/u/5550850?v=4" alt="image" class="h-14 w-14 rounded-full" />
-                  @endif
+                  
+                      
+                  @endisset
                   <div>
                     <h2 class="text-gray-800 font-semibold text-xl">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada}}</h2>
                     <p class="mt-1 text-gray-400 text-center text-sm cursor-pointer">{{$vehiculo->año}}</p>
@@ -78,9 +82,12 @@
                             </span>
                           </div>
                         </div>
-                  
-                        <div class="text-xs text-center md:text-base">Precio/Comisión</div>
-                      
+                        @if($vehiculo->status==1)
+                            <div class="text-xs text-center md:text-base">Precio/Comisión</div>
+                            
+                        @elseif($vehiculo->status==2)
+                          <div class="text-xs text-center md:text-base">Pago</div>
+                        @endif
                       </div>
                       
                   

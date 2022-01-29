@@ -5,8 +5,20 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="text-2xl font-bold text-center">Mis Vehiculos</h1>
-
                 <p class="text-gray-500 text-sm mb-2 text-center">Vendedor: {{auth()->user()->name}}</p>
+                
+                @if(auth()->user()->vehiculos->count())
+                    <div class="mx-auto flex justify-center">
+                                
+                        <a href="{{route('garage.vehiculo.vender')}}">
+                            <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mr-4" wire:click="resetFilters">
+                            
+                                Vende tu Juguete
+
+                            </button>
+                        </a>
+                    </div>
+                @endif
                 <hr class="mt-2 mb-6">
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8">

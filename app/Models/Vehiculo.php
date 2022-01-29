@@ -28,7 +28,10 @@ class Vehiculo extends Model
         }
     }
 
-    
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     // relacion uno a muchos inversa
     public function user(){

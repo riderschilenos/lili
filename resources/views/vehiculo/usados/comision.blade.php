@@ -87,7 +87,7 @@
                   </div>
                 
 
-                @livewire('vehiculo.vehiculo-comision', ['vehiculo' => $vehiculo], key('vehiculos-comision.'.$vehiculo->id))
+                @livewire('vehiculo.vehiculo-comision', ['vehiculo' => $vehiculo], key('vehiculos-comision.'.$vehiculo->slug))
                 
             </div>
         </div>

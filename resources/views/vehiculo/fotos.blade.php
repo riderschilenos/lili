@@ -152,7 +152,7 @@
                       </a>
                     </div>
                   
-                  @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculos-image.'.$vehiculo->id))
+                  @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculos-image.'.$vehiculo->slug))
            {{-- comment      --}}
                   
             </div>

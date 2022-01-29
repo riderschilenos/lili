@@ -20,7 +20,7 @@
     $item = new MercadoPago\Item();
     $item->title = 'Comision:';
     $item->quantity = 1;
-    $item->unit_price = $vehiculo->precio*0.01;
+    $item->unit_price = $vehiculo->precio*0.005;
 
     }
 
@@ -65,7 +65,7 @@
                     <select wire:model="selectedcomision" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         <option value="">-Seleccione un tipo de Comision-</option>
                         <option value="1">$5.000 al momento de publicar</option>
-                        <option value="2">1% al momento de vender</option>
+                        <option value="2">0.5% al momento de vender</option>
                         
                     </select>
                 </div>
@@ -121,10 +121,10 @@
                                     <p class="text-xl font-bold ml-auto">$5.000</p>
                                     @break
                                 @case(2)
-                                    <h1 class="text-lg ml-2">Tipo de comision: 1% al momento de vender</h1>
+                                    <h1 class="text-lg ml-2">Tipo de comision: 0.5% al momento de vender</h1>
                                     <h1 class="cursor-pointer text-blue-600 text-sm ml-2" wire:click="edit({{$vehiculo}})">(EDITAR)</h1>
                        
-                                    <p class="text-xl font-bold ml-auto">${{number_format($vehiculo->precio*0.01, 0, '.', '.')}}</p>
+                                    <p class="text-xl font-bold ml-auto">${{number_format($vehiculo->precio*0.005, 0, '.', '.')}}</p>
                                     @break
                                 
                                 @default
@@ -175,10 +175,10 @@
                                     <p class="text-xl font-bold ml-auto">$5.000</p>
                                     @break
                                 @case(2)
-                                    <h1 class="text-lg ml-2">Tipo de comision: 1% al momento de vender</h1>
+                                    <h1 class="text-lg ml-2">Tipo de comision: 0.5% al momento de vender</h1>
                                     
                     
-                                    <p class="text-xl font-bold ml-auto">${{number_format($vehiculo->precio*0.01, 0, '.', '.')}}</p>
+                                    <p class="text-xl font-bold ml-auto">${{number_format($vehiculo->precio*0.005, 0, '.', '.')}}</p>
                                     @break
                                 
                                 @default

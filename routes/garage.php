@@ -13,6 +13,8 @@ Route::get('vehiculo/vender', [VehiculoController::class,'vender'])->middleware(
 
 Route::get('{vehiculo}/fotos', [VehiculoController::class,'imageupload'])->name('image');
 
+Route::post('{vehiculo}/upload', [VehiculoController::class,'upload'])->name('upload');
+
 Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name('comision');
 
 Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('precioupdate');

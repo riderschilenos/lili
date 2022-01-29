@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        
         <link rel="shortcut icon" href="{{asset('img/logo.png')}}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -14,10 +15,9 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/6.0.0-beta.2/dropzone.css" integrity="sha512-b3Wb3Os4sxJRdYkfCWtFjvuN/OlfBNtBGJknON+zbxU6M7GRYdII8m1W7TMsls/kwuwtq1wt7TvuF58Sd/4AGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-
+        @yield('css')
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

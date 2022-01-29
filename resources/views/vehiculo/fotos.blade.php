@@ -1,15 +1,27 @@
 <x-app-layout>
     
-   
+    @section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @endsection
 
     <div class="container py-8 ">
         
         <div class="card">
             <div class="card-body">
                 <h1 class="text-2xl font-bold text-center">Vende tu Juguete Rider</h1>
-                <hr class="mt-2 mb-6">
+                <hr class="mt-2 mb-2">
 
-                
+              <div class="flex justify-center">
+                <div class="flex p-5 mt-4 space-x-4 items-center shadow-xl max-w-sm rounded-md">
+                  @if($vehiculo->marca->image)  
+                    <img src="https://avatars.githubusercontent.com/u/5550850?v=4" alt="image" class="h-14 w-14 rounded-full" />
+                  @endif
+                  <div>
+                    <h2 class="text-gray-800 font-semibold text-xl">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada}}</h2>
+                    <p class="mt-1 text-gray-400 text-center text-sm cursor-pointer">{{$vehiculo->año}}</p>
+                  </div>
+                </div>
+              </div>      
 
                 <div class="w-full py-6">
                     <div class="flex">
@@ -35,9 +47,12 @@
                             </div>
                           </div>
                   
-                          <div class="w-10 h-10 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
-                            <span class="text-center text-gray-600 w-full ml-1">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                          <div class="w-10 h-10 mx-auto bg-green-500 rounded-full text-lg text-white flex items-center">
+                            <span class="text-center text-white w-full">
+                                <svg class="w-7 h-7 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
                             </span>
                           </div>
                         </div>
@@ -87,11 +102,19 @@
                     </div>
                   </div>
                 
-                  <form action="/file-upload"
-                  class="dropzone"
-                  id="my-awesome-dropzone"></form>
 
-                  <input type="file" name="file" />
+
+                  <form action="{{route('garage.upload',$vehiculo)}}"
+                  method="POST"
+                  class="dropzone"
+                  id="my-awesome-dropzone">
+                  <div class="dz-message " data-dz-message>
+                    <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
+                    <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
+                  </div>
+                  </form>
+
+                
                 
                 
             </div>
@@ -101,7 +124,22 @@
 
 
     <x-slot name="js">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/6.0.0-beta.2/dropzone-min.min.js" ></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+      <script>
+        
+        Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+          headers:{
+            'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
+          },
+          acceptedFiles: "image/*",
+          maxFilesize: 8,
+          maxFiles: 6
+            
+            };
+
+      </script>
+
     </x-slot>
     
 

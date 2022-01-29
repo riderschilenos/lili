@@ -3,11 +3,14 @@
      <section class="bg-gray-700 py-12 mb-8 ">
         <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
-                @isset($vehiculo->image)
-                    <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+
+                @if($vehiculo->image->first())
+                
+                    <img class="h-80 w-full object-cover object-center" src="{{$vehiculo->image->first()->url}}" alt="">
                 @else
-                    <img class="h-60 w-full object-cover object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
-                @endisset
+                    <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                
+                @endif
             </figure>
 
             <div class="text-white">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
 use Illuminate\Http\Request;
@@ -96,6 +97,26 @@ class VehiculoController extends Controller
 
         
         return view('vehiculo.fotos', compact('vehiculo'));
+    }
+
+    public function upload(Request $request, Vehiculo $vehiculo)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+        $request->validate([
+            'file'=>'required|image|max:10240'
+        ]);
+
+        $images = $request->file('file')->store('vehiculos');
+
+        $url = Storage::url($images);
+
+        $vehiculo->image()->create([
+            'url'=>$url
+        ]);
+
+     
+
     }
 
     public function precio(Request $request, Vehiculo $vehiculo)

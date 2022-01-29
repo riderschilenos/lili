@@ -148,9 +148,9 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             @if(auth()->user()->socio)
-                            <x-jet-dropdown-link href="{{ route('socio.show', auth()->user()->socio) }}">
-                                {{ __('Perfil Rider') }}
-                            </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('socio.show', auth()->user()->socio) }}">
+                                    {{ __('Perfil Rider') }}
+                                </x-jet-dropdown-link>
                             @endif
                             <x-jet-dropdown-link href="{{ route('socio.create') }}">
                                 {{ __('Suscripción RCH') }}

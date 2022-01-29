@@ -24,14 +24,17 @@
                     
                     <div class="grid grid-cols-5">
                         <div class="col-span-5">
-                            <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
+                            
                                 @if($vehiculo->image->first())
-                                
-                                <img class="h-46 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
+                                    <img class="h-46 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                </a>
                                 @else
-                                <img class="h-44 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                <a href="{{route('garage.image', $vehiculo)}}">
+                                    <img class="h-44 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                </a>
                                 @endif
-                            </a>
+                            
                         </div>
                         
 

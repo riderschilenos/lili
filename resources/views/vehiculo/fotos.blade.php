@@ -60,7 +60,9 @@
                         <div class="text-xs text-center md:text-base">Fotos</div>
                       </div>
                   
+                      
                       <div class="w-1/4">
+                        
                         <div class="relative mb-2">
                           <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
                             <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
@@ -78,7 +80,9 @@
                         </div>
                   
                         <div class="text-xs text-center md:text-base">Precio/Comisión</div>
+                      
                       </div>
+                      
                   
                       <div class="w-1/4">
                         <div class="relative mb-2">
@@ -101,7 +105,7 @@
                       </div>
                     </div>
                   </div>
-                  {{-- comment 
+                {{-- comment  
                   <div class="card">
                     <div class="card-body">
                       <form action="{{route('garage.upload',$vehiculo)}}" method="POST">
@@ -114,8 +118,8 @@
                       </form>
                     </div>
                   </div>
-                
-                    --}}
+                 --}}
+                   
                   <form action="{{route('garage.upload',$vehiculo)}}"
                   method="POST"
                   class="dropzone"
@@ -126,7 +130,19 @@
                   </div>
                   </form>
 
+              @if($vehiculo->image->first())
+                  
+                  <div class="flex justify-center">
+                      <a href="{{route('garage.comision',$vehiculo)}}">
+                        <button class="btn btn-primary mt-4">
+                          Siguiente
+                        </button>
+                      </a>
+                  </div>
+              @else
+                  <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
               
+              @endif
                 
                 
             </div>
@@ -139,7 +155,7 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
       <script>
-        
+        /*
         Dropzone.options.myGreatDropzone = { // camelized version of the `id`
           headers:{
             'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
@@ -149,7 +165,7 @@
           maxFiles: 6
             
             };
-
+*/
       </script>
 
     </x-slot>

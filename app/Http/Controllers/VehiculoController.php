@@ -7,7 +7,7 @@ use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
+
 
 class VehiculoController extends Controller
 {   
@@ -103,7 +103,7 @@ class VehiculoController extends Controller
     public function upload(Request $request, Vehiculo $vehiculo)
     {   
         //$this->authorize('dicatated',$serie);
-       
+
         $request->validate([
             'file'=>'required|image|max:10240'
         ]);
@@ -115,14 +115,9 @@ class VehiculoController extends Controller
         $vehiculo->image()->create([
             'url'=>$url
         ]);
-    /*
-        $nombre = $request->file('file')->getClientOriginalName();
-        $ruta = storage_path().'\app\public\vehiculos';
-        
-        return $ruta;
 
-        Image::make($request->file('file'))->save();
-*/
+     
+
     }
 
     public function precio(Request $request, Vehiculo $vehiculo)

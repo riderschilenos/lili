@@ -23,7 +23,7 @@
                         <div class="text-xs text-center md:text-base">Información</div>
                       </div>
                   
-                      <div class="w-1/4">
+                      <a href="{{route('garage.image',$vehiculo)}}"><div class="w-1/4">
                         <div class="relative mb-2">
                           <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
                             <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
@@ -39,7 +39,7 @@
                                 </svg>
                             </span>
                           </div>
-                        </div>
+                        </div></a>
                   
                         <div class="text-xs text-center md:text-base">Fotos</div>
                       </div>

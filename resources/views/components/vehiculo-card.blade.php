@@ -13,7 +13,12 @@
                     <div class="grid grid-cols-5">
                         <div class="col-span-3">
                             <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                                <img class="h-72 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                @if($vehiculo->image->first())
+                                
+                                    <img class="h-46 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                @else
+                                    <img class="h-46 w-60 object-cover align-middle" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                @endif    
                             </a>
                             </div>
                         <div class="col-span-2 ml-2 mt-2">

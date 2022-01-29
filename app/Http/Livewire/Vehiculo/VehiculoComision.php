@@ -42,7 +42,7 @@ class VehiculoComision extends Component
 
         $vehiculo->save();
 
-        return redirect()->route('garage.usados');
+        return redirect()->route('garage.vehiculo.show',$vehiculo);
 
     }
 

@@ -1,7 +1,7 @@
 <x-app-layout>
     
     @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @endsection
 
     <div class="container py-8 ">
@@ -105,10 +105,10 @@
                       </div>
                     </div>
                   </div>
-                {{-- comment  
+               {{-- comment   
                   <div class="card">
                     <div class="card-body">
-                      <form action="{{route('garage.upload',$vehiculo)}}" method="POST">
+                      <form action="{{route('garage.upload',$vehiculo)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <input type="file" name="file" id="">
@@ -118,33 +118,36 @@
                       </form>
                     </div>
                   </div>
-                 --}}
-                   
-                  <form action="{{route('garage.upload',$vehiculo)}}"
-                  method="POST"
-                  class="dropzone"
-                  id="my-awesome-dropzone">
-                  <div class="dz-message " data-dz-message>
-                    <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
-                    <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
-                  </div>
-                  </form>
+               
+                    --}}
 
-              @if($vehiculo->image->first())
-                  
-                  <div class="flex justify-center">
+                    @if (session('info'))
+                        <div class="text-red-500">
+                            {{session('info')}}
+                        </div>
+                    @endif
+
+                    <form action="{{route('garage.upload',$vehiculo)}}"
+                    method="POST"
+                    class="dropzone"
+                    id="my-awesome-dropzone">
+                    <div class="dz-message " data-dz-message>
+                      <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
+                      <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
+                    </div>
+                    </form>
+
+                    <div class="flex justify-center">
                       <a href="{{route('garage.comision',$vehiculo)}}">
                         <button class="btn btn-primary mt-4">
                           Siguiente
                         </button>
                       </a>
-                  </div>
-              @else
-                  <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
-              
-              @endif
-                
-                
+                    </div>
+                  
+                  @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculos-image.'.$vehiculo->id))
+           {{-- comment      --}}
+                  
             </div>
         </div>
 
@@ -155,17 +158,24 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
       <script>
-        /*
+        
         Dropzone.options.myGreatDropzone = { // camelized version of the `id`
           headers:{
             'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
           },
           acceptedFiles: "image/*",
-          maxFilesize: 8,
-          maxFiles: 6
+          maxFiles: 6,
+          
+  
             
             };
-*/
+            if ( data['success'] ) 
+ {
+     alert(data['success']);
+     location.reload();
+ } 
+            
+        
       </script>
 
     </x-slot>

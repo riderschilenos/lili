@@ -6,12 +6,12 @@
 
                 @if($vehiculo->image->first())
                 
-                    <img class="h-80 w-full object-cover object-center" src="{{$vehiculo->image->first()->url}}" alt="">
+                    <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8">
 
                         @foreach ($vehiculo->image as $image)
             
-                            <img class="h-24 w-full object-contain object-center" src="{{$image->url}}" alt="">
+                            <img class="h-24 w-full object-contain object-center" src="{{Storage::url($image->url)}}" alt="">
                     
                             
                         @endforeach

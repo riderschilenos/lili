@@ -26,7 +26,8 @@
                         <div class="col-span-5">
                             <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                 @if($vehiculo->image->first())
-                                <img class="h-46 w-full object-cover" src=" {{$vehiculo->image->first()->url}}" alt="">
+                                
+                                <img class="h-46 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                 @else
                                 <img class="h-44 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                                 @endif

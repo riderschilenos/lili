@@ -8,6 +8,8 @@ use App\Models\Vehiculo_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use Intervention\Image\Facades\Image;
+use Illuminate\support\Str;
 
 class VehiculoController extends Controller
 {   
@@ -51,7 +53,7 @@ class VehiculoController extends Controller
             'aro_front'=> $request->aro_front,
             'aro_back'=> $request->aro_back,
             'año'=> $request->año,
-            'slug'=> 'test',
+            'slug'=> Str::random(10),
             'status'=> $request->status,
             'precio'=> $request->precio,
             'descripcion'=> $request->descripcion,
@@ -88,8 +90,15 @@ class VehiculoController extends Controller
     {   
         //$this->authorize('dicatated',$serie);
 
+        if($vehiculo->image->count()){
+
+            return view('vehiculo.usados.comision', compact('vehiculo'));
+        }else{
+            return redirect()->route('garage.image',$vehiculo)->with('info','No puedes avanzar sin haber subido al menos una imagen');
+        }
+
         
-        return view('vehiculo.usados.comision', compact('vehiculo'));
+        
     }
 
     public function imageupload(Vehiculo $vehiculo)
@@ -103,10 +112,8 @@ class VehiculoController extends Controller
     public function upload(Request $request, Vehiculo $vehiculo)
     {   
         //$this->authorize('dicatated',$serie);
-
-        $request->validate([
-            'file'=>'required|image|max:10240'
-        ]);
+        /*
+        
 
         $images = $request->file('file')->store('vehiculos');
 
@@ -116,7 +123,26 @@ class VehiculoController extends Controller
             'url'=>$url
         ]);
 
-     
+     */ 
+        $request->validate([
+            'file'=>'required|image'
+        ]);
+
+        $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+
+        $ruta = storage_path().'\app\public\vehiculos/'.$nombre;
+
+        Image::make($request->file('file'))
+                ->resize(1200, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($ruta);
+
+        $vehiculo->image()->create([
+                    'url'=>'vehiculos/'.$nombre
+                ]);
+
+    
 
     }
 

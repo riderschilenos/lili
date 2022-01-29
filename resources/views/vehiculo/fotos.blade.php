@@ -101,9 +101,21 @@
                       </div>
                     </div>
                   </div>
+                  {{-- comment 
+                  <div class="card">
+                    <div class="card-body">
+                      <form action="{{route('garage.upload',$vehiculo)}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                          <input type="file" name="file" id="">
+    
+                        </div>
+                        <button type="submit" class="btn btn-primary"> Subir Imagen</button>
+                      </form>
+                    </div>
+                  </div>
                 
-
-
+                    --}}
                   <form action="{{route('garage.upload',$vehiculo)}}"
                   method="POST"
                   class="dropzone"
@@ -114,7 +126,7 @@
                   </div>
                   </form>
 
-                
+              
                 
                 
             </div>

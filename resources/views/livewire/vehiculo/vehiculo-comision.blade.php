@@ -148,8 +148,12 @@
                                 @case(2)
                                     <div class="flex justify-center mt-2 mb-4">
 
-                                        <button wire:click="publicar({{$vehiculo}})" class="btn btn-primary cursor-pointer">Publicar</button>
-                                           
+                                        <form action="{{route('garage.publicar',$vehiculo)}}" method="POST">
+                                            @csrf
+                    
+                                            <button class="btn btn-primary" type="submit">Publicar</button>
+                                        </form>   
+
                                     </div>
                                 @break
                                 @default

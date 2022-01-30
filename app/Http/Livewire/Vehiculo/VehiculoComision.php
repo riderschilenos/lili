@@ -3,10 +3,14 @@
 namespace App\Http\Livewire\Vehiculo;
 
 use App\Models\Vehiculo;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
 class VehiculoComision extends Component
-{   public $selectedcomision, $vehiculoupdate;
+{   use AuthorizesRequests;
+    
+    public $selectedcomision, $vehiculoupdate;
+    
 
     public function mount(Vehiculo $vehiculo){
 

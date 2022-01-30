@@ -161,5 +161,14 @@ class VehiculoController extends Controller
         return redirect()->route('garage.comision',$vehiculo);
     }
 
+    public function publicar(Vehiculo $vehiculo)
+    {   
+        $vehiculo->status=5;
+
+        $vehiculo->save();
+
+        return redirect()->route('garage.vehiculo.show',$vehiculo);
+    }
+
     
 }

@@ -22,7 +22,8 @@ class CreateVehiculosTable extends Migration
             $table->integer('aro_front')->nullable();
             $table->integer('aro_back')->nullable();
             $table->integer('año')->nullable();
-            $table->string('slug')->nullable();
+
+            $table->string('slug');
             $table->enum('status',[Vehiculo::DESACTIVADO,Vehiculo::BORRADOR,Vehiculo::REVISION,Vehiculo::PUBLICADOOK,Vehiculo::PUBLICADOPENDIENTE,Vehiculo::REGISTRADO,Vehiculo::REGISTRADOVENTA])->default(Vehiculo::BORRADOR);
             $table->integer('precio')->nullable();
             $table->string('nro_serie')->nullable();

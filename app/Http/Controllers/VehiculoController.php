@@ -120,10 +120,10 @@ class VehiculoController extends Controller
 
         $images = $request->file('file')->store('vehiculos');
 
-        $url = Storage::url($images);
+        //$url = Storage::url($images);
 
         $vehiculo->image()->create([
-            'url'=>$url
+            'url'=>$images
         ]);
 
         return redirect()->route('garage.image',$vehiculo);

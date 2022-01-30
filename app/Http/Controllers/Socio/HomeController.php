@@ -44,6 +44,7 @@ class HomeController extends Controller
             'last_name'=>'required',
             'born_date'=>'required',
             'prevision'=>'required',
+            'username'=>'required',
             'rut'=>'required',
             'nro'=>'required',
             'disciplina_id'=>'required'

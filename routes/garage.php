@@ -4,6 +4,7 @@
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
+Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->name('publicar');
 
 Route::redirect('', 'garage/usados');
 
@@ -19,7 +20,7 @@ Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name(
 
 Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('precioupdate');
 
-Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->name('publicar');
+
 
 Route::get('misvehiculos', [VehiculoController::class,'personalindex'])->middleware('auth')->name('vehiculos.index');
 

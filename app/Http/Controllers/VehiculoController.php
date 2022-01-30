@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-//use App\Models\Image;
+use App\Models\Image;
 use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-use Intervention\Image\Facades\Image;
+//use Intervention\Image\Facades\Image;
 use Illuminate\support\Str;
 
 class VehiculoController extends Controller
@@ -112,8 +112,11 @@ class VehiculoController extends Controller
     public function upload(Request $request, Vehiculo $vehiculo)
     {   
         //$this->authorize('dicatated',$serie);
-        /*
         
+        
+        $request->validate([
+            'file'=>'required|image'
+        ]);
 
         $images = $request->file('file')->store('vehiculos');
 
@@ -123,7 +126,8 @@ class VehiculoController extends Controller
             'url'=>$url
         ]);
 
-     */ 
+        return redirect()->route('garage.image',$vehiculo);
+    /*  
         $request->validate([
             'file'=>'required|image'
         ]);
@@ -142,7 +146,7 @@ class VehiculoController extends Controller
                     'url'=>'vehiculos/'.$nombre
                 ]);
 
-    
+    */
 
     }
 

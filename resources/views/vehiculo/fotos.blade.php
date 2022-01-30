@@ -118,10 +118,10 @@
                       <form action="{{route('garage.upload',$vehiculo)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                          <input type="file" name="file" id="">
+                          <input type="file" name="file" id="" multiple>
     
                         </div>
-                        <button type="submit" class="btn btn-primary"> Subir Imagen</button>
+                        <button type="submit" class="btn btn-primary mt-4"> Subir Imagen</button>
                       </form>
                     </div>
                   </div>

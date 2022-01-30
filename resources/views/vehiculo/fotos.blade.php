@@ -176,11 +176,7 @@
   
             
             };
-            if ( data['success'] ) 
- {
-     alert(data['success']);
-     location.reload();
- } 
+           
             
         
       </script>

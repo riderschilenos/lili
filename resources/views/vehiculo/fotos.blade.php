@@ -112,27 +112,32 @@
                       </div>
                     </div>
                   </div>
-               
+
+                  <div class="flex justify-center">
+                    
                   <div class="card">
                     <div class="card-body">
+                      @if (session('info'))
+                        <div class="text-red-500 mb-6">
+                            {{session('info')}}
+                        </div>
+                    @endif
                       <form action="{{route('garage.upload',$vehiculo)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <input type="file" name="file" id="" multiple>
     
                         </div>
+                        <div class="flex justify-center">
                         <button type="submit" class="btn btn-primary mt-4"> Subir Imagen</button>
+                        </div>
                       </form>
                     </div>
                   </div>
-               
+                </div>
                  
 
-                    @if (session('info'))
-                        <div class="text-red-500">
-                            {{session('info')}}
-                        </div>
-                    @endif
+                    
  {{-- comment    
                     <form action="{{route('garage.upload',$vehiculo)}}"
                     method="POST"

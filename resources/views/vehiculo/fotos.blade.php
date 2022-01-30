@@ -112,7 +112,7 @@
                       </div>
                     </div>
                   </div>
-               {{-- comment   
+               
                   <div class="card">
                     <div class="card-body">
                       <form action="{{route('garage.upload',$vehiculo)}}" method="POST" enctype="multipart/form-data">
@@ -126,14 +126,14 @@
                     </div>
                   </div>
                
-                    --}}
+                 
 
                     @if (session('info'))
                         <div class="text-red-500">
                             {{session('info')}}
                         </div>
                     @endif
-
+ {{-- comment    
                     <form action="{{route('garage.upload',$vehiculo)}}"
                     method="POST"
                     class="dropzone"
@@ -143,7 +143,7 @@
                       <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
                     </div>
                     </form>
-
+ --}}
                     <div class="flex justify-center">
                       <a href="{{route('garage.comision',$vehiculo)}}">
                         <button class="btn btn-primary mt-4">

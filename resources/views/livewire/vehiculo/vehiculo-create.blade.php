@@ -124,6 +124,8 @@
                             @include('vehiculo.usados.partials.formmoto')
                         @elseif($selecteddisciplina==2)
                             @include('vehiculo.usados.partials.formbici')
+                        @elseif($selecteddisciplina==9)
+                            @include('vehiculo.usados.partials.formacuatico')
                         @endif
 
                         

@@ -7,7 +7,7 @@
                 <div class="grid grid-cols-3">
                     <a href="{{route('garage.vehiculos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Mis Vehiculos</a>
         
-                <h1 class="text-2xl font-bold text-center">Vende tu Juguete Rider</h1>
+                    <h1 class="text-2xl font-bold text-center">Vende tu Juguete Rider</h1>
                 </div>
                 <hr class="mt-2 mb-6">
 

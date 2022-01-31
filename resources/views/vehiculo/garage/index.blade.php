@@ -57,16 +57,29 @@
                     @if(auth()->user()->socio)
                         <h1 class="text-xl text-center mb-4 font-bold">Mi registro de vehiculos</h1>
                         @if(auth()->user()->socio->vehiculos->count())
-                            
+
+                            <div class="mx-auto flex justify-center">
+                                
+                                <a href="{{route('garage.vehiculo.create')}}">
+                                    <button class="btn max-w-sm btn-block bg-red-600 mb-4 shadow h-10 px-4 rounded-lg text-white mr-4" wire:click="resetFilters">
+                                    
+                                        Inscribe tu Juguete
+            
+                                    </button>
+                                </a>
+
+                            </div>
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-8">
 
-                                @foreach (auth()->user()->vehiculos as $vehiculo)
+                                @foreach (auth()->user()->socio->vehiculos as $vehiculo)
                                     @if($vehiculo->status==2)
                                         <x-mivehiculo-card :vehiculo="$vehiculo" />        
                                     @endif
                                 @endforeach
                         
                             </div>
+
+                            
                         
                         @else
                             <div class="px-6 py-4 text-center">

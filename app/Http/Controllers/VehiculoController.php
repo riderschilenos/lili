@@ -152,9 +152,7 @@ class VehiculoController extends Controller
 
     public function precio(Request $request, Vehiculo $vehiculo)
     {   
-        $request->validate([
-            'precio'=>'required'
-        ]);
+       
 
         $vehiculo->update($request->all());
         

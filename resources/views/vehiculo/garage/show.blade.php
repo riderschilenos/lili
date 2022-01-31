@@ -29,9 +29,10 @@
                 <p class="mb-2"><i class="fas fa-wrench"></i> <b>3</b> Mantenciones registradas</p>
                 <p class="mb-2"><i class="fas fa-biking"></i> Tipo de vehiculo: {{$vehiculo->vehiculo_type->name}}</p>
                 <p class="mb-2"><i class="fas fa-clock"></i> Año: {{$vehiculo->año}}</p>
+               {{-- comment
                 <p class="mb-2"><i class="fas fa-adjust"></i> Aro: </p>
                 <p class="mb-2"><i class="fas fa-star"></i> Ofertas: 40</p>
-
+ --}}
             </div>
 
         </div>

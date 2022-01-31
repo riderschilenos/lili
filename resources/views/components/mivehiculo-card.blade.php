@@ -52,18 +52,39 @@
                             </a>
                         @endif
                     @else
-                        <div class="grid grid-cols-2">
-                            <div>
-                                <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
-                                    Ver Publicacion
-                                </a>
+                        @if($vehiculo->status==3 || $vehiculo->status==4)
+
+                            <div class="grid grid-cols-2">
+                                <div>
+                                    <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
+                                        Ver Publicacion
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href= "{{route('garage.comision', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
+                                        Bajar/Editar Publicación
+                                    </a>
+                                </div>
                             </div>
-                            <div>
-                                <a href= "{{route('garage.comision', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
-                                    Bajar Publicacion
-                                </a>
+
+
+                        @elseif($vehiculo->status==2)
+                            <div class="grid grid-cols-2">
+                                <div>
+                                    <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
+                                        Ver ficha
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href= "{{route('garage.comision', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
+                                        Terminar Inscripción
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+
+                        @endif
+                    
+                        
                     @endif
                </div>
             </article>

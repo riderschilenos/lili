@@ -116,14 +116,30 @@
                                 @case(1)
                                     <h1 class="text-lg ml-2 font-bold">Tipo de comision:</h1>
                                     <h1 class="text-lg ml-2">Pago al momento de publicar</h1>
-                                    <h1 class="cursor-pointer text-blue-600 text-sm ml-2" wire:click="edit({{$vehiculo}})">(EDITAR)</h1>
+                                    
+                                    {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
+                    
+                                    {!! Form::hidden('precio', null) !!}
+                                       
+                                        
+                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                        
+                                    {!! Form::close() !!}
+
                        
                                     <p class="text-xl font-bold ml-auto">$5.000</p>
                                     @break
                                 @case(2)
                                     <h1 class="text-lg ml-2">Tipo de comision: 0.5% al momento de vender</h1>
-                                    <h1 class="cursor-pointer text-blue-600 text-sm ml-2" wire:click="edit({{$vehiculo}})">(EDITAR)</h1>
-                       
+                                    
+                                    {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
+                    
+                                    {!! Form::hidden('precio', null) !!}
+                                       
+                                        
+                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                        
+                                    {!! Form::close() !!}
                                     <p class="text-xl font-bold ml-auto">${{number_format($vehiculo->precio*0.005, 0, '.', '.')}}</p>
                                     @break
                                 

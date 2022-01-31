@@ -8,7 +8,21 @@
         
         <div class="card">
             <div class="card-body">
-                <h1 class="text-2xl font-bold text-center">Vende tu Juguete Rider</h1>
+                @if($vehiculo->status==1 || $vehiculo->status==3 || $vehiculo->status==4  )
+                    <div class="grid grid-cols-3">
+                      <a href="{{route('garage.vehiculos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Mis Vehiculos</a>
+        
+                      <h1 class="text-2xl font-bold text-center">Vende tu Juguete Rider</h1>
+                    </div>
+                @elseif($vehiculo->status==2)
+                    <div class="grid grid-cols-3">
+                      <a href="{{route('garage.vehiculos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Mis Vehiculos</a>
+        
+                      <h1 class="text-2xl font-bold text-center">Fotos</h1>
+                    </div>
+                @endif
+
+
                 <hr class="mt-2 mb-2">
 
               <div class="flex justify-center">
@@ -82,7 +96,7 @@
                             </span>
                           </div>
                         </div>
-                        @if($vehiculo->status==1)
+                        @if($vehiculo->status==1 || $vehiculo->status==3 || $vehiculo->status==4)
                             <div class="text-xs text-center md:text-base">Precio/Comisión</div>
                             
                         @elseif($vehiculo->status==2)

@@ -308,6 +308,13 @@ return [
             'active'     => ['admin/products*']
            
         ],
+        [
+            'text'        => 'Marcas',
+            'route'         => 'admin.marcas.index',
+            'icon'        => 'fas fa-fw fa-bookmark',
+            'active'     => ['admin/marcas*']
+           
+        ],
        
         ['header' => 'Opciones RCH-TV'],
         

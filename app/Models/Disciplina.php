@@ -25,5 +25,7 @@ class Disciplina extends Model
         return $this->hasMany('App\Models\Producto');
     }
 
-
+    public function marcas(){
+        return $this->hasMany('App\Models\Marca');
+    }
 }

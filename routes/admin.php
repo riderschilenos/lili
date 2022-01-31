@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SerieController;
 
 use App\Http\Controllers\Admin\DisciplinaController;
+use App\Http\Controllers\Admin\MarcaController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
 use App\Http\Controllers\Admin\SocioController;
@@ -37,6 +38,8 @@ Route::resource('precio', PrecioController::class)->names('precios');
 Route::resource('vehiculotypes',Vehiculo_typeController::class)->names('vehiculotype');
 
 Route::resource('vehiculo',VehiculoController::class)->names('vehiculo');
+
+Route::resource('marca',MarcaController::class)->names('marcas');
 
 Route::get('series',[SerieController::class, 'index'])->name('series.index');
 

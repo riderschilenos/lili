@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Vehiculo;
+use App\Models\Disciplina;
+use App\Models\Marca;
 use Illuminate\Http\Request;
 
-class VehiculoController extends Controller
+class MarcaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,10 @@ class VehiculoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $vehiculos=Vehiculo::all();
+    {
+        $marcas=Marca::all();
 
-        return view('admin.vehiculos.index',compact('vehiculos'));
+        return view('admin.marcas.index',compact('marcas'));
     }
 
     /**
@@ -26,8 +27,10 @@ class VehiculoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $disciplinas= Disciplina::pluck('name','id');
+
+        return view('admin.marcas.create',compact('disciplinas'));
     }
 
     /**
@@ -38,7 +41,10 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $marca = Marca::create($request->all());
+
+        return redirect()->route('admin.marcas.index')->with('info','La marca se creo con éxito.');  
     }
 
     /**

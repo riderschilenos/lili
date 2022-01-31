@@ -277,11 +277,19 @@ return [
         ],
         ['header' => 'Vehiculos'],
         [
+            'text'        => 'Vehiculo',
+            'route'         => 'admin.vehiculo.index',
+            'icon'        => 'fas fa-fw fa-shopping-cart',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/vehiculo/index']
+           
+        ],
+        [
             'text'        => 'Tipos de Vehiculo',
             'route'         => 'admin.vehiculotype.index',
             'icon'        => 'fas fa-fw fa-shopping-cart',
             'can'         => 'Leer usuarios',
-            'active'     => ['admin/pedidos*']
+            'active'     => ['admin/vehiculotypes*']
            
         ],
         ['header' => 'Portal Vendedores'],

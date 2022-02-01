@@ -36,7 +36,16 @@ class DireccionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+        'calle'=>'required',
+        'numero'=>'required',
+        'comuna'=>'required',
+        'region'=>'required'
+        
+        ]);
+
+
         $direccion = Direccion::create([
             'calle'=>$request->calle,
             'numero'=>$request->numero,

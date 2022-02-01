@@ -91,7 +91,7 @@
                                 </li>
                                 <li class="flex items-center py-3">
                                     <span>Fecha Vencimiento</span>
-                                    <span class="ml-auto">Nov 07, 2016</span>
+                                    <span class="ml-auto">Nov 07, 2023</span>
                                 </li>
                             </ul>
                         </a>

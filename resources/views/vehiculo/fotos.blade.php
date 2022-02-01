@@ -126,10 +126,10 @@
                       </div>
                     </div>
                   </div>
-
+                  <h1 class="text-center">Selecciona 1 foto a la vez y y dale al boton subir, cuando las hayas subido todas puedes dar al botón siguiente</h1>
+                  
                   <div class="flex justify-center">
-                    <h1>Selecciona 1 foto a la vez y y dale al boton subir, cuando las hayas subido todas puedes dar al botón siguiente</h1>
-                  <div class="card">
+                    <div class="card">
                     <div class="card-body">
                       @if (session('info'))
                         <div class="text-red-500 mb-6">

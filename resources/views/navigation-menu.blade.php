@@ -275,10 +275,12 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('socio.show', auth()->user()->socio) }}" :active="request()->routeIs('socio.show')">
-                    {{ __('Perfil Rider') }}
-                </x-jet-responsive-nav-link>
+                <!-- Account Management --> 
+                @if(auth()->user()->socio)
+                    <x-jet-responsive-nav-link href="{{ route('socio.show', auth()->user()->socio) }}" :active="request()->routeIs('socio.show')">
+                        {{ __('Perfil Rider') }}
+                    </x-jet-responsive-nav-link>
+                @endif
                 <x-jet-responsive-nav-link href="{{ route('socio.create') }}" :active="request()->routeIs('socio.create')">
                     {{ __('Suscripción Rider') }}
                 </x-jet-responsive-nav-link>

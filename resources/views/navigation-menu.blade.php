@@ -276,8 +276,14 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('socio.create') }}" :active="request()->routeIs('socio.create')">
+                <x-jet-responsive-nav-link href="{{ route('socio.show', auth()->user()->socio) }}" :active="request()->routeIs('socio.show')">
                     {{ __('Perfil Rider') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('socio.create') }}" :active="request()->routeIs('socio.create')">
+                    {{ __('Suscripción Rider') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('garage.vehiculos.index') }}" :active="request()->routeIs('garage.vehiculos.index')">
+                    {{ __('Mis vehiculos') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Configuración') }}

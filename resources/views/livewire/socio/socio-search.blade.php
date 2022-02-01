@@ -128,11 +128,11 @@
 
                     @foreach ($socios as $socio)
 
-                        @if ($socio->status==1)
+                        
 
                             <x-socio-card :socio="$socio" />
 
-                        @endif
+                        
         
                     @endforeach
         

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Vehiculo;
 
 use App\Models\Vehiculo;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class VehiculoMantencion extends Component
@@ -18,6 +19,8 @@ class VehiculoMantencion extends Component
     {   
         $vehiculo = Vehiculo::find($this->vehiculo_id);
 
-        return view('livewire.vehiculo.vehiculo-mantencion',compact('vehiculo'));
+        $now = Carbon::now();
+
+        return view('livewire.vehiculo.vehiculo-mantencion',compact('vehiculo','now'));
     }
 }

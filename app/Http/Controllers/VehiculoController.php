@@ -115,7 +115,7 @@ class VehiculoController extends Controller
         
         
         $request->validate([
-            'file'=>'required|image'
+            'file'=>'required|image|max: 9216'
         ]);
 
         $images = $request->file('file')->store('vehiculos');

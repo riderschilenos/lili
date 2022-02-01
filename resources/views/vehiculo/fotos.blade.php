@@ -128,7 +128,7 @@
                   </div>
 
                   <div class="flex justify-center">
-                    
+                    <h1>Selecciona 1 foto a la vez y y dale al boton subir, cuando las hayas subido todas puedes dar al botón siguiente</h1>
                   <div class="card">
                     <div class="card-body">
                       @if (session('info'))
@@ -139,7 +139,7 @@
                       <form action="{{route('garage.upload',$vehiculo)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                          <input type="file" name="file" id="" multiple>
+                          <input type="file" name="file" id="">
     
                         </div>
                         <div class="flex justify-center">

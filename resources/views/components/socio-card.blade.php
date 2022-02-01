@@ -35,7 +35,20 @@
                             </tr>
                             
                         </tbody></table>
-            
+                        
+                        <div class="flex justify-center">
+                            @switch($socio->status)
+                                @case(1)
+                                    <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
+                                    @break
+                                @case(2)
+                                    <span class="mx-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVA</span></span>
+                                    @break
+                                @default
+                                
+                            @endswitch
+                        </div>
+
                         <div class="text-center my-3">
                             <a href= "{{route('socio.show', $socio)}}" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Ver Perfil</a>
                         </div>

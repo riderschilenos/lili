@@ -32,6 +32,12 @@ class VehiculoInscripcion extends Component
             $disciplina_id=2;
         }
 
+        if($vehiculo_type==12 or $vehiculo_type==13 or $vehiculo_type==14){
+            $disciplina_id=9;
+        }
+
+        
+
         $this->selecteddisciplina=$disciplina_id;
         
         $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();

@@ -123,8 +123,14 @@
                         @if($selecteddisciplina==1)
                             @include('vehiculo.garage.partials.formmoto')
                         @elseif($selecteddisciplina==2)
-                            @include('vehiculo.garage.partials.formbici')
+                            @if ($selectedvehiculo_type==10)
+                                @include('vehiculo.garage.partials.formbmx')
+                            @else
+                                @include('vehiculo.garage.partials.formbici')
+                            @endif
+                        
                         @endif
+
 
 
 

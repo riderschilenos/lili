@@ -73,7 +73,7 @@
                                                     <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
                                                     @break
                                                 @case(2)
-                                                    <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVA</span></span>
+                                                    <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
                                                     @break
                                                 @default
                                                     

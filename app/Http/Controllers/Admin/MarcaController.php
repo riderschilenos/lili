@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
 use App\Models\Marca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MarcaController extends Controller
 {
@@ -31,6 +32,14 @@ class MarcaController extends Controller
         $disciplinas= Disciplina::pluck('name','id');
 
         return view('admin.marcas.create',compact('disciplinas'));
+    }
+
+    public function imageform(Marca $marca)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+        
+        return view('admin.marcas.image', compact('marca'));
     }
 
     /**
@@ -91,4 +100,32 @@ class MarcaController extends Controller
     {
         //
     }
+
+    public function image(Request $request, Marca $marca)
+    {   
+        //$this->authorize('dicatated',$serie);
+        
+        
+        $request->validate([
+            'file'=>'required|image|max: 9216'
+        ]);
+
+        $images = $request->file('file')->store('marcas');
+
+        if($marca->image){
+            Storage::delete($marca->image->url);
+
+            $marca->image->update([
+                'url'=>$images
+            ]);
+        }else{
+            $marca->image()->create([
+                'url' => $images
+                ]);
+            }
+
+        return redirect()->route('admin.marcas.index');
+
+    }
+    
 }

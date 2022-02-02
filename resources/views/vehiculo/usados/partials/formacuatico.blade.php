@@ -73,8 +73,6 @@
 
 {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
 
-<div class="flex justify-center">
-{!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
-</div>
+
 
 

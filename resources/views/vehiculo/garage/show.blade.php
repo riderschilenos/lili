@@ -52,7 +52,15 @@
                             
                         </div>
                         <div>
-                            <img class="h-14 w-20 object-contain object-center ml-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/2552px-Honda_Logo.svg.png" alt="">
+                            @isset($vehiculo->marca->image)
+                      
+                  
+                            
+                                <img class="h-14 w-20 object-contain object-center ml-auto" src="{{Storage::url($vehiculo->marca->image->url)}}" alt="">
+                  
+                      
+                            @endisset
+                            
                 
                         </div>
                         

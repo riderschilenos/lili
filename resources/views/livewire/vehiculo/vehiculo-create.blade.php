@@ -128,7 +128,73 @@
                             @include('vehiculo.usados.partials.formacuatico')
                         @endif
 
-                        
+                        <h1 class="text-center font-bold">Propiedad:</h1>
+
+                        <div class="form-group flex justify-center">
+                            <div class="form-check">
+                              <input type="radio" name="property" id="propio" value="1">
+                              <label for="propio">
+                               Vehiculo Propio
+                              </label>
+                            </div>
+                            <div class="form-check ml-2">
+                              <input type="radio" name="property" id="propio" value="2">
+                              <label for="propio">
+                                De un Tercero
+                              </label>
+                            </div>
+                            
+
+
+                        </div>
+
+                        <h1 class="text-center mt-6 font-bold">Contacto</h1>
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('nombre', 'Nombre:*') !!}
+                            {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nombre')?' border-red-600':'')]) !!}
+                    
+                            @error('nombre')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('fono', 'Fono:*') !!}
+                            {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
+                    
+                            @error('fono')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('email', 'Email:*') !!}
+                            {!! Form::text('email', null , ['class' => 'form-input block w-full mt-1'.($errors->has('email')?' border-red-600':'')]) !!}
+                    
+                            @error('email')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('ubicacion', 'Ubicación:*') !!}
+                            {!! Form::text('ubicacion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('ubicacion')?' border-red-600':'')]) !!}
+                    
+                            @error('ubicacion')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+
+                      </div>  
+
+
+                        <div class="flex justify-center">
+                          {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                        </div>
 
                 {!! Form::close() !!}
                 

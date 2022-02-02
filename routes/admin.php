@@ -41,6 +41,10 @@ Route::resource('vehiculo',VehiculoController::class)->names('vehiculo');
 
 Route::resource('marca',MarcaController::class)->names('marcas');
 
+Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.imageform');
+
+Route::post('{marca}/image',[MarcaController::class, 'image'])->name('marca.image');
+
 Route::get('series',[SerieController::class, 'index'])->name('series.index');
 
 Route::get('socios',[SocioController::class, 'index'])->name('socios.index');

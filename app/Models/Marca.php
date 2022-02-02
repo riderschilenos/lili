@@ -22,4 +22,9 @@ class Marca extends Model
     public function disciplina(){
         return $this->belongsTo('App\Models\Disciplina');
     }
+
+    //relacion uno a uno polimorfica
+    public function image(){
+        return $this->MorphOne('App\Models\Image','imageable');
+    }
 }

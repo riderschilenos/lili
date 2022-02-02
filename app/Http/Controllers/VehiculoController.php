@@ -39,7 +39,10 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {   
         $request->validate([
-            'marca_id'=>'required'
+            'marca_id'=>'required',
+            'nombre'=>'required',
+            'fono'=>'required',
+            'ubicacion'=>'required',
            // 'slug'=>'required|unique:vehiculos',
 
         ]);
@@ -54,7 +57,11 @@ class VehiculoController extends Controller
             'slug'=> Str::random(10),
             'status'=> $request->status,
             'precio'=> $request->precio,
-            'descripcion'=> $request->descripcion,
+            'property'=> $request->property,
+            'nombre'=> $request->nombre,
+            'fono'=> $request->fono,
+            'email'=> $request->email,
+            'ubicacion'=> $request->ubicacion,
             'user_id'=> $request->user_id,
             'vehiculo_type_id'=> $request->vehiculo_type_id
             ]);

@@ -27,10 +27,10 @@
 
               <div class="flex justify-center">
                 <div class="flex p-5 mt-4 space-x-4 items-center shadow-xl max-w-sm rounded-md">
-                  @isset($vehiculo->marca->image))
+                  @isset($vehiculo->marca->image)
                       
                   
-                    <img src="https://avatars.githubusercontent.com/u/5550850?v=4" alt="image" class="h-14 w-14 rounded-full" />
+                    <img src="{{Storage::url($vehiculo->marca->image->url)}}" alt="image" class="h-14 w-24" />
                   
                       
                   @endisset
@@ -126,7 +126,7 @@
                       </div>
                     </div>
                   </div>
-                  <h1 class="text-center">Selecciona 1 foto a la vez y y dale al boton subir, cuando las hayas subido todas puedes dar al botón siguiente</h1>
+                  <h1 class="text-center mt-4 mb-2">Selecciona 1 foto a la vez y y dale al boton <b>Subir Imagen</b>, cuando las hayas subido todas puedes dar al botón siguiente</h1>
                   
                   <div class="flex justify-center">
                     <div class="card">

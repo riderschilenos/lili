@@ -22,12 +22,14 @@
                         <table class="text-xs mt-auto">
                             <tbody>
                                 
-                            @if(!is_null($socio->direccion))
+                           
                                 <tr>
                                     <td class="px-2 py-2 text-gray-500 font-semibold">Localidad</td>
+                                    @if(!is_null($socio->direccion))
                                     <td class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</td>
+                                    @endif
                                 </tr>
-                            @endif
+                            
                             
                             <tr>
                                 <td class="px-2 py-2 text-gray-500 font-semibold">Disciplina</td>

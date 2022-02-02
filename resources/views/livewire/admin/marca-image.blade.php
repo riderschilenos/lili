@@ -42,7 +42,7 @@
                             
                             <td width="10px">
                                 
-                                <a class="btn btn-secondary btn-sm" href="{{route('admin.marca.imageform',$marca)}}">Agregar fotos</a>
+                                <a class="btn btn-secondary btn-sm" href="{{route('admin.marca.imageform',$marca)}}">Agregar logo</a>
                             </td>
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.marcas.edit',$marca)}}">Editar</a>

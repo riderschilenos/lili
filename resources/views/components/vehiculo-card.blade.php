@@ -32,6 +32,8 @@
                             <p class="text-gray-500 text-sm">Cilindrada:</p>
                             <p class="text-gray-500 text-sm mb-2">{{$vehiculo->cilindrada}} <b>cc</b></p>
 
+                            {{-- comment
+                            
                             <div class="flex mt-24">
                                 
                                 <p class="text-sm text-gray-500 ml-auto flex justify-end"> 
@@ -39,7 +41,7 @@
                                     (1000)
                                 </p>
                             </div>
-
+ --}}
                         </div> 
 
                         

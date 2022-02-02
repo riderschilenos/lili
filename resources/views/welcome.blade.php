@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <section class="bg-cover" style="background-image: url({{asset('img/home/homefotomini.png')}})">
+    <section class="bg-cover bg-center" style="background-image: url({{asset('img/home/homefotomini.png')}})">
 
         <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">

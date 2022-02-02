@@ -23,7 +23,7 @@
         'active'=>request()->routeIs('socios.*')
 
     ]
-    ,[   
+   /* ,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),
         'active'=>request()->routeIs('vendedor.*')
@@ -34,7 +34,7 @@
         'route'=>'#',
         'active'=>false
 
-    ]
+    ]*/
  ]   
 @endphp
 

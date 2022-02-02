@@ -26,7 +26,10 @@
             <div class="text-white">
                 <h1 class="text-4xl">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                 <h2 class="text xl mb-3">Vendedor: {{$vehiculo->user->name}}</h2>
+                {{-- comment
+                
                 <p class="mb-2"><i class="fas fa-wrench"></i> <b>3</b> Mantenciones registradas</p>
+                 --}}
                 <p class="mb-2"><i class="fas fa-biking"></i> Tipo de vehiculo: {{$vehiculo->vehiculo_type->name}}</p>
                 <p class="mb-2"><i class="fas fa-clock"></i> Año: {{$vehiculo->año}}</p>
                {{-- comment
@@ -131,16 +134,75 @@
         <div class="order-1 lg:order-2">
             <section class="card mb-4">
                 <div class="card-body">
-                    <div class="flex items-center">
-                        <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
-                        <div class="ml-4">
-                            <h1 class="font-fold text-gray-500 text-lg">Vendedor: {{ $vehiculo->user->name }}</h1>
-                            @if($vehiculo->user->socio)
-                                <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $vehiculo->user->socio)}}">{{'@'.$vehiculo->user->socio->slug}}</a>
+                    @if($vehiculo->property==1)
+                        <div class="flex items-center">
+                            <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
+                            <div class="ml-4">
 
+                                @if($vehiculo->property==1)
+                                    <h1 class="font-fold text-gray-500 text-lg">Vendedor: {{ $vehiculo->user->name }}</h1>
+                                @else
+                                    <h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1>
+                                @endif
+
+                                @if($vehiculo->user->socio)
+                                    <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $vehiculo->user->socio)}}">{{'@'.$vehiculo->user->socio->slug}}</a>
+
+                                @endif
+                            </div>
+                        </div>
+                    @else
+                        <div class="grid grid-cols-2">
+                            <div class="px-4 py-2 font-semibold">Vendedor:</div>
+                            <div class="px-4 py-2">{{ $vehiculo->nombre }}</div>
+                        </div>
+                    @endif
+
+                    <div class="text-gray-700">
+                        <div class="grid md:grid-cols-1 text-sm">
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Ubicación:</div>
+                                <div class="px-4 py-2">{{ $vehiculo->ubicacion }}</div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Fono:</div>
+                                <div class="px-4 py-2">{{ $vehiculo->fono}}</div>
+                            </div>
+                            @if($vehiculo->cilindrada)
+                                <div class="grid grid-cols-2">
+                                    <div class="px-4 py-2 font-semibold">Fecha de publicación</div>
+                                    <div class="px-4 py-2">{{$vehiculo->created_at->format('d-m-Y')}}</div>
+                                </div>
                             @endif
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Email:</div>
+                                <div class="px-4 py-2">{{ $vehiculo->email}}</div>
+                            </div>
+                            
                         </div>
                     </div>
+
+                    @if($vehiculo->property==2)
+                        <hr class="w-full py-4">
+                        <p class="text-sm text-center">Esta publicación fue realizada por un agende de ventas de RidersChilenos</p>
+
+                        <div class="flex items-center mt-6">
+                            <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
+                            <div class="ml-4">
+
+                                @if($vehiculo->property==1)
+                                    <h1 class="font-fold text-gray-500 text-lg">Vendedor: {{ $vehiculo->user->name }}</h1>
+                                @else
+                                    <h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1>
+                                @endif
+
+                                @if($vehiculo->user->socio)
+                                    <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $vehiculo->user->socio)}}">{{'@'.$vehiculo->user->socio->slug}}</a>
+
+                                @endif
+                            </div>
+                        </div>
+                    @endif
                     
                 </div>
             </section>

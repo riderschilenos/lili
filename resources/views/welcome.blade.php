@@ -50,12 +50,23 @@
 
     </section>
     <section class="mt-16 bg-gray-700 py-12">
-        <h1 class="text-center text-white text-3xl">Ultimas Producciones AudioVisuales</h1>
-        <p class="text-center text-white">Dirigete al catalogo y filtra por disciplina y artista</p>
+        <h1 class="text-center text-white text-3xl">Ultimos Rides Registrados</h1>
+        <p class="text-center text-white">Unete a la comunidad rider mas grande del pais</p>
         
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
+
+            @foreach ($socios as $socio)
+
+                <x-socio-card :socio="$socio" />
+                
+            @endforeach
+
+        </div>
+
         <div class="flex justify-center mt-4">
-            <a href="{{route('series.index')}}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
-                Catalogo de Videos
+            <a href="{{route('series.index')}}" class="bg-green-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
+                Obtener Suscripción
             </a>
         </div>
     

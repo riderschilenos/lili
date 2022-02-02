@@ -20,6 +20,10 @@ class CreateSuscripcionsTable extends Migration
             $table->integer('precio');
             $table->date('end_date');
 
+            $table ->foreignId('user_id')
+            ->constrained()
+            ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

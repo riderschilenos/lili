@@ -2,16 +2,15 @@
 
     <section class="bg-cover bg-center" style="background-image: url({{asset('img/home/homefotomini.png')}})">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-36">
-            <div class="w-full md:w-3/4 lg:w-1/2">
-            <h1 class="text-white font-fold text-4xl">RidersChilenos</h1>
-            <p class="text-white text-lg mt-2 mb-4">Bienvenido al portal rider mas grande del país</p>
-                <!-- component -->
-                <!-- This is an example component -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 pt-64 pb-8">
+            
+                <h1 class="text-white font-fold text-4xl text-center">RidersChilenos</h1>
+                <p class="text-white text-lg mt-2 mb-4 text-center">Bienvenido al Portal Rider Más Grande del País</p>
+                    <!-- component -->
+                    <!-- This is an example component -->
+             
                 
-                @livewire('search')
-                
-            </div>
+            
         </div>
 
     </section>

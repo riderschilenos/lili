@@ -50,7 +50,7 @@
     </section>
     <section class="mt-16 bg-gray-700 py-12">
         <h1 class="text-center text-white text-3xl">Ultimos Rides Registrados</h1>
-        <p class="text-center text-white">Unete a la comunidad rider mas grande del pais</p>
+        <p class="text-center text-white pb-4">Unete a la comunidad rider más grande del país</p>
         
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">

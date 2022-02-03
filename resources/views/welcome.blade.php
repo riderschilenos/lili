@@ -77,7 +77,7 @@
     </section>
     <section class="mt-16 bg-gray-700 py-12">
         <h1 class="text-center text-white text-3xl">Ultimos Riders Registrados</h1>
-        <p class="text-center text-white pb-4">Unete a la comunidad rider más grande del país</p>
+        <p class="text-center text-white pb-6">Unete a la comunidad rider más grande del país</p>
         
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
@@ -93,6 +93,11 @@
         <div class="flex justify-center mt-4 pt-4">
             <a href="{{route('socio.create')}}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
                 Obtener Suscripción
+            </a>
+        </div>
+        <div class="flex justify-center mt-2 pt-2">
+            <a href="{{route('socio.index')}}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
+                Ver Todos
             </a>
         </div>
     

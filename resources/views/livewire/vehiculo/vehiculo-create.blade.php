@@ -172,7 +172,7 @@
 
                         <div class="mb-4">
                                 
-                            {!! Form::label('email', 'Email:*') !!}
+                            {!! Form::label('email', 'Email:') !!}
                             {!! Form::text('email', null , ['class' => 'form-input block w-full mt-1'.($errors->has('email')?' border-red-600':'')]) !!}
                     
                             @error('email')

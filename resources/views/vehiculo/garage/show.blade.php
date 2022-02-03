@@ -187,7 +187,13 @@
                         <p class="text-sm text-center">Esta publicación fue realizada por un agende de ventas de RidersChilenos</p>
 
                         <div class="flex items-center mt-6">
-                            <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
+                            @if($vehiculo->user->socio)
+                            <a href="{{route('socio.show', $vehiculo->user->socio)}}"><img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  /></a>
+                                
+                            @else
+                                <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
+                            @endif
+                            
                             <div class="ml-4">
 
                                 @if($vehiculo->property==1)

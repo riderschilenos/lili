@@ -5,7 +5,7 @@
                <div class="card-body">
                    <div class="grid grid-cols-2">
                     <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                        <h1 class="card-tittle">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                        <h1 class="card-tittle font-bold">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                     </a>
                    <h1 class="ml-auto card-tittle mr-2 mt-2">${{number_format($vehiculo->precio, 0, '.', '.')}}-.</h1>
                     </div>

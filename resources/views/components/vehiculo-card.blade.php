@@ -9,7 +9,7 @@
                     </a>
                    <h1 class="ml-auto card-tittle mr-2 mt-2">${{number_format($vehiculo->precio, 0, '.', '.')}}-.</h1>
                     </div>
-                    <p class="text-gray-500 text-sm mb-2">Vendedor: {{$vehiculo->user->name}}</p>
+                    <p class="text-gray-500 text-sm mb-2">Vendedor: {{$vehiculo->nombre}}</p>
                     <div class="grid grid-cols-5">
                         <div class="col-span-3">
                             <a href="{{route('garage.vehiculo.show', $vehiculo)}}">

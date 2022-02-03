@@ -200,7 +200,7 @@
                                 @if($vehiculo->property==1)
                                     <h1 class="font-fold text-gray-500 text-lg">Vendedor: {{ $vehiculo->user->name }}</h1>
                                 @else
-                                    <h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1>
+                                    <a href="{{route('socio.show', $vehiculo->user->socio)}}"><h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1></a>
                                 @endif
 
                                 @if($vehiculo->user->socio)

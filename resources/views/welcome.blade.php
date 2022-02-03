@@ -28,6 +28,11 @@
             @endforeach
 
         </div>
+
+        <div class="flex justify-center mt-4 pt-4">
+            <a href="{{route('garage.usados')}}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
+                Ver todos
+            </a>
     
     </section>
 

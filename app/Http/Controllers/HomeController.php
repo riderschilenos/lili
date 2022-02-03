@@ -17,7 +17,7 @@ class HomeController extends Controller
         $vehiculos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
-                            ->latest('id')->get()->take(4);
+                            ->latest('id')->get()->take(3);
 
         $series = Serie::where('status',3)->latest('id')->get()->take(8);
 

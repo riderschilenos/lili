@@ -5,11 +5,11 @@
     
     <!-- seccion pequeña -->
     <div class="">
-        <div class="bg-gray-200 pb-4 mb-8 mx-auto">
+        <div class="bg-gray-200 pb-4 mb-8 mx-auto mt-8">
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex ">
                 
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-4 mx-auto">
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-6 mx-auto ">
 
                 <div class=" col-span-2 lg:col-span-3 mx-auto">
                     <a href="{{route('garage.vehiculo.vender')}}">

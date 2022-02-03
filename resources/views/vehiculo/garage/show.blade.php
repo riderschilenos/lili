@@ -32,6 +32,7 @@
                  --}}
                 <p class="mb-2"><i class="fas fa-biking"></i> Tipo de vehiculo: {{$vehiculo->vehiculo_type->name}}</p>
                 <p class="mb-2"><i class="fas fa-clock"></i> Año: {{$vehiculo->año}}</p>
+                <p class="my-2 text-2xl"><i class="fas fa-dollar-sign"></i> Precio: ${{number_format($vehiculo->precio, 0, '.', '.')}}-.</p>
                {{-- comment
                 <p class="mb-2"><i class="fas fa-adjust"></i> Aro: </p>
                 <p class="mb-2"><i class="fas fa-star"></i> Ofertas: 40</p>

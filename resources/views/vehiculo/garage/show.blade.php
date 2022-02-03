@@ -44,7 +44,7 @@
 
 
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div class="order-2 lg:col-span-2 lg:order-1">
+        <div class="order-1 lg:col-span-2 lg:order-1">
             <section class="card  mb-8">
                 <div class="card-body">
                     <div class="grid grid-cols-2">
@@ -131,7 +131,7 @@
         </div>
 
 
-        <div class="order-1 lg:order-2">
+        <div class="order-2 lg:order-2">
             <section class="card mb-4">
                 <div class="card-body">
                     @if($vehiculo->property==1)

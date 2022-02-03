@@ -91,7 +91,7 @@
         </div>
 
         <div class="flex justify-center mt-4 pt-4">
-            <a href="{{route('socio.create')}}" class="bg-green-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
+            <a href="{{route('socio.create')}}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
                 Obtener Suscripción
             </a>
         </div>

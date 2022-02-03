@@ -200,7 +200,7 @@
             {!! Form::close() !!}
         @endif
     
-    
+        
         <script src="https://sdk.mercadopago.com/js/v2"></script>
   
         <script>

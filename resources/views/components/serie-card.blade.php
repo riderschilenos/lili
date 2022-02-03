@@ -9,7 +9,7 @@
                @endisset
 
                <div class="card-body flex flex-1 flex-col">
-                   <h1 class="card-tittle">{{Str::limit($serie->titulo,40)}}</h1>
+                   <a href="{{route('series.show', $serie)}}"><h1 class="card-tittle">{{Str::limit($serie->titulo,40)}}</h1></a>
                    <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$serie->disciplina->name}}</p> 
                    <p class="text-gray-500 text-sm mb-2">Filmmaker: {{$serie->productor->filmmakers->first()->name}}</p>
                    <p class="text-gray-500 text-sm mb-2 "><b>{{$serie->videos_count}}</b> Capítulos </p> 

@@ -57,6 +57,7 @@ class VehiculoController extends Controller
             'slug'=> Str::random(10),
             'status'=> $request->status,
             'precio'=> $request->precio,
+            'descripcion'=> $request->descripcion,
             'property'=> $request->property,
             'nombre'=> $request->nombre,
             'fono'=> $request->fono,

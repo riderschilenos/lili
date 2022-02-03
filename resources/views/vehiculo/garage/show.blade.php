@@ -97,7 +97,7 @@
                     <div class="text-gray-700">
                         <div class="grid md:grid-cols-1 text-sm">
                             <div class="px-4 py-2 font-semibold text-lg">Descripción:</div>
-                            <div class="px-4 py-2 text-lg">{!! $vehiculo->descripcion !!}</div>
+                            <div class="px-4 pb-2 text-lg">{!! $vehiculo->descripcion !!}</div>
                             
                         </div>
                     </div>

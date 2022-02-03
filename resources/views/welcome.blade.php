@@ -30,9 +30,15 @@
         </div>
 
         <div class="flex justify-center mt-4 pt-4">
+            <div class="grid grid-cols-2 gap-2">
+            <a href="{{route('garage.vehiculo.vender')}}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-center">
+                Publicar
+            </a>
             <a href="{{route('garage.usados')}}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
                 Ver todos
             </a>
+
+            </div>
     
     </section>
 

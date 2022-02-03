@@ -14,8 +14,8 @@ class HomeController extends Controller
     public function __invoke()
     {   
       
-        $vehiculos = Vehiculo::where('status',3)
-                            ->orwhere('status',4)
+        $vehiculos = Vehiculo::where('status',4)
+                            ->orwhere('status',3)
                             ->latest('id')->get()->take(8);
 
         $series = Serie::where('status',3)->latest('id')->get()->take(8);

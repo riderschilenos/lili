@@ -43,7 +43,7 @@
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                {!! Form::label('fono', 'Fono (Opcional)') !!}
+                                {!! Form::label('fono', 'Fono*') !!}
                                 {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                                 @error('fono')

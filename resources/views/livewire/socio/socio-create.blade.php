@@ -74,6 +74,43 @@
                             </div>    
                         </div>
                     </div>
+
+                    @if($suscripcions->count())
+                        <div class="mt-6">
+
+                            <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
+                                <h1 class="font-bold text-lg text-gray-800 text-center">SUSCRIPCION ACTIVA</h1>
+                            </header>
+                            <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
+                                
+
+                                <article class="flex items-center grid-cols-6">
+
+                                            <p class="pt-2 ml-3 font-bold">Activacion: </p> 
+                                            
+                                            <p class="pt-2 ml-auto items-center">{{date('d-m-Y', strtotime($now.''))}} </p>
+
+                                    
+                                        
+                                            <p class="pt-2 ml-3 font-bold">Fecha de Vencimiento: </p> 
+                                            
+                                            <p class="pt-2 ml-auto items-center">{{date('d-m-Y', strtotime($now.'+ 1 year'))}} </p>
+                                        
+                                        
+                                   
+                                
+                                </article>
+                              
+                
+                            </div>
+                        
+                        </div>
+
+                    
+                        
+                    @else
+                        
+                    
                     <div class="mt-6">
 
                         <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
@@ -107,7 +144,7 @@
                     
                     </div>
                     
-                    
+                    @endif
                     
                 @else
 

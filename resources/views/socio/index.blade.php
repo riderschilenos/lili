@@ -17,18 +17,54 @@
                     <div class="hidden sm:block">
                         <div class="flex justify-end mr-4 ">
 
-                            <a href="{{route('socio.create')}}">
-                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
-                            </a>
+                            
+                                @if(auth()->user())
+                                    @if(auth()->user()->socio)
+                                        <div class="grid grid-cols-2 gap-2">
+                                        <a href="{{ route('socio.show', auth()->user()->socio) }}">
+                                            <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Perfil</button>
+                                        </a>
+                                        <a href="{{route('socio.create')}}">
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Mi Suscripción</button>
+                                        </a>
+                                        </div>
+                                    @else
+                                        <a href="{{route('socio.create')}}">
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                        </a>
+                                    @endif
+                                @else
+                                    <a href="{{route('socio.create')}}">
+                                        <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                    </a>
+                                @endif    
+                            
 
                         </div>
                     </div>
                     <div class="block sm:hidden">
                         <div class="flex justify-center ">
 
-                            <a href="{{route('socio.create')}}">
-                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
-                            </a>
+                            
+                                @if(auth()->user())
+                                    @if(auth()->user()->socio)
+                                        <a href="{{ route('socio.show', auth()->user()->socio)}}">
+                                            <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Perfil</button>
+                                        </a>
+                                        <a href="{{route('socio.create')}}">
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Mi Suscripción</button>
+                                        </a>
+                                    @else
+                                        <a href="{{route('socio.create')}}">
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                        </a>
+                                    @endif
+                                @else
+                                    <a href="{{route('socio.create')}}">
+                                        <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                    </a>
+                                @endif    
+                            
 
                         </div>
                     </div>

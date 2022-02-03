@@ -76,6 +76,10 @@
                     </div>
 
                     @if($suscripcions->count())
+
+                        @foreach ($suscripcions as $suscripcion)
+                            
+                        
                         <div class="mt-6">
 
                             <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
@@ -88,13 +92,13 @@
 
                                             <p class="pt-2 ml-3 font-bold">Activacion: </p> 
                                             
-                                            <p class="pt-2 ml-auto items-center">{{date('d-m-Y', strtotime($now.''))}} </p>
+                                            <p class="pt-2 ml-auto items-center">{{$suscripcion->created_at->format('d-m-Y')}} </p>
 
                                     
                                         
                                             <p class="pt-2 ml-3 font-bold">Fecha de Vencimiento: </p> 
                                             
-                                            <p class="pt-2 ml-auto items-center">{{date('d-m-Y', strtotime($now.'+ 1 year'))}} </p>
+                                            <p class="pt-2 ml-auto items-center">{{date('d-m-Y', strtotime($suscripcion->end_date))}} </p>
                                         
                                         
                                    
@@ -106,43 +110,43 @@
                         
                         </div>
 
-                    
+                        @endforeach 
                         
                     @else
                         
                     
-                    <div class="mt-6">
+                        <div class="mt-6">
 
-                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
-                            <h1 class="font-bold text-lg text-gray-800 text-center">PAGO</h1>
-                        </header>
-                        <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
-                            
-
-                            <article class="flex items-center grid-cols-6">
-
+                            <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
+                                <h1 class="font-bold text-lg text-gray-800 text-center">PAGO</h1>
+                            </header>
+                            <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
                                 
 
-                                <div>
-                                    <div class="flex">
-                                        
-                                        <h1 class="text-lg ml-4">1 Año Suscripcion <i class="fas fa-calendar-check text-white-800"></i></h1>
+                                <article class="flex items-center grid-cols-6">
+
+                                    
+
+                                    <div>
+                                        <div class="flex">
+                                            
+                                            <h1 class="text-lg ml-4">1 Año Suscripcion <i class="fas fa-calendar-check text-white-800"></i></h1>
+                                        </div>
+                                        <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now.'+ 1 year'))}}</p>
                                     </div>
-                                    <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now.'+ 1 year'))}}</p>
+                                <p class="text-xl font-bold ml-auto">$25.000</p>
+                                </article>
+                                <div class="cho-container flex justify-center mt-2 mb-4">
+                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                                 </div>
-                            <p class="text-xl font-bold ml-auto">$25.000</p>
-                            </article>
-                            <div class="cho-container flex justify-center mt-2 mb-4">
-                                <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                
+                                <hr>
+                
+                                <p class="text-sm mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ipsum tenetur beatae esse placeat eos, inventore quod amet tempora voluptas dicta, reprehenderit aliquid praesentium earum magnam est sequi fugiat? <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
+                            
                             </div>
-            
-                            <hr>
-            
-                            <p class="text-sm mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ipsum tenetur beatae esse placeat eos, inventore quod amet tempora voluptas dicta, reprehenderit aliquid praesentium earum magnam est sequi fugiat? <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
                         
                         </div>
-                    
-                    </div>
                     
                     @endif
                     

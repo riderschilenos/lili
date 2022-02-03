@@ -17,7 +17,7 @@ class SocioCreate extends Component
     {   
         $disciplinas= Disciplina::pluck('name','id');
 
-        $suscripcions= Suscripcion::where('user_id',auth()->user()->id);
+        $suscripcions= Suscripcion::where('user_id',auth()->user()->id)->get();
 
         $now = Carbon::now();
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Serie;
 use App\Models\Socio;
+use App\Models\Suscripcion;
 use App\Models\Vehiculo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -52,6 +54,13 @@ class PaymentController extends Controller
         if($status == 'approved'){
             $socio->status=1;
             $socio->save();
+
+            Suscripcion::create([
+                'type'=>'socio',
+                'precio'=>25000,
+                'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year")),
+                'user_id'=>auth()->user()->id
+            ]);
 
             return redirect()->route('socio.show',$socio);
         }

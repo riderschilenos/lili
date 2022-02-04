@@ -99,7 +99,7 @@
                                 </a>
                             </td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.vehiculo.edit',$vehiculo)}}">Editar</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('garage.image',$vehiculo)}}">Fotos</a>
                             </td>
                             <td width="10px">
                                 <form action="{{route('admin.vehiculo.destroy',$vehiculo)}}" method="POST">

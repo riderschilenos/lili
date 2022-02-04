@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VehiculoController extends Controller
 {
@@ -81,8 +82,15 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vehiculo  $vehiculo)
     {
-        //
+        $vehiculo->delete();
+        if($vehiculo->image){
+            Storage::delete($vehiculo->image->url);
+            $vehiculo->image->delete();
+        }
+
+        return redirect()->route('admin.vehiculo.index')->with('info','El vehiculo se elimino con éxito.');
+
     }
 }

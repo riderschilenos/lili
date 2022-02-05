@@ -28,9 +28,10 @@
 
                             <p class="text-gray-500 text-sm">Año:</p>
                             <p class="text-gray-500 text-lg mb-2">{{$vehiculo->año}}</p>
-
+                            @if($vehiculo->cilindrada)
                             <p class="text-gray-500 text-sm">Cilindrada:</p>
                             <p class="text-gray-500 text-sm mb-2">{{$vehiculo->cilindrada}} <b>cc</b></p>
+                            @endif
 
                             {{-- comment
                             

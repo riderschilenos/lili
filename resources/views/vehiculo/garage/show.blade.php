@@ -32,8 +32,11 @@
                  --}}
                 <p class="mb-2"><i class="fas fa-biking"></i> Tipo de vehiculo: {{$vehiculo->vehiculo_type->name}}</p>
                 <p class="mb-2"><i class="fas fa-clock"></i> Año: {{$vehiculo->año}}</p>
-                <p class="my-2 text-2xl"><i class="fas fa-dollar-sign"></i> Precio: ${{number_format($vehiculo->precio, 0, '.', '.')}}-.</p>
-               {{-- comment
+                @if ($vehiculo->precio)
+                    <p class="my-2 text-2xl"><i class="fas fa-dollar-sign"></i> Precio: ${{number_format($vehiculo->precio, 0, '.', '.')}}-.</p>
+               
+                @endif
+                {{-- comment
                 <p class="mb-2"><i class="fas fa-adjust"></i> Aro: </p>
                 <p class="mb-2"><i class="fas fa-star"></i> Ofertas: 40</p>
  --}}
@@ -82,7 +85,7 @@
                             </div>
                             @if($vehiculo->cilindrada)
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">cilindrada</div>
+                                    <div class="px-4 py-2 font-semibold">cilindrada: </div>
                                     <div class="px-4 py-2">{{ $vehiculo->cilindrada}}</div>
                                 </div>
                             @endif
@@ -90,17 +93,24 @@
                                 <div class="px-4 py-2 font-semibold">Año:</div>
                                 <div class="px-4 py-2">{{ $vehiculo->año}}</div>
                             </div>
+                            @if($vehiculo->nro_serie)
+                                <div class="grid grid-cols-2">
+                                    <div class="px-4 py-2 font-semibold">Nro Serie:</div>
+                                    <div class="px-4 py-2">{{ $vehiculo->nro_serie}}</div>
+                                </div>
+                            @endif
                             
                         </div>
                     </div>
-
-                    <div class="text-gray-700">
-                        <div class="grid md:grid-cols-1 text-sm">
-                            <div class="px-4 py-2 font-semibold text-lg">Descripción:</div>
-                            <div class="px-4 pb-2 text-lg">{!! $vehiculo->descripcion !!}</div>
-                            
+                    @if($vehiculo->descripcion)
+                        <div class="text-gray-700">
+                            <div class="grid md:grid-cols-1 text-sm">
+                                <div class="px-4 py-2 font-semibold text-lg">Descripción:</div>
+                                <div class="px-4 pb-2 text-lg">{!! $vehiculo->descripcion !!}</div>
+                                
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     
 
                     
@@ -148,11 +158,20 @@
                             <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
                             <div class="ml-4">
 
-                                @if($vehiculo->property==1)
-                                    <h1 class="font-fold text-gray-500 text-lg">Vendedor: {{ $vehiculo->user->name }}</h1>
-                                @else
-                                    <h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1>
-                                @endif
+                                
+                                    <h1 class="font-fold text-gray-500 text-lg"> 
+
+                                    @if($vehiculo->status==5)
+
+                                        Dueño:
+                                        
+                                    @else
+                                        Vendedor: 
+                                    @endif
+                                        
+                                    
+                                        {{ $vehiculo->user->name }}</h1>
+                               
 
                                 @if($vehiculo->user->socio)
                                     <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $vehiculo->user->socio)}}">{{'@'.$vehiculo->user->socio->slug}}</a>
@@ -163,6 +182,7 @@
                     @else
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Vendedor:</div>
+                            
                             <div class="px-4 py-2">{{ $vehiculo->nombre }}</div>
                         </div>
                     @endif
@@ -171,21 +191,46 @@
                         <div class="grid md:grid-cols-1 text-sm">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Ubicación:</div>
-                                <div class="px-4 py-2">{{ $vehiculo->ubicacion }}</div>
+                                    @if($vehiculo->status==5)
+
+                                        <div class="px-4 py-2">{{$vehiculo->user->socio->direccion->comuna}}, {{$vehiculo->user->socio->direccion->region}}</div>
+                                        
+                                    @else
+                                        <div class="px-4 py-2">{{ $vehiculo->ubicacion }}</div>
+                                    @endif
+                                
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Fono:</div>
-                                <div class="px-4 py-2">{{ $vehiculo->fono}}</div>
+                                    @if($vehiculo->status==5)
+
+                                        <div class="px-4 py-2">{{ $vehiculo->user->socio->fono}}</div>
+                                    @else
+                                        <div class="px-4 py-2">{{ $vehiculo->fono}}</div>
+                                    @endif
+                                
                             </div>
-                            @if($vehiculo->cilindrada)
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Fecha de publicación</div>
-                                    <div class="px-4 py-2">{{$vehiculo->created_at->format('d-m-Y')}}</div>
-                                </div>
-                            @endif
+                            
+                            <div class="grid grid-cols-2">
+                                    @if($vehiculo->status==5)
+
+                                    <div class="px-4 py-2 font-semibold">Fecha de inscripción</div>
+                                    @else
+                                        <div class="px-4 py-2 font-semibold">Fecha de publicación</div>
+                                    @endif
+                                
+                                <div class="px-4 py-2">{{$vehiculo->created_at->format('d-m-Y')}}</div>
+                             </div>
+                            
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Email:</div>
-                                <div class="px-4 py-2">{{ $vehiculo->email}}</div>
+                                    @if($vehiculo->status==5)
+
+                                    <div class="px-4 py-2">{{ $vehiculo->user->email}}</div>
+                                    @else
+                                        <div class="px-4 py-2">{{ $vehiculo->email}}</div>
+                                    @endif
+                                
                             </div>
                             
                         </div>
@@ -205,15 +250,16 @@
                             
                             <div class="ml-4">
 
-                                @if($vehiculo->property==1)
-                                    <h1 class="font-fold text-gray-500 text-lg">Vendedor: {{ $vehiculo->user->name }}</h1>
-                                @else
-                                    <a href="{{route('socio.show', $vehiculo->user->socio)}}"><h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1></a>
-                                @endif
+                                
+                                
+
 
                                 @if($vehiculo->user->socio)
+                                <a href="{{route('socio.show', $vehiculo->user->socio)}}"><h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1></a>
                                     <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $vehiculo->user->socio)}}">{{'@'.$vehiculo->user->socio->slug}}</a>
-
+                                @else
+                                    
+                                <h1 class="font-fold text-gray-500 text-lg">Agente: {{ $vehiculo->user->name }}</h1>
                                 @endif
                             </div>
                         </div>

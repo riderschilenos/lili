@@ -69,6 +69,12 @@
 
 
                         @elseif($vehiculo->status==2)
+
+
+                            @if($vehiculo->image->first())
+
+
+
                             <div class="grid grid-cols-2">
                                 <div>
                                     <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
@@ -76,12 +82,33 @@
                                     </a>
                                 </div>
                                 <div>
-                                    <a href= "{{route('garage.comision', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
-                                        Terminar Inscripción
+                                    
+                                        <a href= "{{route('garage.inscripcion', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
+                                            Terminar Inscripción
+                                        </a>
+                                    
+                                    
+                                </div>
+                            </div>
+                            @else
+                            <a href= "{{route('garage.image', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
+                                Terminar Inscripción
+                            </a>
+                            @endif
+
+                        @elseif($vehiculo->status==5 || $vehiculo->status==6)
+                            <div class="grid grid-cols-2">
+                                <div>
+                                    <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
+                                        Ver ficha
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href= "{{route('garage.inscripcion', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
+                                        Pago suscripción
                                     </a>
                                 </div>
                             </div>
-
                         @endif
                     
                         

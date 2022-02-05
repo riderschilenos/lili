@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->name('publicar');
 
+Route::post('{vehiculo}/inscribir', [VehiculoController::class,'inscribir'])->name('inscribir');
+
 Route::redirect('', 'garage/usados');
 
 Route::get('usados', [VehiculoController::class,'index'])->name('usados');
@@ -17,6 +19,8 @@ Route::get('{vehiculo}/fotos', [VehiculoController::class,'imageupload'])->name(
 Route::post('{vehiculo}/upload', [VehiculoController::class,'upload'])->name('upload');
 
 Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name('comision');
+
+Route::get('{vehiculo}/inscripcion', [VehiculoController::class,'pagoinscripcion'])->name('inscripcion');
 
 Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('precioupdate');
 

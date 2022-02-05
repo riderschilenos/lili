@@ -30,7 +30,7 @@ class UsadosIndex extends Component
         
         $vehiculos = Vehiculo::where('status',4)
                         ->orwhere('status',5)
-                        ->orwhere('status',6)
+                        ->orwhere('status',7)
                         ->Vehiculo_type($this->vehiculo_types_id)
                         ->latest('id')
                         ->paginate(5);

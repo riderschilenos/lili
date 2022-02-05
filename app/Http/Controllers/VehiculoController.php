@@ -122,6 +122,21 @@ class VehiculoController extends Controller
         
     }
 
+    public function pagoinscripcion(Vehiculo $vehiculo)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+        if($vehiculo->image->count()){
+
+            return view('vehiculo.garage.inscripcion', compact('vehiculo'));
+        }else{
+            return redirect()->route('garage.image',$vehiculo)->with('info','No puedes avanzar sin haber subido al menos una imagen');
+        }
+
+        
+        
+    }
+
     public function imageupload(Vehiculo $vehiculo)
     {   
         //$this->authorize('dicatated',$serie);
@@ -183,6 +198,15 @@ class VehiculoController extends Controller
     public function publicar(Vehiculo $vehiculo)
     {   
         $vehiculo->status=5;
+
+        $vehiculo->save();
+
+        return redirect()->route('garage.vehiculo.show',$vehiculo);
+    }
+
+    public function inscribir(Vehiculo $vehiculo)
+    {   
+        $vehiculo->status=6;
 
         $vehiculo->save();
 

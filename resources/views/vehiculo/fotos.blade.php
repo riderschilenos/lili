@@ -162,14 +162,26 @@
                       <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
                     </div>
                     </form>
- --}}
-                    <div class="flex justify-center">
-                      <a href="{{route('garage.comision',$vehiculo)}}">
-                        <button class="btn btn-primary mt-4">
-                          Siguiente
-                        </button>
-                      </a>
-                    </div>
+ --}}               @if($vehiculo->status==2)
+                    
+                        <div class="flex justify-center">
+                          <a href="{{route('garage.inscripcion',$vehiculo)}}">
+                            <button class="btn btn-primary mt-4">
+                              Siguiente
+                            </button>
+                          </a>
+                        </div>
+       
+                    @else    
+                    
+                        <div class="flex justify-center">
+                          <a href="{{route('garage.comision',$vehiculo)}}">
+                            <button class="btn btn-primary mt-4">
+                              Siguiente
+                            </button>
+                          </a>
+                        </div>
+                    @endif
                   
                   @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculos-image.'.$vehiculo->slug))
            {{-- comment      --}}

@@ -85,10 +85,7 @@ class VehiculoController extends Controller
     public function destroy(Vehiculo  $vehiculo)
     {
         $vehiculo->delete();
-        if($vehiculo->image){
-            Storage::delete($vehiculo->image->url);
-            $vehiculo->image->delete();
-        }
+        
 
         return redirect()->route('admin.vehiculo.index')->with('info','El vehiculo se elimino con éxito.');
 

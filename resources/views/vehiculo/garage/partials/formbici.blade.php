@@ -29,7 +29,7 @@
                     </div>
                     <div class="mb-4">
                         {!! Form::label('aro_front', 'Aro:') !!}
-                        {!! Form::text('aro_front', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':'')]) !!}
+                        {!! Form::number('aro_front', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':'')]) !!}
 
                         @error('aro_front')
                             <strong class="text-xs text-red-600">{{$message}}</strong>

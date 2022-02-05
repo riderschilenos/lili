@@ -38,14 +38,28 @@ class VehiculoController extends Controller
 
     public function store(Request $request)
     {   
-        $request->validate([
-            'marca_id'=>'required',
-            'nombre'=>'required',
-            'fono'=>'required',
-            'ubicacion'=>'required',
-           // 'slug'=>'required|unique:vehiculos',
+        if($request->status==1){
+            $request->validate([
+                'marca_id'=>'required',
+                'nombre'=>'required',
+                'fono'=>'required',
+                'ubicacion'=>'required',
+               // 'slug'=>'required|unique:vehiculos',
+    
+            ]);
+        }else{
+            $request->validate([
+                'marca_id'=>'required',
+                'modelo'=>'required',
+                'año'=>'required',
+                'nro_serie'=>'required'
+                
+               // 'slug'=>'required|unique:vehiculos',
+    
+            ]);
+        }
 
-        ]);
+        
 
         $vehiculo = Vehiculo::create([
             'marca_id'=> $request->marca_id,
@@ -60,6 +74,7 @@ class VehiculoController extends Controller
             'descripcion'=> $request->descripcion,
             'property'=> $request->property,
             'nombre'=> $request->nombre,
+            'nro_serie'=> $request->nro_serie,
             'fono'=> $request->fono,
             'email'=> $request->email,
             'ubicacion'=> $request->ubicacion,

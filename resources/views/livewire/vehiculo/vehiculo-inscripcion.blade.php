@@ -131,7 +131,7 @@
                         
                         @endif
 
-
+                        {!! Form::hidden('property', 1 ) !!}
 
 
             {!! Form::close() !!}

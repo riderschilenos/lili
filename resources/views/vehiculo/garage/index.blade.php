@@ -72,7 +72,7 @@
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-8">
 
                                 @foreach (auth()->user()->socio->vehiculos as $vehiculo)
-                                    @if($vehiculo->status==2)
+                                    @if($vehiculo->status==2 || $vehiculo->status==5)
                                         <x-mivehiculo-card :vehiculo="$vehiculo" />        
                                     @endif
                                 @endforeach

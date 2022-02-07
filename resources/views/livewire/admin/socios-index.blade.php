@@ -18,7 +18,7 @@
                     </thead>
                     
                     <tbody>
-                        @foreach ($socios as $socio)
+                        @foreach ($socios->reverse() as $socio)
                             <tr>
                                 <td>{{$socio->id}}</td>
                                 <td>{{$socio->name}}</td>

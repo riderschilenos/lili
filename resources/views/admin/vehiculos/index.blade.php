@@ -19,25 +19,51 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Tipo de Vehiculo</th>
-                        <th>Estado</th>
+                        <th style="text-align: center;">Imagen</th>
                         <th>Marca</th>
+                        
+                        
                         <th>Modelo</th>
                         <th>Año</th>
                         <th>Usuario</th>
+                        <th>Estado</th>
 
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($vehiculos as $vehiculo)
+                    @foreach ($vehiculos->reverse() as $vehiculo)
                         <tr>
                             <td>
                                 {{$vehiculo->id}}
                             </td>
-                            <td>
-                                {{$vehiculo->vehiculo_type->name}}
+                            <td style="text-align: center;">
+                                @if($vehiculo->image->first())
+                
+                                    <img class="object-cover object-center" width="60px" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                    
+                                @else
+                                    <img class="object-cover object-center" width="60px" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                
+                                @endif
+                               
+
                             </td>
+                            <td>
+                                {{$vehiculo->marca->name}}
+                            </td>
+                            
+                            
+                            <td>
+                                {{$vehiculo->modelo}}
+                            </td>
+                            <td>
+                                {{$vehiculo->año}}
+                            </td>
+                            <td>
+                                {{$vehiculo->user->name}}
+                            </td>
+
                             <td>
                                 
                                 @switch($vehiculo->status)
@@ -76,19 +102,6 @@
                                           
                                     @endswitch
                             </td>
-                            <td>
-                                {{$vehiculo->marca->name}}
-                            </td>
-                            <td>
-                                {{$vehiculo->modelo}}
-                            </td>
-                            <td>
-                                {{$vehiculo->año}}
-                            </td>
-                            <td>
-                                {{$vehiculo->user->name}}
-                            </td>
-
                             
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('garage.vehiculo.show',$vehiculo)}}">

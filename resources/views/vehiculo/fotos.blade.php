@@ -100,7 +100,7 @@
                             <div class="text-xs text-center md:text-base">Precio/Comisión</div>
                             
                         @elseif($vehiculo->status==2)
-                          <div class="text-xs text-center md:text-base">Pago</div>
+                          <div class="text-xs text-center md:text-base">Pago inscripción</div>
                         @endif
                       </div>
                       

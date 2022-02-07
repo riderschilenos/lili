@@ -1,5 +1,7 @@
 <div>
     @if ($vehiculo->status==2)
+        <h1 class="text-lg ml-2 font-bold">La inscripción del primer vehiculo es un gentil auspicio de RIDERS CHILENOS.</h1>
+
 
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 py-12">
             <div class="flex justify-center mt-6">

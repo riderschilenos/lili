@@ -73,7 +73,7 @@
                         <div class="relative mb-2">
                           <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
                             <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
-                              <div class="w-0 bg-green-300 py-1 rounded" style="width: @if(is_null($vehiculo->precio)) 0% @else 100% @endif ;"></div>
+                              <div class="w-0 bg-green-300 py-1 rounded" style="width: @if($vehiculo->status==5 | $vehiculo->status==6) 100% @else 0% @endif ;"></div>
                             </div>
                           </div>
                   

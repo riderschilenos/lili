@@ -105,7 +105,7 @@
                                 </div>
                                 <div>
                                     <a href= "{{route('garage.inscripcion', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
-                                        Pago suscripción
+                                        Estado suscripción
                                     </a>
                                 </div>
                             </div>

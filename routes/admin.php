@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\MarcaController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
 use App\Http\Controllers\Admin\SocioController;
+use App\Http\Controllers\Admin\SuscripcionController;
 use App\Http\Controllers\Admin\Vehiculo_typeController;
 use App\Http\Controllers\Admin\VehiculoController;
 
@@ -40,6 +41,8 @@ Route::resource('vehiculotypes',Vehiculo_typeController::class)->names('vehiculo
 Route::resource('vehiculo',VehiculoController::class)->names('vehiculo');
 
 Route::resource('marca',MarcaController::class)->names('marcas');
+
+Route::resource('suscripcion',SuscripcionController::class)->names('suscripcions');
 
 Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.imageform');
 

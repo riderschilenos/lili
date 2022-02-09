@@ -102,6 +102,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Vehiculo');
     }
 
+    public function suscripcions(){
+        return $this->hasMany('App\Models\Suscripcion');
+    }
+
     public function filmmakers(){
         return $this->hasMany('App\Models\Filmmaker');
     }

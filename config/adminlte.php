@@ -275,6 +275,14 @@ return [
             'active'     => ['admin/socios*']
            
         ],
+        [
+            'text'        => 'Suscripcions',
+            'route'         => 'admin.suscripcions.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/suscripcions*']
+           
+        ],
         ['header' => 'Vehiculos'],
         [
             'text'        => 'Vehiculo',
@@ -375,7 +383,10 @@ return [
             ],
         ],
         
-        ['header' => 'labels'],
+        
+    ],
+
+    /*['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -391,9 +402,6 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
-    ],
-
-    /*
     |--------------------------------------------------------------------------
     | Menu Filters
     |--------------------------------------------------------------------------

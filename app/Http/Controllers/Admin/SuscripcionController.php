@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Suscripcion;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SuscripcionController extends Controller
@@ -26,7 +27,9 @@ class SuscripcionController extends Controller
      */
     public function create()
     {
-        //
+        $users= User::pluck('name','id');
+
+        return view('admin.suscripcions.create',compact('users'));
     }
 
     /**

@@ -17,8 +17,6 @@ class SocioCreate extends Component
     {   
         $disciplinas= Disciplina::pluck('name','id');
 
-        $suscripcions= Suscripcion::where('user_id',auth()->user()->id)->get();
-
         $now = Carbon::now();
 
         if(auth()->user()->socio)
@@ -29,7 +27,7 @@ class SocioCreate extends Component
             $socio=null;
         }
 
-        return view('livewire.socio.socio-create',compact('disciplinas','socio','now','suscripcions'));
+        return view('livewire.socio.socio-create',compact('disciplinas','socio','now'));
     }
 
     public function destroydireccion(Direccion $direccion){

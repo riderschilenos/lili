@@ -57,5 +57,9 @@ class Vehiculo extends Model
     public function image(){
         return $this->morphMany('App\Models\Image','imageable');
     }
+
+    public function suscripcion(){
+        return $this->morphMany('App\Models\Suscripcion','suscripcionable');
+    }
     
 }

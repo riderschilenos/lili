@@ -11,9 +11,8 @@ class Suscripcion extends Model
 
     protected $guarded = ['id'];
 
-    // relacion uno a muchos inversa
-    public function user(){
-        return $this->BelongsTo('App\Models\User');
+    public function suscripcionable(){
+        return $this->morphTo();
     }
     
 }

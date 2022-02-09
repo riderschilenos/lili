@@ -56,10 +56,10 @@ class PaymentController extends Controller
             $socio->save();
 
             Suscripcion::create([
-                'type'=>'socio',
+                'suscripcionable_type'=>'App\Models\Socio',
+                'suscripcionable_id'=>auth()->user()->id,                
                 'precio'=>25000,
-                'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year")),
-                'user_id'=>auth()->user()->id
+                'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year"))
             ]);
 
             return redirect()->route('socio.show',$socio);

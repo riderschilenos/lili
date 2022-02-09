@@ -16,13 +16,12 @@ class CreateSuscripcionsTable extends Migration
         Schema::create('suscripcions', function (Blueprint $table) {
             $table->id();
 
-            $table->string('type');
             $table->integer('precio');
             $table->date('end_date');
 
-            $table ->foreignId('user_id')
-            ->constrained()
-            ->onDelete('cascade');
+
+            $table->unsignedbigInteger('suscripcionable_id');
+            $table->string('suscripcionable_type');
 
             $table->timestamps();
         });

@@ -13,7 +13,7 @@
     $item = new MercadoPago\Item();
     $item->title = 'Suscripción:';
     $item->quantity = 1;
-    $item->unit_price = 25000;
+    $item->unit_price = 100;
 
     
 
@@ -75,9 +75,9 @@
                         </div>
                     </div>
 
-                    @if($suscripcions->count())
+                    @if($socio->suscripcions->count())
 
-                        @foreach ($suscripcions as $suscripcion)
+                        @foreach ($socio->suscripcions as $suscripcion)
                             
                         
                         <div class="mt-6">

@@ -59,7 +59,7 @@ class PaymentController extends Controller
                 'suscripcionable_type'=>'App\Models\Socio',
                 'suscripcionable_id'=>auth()->user()->id,                
                 'precio'=>25000,
-                'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year"))
+                'end_date'=>strtotime(Carbon::now()."+ 1 year")
             ]);
 
             return redirect()->route('socio.show',$socio);

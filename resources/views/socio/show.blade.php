@@ -42,7 +42,17 @@
                 <!-- Left Side -->
                 <div class="w-full md:w-3/12 md:mx-2">
                     <!-- Profile Card -->
-                    <div class="bg-white p-3 border-t-4 border-red-400">
+                    @switch($socio->status)
+                                                @case(1)
+                                                <div class="bg-white p-3 border-t-4 border-green-500">
+                                                    @break
+                                                @case(2)
+                                                <div class="bg-white p-3 border-t-4 border-red-400">
+                                                    @break
+                                                @default
+                                                    
+                                        @endswitch
+                    
                         <div class="image overflow-hidden">
                             <img class="h-auto w-full mx-auto object-cover"
                                 src="{{ $socio->user->profile_photo_url }}"

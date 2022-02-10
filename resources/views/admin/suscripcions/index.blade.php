@@ -40,7 +40,7 @@
                                 {{$suscripcion->type}}
                             </td>
                             <td>
-                                {{$suscripcion->user->name}}
+                                {{$suscripcion->suscripcionable_id}}
                             </td>
                             <td>
                                 {{$suscripcion->end_date}}

@@ -82,8 +82,8 @@
                         
                         <div class="mt-6">
 
-                            <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
-                                <h1 class="font-bold text-lg text-gray-800 text-center">SUSCRIPCIÓN ACTIVA</h1>
+                            <header class="border border-green-200 px-4 pt-2 cursor bg-green-500     mt-6 rounded-t-lg">
+                                <h1 class="font-bold text-lg text-white text-center">SUSCRIPCIÓN ACTIVA</h1>
                             </header>
                             <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
                                 

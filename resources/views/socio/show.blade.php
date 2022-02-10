@@ -80,10 +80,16 @@
                                         @endswitch
                                         
                                 </li>
+
+                                @if($socio->suscripcions->count())
+
+                                    
                                 <li class="flex items-center py-3">
                                     <span>Fecha Vencimiento</span>
-                                    <span class="ml-auto">Nov 07, 2023</span>
+                                    <span class="ml-auto">{{date('d-F-Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
                                 </li>
+
+                                @endif
                             </ul>
                         </a>
                     </div>

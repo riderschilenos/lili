@@ -55,7 +55,7 @@ class PaymentController extends Controller
             $socio->status=1;
             $socio->save();
 
-            $sus =Suscripcion::create([
+            $sus = Suscripcion::create([
                 'suscripcionable_type'=>'App\Models\Socio',
                 'suscripcionable_id'=>$socio->id,
                 'precio'=>25000,

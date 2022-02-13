@@ -25,7 +25,9 @@
 
             <div class="text-white">
                 <h1 class="text-4xl">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
-                <h2 class="text xl mb-3">Ubicación: {{$vehiculo->ubicacion}}</h2>
+                @if($vehiculo->ubicacion)
+                    <h2 class="text xl mb-3">Ubicación: {{$vehiculo->ubicacion}}</h2>
+                @endif
                 {{-- comment
                 
                 <p class="mb-2"><i class="fas fa-wrench"></i> <b>3</b> Mantenciones registradas</p>

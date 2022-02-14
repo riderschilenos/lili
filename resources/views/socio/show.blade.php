@@ -58,7 +58,12 @@
                                 src="{{ $socio->user->profile_photo_url }}"
                                 alt="">
                         </div>
+                        <div class="flex">
                         <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio->slug }}</h1>
+                        @can('perfil_propio', $socio)
+                            <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
+                        @endcan
+                        </div>
                         <h3 class="text-gray-600 font-lg text-semibold leading-6">Auspiciadores:</h3>
                             <div class="grid grid-cols-3">
                                     @if ($socio->user->serie_enrolled)

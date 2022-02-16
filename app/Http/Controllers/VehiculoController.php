@@ -21,6 +21,14 @@ class VehiculoController extends Controller
     public function personalindex(){
         return view('vehiculo.garage.index');
     }
+    
+    public function registerindex(){
+        $vehiculos = Vehiculo::where('status',6)
+                            ->latest('id')->get();
+
+        return view('vehiculo.index',compact('vehiculos'));
+    }
+    
 
     public function create(){
 

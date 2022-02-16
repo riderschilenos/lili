@@ -23,6 +23,12 @@
         'active'=>request()->routeIs('socios.*')
 
     ]
+    ,[   
+        'name'=>'DATABASE',
+        'route'=>route('garage.vehiculos.registerindex'),
+        'active'=>request()->routeIs('garage.vehiculos.registerindex')
+
+    ]
    /* ,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),

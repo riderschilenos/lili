@@ -97,6 +97,14 @@
                             @endif
 
                         @elseif($vehiculo->status==5 || $vehiculo->status==6)
+
+                            @routeIs('garage.vehiculos.registerindex') 
+                            <div>
+                                <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
+                                    Ver ficha
+                                </a>
+                            </div>
+                            @else
                             <div class="grid grid-cols-2">
                                 <div>
                                     <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
@@ -109,6 +117,7 @@
                                     </a>
                                 </div>
                             </div>
+                            @endif
                         @endif
                     
                         

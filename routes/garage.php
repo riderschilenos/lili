@@ -28,6 +28,9 @@ Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('pre
 Route::get('misvehiculos', [VehiculoController::class,'personalindex'])->middleware('auth')->name('vehiculos.index');
 
 
+Route::get('database', [VehiculoController::class,'registerindex'])->name('vehiculos.registerindex');
+
+
 Route::get('{vehiculo}', [VehiculoController::class,'show'])->name('vehiculo.show');
 
 

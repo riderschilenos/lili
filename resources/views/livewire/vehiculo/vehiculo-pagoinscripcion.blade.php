@@ -119,7 +119,7 @@
 
             <div class="flex justify-center">
                 <div class="max-w-sm mx-auto">
-                    <div class="py-12" wire:click="suscripcion('gratis')">
+                    <div class="py-12">
                         <div class="bg-white pt-4 rounded-xl space-y-6 overflow-hidden   shadow-xl ">
                         <div class="px-8 flex justify-between items-center">
                             <h4 class="text-xl font-bold text-gray-800">Gratis</h1>

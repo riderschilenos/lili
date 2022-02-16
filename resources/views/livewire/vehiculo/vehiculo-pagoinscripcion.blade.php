@@ -51,8 +51,8 @@
             @if (is_null($vehiculo->insc))
 
                 <article class="flex items-center">
-                    <div class="flex space-x-10 pt-10">
-                        <div class="py-12" wire:click="suscripcion('gratis')">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 space-x-10 pt-10">
+                        <div class="py-12 order-3 lg:order-1" wire:click="suscripcion('gratis')">
                           <div class="bg-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                             <div class="px-8 flex justify-between items-center">
                               <h4 class="text-xl font-bold text-gray-800">Gratis</h1>
@@ -72,7 +72,7 @@
                           </div>
                         </div>
                         
-                        <div class="py-12" wire:click="suscripcion('5000')">
+                        <div class="py-12 order-2 lg:order-2" wire:click="suscripcion('5000')">
                           <div class="bg-white pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                             <div class="px-8 flex justify-between items-center">
                               <h4 class="text-xl font-bold text-gray-800">QR Silver</h1>
@@ -92,7 +92,7 @@
                               </div>
                           </div>
                         </div>
-                        <div class="py-12" wire:click="suscripcion('10000')">
+                        <div class="py-12 order-1 lg:order-3" wire:click="suscripcion('10000')">
                             <div class="bg-white  pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 -translate-y-2 scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                               <div class="px-8 flex justify-between items-center">
                                 <h4 class="text-xl font-bold text-gray-800">QR Gold</h1>

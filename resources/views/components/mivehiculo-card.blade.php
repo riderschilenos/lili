@@ -99,6 +99,13 @@
                         @elseif($vehiculo->status==5 || $vehiculo->status==6)
 
                             @routeIs('garage.vehiculos.registerindex') 
+
+                            <div class="">
+                                <div class="px-4 pt-2 text-sm font-semibold">Dueño:</div>
+                                
+                                <div class="px-4 text-sm p0-2">{{ $vehiculo->user->socio->name.' '.$vehiculo->user->socio->last_name}}</div>
+                            </div>
+
                             <div>
                                 <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
                                     Ver ficha

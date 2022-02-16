@@ -51,7 +51,8 @@
             @if (is_null($vehiculo->insc))
 
                 <article class="flex items-center">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 space-x-10 pt-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10">
+                        
                         <div class="py-12 order-3 lg:order-1" wire:click="suscripcion('gratis')">
                           <div class="bg-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                             <div class="px-8 flex justify-between items-center">

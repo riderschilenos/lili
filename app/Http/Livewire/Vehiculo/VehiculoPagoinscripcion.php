@@ -25,10 +25,20 @@ class VehiculoPagoinscripcion extends Component
         $this->suscripcion = $suscripcion;
         if($suscripcion=='gratis'){
             $this->vehiculo->insc='1';
+            $this->suscripcion=$suscripcion;
         }
         if($suscripcion=='5000'){
             $this->vehiculo->insc='2';
+            $this->suscripcion=$suscripcion;
         }
+        if($suscripcion=='10000'){
+            $this->vehiculo->insc='3';
+            $this->suscripcion=$suscripcion;            
+        }
+
+        $this->vehiculo->save();
+        
+        return route('garage.inscripcion',$this->vehiculo);
     }
     
 }

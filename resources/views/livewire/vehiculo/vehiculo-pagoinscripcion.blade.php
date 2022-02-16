@@ -9,13 +9,21 @@
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
 
+    if($vehiculo->insc==2){
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
-    $item->title = 'Inscripcion:';
+    $item->title = 'Inscripción:';
+    $item->quantity = 1;
+    $item->unit_price = 5000;
+    }
+    else{
+        // Crea un ítem en la preferencia
+    $item = new MercadoPago\Item();
+    $item->title = 'Inscripción:';
     $item->quantity = 1;
     $item->unit_price = 10000;
 
-    
+    }
 
     $preference = new MercadoPago\Preference();
     //...
@@ -59,15 +67,7 @@
                            
                               </ul>
                               <div class="text-center bg-gray-200 ">
-                                {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
-                    
-                                {!! Form::hidden('insc','1') !!}
-                               
-                                <div class="flex justify-center mt-6">
-                                    {!! Form::submit('Seleccionar', ['class'=>'inline-block my-6 font-bold text-gray-800 bg-gray-200 ']) !!}
-                                </div>
-                                {!! Form::close() !!}
-                            
+                                <button class="inline-block my-6 font-bold text-gray-800">Seleccionar</button>
                               </div>
                           </div>
                         </div>
@@ -88,19 +88,11 @@
                                 
                               </ul>
                               <div class="text-center bg-gray-200 ">
-                                {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
-                    
-                                {!! Form::hidden('insc','2') !!}
-                               
-                                <div class="flex justify-center mt-6">
-                                    {!! Form::submit('Seleccionar', ['class'=>'inline-block my-6 font-bold text-gray-800 bg-gray-200 ']) !!}
-                                </div>
-                                {!! Form::close() !!}
-                            
+                                <button class="inline-block my-6 font-bold text-gray-800">Seleccionar</button>
                               </div>
                           </div>
                         </div>
-                        <div class="py-12">
+                        <div class="py-12" wire:click="suscripcion('10000')">
                             <div class="bg-white  pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 -translate-y-2 scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                               <div class="px-8 flex justify-between items-center">
                                 <h4 class="text-xl font-bold text-gray-800">QR Gold</h1>
@@ -112,21 +104,16 @@
                                     <li><a href="#" class="font-semibold">QR Respaldo Identidad</a></li>
                                     <li><a href="#" class="font-semibold">Ficha Online</a></li>
                                 </ul>
-                                {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
-                    
-                                {!! Form::hidden('insc','3') !!}
-                               
-                                <div class="flex justify-center mt-6 bg-red-600 ">
-                                    {!! Form::submit('Seleccionar', ['class'=>'inline-block my-6 font-bold text-white bg-red-600 ']) !!}
-                                </div>
-                                {!! Form::close() !!}
                                 
+                                <div class="text-center bg-red-600 ">
+                                    <button class="inline-block my-6 font-bold text-white">Seleccionar</button>
+                                </div>
                             </div>
                           </div>
                     </div>   
                 </article>
             
-            @endif
+        @else
             @if ($vehiculo->insc=='1')
 
             <div class="flex justify-center">
@@ -168,13 +155,13 @@
 
                 </div>
             </div>
-            @endif
+            
 
-            @if ($vehiculo->insc=='2')
+            @elseif($vehiculo->insc=='2')
 
                 <div class="flex justify-center">
                     <div class="max-w-sm mx-auto">
-                        <div class="py-12" wire:click="suscripcion('gratis')">
+                        <div class="py-12">
                             <div class="bg-white pt-4 rounded-xl space-y-6 overflow-hidden   shadow-xl ">
                             <div class="px-8 flex justify-between items-center">
                                 <h4 class="text-xl font-bold text-gray-800">QR Silver</h1>
@@ -196,6 +183,9 @@
                                         {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer pb-6 bg-white']) !!}
                                     
                                 {!! Form::close() !!}
+
+                            
+
                                 </ul>
                                 
                             </div>
@@ -203,16 +193,20 @@
 
                         
                         
+                        
                     </div>
                 </div>
-
                 
-            @endif
-            @if ($vehiculo->insc=='3')
+                <div class="cho-container flex justify-center mt-2 mb-4">
+                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                </div>
+                
+            
+            @elseif ($vehiculo->insc=='3')
 
                 <div class="flex justify-center">
                     <div class="max-w-sm mx-auto">
-                        <div class="py-12" wire:click="suscripcion('gratis')">
+                        <div class="py-12">
                             <div class="bg-white pt-4 rounded-xl space-y-6 overflow-hidden   shadow-xl ">
                             <div class="px-8 flex justify-between items-center">
                                 <h4 class="text-xl font-bold text-gray-800">QR Gold</h1>
@@ -235,7 +229,11 @@
                                         {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer pb-6 bg-white']) !!}
                                     
                                 {!! Form::close() !!}
+
+                                
+
                                 </ul>
+                                
                                 
                             </div>
                         </div>
@@ -243,10 +241,11 @@
                         
                         
                     </div>
+                    
                 </div>
 
                 
-            @endif
+            
                 
 
             
@@ -259,26 +258,19 @@
                 
             
             
-            
-            
-                </div>
-            </div>
-
-            @if ($vehiculo->insc=='2' || $vehiculo->insc=='3' )
-
                 <div class="cho-container flex justify-center mt-2 mb-4">
                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                 </div>
-                
-            @endif
-                
+        @endif           
+
         
 
-        </div>
+        
+            
+         @endif
 
-       
 
-        @endif
+    @endif
 
         
 

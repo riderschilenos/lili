@@ -136,6 +136,7 @@
                                     </div>
                                 <p class="text-xl font-bold ml-auto">$25.000</p>
                                 </article>
+                                
                                 <div class="cho-container flex justify-center mt-2 mb-4">
                                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                                 </div>

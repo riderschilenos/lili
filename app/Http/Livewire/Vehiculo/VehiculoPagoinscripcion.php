@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class VehiculoPagoinscripcion extends Component
 {   
+    public $suscripcion;
+
     public function mount(Vehiculo $vehiculo){
 
         $this->vehiculo = $vehiculo;
@@ -18,6 +20,15 @@ class VehiculoPagoinscripcion extends Component
         return view('livewire.vehiculo.vehiculo-pagoinscripcion');
     }
 
-
+    public function suscripcion($suscripcion){
+        
+        $this->suscripcion = $suscripcion;
+        if($suscripcion=='gratis'){
+            $this->vehiculo->insc='1';
+        }
+        if($suscripcion=='5000'){
+            $this->vehiculo->insc='2';
+        }
+    }
     
 }

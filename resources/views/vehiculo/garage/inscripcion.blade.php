@@ -12,7 +12,7 @@
                 
                 <hr class="mt-2 mb-6">
 
-                <div class="w-full pt-2 pb-12">
+                <div class="w-full pt-2">
                     <div class="flex">
                       <div class="w-1/4">
                         <div class="relative mb-2">

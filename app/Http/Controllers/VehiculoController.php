@@ -191,8 +191,10 @@ class VehiculoController extends Controller
        
 
         $vehiculo->update($request->all());
+
         
-        return redirect()->route('garage.comision',$vehiculo);
+        return redirect()->back();
+        
     }
 
     public function publicar(Vehiculo $vehiculo)

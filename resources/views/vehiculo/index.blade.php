@@ -11,7 +11,7 @@
 
                     
                     
-                                <h1 class="text-xl text-center mb-4 font-bold">Registro rch</h1>
+                                <h1 class="text-xl text-center mb-4 font-bold">(Pronto Habilitamos el Buscador)</h1>
                             @if($vehiculos->count())
                                 
                                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">

@@ -11,26 +11,7 @@
 
                     
                     
-                                <h1 class="text-xl text-center mb-4 font-bold">(Pronto Habilitamos el Buscador)</h1>
-                            @if($vehiculos->count())
-                                
-                                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
-
-                                    @foreach ($vehiculos as $vehiculo)
-                                        @if($vehiculo->status==5)
-                                            <x-mivehiculo-card :vehiculo="$vehiculo" />        
-                                        @endif
-                                    @endforeach
-                            
-                                </div>
-                            
-                            @else
-                                <div class="px-6 py-4 text-center">
-                                    No hay ningun registro de vehiculo en venta
-                                </div>
-                                
-                            @endif
-                    
+                @livewire('vehiculo.vehiculo-search')
                
             </div>
         </div>

@@ -37,10 +37,24 @@
                             </td>
                             
                             <td>
-                                {{$suscripcion->type}}
+                                {{$suscripcion->suscripcionable_type}}
                             </td>
                             <td>
-                                {{$suscripcion->suscripcionable_id}}
+                                @if($suscripcion->suscripcionable_type=="App\Models\Socio")
+
+                                    @foreach ($socios as $socio)
+                                                        
+                                            @if($socio->id == $suscripcion->suscripcionable_id)
+                                                {{$socio->user->name}}
+                                            
+                                            @endif
+                                    @endforeach
+                                
+                               
+                                
+                
+                                @endif
+                                
                             </td>
                             <td>
                                 {{$suscripcion->end_date}}

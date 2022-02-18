@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Socio;
 use App\Models\Suscripcion;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,9 +16,10 @@ class SuscripcionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $socios=Socio::all();
         $suscripcions=Suscripcion::all();
-        return view('admin.suscripcions.index',compact('suscripcions'));
+        return view('admin.suscripcions.index',compact('suscripcions','socios'));
     }
 
     /**

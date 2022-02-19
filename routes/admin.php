@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\DisciplinaController;
 use App\Http\Controllers\Admin\MarcaController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
+use App\Http\Controllers\Admin\QrregisterController;
 use App\Http\Controllers\Admin\SocioController;
 use App\Http\Controllers\Admin\SuscripcionController;
 use App\Http\Controllers\Admin\Vehiculo_typeController;
@@ -43,6 +44,8 @@ Route::resource('vehiculo',VehiculoController::class)->names('vehiculo');
 Route::resource('marca',MarcaController::class)->names('marcas');
 
 Route::resource('suscripcion',SuscripcionController::class)->names('suscripcions');
+
+Route::resource('qrregister',QrregisterController::class)->names('qrregister');
 
 Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.imageform');
 

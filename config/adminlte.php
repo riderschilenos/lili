@@ -293,6 +293,14 @@ return [
            
         ],
         [
+            'text'        => "Qr Register's",
+            'route'         => 'admin.qrregister.index',
+            'icon'        => 'fas fa-fw fa-shopping-cart',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/qrregister/index']
+           
+        ],
+        [
             'text'        => 'Tipos de Vehiculo',
             'route'         => 'admin.vehiculotype.index',
             'icon'        => 'fas fa-fw fa-shopping-cart',

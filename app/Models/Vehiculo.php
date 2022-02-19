@@ -22,6 +22,8 @@ class Vehiculo extends Model
     const PAGO =1;
     const PORCENTAJE =2;
 
+    
+
     public function scopeVehiculo_type($query,$vehiculo_type_id){
         if($vehiculo_type_id){
             return $query->where('vehiculo_type_id',$vehiculo_type_id);

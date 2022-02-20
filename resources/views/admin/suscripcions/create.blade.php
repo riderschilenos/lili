@@ -40,7 +40,7 @@
                     
 
                 </div>
-                {!! Form::submit('Agregar suscripcion', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Agregar suscripción', ['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>

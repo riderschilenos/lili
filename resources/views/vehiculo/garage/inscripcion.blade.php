@@ -14,7 +14,19 @@
 
                 <div class="w-full pt-2">
                     <div class="flex">
-                      <div class="w-1/4">
+
+                      @if($vehiculo->status==1 || $vehiculo->status==3 || $vehiculo->status==4)
+                      <a href="{{route('garage.edit.usados',$vehiculo)}}">
+                          
+                      @elseif($vehiculo->status==2 || $vehiculo->status==5 || $vehiculo->status==6)
+                        <a href="{{route('garage.edit',$vehiculo)}}">
+
+                      @else
+                      <a href="">
+                      @endif
+                        
+                        <div class="w-1/4">
+
                         <div class="relative mb-2">
                           <div class="w-10 h-10 mx-auto bg-green-500 rounded-full text-lg text-white flex items-center">
                             <span class="text-center text-white w-full">
@@ -24,6 +36,8 @@
                             </span>
                           </div>
                         </div>
+                      
+                      </a>
                   
                         <div class="text-xs text-center md:text-base">Información</div>
                       </div>

@@ -1,45 +1,15 @@
 <x-app-layout>
-    
-    @section('css')
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @endsection
 
     <div class="container py-8 ">
         
         <div class="card">
             <div class="card-body">
-                @if($vehiculo->status==1 || $vehiculo->status==3 || $vehiculo->status==4  )
-                    <div class="grid grid-cols-3">
-                      <a href="{{route('garage.vehiculos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Mis Vehiculos</a>
+                <div class="grid grid-cols-3">
+                    <a href="{{route('garage.vehiculos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Mis Vehiculos</a>
         
-                      <h1 class="text-2xl font-bold text-center">Vende tu Juguete Rider</h1>
-                    </div>
-                @elseif($vehiculo->status==2)
-                    <div class="grid grid-cols-3">
-                      <a href="{{route('garage.vehiculos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Mis Vehiculos</a>
-        
-                      <h1 class="text-2xl font-bold text-center">Fotos</h1>
-                    </div>
-                @endif
-
-
-                <hr class="mt-2 mb-2">
-
-              <div class="flex justify-center">
-                <div class="flex p-5 mt-4 space-x-4 items-center shadow-xl max-w-sm rounded-md">
-                  @isset($vehiculo->marca->image)
-                      
-                  
-                    <img src="{{Storage::url($vehiculo->marca->image->url)}}" alt="image" class="h-14 w-24" />
-                  
-                      
-                  @endisset
-                  <div>
-                    <h2 class="text-gray-800 font-semibold text-xl">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada}}</h2>
-                    <p class="mt-1 text-gray-400 text-center text-sm cursor-pointer">{{$vehiculo->año}}</p>
-                  </div>
+                    <h1 class="text-2xl font-bold text-center">Vende tu Juguete Rider</h1>
                 </div>
-              </div>      
+                <hr class="mt-2 mb-6">
 
                 <div class="w-full py-6">
                     <div class="flex">
@@ -71,16 +41,13 @@
                         <div class="relative mb-2">
                           <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
                             <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
-                              <div class="w-0 bg-green-300 py-1 rounded transition-all duration-500" style="width: 100%;"></div>
+                              <div class="w-0 bg-green-300 py-1 rounded transition-all duration-500" style="width: 0%;"></div>
                             </div>
                           </div>
                   
-                          <div class="w-10 h-10 mx-auto bg-green-500 rounded-full text-lg text-white flex items-center">
-                            <span class="text-center text-white w-full">
-                                <svg class="w-7 h-7 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
+                          <div class="w-10 h-10 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
+                            <span class="text-center text-gray-600 w-full ml-1">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </span>
                           </div>
                         </div>
@@ -136,92 +103,83 @@
                       </div>
                     </div>
                   </div>
-                  <h1 class="text-center mt-4 mb-2">Selecciona 1 foto a la vez y y dale al boton <b>Subir Imagen</b>, cuando las hayas subido todas puedes dar al botón siguiente</h1>
-                  
-                  <div class="flex justify-center">
-                    <div class="card">
-                    <div class="card-body">
-                      @if (session('info'))
-                        <div class="text-red-500 mb-6">
-                            {{session('info')}}
-                        </div>
-                    @endif
-                      <form action="{{route('garage.upload',$vehiculo)}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                          <input type="file" name="file" id="">
-    
-                        </div>
-                        <div class="flex justify-center">
-                        <button type="submit" class="btn btn-primary mt-4"> Subir Imagen</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                 
 
+                {!! Form::model($vehiculo, ['route'=>['garage.vehiculo.update',$vehiculo], 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                    @csrf
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8 mt-6">
+
+                        
+                        
+                        @if($disciplina_id==1)
+                            @include('vehiculo.usados.partials.formmoto')
+                        @elseif($disciplina_id==2)
+                            @include('vehiculo.usados.partials.formbici')
+                        @elseif($disciplina_id==9)
+                            @include('vehiculo.usados.partials.formacuatico')
+                        @endif
+
+                        <h1 class="text-center font-bold">Propiedad:</h1>
+
+
+                        <h1 class="text-center mt-6 font-bold">Contacto</h1>
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('nombre', 'Nombre:*') !!}
+                            {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nombre')?' border-red-600':'')]) !!}
                     
- {{-- comment    
-                    <form action="{{route('garage.upload',$vehiculo)}}"
-                    method="POST"
-                    class="dropzone"
-                    id="my-awesome-dropzone">
-                    <div class="dz-message " data-dz-message>
-                      <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
-                      <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
-                    </div>
-                    </form>
- --}}               @if($vehiculo->status==2 || $vehiculo->status==5)
-                    
-                        <div class="flex justify-center">
-                          <a href="{{route('garage.inscripcion',$vehiculo)}}">
-                            <button class="btn btn-primary mt-4">
-                              Siguiente
-                            </button>
-                          </a>
+                            @error('nombre')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
                         </div>
-       
-                    @else    
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('fono', 'Fono:*') !!}
+                            {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
                     
-                        <div class="flex justify-center">
-                          <a href="{{route('garage.comision',$vehiculo)}}">
-                            <button class="btn btn-primary mt-4">
-                              Siguiente
-                            </button>
-                          </a>
+                            @error('fono')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
                         </div>
-                    @endif
-                  
-                  @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculos-image.'.$vehiculo->slug))
-           {{-- comment      --}}
-                  
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('email', 'Email:') !!}
+                            {!! Form::text('email', null , ['class' => 'form-input block w-full mt-1'.($errors->has('email')?' border-red-600':'')]) !!}
+                    
+                            @error('email')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
+                                
+                            {!! Form::label('ubicacion', 'Ubicación:*') !!}
+                            {!! Form::text('ubicacion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('ubicacion')?' border-red-600':'')]) !!}
+                    
+                            @error('ubicacion')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+
+                      </div>  
+
+
+                        <div class="flex justify-center">
+                          {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                        </div>
+
+                {!! Form::close() !!}
+                
+                
             </div>
         </div>
 
     </div>
 
-
     <x-slot name="js">
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
-      <script>
-        
-        Dropzone.options.myGreatDropzone = { // camelized version of the `id`
-          headers:{
-            'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
-          },
-          acceptedFiles: "image/*",
-          maxFiles: 6,
-          
-  
-            
-            };
-           
-            
-        
-      </script>
-
+        <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
     </x-slot>
     
 

@@ -42,6 +42,50 @@ class VehiculoController extends Controller
         return view('vehiculo.usados.create');
     }
 
+    public function edit(Vehiculo $vehiculo){
+
+        if($vehiculo->vehiculo_type_id==1 or $vehiculo->vehiculo_type_id==2 or $vehiculo->vehiculo_type_id==3 or $vehiculo->vehiculo_type_id==7){
+            $disciplina_id=1;
+        }
+
+        if($vehiculo->vehiculo_type_id==9 or $vehiculo->vehiculo_type_id==10 or $vehiculo->vehiculo_type_id==11){
+            $disciplina_id=2;
+        }
+        
+        if($vehiculo->vehiculo_type_id==12 or $vehiculo->vehiculo_type_id==13 or $vehiculo->vehiculo_type_id==14){
+            $disciplina_id=9;
+        }
+
+        return view('vehiculo.garage.edit',compact('vehiculo','disciplina_id'));
+    }
+    
+    public function editusados(Vehiculo $vehiculo){
+
+        if($vehiculo->vehiculo_type_id==1 or $vehiculo->vehiculo_type_id==2 or $vehiculo->vehiculo_type_id==3 or $vehiculo->vehiculo_type_id==7){
+            $disciplina_id=1;
+        }
+
+        if($vehiculo->vehiculo_type_id==9 or $vehiculo->vehiculo_type_id==10 or $vehiculo->vehiculo_type_id==11){
+            $disciplina_id=2;
+        }
+        
+        if($vehiculo->vehiculo_type_id==12 or $vehiculo->vehiculo_type_id==13 or $vehiculo->vehiculo_type_id==14){
+            $disciplina_id=9;
+        }
+
+        return view('vehiculo.usados.edit',compact('vehiculo','disciplina_id'));
+    }
+    public function update(Request $request, Vehiculo $vehiculo)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+
+        $vehiculo->update($request->all());
+        
+
+        return redirect()->route('garage.image',$vehiculo);
+    }
+
     public function show(Vehiculo $vehiculo){
 
         $qr=Qrregister::where('slug', $vehiculo->slug)->first();

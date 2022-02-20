@@ -64,13 +64,7 @@
 
 
 
-    {!! Form::hidden('user_id',auth()->user()->id) !!}
-
-    {!! Form::hidden('marca_id',$selectedmarca) !!}
-
-    {!! Form::hidden('status', 1 ) !!}
-
-    {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
+    
 
     
     

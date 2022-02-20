@@ -266,7 +266,7 @@
                                             <div class="mb-4">
                                                 
                                                 <h1 class="text-center font-bold text-white mt-6">NRO:</h1>
-                                                {!! Form::text('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
+                                                {!! Form::number('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
                         
                                                 @error('nro')
                                                     <strong class="text-xs text-red-600">{{$message}}</strong>

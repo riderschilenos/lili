@@ -13,7 +13,8 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Email</th>
-                        <th>Status</th>
+                        <th>Estado</th>
+                        <th>Suscripción</th>
                         <th></th>
 
                     </thead>

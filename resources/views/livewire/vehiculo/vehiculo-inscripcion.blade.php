@@ -50,7 +50,7 @@
               </div>
             </div>
       
-            <div class="text-xs text-center md:text-base">Pago</div>
+            <div class="text-xs text-center md:text-base">Activar Inscripción</div>
           </div>
       
           <div class="w-1/4">
@@ -134,47 +134,49 @@
                         {!! Form::hidden('property', 1 ) !!}
 
                         <h1 class="text-center mt-6 font-bold">Dueño</h1>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+                          <div class="mb-4">
+                                  
+                              {!! Form::label('nombre', 'Nombre:*') !!}
+                              {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nombre')?' border-red-600':'')]) !!}
+                      
+                              @error('nombre')
+                                  <strong class="text-xs text-red-600">{{$message}}</strong>
+                              @enderror
+                          </div>
 
-                        <div class="mb-4">
-                                
-                            {!! Form::label('nombre', 'Nombre:*') !!}
-                            {!! Form::text('nombre', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nombre')?' border-red-600':'')]) !!}
-                    
-                            @error('nombre')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
+                          <div class="mb-4">
+                                  
+                              {!! Form::label('fono', 'Fono:*') !!}
+                              {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
+                      
+                              @error('fono')
+                                  <strong class="text-xs text-red-600">{{$message}}</strong>
+                              @enderror
+                          </div>
 
-                        <div class="mb-4">
-                                
-                            {!! Form::label('fono', 'Fono:*') !!}
-                            {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
-                    
-                            @error('fono')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
+                          <div class="mb-4">
+                                  
+                              {!! Form::label('email', 'Email:*') !!}
+                              {!! Form::text('email', null , ['class' => 'form-input block w-full mt-1'.($errors->has('email')?' border-red-600':'')]) !!}
+                      
+                              @error('email')
+                                  <strong class="text-xs text-red-600">{{$message}}</strong>
+                              @enderror
+                          </div>
 
-                        <div class="mb-4">
-                                
-                            {!! Form::label('email', 'Email:') !!}
-                            {!! Form::text('email', null , ['class' => 'form-input block w-full mt-1'.($errors->has('email')?' border-red-600':'')]) !!}
-                    
-                            @error('email')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
+                          <div class="mb-4">
+                                  
+                              {!! Form::label('ubicacion', 'Ubicación:*') !!}
+                              {!! Form::text('ubicacion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('ubicacion')?' border-red-600':'')]) !!}
+                      
+                              @error('ubicacion')
+                                  <strong class="text-xs text-red-600">{{$message}}</strong>
+                              @enderror
 
-                        <div class="mb-4">
-                                
-                            {!! Form::label('ubicacion', 'Ubicación:*') !!}
-                            {!! Form::text('ubicacion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('ubicacion')?' border-red-600':'')]) !!}
-                    
-                            @error('ubicacion')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-
-                      </div>  
+                        </div> 
+                      </div> 
+                      
 
                         <div class="flex justify-center">
                           {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}

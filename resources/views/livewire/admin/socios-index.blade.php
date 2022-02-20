@@ -13,6 +13,7 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th></th>
 
                     </thead>
@@ -23,12 +24,25 @@
                                 <td>{{$socio->id}}</td>
                                 <td>{{$socio->name}}</td>
                                 <td>{{$socio->user->email}}</td>
+                                <td>
+                                    @if($socio->status==1)
+                                    ACTIVO
+                                    @else
+                                     INACTIVO
+                                    @endif
+                                
+                                </td>
                                 <td width="120px">
                                     @if($socio->status==2)
                                     <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a>
                                     @else
-                                        @if ($socio->suscripcions)
+                                        @if ($socio->suscripcions->count())
                                             {{$socio->suscripcions->first()->end_date}}
+
+                                            
+                                        @else
+                                        <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a> 
+                                        
                                         @endif
                                     
                                     @endif

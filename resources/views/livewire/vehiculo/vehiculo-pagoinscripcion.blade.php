@@ -156,7 +156,7 @@
                         <article class="flex items-center">
                             @switch($vehiculo->insc)
                                 @case(1)
-                                    <h1 class="text-lg ml-2 font-bold">Tipo de inscripcion:</h1>
+                                    <h1 class="text-lg ml-2 font-bold">Tipo de inscripción:</h1>
                                     <h1 class="text-lg ml-2">GRATIS</h1>
                                     
                                     {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
@@ -172,7 +172,7 @@
                                     <p class="text-xl font-bold ml-auto">GRATIS</p>
                                     @break
                                 @case(2)
-                                    <h1 class="text-lg ml-2 font-bold">Tipo de inscripcion:</h1>
+                                    <h1 class="text-lg ml-2 font-bold">Tipo de inscripción:</h1>
                                     <h1 class="text-lg ml-2">QR SILVER</h1>
                                     
                                     {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
@@ -188,14 +188,14 @@
                                     <p class="text-xl font-bold ml-auto">$5.000</p>
                                     @break
                                 @case(3)
-                                    <h1 class="text-lg ml-2">Tipo de inscripcion: QR GOLD</h1>
+                                    <h1 class="text-lg ml-2">Tipo de inscripción: QR GOLD</h1>
                                     
                                     {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
                     
                                     {!! Form::hidden('insc', null) !!}
                                        
                                         
-                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs text-blue-600 cursor-pointer mx-2']) !!}
                                         
                                     {!! Form::close() !!}
                                     <p class="text-xl font-bold ml-auto">$10.000</p>

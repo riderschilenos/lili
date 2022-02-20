@@ -13,34 +13,28 @@
     $item = new MercadoPago\Item();
     $item->title = 'Inscripción:';
     $item->quantity = 1;
-    $item->unit_price = 5000;
+    $item->unit_price = 50;
     }
     else{
         // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
     $item->title = 'Inscripción:';
     $item->quantity = 1;
-    $item->unit_price = 10000;
+    $item->unit_price = 100;
 
     }
     
 
     $preference = new MercadoPago\Preference();
     //...
-    if($vehiculo->insc==2){
-        $preference->back_urls = array(
-        "success" => route('payment.vehiculo', $vehiculo),
+    
+    $preference->back_urls = array(
+        "success" => route('payment.vehiculo.inscribir', $vehiculo),
         "failure" => "http://www.tu-sitio/failure",
         "pending" => "http://www.tu-sitio/pending"
         );
-    }
-    else{
-        $preference->back_urls = array(
-        "success" => route('payment.vehiculodown', $vehiculo),
-        "failure" => "http://www.tu-sitio/failure",
-        "pending" => "http://www.tu-sitio/pending"
-    );
-    }
+    
+    
    
     $preference->auto_return = "approved";
 
@@ -422,7 +416,7 @@
     
 
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-        @if ($vehiculo->comision==1)
+        @if ($vehiculo->insc==2)
             <script>
                 // Agrega credenciales de SDK
                 const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
@@ -436,7 +430,7 @@
                     },
                     render: {
                             container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                            label: 'Pagar y Publicar', // Cambia el texto del botón de pago (opcional)
+                            label: 'Pagar e Inscribir', // Cambia el texto del botón de pago (opcional)
                     }
                 });
             </script>
@@ -454,7 +448,7 @@
                     },
                     render: {
                             container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                            label: 'Pagar y Cerrar Publicación', // Cambia el texto del botón de pago (opcional)
+                            label: 'Pagar e Inscribir', // Cambia el texto del botón de pago (opcional)
                     }
                 });
             </script>

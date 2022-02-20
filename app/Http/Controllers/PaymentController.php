@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Qrregister;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Suscripcion;
@@ -23,7 +24,7 @@ class PaymentController extends Controller
 
         $payment_id = $request->get('payment_id');
 
-        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-8905249143413936-011117-dffe1a66c367246ec8bd92d5e2afbc78-1055006538");
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1229864100729203-011115-bb72bcc696b175468013c9b12f281869-74165380");
 
         $response = json_decode($response);
 
@@ -77,7 +78,7 @@ class PaymentController extends Controller
 
         $payment_id = $request->get('payment_id');
 
-        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-8905249143413936-011117-dffe1a66c367246ec8bd92d5e2afbc78-1055006538");
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1229864100729203-011115-bb72bcc696b175468013c9b12f281869-74165380");
 
         $response = json_decode($response);
 
@@ -98,11 +99,48 @@ class PaymentController extends Controller
       
     }
 
+    public function vehiculoinsc(Vehiculo $vehiculo, Request $request){
+
+        $payment_id = $request->get('payment_id');
+
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1229864100729203-011115-bb72bcc696b175468013c9b12f281869-74165380");
+
+        $response = json_decode($response);
+
+        $status = $response->status;
+
+        if($status == 'approved'){
+            $vehiculo->status=6;
+            if($vehiculo->insc=2){
+                $value=5000;
+            }else{
+                $value=10000;
+            }
+            $qr=Qrregister::factory(1)->create([
+                'value'=>$value
+            ]);
+            $qr->active_date=Carbon::now();
+            $vehiculo->slug=$qr->slug;
+
+            $qr->save();
+            $vehiculo->save();
+
+            return redirect()->route('garage.inscripcion',$vehiculo);
+        }
+        else{
+            
+        }
+
+        
+
+      
+    }
+
     public function vehiculodown(Vehiculo $vehiculo, Request $request){
 
         $payment_id = $request->get('payment_id');
 
-        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-8905249143413936-011117-dffe1a66c367246ec8bd92d5e2afbc78-1055006538");
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1229864100729203-011115-bb72bcc696b175468013c9b12f281869-74165380");
 
         $response = json_decode($response);
 

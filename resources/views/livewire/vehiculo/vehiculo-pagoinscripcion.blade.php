@@ -202,14 +202,14 @@
                                     @break
 
                                 @case(4)
-                                    <h1 class="text-lg ml-2 text-center">Tipo de inscripcion: Activación KitQR</h1>
+                                    <h1 class="text-lg ml-2 text-center">Tipo de inscripción: Activación KitQR</h1>
                                     
                                     {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
                     
                                     {!! Form::hidden('insc', null) !!}
                                        
                                         
-                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs mx-2 text-blue-600 cursor-pointer']) !!}
                                         
                                     {!! Form::close() !!}
                                     

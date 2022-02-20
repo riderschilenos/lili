@@ -28,9 +28,9 @@
                                     <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a>
                                     @else
                                         @if ($socio->suscripcions)
-                                            
+                                            {{$socio->suscripcions->first()->end_date}}
                                         @endif
-                                    {{$socio->suscripcions->first()->end_date}}
+                                    
                                     @endif
                                 </td>
                                 <td width="10px">

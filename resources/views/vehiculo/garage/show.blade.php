@@ -24,7 +24,7 @@
             </figure>
 
             <div class="text-white">
-                <h1 class="text-4xl">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                <h1 class="text-4xl">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                 @if($vehiculo->ubicacion)
                     <h2 class="text xl mb-3">Ubicación: {{$vehiculo->ubicacion}}</h2>
                 @endif

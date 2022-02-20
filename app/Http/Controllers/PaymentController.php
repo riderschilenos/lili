@@ -111,7 +111,7 @@ class PaymentController extends Controller
 
         if($status == 'approved'){
             $vehiculo->status=6;
-            if($vehiculo->insc=2){
+            if($vehiculo->insc==2){
                 $value=5000;
             }else{
                 $value=10000;

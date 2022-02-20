@@ -296,9 +296,9 @@
                     </div>
 
                     <div class="my-4"></div>
-                    <!-- Experience and education -->
+                    
                     <div class="bg-white p-3 shadow-sm rounded-sm">
-
+<!-- Experience and education 
                         <div class="grid grid-cols-2">
                             <div>
                                 <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
@@ -356,8 +356,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- End of Experience and education grid -->
-                    </div>
+                        End of Experience and education grid -->
+                    </div> 
                     <!-- End of profile tab -->
                 </div>
             </div>

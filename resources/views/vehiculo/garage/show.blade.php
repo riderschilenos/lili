@@ -38,6 +38,10 @@
                     <p class="my-2 text-2xl"><i class="fas fa-dollar-sign"></i> Precio: ${{number_format($vehiculo->precio, 0, '.', '.')}}-.</p>
                
                 @endif
+
+                @if ($qr)
+                    <img class="h-24 w-16 object-contain object-center mt-24 ml-4" src="{{asset('img/home/qrsafe.png')}}" alt="">
+                @endif
                 {{-- comment
                 <p class="mb-2"><i class="fas fa-adjust"></i> Aro: </p>
                 <p class="mb-2"><i class="fas fa-star"></i> Ofertas: 40</p>

@@ -43,7 +43,10 @@ class VehiculoController extends Controller
     }
 
     public function show(Vehiculo $vehiculo){
-        return view('vehiculo.garage.show',compact('vehiculo'));
+
+        $qr=Qrregister::where('slug', $vehiculo->slug)->first();
+
+        return view('vehiculo.garage.show',compact('vehiculo','qr'));
     }
 
     public function store(Request $request)

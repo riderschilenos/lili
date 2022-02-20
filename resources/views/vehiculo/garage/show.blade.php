@@ -40,7 +40,12 @@
                 @endif
 
                 @if ($qr)
-                    <img class="h-24 w-16 object-contain object-center mt-24 ml-4" src="{{asset('img/home/qrsafe.png')}}" alt="">
+                    @if ($qr->value==5000)
+                        <img class="h-24 w-16 object-contain object-center mt-24 ml-4" src="{{asset('img/home/qrsilver.png')}}" alt="">
+                    @else
+                        <img class="h-24 w-16 object-contain object-center mt-24 ml-4" src="{{asset('img/home/qrgold.png')}}" alt="">
+                    @endif
+                    
                 @endif
                 {{-- comment
                 <p class="mb-2"><i class="fas fa-adjust"></i> Aro: </p>

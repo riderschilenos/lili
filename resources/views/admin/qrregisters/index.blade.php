@@ -40,7 +40,13 @@
                                 {{$qrregister->pass}}
                             </td>
                             <td>
-                                {{'https://riderschilenos.cl/garage/'.$qrregister->slug}}
+                                 @if($qrregister->active_date==NULL)
+                                 {{'https://riderschilenos.cl/garage/'.$qrregister->slug}}
+                                @else
+                            
+                                    <a href="{{'https://riderschilenos.cl/garage/'.$qrregister->slug}}" target="_blank">{{'https://riderschilenos.cl/garage/'.$qrregister->slug}}</a>
+                                @endif
+                                
                             </td>
                             <td>
                                 {{$qrregister->value}}

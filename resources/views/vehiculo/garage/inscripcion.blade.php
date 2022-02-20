@@ -66,7 +66,7 @@
                           </div>
                         </div>
                   
-                        <div class="text-xs text-center md:text-base">Pago inscripción</div>
+                        <div class="text-xs text-center md:text-base">Activar Inscripción</div>
                       </div>
                   
                       <div class="w-1/4">

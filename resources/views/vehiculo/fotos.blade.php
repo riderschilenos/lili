@@ -99,8 +99,8 @@
                         @if($vehiculo->status==1 || $vehiculo->status==3 || $vehiculo->status==4)
                             <div class="text-xs text-center md:text-base">Precio/Comisión</div>
                             
-                        @elseif($vehiculo->status==2)
-                          <div class="text-xs text-center md:text-base">Pago inscripción</div>
+                        @elseif($vehiculo->status==2 || $vehiculo->status==5)
+                          <div class="text-xs text-center md:text-base">Activar Inscripción</div>
                         @endif
                       </div>
                       
@@ -162,7 +162,7 @@
                       <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
                     </div>
                     </form>
- --}}               @if($vehiculo->status==2)
+ --}}               @if($vehiculo->status==2 || $vehiculo->status==5)
                     
                         <div class="flex justify-center">
                           <a href="{{route('garage.inscripcion',$vehiculo)}}">

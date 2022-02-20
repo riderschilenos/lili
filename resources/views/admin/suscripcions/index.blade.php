@@ -3,7 +3,7 @@
 @section('title', 'RidersChilenos')
 
 @section('content_header')
-    <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcions.create')}}">Nueva Suscripción</a>
+    
     <h1>Suscripciones <H5>(SOCIO-INSCRIPCION)</H5></h1>
 @stop
 

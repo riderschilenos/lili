@@ -23,6 +23,9 @@
                                 <td>{{$socio->id}}</td>
                                 <td>{{$socio->name}}</td>
                                 <td>{{$socio->user->email}}</td>
+                                <td width="20px">
+                                    <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcions.create')}}">Suscripción</a>
+                                </td>
                                 <td width="10px">
                                     <a class="btn btn-primary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
                                 </td>

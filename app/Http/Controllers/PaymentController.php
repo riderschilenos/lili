@@ -116,13 +116,14 @@ class PaymentController extends Controller
             }else{
                 $value=10000;
             }
+
             $qr=Qrregister::factory(1)->create([
-                'value'=>$value
+                'value'=>$value,
+                'active_date'=>Carbon::now()
             ]);
-            $qr->active_date=Carbon::now();
+
             $vehiculo->slug=$qr->slug;
 
-            $qr->save();
             $vehiculo->save();
 
             return redirect()->route('garage.inscripcion',$vehiculo);

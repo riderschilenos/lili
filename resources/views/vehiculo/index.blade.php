@@ -5,7 +5,18 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="text-2xl font-bold text-center">Registro RCH</h1>
+                
+                        <div class="mx-auto flex justify-center mt-4">
+                                        
+                            <a href="{{route('garage.vehiculo.create')}}">
+                                <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mr-4 mb-2" wire:click="resetFilters">
+                                
+                                    Inscribe tu Juguete
 
+                                </button>
+                            </a>
+                        </div>
+                
                
                 <hr class="mt-2 mb-6">
 

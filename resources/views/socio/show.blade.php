@@ -192,29 +192,20 @@
                                         <i class="fas fa-car text-white-800"></i>
                                     </span>
                                     <span>Mi Garage</span>
-                                        @switch($socio->status)
-                                                @case(1)
+                                       
                                                     @can('perfil_propio', $socio)
                                                     <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Inscribir Vehiculo)</span></a>
                                                     @endcan
-                                                @break
-                                                @case(2)
-                                                    @can('perfil_propio', $socio)
-                                                    <a href="{{route('socio.create')}}"><span class="text-blue-600 font-bold text-xs align-middle"> Activa tu cuenta para registrar vehiculos</span></a>
-                                                    @endcan
-                                                @break
-                                                @default
-                                                    
-                                        @endswitch
+                                                
                                     
                                 </div>
                                 
                                 <div class="grid grid-cols-2">
 
-                                    @if ($socio->vehiculos)
+                                    @if (auth()->user()->vehiculos)
                                         
                                     
-                                        @foreach ($socio->vehiculos as $vehiculo)
+                                        @foreach (auth()->user()->vehiculos as $vehiculo)
                                             @if($vehiculo->status==5 || $vehiculo->status==6)
                                             <div class="text-center my-2">
                                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">

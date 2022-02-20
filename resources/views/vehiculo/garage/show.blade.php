@@ -193,8 +193,8 @@
                         <div class="grid md:grid-cols-1 text-sm">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Ubicación:</div>
-                                    @if($vehiculo->status==5)
-
+                                    @if($vehiculo->user->socio)
+                                        
                                         <div class="px-4 py-2">{{$vehiculo->user->socio->direccion->comuna}}, {{$vehiculo->user->socio->direccion->region}}</div>
                                         
                                     @else
@@ -204,7 +204,7 @@
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Fono:</div>
-                                    @if($vehiculo->status==5)
+                                    @if($vehiculo->user->socio)
 
                                         <div class="px-4 py-2">{{ $vehiculo->user->socio->fono}}</div>
                                     @else

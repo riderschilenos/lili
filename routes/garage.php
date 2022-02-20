@@ -4,11 +4,11 @@
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->name('publicar');
+Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->middleware('auth')->name('publicar');
 
-Route::post('{vehiculo}/inscribir', [VehiculoController::class,'inscribir'])->name('inscribir');
+Route::post('{vehiculo}/inscribir', [VehiculoController::class,'inscribir'])->middleware('auth')->name('inscribir');
 
-Route::post('{vehiculo}/activarqr', [VehiculoController::class,'activarqr'])->name('activarqr');
+Route::post('{vehiculo}/activarqr', [VehiculoController::class,'activarqr'])->middleware('auth')->name('activarqr');
 
 Route::redirect('', 'garage/usados');
 
@@ -22,7 +22,7 @@ Route::post('{vehiculo}/upload', [VehiculoController::class,'upload'])->name('up
 
 Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name('comision');
 
-Route::get('{vehiculo}/inscripcion', [VehiculoController::class,'pagoinscripcion'])->name('inscripcion');
+Route::get('{vehiculo}/inscripcion', [VehiculoController::class,'pagoinscripcion'])->middleware('auth')->name('inscripcion');
 
 Route::put('{vehiculo}/precio', [VehiculoController::class,'precio'])->name('precioupdate');
 

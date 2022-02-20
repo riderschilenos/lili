@@ -46,7 +46,6 @@
 
                 {!! Form::hidden('marca_id',$selectedmarca) !!}
 
-                {!! Form::hidden('socio_id',$socio->id) !!}
 
                 {!! Form::hidden('status', 2 ) !!}
 
@@ -54,7 +53,5 @@
 
         
 
-                <div class="flex justify-center">
-                    {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
-                </div>
+                
                 

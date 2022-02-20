@@ -105,7 +105,6 @@ class VehiculoController extends Controller
 
         if($request->status==2){
             
-            $vehiculo->socios()->attach($request->socio_id);
 
             return redirect()->route('garage.image',$vehiculo);
 

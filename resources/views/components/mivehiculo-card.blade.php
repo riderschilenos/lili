@@ -116,7 +116,15 @@
                                 <div class="">
                                     <div class="px-4 pt-2 text-sm font-semibold">Dueño:</div>
                                     
-                                    <div class="px-4 text-sm p0-2">{{ $vehiculo->user->socio->name.' '.$vehiculo->user->socio->last_name}}</div>
+                                    <div class="px-4 text-sm p0-2">
+                                        @if ($vehiculo->user->socio)
+                                            {{ $vehiculo->user->socio->name.' '.$vehiculo->user->socio->last_name}}
+                                        @else
+                                            {{ $vehiculo->user->name}}
+                                        @endif
+                                        
+                                    
+                                    </div>
                                 </div>
 
                                 <div>

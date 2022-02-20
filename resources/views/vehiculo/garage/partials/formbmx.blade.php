@@ -38,6 +38,4 @@
 
     {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
 
-    <div class="flex justify-end">
-    {!! Form::submit('Siguiente Paso (Precio y comisión)', ['class'=>'btn btn-primary cursor-pointer']) !!}
-    </div>
+    

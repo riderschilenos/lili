@@ -234,24 +234,28 @@ class VehiculoController extends Controller
 
         $qr=Qrregister::where('nro', $request->nro)->first();
        
-        if($qr->pass==$request->pass){
-            if(is_null($qr->active_date)){
-                $qr->active_date=Carbon::now();
-                $qr->save();
-            }else{
-                return redirect()->route('garage.inscripcion',$vehiculo)->with('info','El codigo QR ya esta en uso.');
-            }
-            $vehiculo->status=6;
-            $vehiculo->slug=$qr->slug;
-            if($qr->value==5000){
-                $vehiculo->insc=2;
-            }else{
-                $vehiculo->insc=3;
-            }
+        if($qr){
+            if($qr->pass==$request->pass){
+                if(is_null($qr->active_date)){
+                    $qr->active_date=Carbon::now();
+                    $qr->save();
+                }else{
+                    return redirect()->route('garage.inscripcion',$vehiculo)->with('info','El codigo QR ya esta en uso.');
+                }
+                $vehiculo->status=6;
+                $vehiculo->slug=$qr->slug;
+                if($qr->value==5000){
+                    $vehiculo->insc=2;
+                }else{
+                    $vehiculo->insc=3;
+                }
 
-            $vehiculo->save();
+                $vehiculo->save();
 
-            return redirect()->route('garage.inscripcion',$vehiculo);
+                return redirect()->route('garage.inscripcion',$vehiculo);
+            } else{
+                return redirect()->route('garage.inscripcion',$vehiculo)->with('info','NRO o PASS no coinciden.');;
+            }
         }else{
             return redirect()->route('garage.inscripcion',$vehiculo)->with('info','NRO o PASS no coinciden.');;
         }

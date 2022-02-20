@@ -202,10 +202,10 @@
                                 
                                 <div class="grid grid-cols-2">
 
-                                    @if (auth()->user()->vehiculos)
+                                    @if ($socio->user->vehiculos)
                                         
                                     
-                                        @foreach (auth()->user()->vehiculos as $vehiculo)
+                                        @foreach ($socio->user->vehiculos as $vehiculo)
                                             @if($vehiculo->status==5 || $vehiculo->status==6)
                                             <div class="text-center my-2">
                                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">

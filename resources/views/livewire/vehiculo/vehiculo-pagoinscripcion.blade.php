@@ -275,7 +275,7 @@
 
                                             <div class="mb-4">
                                                 <h1 class="text-center font-bold text-white ">PASS:</h1>
-                                                {!! Form::text('pass', null , ['class' => 'form-input block w-full mt-1'.($errors->has('pass')?' border-red-600':'')]) !!}
+                                                {!! Form::password('pass', null , ['class' => 'form-input block w-full mt-1'.($errors->has('pass')?' border-red-600':'')]) !!}
                         
                                                 @error('pass')
                                                     <strong class="text-xs text-red-600">{{$message}}</strong>

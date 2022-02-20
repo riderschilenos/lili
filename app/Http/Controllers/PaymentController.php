@@ -122,7 +122,7 @@ class PaymentController extends Controller
                 'active_date'=>Carbon::now()
             ]);
 
-            $vehiculo->slug=$qr->slug;
+            $vehiculo->slug=$qr->first()->slug;
 
             $vehiculo->save();
 

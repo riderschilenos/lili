@@ -13,6 +13,7 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Email</th>
+                        <th>Fono</th>
                         <th>Estado</th>
                         <th>Suscripción</th>
                         <th></th>
@@ -25,6 +26,10 @@
                                 <td>{{$socio->id}}</td>
                                 <td>{{$socio->name}}</td>
                                 <td>{{$socio->user->email}}</td>
+                                <td>
+                                    @if ($socio->fono)
+                                        {{$socio->fono}}
+                                    @endif</td>
                                 <td>
                                     @if($socio->status==1)
                                     ACTIVO

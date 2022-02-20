@@ -120,6 +120,33 @@
                                 <a class="btn btn-primary btn-sm" href="{{route('garage.image',$vehiculo)}}">Fotos</a>
                             </td>
                             <td width="10px">
+                                @switch($vehiculo->status)
+                                        
+                                        @case(1)
+                                            <a class="btn btn-primary btn-sm" href="{{route('garage.comision',$vehiculo)}}">Comision</a>
+                                            @break
+                                        @case(2)
+                                            <a class="btn btn-primary btn-sm" href="{{route('garage.comision',$vehiculo)}}">Comision</a>
+                                            @break
+                                        @case(3)
+                                            <a class="btn btn-primary btn-sm" href="{{route('garage.comision',$vehiculo)}}">Comision</a>
+                                            @break
+                                        @case(4)
+                                        <a class="btn btn-primary btn-sm" href="{{route('garage.comision',$vehiculo)}}">Comision</a>
+                                          @break
+                                        @case(5)
+                                        <a class="btn btn-primary btn-sm" href="{{route('garage.inscripcion',$vehiculo)}}">Inscripción</a>
+                                          @break
+                                        @case(6)
+                                        <a class="btn btn-primary btn-sm" href="{{route('garage.inscripcion',$vehiculo)}}">Inscripción</a>
+                                          @break
+                                          
+                                      @default
+                                          
+                                    @endswitch
+                                
+                            </td>
+                            <td width="10px">
                                 <form action="{{route('admin.vehiculo.destroy',$vehiculo)}}" method="POST">
                                     @csrf
                                     @method('delete')

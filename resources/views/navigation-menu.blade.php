@@ -29,7 +29,7 @@
         'active'=>request()->routeIs('garage.vehiculos.registerindex')
 
     ]
-   /* ,[   
+    /*,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),
         'active'=>request()->routeIs('vendedor.*')

@@ -91,7 +91,7 @@
                     </div>
                   </div>
                 
-
+                
                 @livewire('vehiculo.vehiculo-pagoinscripcion', ['vehiculo' => $vehiculo], key('vehiculos-pagoinscripcion.'.$vehiculo->slug))
                 
             </div>

@@ -8,6 +8,8 @@ Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->name
 
 Route::post('{vehiculo}/inscribir', [VehiculoController::class,'inscribir'])->name('inscribir');
 
+Route::post('{vehiculo}/activarqr', [VehiculoController::class,'activarqr'])->name('activarqr');
+
 Route::redirect('', 'garage/usados');
 
 Route::get('usados', [VehiculoController::class,'index'])->name('usados');

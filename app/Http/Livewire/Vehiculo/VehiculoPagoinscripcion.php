@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Vehiculo;
 
+use App\Models\Qrregister;
 use App\Models\Vehiculo;
 use Livewire\Component;
 
@@ -13,11 +14,14 @@ class VehiculoPagoinscripcion extends Component
 
         $this->vehiculo = $vehiculo;
 
+        
+
     }
 
     public function render()
-    {
-        return view('livewire.vehiculo.vehiculo-pagoinscripcion');
+    {   $qr=Qrregister::where('slug', $this->vehiculo->slug)->first();
+
+        return view('livewire.vehiculo.vehiculo-pagoinscripcion',compact('qr'));
     }
 
     public function suscripcion($suscripcion){
@@ -34,6 +38,10 @@ class VehiculoPagoinscripcion extends Component
         if($suscripcion=='10000'){
             $this->vehiculo->insc='3';
             $this->suscripcion=$suscripcion;            
+        }
+        if($suscripcion=='qr'){
+            $this->vehiculo->insc='4';
+            $this->suscripcion=$suscripcion;       
         }
 
         $this->vehiculo->save();

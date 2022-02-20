@@ -53,8 +53,28 @@
     
 @if(is_null($vehiculo->insc))
 
+            <h4 class="text-xl text-gray-800 text-center mt-6">¿Tienes un KitQR fisicamente?</h1>
+            
+                <article class="flex justify-center">
+                    
+                        
+                    <div class="pb-4 order-2 lg:order-2 max-w-sm" wire:click="suscripcion('qr')">
+                    <div class="bg-white mt-8 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
+                       
+                        <p class="px-4 text-center text-sm pt-4">Para activar tu KitQR debes indicar el NRO y PASS que viene al interior del kit para activarlo.</p>
+                       
+                        <div class="text-center bg-blue-900 ">
+                            <button class="inline-block my-4 font-bold text-white">Activalo Aquí</button>
+                        </div>
+                    </div>
+                    </div>
+                  
+            </article>
+
+            <h4 class="text-xl text-gray-800 text-center mt-6">Si no tienes un KIT QR puedes comprarlo de forma online y sera despachado segun lo solicites.</h1>
+
             <article class="flex items-center">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     
                     <div class="py-12 order-3 lg:order-1" wire:click="suscripcion('gratis')">
                     <div class="bg-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
@@ -117,6 +137,8 @@
                 </div>   
             </article>
 
+
+
 @else               
                     
             @if ($vehiculo->status==2)
@@ -178,6 +200,20 @@
                                     {!! Form::close() !!}
                                     <p class="text-xl font-bold ml-auto">$10.000</p>
                                     @break
+
+                                @case(4)
+                                    <h1 class="text-lg ml-2 text-center">Tipo de inscripcion: Activación KitQR</h1>
+                                    
+                                    {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
+                    
+                                    {!! Form::hidden('insc', null) !!}
+                                       
+                                        
+                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                        
+                                    {!! Form::close() !!}
+                                    
+                                    @break
                                 
                                 @default
                                     
@@ -195,7 +231,7 @@
                                 @case(1)
                                     <div class="flex justify-center mt-2 mb-4">
 
-                                        <form action="{{route('garage.publicar',$vehiculo)}}" method="POST">
+                                        <form action="{{route('garage.inscribir',$vehiculo)}}" method="POST">
                                             @csrf
                     
                                             <button class="btn btn-primary" type="submit">Publicar</button>
@@ -214,6 +250,45 @@
                                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                                     </div>
                                     @break
+                                @case(4)
+                                    @if (session('info'))
+                                    <div class="flex justify-center text-red-700 mb-4 font-bold">
+                                        {{session('info')}}
+                                    </div>
+                                    @endif
+                                    <div class="bg-blue-900 rounded-lg max-w-sm mx-auto ">
+                                        <h1 class="text-center font-bold text-2xl text-white pt-6">Activar QR:</h1>
+                                        <div class="flex justify-center mt-2 mb-4 ">
+                                            
+                                        <form action="{{route('garage.activarqr',$vehiculo)}}" method="POST">
+                                            @csrf
+                                            
+                                            <div class="mb-4">
+                                                
+                                                <h1 class="text-center font-bold text-white mt-6">NRO:</h1>
+                                                {!! Form::text('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
+                        
+                                                @error('nro')
+                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                @enderror
+                                            </div>
+
+                                            <div class="mb-4">
+                                                <h1 class="text-center font-bold text-white ">PASS:</h1>
+                                                {!! Form::text('pass', null , ['class' => 'form-input block w-full mt-1'.($errors->has('pass')?' border-red-600':'')]) !!}
+                        
+                                                @error('pass')
+                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                @enderror
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <button class="btn btn-primary my-4" type="submit">Activar</button>
+                                            </div>
+                                        </form>   
+
+                                    </div>
+
+                                @break
                                 @default
                                 
                     @endswitch
@@ -230,25 +305,26 @@
                         <article class="flex items-center">
                             @switch($vehiculo->insc)
                                 @case(1)
-                                    <h1 class="text-lg ml-2 font-bold">Tipo de comision:</h1>
+                                    <h1 class="text-lg ml-2 font-bold">Tipo de inscripción:</h1>
                                     <h1 class="text-lg ml-2">GRATIS</h1>
                                     
                     
                                     <p class="text-xl font-bold ml-auto">GRATIS</p>
                                     @break
                                 @case(2)
-                                    <h1 class="text-lg ml-2">Tipo de comision: QR SILVER</h1>
+                                    <h1 class="text-lg ml-2">Tipo de inscripción: QR SILVER</h1>
                                     
                     
                                     <p class="text-xl font-bold ml-auto">$5.000</p>
                                     @break
                                 
                                 @case(3)
-                                    <h1 class="text-lg ml-2">Tipo de comision: QR GOLD</h1>
+                                    <h1 class="text-lg ml-2">Tipo de inscripción: QR GOLD</h1>
                                     
                     
                                     <p class="text-xl font-bold ml-auto">$10.000</p>
                                     @break
+                                
                                 @default
                                     
                             @endswitch
@@ -256,14 +332,60 @@
                                 
                             
                         </article>
+
+                        @switch($vehiculo->insc)
+                                @case(1)
+                                {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
+                    
+                                {!! Form::hidden('insc', null) !!}
+                                   
+                                    
+                                        {!! Form::submit('Haz click aqui para cambiar de suscripción', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                    
+                                {!! Form::close() !!}
+                        
+                                 
+                                    
+                    
+                                    @break
+                                @case(2)
+                                    <hr class="w-full mb-4">
+                                    @if ($qr)
+                                        
+                                    
+                                        <h1 class="text-lg ml-2 font-bold">QR Nro: @if ($qr)
+                                            {{$qr->nro}}
+                                            @endif</h1>
+                                        <h1 class="text-lg ml-2 ">Fecha de Vencimiento: @if ($qr)
+                                            @if ($qr->active_date)
+                                                {{$qr->active_date}}
+                                            @endif
+                                            
+                                        @endif</h1>
+                                    @else
+                                    <h1 class="text-lg ml-2 font-bold">SOLICITAR KIT QR</h1>
+                                    @endif
+                    
+                                  
+                                    @break
+                                
+                                @case(3)
+                                    <h1 class="text-lg ml-2">Fecha de Vencimiento: QR GOLD</h1>
+                                    
+                    
+                                    
+                                    @break
+                                
+                                @default
+                                    
+                            @endswitch
+
                         
                         
                         
                     </div></div></div>
                     
-                    <div class="cho-container flex justify-center mt-2 mb-4">
-                        <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
-                    </div>
+                    
 
 
                 @else

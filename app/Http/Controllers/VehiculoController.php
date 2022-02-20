@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\Qrregister;
 use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -220,7 +222,42 @@ class VehiculoController extends Controller
 
         $vehiculo->save();
 
-        return redirect()->route('garage.vehiculo.show',$vehiculo);
+        return redirect()->route('garage.inscripcion',$vehiculo);
+    }
+
+    public function activarqr(Request $request, Vehiculo $vehiculo)
+    {   
+        $request->validate([
+            'nro'=>'required',
+            'pass'=>'required'
+
+        ]);
+
+        $qr=Qrregister::where('nro', $request->nro)->first();
+       
+        if($qr->pass==$request->pass){
+            if(is_null($qr->active_date)){
+                $qr->active_date=Carbon::now();
+                $qr->save();
+            }else{
+                return redirect()->route('garage.inscripcion',$vehiculo)->with('info','El codigo QR ya esta en uso.');
+            }
+            $vehiculo->status=6;
+            $vehiculo->slug=$qr->slug;
+            if($qr->value==5000){
+                $vehiculo->insc=2;
+            }else{
+                $vehiculo->insc=3;
+            }
+
+            $vehiculo->save();
+
+            return redirect()->route('garage.inscripcion',$vehiculo);
+        }else{
+            return redirect()->route('garage.inscripcion',$vehiculo)->with('info','NRO o PASS no coinciden.');;
+        }
+        
+        
     }
 
     

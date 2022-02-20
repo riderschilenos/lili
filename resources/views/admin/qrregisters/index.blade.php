@@ -21,7 +21,9 @@
                         <th>ID</th>
                         <th>Numero</th>
                         <th>PASS</th>
+                        <th>SLUG</th>
                         <th>TIPO</th>
+                        <th>ESTADO</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -38,7 +40,19 @@
                                 {{$qrregister->pass}}
                             </td>
                             <td>
+                                {{'https://riderschilenos.cl/garage/'.$qrregister->slug}}
+                            </td>
+                            <td>
                                 {{$qrregister->value}}
+                            </td>
+                            <td>
+                                @if($qrregister->active_date==NULL)
+                                    INACTIVO
+                                @else
+                            
+                                    {{$qrregister->active_date}}
+                                @endif
+                                
                             </td>
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$qrregister)}}">Editar</a>

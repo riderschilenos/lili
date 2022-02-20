@@ -338,9 +338,10 @@
                                 {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
                     
                                 {!! Form::hidden('insc', null) !!}
+                                {!! Form::hidden('status', 2) !!}
                                    
                                     
-                                        {!! Form::submit('Haz click aqui para cambiar de suscripción', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                        {!! Form::submit('Haz click aqui para desactivar y luego cambiar de suscripción', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
                                     
                                 {!! Form::close() !!}
                         

@@ -370,11 +370,25 @@
                                     @break
                                 
                                 @case(3)
-                                    <h1 class="text-lg ml-2">Fecha de Vencimiento: QR GOLD</h1>
+                                <hr class="w-full mb-4">
+                                @if ($qr)
                                     
-                    
-                                    
-                                    @break
+                                
+                                    <h1 class="text-lg ml-2 font-bold">QR Nro: @if ($qr)
+                                        {{$qr->nro}}
+                                        @endif</h1>
+                                    <h1 class="text-lg ml-2 ">Fecha de Vencimiento: @if ($qr)
+                                        @if ($qr->active_date)
+                                            {{$qr->active_date}}
+                                        @endif
+                                        
+                                    @endif</h1>
+                                @else
+                                <h1 class="text-lg ml-2 font-bold">SOLICITAR KIT QR</h1>
+                                @endif
+                
+                              
+                                @break
                                 
                                 @default
                                     

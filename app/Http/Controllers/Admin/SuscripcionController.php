@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Socio;
 use App\Models\Suscripcion;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SuscripcionController extends Controller
@@ -27,11 +28,16 @@ class SuscripcionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function sociocreate(Socio $socio)
     {
-        $users= User::pluck('name','id');
 
-        return view('admin.suscripcions.create',compact('users'));
+        return view('admin.suscripcions.create',compact('socio'));
+    }
+
+    public function create(Socio $socio)
+    {
+
+        return view('admin.suscripcions.create',compact('socio'));
     }
 
     /**
@@ -40,9 +46,22 @@ class SuscripcionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Socio $socio)
     {
-        //
+        $socio->status=1;
+        $socio->save();
+
+            $sus = Suscripcion::create([
+                'suscripcionable_type'=>'App\Models\Socio',
+                'suscripcionable_id'=>$socio->id,
+                'precio'=>25000*$request->time,
+                'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ ".$request->time." year"))
+            ]);
+
+            $socios=Socio::all();
+            $suscripcions=Suscripcion::all();
+
+            return redirect()->route('admin.suscripcions.index',compact('socios','suscripcions'))->with('info','La suscripción se creo con éxito.');
     }
 
     /**
@@ -85,8 +104,12 @@ class SuscripcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Suscripcion $suscripcion)
     {
-        //
+        $suscripcion->delete();
+        $socios=Socio::all();
+        $suscripcions=Suscripcion::all();
+        
+        return view('admin.suscripcions.index',compact('suscripcions','socios'))->with('info','La suscripcion se elimino con éxito.');
     }
 }

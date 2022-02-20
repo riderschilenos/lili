@@ -9,46 +9,35 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'admin.marcas.store']) !!}
+            {!! Form::open(['route'=>['admin.suscripcion.sociostore',$socio]]) !!}
                 @csrf
                 
                 <div class="form-group">
-                    {!! Form::label('type', 'Tipo:') !!}
+                    {!! Form::label('time', 'Socio:') !!}
 
+                        {{$socio->name.' '.$socio->last_name}}
+
+                        <p class="text-bold">Duración:</p>
                         <div class="form-group flex justify-center">
                             <div class="form-check">
-                              <input type="radio" name="type" id="propio" value="socio">
+                              <input type="radio" name="time" id="propio" value="1">
                               <label for="propio">
-                               Suscripción Club RCH
+                               1 Año
                               </label>
                             </div>
                             <div class="form-check">
-                              <input type="radio" name="type" id="propio" value="inscripcion">
+                              <input type="radio" name="time" id="propio" value="2">
                               <label for="propio">
-                                Inscripción Vehiculo
+                                2 Años
                               </label>
                             </div>
                             
 
 
                         </div>
-                    <div class="mb-4">
-                        {!! Form::label('user_id', 'Usuario:') !!}
-                        {!! Form::select('user_id', $users, null , ['class'=>'form-input block w-full mt-1']) !!}
-                    </div>
-                    @error('name')
-                        <span class="text-danger">{{$message}}</span>
-                        
-                    @enderror
+                
 
-                    <div class="mb-4">
-                        {!! Form::label('end_date', 'Vencimiento:') !!}
-                        {!! Form::date('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('end_date')?' border-red-600':''),'autocomplete'=>"off"]) !!}
-
-                        @error('end_date')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                    </div>
+                    
 
                 </div>
                 {!! Form::submit('Agregar suscripcion', ['class'=>'btn btn-primary']) !!}

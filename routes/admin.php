@@ -45,6 +45,10 @@ Route::resource('marca',MarcaController::class)->names('marcas');
 
 Route::resource('suscripcion',SuscripcionController::class)->names('suscripcions');
 
+Route::get('{socio}/suscripcion',[SuscripcionController::class,'sociocreate'])->name('suscripcion.sociocreate');
+
+Route::post('{socio}/suscripcionstore',[SuscripcionController::class,'store'])->name('suscripcion.sociostore');
+
 Route::resource('qrregister',QrregisterController::class)->names('qrregister');
 
 Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.imageform');

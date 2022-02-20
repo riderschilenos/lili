@@ -164,7 +164,7 @@
                                     {!! Form::hidden('insc', null) !!}
                                        
                                         
-                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs mx-2 text-blue-600 cursor-pointer']) !!}
                                         
                                     {!! Form::close() !!}
 
@@ -180,7 +180,7 @@
                                     {!! Form::hidden('insc', null) !!}
                                        
                                         
-                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                            {!! Form::submit('(EDITAR)', ['class'=>'link-button text-xs mx-2 text-blue-600 cursor-pointer']) !!}
                                         
                                     {!! Form::close() !!}
 

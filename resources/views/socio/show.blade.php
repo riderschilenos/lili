@@ -213,7 +213,7 @@
                                                     src="{{Storage::url($vehiculo->image->first()->url)}}"
                                                     alt="">
                                                     <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                                                        <h1 class="card-tittle">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                                                        <h1 class="text-md">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                                                     </a>
                                                 </a>
                                             </div>

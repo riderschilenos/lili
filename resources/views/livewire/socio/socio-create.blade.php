@@ -104,7 +104,66 @@
                                    
                                 
                                 </article>
+                                {!! Form::open(['route'=>'socio.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+
+                                <h1 class="text-xl font-bold text-center">Solicita tu Credencial de Socio (Gratis)</h1>
+                                <article class="flex justify-center grid-cols-2 gap-4">
+
+                                    <div>
+                                        <h1 class="text-md text-center">Foto Frontal del Rider</h1>
+                                        <div class="grid grid-cols-1">
+                                            <figure>
+                                                @isset($serie->image)
+                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($serie->image->url)}}" alt="">
+                                                    @else
+                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
+                                                    
+                                                
+                                                @endisset
+                                            </figure>
+            
+                                            <div>
+                                                {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                                @error('file')
+                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-md text-center">Foto Frontal del Carnet</h1>
+                                        <div class="grid grid-cols-1">
+                                            <figure>
+                                                @isset($serie->image)
+                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($serie->image->url)}}" alt="">
+                                                    @else
+                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
+                                                    
+                                                
+                                                @endisset
+                                            </figure>
+            
+                                            <div>
+                                                {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                                @error('file')
+                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                
+                           
+                        
+                                </article>
+
+                                <div class="flex justify-center">
+                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                </div>
                               
+
+                                {!! Form::close() !!}
                 
                             </div>
                         

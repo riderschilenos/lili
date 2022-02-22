@@ -63,7 +63,7 @@ class PaymentController extends Controller
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year"))
             ]);
 
-            return redirect()->route('socio.show',$socio);
+            return redirect()->route('socio.create');
         }
         else{
             

@@ -67,12 +67,18 @@
                             </td>
                             
                             <td width="10px">
+                                @if($qrregister->proceso==1)
                                 <form action="{{route('admin.disciplinas.destroy',$qrregister)}}" method="POST">
                                     @csrf
                                     @method('delete')
 
                                     <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
                                 </form>
+                                @else
+                            
+                                    
+                                @endif
+                                
                             </td>
                         </tr>
                         

@@ -42,7 +42,7 @@
                 @if ($qr)
                     @if ($qr->value==5000)
                         <img class="h-24 w-16 object-contain object-center mt-24 ml-4" src="{{asset('img/home/qrsilver.png')}}" alt="">
-                    @else
+                    @elseif($qr->value==10000)
                         <img class="h-24 w-16 object-contain object-center mt-24 ml-4" src="{{asset('img/home/qrgold.png')}}" alt="">
                     @endif
                     

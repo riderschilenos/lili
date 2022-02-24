@@ -53,7 +53,8 @@
                                 @livewire('admin.qrregister-proceso', ['qrregister' => $qrregister], key($qrregister->id))
                             </td>
                             <td>
-                                {{$qrregister->value}}
+                                ${{number_format($qrregister->value)}}
+                                
                             </td>
                             <td>
                                 @if($qrregister->active_date==NULL)

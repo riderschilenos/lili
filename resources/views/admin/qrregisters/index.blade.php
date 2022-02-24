@@ -22,6 +22,7 @@
                         <th>Numero</th>
                         <th>PASS</th>
                         <th>SLUG</th>
+                        <th>PROCESO</th>
                         <th>TIPO</th>
                         <th>ESTADO</th>
                         <th colspan="2"></th>
@@ -47,6 +48,9 @@
                                     <a href="{{'https://riderschilenos.cl/garage/'.$qrregister->slug}}" target="_blank">{{'https://riderschilenos.cl/garage/'.$qrregister->slug}}</a>
                                 @endif
                                 
+                            </td>
+                            <td>
+                                @livewire('admin.qrregister-proceso', ['qrregister' => $qrregister], key($qrregister->id))
                             </td>
                             <td>
                                 {{$qrregister->value}}

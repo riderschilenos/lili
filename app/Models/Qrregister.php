@@ -9,6 +9,12 @@ class Qrregister extends Model
 {
     use HasFactory;
 
-    const AZUL =1;
-    const ROJO =2;
+    const BORRADOR =1;
+    const DISEÑADO =2;
+    const IMPRESO =3;
+    const CONSIGNACION =4;
+    const VENDIDO =5;
+    
+
+    
 }

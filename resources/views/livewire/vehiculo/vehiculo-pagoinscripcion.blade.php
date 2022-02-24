@@ -347,7 +347,10 @@
                                     <hr class="w-full mb-4">
                                     <div class="flex">
                                         <div>
+                                            @if ($qr->qr)
                                             <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
+                                            @endif
+                                            
                                         </div>
                                         <div>
                                     
@@ -374,7 +377,9 @@
                                 <hr class="w-full mb-4">
                                 <div class="flex">
                                     <div>
+                                        @if ($qr->qr)
                                         <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
+                                        @endif
                                     </div>
                                     <div>
                                 

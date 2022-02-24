@@ -19,7 +19,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th style="text-align: center;">QR</th>
+                        <th style="text-align: center;">QR full</th>
                         <th>Numero</th>
                         <th>PASS</th>
                         <th>SLUG</th>

@@ -64,9 +64,7 @@
                                 @endif
                                 
                             </td>
-                            <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$qrregister)}}">Editar</a>
-                            </td>
+                            
                             <td width="10px">
                                 <form action="{{route('admin.disciplinas.destroy',$qrregister)}}" method="POST">
                                     @csrf

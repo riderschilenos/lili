@@ -82,7 +82,7 @@
                             
                             <td width="10px">
                                 @if($qrregister->proceso==1)
-                                <form action="{{route('admin.qrregister.destroy',$qrregister)}}" method="POST">
+                                <form action="{{route('admin.disciplinas.destroy',$qrregister)}}" method="POST">
                                     @csrf
                                     @method('delete')
 

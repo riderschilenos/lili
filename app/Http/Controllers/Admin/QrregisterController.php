@@ -91,8 +91,9 @@ class QrregisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Qrregister $qrregister)
     {
-        //
+        $qrregister->delete();
+        return redirect()->route('admin.qrregister.index')->with('info','El qr a sido eliminado con éxito.');
     }
 }

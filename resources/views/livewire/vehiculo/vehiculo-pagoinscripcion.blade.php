@@ -365,7 +365,15 @@
                                                 
                                             @endif</h1>
                                         @else
-                                        <h1 class="text-lg ml-2 font-bold">SOLICITAR KIT QR</h1>
+                                        {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
+                    
+                                            {!! Form::hidden('insc', null) !!}
+                                            {!! Form::hidden('status', 2) !!}
+                                            
+                                                
+                                            {!! Form::submit('SOLICITAR KIT QR', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                                
+                                        {!! Form::close() !!}
                                         @endif
                                         </div>
                                     </div>
@@ -394,7 +402,16 @@
                                             
                                         @endif</h1>
                                     @else
-                                    <h1 class="text-lg ml-2 font-bold">SOLICITAR KIT QR</h1>
+                                    {!! Form::open(['route'=>['garage.precioupdate',$vehiculo] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'put']) !!}
+                    
+                                            {!! Form::hidden('insc', null) !!}
+                                            {!! Form::hidden('status', 2) !!}
+                                            
+                                                
+                                            {!! Form::submit('SOLICITAR KIT QR', ['class'=>'link-button text-xs ml-2 text-blue-600 cursor-pointer']) !!}
+                                                
+                                        {!! Form::close() !!}
+                                    
                                     @endif
                                     </div>
                                 </div>

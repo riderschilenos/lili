@@ -41,7 +41,8 @@ class QrregisterController extends Controller
     public function store(Request $request)
     {   
         $request->validate([
-            'cant'=>'required|numeric|max:12'
+            'cant'=>'required|numeric|max:12',
+            'type'=>'required'
         ]);
         Qrregister::factory($request->cant)->create([
             'value'=>$request->type

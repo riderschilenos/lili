@@ -348,7 +348,7 @@
                                     <div class="flex">
                                         <div>
                                             @if ($qr->qr)
-                                            <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
+                                                <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
                                             @endif
                                             
                                         </div>
@@ -378,7 +378,7 @@
                                 <div class="flex">
                                     <div>
                                         @if ($qr->qr)
-                                        <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
+                                            <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
                                         @endif
                                     </div>
                                     <div>

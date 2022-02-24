@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -13,13 +14,15 @@ class QrregisterFactory extends Factory
      * @return array
      */
     public function definition()
-    {
-        return [
+    {   $slug=Str::random(10);
+        QrCode::format('svg')->size('300')->generate('https://riderschilenos.cl/garage/'.$slug, '../public/storage/qrcodes/'.$slug.'.svg');
 
-            'slug'=>Str::random(10),
+        return [  
+
+            'slug'=>$slug,
             'nro'=>$this->faker->numberBetween($min = 100000, $max = 999999),
-            'pass'=>$this->faker->numberBetween($min = 1000, $max = 9999)
-
+            'pass'=>$this->faker->numberBetween($min = 1000, $max = 9999),
+            'qr'=>'qrcodes/'.$slug.'.svg'
         ];
     }
 }

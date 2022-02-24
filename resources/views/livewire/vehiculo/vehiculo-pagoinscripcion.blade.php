@@ -345,9 +345,40 @@
                                     @break
                                 @case(2)
                                     <hr class="w-full mb-4">
-                                    @if ($qr)
-                                        
+                                    <div class="flex">
+                                        <div>
+                                            <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
+                                        </div>
+                                        <div>
                                     
+                                        @if ($qr)                                        
+                                            <h1 class="text-lg ml-2 font-bold">QR Nro: @if ($qr)
+                                                {{$qr->nro}}
+                                                @endif</h1>
+                                            <h1 class="text-lg ml-2 ">Fecha de Vencimiento: @if ($qr)
+                                                @if ($qr->active_date)
+                                                    {{$qr->active_date}}
+                                                @endif
+                                                
+                                            @endif</h1>
+                                        @else
+                                        <h1 class="text-lg ml-2 font-bold">SOLICITAR KIT QR</h1>
+                                        @endif
+                                        </div>
+                                    </div>
+                    
+                                  
+                                    @break
+                                
+                                @case(3)
+                                <hr class="w-full mb-4">
+                                <div class="flex">
+                                    <div>
+                                        <img class="object-cover object-center ml-6 mr-2" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
+                                    </div>
+                                    <div>
+                                
+                                    @if ($qr)                                        
                                         <h1 class="text-lg ml-2 font-bold">QR Nro: @if ($qr)
                                             {{$qr->nro}}
                                             @endif</h1>
@@ -360,27 +391,8 @@
                                     @else
                                     <h1 class="text-lg ml-2 font-bold">SOLICITAR KIT QR</h1>
                                     @endif
-                    
-                                  
-                                    @break
-                                
-                                @case(3)
-                                <hr class="w-full mb-4">
-                                @if ($qr)
-                                    
-                                
-                                    <h1 class="text-lg ml-2 font-bold">QR Nro: @if ($qr)
-                                        {{$qr->nro}}
-                                        @endif</h1>
-                                    <h1 class="text-lg ml-2 ">Fecha de Vencimiento: @if ($qr)
-                                        @if ($qr->active_date)
-                                            {{$qr->active_date}}
-                                        @endif
-                                        
-                                    @endif</h1>
-                                @else
-                                <h1 class="text-lg ml-2 font-bold">SOLICITAR KIT QR</h1>
-                                @endif
+                                    </div>
+                                </div>
                 
                               
                                 @break

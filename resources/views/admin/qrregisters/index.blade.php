@@ -19,6 +19,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th style="text-align: center;">QR</th>
                         <th>Numero</th>
                         <th>PASS</th>
                         <th>SLUG</th>
@@ -29,10 +30,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($qrregisters as $qrregister)
+                    @foreach ($qrregisters->reverse() as $qrregister)
                         <tr>
                             <td>
                                 {{$qrregister->id}}
+                            </td>
+                            <td style="text-align: center;" width="60px">
+                                @if($qrregister->qr)
+                
+                                    <img class="object-cover object-center" width="60px" src="{{Storage::url($qrregister->qr)}}" alt="">
+                                    
+                                    
+                                @else
+                                    <img class="object-cover object-center" width="60px" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                
+                                @endif
+                               
+
                             </td>
                             <td>
                                 {{$qrregister->nro}}

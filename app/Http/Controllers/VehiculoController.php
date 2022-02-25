@@ -226,7 +226,7 @@ class VehiculoController extends Controller
 
         $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
 
-        $ruta = public_path().'\storage\vehiculos/'.$nombre;
+        $ruta = public_path().'/storage/vehiculos/'.$nombre;
 
         Image::make($request->file('file'))
                 ->resize(1200, null , function($constraint){

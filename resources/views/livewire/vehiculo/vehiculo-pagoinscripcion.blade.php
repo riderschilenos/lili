@@ -352,7 +352,7 @@
                                             @endif
                                             
                                         </div>
-                                        <div>
+                                        <div class="ml-2">
                                     
                                         @if ($qr)                                        
                                             <h1 class="text-lg ml-2 font-bold">QR Nro: @if ($qr)
@@ -389,7 +389,7 @@
                                             <img class="object-cover object-center ml-6 mr-6" width="60px" src="{{Storage::url($qr->qr)}}" alt="">
                                         @endif
                                     </div>
-                                    <div>
+                                    <div class="ml-2">
                                 
                                     @if ($qr)                                        
                                         <h1 class="text-lg ml-2 font-bold">QR Nro: @if ($qr)

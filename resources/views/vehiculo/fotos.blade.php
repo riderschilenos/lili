@@ -138,18 +138,20 @@
                   </div>
                   <h1 class="text-center mt-4 mb-2">Selecciona 1 foto a la vez y y dale al boton <b>Subir Imagen</b>, cuando las hayas subido todas puedes dar al botón siguiente</h1>
                   
-                  <div class="flex justify-center">
-                    <div class="card">
-                    <div class="card-body">
-                      @if (session('info'))
+                  @if (session('info'))
                         <div class="text-red-500 mb-6">
                             {{session('info')}}
                         </div>
-                    @endif
+                  @endif
+{{-- comment  
+                  <div class="flex justify-center">
+                    <div class="card">
+                    <div class="card-body">
+                      
                       <form action="{{route('garage.upload',$vehiculo)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                          <input type="file" name="file" id="" multiple>
+                          <input type="file" name="file" id="" >
     
                         </div>
                         <div class="flex justify-center">
@@ -161,8 +163,8 @@
                 </div>
                  
 
-                    
- {{-- comment    
+                     --}}
+   
                     <form action="{{route('garage.upload',$vehiculo)}}"
                     method="POST"
                     class="dropzone"
@@ -172,7 +174,7 @@
                       <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
                     </div>
                     </form>
- --}}               @if($vehiculo->status==2 || $vehiculo->status==5)
+               @if($vehiculo->status==2 || $vehiculo->status==5)
                     
                         <div class="flex justify-center">
                           <a href="{{route('garage.inscripcion',$vehiculo)}}">

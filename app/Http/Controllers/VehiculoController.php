@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
+//use App\Models\Image;
 use App\Models\Qrregister;
 use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-//use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Image;
 use Illuminate\support\Str;
 
 class VehiculoController extends Controller
@@ -204,7 +204,7 @@ class VehiculoController extends Controller
     public function upload(Request $request, Vehiculo $vehiculo)
     {   
         //$this->authorize('dicatated',$serie);
-        
+      /*    
         
         $request->validate([
             'file'=>'required|image|max: 9216'
@@ -219,7 +219,7 @@ class VehiculoController extends Controller
         ]);
 
         return redirect()->route('garage.image',$vehiculo);
-    /*  
+     */
         $request->validate([
             'file'=>'required|image'
         ]);
@@ -237,9 +237,10 @@ class VehiculoController extends Controller
         $vehiculo->image()->create([
                     'url'=>'vehiculos/'.$nombre
                 ]);
-                
+        
+        return redirect()->route('garage.image',$vehiculo);
 
-    */
+   
 
     }
 

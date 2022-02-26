@@ -121,7 +121,7 @@
                                                 
                                                 @endif
                                             </figure>
-                                            @if(is_null($socio->foto))
+                                            @if(is_null($socio->foto) || is_null($socio->carnet) )
                                                 <div>
                                                     {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
                                                     @error('foto')
@@ -143,7 +143,7 @@
                                                 
                                                 @endisset
                                             </figure>
-                                            @if(is_null($socio->carnet))
+                                            @if(is_null($socio->foto) || is_null($socio->carnet))
                                                 <div>
                                                     {!! Form::file('carnet', ['class'=>'form-input w-full'.($errors->has('carnet')?' border-red-600':''), 'id'=>'carnet','accept'=>'image/*']) !!}
                                                     @error('carnet')

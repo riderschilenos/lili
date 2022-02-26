@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
 use App\Models\Socio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\support\Str;
+use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
 {
@@ -105,7 +108,7 @@ class HomeController extends Controller
 
         $socio->update($request->all());
 
-        return redirect()->route('socio.edit',$socio)->with('info','La disciplina se actualizo con éxito.');
+        return redirect()->route('socio.edit',$socio)->with('info','La información se actualizo con éxito.');
 
     }
 
@@ -118,5 +121,60 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function fotos(Request $request, Socio $socio)
+    {
+        $request->validate([
+            'foto'=>'image',
+            'carnet'=>'image'
+            ]);
+            
+            if($request->foto){
+                if($socio->foto){
+                    Storage::delete($socio->foto);
+                }
+                $foto = Str::random(10).$request->file('foto')->getClientOriginalName();
+                $rutafoto = public_path().'/storage/socios/'.$foto;
+                $img=Image::make($request->file('foto'))->orientate()
+                    ->resize(1200, null , function($constraint){
+                    $constraint->aspectRatio();
+                    })
+                    ->save($rutafoto);
+                $img->orientate();
+                $socio->update([
+                        
+                        'foto'=>'socios/'.$foto
+                    ]);
+            }
+
+            if($request->carnet){
+                if($socio->carnet){
+                    Storage::delete($socio->carnet);
+                }
+                $carnet = Str::random(10).$request->file('carnet')->getClientOriginalName();
+                $rutacarnet = public_path().'/storage/socios/'.$carnet;
+      
+                $img=Image::make($request->file('carnet'))->orientate()
+                    ->resize(1200, null , function($constraint){
+                    $constraint->aspectRatio();
+                    })
+                    ->save($rutacarnet);
+                $img->orientate();
+                $socio->update([
+                        'carnet'=>'socios/'.$carnet,
+                    ]);
+            }
+
+           
+
+
+            return redirect()->route('socio.create');
+
+        
+        
+
+      
+
     }
 }

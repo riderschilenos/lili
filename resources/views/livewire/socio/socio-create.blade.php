@@ -104,51 +104,53 @@
                                    
                                 
                                 </article>
-                                {!! Form::open(['route'=>'socio.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-
+                                {!! Form::open(['route'=>['socio.fotos',$socio],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                @csrf
                                 <h1 class="text-xl font-bold text-center">Solicita tu Credencial de Socio (Gratis)</h1>
                                 <article class="flex justify-center grid-cols-2 gap-4">
 
                                     <div>
-                                        <h1 class="text-md text-center">Foto Frontal del Rider</h1>
-                                        <div class="grid grid-cols-1">
-                                            <figure>
-                                                @isset($serie->image)
-                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($serie->image->url)}}" alt="">
+                                        <h1 class="text-md text-center">Foto Rostro del Rider</h1>
+                                        <div class="grid grid-cols-1 gap-4">
+                                            <figure class="flex justify-center">
+                                                @if($socio->foto)
+                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->foto)}}" alt="">
                                                     @else
                                                     <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
                                                     
                                                 
-                                                @endisset
+                                                @endif
                                             </figure>
-            
-                                            <div>
-                                                {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                                                @error('file')
-                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                @enderror
-                                            </div>
+                                            @if(is_null($socio->foto))
+                                                <div>
+                                                    {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                    @error('foto')
+                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                    @enderror
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div>
                                         <h1 class="text-md text-center">Foto Frontal del Carnet</h1>
-                                        <div class="grid grid-cols-1">
-                                            <figure>
-                                                @isset($serie->image)
-                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($serie->image->url)}}" alt="">
+                                        <div class="grid grid-cols-1 gap-4">
+                                            <figure class="flex justify-center">
+                                                @isset($socio->carnet)
+                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->carnet)}}" alt="">
                                                     @else
                                                     <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
                                                     
                                                 
                                                 @endisset
                                             </figure>
-            
-                                            <div>
-                                                {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                                                @error('file')
-                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                @enderror
-                                            </div>
+                                            @if(is_null($socio->carnet))
+                                                <div>
+                                                    {!! Form::file('carnet', ['class'=>'form-input w-full'.($errors->has('carnet')?' border-red-600':''), 'id'=>'carnet','accept'=>'image/*']) !!}
+                                                    @error('carnet')
+                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                    @enderror
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                     
@@ -157,13 +159,19 @@
                            
                         
                                 </article>
+                                @if($socio->carnet || $socio->foto )
+                                    @if(is_null($socio->carnet))
+                                        <div class="flex justify-center">
+                                            {!! Form::submit('Actualizar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                        </div>
+                                    @endif
 
+                                @else
                                 <div class="flex justify-center">
                                     {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
                                 </div>
                               
-
-                                {!! Form::close() !!}
+                                @endif                                {!! Form::close() !!}
                 
                             </div>
                         

@@ -228,7 +228,7 @@ class VehiculoController extends Controller
 
         $ruta = public_path().'/storage/vehiculos/'.$nombre;
 
-        Image::make($request->file('file'))
+        Image::make($request->file('file'))->orientate()
                 ->resize(1200, null , function($constraint){
                 $constraint->aspectRatio();
                 })

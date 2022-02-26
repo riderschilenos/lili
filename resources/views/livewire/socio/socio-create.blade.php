@@ -159,7 +159,7 @@
                            
                         
                                 </article>
-                                @if($socio->carnet | $socio->foto )
+                                @if($socio->carnet || $socio->foto )
                                     @if(is_null($socio->carnet || $socio->carnet))
                                         <div class="flex justify-center">
                                             {!! Form::submit('Actualizar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}

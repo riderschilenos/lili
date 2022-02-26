@@ -160,7 +160,7 @@
                         
                                 </article>
                                 @if($socio->carnet || $socio->foto )
-                                    @if(is_null($socio->carnet || $socio->carnet))
+                                    @if(is_null($socio->carnet) || is_null($socio->foto))
                                         <div class="flex justify-center">
                                             {!! Form::submit('Actualizar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
                                         </div>

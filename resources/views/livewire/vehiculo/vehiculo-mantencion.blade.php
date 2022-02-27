@@ -41,22 +41,22 @@
             <div class="">
                     
                 
-                <div>
+                <div class="grid grid-cols-2">
                     <h1>Foto General*:</h1>
                     {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
-                    
+                    <hr class="w-full mt-2 mb-4">
                 </div>
 
-                <div>
+                <div class="grid grid-cols-2">
                     <h1>Foto Repuestos utilizados:</h1>
                     {!! Form::file('repuestos', ['class'=>'form-input w-full'.($errors->has('repuestos')?' border-red-600':''), 'id'=>'repuestos','accept'=>'image/*']) !!}
-                    
+                    <hr class="w-full mt-2 mb-4">
                 </div>
 
-                <div>
+                <div class="grid grid-cols-2">
                     <h1>Foto Boleta o Comprobante:</h1>
                     {!! Form::file('comprobante', ['class'=>'form-input w-full'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
-                    
+                     <hr class="w-full mt-2 mb-4">
                 </div>
 
 

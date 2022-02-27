@@ -8,7 +8,7 @@
             @break
         @case(2)
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
-            <a class="btn btn-warning btn-sm" href="">DISEÑADO</a>
+            <a class="btn btn-info btn-sm" href="">DISEÑADO</a>
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomas({{$qrregister}})">+</a>
         @break
         @case(3)

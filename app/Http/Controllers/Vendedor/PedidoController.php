@@ -44,13 +44,19 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {   
+        if($request->pedidoable_type=='App\Models\Invitado'){
         $request->validate([
         'name'=>'required',
         'rut'=>'required',
         'fono'=>'required',
         'email'=>'required',
         'transportista_id'=>'required'
-        ]);
+        ]);}
+        else{
+            $request->validate([
+                'transportista_id'=>'required'
+                ]);
+        }
 
         if($request->pedidoable_type == 'App\Models\Invitado'){
                 $invitado =  Invitado::create([

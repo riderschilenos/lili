@@ -115,9 +115,9 @@
                             
                             @else
                                 <div class="">
-                                    <div class="px-4 pt-2 text-sm font-semibold">Dueño:</div>
+                                    <div class="px-4 pt-2 text-sm font-semibold text-center">Dueño</div>
                                     
-                                    <div class="px-4 text-sm p0-2">
+                                    <div class="flex justify-center text-sm">
                                         @if ($vehiculo->user->socio)
                                             {{ $vehiculo->user->socio->name.' '.$vehiculo->user->socio->last_name}}
                                         @else

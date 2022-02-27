@@ -41,6 +41,7 @@
                         
                     </div>
 
+                <div class="flex flex-1 flex-col">
                     @if($vehiculo->status==1)
                         @if($vehiculo->image->first())
                             <a href= "{{route('garage.comision', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
@@ -137,5 +138,6 @@
                     
                         
                     @endif
+                </div>
                </div>
             </article>

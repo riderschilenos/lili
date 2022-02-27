@@ -18,7 +18,7 @@
 
     ]
     ,[   
-        'name'=>'SociosRCH',
+        'name'=>'RIDERS',
         'route'=>route('socio.index'),
         'active'=>request()->routeIs('socios.*')
 

@@ -23,7 +23,7 @@ class QrregisterProceso extends Component
     public function procesomas(Qrregister $qrregister){
 
         
-        if($qrregister->proceso<5){
+        if($qrregister->proceso<6){
             $qrregister->proceso=$qrregister->proceso+1;
             $qrregister->save();
             $this->qrregister=$qrregister;

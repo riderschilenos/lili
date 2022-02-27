@@ -10,18 +10,23 @@
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
             <a class="btn btn-warning btn-sm" href="">DISEÑADO</a>
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomas({{$qrregister}})">+</a>
-            @break
+        @break
         @case(3)
+            <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
+            <a class="btn btn-warning btn-sm" href="">En drive</a>
+            <a class="btn btn-secondary btn-sm" href="" wire:click="procesomas({{$qrregister}})">+</a>
+        @break
+        @case(4)
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
             <a class="btn btn-primary btn-sm" href="">IMPRESO</a>
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomas({{$qrregister}})">+</a>
             @break
-        @case(4)
+        @case(5)
         <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
         <a class="btn btn-danger btn-sm" href="">CONSIGNACION</a>
         <a class="btn btn-secondary btn-sm" href="" wire:click="procesomas({{$qrregister}})">+</a>
           @break
-        @case(5)
+        @case(6)
         <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
         <a class="btn btn-success btn-sm" href="">VENDIDO</a>
         

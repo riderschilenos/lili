@@ -13,7 +13,7 @@ class Taller extends Model
     
     //relacion uno a muchos
 
-    public function mantenciones(){
+    public function mantencions(){
         return $this->hasMany('App\Models\Mantencion');
     }
 }

@@ -17,4 +17,12 @@ class Mantencion extends Model
         return $this->BelongsTo('App\Models\Taller');
     }
 
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function vehiculo(){
+        return $this->belongsTo('App\Models\Serie');
+    }
+
 }

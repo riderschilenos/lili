@@ -1,8 +1,10 @@
 <?php
 
-
+use App\Http\Controllers\Vehiculo\MantencionController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
+
+Route::resource('mantencions', MantencionController::class )->names('mantencion');
 
 Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->middleware('auth')->name('publicar');
 

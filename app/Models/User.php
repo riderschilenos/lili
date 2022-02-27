@@ -86,6 +86,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Review');
     }
 
+    public function mantencions(){
+        return $this->hasMany('App\Models\Mantencion');
+    }
+
     public function comentarios(){
         return $this->hasMany('App\Models\Comentario');
     }

@@ -35,6 +35,11 @@ class Vehiculo extends Model
         return 'slug';
     }
 
+    //relacion uno a muchos
+    public function mantencions(){
+        return $this->hasMany('App\Models\Mantencion');
+    }
+
     // relacion uno a muchos inversa
     public function user(){
         return $this->BelongsTo('App\Models\User');

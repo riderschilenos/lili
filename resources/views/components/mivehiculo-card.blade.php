@@ -15,7 +15,7 @@
                     @else
                         <div class="grid grid-cols-1 jus">
                         <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                            <h1 class="text-md text-center">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                            <h1 class="text-md text-center font-bold py-2">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                         </a>
                     
                         </div>

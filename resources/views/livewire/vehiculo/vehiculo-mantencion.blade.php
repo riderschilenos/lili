@@ -20,7 +20,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mt-6">
             <div class="">
                     
-                {!! Form::label('titulo', 'Titulo:*') !!}
+                {!! Form::label('titulo', 'Título de la mantención:*') !!}
                 {!! Form::text('titulo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
         
                 @error('titulo')
@@ -30,7 +30,7 @@
 
             <div class="">
                     
-                {!! Form::label('servicio', 'Servicio:*') !!}
+                {!! Form::label('servicio', 'Descripción o productos utilizados:*') !!}
                 {!! Form::textarea('servicio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('servicio')?' border-red-600':''),'placeholder'=>'¿Que productos usaste? Detalla el proceso...']) !!}
         
                 @error('servicio')
@@ -42,19 +42,19 @@
                     
                 
                 <div>
-                    <h1>FOTO*:</h1>
+                    <h1>Foto General*:</h1>
                     {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
                     
                 </div>
 
                 <div>
-                    <h1>Repuestos:</h1>
+                    <h1>Foto Repuestos utilizados:</h1>
                     {!! Form::file('repuestos', ['class'=>'form-input w-full'.($errors->has('repuestos')?' border-red-600':''), 'id'=>'repuestos','accept'=>'image/*']) !!}
                     
                 </div>
 
                 <div>
-                    <h1>Comprobante:</h1>
+                    <h1>Foto Boleta o Comprobante:</h1>
                     {!! Form::file('comprobante', ['class'=>'form-input w-full'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
                     
                 </div>
@@ -97,7 +97,7 @@
 
             @foreach ($vehiculo->mantencions->reverse() as $mantencion)
                 <article class="flex mb-4 text-gray-800">
-                    <figure class="mr-4 mt-4">
+                    <figure class="mr-4 mt-4 ">
                         <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($mantencion->created_at))-1]}}</div>
                         <div class="text-sm text-gray-900">{{$mantencion->created_at->format('d-m-Y')}}</div>    
                     </figure>
@@ -107,7 +107,7 @@
                             <div class="grid grid-cols-2">
                                 
                                 <div>
-                                    <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i> Fernando Reyes</p>
+                                    <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i></p>
                                     {!!$mantencion->servicio!!}
                                 </div>
                                 <div>

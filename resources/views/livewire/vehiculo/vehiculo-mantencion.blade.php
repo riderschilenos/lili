@@ -1,4 +1,7 @@
 <section class="mt-4" x-data="{open: false}">
+    @php
+        $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+    @endphp
     <div class="flex">
     <h1 class="font-bold text-2xl mb-2 text-gray-800">Mantenciones</h1>
     @can('vehiculo_propio', $vehiculo)
@@ -11,7 +14,7 @@
     <article class="my-4 card card-body" x-show="open">
         
         
-        {!! Form::open(['route'=>'garage.mantencion.store', 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+        {!! Form::open(['route'=>'garage.mantencion.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
         @csrf
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mt-6">
@@ -28,7 +31,7 @@
             <div class="">
                     
                 {!! Form::label('servicio', 'Servicio:*') !!}
-                {!! Form::textarea('servicio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('servicio')?' border-red-600':'')]) !!}
+                {!! Form::textarea('servicio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('servicio')?' border-red-600':''),'placeholder'=>'¿Que productos usaste? Detalla el proceso...']) !!}
         
                 @error('servicio')
                     <strong class="text-xs text-red-600">{{$message}}</strong>
@@ -39,19 +42,19 @@
                     
                 
                 <div>
-                    {!! Form::label('foto', 'Foto:*') !!}
+                    <h1>FOTO*:</h1>
                     {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
                     
                 </div>
 
                 <div>
-                    {!! Form::label('repuestos', 'Repuestos:') !!}
+                    <h1>Repuestos:</h1>
                     {!! Form::file('repuestos', ['class'=>'form-input w-full'.($errors->has('repuestos')?' border-red-600':''), 'id'=>'repuestos','accept'=>'image/*']) !!}
                     
                 </div>
 
                 <div>
-                    {!! Form::label('comprobante', 'Comprobante:') !!}
+                    <h1>Comprobante:</h1>
                     {!! Form::file('comprobante', ['class'=>'form-input w-full'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
                     
                 </div>
@@ -62,10 +65,11 @@
                 @enderror
             </div>
       
-            {!! Form::hidden('vehiculo_id',$vehiculo->id) !!}
+                {!! Form::hidden('vehiculo_id',$vehiculo->id) !!}
 
             <div>
               {!! Form::submit('Guardar', ['class'=>'btn btn-primary cursor-pointer']) !!}
+
               {!! Form::close() !!}
               <a class="btn btn-danger mr-2 mb-2 ml-auto" x-on:click="open=false">Cancelar</a> 
             </div>
@@ -94,13 +98,29 @@
             @foreach ($vehiculo->mantencions->reverse() as $mantencion)
                 <article class="flex mb-4 text-gray-800">
                     <figure class="mr-4 mt-4">
-                        <img class="h-12 w-12 object-cover rounded-full shadow-lg" src="{{$vehiculo->user->profile_photo_url}}" alt="">
+                        <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($mantencion->created_at))-1]}}</div>
+                        <div class="text-sm text-gray-900">{{$mantencion->created_at->format('d-m-Y')}}</div>    
                     </figure>
 
                     <div class="card flex-1">
                         <div class="card-body bg-gray-100">
-                            <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i> Fernando Reyes</p>
-                            {!!$mantencion->servicio!!}
+                            <div class="grid grid-cols-2">
+                                
+                                <div>
+                                    <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i> Fernando Reyes</p>
+                                    {!!$mantencion->servicio!!}
+                                </div>
+                                <div>
+                                    
+                                    <div class="mx-auto px-4 sm:px-6 lg:px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
+
+                                        <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->foto)}}" alt="">
+                                        <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->repuestos)}}" alt="">
+                                        <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->comprobante)}}" alt="">
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

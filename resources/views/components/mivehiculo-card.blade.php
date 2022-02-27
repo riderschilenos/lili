@@ -27,7 +27,7 @@
                             
                                 @if($vehiculo->image->first())
                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                                    <img class="h-46 w-72 object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                    <img class="h-46 w-72 object-contain" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                 </a>
                                 @else
                                 <a href="{{route('garage.image', $vehiculo)}}">

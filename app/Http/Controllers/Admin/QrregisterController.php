@@ -16,7 +16,7 @@ class QrregisterController extends Controller
      */
     public function index()
     {
-        $qrregisters=Qrregister::all();
+        $qrregisters=Qrregister::all()->sortBy('proceso');
         return view('admin.qrregisters.index',compact('qrregisters'));
     }
 

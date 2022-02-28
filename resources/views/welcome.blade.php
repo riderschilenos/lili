@@ -55,13 +55,13 @@
             </article>
             <article>
                 <figure>
-                    <img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home2.jpeg')}}" alt="">
+                    <a href="{{route('garage.vehiculos.registerindex')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/REGISTRO.png')}}" alt=""></a>
                 </figure>
               
             </article>
             <article>
                 <figure>
-                    <a href="{{route('garage.usados')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/home1.jpeg')}}" alt=""></a>
+                    <a href="{{route('garage.usados')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/USADOS.png')}}" alt=""></a>
                 </figure>
                
             </article>

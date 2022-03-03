@@ -8,7 +8,7 @@
                 @foreach ($pedido->ordens as $orden)
                 @php
                     
-                    $subtotal+=$orden->producto->precio-$orden->producto->comision_invitado;
+                    $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
 
                 @endphp    
                 @endforeach

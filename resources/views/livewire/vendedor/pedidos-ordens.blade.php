@@ -68,7 +68,7 @@
                             @if($pedido->pedidoable_type=="App\Models\Socio")
                                 
                                 
-                                <option value="{{$product->id}}">{{$product->name."  -  $".number_format($product->precio-$product->comision_socio)}}</option>
+                                <option value="{{$product->id}}">{{$product->name."  -  $".number_format($product->precio-$product->descuento_socio)}}</option>
                                 
                                 
                 
@@ -230,7 +230,7 @@
 
                     @if($pedido->pedidoable_type=="App\Models\Socio")
                         <div class="items-center justify-end ml-auto">
-                            <label class="mx-4 ml-6">${{number_format($orden->producto->precio-$orden->producto->comision_invitado)}}</label>
+                            <label class="mx-4 ml-6">${{number_format($orden->producto->precio-$orden->producto->descuento_socio)}}</label>
                         </div>
                     @endif
                     @if($pedido->pedidoable_type=="App\Models\Invitado")

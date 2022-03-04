@@ -105,10 +105,11 @@
                                                 @isset($pedido->image)
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                                 @else
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
+                                                    
                                                     <label>
                                                         {!! Form::checkbox('items[]', $pedido->id, null, ['class' => 'ml-4']) !!}
                                                     </label>
+                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
                                                 @endisset
                                                 
                                             </div>

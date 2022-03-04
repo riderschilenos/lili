@@ -2,54 +2,56 @@
             @php
                 $total=0;
                 $comisiones=0;
-                
+                $items=[];
                 $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     
             @endphp
             @foreach ($pedidos as $pedido)
-                    
-                    @if($pedido->pedidoable_type=="App\Models\Socio")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $total+=$orden->producto->precio-$orden->producto->descuento_socio;
-    
-                        @endphp    
-                        @endforeach
-    
+                @foreach ($items as $item)
+                    @if($item==$pedido->id)
+                        @if($pedido->pedidoable_type=="App\Models\Socio")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
+                        @if($pedido->pedidoable_type=="App\Models\Invitado")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $total+=$orden->producto->precio;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
+        
+                        @if($pedido->pedidoable_type=="App\Models\Socio")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $comisiones+=$orden->producto->comision_socio;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
+                        @if($pedido->pedidoable_type=="App\Models\Invitado")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $comisiones+=$orden->producto->comision_invitado;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
                     @endif
-                    @if($pedido->pedidoable_type=="App\Models\Invitado")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $total+=$orden->producto->precio;
-    
-                        @endphp    
-                        @endforeach
-    
-                    @endif
-    
-                    @if($pedido->pedidoable_type=="App\Models\Socio")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $comisiones+=$orden->producto->comision_socio;
-    
-                        @endphp    
-                        @endforeach
-    
-                    @endif
-                    @if($pedido->pedidoable_type=="App\Models\Invitado")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $comisiones+=$orden->producto->comision_invitado;
-    
-                        @endphp    
-                        @endforeach
-    
-                    @endif
-    
+                @endforeach
             @endforeach
     
     
@@ -102,15 +104,18 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10">
+                                            <div class="flex h-10 w-10">
                                                 @isset($pedido->image)
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                                 @else
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
+                                                    <label>
+                                                        {!! Form::checkbox('items[]', $pedido->id, null, ['class' => 'ml-4']) !!}
+                                                    </label>
                                                 @endisset
                                                 
                                             </div>
-                                            <div class="ml-4">
+                                            <div class="ml-11">
                                             <div class="text-sm font-medium text-gray-900">
                                                 
                                                 @if($pedido->pedidoable_type=='App\Models\Socio')

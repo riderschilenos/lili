@@ -107,7 +107,7 @@
 
                     <div class="card flex-1 col-span-3">
                         <div class="card-body bg-gray-100">
-                            <div class="mx-auto px-4 sm:px-6 lg:px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                            <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                                 
                                 <div>
                                     <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i></p>

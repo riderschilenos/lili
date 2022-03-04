@@ -98,13 +98,14 @@
             
 
             @foreach ($vehiculo->mantencions->reverse() as $mantencion)
-                <article class="flex mb-4 text-gray-800">
-                    <figure class="mr-4 mt-4 ">
+                <article class="mb-4 text-gray-800">
+                    <div class="mx-auto px-4 sm:px-6 lg:px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4">
+                    <figure class="flex lg:block mr-4 mt-4 ">
                         <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($mantencion->created_at))-1]}}</div>
-                        <div class="text-sm text-gray-900">{{$mantencion->created_at->format('d-m-Y')}}</div>    
+                        <div class="ml-2 lg:ml-0 text-sm text-gray-900">{{$mantencion->created_at->format('d-m-Y')}}</div>    
                     </figure>
 
-                    <div class="card flex-1">
+                    <div class="card flex-1 col-span-3">
                         <div class="card-body bg-gray-100">
                             <div class="mx-auto px-4 sm:px-6 lg:px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                                 
@@ -124,6 +125,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
 
                 </article>

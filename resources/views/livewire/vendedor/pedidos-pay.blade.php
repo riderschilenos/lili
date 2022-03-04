@@ -61,7 +61,7 @@
     
                     
             <h1 class="text-2xl text-red-600 text-center font-bold">PEDIDOS PENDIENTES DE PAGO</h1>
-            <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg pb-6 pt-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la pedidos</a>
+            <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg mb-6 mt-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la pedidos</a>
             
             
     

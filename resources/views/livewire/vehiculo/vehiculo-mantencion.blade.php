@@ -121,7 +121,7 @@
                                         @if($mantencion->repuestos)
                                             <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->repuestos)}}" alt="">
                                         @endif
-                                        @if($mantencion->comprobante)
+                                        @if($mantencion->comprobante!='mantencions/')
                                             <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->comprobante)}}" alt="">
                                         @endif
                                     </div>

@@ -113,16 +113,16 @@
                                     <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i></p>
                                     {!!$mantencion->servicio!!}
                                 </div>
-                                <div>
+                                
                                     
-                                    <div class="mx-auto px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                    <div class="mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
 
                                         <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->foto)}}" alt="">
                                         <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->repuestos)}}" alt="">
                                         <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->comprobante)}}" alt="">
 
                                     </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

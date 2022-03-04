@@ -107,7 +107,7 @@
                                                 @else
                                                     
                                                     <label>
-                                                        {!! Form::checkbox('items[]', $pedido->id, null, ['class' => 'ml-4']) !!}
+                                                        {!! Form::checkbox('items[]', $pedido->id, null, ['class' => 'mr-4']) !!}
                                                     </label>
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
                                                 @endisset

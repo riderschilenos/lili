@@ -115,7 +115,7 @@
                                 </div>
                                 <div>
                                     
-                                    <div class="mx-auto px-4 sm:px-6 lg:px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
+                                    <div class="mx-auto px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
 
                                         <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->foto)}}" alt="">
                                         <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->repuestos)}}" alt="">

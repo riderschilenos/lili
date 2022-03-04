@@ -290,7 +290,7 @@
                            
                             </div>
                         </div>
-                        <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around col-span-2">
+                        <div class="bg-white w-full rounded-xl px-2 shadow-lg flex items-center justify-around col-span-2">
                            
                             <div class="text-center">
                             
@@ -311,7 +311,7 @@
                                                     <div class="ml-4 form-check">
                                                       <input type="radio" name="type" id="propio" value="10000">
                                                       <label for="propio" class="text-3xl font-bold text-gray-800">
-                                                        Mercado Pago
+                                                        MercadoPago
                                                       </label>
                                                     </div>
                                                     

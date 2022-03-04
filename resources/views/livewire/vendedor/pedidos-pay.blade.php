@@ -290,7 +290,7 @@
                            
                             </div>
                         </div>
-                        <div class="bg-white w-full rounded-xl px-2 shadow-lg flex items-center justify-around col-span-2">
+                        <div class="bg-white w-full rounded-xl p-6 shadow-lg flex items-center justify-around col-span-2">
                            
                             <div class="text-center">
                             

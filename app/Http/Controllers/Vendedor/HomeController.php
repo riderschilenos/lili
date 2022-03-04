@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Vendedor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Invitado;
+use App\Models\Pedido;
+use App\Models\Socio;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +18,13 @@ class HomeController extends Controller
     public function index()
     {
         return view('vendedor.pedidos.index');
+    }
+
+    public function prepay()
+    {   
+                       
+        
+        return view('vendedor.pedidos.prepay');
     }
 
     /**

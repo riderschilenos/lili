@@ -1,7 +1,9 @@
 <div class="container py-8">
     @php
         $total=0;
+        $pendiente=0;
         $comisiones=0;
+        $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     @endphp
     @foreach ($pedidos as $pedido)
             
@@ -10,6 +12,7 @@
                 @php
                     
                     $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+                    
 
                 @endphp    
                 @endforeach
@@ -46,6 +49,32 @@
                 @endforeach
 
             @endif
+
+            @if($pedido->pedidoable_type=="App\Models\Socio")
+                @if($pedido->status==2)
+                    @foreach ($pedido->ordens as $orden)
+                    @php
+                        
+                        $pendiente+=$orden->producto->precio-$orden->producto->descuento_socio;
+
+                    @endphp    
+                    @endforeach
+                @endif
+
+            @endif
+            @if($pedido->pedidoable_type=="App\Models\Invitado")
+                @if($pedido->status==2)
+                    @foreach ($pedido->ordens as $orden)
+                    @php
+                        
+                        $pendiente+=$orden->producto->precio;
+
+                    @endphp    
+                    @endforeach
+                @endif
+
+            @endif
+            
 
     @endforeach
 
@@ -98,9 +127,10 @@
         <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
             <img class="" src="https://i.imgur.com/Qnmqkil.png" alt="" />
             <div class="text-center">
-              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
+              <h1 class="text-4xl font-bold text-gray-800">${{number_format($pendiente)}}</h1>
               <span class="text-gray-500">Pagos Pendientes</span>
-              <span class="text-blue-500 font-bold">PAGAR</span>
+              <a href="{{route('vendedor.pedidos.prepay')}}">
+              <span class="text-blue-500 font-bold">PAGAR</span></a>
             </div>
         </div>
 
@@ -313,15 +343,20 @@
                                   @switch($pedido->status)
                                       @case(1)
                                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                              Pendiente de Pago
+                                              Borrador
                                           </span>
                                           @break
                                       @case(2)
+                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                              Pendiente de Pago
+                                          </span>
+                                          @break
+                                      @case(3)
                                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                               Pendiente de Diseño
                                           </span>
                                           @break
-                                      @case(3)
+                                      @case(4)
                                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                               Despachado
                                           </span>
@@ -333,7 +368,7 @@
                               </td>
                             
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-500">{{$pedido->created_at->format('l')}}</div>
+                                <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
                                 <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
                             </td>
 

@@ -30,10 +30,12 @@
     <div x-data="{open: false}">
         <div class="flex">
             <h1 class="text-xl font-bold mt-6">Subtotal: ${{number_format($subtotal)}}-.</h1>
-            <a x-show="!open" x-on:click="open=true" class="flex items-center cursor-pointer justify-end ml-auto">
-                <i class="far fa-plus-square text-2xl text-green-500 mr-2"></i>
-                Agregar Producto
-            </a>
+            @if($pedido->status==1)
+                <a x-show="!open" x-on:click="open=true" class="flex items-center cursor-pointer justify-end ml-auto">
+                    <i class="far fa-plus-square text-2xl text-green-500 mr-2"></i>
+                    Agregar Producto
+                </a>
+            @endif
         </div>
         <hr class="mt-2 mb-6 max-w-sm">
 
@@ -258,15 +260,28 @@
             
         @endforeach
         @if($pedido->ordens->count()>0)
-            <div class="flex justify-center">
-                                
-                <form action="" method="POST">
-                    @csrf
+            @if($pedido->status==1)
+                <div class="flex justify-center">
+                                    
+                    <form action="{{route('vendedor.pedido.close',$pedido)}}" method="POST">
+                        @csrf
 
-                    <button class="btn btn-success justify-center mt-4" type="submit">Finalizar->Pagar</button>
-                </form>
+                        <button class="btn btn-success justify-center mt-4" type="submit">Finalizar->Pagar</button>
+                    </form>
 
-            </div>
+                </div>
+
+            @elseif($pedido->status==2)
+                <div class="flex justify-center">
+                                        
+                    <form action="{{route('vendedor.pedidos.prepay')}}">
+                        @csrf
+
+                        <button class="btn btn-success justify-center mt-4" type="submit">Pagar</button>
+                    </form>
+
+                </div>
+            @endif
         @endif
     </div>
 

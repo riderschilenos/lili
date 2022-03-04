@@ -12,3 +12,7 @@ Route::resource('pedido', PedidoController::class)->names('pedidos');
 
 Route::resource('direccion', DireccionController::class)->names('direccions');
 
+Route::post('{pedido}/close',[PedidoController::class, 'close'])->name('pedido.close');
+
+Route::get('/prepay',[Homecontroller::class, 'prepay'])->name('pedidos.prepay');
+

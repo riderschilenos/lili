@@ -130,4 +130,11 @@ class PedidoController extends Controller
     {
         //
     }
+
+    public function close(Pedido $pedido){
+        $pedido->status = 2;
+        $pedido->save();
+
+        return redirect()->route('vendedor.home.index');
+    }
 }

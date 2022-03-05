@@ -294,7 +294,7 @@
                            
                             </div>
                         </div>
-                        <div class="bg-white w-full rounded-xl p-6 shadow-lg flex items-center justify-around col-span-2">
+                        <div class="bg-white h-54 w-full rounded-xl p-6 shadow-lg flex items-center justify-around col-span-2">
                            
                             <div class="text-center">
                             
@@ -328,12 +328,15 @@
                                        
                                     
                                         @if(!is_null($mercadopago))
-                                    
-                                            MERCADOPAGO
+                                            <div class="h-32">
+                                                <h1 class="text-xl font-bold text-center py-2">Detalle de Pago:</h1>
+                                                <hr class="w-full">
+                                            </div>
 
                                         @else
-                                            <div class="flex">
-                                                <h1 class="text-xl font-bold text-center py-2">Adjunte comprobante: </h1>
+                                            <div class="h-32">
+                                                <h1 class="text-xl font-bold text-center py-2">Adjunte comprobante</h1>
+                                                <hr class="w-full">
                                                 {!! Form::file('foto', ['class'=>'form-input w-full mt-6'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
                                                 @error('foto')
                                                     <strong class="text-xs text-red-600">{{$message}}</strong>

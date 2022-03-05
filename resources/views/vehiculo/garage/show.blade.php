@@ -202,7 +202,7 @@
                         <div class="grid md:grid-cols-1 text-sm">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Ubicación:</div>
-                                    @if($vehiculo->user->socio)
+                                    @if($vehiculo->user->socio->direccion)
                                         
                                         <div class="px-4 py-2">{{$vehiculo->user->socio->direccion->comuna}}, {{$vehiculo->user->socio->direccion->region}}</div>
                                         

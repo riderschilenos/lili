@@ -24,7 +24,7 @@ class SocioSearch extends Component
                     ->orwhere('email','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->latest('id')
-                    ->paginate(10);
+                    ->paginate(50);
 
         
         return view('livewire.socio.socio-search',compact('socios','disciplinas'));

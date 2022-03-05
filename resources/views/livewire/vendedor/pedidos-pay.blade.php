@@ -212,6 +212,9 @@
                                             <div class="text-sm text-gray-900 ml-3">${{number_format($subtotal)}}</div>
                                         
                                     </td>
+                                    
+                                    {{-- comment
+                                    
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900 ml-3">{{$pedido->Ordens->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>
                                         <div class="text-sm text-gray-500">Productos</div>
@@ -219,7 +222,6 @@
     
                                     
     
-                                    {{-- comment
                                     
     
                                     <td class="px-6 py-4 whitespace-nowrap">    

@@ -29,6 +29,11 @@ class Pedido extends Model
         return $this->hasMany('App\Models\Orden');
     }
 
+
+    public function pago(){
+        return $this->hasMany('App\Models\Pago');
+    }
+
      //relacion uno a muchos inversa 
 
     public function transportista(){
@@ -38,6 +43,9 @@ class Pedido extends Model
     public function vendedor(){
         return $this->belongsTo('App\Models\User','user_id');
     }
+
+    
+
 
 
 }

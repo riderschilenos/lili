@@ -13,4 +13,9 @@ class Pago extends Model
 
     const PENDIENTE =1;
     const APROBADO =2;
+
+    // relacion muchos a muchos inversa
+    public function pedidos(){
+        return $this->BelongsToMany('App\Models\Pedido');
+    }
 }

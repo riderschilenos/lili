@@ -26,8 +26,7 @@ class PedidosPay extends Component
                             ->get();
 
         $pagos=Pago::where('user_id',auth()->user()->id)
-                                ->where('estado',2)
-                                ->orderby('estado','DESC')
+                                ->orderby('id','DESC')
                                 ->latest('id')
                                 ->get();
         

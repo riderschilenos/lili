@@ -265,7 +265,7 @@
                 </table>
             @else
                 <div class="px-6 py-4">
-                    No hay ningun registro coincidente
+                    No hay pedidos pendientes de pago
                 </div>
             @endif 
             
@@ -290,7 +290,7 @@
                             <img class="h-24 w-24 p-2" src="{{asset('img/home/signopeso.png')}}" alt="" />
                             <div class="text-center">
                             <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
-                            <span class="text-gray-500">Pagos Pendientes</span>
+                            <span class="text-gray-500">Total Seleccionado</span>
                            
                             </div>
                         </div>
@@ -305,16 +305,16 @@
                                  
                                                 <p class="px-12 pb-4">Selecciona el método de pago:</p>
                                                 <div class="form-group flex justify-center">
-                                                    <div class="form-check">
-                                                      <input type="radio" name="type" id="propio" value="" checked wire:click="updateselectedtransferencia">
+                                                    <div class="flex form-check">
+                                                      <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" checked wire:click="updateselectedtransferencia">
                                                       <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
-                                                       Transferencia
+                                                        <img class="h-14 w-38 object-contain" src="{{asset('img/home/transferencia.png')}}" alt="">
                                                       </label>
                                                     </div>
                                                     <div class="flex ml-4 form-check">
                                                       <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" wire:click="updateselectedmercadopago">
                                                       <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800" >
-                                                            <img class="h-12 w-36 object-contain" src="{{asset('img/home/mercadopago.png')}}" alt="">
+                                                            <img class="h-14 w-38 object-contain" src="{{asset('img/home/mercadopago.png')}}" alt="">
                                                       </label>
                                                     </div>
                                                     
@@ -334,17 +334,44 @@
                                             </div>
 
                                         @else
+                                        
+                                        {!! Form::open(['route'=>'vendedor.pagos.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                        @csrf
+
                                             <div class="h-32">
-                                                <h1 class="text-xl font-bold text-center py-2">Adjunte comprobante</h1>
+                                                <h1 class="text-xl font-bold text-center py-2">Adjunte Comprobante por: ${{number_format($total)}}</h1>
                                                 <hr class="w-full">
-                                                {!! Form::file('foto', ['class'=>'form-input w-full mt-6'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                {!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
                                                 @error('foto')
                                                     <strong class="text-xs text-red-600">{{$message}}</strong>
                                                 @enderror
 
                                                 
                                             </div>
-                                            <button class="btn btn-primary mt-4">Enviar</button>
+
+                                            {!! Form::hidden('user_id', Auth()->user()->id ) !!}
+                
+                                            {!! Form::hidden('metodo', 'TRANSFERENCIA' ) !!}
+
+                                            {!! Form::hidden('cantidad', $total ) !!}
+
+                                            @foreach ($selected as $item)
+                                                <input type="hidden" name="selected[]" value="{{$item}}">
+                                            @endforeach
+                                            
+
+                                            {!! Form::hidden('estado', '1' ) !!}
+
+                                            
+
+                                            <div class="flex justify-center">
+                                                {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                            </div>
+                                          
+                                        {!! Form::close() !!}
+
+
+
                                          @endif
                                     
                                        
@@ -395,7 +422,7 @@
                         
                         
                        
-                        @if ($pedidos->count())
+                        @if ($pagos->count())
                 
                             <table class="min-w-full divide-y divide-gray-200 mt-4">
                                 <thead class="bg-gray-50">
@@ -426,9 +453,9 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     @php
-                                        $counter=$pedidos->count();
+                                        $counter=$pagos->count();
                                     @endphp
-                                   @foreach ($pedidos as $pedido)
+                                   @foreach ($pagos as $pago)
                                    @php
                                        $counter-=1
                                    @endphp
@@ -436,64 +463,32 @@
                                             <tr>
                                                 <td class="px-6 py-4 justify-center">
                                                     <p class="text-center">{{$counter+1}}</p>
+                                                   
                                                 </td>
                 
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     
-                                                    @switch($pedido->transportista->id)
-                                                        @case(1)
-                                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                                                MERCADOPAGO
-                                                            </span>
-                                                            @break
-                                                        @case(2)
-                                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                                TRANSFERENCIA
-                                                            </span>
-                                                            @break
-                                                            @case(3)
-                                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                EFECTIVO
-                                                            </span>
-                                                            @break
-                                                        
-                                                        @default
-                                                            
-                                                    @endswitch
+                                                    @if ($pago->metodo=='Mercadopago')
+                                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                            MERCADOPAGO
+                                                        </span>
+                                                    @else
+                                                        <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                            TRANSFERENCIA
+                                                        </span>
+                                                   
+                                                    @endif
+                                                          
                                                     
                                                 </td>
                 
-                                                @php
-                                                $subtotal=0;
-                                                @endphp
-                
-                                                @if($pedido->pedidoable_type=="App\Models\Socio")
-                                                @foreach ($pedido->ordens as $orden)
-                                                @php
-                                                    
-                                                    $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
-                
-                                                @endphp    
-                                                @endforeach
-                
-                                                @endif
-                                                @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                                @foreach ($pedido->ordens as $orden)
-                                                @php
-                                                    
-                                                    $subtotal+=$orden->producto->precio;
-                
-                                                @endphp    
-                                                @endforeach
-                
-                                                @endif
-                
+                                               
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900 ml-3">${{number_format($subtotal)}}</div>
+                                                        <div class="text-sm text-gray-900 ml-3">${{number_format($pago->cantidad)}}</div>
                                                     
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900 ml-3">{{$pedido->Ordens->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>
+                                                    <div class="text-sm text-gray-900 ml-3">{{$pago->pedidos->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>
                                                     <div class="text-sm text-gray-500">Pedidos</div>
                                                 </td>
                 
@@ -503,7 +498,7 @@
                 
                                                 <td class="px-6 py-4 whitespace-nowrap">    
                 
-                                                    @switch($pedido->status)
+                                                    @switch($pago->estado)
                                                         @case(1)
                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                                                 Pendiente
@@ -514,29 +509,19 @@
                                                                 Aprobado
                                                             </span>
                                                             @break
-                                                        @case(3)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                                Pendiente de Diseño
-                                                            </span>
-                                                            @break
-                                                        @case(4)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                Despachado
-                                                            </span>
-                                                            @break
-                                                        @default
+                                                       
                                                             
                                                         @endswitch
                                                         
                                                 </td>
                                                 
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
-                                                    <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
+                                                    <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pago->created_at))-1]}}</div>
+                                                    <div class="text-sm text-gray-900">{{$pago->created_at->format('d-m-Y')}}</div>    
                                                 </td>
                 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
+                                                    <a href="{{route('vendedor.pedidos.edit',$pago)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
                                                     
                                                 </td>
                                             </tr>
@@ -547,7 +532,7 @@
                             </table>
                         @else
                             <div class="px-6 py-4">
-                                No hay ningun registro coincidente
+                                No hay ningun registro de pago realizado
                             </div>
                         @endif 
                         

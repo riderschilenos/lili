@@ -4,45 +4,37 @@
                 $comisiones=0;
                 $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     
-            @endphp
-                @php
-                // SDK de Mercado Pago
-                require base_path('/vendor/autoload.php');
-                // Agrega credenciales
-                MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
-            
-              
-                // Crea un objeto de preferencia
-                $preference = new MercadoPago\Preference();
-                if($pago){
-                $item = new MercadoPago\Item();
-                $item->title = 'Pago pedidos:';
-                $item->quantity = 1;
-                $item->unit_price = 100;
-                }else{
-                    $item = new MercadoPago\Item();
-                    $item->title = 'Pago pedidos:';
-                    $item->quantity = 1;
-                    $item->unit_price = 100000;
-                }
-            
-                $preference = new MercadoPago\Preference();
-                //...
-                if($pago){
-                    $preference->back_urls = array(
-                    "success" => route('payment.pago',$pago),
-                    "failure" => "http://www.tu-sitio/failure",
-                    "pending" => "http://www.tu-sitio/pending"
-                    );
                 
-                }
-               
-                
-               
-                $preference->auto_return = "approved";
-            
-                $preference->items = array($item);
-                $preference->save(); 
+                        // SDK de Mercado Pago
+                        require base_path('/vendor/autoload.php');
+                        // Agrega credenciales
+                        MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
+
+                    
+                        // Crea un objeto de preferencia
+                        $preference = new MercadoPago\Preference();
+
+                        // Crea un ítem en la preferencia
+                        $item = new MercadoPago\Item();
+                        $item->title = 'Pago pedidos:';
+                        $item->quantity = 1;
+                        $item->unit_price = 100;
+
+                        
+
+                        $preference = new MercadoPago\Preference();
+                        //...
+                        if($pago){
+                        $preference->back_urls = array(
+                            "success" => route('payment.pago', $pago),
+                            "failure" => "http://www.tu-sitio/failure",
+                            "pending" => "http://www.tu-sitio/pending"
+                        );
+                        $preference->auto_return = "approved";
+
+                        $preference->items = array($item);
+                        $preference->save();
+                    }
                 @endphp
             
                 

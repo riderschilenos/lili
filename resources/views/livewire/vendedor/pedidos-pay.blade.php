@@ -311,10 +311,10 @@
                                                        Transferencia
                                                       </label>
                                                     </div>
-                                                    <div class="ml-4 form-check">
-                                                      <input type="radio" name="type" id="propio" value="" wire:click="updateselectedmercadopago">
+                                                    <div class="flex ml-4 form-check">
+                                                      <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" wire:click="updateselectedmercadopago">
                                                       <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800" >
-                                                        MercadoPago
+                                                            <img class="h-12 w-36 object-contain" src="{{asset('img/home/mercadopago.png')}}" alt="">
                                                       </label>
                                                     </div>
                                                     
@@ -339,7 +339,7 @@
                                                     <strong class="text-xs text-red-600">{{$message}}</strong>
                                                 @enderror
 
-                                                <button class="btn btn-primary mt-4">Pagar</button>
+                                                <button class="btn btn-primary mt-4">Enviar</button>
                                             </div>
                                          @endif
                                     

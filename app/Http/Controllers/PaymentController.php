@@ -175,7 +175,7 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
-            $pago->status=2;
+            $pago->estado=2;
             $pago->save();
 
             return redirect()->route('vendedor.pedidos.prepay');

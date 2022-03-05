@@ -333,14 +333,15 @@
 
                                         @else
                                             <div class="flex">
-                                                <h1 class="text-2xl font-bold text-center py-4">Adjunte comprobante: </h1>
-                                                {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                <h1 class="text-xl font-bold text-center py-2">Adjunte comprobante: </h1>
+                                                {!! Form::file('foto', ['class'=>'form-input w-full mt-6'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
                                                 @error('foto')
                                                     <strong class="text-xs text-red-600">{{$message}}</strong>
                                                 @enderror
 
-                                                <button class="btn btn-primary mt-4">Enviar</button>
+                                                
                                             </div>
+                                            <button class="btn btn-primary mt-4">Enviar</button>
                                          @endif
                                     
                                        

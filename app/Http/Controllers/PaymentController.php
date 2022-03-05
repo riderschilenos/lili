@@ -178,7 +178,7 @@ class PaymentController extends Controller
             $pago->estado=2;
             $pago->save();
 
-            return redirect()->route('vendedor.pedidos.prepay');
+            return redirect()->route('vendedor.home.index');
         }
         else{
             

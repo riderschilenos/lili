@@ -14,11 +14,11 @@
               
                 // Crea un objeto de preferencia
                 $preference = new MercadoPago\Preference();
-                if($pendientes){
+                if($pago){
                 $item = new MercadoPago\Item();
                 $item->title = 'Pago pedidos:';
                 $item->quantity = 1;
-                $item->unit_price = $pendientes->cantidad;
+                $item->unit_price = $pago->cantidad;
                 }else{
                     $item = new MercadoPago\Item();
                     $item->title = 'Pago pedidos:';
@@ -348,7 +348,7 @@
                                         
                                         
                                     
-                                        @if ($pendientes)
+                                        @if ($pago)
                                         <div class="card"><div class="card-body">
                                             
                                             <img class="h-14 w-38 object-contain" src="{{asset('img/home/mercadopago.png')}}" alt="">
@@ -357,7 +357,7 @@
                                                         <h1 class="text-lg ml-2"><b>Monto a pagar:</b></h1>
                                                         
                                                     
-                                                        <p class="text-xl font-bold ml-auto">${{number_format($pendientes->cantidad)}}</p>
+                                                        <p class="text-xl font-bold ml-auto">${{number_format($pago->cantidad)}}</p>
                                                     
                                             </article>
                                             

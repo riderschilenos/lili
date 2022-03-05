@@ -35,13 +35,6 @@
                     "pending" => "http://www.tu-sitio/pending"
                     );
                 
-                }else{
-                    $preference->back_urls = array(
-                    "success" => "http://www.tu-sitio/failure",
-                    "failure" => "http://www.tu-sitio/failure",
-                    "pending" => "http://www.tu-sitio/pending"
-                    );
-                
                 }
                
                 

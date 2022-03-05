@@ -339,7 +339,7 @@
                                         @csrf
 
                                             <div class="h-32">
-                                                <h1 class="text-xl font-bold text-center py-2">Adjunte Comprobante por: ${{number_format($total)}}</h1>
+                                                <h1 class="text-xl font-bold text-center py-2 mt-4">Adjunte Comprobante por: ${{number_format($total)}}</h1>
                                                 <hr class="w-full">
                                                 {!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
                                                 @error('foto')

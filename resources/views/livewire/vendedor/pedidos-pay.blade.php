@@ -18,7 +18,7 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Pago pedidos:';
                 $item->quantity = 1;
-                $item->unit_price = $pago->cantidad;
+                $item->unit_price = 100;
                 }else{
                     $item = new MercadoPago\Item();
                     $item->title = 'Pago pedidos:';

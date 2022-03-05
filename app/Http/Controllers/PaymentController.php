@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pago;
 use App\Models\Qrregister;
 use App\Models\Serie;
 use App\Models\Socio;
@@ -137,6 +138,7 @@ class PaymentController extends Controller
       
     }
 
+
     public function vehiculodown(Vehiculo $vehiculo, Request $request){
 
         $payment_id = $request->get('payment_id');
@@ -161,4 +163,31 @@ class PaymentController extends Controller
 
       
     }
+
+    public function pago(Pago $pago, Request $request){
+
+        $payment_id = $request->get('payment_id');
+
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1229864100729203-011115-bb72bcc696b175468013c9b12f281869-74165380");
+
+        $response = json_decode($response);
+
+        $status = $response->status;
+
+        if($status == 'approved'){
+            $pago->status=2;
+            $pago->save();
+
+            return redirect()->route('vendedor.pedidos.prepay');
+        }
+        else{
+            
+        }
+
+        
+
+      
+    }
+
+
 }

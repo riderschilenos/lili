@@ -29,9 +29,13 @@ class PedidosPay extends Component
                                 ->orderby('id','DESC')
                                 ->latest('id')
                                 ->get();
+
+        $pendientes=Pago::where('user_id',auth()->user()->id)
+                            ->where('estado',3)
+                            ->first();
         
 
-        return view('livewire.vendedor.pedidos-pay',compact('pedidos','invitados','socios','pagos'));
+        return view('livewire.vendedor.pedidos-pay',compact('pedidos','invitados','socios','pagos','pendientes'));
     }
 
     public function updateselectedtransferencia(Socio $socio){

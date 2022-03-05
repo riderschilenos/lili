@@ -37,7 +37,7 @@
                 
                 }else{
                     $preference->back_urls = array(
-                    "success" => route('payment.pago.active',$pago),
+                    "success" => "http://www.tu-sitio/failure",
                     "failure" => "http://www.tu-sitio/failure",
                     "pending" => "http://www.tu-sitio/pending"
                     );

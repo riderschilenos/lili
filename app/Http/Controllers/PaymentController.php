@@ -43,6 +43,7 @@ class PaymentController extends Controller
 
       
     }
+
     public function socio(Socio $socio, Request $request){
 
         $payment_id = $request->get('payment_id');

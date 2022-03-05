@@ -28,13 +28,22 @@
             
                 $preference = new MercadoPago\Preference();
                 //...
-                
-                $preference->back_urls = array(
+                if($pago){
+                    $preference->back_urls = array(
                     "success" => route('payment.pago.active',$pago),
                     "failure" => "http://www.tu-sitio/failure",
                     "pending" => "http://www.tu-sitio/pending"
                     );
                 
+                }else{
+                    $preference->back_urls = array(
+                    "success" => "http://www.tu-sitio/failure",
+                    "failure" => "http://www.tu-sitio/failure",
+                    "pending" => "http://www.tu-sitio/pending"
+                    );
+                
+                }
+               
                 
                
                 $preference->auto_return = "approved";

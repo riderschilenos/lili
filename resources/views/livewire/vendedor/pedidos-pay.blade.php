@@ -306,14 +306,14 @@
                                                 <p class="px-12 pb-4">Selecciona el método de pago:</p>
                                                 <div class="form-group flex justify-center">
                                                     <div class="form-check">
-                                                      <input type="radio" name="type" id="propio" value="5000" checked>
+                                                      <input type="radio" name="type" id="propio" value="" checked wire:click="updateselectedtransferencia">
                                                       <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
                                                        Transferencia
                                                       </label>
                                                     </div>
                                                     <div class="ml-4 form-check">
-                                                      <input type="radio" name="type" id="propio" value="10000">
-                                                      <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
+                                                      <input type="radio" name="type" id="propio" value="" wire:click="updateselectedmercadopago">
+                                                      <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800" >
                                                         MercadoPago
                                                       </label>
                                                     </div>
@@ -325,19 +325,33 @@
                         
                                         </div>
 
-                                        
-                                        
-                                            
-                                            
-                                                <div class="">
-                                                    <h1 class="text-2xl font-bold text-center py-4">Comprobante</h1>
-                                                    {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
-                                                    @error('foto')
-                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                    @enderror
+                                       
+                                    
+                                        @if(!is_null($mercadopago))
+                                    
+                                            MERCADOPAGO
 
-                                                    <button class="btn btn-primary mt-4">Pagar</button>
-                                                </div>
+                                        @else
+                                            <div class="">
+                                                <h1 class="text-2xl font-bold text-center py-4">Comprobante</h1>
+                                                {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                @error('foto')
+                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                @enderror
+
+                                                <button class="btn btn-primary mt-4">Pagar</button>
+                                            </div>
+                                         @endif
+                                    
+                                       
+
+                                        
+                                        
+                                            
+                                            
+                                               
+
+
                                            
                                         
                             

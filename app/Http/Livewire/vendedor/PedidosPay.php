@@ -11,6 +11,8 @@ use Livewire\Component;
 class PedidosPay extends Component
 {   public $selected=[];
 
+    public $selectedTransfencia, $selectedMercadopago,$transferencia, $mercadopago;
+
     public function render()
     {   $invitados= Invitado::all();
         $socios= Socio::all();
@@ -31,5 +33,18 @@ class PedidosPay extends Component
         
 
         return view('livewire.vendedor.pedidos-pay',compact('pedidos','invitados','socios','pagos'));
+    }
+
+    public function updateselectedtransferencia(Socio $socio){
+
+        $this->transferencia= True;
+
+        $this->reset(['mercadopago']);
+    }
+
+    public function updateselectedmercadopago(Socio $socio){
+
+        $this->mercadopago= True;
+        $this->reset(['transferencia']);
     }
 }

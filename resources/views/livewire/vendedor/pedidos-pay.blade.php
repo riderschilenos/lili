@@ -2,56 +2,59 @@
             @php
                 $total=0;
                 $comisiones=0;
-                $items=[];
                 $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     
             @endphp
             @foreach ($pedidos as $pedido)
-                @foreach ($items as $item)
-                    @if($item==$pedido->id)
-                        @if($pedido->pedidoable_type=="App\Models\Socio")
-                            @foreach ($pedido->ordens as $orden)
-                            @php
-                                
-                                $total+=$orden->producto->precio-$orden->producto->descuento_socio;
-        
-                            @endphp    
-                            @endforeach
-        
+                    @foreach ($selected as $item)
+                        @if ($pedido->id==$item)
+                            
+                        
+                            
+                            
+                            @if($pedido->pedidoable_type=="App\Models\Socio")
+                                @foreach ($pedido->ordens as $orden)
+                                @php
+                                    
+                                    $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+            
+                                @endphp    
+                                @endforeach
+            
+                            @endif
+                            @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                @foreach ($pedido->ordens as $orden)
+                                @php
+                                    
+                                    $total+=$orden->producto->precio;
+            
+                                @endphp    
+                                @endforeach
+            
+                            @endif
+            
+                            @if($pedido->pedidoable_type=="App\Models\Socio")
+                                @foreach ($pedido->ordens as $orden)
+                                @php
+                                    
+                                    $comisiones+=$orden->producto->comision_socio;
+            
+                                @endphp    
+                                @endforeach
+            
+                            @endif
+                            @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                @foreach ($pedido->ordens as $orden)
+                                @php
+                                    
+                                    $comisiones+=$orden->producto->comision_invitado;
+            
+                                @endphp    
+                                @endforeach
+            
+                            @endif
                         @endif
-                        @if($pedido->pedidoable_type=="App\Models\Invitado")
-                            @foreach ($pedido->ordens as $orden)
-                            @php
-                                
-                                $total+=$orden->producto->precio;
-        
-                            @endphp    
-                            @endforeach
-        
-                        @endif
-        
-                        @if($pedido->pedidoable_type=="App\Models\Socio")
-                            @foreach ($pedido->ordens as $orden)
-                            @php
-                                
-                                $comisiones+=$orden->producto->comision_socio;
-        
-                            @endphp    
-                            @endforeach
-        
-                        @endif
-                        @if($pedido->pedidoable_type=="App\Models\Invitado")
-                            @foreach ($pedido->ordens as $orden)
-                            @php
-                                
-                                $comisiones+=$orden->producto->comision_invitado;
-        
-                            @endphp    
-                            @endforeach
-        
-                        @endif
-                    @endif
-                @endforeach
+                    @endforeach
             @endforeach
     
     
@@ -62,14 +65,14 @@
                     
             <h1 class="text-2xl text-red-600 text-center font-bold">PEDIDOS PENDIENTES DE PAGO</h1>
             <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800 mt-2 mb-4"></i> Listado de la pedidos</a>
-            
+            <p class="px-12">Selecciona los pedidos que deseas pagar.</p>
             
     
         <x-table-responsive>
             
     
             @if ($pedidos->count())
-    
+              
                 <table class="min-w-full divide-y divide-gray-200 mt-4">
                     <thead class="bg-gray-50">
                     <tr>
@@ -107,8 +110,9 @@
                                                 @else
                                                     
                                                     <label>
-                                                        {!! Form::checkbox('items[]', $pedido->id, null, ['class' => 'mr-4 mt-2']) !!}
+                                                        <input type="checkbox" wire:model="selected" value="{{$pedido->id}}" class="mr-4 mt-2">
                                                     </label>
+                                                    
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
                                                 @endisset
                                                 
@@ -295,15 +299,14 @@
                             <div class="text-center">
                             
                            
-                                    {!! Form::open(['route'=>'admin.qrregister.store']) !!}
-                                        @csrf
+                                  
                                         
                                         <div class="form-group">
                                  
-                        
+                                                <p class="px-12">Selecciona el método de pago:</p>
                                                 <div class="form-group flex justify-center">
                                                     <div class="form-check">
-                                                      <input type="radio" name="type" id="propio" value="5000">
+                                                      <input type="radio" name="type" id="propio" value="5000" checked>
                                                       <label for="propio" class="text-3xl font-bold text-gray-800">
                                                        Transferencia
                                                       </label>
@@ -321,9 +324,22 @@
                                            
                         
                                         </div>
+
                                         
-                                    {!! Form::close() !!}
-                               
+                                        
+                                            
+                                            
+                                                <div class="">
+                                                    <h1 class="text-2xl font-bold text-center py-4">Comprobante</h1>
+                                                    {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                    @error('foto')
+                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                    @enderror
+
+                                                    <button class="btn btn-primary mt-4">Pagar</button>
+                                                </div>
+                                           
+                                        
                             
                             </div>
                         </div>
@@ -358,8 +374,9 @@
                     <h1 class="text-3xl text-gray-800 text-center font-bold py-8">Historial de Pagos</h1>
             
                     <x-table-responsive>
-            
-    
+                        
+                        
+                       
                         @if ($pedidos->count())
                 
                             <table class="min-w-full divide-y divide-gray-200 mt-4">

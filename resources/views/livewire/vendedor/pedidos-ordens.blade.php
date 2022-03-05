@@ -275,7 +275,7 @@
                 <div class="flex justify-center">
                                         
                     <form action="{{route('vendedor.pedidos.prepay')}}">
-                        @csrf
+                       
 
                         <button class="btn btn-success justify-center mt-4" type="submit">Pagar</button>
                     </form>

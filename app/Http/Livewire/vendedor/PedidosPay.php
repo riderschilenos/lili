@@ -9,7 +9,8 @@ use App\Models\Socio;
 use Livewire\Component;
 
 class PedidosPay extends Component
-{
+{   public $selected=[];
+
     public function render()
     {   $invitados= Invitado::all();
         $socios= Socio::all();
@@ -27,6 +28,7 @@ class PedidosPay extends Component
                                 ->orderby('estado','DESC')
                                 ->latest('id')
                                 ->get();
+        
 
         return view('livewire.vendedor.pedidos-pay',compact('pedidos','invitados','socios','pagos'));
     }

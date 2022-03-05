@@ -307,13 +307,13 @@
                                                 <div class="form-group flex justify-center">
                                                     <div class="form-check">
                                                       <input type="radio" name="type" id="propio" value="5000" checked>
-                                                      <label for="propio" class="text-3xl font-bold text-gray-800">
+                                                      <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
                                                        Transferencia
                                                       </label>
                                                     </div>
                                                     <div class="ml-4 form-check">
                                                       <input type="radio" name="type" id="propio" value="10000">
-                                                      <label for="propio" class="text-3xl font-bold text-gray-800">
+                                                      <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
                                                         MercadoPago
                                                       </label>
                                                     </div>

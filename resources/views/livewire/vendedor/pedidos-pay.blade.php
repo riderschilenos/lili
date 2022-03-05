@@ -303,7 +303,7 @@
                                         
                                         <div class="form-group">
                                  
-                                                <p class="px-12">Selecciona el método de pago:</p>
+                                                <p class="px-12 pb-4">Selecciona el método de pago:</p>
                                                 <div class="form-group flex justify-center">
                                                     <div class="form-check">
                                                       <input type="radio" name="type" id="propio" value="5000" checked>

@@ -595,6 +595,7 @@
                                                         <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                             TRANSFERENCIA
                                                         </span>
+                                                        {{$pago->metodo}}
                                                    
                                                     @endif
                                                           

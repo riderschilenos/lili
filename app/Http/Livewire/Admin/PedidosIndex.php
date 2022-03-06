@@ -27,7 +27,10 @@ class PedidosIndex extends Component
 
         $total=0;
 
-        $pedidos=Pedido::where('id','LIKE','%'.$this->search.'%')
+        $pedidos=Pedido::where('status',4)
+                ->orwhere('status',5)
+                ->orwhere('status',6)
+                ->orwhere('id','LIKE','%'.$this->search.'%')
                 ->orwhere('user_id','LIKE', '%'.$this->search.'%' )
                 ->paginate(100);
         $pedidosint=Pedido::all();

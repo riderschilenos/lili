@@ -74,7 +74,7 @@ class PagoController extends Controller
             $pedido->save();
         }
         
-        return redirect()->route('vendedor.pedidos.prepay')->with('info','Los codigos se crearon con éxito.');
+        return redirect()->route('vendedor.pedidos.prepay');
     }
 
     /**

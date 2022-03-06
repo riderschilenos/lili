@@ -91,7 +91,7 @@ class PaymentController extends Controller
                 $pedido->save();
             }
 
-            return redirect()->route('vendedor.home.index');
+            return redirect()->route('vendedor.pedidos.prepay');
         }
         else{
             

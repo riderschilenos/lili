@@ -40,7 +40,11 @@
                             
                             </td>
                             <td>
-                                <a class="btn btn-primary"    href="">Revisar</a>
+                                <form action="{{route('admin.pago.approved',$pago)}}" method="POST">
+                                    @csrf
+            
+                                    <button class="btn btn-primary" type="submit">Aprobar</button>
+                                </form>   
                             </td>
                         </tr>
                         

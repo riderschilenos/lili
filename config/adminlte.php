@@ -326,6 +326,14 @@ return [
            
         ],
         [
+            'text'        => 'Diseño',
+            'route'         => 'admin.disenos.index',
+            'icon'        => 'fas fa-fw fa-object-group',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/disenos*']
+           
+        ],
+        [
             'text'        => 'Lista de Productos',
             'route'         => 'admin.products.index',
             'icon'        => 'fas fa-fw fa-bars',

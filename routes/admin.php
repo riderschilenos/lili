@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SerieController;
 
 use App\Http\Controllers\Admin\DisciplinaController;
+use App\Http\Controllers\Admin\DisenoController;
 use App\Http\Controllers\Admin\MarcaController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
@@ -44,6 +45,8 @@ Route::resource('vehiculo',VehiculoController::class)->names('vehiculo');
 
 Route::resource('marca',MarcaController::class)->names('marcas');
 
+Route::resource('diseno',DisenoController::class)->names('disenos');
+
 Route::resource('suscripcion',SuscripcionController::class)->names('suscripcions');
 
 Route::get('{socio}/suscripcion',[SuscripcionController::class,'sociocreate'])->name('suscripcion.sociocreate');
@@ -57,6 +60,7 @@ Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.i
 Route::post('{marca}/image',[MarcaController::class, 'image'])->name('marca.image');
 
 Route::get('pagos',[PagoController::class, 'adminindex'])->name('pagos.index');
+
 
 Route::post('{pago}/approved',[PagoController::class, 'pagoaprov'])->name('pago.approved');
 

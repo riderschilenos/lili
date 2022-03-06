@@ -130,9 +130,15 @@ class PagoController extends Controller
     }
     
     public function pagoaprov(Pago $pago){
-        $pago->estado = 2;
-        $pago->save();
-        
-        return redirect()->route('admin.pagos.index',$serie);
+            $pago->estado=2;
+            $pago->save();
+            foreach ($pago->pedidos as $pedido){
+                $pedido->status=4;
+                $pedido->save();
+            }
+
+            return redirect()->route('admin.pagos.index');
+    
     }
+
 }

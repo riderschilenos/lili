@@ -78,7 +78,7 @@
             </tr>
         </table>
         <div class="card-header">
-            <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nonbre">
+            <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nombre">
         </div>
 
         @if ($pedidos->count())
@@ -94,7 +94,7 @@
                     <thead>
                         <th>ID</th>
                         <th>Captador</th>
-                        <th>Transportista</th>
+                        <th>Estado</th>
                         <th>Cliente</th>
                         <th>Fecha</th>
                         <th>Subtotal</th>
@@ -107,7 +107,32 @@
                             <tr>
                                 <td>{{$pedido->id}}</td>
                                 <td>{{$pedido->vendedor->name}}</td>
-                                <td>{{$pedido->transportista->name}}</td>
+                                <td>
+                                    @switch($pedido->status)
+                                      @case(1)
+                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                              Borrador
+                                          </span>
+                                          @break
+                                      @case(2)
+                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                              Pendiente de Pago
+                                          </span>
+                                          @break
+                                      @case(3)
+                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                              Procesando Pago
+                                          </span>
+                                          @break
+                                      @case(4)
+                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                              Pendiente de diseño
+                                          </span>
+                                          @break
+                                      @default
+                                          
+                                    @endswitch
+                                </td>
                                 <td>
                                     @if($pedido->pedidoable_type=='App\Models\Socio')
                                     @foreach ($socios as $socio)
@@ -117,6 +142,8 @@
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                     Socio
                                                 </span>
+                                                <br>
+                                                {{$pedido->transportista->name}}
                                             @endif
                                     @endforeach
                                     @endif
@@ -127,6 +154,7 @@
                                                     {{$invitado->name}} <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                                         Invitado
                                                     </span>
+                                                    {{$pedido->transportista->name}}
                                                 @endif
                                         @endforeach
                                     @endif

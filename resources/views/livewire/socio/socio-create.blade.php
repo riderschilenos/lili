@@ -29,7 +29,7 @@
 
     $preference->items = array($item);
     $preference->save();
-}
+        }
     @endphp
     
         @if ($socio)

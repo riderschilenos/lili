@@ -3,8 +3,7 @@
                 $total=0;
                 $comisiones=0;
                 $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-    
-                
+        
                         // SDK de Mercado Pago
                         require base_path('/vendor/autoload.php');
                         // Agrega credenciales

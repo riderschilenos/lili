@@ -1,10 +1,6 @@
 <div class="container py-8">
             @php
-                $total=0;
-                $comisiones=0;
-                $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-        
-                        // SDK de Mercado Pago
+               // SDK de Mercado Pago
                         require base_path('/vendor/autoload.php');
                         // Agrega credenciales
                         MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
@@ -34,6 +30,16 @@
                         $preference->items = array($item);
                         $preference->save();
                     }
+
+                     
+                @endphp
+
+                @php
+                    $total=0;
+                    $comisiones=0;
+                    $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+        
+                      
                 @endphp
             
                 

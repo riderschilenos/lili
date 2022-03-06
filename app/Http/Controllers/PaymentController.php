@@ -72,7 +72,7 @@ class PaymentController extends Controller
         }
 
     }
-    
+
     public function pago(Pago $pago, Request $request){
 
         $payment_id = $request->get('payment_id');
@@ -86,6 +86,9 @@ class PaymentController extends Controller
         if($status == 'approved'){
             $pago->estado=2;
             $pago->save();
+            foreach ($pago->pedidos() as $pedido){
+                $pedido->status=4;
+            }
 
             return redirect()->route('vendedor.home.index');
         }

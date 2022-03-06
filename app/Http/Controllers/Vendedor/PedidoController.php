@@ -135,6 +135,6 @@ class PedidoController extends Controller
         $pedido->status = 2;
         $pedido->save();
 
-        return redirect()->route('vendedor.home.index');
+        return redirect()->route('vendedor.pedidos.prepay');
     }
 }

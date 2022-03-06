@@ -37,11 +37,11 @@
                             <a href="">Información de seguimiento</a>
                         </li>
                         <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
-                            <a href="">Videos de la serie</a>
+                            <a href="">Diseño</a>
                         </li>
                    
                         <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
-                            <a href="">Sponsors</a>
+                            <a href="">Seguimiento</a>
                         </li>
                     </ul>
 

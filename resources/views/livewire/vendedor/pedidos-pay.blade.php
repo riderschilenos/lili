@@ -373,7 +373,7 @@
 
 
                                         @else
-                                            @if ($total>0)
+                                            
                                             
                                         
                                                 <div class="form-group">
@@ -399,6 +399,8 @@
                                                 
                                 
                                                 </div>
+
+                                            @if ($total>0)
                                                 @if(!is_null($mercadopago))
                                                 <div class="">
                                                     <h1 class="text-xl font-bold text-center py-2">Detalle de Pago:</h1>

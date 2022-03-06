@@ -348,6 +348,7 @@
                                         
                                     
                                         @if ($pago)
+                                        
                                         <div class="card"><div class="card-body">
                                             
                                             <img class="h-14 w-38 object-contain" src="{{asset('img/home/mercadopago.png')}}" alt="">
@@ -593,7 +594,7 @@
                                                         </span>
                                                     @else
                                                         <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                            {{$pago->metodo}}
+                                                            TRANSFERENCIA
                                                         </span>
                                                         
                                                    

@@ -149,10 +149,11 @@
                                                 @isset($pedido->image)
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                                 @else
-                                                    
-                                                    <label>
-                                                        <input type="checkbox" wire:model="selected" value="{{$pedido->id}}" class="mr-4 mt-2">
-                                                    </label>
+                                                    @if ($pedido->status==2)
+                                                        <label>
+                                                            <input type="checkbox" wire:model="selected" value="{{$pedido->id}}" class="mr-4 mt-2">
+                                                        </label>
+                                                    @endif
                                                     
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
                                                 @endisset
@@ -185,38 +186,47 @@
     
     
                                             </div>
-                                            <div class="text-sm text-gray-500">
-    
-                                                    @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                        
-                                                        @foreach ($socios as $socio)
-                                                            @if(!is_null($socio->direccion))
-                                                                @if($socio->id == $pedido->pedidoable_id)
-                                                                    {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
-                                                                @endif
-                                                            @endif
-                                                        @endforeach
-                                                    @endif
-    
-                                                    @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                                        @foreach ($invitados as $invitado)
+                                            
+                                            @if ($pedido->status==3)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                    Procesando Pago
+                                                </span>
+                                            @else
+                                                    <div class="text-sm text-gray-500">
+            
+                                                        @if($pedido->pedidoable_type=='App\Models\Socio')
                                                             
-                                                                @if($invitado->id == $pedido->pedidoable_id)
+                                                            @foreach ($socios as $socio)
+                                                                @if(!is_null($socio->direccion))
+                                                                    @if($socio->id == $pedido->pedidoable_id)
+                                                                        {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
+                                                                    @endif
+                                                                @endif
+                                                            @endforeach
+                                                        @endif
+
+                                                        @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                                            @foreach ($invitados as $invitado)
                                                                 
-                                                                    @if(!is_null($invitado->direccion))
-                                                                        {{$invitado->direccion->comuna.", ".$invitado->direccion->region}}
-                                                                    @else
-                                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                            FALTA DIRECCIÓN DE DESPACHO
-                                                                        </span>
+                                                                    @if($invitado->id == $pedido->pedidoable_id)
+                                                                    
+                                                                        @if(!is_null($invitado->direccion))
+                                                                            {{$invitado->direccion->comuna.", ".$invitado->direccion->region}}
+                                                                        @else
+                                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                                                FALTA DIRECCIÓN DE DESPACHO
+                                                                            </span>
+                                                                        @endif
+                                                                    
                                                                     @endif
                                                                 
-                                                                @endif
-                                                            
-                                                        @endforeach
-                                                    @endif
-    
-                                            </div>
+                                                            @endforeach
+                                                        @endif
+
+                                                    </div>
+                                            @endif
+                                            
+
                                             </div>
                                         </div>
                                     </td>
@@ -277,8 +287,8 @@
                                                 </span>
                                                 @break
                                             @case(3)
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                    Pendiente de Diseño
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                Procesando Pago
                                                 </span>
                                                 @break
                                             @case(4)

@@ -86,7 +86,7 @@ class PaymentController extends Controller
         if($status == 'approved'){
             $pago->estado=2;
             $pago->save();
-            foreach ($pago->pedidos() as $pedido){
+            foreach ($pago->pedidos as $pedido){
                 $pedido->status=4;
                 $pedido->save();
             }

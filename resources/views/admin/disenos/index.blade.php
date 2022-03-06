@@ -7,10 +7,7 @@
 <div class="container py-8">
     <h1 class="text-center text-3xl font-bold pb-4 py-6">Pedidos Pendientes de Diseño</h1>
     <x-table-responsive>
-        <div class="px-6 py-4 flex">
-            <input wire:keydown="limpiar_page" wire:model="search" class="form-input flex-1 shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre o rut del cliente">
-            <a class="btn btn-success ml-2" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
-        </div>
+       
   
         @if ($pedidos->count())
   

@@ -449,7 +449,7 @@
                                                                     
 
                                                                     <div class="flex justify-center">
-                                                                        {!! Form::submit('Pagar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                                                        {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
                                                                     </div>
                                                                 
                                                             {!! Form::close() !!}

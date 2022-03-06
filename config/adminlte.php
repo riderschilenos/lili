@@ -329,7 +329,7 @@ return [
             'text'        => 'Diseño',
             'route'         => 'admin.disenos.index',
             'icon'        => 'fas fa-fw fa-object-group',
-            'can'         => 'Leer usuarios',
+            'can'         => 'Diseño',
             'active'     => ['admin/disenos*']
            
         ],

@@ -29,6 +29,13 @@
         'active'=>request()->routeIs('garage.vehiculos.registerindex')
 
     ]
+    ,[   
+        'name'=>'Diseño',
+        'route'=>route('admin.disenos.index'),
+        'can'=>'Diseño',
+        'active'=>request()->routeIs('garage.disenos*')
+
+    ]
     /*,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),

@@ -11,6 +11,8 @@ class Pago extends Model
 
     protected $guarded = ['id','status'];
 
+    
+
     const PENDIENTE =1;
     const APROBADO =2;
 

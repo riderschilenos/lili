@@ -1,36 +1,36 @@
 <div>
     @php
-    // SDK de Mercado Pago
-    require base_path('/vendor/autoload.php');
-    // Agrega credenciales
-    MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
+                // SDK de Mercado Pago
+                require base_path('/vendor/autoload.php');
+                // Agrega credenciales
+                MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
 
-  
-    // Crea un objeto de preferencia
-    $preference = new MercadoPago\Preference();
+            
+                // Crea un objeto de preferencia
+                $preference = new MercadoPago\Preference();
 
-    // Crea un ítem en la preferencia
-    $item = new MercadoPago\Item();
-    $item->title = 'Suscripción:';
-    $item->quantity = 1;
-    $item->unit_price = 50;
+                // Crea un ítem en la preferencia
+                $item = new MercadoPago\Item();
+                $item->title = 'Suscripción:';
+                $item->quantity = 1;
+                $item->unit_price = 25000;
 
-    
+                
 
-    $preference = new MercadoPago\Preference();
-    //...
-    if($socio){
-    $preference->back_urls = array(
-        "success" => route('payment.socio', $socio),
-        "failure" => "http://www.tu-sitio/failure",
-        "pending" => "http://www.tu-sitio/pending"
-    );
-    $preference->auto_return = "approved";
+                $preference = new MercadoPago\Preference();
+                //...
+                if($socio){
+                $preference->back_urls = array(
+                    "success" => route('payment.socio', $socio),
+                    "failure" => "http://www.tu-sitio/failure",
+                    "pending" => "http://www.tu-sitio/pending"
+                );
+                $preference->auto_return = "approved";
 
-    $preference->items = array($item);
-    $preference->save();
-        }
-    @endphp
+                $preference->items = array($item);
+                $preference->save();
+                    }
+                @endphp
     
         @if ($socio)
 

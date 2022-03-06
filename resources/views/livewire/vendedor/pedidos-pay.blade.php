@@ -23,7 +23,7 @@
                 $preference->back_urls = array(
                     "success" => route('payment.pago', $pago),
                     "failure" => "http://www.tu-sitio/failure",
-                    "pending" => route('payment.pago', $pago)
+                    "pending" => "http://www.tu-sitio/failure"
                 );
                 $preference->auto_return = "approved";
 
@@ -670,22 +670,23 @@
                     </x-table-responsive>
                     
                     <script src="https://sdk.mercadopago.com/js/v2"></script>
+  
                     <script>
-                        // Agrega credenciales de SDK
-                        const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
-                                locale: 'es-AR'
-                        });
-                        
-                        // Inicializa el checkout
-                        mp.checkout({
-                            preference: {
-                                id: '{{ $preference->id }}'
-                            },
-                            render: {
-                                    container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                                    label: 'Pagar', // Cambia el texto del botón de pago (opcional)
-                            }
-                        });
+                    // Agrega credenciales de SDK
+                    const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+                            locale: 'es-AR'
+                    });
+                    
+                    // Inicializa el checkout
+                    mp.checkout({
+                        preference: {
+                            id: '{{ $preference->id }}'
+                        },
+                        render: {
+                                container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
+                                label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+                        }
+                    });
                     </script>
     
 </div>

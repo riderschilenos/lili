@@ -384,8 +384,8 @@
                                           </span>
                                           @break
                                       @case(4)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                              Despachado
+                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                              Pendiente de diseño
                                           </span>
                                           @break
                                       @default

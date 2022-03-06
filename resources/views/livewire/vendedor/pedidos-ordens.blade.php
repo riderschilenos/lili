@@ -188,14 +188,21 @@
             </div>
         </article>
 
-        
+        @php
+        $counter=$pedido->ordens->count();
+        @endphp
      
         @foreach ($pedido->ordens->reverse() as $orden)
+        @php
+            $counter-=1
+        @endphp
+
             <article class="card mt-2">
+
                 <div class="card-body bg-gray-100 flex">
 
                     <div class="items-center">
-                        <label class="mx-4">1</label>
+                        <label class="mx-4">{{$counter+1}}</label>
                     </div>
 
                     <div class="items-center">
@@ -241,24 +248,126 @@
                         </div>
                     @endif
 
-                    
-
-                     
-                    
-
-
-
-
-
-
-
-
-
-
                 </div>
             </article>
+           
             
         @endforeach
+        <x-table-responsive>
+
+          
+            @if ($pedido->ordens->count())
+      
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Nro
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Producto
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Marca
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Modelo                        
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Nombre
+                        </th>
+                        
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Número
+                        </th>
+                        
+                        <th scope="col" class="relative px-6 py-3">
+                            <span class="sr-only">Valor</span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        @php
+                        $counter=$pedido->ordens->count();
+                        @endphp
+                        @foreach ($pedido->ordens->reverse() as $orden)
+                        @php
+                            $counter-=1
+                        @endphp
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <label class="mx-4">{{$counter+1}}</label>
+                                    </td>
+      
+                                  <td class="px-6 py-4 whitespace-nowrap">
+                                      
+                                    {{$orden->producto->name}}
+                                      
+                                  </td>
+      
+                                  
+                                    @if($orden->modelo)
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="items-center">
+                                                <label class="mx-4">{{$orden->modelo->marca->name}}</label>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="items-center">
+                                                <label class="mx-4">Mod: {{$orden->modelo->name}}</label>
+                                            </div>
+                                        </td>
+                                    @else
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="items-center">
+                                                <label class="mx-4">Sin Marca</label>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="items-center">
+                                                <label class="mx-4">Sin Modelo</label>
+                                            </div>
+                                        </td>
+                                    @endif
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <label class="mx-4">{{$orden->name}}</label>
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">    
+      
+                                        <label class="mx-4">{{$orden->numero}}</label>
+                                            
+                                    </td>
+                                  
+                                 
+      
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        @if($pedido->pedidoable_type=="App\Models\Socio")
+                                            <div class="items-center justify-end ml-auto">
+                                                <label class="mx-4 ml-6">${{number_format($orden->producto->precio-$orden->producto->descuento_socio)}}</label>
+                                            </div>
+                                        @endif
+                                        @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                            <div class="items-center justify-end ml-auto">
+                                                <label class="mx-4 ml-6">${{number_format($orden->producto->precio)}}</label>
+                                            </div>
+                                        @endif
+
+                                    </td>
+                                </tr>
+      
+                        @endforeach
+                    <!-- More people... -->
+                    </tbody>
+                </table>
+            @else
+                <div class="px-6 py-4">
+                    No hay ningun registro coincidente
+                </div>
+            @endif 
+            
+      </x-table-responsive>
         @if($pedido->ordens->count()>0)
             @if($pedido->status==1)
                 <div class="flex justify-center">

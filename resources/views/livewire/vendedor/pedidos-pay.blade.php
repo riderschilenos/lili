@@ -587,15 +587,15 @@
                 
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     
-                                                    @if ($pago->metodo='MERCADOPAGO')
+                                                    @if ($pago->metodo=="MERCADOPAGO")
                                                         <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
                                                             MERCADOPAGO
                                                         </span>
                                                     @else
                                                         <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                            TRANSFERENCIA
+                                                            {{$pago->metodo}}
                                                         </span>
-                                                        {{$pago->metodo}}
+                                                        
                                                    
                                                     @endif
                                                           

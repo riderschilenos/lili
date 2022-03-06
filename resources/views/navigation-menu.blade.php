@@ -36,12 +36,13 @@
         'active'=>request()->routeIs('garage.disenos*')
 
     ]
-    /*,[   
+    ,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),
+        'can'=>'Vender',
         'active'=>request()->routeIs('vendedor.*')
 
-    ]
+    ]/*
     ,[   
         'name'=>'Tienda',
         'route'=>'#',

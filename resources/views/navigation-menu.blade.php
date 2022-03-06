@@ -67,9 +67,27 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                    @foreach ($nav_links as $nav_link)
+
+                    @if ($nav_link['name']=='Diseño')
+                        @can('Diseño')
+                            <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                                {{ $nav_link['name'] }}
+                            </x-jet-nav-link>
+                        @endcan
+
+                    @elseif($nav_link['name']=='Portal Vendedores')
+                        @can('Vender')
+                            <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                                {{ $nav_link['name'] }}
+                            </x-jet-nav-link>
+                        @endcan
+                        
+                    @else
                         <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
                         </x-jet-nav-link>
+                    @endif
+                        
 
                    @endforeach  
                     

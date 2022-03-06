@@ -88,6 +88,7 @@ class PaymentController extends Controller
             $pago->save();
             foreach ($pago->pedidos() as $pedido){
                 $pedido->status=4;
+                $pedido->save();
             }
 
             return redirect()->route('vendedor.home.index');

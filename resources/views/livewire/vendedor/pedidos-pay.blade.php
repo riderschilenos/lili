@@ -348,7 +348,7 @@
                                         
                                     
                                         @if ($pago)
-                                        
+
                                         <div class="card"><div class="card-body">
                                             
                                             <img class="h-14 w-38 object-contain" src="{{asset('img/home/mercadopago.png')}}" alt="">
@@ -373,6 +373,9 @@
 
 
                                         @else
+                                        @if ($total>0)
+                                            
+                                        
                                                 <div class="form-group">
                                             
                                                         <p class="px-12 pb-4">Selecciona el método de pago:</p>
@@ -443,7 +446,7 @@
                                                     </div>
 
                                                 </div>
-
+                                            @endif
                                             @else
 
                                     

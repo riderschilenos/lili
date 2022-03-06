@@ -318,6 +318,14 @@ return [
            
         ],
         [
+            'text'        => 'Pendientes de aprobación',
+            'route'         => 'admin.pagos.index',
+            'icon'        => 'fas fa-fw fa-dollar-sign',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/pagos*']
+           
+        ],
+        [
             'text'        => 'Lista de Productos',
             'route'         => 'admin.products.index',
             'icon'        => 'fas fa-fw fa-bars',

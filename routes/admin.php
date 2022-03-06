@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\SocioController;
 use App\Http\Controllers\Admin\SuscripcionController;
 use App\Http\Controllers\Admin\Vehiculo_typeController;
 use App\Http\Controllers\Admin\VehiculoController;
+use App\Http\Controllers\Vendedor\PagoController;
 
 Route::get('/',[HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 
@@ -54,6 +55,10 @@ Route::resource('qrregister',QrregisterController::class)->names('qrregister');
 Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.imageform');
 
 Route::post('{marca}/image',[MarcaController::class, 'image'])->name('marca.image');
+
+Route::get('pagos',[PagoController::class, 'adminindex'])->name('pagos.index');
+
+Route::post('{pago}/approved',[PagoController::class, 'pagoaprov'])->name('pago.approved');
 
 Route::get('series',[SerieController::class, 'index'])->name('series.index');
 

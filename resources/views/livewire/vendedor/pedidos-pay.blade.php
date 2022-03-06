@@ -373,7 +373,7 @@
 
 
                                         @else
-                                        @if ($total>0)
+                                            @if ($total>0)
                                             
                                         
                                                 <div class="form-group">
@@ -446,49 +446,51 @@
                                                     </div>
 
                                                 </div>
-                                            @endif
-                                            @else
-
-                                    
-                                            {!! Form::open(['route'=>'vendedor.pagos.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                            @csrf
-
-                                                <div class="h-32">
-                                                    <h1 class="text-xl font-bold text-center py-2 mt-4">Adjunte Comprobante por: ${{number_format($total)}}</h1>
-                                                    <hr class="w-full">
-                                                    {!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
-                                                    @error('foto')
-                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                    @enderror
-
-                                                    
-                                                </div>
-
-                                                {!! Form::hidden('user_id', Auth()->user()->id ) !!}
-                    
-                                                {!! Form::hidden('metodo', 'TRANSFERENCIA' ) !!}
-
-                                                {!! Form::hidden('cantidad', $total ) !!}
-
-                                                @foreach ($selected as $item)
-                                                    <input type="hidden" name="selected[]" value="{{$item}}">
-                                                @endforeach
-                                                
-
-                                                {!! Form::hidden('estado', '1' ) !!}
-
-                                                
-
-                                                <div class="flex justify-center">
-                                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
-                                                </div>
                                             
-                                            {!! Form::close() !!}
+                                                @else
+
+                                            
+                                                    {!! Form::open(['route'=>'vendedor.pagos.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                                    @csrf
+
+                                                        <div class="h-32">
+                                                            <h1 class="text-xl font-bold text-center py-2 mt-4">Adjunte Comprobante por: ${{number_format($total)}}</h1>
+                                                            <hr class="w-full">
+                                                            {!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
+                                                            @error('foto')
+                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                            @enderror
+
+                                                            
+                                                        </div>
+
+                                                        {!! Form::hidden('user_id', Auth()->user()->id ) !!}
+                            
+                                                        {!! Form::hidden('metodo', 'TRANSFERENCIA' ) !!}
+
+                                                        {!! Form::hidden('cantidad', $total ) !!}
+
+                                                        @foreach ($selected as $item)
+                                                            <input type="hidden" name="selected[]" value="{{$item}}">
+                                                        @endforeach
+                                                        
+
+                                                        {!! Form::hidden('estado', '1' ) !!}
+
+                                                        
+
+                                                        <div class="flex justify-center">
+                                                            {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                                        </div>
+                                                    
+                                                    {!! Form::close() !!}
 
 
+
+                                        @endif
 
                                      @endif
-                                        @endif
+                                @endif
                                        
                                     
                                        

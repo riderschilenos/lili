@@ -188,71 +188,7 @@
             </div>
         </article>
 
-        @php
-        $counter=$pedido->ordens->count();
-        @endphp
-     
-        @foreach ($pedido->ordens->reverse() as $orden)
-        @php
-            $counter-=1
-        @endphp
-
-            <article class="card mt-2">
-
-                <div class="card-body bg-gray-100 flex">
-
-                    <div class="items-center">
-                        <label class="mx-4">{{$counter+1}}</label>
-                    </div>
-
-                    <div class="items-center">
-                        <label class="mx-4">{{$orden->producto->name}}</label>
-                    </div>
-                    @if($orden->modelo)
-
-                        <div class="items-center">
-                            <label class="mx-4">{{$orden->modelo->marca->name}}</label>
-                        </div>
-                    
-                        <div class="items-center">
-                            <label class="mx-4">Mod: {{$orden->modelo->name}}</label>
-                        </div>
-                    @endif
-                    @if($orden->smartphone)
-                        <div class="items-center">
-                            <div class="text-sm text-gray-900">{{$orden->smartphone->modelo}}</div>
-                            <div class="text-sm text-gray-500">{{$orden->smartphone->marcasmartphone->name}}</div>
-                        
-                        </div>
-                    @endif
-
-                    <div class="items-center">
-                        <label class="mx-4">Nombre: {{$orden->name}}</label>
-                    </div>
-
-                    <div class="items-center">
-                        <label class="mx-4">Nro: {{$orden->numero}}</label>
-                    </div>
-                    
-                    
-
-
-                    @if($pedido->pedidoable_type=="App\Models\Socio")
-                        <div class="items-center justify-end ml-auto">
-                            <label class="mx-4 ml-6">${{number_format($orden->producto->precio-$orden->producto->descuento_socio)}}</label>
-                        </div>
-                    @endif
-                    @if($pedido->pedidoable_type=="App\Models\Invitado")
-                        <div class="items-center justify-end ml-auto">
-                            <label class="mx-4 ml-6">${{number_format($orden->producto->precio)}}</label>
-                        </div>
-                    @endif
-
-                </div>
-            </article>
-           
-            
-        @endforeach
+    
         <x-table-responsive>
 
           
@@ -281,8 +217,8 @@
                         Número
                         </th>
                         
-                        <th scope="col" class="relative px-6 py-3">
-                            <span class="sr-only">Valor</span>
+                        <th  class="text-center mr-4 text-xs font-medium text-gray-500 uppercase tracking-wider justify-end ml-auto">
+                            Precio
                         </th>
                     </tr>
                     </thead>
@@ -331,12 +267,21 @@
                                     @endif
 
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <label class="mx-4">{{$orden->name}}</label>
+                                        <label class="mx-4">@if ($orden->name)
+                                            {{$orden->name}}
+                                            @else
+                                                -
+                                            @endif</label>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">    
       
-                                        <label class="mx-4">{{$orden->numero}}</label>
+                                        <label class="mx-4">
+                                            @if ($orden->numero)
+                                                {{$orden->numero}} 
+                                            @else
+                                                S/N
+                                            @endif</label>
                                             
                                     </td>
                                   

@@ -17,19 +17,27 @@
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Cliente
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Transportista
-                  </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Subtotal                        
+                    <th>
+
                     </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Fono
+                    </th>
+                    
+                  
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Productos
+                      
+                        
                     </th>
                     
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Estado
+                      Email
+                        
                     </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    
+                    </th>
+                    
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Fecha
                     </th>
@@ -116,97 +124,78 @@
                                     </div>
                               </td>
   
-                              <td class="px-6 py-4 whitespace-nowrap">
+                              <td>
                                   
-                                  @switch($pedido->transportista->id)
-                                        @case(1)
-                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                              {{$pedido->transportista->name}}
-                                            </span>
-                                            @break
-                                        @case(2)
-                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                              {{$pedido->transportista->name}}
-                                            </span>
-                                            @break
-                                          @case(3)
-                                            <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                              {{$pedido->transportista->name}}
-                                            </span>
-                                            @break
-                                       
-                                        @default
-                                            
-                                  @endswitch
-                                  
+                            </td>
+
+                              <td class="text-center">
+                                <div class="text-sm font-medium text-gray-900">
+                                          
+                                    @if($pedido->pedidoable_type=='App\Models\Socio')
+                                        @foreach ($socios as $socio)
+                                                
+                                                @if($socio->id == $pedido->pedidoable_id)
+                                                <a href="https://api.whatsapp.com/send?phone=569{{substr($socio->fono, -8)}}&text=Hola%20que%20tal" target="_blank">
+                                                    {{$socio->fono}}
+                                                </a>
+                                                @endif
+                                        @endforeach
+                                    @endif
+                                    @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                        @foreach ($invitados as $invitado)
+                                                
+                                                @if($invitado->id == $pedido->pedidoable_id)
+                                                <a href="https://api.whatsapp.com/send?phone=569{{substr($invitado->fono, -8)}}&text=Hola%20que%20tal" target="_blank">
+                                                    {{$invitado->fono}} 
+                                                </a> 
+                                                @endif
+                                        @endforeach
+                                    @endif
+
+
+                                  </div>
                               </td>
-  
-                              @php
-                              $subtotal=0;
-                              @endphp
-  
-                              @if($pedido->pedidoable_type=="App\Models\Socio")
-                              @foreach ($pedido->ordens as $orden)
-                              @php
-                                  
-                                  $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
-  
-                              @endphp    
-                              @endforeach
-  
-                              @endif
-                              @if($pedido->pedidoable_type=="App\Models\Invitado")
-                              @foreach ($pedido->ordens as $orden)
-                              @php
-                                  
-                                  $subtotal+=$orden->producto->precio;
-  
-                              @endphp    
-                              @endforeach
-  
-                              @endif
-  
-                              <td class="px-6 py-4 whitespace-nowrap">
-                                      <div class="text-sm text-gray-900 ml-3">${{number_format($subtotal)}}</div>
-                                    
+                             
+                              <td>
+
+                              </td>
+                              <td>
+                                <div class="text-sm font-medium text-gray-900">
+                                          
+                                    @if($pedido->pedidoable_type=='App\Models\Socio')
+                                        @foreach ($socios as $socio)
+                                                
+                                                @if($socio->id == $pedido->pedidoable_id)
+                                                <a href="mailto:{{$socio->user->email}}" target="_blank">
+                                                    {{$socio->user->email}}
+                                                </a>
+                                                @endif
+                                        @endforeach
+                                    @endif
+                                    @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                        @foreach ($invitados as $invitado)
+                                                
+                                                @if($invitado->id == $pedido->pedidoable_id)
+                                                <a href="mailto:{{$invitado->email}} " target="_blank">
+                                                    {{$invitado->email}} 
+                                                </a> 
+                                                @endif
+                                        @endforeach
+                                    @endif
+
+
+                                  </div>
+
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 ml-3">{{$pedido->Ordens->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>
-                                    <div class="text-sm text-gray-500">Productos</div>
+                                  
                               </td>
   
                                 
   
                                 
   
-                                <td class="px-6 py-4 whitespace-nowrap">    
-  
-                                    @switch($pedido->status)
-                                        @case(1)
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                Borrador
-                                            </span>
-                                            @break
-                                        @case(2)
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                Pendiente de Pago
-                                            </span>
-                                            @break
-                                        @case(3)
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                Procesando Pago
-                                            </span>
-                                            @break
-                                        @case(4)
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                Pendiente de diseño
-                                            </span>
-                                            @break
-                                        @default
-                                            
-                                      @endswitch
-                                        
-                                </td>
+                        
                               
                               <td class="px-6 py-4 whitespace-nowrap">
                                   <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
@@ -218,7 +207,122 @@
                                   
                                 </td>
                             </tr>
-  
+                            
+                                @php
+                                $counter=$pedido->ordens->count();
+                                @endphp
+
+                                    <tr class="bg-gray-300">
+                                        <th >
+                                            ORDENES
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Nro
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Producto
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Marca
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Modelo                        
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Nombre
+                                        </th>
+                                        
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Número
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Detalle
+                                        </th>
+                                        
+                                      
+                                    </tr>
+                                @foreach ($pedido->ordens->reverse() as $orden)
+                                @php
+                                    $counter-=1
+                                @endphp
+
+                                    <tr>
+                                            <td>
+
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right bg-yellow-200">
+                                                <label class="mx-4">{{$counter+1}}</label>
+                                            </td>
+
+                                          <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">
+                                              
+                                            {{$orden->producto->name}}
+                                              
+                                          </td>
+              
+                                          
+                                            @if($orden->modelo)
+                                                <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">
+                                                    <div class="items-center">
+                                                        <label class="mx-4">{{$orden->modelo->marca->name}}</label>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">
+                                                    <div class="items-center">
+                                                        <label class="mx-4">Mod: {{$orden->modelo->name}}</label>
+                                                    </div>
+                                                </td>
+                                            @else
+                                                <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">
+                                                    <div class="items-center">
+                                                        <label class="mx-4">Sin Marca</label>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">
+                                                    <div class="items-center">
+                                                        <label class="mx-4">Sin Modelo</label>
+                                                    </div>
+                                                </td>
+                                            @endif
+        
+                                            <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">
+                                                <label class="mx-4">@if ($orden->name)
+                                                    {{$orden->name}}
+                                                    @else
+                                                        -
+                                                    @endif</label>
+                                            </td>
+        
+                                            <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">    
+              
+                                                <label class="mx-4">
+                                                    @if ($orden->numero)
+                                                        {{$orden->numero}} 
+                                                    @else
+                                                        S/N
+                                                    @endif</label>
+                                                    
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap bg-yellow-200">    
+              
+                                                <label class="mx-4">
+                                                    @if ($orden->detalle)
+                                                        {{$orden->detalle}} 
+                                                    @else
+                                                        -
+                                                    @endif</label>
+                                                    
+                                            </td>
+                                          
+                                         
+              
+                                            
+                                         
+                                        </tr>
+              
+                                @endforeach
+                            <!-- More people... -->
+                            
                     @endforeach
                 <!-- More people... -->
                 </tbody>

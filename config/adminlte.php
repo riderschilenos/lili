@@ -347,6 +347,13 @@ return [
             'active'     => ['admin/marcas*']
            
         ],
+        [
+            'text'        => 'Modelos',
+            'route'         => 'admin.modelos.index',
+            'icon'        => 'fas fa-fw fa-filter',
+            'active'     => ['admin/modelo*']
+           
+        ],
        
         ['header' => 'Opciones RCH-TV'],
         

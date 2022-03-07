@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SerieController;
 use App\Http\Controllers\Admin\DisciplinaController;
 use App\Http\Controllers\Admin\DisenoController;
 use App\Http\Controllers\Admin\MarcaController;
+use App\Http\Controllers\Admin\ModeloController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
 use App\Http\Controllers\Admin\QrregisterController;
@@ -46,6 +47,8 @@ Route::resource('vehiculo',VehiculoController::class)->names('vehiculo');
 Route::resource('marca',MarcaController::class)->names('marcas');
 
 Route::resource('diseno',DisenoController::class)->names('disenos');
+
+Route::resource('modelo',ModeloController::class)->names('modelos');
 
 Route::resource('suscripcion',SuscripcionController::class)->names('suscripcions');
 

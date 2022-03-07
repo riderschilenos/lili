@@ -155,7 +155,8 @@
 
                         <div class="flex items-center mt-4">
                             <label class="w-32">Nro:</label>
-                            <input wire:model="numero" type="number "class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                            <input wire:model="numero" type="number" id="numero" name="numero" class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm">
+                            
                         </div>
 
                         <div class="flex items-center mt-4">

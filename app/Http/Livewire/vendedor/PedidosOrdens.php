@@ -73,7 +73,8 @@ class PedidosOrdens extends Component
     public function store(){
 
         $rules = [
-            'producto_id'=>'required'
+            'producto_id'=>'required',
+            'numero'=>'required|integer'
         ];
         
         $this->validate ($rules);

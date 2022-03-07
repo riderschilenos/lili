@@ -199,7 +199,7 @@
 
                                 
                                 <td width="10px">
-                                    <a class="btn btn-primary" href="">Editar</a>
+                                    <a class="btn btn-primary" href="{{route('vendedor.pedidos.edit',$pedido)}}">Ver detalles</a>
                                 </td>
                             </tr>
                             

@@ -3,18 +3,53 @@
 @section('title', 'RidersChilenos')
 
 @section('content_header')
-    
-    <a class="btn btn-secondary btn-sm mx-2 float-right" href="{{route('admin.marcas.create')}}">Nueva Marca</a> 
-    
+    <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.disciplinas.create')}}">Nuevo modelo</a>
     <h1>Lista de modelos</h1>
-    
-
 @stop
 
 @section('content')
+    @if (session('info'))
+        <div class="alert alert-success">
+            {{session('info')}}
+        </div>
+    @endif
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($disciplinas as $disciplina)
+                        <tr>
+                            <td>
+                                {{$disciplina->id}}
+                            </td>
+                            <td>
+                                {{$disciplina->name}}
+                            </td>
+                            <td width="10px">
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$disciplina)}}">Editar</a>
+                            </td>
+                            <td width="10px">
+                                <form action="{{route('admin.disciplinas.destroy',$disciplina)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
 
-    @livewire('admin.marca-image')
-
+                                    <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 @stop
 
 @section('css')

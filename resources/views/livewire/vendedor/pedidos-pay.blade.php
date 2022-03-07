@@ -660,11 +660,12 @@
                                                     <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pago->created_at))-1]}}</div>
                                                     <div class="text-sm text-gray-900">{{$pago->created_at->format('d-m-Y')}}</div>    
                                                 </td>
-                
+                                                {{-- comment 
+                                                
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     <a href="{{route('vendedor.pedidos.edit',$pago)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
                                                     
-                                                </td>
+                                                </td>--}}
                                             </tr>
                                     @endif
                                     @endforeach

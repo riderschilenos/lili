@@ -44,9 +44,11 @@
                                 
                                 <a class="btn btn-secondary btn-sm" href="{{route('admin.marca.imageform',$marca)}}">Agregar logo</a>
                             </td>
+                            {{-- comment 
+                            
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.marcas.edit',$marca)}}">Editar</a>
-                            </td>
+                            </td>--}}
                             
                             <td width="10px">
                                 <form action="{{route('admin.marcas.destroy',$marca)}}" method="POST">

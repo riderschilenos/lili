@@ -110,10 +110,10 @@
     </div>
 
 
-            <div class="justify-between mt-4 grid grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="justify-center mt-4 grid grid-cols-3 lg:grid-cols-3 gap-4">
 
-                <div class="w-full rounded-xl flex items-center justify-around">
-                        <a class="cursor-pointer text-gray-500 font-bold" wire:click="periodo">
+                <div class="w-full rounded-xl flex items-center justify-center mx-auto">
+                        <a class="cursor-pointer text-gray-500 font-bold text-center" wire:click="periodo">
                         @if ($periodo=="mensual")
                         <i class="fas fa-toggle-on text-2xl text-blue-600"></i>
                         @else
@@ -129,14 +129,14 @@
         
                 
         
-                <div class="w-full rounded-xl flex items-center justify-around">
-                   
+                <div class="w-full rounded-xl flex items-center justify-center order-2 md:order-3">
+                    <a class="btn btn-success ml-2 text-center" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
                 </div>
              
                 
             </div>
             
-    <div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
 
         <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
             <img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
@@ -190,10 +190,12 @@
       </div>
 
    <x-table-responsive>
+       {{-- comment 
+       
       <div class="px-6 py-4 flex">
           <input wire:keydown="limpiar_page" wire:model="search" class="form-input flex-1 shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre o rut del cliente">
-          <a class="btn btn-success ml-2" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
-      </div>
+          
+      </div>--}}
 
       @if ($pedidos->count())
 

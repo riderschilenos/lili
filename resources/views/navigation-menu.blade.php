@@ -89,6 +89,12 @@
                             </x-jet-nav-link>
                         @endcan
                         
+                    @elseif($nav_link['name']=='Producción')
+                        @can('Diseño')
+                            <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                                {{ $nav_link['name'] }}
+                            </x-jet-nav-link>
+                        @endcan
                     @else
                         <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
@@ -293,6 +299,13 @@
 
                 @elseif($nav_link['name']=='Portal Vendedores')
                     @can('Vender')
+                        <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                            {{ $nav_link['name'] }}
+                        </x-jet-responsive-nav-link>
+                    @endcan
+
+                @elseif($nav_link['name']=='Producción')
+                    @can('Diseño')
                         <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
                         </x-jet-responsive-nav-link>

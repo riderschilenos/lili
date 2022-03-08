@@ -46,7 +46,7 @@
     ,[   
         'name'=>'Producción',
         'route'=>route('admin.disenos.produccion'),
-        'can'=>'Vender',
+        'can'=>'Diseño',
         'active'=>request()->routeIs('admin.disenos.produccion')
 
     ]/*
@@ -283,7 +283,7 @@
         <div class="pt-2 pb-3 space-y-1">
             
             @foreach ($nav_links as $nav_link)
-            
+
                 @if ($nav_link['name']=='Diseño')
                     @can('Diseño')
                         <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">

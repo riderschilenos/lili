@@ -21,7 +21,7 @@
         @foreach ($lotes as $lote)
         
             <label class="w-64 flex flex-col px-4 pb-6 pt-2 mb-3 bg-white text-blue rounded-lg shadow-lg  uppercase border border-blue hover:bg-blue ">
-                <img class="ml-auto h-5 w-5 object-contain cursor-pointer" src="{{asset('img/home/check.png')}}" alt="">
+                <img class="ml-auto h-5 w-5 object-contain cursor-pointer" src="{{asset('img/home/check.png')}}" alt="" wire:click="close({{$lote}})" >
 
                 <svg class="w-8 h-8 cursor-pointer hover:text-gray-500 mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" wire:click="download({{$lote}})">
                     <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
@@ -92,6 +92,8 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
+                                        
+                                    
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @isset($pedido->image)
                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
@@ -242,10 +244,15 @@
                                   <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
                               </td>
   
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Diseñar</a>
-                                  
+                                <td class="px-6 py-4 text-center text-sm font-medium">
+                                    @if ($pedido->status==6)
+                                        <input wire:model="file" type="file" class="form-input bg-gray-200">
+                                        
+                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer"  wire:click="despachado({{$pedido}})">Despachado</p>
+                                    @endif
+                                    
                                 </td>
+
                             </tr>
                             
                                 @php
@@ -402,18 +409,19 @@
                                                 {{$item}}
                                                 @endforeach
                                                 <div class="form-group flex justify-center">
+                                                    <div class="flex mr-4 form-check">
+                                                        <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" wire:click="updateselecteddescartar">
+                                                        <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800" >
+                                                               ReDiseñar
+                                                        </label>
+                                                    </div>
                                                     <div class="flex form-check">
                                                     <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" checked wire:click="updateselectedproduccion">
                                                     <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
                                                         En caja
                                                     </label>
                                                     </div>
-                                                    <div class="flex ml-4 form-check">
-                                                    <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" wire:click="updateselecteddescartar">
-                                                    <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800" >
-                                                           Despachado
-                                                    </label>
-                                                    </div>
+                                                    
                                                     
                         
                         
@@ -423,10 +431,12 @@
                                         </div>
                                     @if(!is_null($descartar))
 
-                                        <h1 class="text-center py-6">El producto ira directamente a producción</h1>
+                                        <h1 class="text-center py-6">El pedido ira directamente a despacho</h1>
+
+                                       
 
                                         <div class="flex justify-center">
-                                            <button class="btn btn-primary text-sm" wire:click="descartar">Enviar</button>
+                                            <button class="btn btn-primary text-sm" wire:click="rediseñar">Enviar</button>
                                         </div>
                                
                                     @else
@@ -443,16 +453,10 @@
                                             
                                         </div>
 
-                                     
-            
+
                                         @foreach ($selected as $item)
                                             <input type="hidden" name="selected[]" value="{{$item}}">
                                         @endforeach
-
-
-                                       
-
-                                        
 
                                         <div class="flex justify-center">
                                             <button class="btn btn-primary" wire:click="encaja"> Enviar</button>

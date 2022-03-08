@@ -44,6 +44,12 @@ class Pedido extends Model
         return $this->belongsTo('App\Models\User','user_id');
     }
 
+    //relacion uno a uno polimorfica
+
+    public function image(){
+        return $this->MorphOne('App\Models\Image','imageable');
+    }
+
     
 
 

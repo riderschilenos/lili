@@ -63,7 +63,7 @@ class LoteController extends Controller
             $orden = Orden::find($item);
             foreach($orden->pedido->ordens as $orden){
 
-                if($orden->status==2){
+                if($orden->status==2 || $orden->status==3){
                     $orden->pedido->status=5;
                     $orden->pedido->save();
     

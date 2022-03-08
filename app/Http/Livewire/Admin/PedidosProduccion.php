@@ -106,7 +106,60 @@ class PedidosProduccion extends Component
         
     }
 
+    public function rediseñar()
+    {
+
+        foreach ($this->selected as $item){
+            $orden = Orden::find($item);
+            $orden->status = 1;
+            $orden->save();
+            
+            
+                    $orden->pedido->status=4;
+                    $orden->pedido->save();
+        }
+
+        $this->reset(['selected']);
+        
+    }
+
+    public function despachado(Pedido $pedido)
+    {
+        if($this->file){
+                
+            $foto = Str::random(10).$this->file->getClientOriginalName();
+            $rutafoto = public_path().'/storage/pedidos/'.$foto;
+            $img=Image::make($this->file)->orientate()
+                ->resize(1200, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($rutafoto);
+            $img->orientate();
+
+        }else{
+            $foto='nn';
+        }
+
+        $pedido->image()->create([
+                    'url'=>'pedidos/'.$foto
+                ]);
+
+        $pedido->status=7;
+        $pedido->save();
+    
+
+        $this->reset(['file']);
+        
+    }
+
     public function download(Lote $lote){
         return response()->download(storage_path('app/public/'.$lote->resource->url));
+    }
+
+    public function close(Lote $lote){
+
+        $lote->estado=2;
+        $lote->save();
+ 
     }
 }

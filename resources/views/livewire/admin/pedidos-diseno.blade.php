@@ -257,11 +257,11 @@
                                                     </label>
                                                 @endif
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">
-                                                <label class="mx-4">{{$counter+1}}</label>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
+                                                <label class="mx-4">{{$orden->id}}</label>
                                             </td>
 
-                                          <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif ">
+                                          <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif ">
                                               
                                             {{$orden->producto->name}}
                                               
@@ -269,30 +269,30 @@
               
                                           
                                             @if($orden->modelo)
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">
+                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
                                                     <div class="items-center">
                                                         <label class="mx-4">{{$orden->modelo->marca->name}}</label>
                                                     </div>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">
+                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
                                                     <div class="items-center">
                                                         <label class="mx-4">Mod: {{$orden->modelo->name}}</label>
                                                     </div>
                                                 </td>
                                             @else
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">
+                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
                                                     <div class="items-center">
                                                         <label class="mx-4">Sin Marca</label>
                                                     </div>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">
+                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
                                                     <div class="items-center">
                                                         <label class="mx-4">Sin Modelo</label>
                                                     </div>
                                                 </td>
                                             @endif
         
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">
+                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
                                                 <label class="mx-4">@if ($orden->name)
                                                     {{$orden->name}}
                                                     @else
@@ -300,7 +300,7 @@
                                                     @endif</label>
                                             </td>
         
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">    
+                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">    
               
                                                 <label class="mx-4">
                                                     @if ($orden->numero)
@@ -310,7 +310,7 @@
                                                     @endif</label>
                                                     
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @else bg-green-200 @endif">    
+                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">    
               
                                                 <label class="mx-4">
                                                     @if ($orden->detalle)

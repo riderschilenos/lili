@@ -37,19 +37,20 @@
 
     ]
     ,[   
+        'name'=>'Producción',
+        'route'=>route('admin.disenos.produccion'),
+        'can'=>'Diseño',
+        'active'=>request()->routeIs('admin.disenos.produccion')
+
+    ]
+    ,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),
         'can'=>'Vender',
         'active'=>request()->routeIs('vendedor.*')
 
     ]
-    ,[   
-        'name'=>'Producción',
-        'route'=>route('admin.disenos.produccion'),
-        'can'=>'Diseño',
-        'active'=>request()->routeIs('admin.disenos.produccion')
-
-    ]/*
+    /*
     ,[   
         'name'=>'Tienda',
         'route'=>'#',

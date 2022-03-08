@@ -47,6 +47,10 @@ class LoteController extends Controller
                 'user_id'=> $request->user_id
                 ]);
 
+        $url = $request->file('lote')->store('lote');
+        $lote->resource()->create([
+                    'url'=>$url
+                ]);
         
         foreach ($request->selected as $item){
             $lote->ordens()->attach($item);

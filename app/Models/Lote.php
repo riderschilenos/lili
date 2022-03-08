@@ -25,4 +25,9 @@ class Lote extends Model
     public function ordens(){
         return $this->BelongsToMany('App\Models\Orden');
     }
+
+    //relacion uno a uno polimorfica
+    public function resource(){
+        return $this->MorphOne('App\Models\Resource','resourceable');
+    }
 }

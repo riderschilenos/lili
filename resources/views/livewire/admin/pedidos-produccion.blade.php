@@ -292,6 +292,8 @@
                                                     <label>
                                                         <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
                                                     </label>
+                                                @elseif($orden->image)
+                                                    <img class="h-10 w-20 object-cover justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
                                                 @endif
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
@@ -429,13 +431,11 @@
                                
                                     @else
 
-                                    {!! Form::open(['route'=>'admin.lotes.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                    @csrf
-
+                                    
                                         <div class="h-32">
                                             <h1 class="text-xl font-bold text-center py-2 mt-4">Adjunte fotos si desea</h1>
                                             <hr class="w-full">
-                                            {!! Form::file('lote', ['class'=>'form-input w-full mt-6'.($errors->has('lote')?' border-red-600':''), 'id'=>'lote','accept'=>'file/*']) !!}
+                                            <input wire:model="file" type="file" class="form-input flex-1 bg-gray-200"> 
                                             @error('lote')
                                                 <strong class="text-xs text-red-600">{{$message}}</strong>
                                             @enderror
@@ -443,22 +443,22 @@
                                             
                                         </div>
 
-                                        {!! Form::hidden('user_id', Auth()->user()->id ) !!}
+                                     
             
                                         @foreach ($selected as $item)
                                             <input type="hidden" name="selected[]" value="{{$item}}">
                                         @endforeach
 
 
-                                        {!! Form::hidden('status', '1' ) !!}
+                                       
 
                                         
 
                                         <div class="flex justify-center">
-                                            {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                            <button class="btn btn-primary" wire:click="encaja"> Enviar</button>
                                         </div>
                                     
-                                    {!! Form::close() !!}
+                                 
                                     
 
                                     @endif

@@ -31,7 +31,11 @@ class Orden extends Model
     public function smartphone(){
         return $this->belongsTo('App\Models\Smartphone');
     }
+    //relacion uno a uno polimorfica
 
+    public function image(){
+        return $this->MorphOne('App\Models\Image','imageable');
+    }
     //relacion uno a muchos polimorfica 
     public function comentarios(){
         return $this->morphMany('App\Models\Comentario','comentable');

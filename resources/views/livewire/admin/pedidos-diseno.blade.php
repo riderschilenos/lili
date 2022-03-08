@@ -395,7 +395,10 @@
                                     @csrf
 
                                         <div class="h-32">
-                                            <h1 class="text-xl font-bold text-center py-2 mt-4">Adjunte los archivos diseñados</h1>
+                                            <p class="mt-4">1) Texto->Crear Contornos<br>2) Incrustar imagenes
+
+                                            </p>
+                                            <h1 class="text-xl font-bold text-center py-2 mt-2">Adjunte los archivos diseñados</h1>
                                             <hr class="w-full">
                                             {!! Form::file('lote', ['class'=>'form-input w-full mt-6'.($errors->has('lote')?' border-red-600':''), 'id'=>'lote','accept'=>'file/*']) !!}
                                             @error('lote')
@@ -417,7 +420,7 @@
                                         
 
                                         <div class="flex justify-center">
-                                            {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                            {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-16']) !!}
                                         </div>
                                     
                                     {!! Form::close() !!}

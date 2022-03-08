@@ -3,11 +3,17 @@
 @section('title', 'RidersChilenos')
 
 @section('content_header')
-    <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.disciplinas.create')}}">Nuevo modelo</a>
-    <h1>Lista de modelos</h1>
+    
+    <h1 class="text-center">Lista de modelos</h1>
 @stop
 
 @section('content')
+    
+
+        <div>
+            @livewire('admin.modelos-create')
+        </div>
+   
     @if (session('info'))
         <div class="alert alert-success">
             {{session('info')}}
@@ -19,24 +25,32 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Categoria de producto</th>
+                        <th>Marca</th>
                         <th>Nombre</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($disciplinas as $disciplina)
+                    @foreach ($modelos->reverse() as $modelo)
                         <tr>
                             <td>
-                                {{$disciplina->id}}
+                                {{$modelo->id}}
                             </td>
                             <td>
-                                {{$disciplina->name}}
+                                {{$modelo->category_product->name}}
+                            </td>
+                            <td>
+                                {{$modelo->marca->name}}
+                            </td>
+                            <td>
+                                {{$modelo->name}}
                             </td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$disciplina)}}">Editar</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$modelo)}}">Agregar Foto</a>
                             </td>
                             <td width="10px">
-                                <form action="{{route('admin.disciplinas.destroy',$disciplina)}}" method="POST">
+                                <form action="{{route('admin.modelos.destroy',$modelo)}}" method="POST">
                                     @csrf
                                     @method('delete')
 

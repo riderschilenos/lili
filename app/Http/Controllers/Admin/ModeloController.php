@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category_product;
+use App\Models\Disciplina;
+use App\Models\Modelo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ModeloController extends Controller
 {
@@ -13,8 +17,10 @@ class ModeloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.modelos.index');
+    {   
+        $modelos=Modelo::all();
+
+        return view('admin.modelos.index',compact('modelos'));
     }
 
     /**
@@ -23,8 +29,9 @@ class ModeloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+
+        return view('admin.modelos.create');
     }
 
     /**
@@ -35,7 +42,9 @@ class ModeloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $modelo = Modelo::create($request->all());
+
+        return redirect()->route('admin.modelos.index')->with('info','El modelo se creo con éxito.');  
     }
 
     /**
@@ -78,8 +87,14 @@ class ModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Modelo $modelo)
     {
-        //
+        $modelo->delete();
+        if($modelo->image){
+            Storage::delete($modelo->image->url);
+            $modelo->image->delete();
+        }
+        return redirect()->route('admin.modelos.index')->with('info','El modelo '.$modelo->name.' se elimino con éxito.');
+
     }
 }

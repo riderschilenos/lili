@@ -40,9 +40,6 @@ class VehiculoCreate extends Component
         
         $this->selectedvehiculo_type = $vehiculo_type;
 
-      
-
-
     
     }
 

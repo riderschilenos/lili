@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Invitado;
-use App\Models\Pedido;
-use App\Models\Socio;
-use App\Models\User;
+use App\Models\Lote;
+use App\Models\Orden;
 use Illuminate\Http\Request;
 
-class DisenoController extends Controller
+class LoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,33 +15,8 @@ class DisenoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $pedidos=Pedido::where('status',3)
-                ->orwhere('status',4)
-                ->orwhere('status',5)
-                ->paginate(100);
-        
-        $users=User::all();
-
-        $invitados= Invitado::all();
-        $socios= Socio::all();
-
-        return view('admin.disenos.index',compact('pedidos','users','invitados','socios'));
-    }
-
-    public function indexproduccion()
-    {   
-        $pedidos=Pedido::where('status',3)
-                ->orwhere('status',4)
-                ->orwhere('status',5)
-                ->paginate(100);
-        
-        $users=User::all();
-
-        $invitados= Invitado::all();
-        $socios= Socio::all();
-
-        return view('admin.disenos.produccion',compact('pedidos','users','invitados','socios'));
+    {
+        //
     }
 
     /**
@@ -64,7 +37,43 @@ class DisenoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'lote'=>'required',
+            'user_id'=>'required'
+            ]);
+        
+
+        $lote=Lote::create([
+                'user_id'=> $request->user_id
+                ]);
+
+        
+        foreach ($request->selected as $item){
+            $lote->ordens()->attach($item);
+            $orden = Orden::find($item);
+            $orden->status = 2;
+            $orden->save();
+        }
+
+        foreach ($request->selected as $item){
+            $orden = Orden::find($item);
+            foreach($orden->pedido->ordens as $orden){
+
+                if($orden->status==2){
+                    $orden->pedido->status=5;
+                    $orden->pedido->save();
+    
+                }else{
+                    $orden->pedido->status=4;
+                    $orden->pedido->save();
+                    break;
+                }
+
+            } 
+
+        }
+        
+        return redirect()->route('admin.disenos.index');
     }
 
     /**

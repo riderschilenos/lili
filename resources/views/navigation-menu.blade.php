@@ -33,7 +33,7 @@
         'name'=>'Diseño',
         'route'=>route('admin.disenos.index'),
         'can'=>'Diseño',
-        'active'=>request()->routeIs('garage.disenos*')
+        'active'=>request()->routeIs('admin.disenos.index')
 
     ]
     ,[   
@@ -41,6 +41,13 @@
         'route'=>route('vendedor.home.index'),
         'can'=>'Vender',
         'active'=>request()->routeIs('vendedor.*')
+
+    ]
+    ,[   
+        'name'=>'Producción',
+        'route'=>route('admin.disenos.produccion'),
+        'can'=>'Vender',
+        'active'=>request()->routeIs('admin.disenos.produccion')
 
     ]/*
     ,[   
@@ -276,10 +283,27 @@
         <div class="pt-2 pb-3 space-y-1">
             
             @foreach ($nav_links as $nav_link)
-                
-            <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                {{ $nav_link['name'] }}
-            </x-jet-responsive-nav-link>
+            
+                @if ($nav_link['name']=='Diseño')
+                    @can('Diseño')
+                        <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                            {{ $nav_link['name'] }}
+                        </x-jet-responsive-nav-link>
+                    @endcan
+
+                @elseif($nav_link['name']=='Portal Vendedores')
+                    @can('Vender')
+                        <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                            {{ $nav_link['name'] }}
+                        </x-jet-responsive-nav-link>
+                    @endcan
+                    
+                @else
+                    <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                        {{ $nav_link['name'] }}
+                    </x-jet-responsive-nav-link>
+                @endif
+            
 
 
             @endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\vendedor;
 
 use App\Models\Invitado;
+use App\Models\Orden;
 use App\Models\Pedido;
 use App\Models\Socio;
 use Livewire\Component;
@@ -52,4 +53,6 @@ class PedidosIndex extends Component
             $this->periodo="mensual";
      }
     }
+
+    
 }

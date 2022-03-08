@@ -94,7 +94,7 @@
                     <thead>
                         <th>ID</th>
                         <th>Captador</th>
-                        <th>Estado</th>
+                        <th class="text-center">Estado</th>
                         <th>Cliente</th>
                         <th>Fecha</th>
                         <th>Subtotal</th>
@@ -107,7 +107,7 @@
                             <tr>
                                 <td>{{$pedido->id}}</td>
                                 <td>{{$pedido->vendedor->name}}</td>
-                                <td>
+                                <td class="text-center">
                                     @switch($pedido->status)
                                       @case(1)
                                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
@@ -120,14 +120,20 @@
                                           </span>
                                           @break
                                       @case(3)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                              Procesando Pago
-                                          </span>
+                                        <a class="btn btn-warning btn-sm" href="">Procesando pago</a>
                                           @break
-                                      @case(4)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                              Pendiente de diseño
-                                          </span>
+                                        @case(4)
+                                            <a class="btn btn-warning btn-sm" href="">Pendiente de diseño</a>
+                                          @break
+                                        @case(5)
+                                            <a class="btn btn-warning btn-sm" href="">Pendiente de produccion</a>
+                                          @break
+                                        @case(6)
+                                            <a class="btn btn-warning btn-sm" href="">Pendiente de despacho</a>
+                                          
+                                          @break
+                                        @case(7)
+                                            <a class="btn btn-success btn-sm" href="">DESPACHADO</a>
                                           @break
                                       @default
                                           

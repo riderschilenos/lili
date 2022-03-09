@@ -4,51 +4,25 @@
         {{$pedido->id}}
     </x-slot>
 
-    <div class="hidden sm:flex">
-        <h1 class="text-xl font-bold">INFORMACIÓN DE DESPACHO</h1>
+    <h1 class="text-xl font-bold col-span-3">INFORMACIÓN DE DESPACHO</h1>
+    <hr class="mt-2 mb-6">
+
+    <div class="max-w-7xl px-4 sm:px-6 lg:px-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-2 gap-y-2 ">
+        
 
         @if ($pedido->pedidoable_type == "App\Models\Invitado")
             @foreach ($invitados as $invitado)
                 @if ($invitado->id == $pedido->pedidoable_id )
-                    
-                        <p class="ml-auto font-bold mr-4">Nombre:</p>{{$invitado->name}}
-                        <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                            Invitado
-                        </span>
+                    <div class="mb-6 flex">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
+                        <div>
+                                <p class="font-bold mr-4">Nombre:</p>{{$invitado->name}}
+                                <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                    Invitado
+                                </span>
+                        </div>
                         <p class="ml-auto font-bold mr-4">Rut:</p>{{$invitado->rut}}
-
-                @endif
-            @endforeach
-        @endif
-
-        @if ($pedido->pedidoable_type == "App\Models\Socio")
-            @foreach ($socios as $socio)
-                @if ($socio->id == $pedido->pedidoable_id )
-
-                        <p class="ml-auto mr-4 font-bold">Nombre:</p>{{$socio->user->name}}
-                        <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-green-100 text-green-800">
-                            Socio
-                        </span>
-                        <p class="ml-auto mr-4 font-bold">Rut:</p>{{$socio->rut}}
-                       
-
-                @endif
-            @endforeach
-        @endif
-
-    </div>
-    <div class="max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-2 gap-y-2 sm:hidden ">
-        <h1 class="text-xl font-bold col-span-3">INFORMACIÓN DE DESPACHO</h1>
-
-        @if ($pedido->pedidoable_type == "App\Models\Invitado")
-            @foreach ($invitados as $invitado)
-                @if ($invitado->id == $pedido->pedidoable_id )
-                    <div class="col-span-3">
-                        <p class="ml-auto font-bold mr-4">Nombre:</p>{{$invitado->name}}
-                        <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                            Invitado
-                        </span>
-                        <p class="ml-auto font-bold mr-4">Rut:</p>{{$invitado->rut}}
+                        </div>
                     </div>
                 @endif
             @endforeach
@@ -57,14 +31,19 @@
         @if ($pedido->pedidoable_type == "App\Models\Socio")
             @foreach ($socios as $socio)
                 @if ($socio->id == $pedido->pedidoable_id )
-
-                        <p class="ml-auto mr-4 font-bold">Nombre:</p>{{$socio->user->name}}
-                        <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-green-100 text-green-800">
-                            Socio
-                        </span>
-                        <p class="ml-auto mr-4 font-bold">Rut:</p>{{$socio->rut}}
-                       
-
+                <div class="mb-6 flex">
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
+                        <div>
+                            <p class="mr-4 font-bold">Nombre:</p>{{$socio->user->name}}
+                            <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-green-100 text-green-800">
+                                Socio
+                            </span>
+                        </div>
+                        <div>
+                          <p class="mr-4"><b>Rut:</b></p>{{$socio->rut}}
+                        </div>
+                       </div>
+                      </div>
                 @endif
             @endforeach
         @endif
@@ -73,7 +52,7 @@
 
 
 
-    <hr class="mt-2 mb-6">
+    
 
    
         @if ($pedido->pedidoable_type == "App\Models\Invitado")
@@ -81,7 +60,7 @@
                 @if ($invitado->id == $pedido->pedidoable_id )
                     @if ($invitado->direccion)
 
-                        <div class="flex gap-10" name="datosdireccioninvitado">
+                        <div class="grid grid-cols-3 md:grid-cols-5 gap-y-4" name="datosdireccioninvitado">
                             <div>
                                 <p class="font-bold mr-2s">Comuna: </p>{{$invitado->direccion->comuna}}
                             </div>
@@ -163,7 +142,7 @@
                 @if ($socio->id == $pedido->pedidoable_id )
                     @if ($socio->direccion)
 
-                        <div class="flex gap-10" name="datosdireccionsocio">
+                        <div class="grid grid-cols-3 md:grid-cols-5 gap-y-4" name="datosdireccionsocio">
                             <div>
                                 <p class=" ml-auto font-bold mr-2">Comuna: </p>{{$socio->direccion->comuna}}
                             </div>

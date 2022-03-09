@@ -55,7 +55,7 @@
                     @routeIs('pedido.seguimiento',$pedido)
                         <a class="btn btn-danger flex ml-auto" href='javascript:getlink();'><img class="h-4 w-4 mt-1 mr-2" src="https://img.icons8.com/ios-filled/50/ffffff/copy.png"/> Copiar URL</a>
                     @else
-                        <a href="{{route('pedido.seguimiento',$pedido)}}" class="ml-auto btn btn-danger"> SEGUIMIENTO</a>
+                        <a href="{{route('pedido.seguimiento',$pedido)}}" class="ml-auto btn btn-danger">SEGUIMIENTO</a>
                     @endif
 
                      </div>

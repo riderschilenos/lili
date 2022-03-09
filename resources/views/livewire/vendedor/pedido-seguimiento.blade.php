@@ -21,10 +21,12 @@ document.body.appendChild(aviso);
 window.load = setTimeout("document.body.removeChild(aviso)", 2000);
 }
 //]]></script>
+<div class="hidden sm:block">
     <div class="flex justify-end">
         <a class="btn btn-danger flex" href='javascript:getlink();'><img class="h-4 w-4 mt-1 mr-2" src="https://img.icons8.com/ios-filled/50/ffffff/copy.png"/> Copiar URL</a>
     </div>
-    <h1 class="text-3xl text-center font-bold pb-6">Seguimiento Pedido Nro: {{$pedido->id}}</h1>
+</div>
+    <h1 class="text-3xl text-center font-bold pb-6">Estado del Pedido Nro: {{$pedido->id}}</h1>
     
     <div class="w-full pt-6 pb-12">
         <div class="flex">

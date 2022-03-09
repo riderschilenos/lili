@@ -50,7 +50,15 @@
                 </aside>
 
                 <div class="block sm:hidden py-4 px-5 col-span-5">
+                    <div class="flex">
                     <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la pedidos</a>
+                    @routeIs('pedido.seguimiento',$pedido)
+                        <a class="btn btn-danger flex ml-auto" href='javascript:getlink();'><img class="h-4 w-4 mt-1 mr-2" src="https://img.icons8.com/ios-filled/50/ffffff/copy.png"/> Copiar URL</a>
+                    @else
+                        <a href="{{route('pedido.seguimiento',$pedido)}}" class="ml-auto btn btn-danger"> SEGUIMIENTO</a>
+                    @endif
+
+                     </div>
                 </div>
 
                 <div class="col-span-5 sm:col-span-4 card">

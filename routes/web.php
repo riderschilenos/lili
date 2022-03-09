@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\UsadoController;
+use App\Http\Controllers\Vendedor\PedidoController;
 use App\Http\Controllers\WebhooksController;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('series', [SerieController::class,'index'])->name('series.index');
 
 Route::get('series/{serie}',[SerieController::class,'show'])->name('series.show');
+
+Route::get('seguimiento/{pedido}',[PedidoController::class,'seguimiento'])->name('pedido.seguimiento');
 
 Route::post('series/{serie}/enrolled', [SerieController::class, 'enrolled'])->middleware('auth')->name('serie.enrolled');
 

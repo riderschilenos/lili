@@ -93,6 +93,16 @@ class PedidoController extends Controller
         //
     }
 
+    public function seguimiento(Pedido $pedido)
+    {   
+        if(auth()->user()){
+            return view('vendedor.pedidos.seguimiento',compact('pedido'));
+        }else{
+            return view('vendedor.pedidos.seguimientopublic',compact('pedido'));
+        }
+        
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

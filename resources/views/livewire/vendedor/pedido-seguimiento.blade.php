@@ -41,7 +41,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
               </div>
             </div>
       
-            <div class="text-xs text-center md:text-base">Información</div>
+            <div class="text-xs text-center md:text-base">Recepción del Pedido</div>
           </div>
       
           <div class="w-1/4">
@@ -59,7 +59,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
               </div>
             </div>
       
-            <div class="text-xs text-center md:text-base">Fotos</div>
+            <div class="text-xs text-center md:text-base">Diseño</div>
           </div>
       
           <div class="w-1/4">
@@ -79,7 +79,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
               </div>
             </div>
       
-            <div class="text-xs text-center md:text-base">Precio/Comisión</div>
+            <div class="text-xs text-center md:text-base">Produccion</div>
           </div>
       
           <div class="w-1/4">
@@ -99,7 +99,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
               </div>
             </div>
       
-            <div class="text-xs text-center md:text-base">Publicación</div>
+            <div class="text-xs text-center md:text-base">Despacho</div>
           </div>
         </div>
       </div>

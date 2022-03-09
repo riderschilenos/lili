@@ -55,7 +55,9 @@ class PedidosOrdens extends Component
         $disciplina_id = Producto::find($producto_id)->disciplina_id;
         $category_product_id = Producto::find($producto_id)->category_product_id;
         $this->producto_id = $producto_id;
+
         $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();
+        
         if($category_product_id == 1){
             $this->smartphones = Smartphone::all();
         }

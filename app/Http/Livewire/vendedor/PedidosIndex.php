@@ -54,5 +54,9 @@ class PedidosIndex extends Component
      }
     }
 
+    public function download($catalogo){
+        return response()->download(public_path('catalogos/'.$catalogo));
+    }
+
     
 }

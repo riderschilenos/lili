@@ -101,7 +101,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
               </div>
             </div>
       
-            <div class="text-xs text-center md:text-base">Despacho</div>
+            <div class="text-xs text-center md:text-base">@if($pedido->status < 7) Despacho  @else Despachado @endif</div>
           </div>
         </div>
       </div>

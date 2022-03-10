@@ -39,6 +39,8 @@ Route::resource('disciplinas', DisciplinaController::class )->names('disciplinas
 
 Route::resource('pedidos', PedidoController::class )->names('pedidos');
 
+Route::get('etiquetas/despacho',[PedidoController::class,'pdfetiquetas'])->name('generar.etiquetas');
+
 Route::resource('precio', PrecioController::class)->names('precios');
 
 Route::resource('vehiculotypes',Vehiculo_typeController::class)->names('vehiculotype');

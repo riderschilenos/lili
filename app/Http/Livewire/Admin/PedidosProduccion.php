@@ -12,15 +12,18 @@ use Livewire\Component;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\WithFileUploads;
+use PDF;
 
 class PedidosProduccion extends Component
 {   public $selected=[];
+
+    public $selectedetiquetas=[];
 
     public $paginate=4;
 
     use WithFileUploads;
 
-    public $selectedProduccion, $selectedDescartar,$produccion, $descartar, $file;
+    public $selectedProduccion, $selectedDescartar,$produccion, $descartar, $file, $etiquetas;
 
     public function render()
     {   $pedidos=Pedido::where('status',5)
@@ -39,14 +42,20 @@ class PedidosProduccion extends Component
 
         $this->produccion= True;
 
-        $this->reset(['descartar']);
+        $this->reset(['descartar','etiquetas']);
     }
 
 
     public function updateselecteddescartar(){
 
         $this->descartar= True;
-        $this->reset(['produccion']);
+        $this->reset(['produccion','etiquetas']);
+    }
+
+    public function updateselectedetiquetas(){
+
+        $this->etiquetas= True;
+        $this->reset(['produccion','descartar']);
     }
 
     public function updatepaginate(){
@@ -162,4 +171,5 @@ class PedidosProduccion extends Component
         $lote->save();
  
     }
+
 }

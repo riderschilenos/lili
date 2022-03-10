@@ -92,7 +92,11 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        
+                                            @if($pedido->status==6)
+                                                    <label>
+                                                        <input type="checkbox" wire:model="selectedetiquetas" value="{{$pedido->id}}" class="mr-4 mt-2">
+                                                    </label>
+                                                @endif
                                     
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @isset($pedido->image)
@@ -415,12 +419,18 @@
                                                                ReDiseñar
                                                         </label>
                                                     </div>
-                                                    <div class="flex form-check">
+                                                    <div class="flex form-check mr-4">
                                                     <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" checked wire:click="updateselectedproduccion">
                                                     <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
                                                         En caja
                                                     </label>
                                                     </div>
+                                                    <div class="flex form-check">
+                                                        <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" wire:click="updateselectedetiquetas">
+                                                        <label for="propio" class="text-xl md:text-3xl font-bold text-gray-800">
+                                                            Generar Etiquetas
+                                                        </label>
+                                                        </div>
                                                     
                                                     
                         
@@ -439,6 +449,34 @@
                                             <button class="btn btn-primary text-sm" wire:click="rediseñar">Enviar</button>
                                         </div>
                                
+                                    @elseif(!is_null($etiquetas))
+
+                                    <h1 class="text-center py-6">¿Cuales etiquetas desea generar?</h1>
+                                 
+                                        @foreach ($selectedetiquetas as $item)
+                                        {{$item}}
+                                        @endforeach
+                                        {!! Form::open(['route'=>'admin.generar.etiquetas', 'autocomplete'=>'off', 'method'=> 'GET' , 'target' => '_blank']) !!}
+                                       
+    
+                                            
+                                        @foreach ($selectedetiquetas as $item)
+                                            <input type="hidden" name="selectedetiquetas[]" value="{{$item}}">
+                                        @endforeach
+                          
+                
+    
+                                            
+    
+                                            <div class="flex justify-center">
+                                                {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-16']) !!}
+                                            </div>
+                                        
+                                        {!! Form::close() !!}
+                                        
+
+
+
                                     @else
 
                                     

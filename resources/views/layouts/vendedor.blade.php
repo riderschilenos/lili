@@ -34,7 +34,7 @@
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
                         <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
-                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">Información de seguimiento</a>
+                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">Información del pedido</a>
                         </li>
                         <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
                             <a href="">Diseño</a>

@@ -30,7 +30,7 @@
                 <span class="mt-2 text-base leading-normal text-center">Lote N° {{$lote->id}}</span>
                 <div class="flex">
                     @foreach($lote->ordens as $orden)
-                        <div class="p-1 mx-2 rounded-lg btn-danger ">
+                        <div class="p-1 mx-1 rounded-lg btn-danger ">
                             {{$orden->id}}
                         </div>
                     @endforeach

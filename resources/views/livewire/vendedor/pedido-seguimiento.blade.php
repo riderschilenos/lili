@@ -72,8 +72,8 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                 </div>
               </div>
       
-              <div class="w-10 h-10 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
-                <span class="text-center text-gray-600 w-full">
+              <div class="w-10 h-10 mx-auto @if($pedido->status < 6 ) bg-white @else bg-green-500 @endif border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
+                <span class="text-center @if($pedido->status < 6) text-gray-600 @else text-white @endif w-full">
                     <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
@@ -88,7 +88,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
             <div class="relative mb-2">
               <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
                 <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
-                  <div class="w-0 bg-green-300 py-1 rounded" style="width: 0%;"></div>
+                  <div class="w-0 bg-green-300 py-1 rounded" style="width: @if($pedido->status==6) 50% @elseif($pedido->status>6) 100% @else 0% @endif ;"></div>
                 </div>
               </div>
       

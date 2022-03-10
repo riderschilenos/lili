@@ -81,7 +81,7 @@
                                                         @if ($pedido->pedidoable_type == "App\Models\Invitado")
             @foreach ($invitados as $invitado)
                 @if ($invitado->id == $pedido->pedidoable_id )
-                    {{$invitado->name}}<br>{{$invitado->rut}}<br>{{$invitado->email}}
+                    {{$invitado->name}}<br>{{$invitado->rut}}<br>{{$invitado->fono}}<br>{{$invitado->email}}
                 @endif
             @endforeach
         @endif
@@ -89,15 +89,12 @@
         @if ($pedido->pedidoable_type == "App\Models\Socio")
             @foreach ($socios as $socio)
                 @if ($socio->id == $pedido->pedidoable_id )
-                {{$socio->user->name}}<br>{{$socio->rut}}
+                {{$socio->user->name}}<br>{{$socio->rut}}<br>{{$socio->fono}}<br>{{$socio->user->email}}
         
                 @endif
             @endforeach
         @endif
-                                                        <br>17e Rue Limete/Kin, Kinshasa<br>
-                                                        Congo, Republic Democraric<br>
-                                                        Kinshasa<br>
-                                                        Kinshasa City<br>
+                                                        
                                                     </p>
                                 
                                                 </div>

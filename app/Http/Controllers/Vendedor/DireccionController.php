@@ -39,7 +39,6 @@ class DireccionController extends Controller
     {   
         $request->validate([
         'calle'=>'required',
-        'numero'=>'required',
         'comuna'=>'required',
         'region'=>'required'
         

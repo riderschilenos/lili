@@ -299,7 +299,7 @@
 
                                     <tr>
                                             <td class="text-center">
-                                                @if($orden->status==2)
+                                                @if($orden->status>=2)
                                                     <label>
                                                         <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
                                                     </label>

@@ -299,12 +299,13 @@
 
                                     <tr>
                                             <td class="text-center">
-                                                @if($orden->status>=2)
+                                                @if($orden->image)
+                                                    <img class="h-10 w-20 object-cover justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
+                                                    
+                                                @elseif($orden->status>=2)
                                                     <label>
                                                         <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
                                                     </label>
-                                                @elseif($orden->image)
-                                                    <img class="h-10 w-20 object-cover justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
                                                 @endif
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">

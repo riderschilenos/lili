@@ -48,7 +48,7 @@
                                             <div class="flex justify-between ">
                                                 <div class="flex flex-col w-full mx-auto">
                                                     <div class="flex">
-                                                        <h1 class="text-xl">ETIQUETA DE DESPACHO #<small>{{12564+$pedido->id}}</small></h1>
+                                                        <h1 class="text-xl">ETIQUETA DE DESPACHO #<small>{{1469+$pedido->id}}</small></h1>
                                                     </div>
                                                     <div class="flex justify-between">
                                                         <div>

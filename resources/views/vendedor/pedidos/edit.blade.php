@@ -21,7 +21,7 @@
                                     Invitado
                                 </span>
                         </div>
-                        <p class="ml-auto font-bold mr-4">Rut:</p>{{$invitado->rut}}
+                        <p class="ml-auto mr-4"><b>Rut:  </b>{{$invitado->rut}}</p>
                         </div>
                     </div>
                 @endif
@@ -40,7 +40,7 @@
                             </span>
                         </div>
                         <div>
-                          <p class="mr-4"><b>Rut:</b></p>{{$socio->rut}}
+                          <p class="mr-4"><b>Rut: </b>{{$socio->rut}}</p>
                         </div>
                        </div>
                       </div>

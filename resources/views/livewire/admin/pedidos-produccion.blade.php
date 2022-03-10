@@ -20,7 +20,7 @@
 
         @foreach ($lotes as $lote)
         
-            <label class="w-64 flex flex-col px-4 pb-6 pt-2 mb-3 bg-white text-blue rounded-lg shadow-lg  uppercase border border-blue hover:bg-blue ">
+            <label class="w-full flex flex-col px-4 pb-6 pt-2 mb-3 bg-white text-blue rounded-lg shadow-lg  uppercase border border-blue hover:bg-blue ">
                 <img class="ml-auto h-5 w-5 object-contain cursor-pointer" src="{{asset('img/home/check.png')}}" alt="" wire:click="close({{$lote}})" >
 
                 <svg class="w-8 h-8 cursor-pointer hover:text-gray-500 mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" wire:click="download({{$lote}})">

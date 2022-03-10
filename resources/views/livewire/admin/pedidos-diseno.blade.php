@@ -135,8 +135,8 @@
                                         @foreach ($socios as $socio)
                                                 
                                                 @if($socio->id == $pedido->pedidoable_id)
-                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(trim($socio->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
-                                                    {{trim($socio->fono)}}<br>Cliente
+                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
+                                                    {{str_replace(' ', '', $socio->fono)}}<br>Cliente
                                                 </a>
                                                 @endif
                                         @endforeach
@@ -145,8 +145,8 @@
                                         @foreach ($invitados as $invitado)
                                                 
                                                 @if($invitado->id == $pedido->pedidoable_id)
-                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(trim($invitado->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
-                                                    {{trim($invitado->fono)}} <br>Cliente
+                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
+                                                    {{str_replace(' ', '', $invitado->fono)}} <br>Cliente
                                                 </a> 
                                                 @endif
                                         @endforeach

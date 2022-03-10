@@ -35,7 +35,7 @@
             <main>
                     <div>
                     
-                    <div class="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-32 gap-y-10">
+                    <div class="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-32 gap-y-6">
                         @foreach($etiquetas as $etiqueta)
                         @foreach($pedidos as $pedido)
                             @if ($pedido->id==$etiqueta)

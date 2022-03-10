@@ -136,7 +136,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                                     Invitado
                                 </span>
                         </div>
-                        <p class="ml-auto font-bold mr-4">Rut: {{$invitado->rut}}</p>
+                        <p class="ml-auto mr-4"><b>Rut:</b> {{$invitado->rut}}</p>
                         </div>
                     </div>
                 @endif

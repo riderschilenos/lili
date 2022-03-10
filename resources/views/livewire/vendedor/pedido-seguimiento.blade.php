@@ -48,7 +48,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
             <div class="relative mb-2">
               <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
                 <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
-                  <div class="w-0 bg-green-300 py-1 rounded transition-all duration-500" style="width: @if($pedido->status>3) 100% @else 0% @endif;"></div>
+                  <div class="w-0 bg-green-300 py-1 rounded transition-all duration-500" style="width: @if($pedido->status>3) 100% @elseif($pedido->status==3)50% @else 0% @endif;"></div>
                 </div>
               </div>
       

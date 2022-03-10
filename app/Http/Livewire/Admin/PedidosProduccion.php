@@ -35,8 +35,10 @@ class PedidosProduccion extends Component
         $invitados= Invitado::all();
         $socios= Socio::all();
         $lotes=Lote::where('estado',1)->latest('id')->paginate($this->paginate);
+        $alllotes=Lote::all();
+        
 
-        return view('livewire.admin.pedidos-produccion',compact('pedidos','users','invitados','socios','lotes'));
+        return view('livewire.admin.pedidos-produccion',compact('pedidos','users','invitados','socios','lotes','alllotes'));
     }
     public function updateselectedproduccion(){
 

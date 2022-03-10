@@ -40,8 +40,35 @@
         
         
         @endforeach
+        @if ($paginate==100)
+            @foreach ($alllotes as $lote)
+            
+                <label class="w-full flex flex-col px-4 pb-6 pt-2 mb-3 bg-white text-blue rounded-lg shadow-lg  uppercase border border-blue hover:bg-blue ">
+                    <img class="ml-auto h-5 w-5 object-contain cursor-pointer" src="{{asset('img/home/check.png')}}" alt="" wire:click="close({{$lote}})" >
 
+                    <svg class="w-8 h-8 cursor-pointer hover:text-gray-500 mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" wire:click="download({{$lote}})">
+                        <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                    </svg>
+                    
+                    <span class="mt-2 text-base leading-normal text-center">Lote N° {{$lote->id}}</span>
+                    <div class="flex">
+                        @foreach($lote->ordens as $orden)
+                            <div class="p-1 mx-1 rounded-lg btn-danger ">
+                                {{$orden->id}}
+                            </div>
+                        @endforeach
+                    </div>
+                    
+                </label>
+            
+            
+            @endforeach
+        
+        
+        @endif
     </div>
+
+   
     
 
     <x-table-responsive>

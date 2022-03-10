@@ -35,7 +35,7 @@
             <main>
                     <div>
                     
-                    <div class="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-32 gap-y-24">
+                    <div class="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-32 gap-y-10">
                         @foreach($etiquetas as $etiqueta)
                         @foreach($pedidos as $pedido)
                             @if ($pedido->id==$etiqueta)
@@ -45,15 +45,34 @@
 
                                 <div class="flex justify-center">
 
-                                    <div class="flex flex-col w-full py-2 px-4 mx-auto card">
+                                    <div class="flex flex-col w-full pb-2 mx-auto bg-cover" style="background-image: url({{asset('img/despacho/textura.jpeg')}})" >
                                             <div class="flex justify-between ">
                                                 <div class="flex flex-col w-full mx-auto">
-                                                    <div class="flex">
-                                                        <h1 class="text-xl">ETIQUETA DE DESPACHO #<small>{{1469+$pedido->id}}</small></h1>
+                                                    <div class="flex bg-green-700 px-4 pt-1">
+                                                            @switch($pedido->transportista->id)
+                                                                @case(1)
+                                                                    
+                                                                    <h1 class="text-white mr-2">{{$pedido->transportista->name}}</h1>
+                                                                    @break
+                                                                @case(2)
+                                                                    
+                                                                    <h1 class="text-white mr-2">{{$pedido->transportista->name}}</h1>
+                                                                    
+                                                                    @break
+                                                                @case(3)
+                                                                    
+                                                                    <h1 class="text-white mr-2">{{$pedido->transportista->name}}</h1>
+                                                                    
+                                                                    @break
+                                                        
+                                                                @default
+                                                            
+                                                            @endswitch
+                                                        <h1 class="text-xl text-white">ETIQUETA DE DESPACHO #<small>{{1469+$pedido->id}}</small></h1>
                                                     </div>
                                                     {{-- comment
                                                     <div class="flex justify-between">
-                                                        <div>
+                                                        <div> 
                                                             FECHA July 6, 2021
                                                         </div> 
                                                     </div> --}}
@@ -61,15 +80,16 @@
                                                 
                                             </div>
                                 
-                                            <div class=" border-t-2 border-gray-200 "></div>
+                                            <div class=" border-t-2 border-gray-200" >
                                 
-                                            <div class="flex mt-3 px-4">
+                                            <div class="flex mt-3 px-8">
+                                                
                                                 <div class="brand">
                                                     <span class="flex justify-center space-x-3 transition-all duration-1000 ease-out transform text-thumeza-500">
                                                         <img class="w-20 h-20 object-contain" src="{{asset('img/logo.png')}}">
                                                     </span>
                                                 </div>
-                                                <div class="flex flex-col ml-12">
+                                                <div class="flex flex-col ml-12 text-yellow-300">
                                                     <strong>Remitente:</strong>
                                                     <p class="text-sm">
                                                         <strong>Nombre:</strong> Gonzalo Peñaloza Verdugo<br>
@@ -82,14 +102,15 @@
                                                 
                                                 
                                             </div>
-                                            <h1 class="font-bold ml-24 mt-2">Destinatario: </h1>
-                                            <div class="flex mt-1 px-4">
+                                            <h1 class="font-bold ml-24 mt-2 px-4 text-yellow-300">Destinatario: </h1>
+                                            <div class="flex mt-1 px-8">
 
                                                 <div>
-                                                    <h1 class="font-bold">Nombre: </h1>
-                                                    <h1 class="font-bold">Rut:</h1>
-                                                    <h1 class="font-bold">Fono: </h1>
-                                                    <h1 class="font-bold">Email: </h1>
+                                                    <h1 class="font-bold text-yellow-300">Nombre: </h1>
+                                                    <h1 class="font-bold text-yellow-300">Rut:</h1>
+                                                    <h1 class="font-bold text-yellow-300">Fono: </h1>
+                                                    <h1 class="font-bold text-yellow-300">Email: </h1>
+                                                    <h1 class="font-bold text-yellow-300">Destino: </h1>
                                                 </div>
 
 
@@ -98,10 +119,11 @@
                                                         @if ($pedido->pedidoable_type == "App\Models\Invitado")
                                                             @foreach ($invitados as $invitado)
                                                                 @if ($invitado->id == $pedido->pedidoable_id )
-                                                                <h1 class="ml-4">{{$invitado->name}}<br></h1>
-                                                                <h1 class="ml-4">{{$invitado->rut}}</h1>
-                                                                <h1 class="ml-4">{{$invitado->fono}}</h1>
-                                                                <h1 class="ml-4"> {{$invitado->email}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->name}}<br></h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->rut}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->fono}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md"> {{$invitado->email}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->direccion->calle.' '.$invitado->direccion->numero.' '.$invitado->direccion->comuna.' '.$invitado->direccion->region}}</h1>
                                                                     
                                                                     
                                                              
@@ -113,10 +135,15 @@
                                                         @if ($pedido->pedidoable_type == "App\Models\Socio")
                                                             @foreach ($socios as $socio)
                                                                 @if ($socio->id == $pedido->pedidoable_id )
-                                                                <h1 class="ml-4">{{$socio->user->name}}<br></h1>
-                                                                <h1 class="ml-4">{{$socio->rut}}</h1>
-                                                                <h1 class="ml-4">{{$socio->fono}}</h1>
-                                                                <h1 class="ml-4"> {{$socio->user->email}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$socio->user->name}}<br></h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$socio->rut}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$socio->fono}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md"> {{$socio->user->email}}</h1>
+                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md"> {{$socio->direccion->calle.' '.$socio->direccion->numero.' '.$socio->direccion->comuna.' '.$socio->direccion->region}}</h1>
+                                                                             
+
+                                                                
+
                                                                 
                                                               
                                                         
@@ -130,7 +157,7 @@
 
                                             </div>
 
-
+                                        </div>
                                            
                                     </div>
                                 </div>

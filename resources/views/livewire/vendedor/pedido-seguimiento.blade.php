@@ -136,7 +136,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                                     Invitado
                                 </span>
                         </div>
-                        <p class="ml-auto font-bold mr-4">Rut:</p>{{$invitado->rut}}
+                        <p class="ml-auto font-bold mr-4">Rut: {{$invitado->rut}}</p>
                         </div>
                     </div>
                 @endif
@@ -149,13 +149,13 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                 <div class="mb-6 flex">
                       <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
                         <div>
-                            <p class="mr-4 font-bold">Nombre:</p>{{$socio->user->name}}
+                            <p class="mr-4"><b>Nombre:</b></p>{{$socio->user->name}}
                             <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-green-100 text-green-800">
                                 Socio
                             </span>
                         </div>
                         <div>
-                          <p class="mr-4"><b>Rut:</b></p>{{$socio->rut}}
+                          <p class="mr-4"><b>Rut:</b>   {{$socio->rut}}</p>
                         </div>
                        </div>
                       </div>

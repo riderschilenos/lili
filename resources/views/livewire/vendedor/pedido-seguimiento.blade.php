@@ -26,8 +26,8 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
         <a class="btn btn-danger flex" href='javascript:getlink();'><img class="h-4 w-4 mt-1 mr-2" src="https://img.icons8.com/ios-filled/50/ffffff/copy.png"/> Copiar URL</a>
     </div>
 </div>
-    <h1 class="text-3xl text-center font-bold pb-6">Estado del Pedido<br>Nro: {{$pedido->id}}</h1>
-    
+<h1 class="text-xl text-center font-bold pb-4">Estado del Pedido<br>Nro: {{$pedido->id}}</h1>
+        
     <div class="w-full pt-6 pb-12">
         <div class="flex">
           <div class="w-1/4">
@@ -104,9 +104,43 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
             <div class="text-xs text-center md:text-base">@if($pedido->status < 7) Despacho  @else Despachado @endif</div>
           </div>
         </div>
-      </div>
+    </div>
 
-
+                          
+      <h1 class="text-3xl text-center font-bold pb-6">
+        @switch($pedido->status)
+                                          @case(1)
+                                                  Borrador
+                                              @break
+                                          @case(2)
+                                                  Pendiente de Pago
+                                              @break
+                                          @case(3)
+                                                  Procesando Pago
+                                            
+                                              @break
+                                          @case(4)
+                                                  Pendiente de Diseño
+                                          
+                                              @break
+                                            @case(5)
+                                                  Pendiente de Producción
+                                             
+                                              @break
+                                            @case(6)
+                                                  Pendiente de Despacho
+                                           
+                                              @break
+                                            @case(7)
+                                                  Despachado
+                                              
+                                              @break
+                                          @default
+                                              
+                                        @endswitch
+                                      </h1>
+                                        
+        
 <div x-data="{open: false}">
     <div class="text-center md:hidden" >
         <h1 class="text-xl font-bold">INFORMACIÓN DEL PEDIDO</h1>

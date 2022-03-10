@@ -300,7 +300,7 @@
                                     <tr>
                                             <td class="text-center">
                                                 @if($orden->image)
-                                                    <img class="h-16 w-20 object-contain justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
+                                                    <img class="h-18 w-24 object-contain justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
                                                     
                                                 @elseif($orden->status>=2)
                                                     <label>

@@ -78,7 +78,23 @@
                                                 <div class="ml-2 flex flex-col">
                                                     <strong>Destinatario:</strong>
                                                     <p class="text-sm">
-                                                        17e Rue Limete/Kin, Kinshasa<br>
+                                                        @if ($pedido->pedidoable_type == "App\Models\Invitado")
+            @foreach ($invitados as $invitado)
+                @if ($invitado->id == $pedido->pedidoable_id )
+                    {{$invitado->name}}<br>{{$invitado->rut}}<br>{{$invitado->email}}
+                @endif
+            @endforeach
+        @endif
+
+        @if ($pedido->pedidoable_type == "App\Models\Socio")
+            @foreach ($socios as $socio)
+                @if ($socio->id == $pedido->pedidoable_id )
+                {{$socio->user->name}}<br>{{$socio->rut}}
+        
+                @endif
+            @endforeach
+        @endif
+                                                        <br>17e Rue Limete/Kin, Kinshasa<br>
                                                         Congo, Republic Democraric<br>
                                                         Kinshasa<br>
                                                         Kinshasa City<br>

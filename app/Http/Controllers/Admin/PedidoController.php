@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Invitado;
 use App\Models\Pedido;
+use App\Models\Socio;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -22,6 +24,8 @@ class PedidoController extends Controller
     public function pdfetiquetas(Request $request)
     {    
         $pedidos=Pedido::all();
+        $socios=Socio::all();
+        $invitados=Invitado::all();
         $etiquetas=$request->selectedetiquetas;
         $name='';
         foreach ($etiquetas as $item){
@@ -35,7 +39,7 @@ class PedidoController extends Controller
         // download PDF file with download method
 
 
-        return view('admin.pedidos.etiquetas', compact ('pedidos','etiquetas'));
+        return view('admin.pedidos.etiquetas', compact ('pedidos','etiquetas','socios','invitados'));
         //return $pdf->setpaper('a3','landscape')->stream('etiquetas_de_despacho'.$name.'.pdf');
 
         

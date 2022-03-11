@@ -28,6 +28,7 @@ class PedidosProduccion extends Component
     public function render()
     {   $pedidos=Pedido::where('status',5)
         ->orwhere('status',6)
+        ->orderby('status','DESC')
             ->paginate(100);
 
         $users=User::all();

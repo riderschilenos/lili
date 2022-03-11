@@ -138,7 +138,7 @@
                                                         <input type="checkbox" wire:model="selectedetiquetas" value="{{$pedido->id}}" class="mr-4 mt-2">
                                                     </label>
                                                 @endif
-                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                    
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @isset($pedido->image)
                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
@@ -147,6 +147,7 @@
                                             @endisset
                                             
                                         </div>
+                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900">
                                                 

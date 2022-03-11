@@ -140,10 +140,10 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                                         @endswitch
                                       </h1>
 
-                        <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+                        <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
                             @foreach ($pedido->ordens as $orden)
                                 @if($orden->image)
-                                <img class="h-18 w-20 object-contain justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
+                                <img class="h-26 w-32 object-contain justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
                                 
                                 @endif
                             @endforeach

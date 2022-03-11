@@ -138,7 +138,7 @@
                                                         <input type="checkbox" wire:model="selectedetiquetas" value="{{$pedido->id}}" class="mr-4 mt-2">
                                                     </label>
                                                 @endif
-                                    
+                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @isset($pedido->image)
                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
@@ -148,65 +148,67 @@
                                             
                                         </div>
                                         <div class="ml-4">
-                                        <div class="text-sm font-medium text-gray-900">
-                                          
-                                          @if($pedido->pedidoable_type=='App\Models\Socio')
-                                              @foreach ($socios as $socio)
-                                                      
-                                                      @if($socio->id == $pedido->pedidoable_id)
-                                                          {{$socio->user->name}}
-                                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                              Socio
-                                                          </span>
-                                                      @endif
-                                              @endforeach
-                                          @endif
-                                          @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                              @foreach ($invitados as $invitado)
-                                                      
-                                                      @if($invitado->id == $pedido->pedidoable_id)
-                                                          {{$invitado->name}} <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                              Invitado
-                                                          </span>
-                                                      @endif
-                                              @endforeach
-                                          @endif
-  
-  
+                                            <div class="text-sm font-medium text-gray-900">
+                                                
+                                                @if($pedido->pedidoable_type=='App\Models\Socio')
+                                                    @foreach ($socios as $socio)
+                                                            
+                                                            @if($socio->id == $pedido->pedidoable_id)
+                                                                {{$socio->user->name}}
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                    Socio
+                                                                </span>
+                                                            @endif
+                                                    @endforeach
+                                                @endif
+                                                @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                                    @foreach ($invitados as $invitado)
+                                                            
+                                                            @if($invitado->id == $pedido->pedidoable_id)
+                                                                {{$invitado->name}} <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                                    Invitado
+                                                                </span>
+                                                            @endif
+                                                    @endforeach
+                                                @endif
+        
+        
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+        
+                                                    @if($pedido->pedidoable_type=='App\Models\Socio')
+                                                        
+                                                        @foreach ($socios as $socio)
+                                                            @if(!is_null($socio->direccion))
+                                                                @if($socio->id == $pedido->pedidoable_id)
+                                                                    {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+        
+                                                    @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                                        @foreach ($invitados as $invitado)
+                                                            
+                                                                @if($invitado->id == $pedido->pedidoable_id)
+                                                                
+                                                                    @if(!is_null($invitado->direccion))
+                                                                        {{$invitado->direccion->comuna.", ".$invitado->direccion->region}}
+                                                                    @else
+                                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                                            FALTA DIRECCIÓN DE DESPACHO
+                                                                        </span>
+                                                                    @endif
+                                                                
+                                                                @endif
+                                                            
+                                                        @endforeach
+                                                    @endif
+        
+                                            </div>
+
                                         </div>
-                                        <div class="text-sm text-gray-500">
-  
-                                              @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                  
-                                                  @foreach ($socios as $socio)
-                                                      @if(!is_null($socio->direccion))
-                                                          @if($socio->id == $pedido->pedidoable_id)
-                                                              {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
-                                                          @endif
-                                                      @endif
-                                                  @endforeach
-                                              @endif
-  
-                                              @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                                  @foreach ($invitados as $invitado)
-                                                      
-                                                          @if($invitado->id == $pedido->pedidoable_id)
-                                                          
-                                                              @if(!is_null($invitado->direccion))
-                                                                  {{$invitado->direccion->comuna.", ".$invitado->direccion->region}}
-                                                              @else
-                                                                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                      FALTA DIRECCIÓN DE DESPACHO
-                                                                  </span>
-                                                              @endif
-                                                          
-                                                          @endif
-                                                      
-                                                  @endforeach
-                                              @endif
-  
-                                        </div>
-                                        </div>
+                                        </a>
                                     </div>
                               </td>
   

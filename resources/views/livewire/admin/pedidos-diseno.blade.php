@@ -6,7 +6,7 @@
     @endphp
 
 <div class="container py-8">
-    <h1 class="text-center text-3xl font-bold pb-4 py-6">Pedidos Pendientes de Diseño</h1>
+    <h1 class="text-center text-3xl font-bold pb-4 py-6">{{$pedidos->count()}} Pedidos Pendientes de Diseño</h1>
     <x-table-responsive>
        
   

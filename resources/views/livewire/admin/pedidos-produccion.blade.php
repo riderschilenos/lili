@@ -7,7 +7,7 @@
 
 <div class="container py-8">
 
-    <h1 class="text-center text-3xl font-bold py-6">Pedidos Pendientes de Producción</h1>
+    <h1 class="text-center text-3xl font-bold py-6">{{$pedidos->count()}} Pedidos Pendientes de Producción</h1>
 
     @if($paginate==4)
 

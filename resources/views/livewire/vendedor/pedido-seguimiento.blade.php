@@ -28,7 +28,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
 </div>
 <h1 class="text-xl text-center font-bold pb-4">Estado del Pedido<br>Nro: {{$pedido->id}}</h1>
         
-    <div class="w-full pt-6 pb-12">
+    <div class="w-full pt-6 pb-8">
         <div class="flex">
           <div class="w-1/4">
             <div class="relative mb-2">
@@ -139,7 +139,15 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                                               
                                         @endswitch
                                       </h1>
-                                        
+
+                        <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+                            @foreach ($pedido->ordens as $orden)
+                                @if($orden->image)
+                                <img class="h-18 w-20 object-contain justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
+                                
+                                @endif
+                            @endforeach
+                        </div>
         
 <div x-data="{open: false}">
     <div class="text-center md:hidden" >

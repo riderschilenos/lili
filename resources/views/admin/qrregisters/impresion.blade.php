@@ -18,9 +18,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Numero</th>
-                        <th>Numero</th>
-                        <th>PASS</th>
+                        <th class="text-center">Numero</th>
+                        <th class="text-center">Numero</th>
+                        <th class="text-center">PASS</th>
                         
                     
                     </tr>
@@ -32,14 +32,14 @@
                             <td>
                                 {{$qrregister->id}}
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <p class=""><b>{{$qrregister->nro}}</b></p>
 
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <p class="h2"><b>{{$qrregister->nro}}</b></p>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <p class="h2"><b>{{$qrregister->pass}}</b></p>
                             </td>
                            

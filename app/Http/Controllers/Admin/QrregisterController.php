@@ -22,7 +22,7 @@ class QrregisterController extends Controller
 
     public function impresion()
     {
-        $qrregisters=Qrregister::all()->sortByDesc('proceso');
+        $qrregisters=Qrregister::all()->sortByDesc('value');
                                 
         return view('admin.qrregisters.impresion',compact('qrregisters'));
     }

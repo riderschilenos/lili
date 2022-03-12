@@ -18,6 +18,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th class="text-center">Tipo</th>
                         <th class="text-center">Numero</th>
                         <th class="text-center">Numero</th>
                         <th class="text-center">PASS</th>
@@ -31,6 +32,10 @@
                         <tr>
                             <td>
                                 {{$qrregister->id}}
+                            </td>
+                            <td class="text-center">
+                                ${{number_format($qrregister->value)}}
+                                
                             </td>
                             <td class="text-center">
                                 <p class=""><b>{{$qrregister->nro}}</b></p>

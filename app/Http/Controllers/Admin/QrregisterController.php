@@ -20,6 +20,13 @@ class QrregisterController extends Controller
         return view('admin.qrregisters.index',compact('qrregisters'));
     }
 
+    public function impresion()
+    {
+        $qrregisters=Qrregister::all()->sortByDesc('proceso');
+                                
+        return view('admin.qrregisters.impresion',compact('qrregisters'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

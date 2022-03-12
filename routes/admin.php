@@ -71,6 +71,7 @@ Route::post('{marca}/image',[MarcaController::class, 'image'])->name('marca.imag
 
 Route::get('pagos',[PagoController::class, 'adminindex'])->name('pagos.index');
 
+Route::get('qrprinting',[QrregisterController::class, 'impresion'])->name('qrregister.impresion');
 
 Route::post('{pago}/approved',[PagoController::class, 'pagoaprov'])->name('pago.approved');
 

@@ -3,6 +3,7 @@
 @section('title', 'RidersChilenos')
 
 @section('content_header')
+    <a class="btn btn-secondary btn-sm " href="{{route('admin.qrregister.impresion')}}">IMPRIMIR</a>
     <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.qrregister.create')}}">Nuevos Qr</a>
     <h1>QR REGISTER'S</h1>
 @stop

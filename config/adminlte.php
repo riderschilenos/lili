@@ -356,7 +356,7 @@ return [
         ],
         ['header' => 'Bodega'],
         [
-            'text'        => "Smartphone's",
+            'text'        => "Carcasas de Smartphone's",
             'route'         => 'admin.smartphone.index',
             'icon'        => 'fas fa-fw fa-box',
             'active'     => ['admin/smartphone*']

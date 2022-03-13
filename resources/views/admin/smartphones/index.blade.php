@@ -4,7 +4,7 @@
 
 @section('content_header')
     
-    <h1 class="text-center">Lista de Smartphone's</h1>
+    <h1 class="text-center">Carcasas de Smartphone's</h1>
 @stop
 
 @section('content')

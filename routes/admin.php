@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\ModeloController;
 use App\Http\Controllers\Admin\PedidoController;
 use App\Http\Controllers\Admin\PrecioController;
 use App\Http\Controllers\Admin\QrregisterController;
+use App\Http\Controllers\Admin\SmartphoneController;
 use App\Http\Controllers\Admin\SocioController;
 use App\Http\Controllers\Admin\SuscripcionController;
 use App\Http\Controllers\Admin\Vehiculo_typeController;
@@ -46,6 +47,8 @@ Route::resource('precio', PrecioController::class)->names('precios');
 Route::resource('vehiculotypes',Vehiculo_typeController::class)->names('vehiculotype');
 
 Route::resource('vehiculo',VehiculoController::class)->names('vehiculo');
+
+Route::resource('smartphone',SmartphoneController::class)->names('smartphone');
 
 Route::resource('marca',MarcaController::class)->names('marcas');
 

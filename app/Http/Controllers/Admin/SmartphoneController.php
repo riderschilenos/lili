@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category_product;
-use App\Models\Disciplina;
-use App\Models\Modelo;
+use App\Models\Marcasmartphone;
+use App\Models\Smartphone;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class ModeloController extends Controller
+class SmartphoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,11 @@ class ModeloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $modelos=Modelo::all();
+    {
+        $smartphones=Smartphone::all();
+        $marcasmartphones=Marcasmartphone::all();
 
-        return view('admin.modelos.index',compact('modelos'));
+        return view('admin.smartphones.index',compact('smartphones','marcasmartphones'));
     }
 
     /**
@@ -29,7 +28,7 @@ class ModeloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         //
     }
 
@@ -41,9 +40,9 @@ class ModeloController extends Controller
      */
     public function store(Request $request)
     {
-        $modelo = Modelo::create($request->all());
+        $smartphone = Smartphone::create($request->all());
 
-        return redirect()->route('admin.modelos.index')->with('info','El modelo se creo con éxito.');  
+        return redirect()->route('admin.smartphone.index')->with('info','El Smartphone se creó con éxito.');  
     }
 
     /**
@@ -86,14 +85,8 @@ class ModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Modelo $modelo)
+    public function destroy($id)
     {
-        $modelo->delete();
-        if($modelo->image){
-            Storage::delete($modelo->image->url);
-            $modelo->image->delete();
-        }
-        return redirect()->route('admin.modelos.index')->with('info','El modelo '.$modelo->name.' se elimino con éxito.');
-
+        //
     }
 }

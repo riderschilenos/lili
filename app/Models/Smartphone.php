@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Smartphone extends Model
-{
+{   
+    protected $guarded = ['id'];
+    
     use HasFactory;
 
     //relacion uno a muchos inversa 

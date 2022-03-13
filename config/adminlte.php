@@ -354,6 +354,15 @@ return [
             'active'     => ['admin/modelo*']
            
         ],
+        ['header' => 'Bodega'],
+        [
+            'text'        => "Smartphone's",
+            'route'         => 'admin.smartphone.index',
+            'icon'        => 'fas fa-fw fa-box',
+            'active'     => ['admin/smartphone*']
+           
+        ],
+
        
         ['header' => 'Opciones RCH-TV'],
         

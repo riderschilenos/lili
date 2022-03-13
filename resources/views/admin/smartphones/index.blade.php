@@ -48,18 +48,29 @@ foreach ($smartphones->reverse() as $smartphone)
                     </div>
                 </div>
                 <div class="col">
+
                     <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                         <div class="card-header">Stock Critico</div>
                         <div class="card-body">
+                            @php
+                                $subcritico=0;
+                            @endphp
                             @foreach ($smartphones as $item)
                                 @if ($item->stock<3)
+                                    @php
+                                         $subcritico+=1;
+                                    @endphp
                                 
                                     <h5 class="card-title"> {{$item->modelo}} Stock: {{$item->stock}}</h5>
                                     
                                 @endif
                                 
+                                
                             @endforeach
+                            @if ($subcritico==0)
 
+                                <h1>Sin Stock Critico</h1>
+                            @endif
                         
                         </div>
                     </div>

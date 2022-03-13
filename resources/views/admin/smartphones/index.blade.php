@@ -69,7 +69,7 @@ foreach ($smartphones->reverse() as $smartphone)
                             @endforeach
                             @if ($subcritico==0)
 
-                                <h1>Sin Stock Critico</h1>
+                                <h3>Sin Stock Critico</h1>
                             @endif
                         
                         </div>

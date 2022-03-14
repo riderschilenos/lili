@@ -24,8 +24,8 @@ class PedidosIndex extends Component
         
         $pedidos= Pedido::where('user_id',auth()->user()->id)
                         ->where('created_at', '>=', now()->subDays(30))
-                        ->orderby('status','DESC')
                         ->latest('id')
+                        ->orderby('status','DESC')
                         ->get();
                     }
         if($this->periodo=="anual"){

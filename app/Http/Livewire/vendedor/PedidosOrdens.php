@@ -59,7 +59,10 @@ class PedidosOrdens extends Component
         $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();
         
         if($category_product_id == 1){
-            $this->smartphones = Smartphone::all();
+            $this->smartphones = Smartphone::where('stock', '>=', 1)
+                                            ->orderby('marcasmartphone_id','ASC')
+                                            ->orderby('modelo','ASC')
+                                            ->get();
         }
     
     }

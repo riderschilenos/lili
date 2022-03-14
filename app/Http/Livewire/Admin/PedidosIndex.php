@@ -32,6 +32,7 @@ class PedidosIndex extends Component
                 ->orwhere('status',5)
                 ->orwhere('status',6)
                 ->orwhere('status',7)
+                ->orderby('status','DESC')
                 ->paginate(100);
         $pedidosint=Pedido::all();
 

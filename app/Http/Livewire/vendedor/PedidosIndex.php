@@ -24,7 +24,6 @@ class PedidosIndex extends Component
         
         $pedidos= Pedido::where('user_id',auth()->user()->id)
                         ->where('created_at', '>=', now()->subDays(30))
-                        ->latest('id')
                         ->orderby('status','DESC')
                         ->get();
                     }
@@ -33,7 +32,6 @@ class PedidosIndex extends Component
             $pedidos= Pedido::where('user_id',auth()->user()->id)
                             ->where('created_at', '>=', now()->subDays(365))
                             ->orderby('status','DESC')
-                            ->latest('id')
                             ->get();
                        }
         

@@ -321,7 +321,7 @@ return [
             'text'        => 'Pendientes de aprobación',
             'route'         => 'admin.pagos.index',
             'icon'        => 'fas fa-fw fa-dollar-sign',
-            'can'         => 'Leer usuarios',
+            'can'         => 'Cuenta corriente',
             'active'     => ['admin/pagos*']
            
         ],

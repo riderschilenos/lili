@@ -163,10 +163,20 @@ foreach ($smartphones->reverse() as $smartphone)
                             {{$smartphone->modelo}}
                         </td>
                         <td>
-                            {{$smartphone->stock}}
+                            @if ($obj==$smartphone->id)
+                                    
+                                    
+
+                            @else
+                                {{$smartphone->stock}}
+                                
+
+                            @endif
+                                
                         </td>
                         <td width="10px">
-                            <a class="btn btn-primary btn-sm" href="{{route('admin.smartphone.edit',$smartphone)}}">Editar Stock</a>
+                            <button class="btn btn-primary text-sm" wire:click="edit({{$smartphone->id}})">Editar Stock</button>
+         
                         </td>
                         <td width="10px">
                             <form action="{{route('admin.smartphone.destroy',$smartphone)}}" method="POST">

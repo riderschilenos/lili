@@ -12,7 +12,9 @@ use Livewire\Component;
 class SmartphoneCreate extends Component
 {   public $selectedcategory;
 
-    public $selectedmarca;
+    public $selectedmarca, $obj;
+
+    
 
     public function render()
     {   $disciplinas=Disciplina::all();
@@ -22,6 +24,8 @@ class SmartphoneCreate extends Component
         $category_products=Category_product::all();
 
         $smartphones=Smartphone::all();
+
+        
 
         $marcasmartphones=Marcasmartphone::all();
 
@@ -33,5 +37,9 @@ class SmartphoneCreate extends Component
         
         $this->selectedmarca=$marca;
     
+    }
+
+    public function edit($value){
+        $this->obj = $value;
     }
 }

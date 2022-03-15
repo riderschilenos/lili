@@ -5,12 +5,14 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Category_product;
 use App\Models\Disciplina;
 use App\Models\Marca;
+use App\Models\Smartphone;
 use Livewire\Component;
 
 class ModelosCreate extends Component
 {   public $selectedcategory;
 
     public $selectedmarca;
+
 
     public function render()
     {   $disciplinas=Disciplina::all();
@@ -32,4 +34,6 @@ class ModelosCreate extends Component
         $this->selectedmarca=$marca;
     
     }
+
+    
 }

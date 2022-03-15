@@ -12,8 +12,11 @@ use Livewire\Component;
 class SmartphoneCreate extends Component
 {   public $selectedcategory;
 
-    public $selectedmarca, $obj;
+    public $selectedmarca, $obj, $stock, $editable;
 
+    protected $rules = [
+        'editable.stock'=>'required',
+         ];
     
 
     public function render()
@@ -41,5 +44,21 @@ class SmartphoneCreate extends Component
 
     public function edit($value){
         $this->obj = $value;
+        $this->editable = Smartphone::find($value);
     }
+
+    public function update(Smartphone $editable){
+         
+         $this->editable->save();
+         $this->reset(['obj','editable']);
+     }
+
+     public function cancel(){
+         
+        $this->reset(['obj','editable']);
+    }
+
+
+
+
 }

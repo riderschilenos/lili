@@ -163,19 +163,39 @@ foreach ($smartphones->reverse() as $smartphone)
                             {{$smartphone->modelo}}
                         </td>
                         <td>
-                            @if ($obj==$smartphone->id)
-                                    
-                                    
-
-                            @else
-                                {{$smartphone->stock}}
-                                
-
-                            @endif
+                            {{$smartphone->stock}}
                                 
                         </td>
                         <td width="10px">
-                            <button class="btn btn-primary text-sm" wire:click="edit({{$smartphone->id}})">Editar Stock</button>
+                            @if ($obj==$smartphone->id)
+                                    
+                            <form wire:submit.prevent="update">
+                                <div class="flex items-center mt-4">
+                                    <label class="w-32">Nombre:</label>
+                                    <input wire:model="editable.stock" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                                </div>
+        
+                                @error('editable.stock')
+                                    <span class="text-sm text-red-500">{{$message}}</span>
+                                @enderror
+        
+                                
+                                <div class="mt-4 flex justify-end">
+                                    <button type="submit" class="btn btn-primary text-sm">Actualizar</button>
+                                    <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
+                                
+                                </div>
+                                
+                            </form>
+        
+
+                            @else
+                            
+                                
+                                <button class="btn btn-primary text-sm" wire:click="edit({{$smartphone->id}})">Editar Stock</button>
+
+                            @endif
+                            
          
                         </td>
                         <td width="10px">

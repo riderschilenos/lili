@@ -208,12 +208,15 @@
                                     <a class="btn btn-primary" href="{{route('vendedor.pedidos.edit',$pedido)}}">Ver detalles</a>
                                 </td>
                                 <td width="10px">
-                                    <form action="{{route('admin.pedidos.destroy',$pedido)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-    
-                                        <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
-                                    </form>
+                                    @can('Super admin')
+                                        <form action="{{route('admin.pedidos.destroy',$pedido)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+        
+                                            <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
+                                        </form>
+                                    @endcan
+                                    
                                 </td>
                             </tr>
                             

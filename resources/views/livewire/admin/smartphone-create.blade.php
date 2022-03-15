@@ -199,12 +199,15 @@ foreach ($smartphones->reverse() as $smartphone)
          
                         </td>
                         <td width="10px">
-                            <form action="{{route('admin.smartphone.destroy',$smartphone)}}" method="POST">
-                                @csrf
-                                @method('delete')
+                            @can('Super admin')
+                                <form action="{{route('admin.smartphone.destroy',$smartphone)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
 
-                                <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
-                            </form>
+                                    <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
+                                </form>
+                            @endcan
+                           
                         </td>
                     </tr>
                     

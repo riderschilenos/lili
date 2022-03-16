@@ -69,7 +69,7 @@
                             <td>{{$pago->id}}</td>
                             <td> 
                                 @foreach ($pago->pedidos as $pedido)
-                                    {{$pedido->vendedor->name}}
+                                    {{$pedido->vendedor->name}}<br>
                                 @endforeach
                                 
                             </td>

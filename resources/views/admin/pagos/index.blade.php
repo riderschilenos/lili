@@ -25,6 +25,7 @@
                         <th>Cantidad</th>
                         <th>Comprobante</th>
                         <th></th>
+                        <th></th>
 
 
                     </tr>
@@ -46,6 +47,7 @@
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
                             
                             </td>
+                            <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
                             <td>
                                 <form action="{{route('admin.pago.approved',$pago)}}" method="POST">
                                     @csrf
@@ -53,6 +55,7 @@
                                     <button class="btn btn-primary" type="submit">Aprobar</button>
                                 </form>   
                             </td>
+                            
                         </tr>
                         
                     @endforeach

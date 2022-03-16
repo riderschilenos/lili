@@ -61,8 +61,40 @@
                     @endforeach
 
                 </tbody>
-
             </table>
+            <table class="table table-striped mt-4">
+                <tbody class="">
+                    @foreach ($pagosok as $pago)
+                        <tr>
+                            <td>{{$pago->id}}</td>
+                            <td> 
+                                @foreach ($pago->pedidos as $pedido)
+                                    {{$pedido->vendedor->name}}
+                                @endforeach
+                                
+                            </td>
+                            <td>{{$pago->metodo}}</td>
+                            <td>{{$pago->cantidad}}</td>
+                            <td>
+                                <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
+                            
+                            </td>
+                            <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
+                            <td>
+                                <form action="" >
+                                    
+            
+                                    <button class="btn btn-success" type="submit">Aprobado</button>
+                                </form>   
+                            </td>
+                            
+                        </tr>
+                        
+                    @endforeach
+
+                </tbody>
+            </table>
+            
         </div>
 
         <div class="card-footer">

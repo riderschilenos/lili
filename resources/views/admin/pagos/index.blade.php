@@ -75,6 +75,7 @@
                             </td>
                             <td>{{$pago->metodo}}</td>
                             <td>{{$pago->cantidad}}</td>
+                            <td></td>
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
                             
@@ -87,6 +88,7 @@
                                     <button class="btn btn-success" type="submit">Aprobado</button>
                                 </form>   
                             </td>
+                           
                             
                         </tr>
                         

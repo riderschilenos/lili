@@ -54,7 +54,7 @@ class SuscripcionController extends Controller
             $sus = Suscripcion::create([
                 'suscripcionable_type'=>'App\Models\Socio',
                 'suscripcionable_id'=>$socio->id,
-                'precio'=>25000*$request->time,
+                'precio'=>$request->value,
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ ".$request->time." year"))
             ]);
 

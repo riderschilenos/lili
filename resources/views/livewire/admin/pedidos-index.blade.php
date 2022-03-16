@@ -135,6 +135,9 @@
                                         @case(7)
                                             <a class="btn btn-success btn-sm" href="">DESPACHADO</a>
                                           @break
+                                        @case(8)
+                                            <a class="btn btn-success btn-sm" href="">CERRADO</a>
+                                          @break
                                       @default
                                           
                                     @endswitch

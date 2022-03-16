@@ -9,7 +9,7 @@
 @section('content')
    
 
-    @livewire('admin.pedidos-index')
+    @livewire('admin.contabilidad')
 @stop
 
 @section('css')

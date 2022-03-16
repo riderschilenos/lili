@@ -14,9 +14,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('time', 'Socio:') !!}
-
                         {{$socio->name.' '.$socio->last_name}}
-
                         <p class="text-bold">Duración:</p>
                         <div class="form-group flex justify-center">
                             <div class="form-check">
@@ -32,10 +30,11 @@
                               </label>
                             </div>
                             
-
-
                         </div>
-                
+
+                        <p class="text-bold">Valor:</p>
+                        {!! Form::number('value', null , ['class'=>'form-control', 'placeholder'=>'Ingrese el valor de la suscripción']) !!}
+                    
 
                     
 

@@ -28,25 +28,29 @@
                 @endforeach
 
             @endif
-
-            @if($pedido->pedidoable_type=="App\Models\Socio")
-                @foreach ($pedido->ordens as $orden)
-                @php
+            @if($pedido->status==7)
+                @if($pedido->pedidoable_type=="App\Models\Socio")
                     
-                    $comisiones+=$orden->producto->comision_socio;
+                        @foreach ($pedido->ordens as $orden)
+                        @php
+                            
+                            $comisiones+=$orden->producto->comision_socio;
 
-                @endphp    
-                @endforeach
-
-            @endif
-            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                @foreach ($pedido->ordens as $orden)
-                @php
+                        @endphp    
+                        @endforeach
                     
-                    $comisiones+=$orden->producto->comision_invitado;
+                @endif
+                @if($pedido->pedidoable_type=="App\Models\Invitado")
+                    
+                        @foreach ($pedido->ordens as $orden)
+                        @php
+                            
+                            $comisiones+=$orden->producto->comision_invitado;
 
-                @endphp    
-                @endforeach
+                        @endphp    
+                        @endforeach
+                    
+                @endif
 
             @endif
 
@@ -409,6 +413,11 @@
                                         @case(7)
                                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                               Despachado
+                                          </span>
+                                          @break
+                                        @case(8)
+                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                              Cerrado
                                           </span>
                                           @break
                                       @default

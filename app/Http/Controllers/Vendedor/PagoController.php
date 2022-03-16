@@ -124,7 +124,7 @@ class PagoController extends Controller
 
     public function adminindex()
     {   
-        $pagos = Pago::where('estado',1)->paginate(8);
+        $pagos = Pago::where('estado',1)->paginate(80);
 
         return view('admin.pagos.index',compact('pagos'));
     }

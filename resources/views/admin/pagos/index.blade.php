@@ -20,6 +20,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Vendedor</th>
                         <th>Metodo</th>
                         <th>Cantidad</th>
                         <th>Comprobante</th>
@@ -33,6 +34,12 @@
                     @foreach ($pagos as $pago)
                         <tr>
                             <td>{{$pago->id}}</td>
+                            <td> 
+                                @foreach ($pago->pedidos as $pedido)
+                                    {{$pedido->vendedor->name}}
+                                @endforeach
+                                
+                            </td>
                             <td>{{$pago->metodo}}</td>
                             <td>{{$pago->cantidad}}</td>
                             <td>

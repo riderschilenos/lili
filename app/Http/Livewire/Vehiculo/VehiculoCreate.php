@@ -45,12 +45,8 @@ class VehiculoCreate extends Component
 
     public function updatedselectedmarca($marca){
 
-
         $this->selectedmarca = $marca;
 
-    
-        
-    
     }
 
   

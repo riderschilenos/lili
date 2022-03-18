@@ -115,8 +115,7 @@
                                     
 
                                     <option value="{{$marca->id}}">{{$marca->name}}</option>
-                
-                                    
+              
                                     
                                 @endforeach
 

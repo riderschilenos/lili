@@ -34,16 +34,4 @@
     @enderror
 </div>
 
-<div class="grid grid-cols-3 gap-4">
-    <div>
-        {!! Form::label('transportista_id', 'Transportista') !!}
-        {!! Form::select('transportista_id', $transportistas, null , ['class'=>'form-input block w-full mt-1']) !!}
-    </div>
-    <div>
-    
-    </div>
-    <div>
-        
-    </div>
 
-</div>

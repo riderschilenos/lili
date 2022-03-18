@@ -13,7 +13,7 @@ use Livewire\WithPagination;
 
 class PedidosCreate extends Component
 {   
-    public $invitados, $selectedSocios, $selectedInvitado, $search, $socio_id, $transportista_id;
+    public $invitados, $selectedSocios, $selectedInvitado, $selecteddespacho, $search, $socio_id, $transportista_id, $transportistas;
     
 
     use WithPagination;
@@ -21,7 +21,6 @@ class PedidosCreate extends Component
 
     public function render()
     {   
-        $transportistas = Transportista::pluck('name','id');
         
         $socios = Socio::
                     join('users','socios.user_id','=','users.id')
@@ -35,7 +34,7 @@ class PedidosCreate extends Component
 
         
 
-        return view('livewire.vendedor.pedidos-create',compact('transportistas','socios'));
+        return view('livewire.vendedor.pedidos-create',compact('socios'));
     }
 
     public function updateselectedSocios(Socio $socio){
@@ -49,6 +48,26 @@ class PedidosCreate extends Component
 
         $this->invitados= Invitado::all();
         $this->reset(['selectedSocios']);
+    }
+
+    public function updatedselecteddespacho($selecteddespacho){
+        
+        if($selecteddespacho==1){
+            $this->transportistas = Transportista::where('id',1)->pluck('name','id');
+        }
+
+        if($selecteddespacho==2){
+            $this->transportistas = Transportista::where('id',1)
+                                            ->orwhere('id',2)
+                                            ->pluck('name','id');
+        }
+        if($selecteddespacho==3){
+            $this->transportistas = Transportista::where('id',3)->pluck('name','id');
+        }
+        
+
+
+    
     }
 
     public function updatesocio_id($socio_id){

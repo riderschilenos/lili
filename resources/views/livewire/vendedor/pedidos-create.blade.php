@@ -23,6 +23,36 @@
             @include('vendedor.pedidos.partials.form')
 
 
+            <div class="grid grid-cols-3 gap-4">
+                
+                
+                    <div class="flex items-center mt-4">
+                        <Label class="w-80">Despacho:</Label>
+                        <select wire:model="selecteddespacho" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            <option value="">--Despacho--</option>
+
+                                <option value="1">Domicilio</option>
+                                <option value="2">Sucursal</option>
+                                <option value="3">Retiro en tienda</option>
+          
+                        </select>
+                    </div>
+
+                    <div>
+                        @if(!is_null($transportistas))
+                            {!! Form::label('transportista_id', 'Transportista') !!}
+                            {!! Form::select('transportista_id', $transportistas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                        @endif
+                    </div>
+                
+                <div>
+                    
+                </div>
+            
+            </div>
+
+
+
             <div class="flex justify-end">
                 <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
                 {!! Form::submit('Ingresar Pedido', ['class'=>'btn btn-success cursor-pointer ml-2']) !!}
@@ -167,10 +197,25 @@
             {!! Form::hidden('pedidoable_id',$socio_id) !!}
 
             <div class="bg-yellow-100 border-t-4 border-yellow-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-4 mx-auto items-center max-w-sm">
-                <div>
-                    {!! Form::label('transportista_id', 'Transportista') !!}
-                    {!! Form::select('transportista_id', $transportistas, null , ['class'=>'form-input block w-full mt-1 mr-4']) !!}
-                </div>
+
+                    <div class="flex items-center mt-4">
+                        <Label class="w-80">Despacho:</Label>
+                        <select wire:model="selecteddespacho" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            <option value="">--Despacho--</option>
+
+                                <option value="1">Domicilio</option>
+                                <option value="2">Sucursal</option>
+                                <option value="3">Retiro en tienda</option>
+          
+                        </select>
+                    </div>
+
+                    <div>
+                        @if(!is_null($transportistas))
+                            {!! Form::label('transportista_id', 'Transportista') !!}
+                            {!! Form::select('transportista_id', $transportistas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                        @endif
+                    </div>
         
             </div>
 

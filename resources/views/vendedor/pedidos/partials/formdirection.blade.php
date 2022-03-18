@@ -26,7 +26,7 @@
 </div>
 
 <div class="mb-4">
-    {!! Form::label('comuna', 'Comuna') !!}
+    {!! Form::label('comuna', 'Comuna o Sucursal') !!}
     {!! Form::text('comuna', null , ['class' => 'form-input block w-full mt-1'.($errors->has('comuna')?' border-red-600':'')]) !!}
 
     @error('comuna')

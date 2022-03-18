@@ -238,12 +238,20 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <label class="mx-4">{{$counter+1}}</label>
                                     </td>
-      
-                                  <td class="px-6 py-4 whitespace-nowrap">
+                                    @if($orden->smartphone)
+                                        <td class="px-6 py-4 whitespace-nowrap">
+
+                                            {{$orden->producto->name." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                                          
+                                        </td>
+                                    @else
+                                        <td class="px-6 py-4 whitespace-nowrap">
                                       
-                                    {{$orden->producto->name}}
-                                      
-                                  </td>
+                                            {{$orden->producto->name}}
+                                          
+                                        </td>
+                                    @endif
+                                  
       
                                   
                                     @if($orden->modelo)

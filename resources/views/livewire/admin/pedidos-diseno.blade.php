@@ -262,12 +262,21 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
                                                 <label class="mx-4">{{$orden->id}}</label>
                                             </td>
-
-                                          <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif ">
+                                            
+                                            @if($orden->smartphone)
+                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif ">
                                               
-                                            {{$orden->producto->name}}
-                                              
-                                          </td>
+                                                {{$orden->producto->name." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                                                  
+                                              </td>
+                                            @else
+                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif ">
+                                                
+                                                    {{$orden->producto->name}}
+                                                    
+                                                </td>
+                                            @endif
+                                          
               
                                           
                                             @if($orden->modelo)

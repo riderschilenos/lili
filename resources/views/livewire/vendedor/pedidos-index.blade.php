@@ -178,7 +178,8 @@
             <div class="text-center">
               <h1 class="text-4xl font-bold text-gray-800">${{number_format($comisiones)}}</h1>
               <span class="text-gray-500">Comisiones</span>
-              <span class="text-blue-500 font-bold">RETIRAR</span>
+              <a href="{{route('vendedor.pedidos.comisiones')}}">
+              <span class="text-blue-500 font-bold">RETIRAR</span></a>
             </div>
         </div>
         <!-- 

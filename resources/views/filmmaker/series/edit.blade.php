@@ -15,6 +15,7 @@
             {!! Form::submit('Actualizar Información', ['class'=>'btn btn-primary']) !!}
         </div>
     {!! Form::close() !!}
+    
     <x-slot name="js">
         <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
         <script src="{{asset('js/filmmaker/series/form.js')}}"></script>

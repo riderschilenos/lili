@@ -3,6 +3,9 @@
     <x-slot name="pedido">
         {{$pedido->id}}
     </x-slot>
+    <x-slot name="status">
+        {{$pedido->status}}
+    </x-slot>
 
     <h1 class="text-xl font-bold col-span-3">INFORMACIÓN DE DESPACHO</h1>
     <hr class="mt-2 mb-6">

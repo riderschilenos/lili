@@ -15,7 +15,13 @@ class Pedido extends Model
     const REVISION =2;
     const PUBLICADO =3;
 
+
     protected $withCount = ['ordens'];
+
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
     //relacion uno a uno
 
     public function despacho(){

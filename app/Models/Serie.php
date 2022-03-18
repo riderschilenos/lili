@@ -12,6 +12,7 @@ class Serie extends Model
     use HasFactory;
 
     protected $guarded = ['id','status'];
+    
     protected $withCount = ['sponsors','reviews','videos'];
 
     const BORRADOR =1;

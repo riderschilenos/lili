@@ -44,8 +44,32 @@
                             <a href="{{route('pedido.seguimiento',$pedido)}}">Seguimiento</a>
                         </li>
                     </ul>
-
                     
+                
+
+
+                    @switch($status)
+                        @case('1')
+                            <form action="{{route('vendedor.pedidos.destroy',$pedido)}}" method="POST">
+                                @csrf
+                                @method('delete')
+
+                                <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
+                            </form>
+                            @break
+                        @case('2')
+                            <form action="{{route('vendedor.pedidos.destroy',$pedido)}}" method="POST">
+                                @csrf
+                                @method('delete')
+
+                                <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
+                            </form>
+                            @break
+
+                        @default
+                            
+                    @endswitch
+                  
         
                 </aside>
 

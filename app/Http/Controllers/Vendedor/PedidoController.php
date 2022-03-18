@@ -136,9 +136,11 @@ class PedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pedido $pedido)
     {
-        //
+        $pedido->delete();
+        return redirect()->route('vendedor.home.index')->with('info','El pedido se elimino con éxito.');
+
     }
 
     public function close(Pedido $pedido){

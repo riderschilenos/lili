@@ -3,6 +3,7 @@
     <x-slot name="pedido">
         {{$pedido->id}}
     </x-slot>
+    
     <x-slot name="status">
         {{$pedido->status}}
     </x-slot>

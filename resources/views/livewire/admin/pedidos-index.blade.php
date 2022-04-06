@@ -136,6 +136,9 @@
                                             <a class="btn btn-success btn-sm" href="">DESPACHADO</a>
                                           @break
                                         @case(8)
+                                            <a class="btn btn-success btn-sm" href="">PROCESANDO COMISIÓN</a>
+                                          @break
+                                        @case(9)
                                             <a class="btn btn-success btn-sm" href="">CERRADO</a>
                                           @break
                                       @default

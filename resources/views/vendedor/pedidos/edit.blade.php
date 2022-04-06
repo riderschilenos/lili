@@ -3,12 +3,17 @@
     <x-slot name="pedido">
         {{$pedido->id}}
     </x-slot>
-    
-    <x-slot name="status">
-        {{$pedido->status}}
-    </x-slot>
 
     <h1 class="text-xl font-bold col-span-3">INFORMACIÓN DE DESPACHO</h1>
+
+    <div class="justify-end">
+        <form action="{{route('vendedor.pedidos.destroy',$pedido)}}" method="POST">
+            @csrf
+            @method('delete')
+
+            <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
+        </form>
+    </div>
     <hr class="mt-2 mb-6">
 
     <div class="max-w-7xl px-4 sm:px-6 lg:px-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-2 gap-y-2 ">

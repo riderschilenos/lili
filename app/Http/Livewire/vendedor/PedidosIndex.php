@@ -23,14 +23,13 @@ class PedidosIndex extends Component
         if($this->periodo=="mensual"){
         
         $pedidos= Pedido::where('user_id',auth()->user()->id)
-                        ->where('created_at', '>=', now()->subDays(30))
+                        ->where('status', '<=', 7)
                         ->orderby('status','DESC')
                         ->get();
                     }
         if($this->periodo=="anual"){
         
             $pedidos= Pedido::where('user_id',auth()->user()->id)
-                            ->where('created_at', '>=', now()->subDays(365))
                             ->orderby('status','DESC')
                             ->get();
                        }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Vendedor;
 
+use App\Models\Gasto;
 use App\Models\Invitado;
 use App\Models\Pago;
 use App\Models\Pedido;
@@ -26,7 +27,7 @@ class RetiroComisiones extends Component
                             ->latest('id')
                             ->get();
 
-        $pagos=Pago::where('user_id',auth()->user()->id)
+        $pagos=Gasto::where('user_id',auth()->user()->id)
                                 ->orderby('id','DESC')
                                 ->latest('id')
                                 ->get();

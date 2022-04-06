@@ -21,6 +21,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Vendedor</th>
+                        <th>Pedidos</th>
                         <th>Metodo</th>
                         <th>Cantidad</th>
                         <th>Comprobante</th>
@@ -32,12 +33,15 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($pagos as $pago)
+                    @foreach ($gastos as $pago)
                         <tr>
                             <td>{{$pago->id}}</td>
                             <td> 
+                                    {{$pago->user->name}}<br>
+                            </td>
+                            <td> 
                                 @foreach ($pago->pedidos as $pedido)
-                                    {{$pedido->vendedor->name}}
+                                    Pedido: {{$pedido->id}}<br>
                                 @endforeach
                                 
                             </td>
@@ -64,7 +68,7 @@
             </table>
             <table class="table table-striped mt-4">
                 <tbody class="">
-                    @foreach ($pagosok->reverse() as $pago)
+                    @foreach ($gastosok->reverse() as $pago)
                         <tr>
                             <td>{{$pago->id}}</td>
                             <td> 
@@ -100,7 +104,7 @@
         </div>
 
         <div class="card-footer">
-            {{$pagos->links('vendor.pagination.bootstrap-4')}}
+            {{$gastos->links('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
 @stop

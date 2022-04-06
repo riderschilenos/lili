@@ -129,7 +129,7 @@
                         @else
                         <i class="fas fa-toggle-off text-2xl text-red-600"></i>
                         @endif
-                        Anual/Mensual
+                        Todos/Activos
                         </a>
                 </div>
         
@@ -154,9 +154,9 @@
               <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
               <span class="text-gray-500">Venta 
                 @if ($periodo=="mensual")
-                Mes
+                Activa
                 @else
-                Anual
+                Total
                 @endif</span>
             </div>
         </div>

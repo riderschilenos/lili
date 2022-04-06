@@ -36,6 +36,10 @@ class Pedido extends Model
     }
 
 
+    public function gasto(){
+        return $this->hasMany('App\Models\Gasto');
+    }
+
     public function pago(){
         return $this->hasMany('App\Models\Pago');
     }

@@ -13,4 +13,16 @@ class Gasto extends Model
 
     const PENDIENTE =1;
     const APROBADO =2;
+
+    // relacion muchos a muchos inversa
+    
+    public function pedidos(){
+        return $this->BelongsToMany('App\Models\Pedido');
+    }
+
+    //relacion uno uno inversa
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

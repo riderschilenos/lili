@@ -318,11 +318,19 @@ return [
            
         ],
         [
-            'text'        => 'Pendientes de aprobación',
+            'text'        => 'Pagos Pendientes',
             'route'         => 'admin.pagos.index',
             'icon'        => 'fas fa-fw fa-dollar-sign',
             'can'         => 'Cuenta corriente',
             'active'     => ['admin/pagos*']
+           
+        ],
+        [
+            'text'        => 'Comisiones Pendientes',
+            'route'         => 'admin.gastos.index',
+            'icon'        => 'fas fa-fw fa-dollar-sign',
+            'can'         => 'Cuenta corriente',
+            'active'     => ['admin/gastos*']
            
         ],
         [

@@ -80,6 +80,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Lote');
     }
 
+    public function gasto(){
+        return $this->hasOne('App\Models\Gasto');
+    }
+
     //relacion uno a muchos
 
     public function seriesby(){

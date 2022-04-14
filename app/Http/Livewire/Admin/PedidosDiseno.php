@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Gasto;
 use App\Models\Invitado;
 use App\Models\Orden;
 use App\Models\Pedido;
@@ -23,7 +24,12 @@ class PedidosDiseno extends Component
         $invitados= Invitado::all();
         $socios= Socio::all();
 
-        return view('livewire.admin.pedidos-diseno',compact('pedidos','users','invitados','socios'));
+        $gastos=Gasto::where('user_id',auth()->user()->id)
+                                ->orderby('id','DESC')
+                                ->latest('id')
+                                ->get();
+
+        return view('livewire.admin.pedidos-diseno',compact('pedidos','users','invitados','socios','gastos'));
     }
 
     public function updateselectedproduccion(){

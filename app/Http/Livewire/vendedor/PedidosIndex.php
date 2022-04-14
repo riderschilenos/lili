@@ -23,7 +23,7 @@ class PedidosIndex extends Component
         if($this->periodo=="mensual"){
         
         $pedidos= Pedido::where('user_id',auth()->user()->id)
-                        ->where('status', '<=', 7)
+                        ->where('status', '<=', 8)
                         ->orderby('status','DESC')
                         ->get();
                     }

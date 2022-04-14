@@ -117,9 +117,18 @@ class PagoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pago $pago)
     {
-        //
+        
+        foreach ($pago->pedidos as $pedido){
+            $pedido->status = 2;
+            $pedido->save();
+        }
+
+        $pago->delete();
+
+        return redirect()->back();
+
     }
 
     public function adminindex()

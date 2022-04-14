@@ -1,4 +1,65 @@
 <div class="container py-8">
+                @php
+                    $total=0;
+                    $comisiones=0;
+                    $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+        
+                      
+                @endphp
+                
+            
+            @foreach ($pedidos as $pedido)
+            @foreach ($selected as $item)
+                @if ($pedido->id==$item)
+                    
+                
+                    
+                    
+                    @if($pedido->pedidoable_type=="App\Models\Socio")
+                        @foreach ($pedido->ordens as $orden)
+                        @php
+                            
+                            $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+    
+                        @endphp    
+                        @endforeach
+    
+                    @endif
+                    @if($pedido->pedidoable_type=="App\Models\Invitado")
+                        @foreach ($pedido->ordens as $orden)
+                        @php
+                            
+                            $total+=$orden->producto->precio;
+    
+                        @endphp    
+                        @endforeach
+    
+                    @endif
+    
+                    @if($pedido->pedidoable_type=="App\Models\Socio")
+                        @foreach ($pedido->ordens as $orden)
+                        @php
+                            
+                            $comisiones+=$orden->producto->comision_socio;
+    
+                        @endphp    
+                        @endforeach
+    
+                    @endif
+                    @if($pedido->pedidoable_type=="App\Models\Invitado")
+                        @foreach ($pedido->ordens as $orden)
+                        @php
+                            
+                            $comisiones+=$orden->producto->comision_invitado;
+    
+                        @endphp    
+                        @endforeach
+    
+                    @endif
+                @endif
+            @endforeach
+    @endforeach
+
             @php
                // SDK de Mercado Pago
                 require base_path('/vendor/autoload.php');
@@ -13,7 +74,11 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Pago pedidos:';
                 $item->quantity = 1;
-                $item->unit_price = 100;
+                if($pago){
+                $item->unit_price = $pago->cantidad;
+                }else{
+                    $item->unit_price = 1000000;
+                }
 
                         
 
@@ -34,68 +99,9 @@
                      
                 @endphp
 
-                @php
-                    $total=0;
-                    $comisiones=0;
-                    $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-        
-                      
-                @endphp
-            
                 
             
-            @foreach ($pedidos as $pedido)
-                    @foreach ($selected as $item)
-                        @if ($pedido->id==$item)
-                            
-                        
-                            
-                            
-                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                                @foreach ($pedido->ordens as $orden)
-                                @php
-                                    
-                                    $total+=$orden->producto->precio-$orden->producto->descuento_socio;
-            
-                                @endphp    
-                                @endforeach
-            
-                            @endif
-                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                @foreach ($pedido->ordens as $orden)
-                                @php
-                                    
-                                    $total+=$orden->producto->precio;
-            
-                                @endphp    
-                                @endforeach
-            
-                            @endif
-            
-                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                                @foreach ($pedido->ordens as $orden)
-                                @php
-                                    
-                                    $comisiones+=$orden->producto->comision_socio;
-            
-                                @endphp    
-                                @endforeach
-            
-                            @endif
-                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                @foreach ($pedido->ordens as $orden)
-                                @php
-                                    
-                                    $comisiones+=$orden->producto->comision_invitado;
-            
-                                @endphp    
-                                @endforeach
-            
-                            @endif
-                        @endif
-                    @endforeach
-            @endforeach
-    
+                
     
     
             
@@ -368,6 +374,15 @@
                                                 <p class="text-xl font-bold ml-auto">${{number_format($pago->cantidad)}}</p>
                                             
                                     </article>
+
+                                    <div class="ml-auto">
+                                        <form action="{{route('vendedor.pagos.destroy',$pago)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                            
+                                            <button class="btn btn-danger btn-sm" type="submit"> Cancelar</button>
+                                        </form>
+                                    </div>
                                     
                                     <div class="cho-container flex justify-center mt-2 mb-4">
                                         <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->

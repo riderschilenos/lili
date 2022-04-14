@@ -20,44 +20,89 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Vendedor</th>
+                        <th>Vendedor / Trabajador</th>
                         <th>Pedidos</th>
                         <th>Metodo</th>
-                        <th>Cantidad</th>
-                        <th>Comprobante</th>
-                        <th></th>
-                        <th></th>
+                        
+                        <th class="text-center">Fecha Solicitud</th>
 
+                        <th class="text-center">Transferir</th>
 
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($gastos as $pago)
+                    @foreach ($gastos as $gasto)
                         <tr>
-                            <td>{{$pago->id}}</td>
+                            <td>{{$gasto->id}}</td>
                             <td> 
-                                    {{$pago->user->name}}<br>
+                                    {{$gasto->user->name}}<br>
                             </td>
                             <td> 
-                                @foreach ($pago->pedidos as $pedido)
-                                    Pedido: {{$pedido->id}}<br>
+                                @foreach ($gasto->pedidos as $pedido)
+                                    @php
+                                    $subtotal=0;
+                                    @endphp
+        
+                                    @if($pedido->pedidoable_type=="App\Models\Socio")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->comision_socio;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+                                    @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->comision_invitado;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+
+                                     Pedido {{$pedido->id}} - ${{$subtotal}} <br>
                                 @endforeach
                                 
                             </td>
-                            <td>{{$pago->metodo}}</td>
-                            <td>{{$pago->cantidad}}</td>
+                            <td>{{$gasto->metodo}}</td>
+                           {{-- comment
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
                             
-                            </td>
-                            <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
+                            </td> --}}
+                            <td class="text-center">{{$gasto->created_at->format('d-m-Y H:i:s')}}</td>
                             <td>
-                                <form action="{{route('admin.pago.approved',$pago)}}" method="POST">
-                                    @csrf
-            
-                                    <button class="btn btn-primary" type="submit">Aprobar</button>
-                                </form>   
+                                {!! Form::open(['route'=>['admin.gastos.update',$gasto],'files'=>true , 'autocomplete'=>'off', 'method'=> 'PUT' ]) !!}
+                                                    @csrf
+
+                                                        <div class="h-32">
+                                                            <h1 class="text-xl text-center"><b>$</b> {{number_format($gasto->cantidad)}}</h1>
+                                                            <hr class="w-full">
+                                                            <h1 class="text-md text-center"><b>Nombre:</b> {{auth()->user()->vendedor->user->name}}</h1>
+                                                            <h1 class="text-md text-center"><b>Rut:</b> {{auth()->user()->vendedor->rut}}</h1>
+                                                            <h1 class="text-md text-center"><b>Banco:</b> {{auth()->user()->vendedor->banco}}</h1>
+                                                            <h1 class="text-md text-center"><b>Cuenta:</b> {{auth()->user()->vendedor->tipo_cuenta}}</h1>
+                                                            <h1 class="text-md text-center"><b>Nro Cuenta:</b> {{auth()->user()->vendedor->nro_cuenta}}</h1>
+
+                                                            <hr class="w-full">
+                                                            {!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
+                                                            @error('foto')
+                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                            @enderror
+
+                                                            
+                                                        </div>
+
+                                                        <div class="flex justify-center">
+                                                            {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                                        </div>
+                                                    
+                                    {!! Form::close() !!}
                             </td>
                             
                         </tr>
@@ -68,23 +113,51 @@
             </table>
             <table class="table table-striped mt-4">
                 <tbody class="">
-                    @foreach ($gastosok->reverse() as $pago)
+                    @foreach ($gastosok->reverse() as $gasto)
                         <tr>
-                            <td>{{$pago->id}}</td>
+                            <td>{{$gasto->id}}</td>
                             <td> 
-                                @foreach ($pago->pedidos as $pedido)
-                                    {{$pedido->vendedor->name}}<br>
+                                {{$gasto->user->name}}<br>
+                            </td>
+                            <td> 
+                                @foreach ($gasto->pedidos as $pedido)
+                                    @php
+                                    $subtotal=0;
+                                    @endphp
+        
+                                    @if($pedido->pedidoable_type=="App\Models\Socio")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->comision_socio;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+                                    @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->comision_invitado;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+
+                                     Pedido {{$pedido->id}} - ${{$subtotal}} <br>
                                 @endforeach
                                 
                             </td>
-                            <td>{{$pago->metodo}}</td>
-                            <td>{{$pago->cantidad}}</td>
+                            <td>{{$gasto->metodo}}</td>
+                            <td>{{$gasto->cantidad}}</td>
                             <td></td>
                             <td>
-                                <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
+                                <img class="object-cover object-center" width="60px" src="{{Storage::url($gasto->comprobante)}}" alt="">
                             
                             </td>
-                            <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
+                            <td>{{$gasto->created_at->format('d-m-Y H:i:s')}}</td>
                             <td>
                                 <form action="" >
                                     

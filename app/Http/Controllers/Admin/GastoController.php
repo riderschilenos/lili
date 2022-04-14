@@ -7,6 +7,7 @@ use App\Models\Gasto;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\support\Str;
+use Intervention\Image\Facades\Image;
 
 class GastoController extends Controller
 {
@@ -95,9 +96,39 @@ class GastoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Gasto $gasto)
     {
-        //
+        $request->validate([
+            'comprobante'=>'required'
+            ]);
+        
+        if($request->comprobante){
+                
+                $foto = Str::random(10).$request->file('comprobante')->getClientOriginalName();
+                $rutafoto = public_path().'/storage/comprobantes/'.$foto;
+                $img=Image::make($request->file('comprobante'))->orientate()
+                    ->resize(1200, null , function($constraint){
+                    $constraint->aspectRatio();
+                    })
+                    ->save($rutafoto);
+                $img->orientate();
+                
+            }else{
+                $foto='';
+            }
+            
+        $gasto->update([
+            'comprobante'=>'comprobantes/'.$foto,
+            'estado'=>2
+        ]);    
+
+        
+        foreach ($gasto->pedidos as $pedido){
+            $pedido->status = 9;
+            $pedido->save();
+        }
+        
+        return redirect()->route('admin.gastos.index');
     }
 
     /**

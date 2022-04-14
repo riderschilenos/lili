@@ -244,11 +244,12 @@
                           <tr>
                               <td class="px-6 py-4 whitespace-nowrap">
                                   <div class="flex items-center">
-                                      <div class="flex-shrink-0 h-10 w-10">
+                                      {{$pedido->id}}
+                                      <div class="ml-2 flex-shrink-0 h-10 w-10">
                                           @isset($pedido->image)
-                                              <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
+                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                           @else
-                                              <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
+                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
                                           @endisset
                                           
                                       </div>

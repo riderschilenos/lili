@@ -185,9 +185,9 @@
 
                                     </div>
                                     
-                                    @if ($pedido->status==3)
+                                    @if ($pedido->status==8)
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                            Procesando Pago
+                                            Procesando Comisión
                                         </span>
                                     @else
                                             <div class="text-sm text-gray-500">

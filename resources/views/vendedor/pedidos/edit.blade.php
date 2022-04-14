@@ -3,16 +3,21 @@
     <x-slot name="pedido">
         {{$pedido->id}}
     </x-slot>
+    <div class="grid grid-cols-2">
+        <div>
+    <h1 class="text-xl font-bold col-span-3">Orden de Pedido Nro: {{$pedido->id}}</h1>
+    </div>
+    @if ($pedido->status==1 || $pedido->status==2)
+    
+        <div class="ml-auto">
+            <form action="{{route('vendedor.pedidos.destroy',$pedido)}}" method="POST">
+                @csrf
+                @method('delete')
 
-    <h1 class="text-xl font-bold col-span-3">INFORMACIÓN DE DESPACHO</h1>
-
-    <div class="justify-end">
-        <form action="{{route('vendedor.pedidos.destroy',$pedido)}}" method="POST">
-            @csrf
-            @method('delete')
-
-            <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
-        </form>
+                <button class="btn btn-danger btn-sm" type="submit"> Eliminar</button>
+            </form>
+        </div>
+    @endif
     </div>
     <hr class="mt-2 mb-6">
 

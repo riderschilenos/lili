@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category_product;
+use App\Models\Disciplina;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -27,8 +29,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.products.create');
+    {   $disciplinas=Disciplina::pluck('name','id');
+        $category_products=Category_product::pluck('name','id');
+        return view('admin.products.create',compact('disciplinas','category_products'));
     }
 
     /**
@@ -39,7 +42,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|unique:disciplinas'
+        ]);
+
+        $producto = Producto::create($request->all());
+
+        return redirect()->route('admin.products.index')->with('info','El producto se creo con éxito.');
     }
 
     /**
@@ -82,8 +91,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('admin.products.index')->with('info','El productó se elimino con éxito.');
+
     }
 }

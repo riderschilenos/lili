@@ -39,10 +39,10 @@
 
 
                         <td width='10px'> 
-                            <a class="btn btn-secondary" href="{{route('admin.roles.edit', $role)}}">Edit</a>
+                            <a class="btn btn-secondary" href="{{route('admin.products.edit', $role)}}">Edit</a>
                         </td>
                         <td width='10px'>
-                            <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
+                            <form action="{{route('admin.products.destroy', $role)}}" method="POST">
                             @method('delete')
                             @csrf
 

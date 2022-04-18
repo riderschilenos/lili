@@ -9,7 +9,15 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'admin.disciplinas.store']) !!}
+            {!! Form::open(['route'=>'admin.products.store']) !!}
+
+            <div class="mb-4">
+                {!! Form::label('category_product_id', 'Categoria:') !!}
+                {!! Form::select('category_product_id', $category_products, null , ['class'=>'form-input block w-full mt-1']) !!}
+            </div>
+
+
+
                 <div class="form-group">
                     {!! Form::label('name','Nombre') !!}
                     {!! Form::text('name',null, ['class'=>'form-control','placeholder'=>'Ingrese el nombre de la disciplina']) !!}
@@ -20,6 +28,8 @@
                     @enderror
 
                 </div>
+
+                
                 <div class="mb-4">
                     {!! Form::label('precio', 'Precio:') !!}
                     {!! Form::number('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('precio')?' border-red-600':''),'step' => '0.5']) !!}
@@ -44,8 +54,23 @@
                         <strong class="text-xs text-red-600">{{$message}}</strong>
                     @enderror
                 </div>
+
+                <div class="mb-4">
+                    {!! Form::label('descuento_socio', 'Descuento Socio') !!}
+                    {!! Form::number('descuento_socio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('descuento_socio')?' border-red-600':''),'step' => '0.5']) !!}
+
+                    @error('descuento_socio')
+                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    {!! Form::label('disciplina_id', 'Disciplina') !!}
+                    {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                </div>
                 
-                {!! Form::submit('Crear Disciplina', ['class'=>'btn btn-primary']) !!}
+                
+                {!! Form::submit('Crear Producto', ['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>

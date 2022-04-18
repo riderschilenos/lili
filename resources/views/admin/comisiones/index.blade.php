@@ -83,11 +83,17 @@
                                                         <div class="h-32">
                                                             <h1 class="text-xl text-center"><b>$</b> {{number_format($gasto->cantidad)}}</h1>
                                                             <hr class="w-full">
-                                                            <h1 class="text-md text-center"><b>Nombre:</b> {{auth()->user()->vendedor->user->name}}</h1>
-                                                            <h1 class="text-md text-center"><b>Rut:</b> {{auth()->user()->vendedor->rut}}</h1>
-                                                            <h1 class="text-md text-center"><b>Banco:</b> {{auth()->user()->vendedor->banco}}</h1>
-                                                            <h1 class="text-md text-center"><b>Cuenta:</b> {{auth()->user()->vendedor->tipo_cuenta}}</h1>
-                                                            <h1 class="text-md text-center"><b>Nro Cuenta:</b> {{auth()->user()->vendedor->nro_cuenta}}</h1>
+                                                            
+                                                            @if ($gasto->user->vendedor)
+                                    
+
+                                                            <h1 class="text-md text-center"><b>Nombre:</b> {{$gasto->user->vendedor->user->name}}</h1>
+                                                            <h1 class="text-md text-center"><b>Rut:</b> {{$gasto->user->vendedor->rut}}</h1>
+                                                            <h1 class="text-md text-center"><b>Banco:</b> {{$gasto->user->vendedor->banco}}</h1>
+                                                            <h1 class="text-md text-center"><b>Cuenta:</b> {{$gasto->user->vendedor->tipo_cuenta}}</h1>
+                                                            <h1 class="text-md text-center"><b>Nro Cuenta:</b> {{$gasto->user->vendedor->nro_cuenta}}</h1>
+                                                            
+                                                            @endif
 
                                                             <hr class="w-full">
                                                             {!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}

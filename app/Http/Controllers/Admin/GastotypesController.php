@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Gasto;
-use App\Models\Lote;
-use App\Models\Orden;
+use App\Models\Gastotype;
 use Illuminate\Http\Request;
 
-class LoteController extends Controller
+class GastotypesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,8 @@ class LoteController extends Controller
      */
     public function index()
     {
-        //
+        $gastotypes=Gastotype::all();
+        return view('admin.gastotypes.index',compact('gastotypes'));
     }
 
     /**
@@ -27,7 +26,7 @@ class LoteController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.gastotypes.create');
     }
 
     /**
@@ -39,54 +38,12 @@ class LoteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'lote'=>'required',
-            'user_id'=>'required'
-            ]);
-        
+            'name'=>'required|unique:gastotypes'
+        ]);
 
-        $lote=Lote::create([
-                'user_id'=> $request->user_id
-                ]);
+        $disciplina = Gastotype::create($request->all());
 
-        $url = $request->file('lote')->store('lote');
-        $lote->resource()->create([
-                    'url'=>$url
-                ]);
-        $valor=0;
-        foreach ($request->selected as $item){
-            $valor=$valor+1500;
-            $lote->ordens()->attach($item);
-            $orden = Orden::find($item);
-            $orden->status = 2;
-            $orden->save();
-        }
-
-        foreach ($request->selected as $item){
-            $orden = Orden::find($item);
-            foreach($orden->pedido->ordens as $orden){
-
-                if($orden->status==2 || $orden->status==3){
-                    $orden->pedido->status=5;
-                    $orden->pedido->save();
-    
-                }else{
-                    $orden->pedido->status=4;
-                    $orden->pedido->save();
-                    break;
-                }
-
-            } 
-
-        }
-
-        $gasto=Gasto::create([
-            'user_id'=> Auth()->user()->id,
-            'metodo'=> 'TRANSFERENCIA',
-            'estado'=> 1,
-            'cantidad'=> $valor,
-            'gastotype_id'=> 2 ]);
-        
-        return redirect()->route('admin.disenos.index');
+        return redirect()->route('admin.gastotypes.index')->with('info','El gasto se creo con éxito.');
     }
 
     /**

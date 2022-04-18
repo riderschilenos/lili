@@ -386,6 +386,12 @@ return [
             'active'     => ['admin/disciplinas*']
         ],
         [
+            'text' => 'Tipos de gastos',
+            'route'  => 'admin.gastotypes.index',
+            'icon' => 'fas fa-fw fa-cogs',
+            'active'     => ['admin/disciplinas*']
+        ],
+        [
             'text' => 'Precios',
             'route'  => 'admin.precios.index',
             'icon' => 'fas fa-fw fa-dollar-sign',

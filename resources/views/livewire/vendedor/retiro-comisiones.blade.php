@@ -605,7 +605,7 @@
                                     $counter-=1
                                 @endphp
                             @if ($pago->estado!=3)
-                                
+                            @if ($pago->gastotype_id==1)
                             
                                 
                             
@@ -676,6 +676,7 @@
                                             
                                         </td>--}}
                                     </tr>
+                            @endif
                             @endif
                             @endforeach
                         <!-- More people... -->

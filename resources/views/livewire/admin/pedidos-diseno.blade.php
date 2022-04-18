@@ -490,7 +490,7 @@
                         @php
                             $counter-=1
                         @endphp
-                    @if ($pago->estado!=3)
+                    @if ($pago->gastotype_id==2)
                         
                     
                         

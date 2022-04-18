@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SerieController;
 use App\Http\Controllers\Admin\DisciplinaController;
 use App\Http\Controllers\Admin\DisenoController;
 use App\Http\Controllers\Admin\GastoController;
+use App\Http\Controllers\Admin\GastotypesController;
 use App\Http\Controllers\Admin\LoteController;
 use App\Http\Controllers\Admin\MarcaController;
 use App\Http\Controllers\Admin\ModeloController;
@@ -58,6 +59,8 @@ Route::resource('diseno',DisenoController::class)->names('disenos');
 Route::resource('lote',LoteController::class)->names('lotes');
 
 Route::resource('gastos', GastoController::class)->names('gastos');
+
+Route::resource('gastotypes', GastotypesController::class)->names('gastotypes');
 
 Route::get('produccion',[DisenoController::class, 'indexproduccion'])->name('disenos.produccion');
 

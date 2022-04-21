@@ -200,6 +200,9 @@
             
             
         </div>
+        <div class="card-header mb-4">
+            <h3 class="text-center"><b>Ventas por Producto</b></h3>
+        </div>
         <div class="row justify-content-md-center">
             <div class="col">
 
@@ -209,12 +212,12 @@
                         <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                             <div class="card-header text-center"><b class="h1">{{$carcasas}}</b></div>
                             <img src="" alt="">
-                        <div class="card-body">
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Carcasas</h5><br>
+                                
                             
-                                <h5 class="card-title mx-auto">Carcasas</h5><br>
-                            
-                        
-                        </div>
+                            </div>
                         </div>
                     </div>
                    

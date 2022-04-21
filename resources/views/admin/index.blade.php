@@ -10,6 +10,9 @@
    
 
     @livewire('admin.contabilidad')
+
+    @livewire('admin.pedidos-index')
+    
 @stop
 
 @section('css')

@@ -32,7 +32,7 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($gastos as $gasto)
+                    @foreach ($gastos->reverse() as $gasto)
                         <tr>
                             <td>{{$gasto->id}}</td>
                             <td> 

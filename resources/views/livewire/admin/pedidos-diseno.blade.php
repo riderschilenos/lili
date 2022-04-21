@@ -471,9 +471,9 @@
             <img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
             <div class="text-center">
               <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
-              <span class="text-gray-500">Total</span>
+              <span class="text-gray-500">Comisiones</span>
               
-              <span class="text-blue-500 font-bold">Comisiones</span>
+              <span class="text-blue-500 font-bold">Pendientes</span>
             </div>
         </div>
        <div>

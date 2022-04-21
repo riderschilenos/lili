@@ -452,9 +452,19 @@
                     @php
                    
                         $total=0;
+                        $pendientes=0;
                     @endphp
                     @foreach ($gastos as $pago)
                     @if ($pago->estado==1)
+                        @if ($pago->gastotype_id==2)
+                            
+                            @php                                   
+                                $pendientes=$pendientes+$pago->cantidad;
+                            @endphp
+                            
+                        @endif
+                    @endif
+                    @if ($pago->estado==2)
                         @if ($pago->gastotype_id==2)
                             
                             @php                                   
@@ -470,7 +480,7 @@
         <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
             <img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
             <div class="text-center">
-              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
+              <h1 class="text-4xl font-bold text-gray-800">${{number_format($pendientes)}}</h1>
               <span class="text-gray-500">Comisiones</span>
               
               <span class="text-blue-500 font-bold">Pendientes</span>

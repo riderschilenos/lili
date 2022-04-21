@@ -487,7 +487,8 @@
             </div>
         </div>
        <div>
-
+            <img class="hidden lg:block" src="https://www.pngkit.com/png/detail/297-2979179_una-estrella-y-es-la-ms-cercana-a.png" alt="" />
+        
        </div>
 
         <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">

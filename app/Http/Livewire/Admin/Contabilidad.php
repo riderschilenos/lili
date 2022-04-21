@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Gasto;
 use App\Models\Pedido;
 use App\Models\Suscripcion;
 use Livewire\Component;
@@ -18,6 +19,8 @@ class Contabilidad extends Component
 
         $suscripcions=Suscripcion::all();
 
-        return view('livewire.admin.contabilidad',compact('pedidos','suscripcions'));
+        $gastos=Gasto::all();
+
+        return view('livewire.admin.contabilidad',compact('pedidos','suscripcions','gastos'));
     }
 }

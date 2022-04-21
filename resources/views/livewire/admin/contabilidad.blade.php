@@ -14,6 +14,7 @@
     $colgantes=0;
     $poleras=0;
     $polerones=0;
+
     @endphp
 
     @foreach ($pedidos as $pedido)
@@ -121,6 +122,12 @@
         
     @endforeach
 
+    @foreach ($gastos as $gasto)
+        @php
+            $comisionespagadas+=$gasto->cantidad;
+        @endphp
+    @endforeach
+
 
     <div class="container">
         <div class="card-header mb-4">
@@ -168,13 +175,13 @@
                 </div>
             </div>
             <div class="col">
-                <h2 class="text-center"><b>${{number_format($comisiones)}}</b></h2>
+                <h2 class="text-center"><b>${{number_format($comisiones+$comisionespagadas)}}</b></h2>
                 <h5 class="text-center">GASTOS</h5>
                 <div class="row justify-content-md-center">
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisiones)}}</b></div>
-                            <div class="card-header"><b class="h5">+ ${{number_format($comisiones)}} (Pendientes)</b></div>
+                            <div class="card-header"><b class="h5">+ ${{number_format($comisiones-$comisionespagadas)}} (Pendientes)</b></div>
                         <div class="card-body">
                             
                                 <h5 class="card-title">Comisiones</h5><br>
@@ -185,7 +192,7 @@
                     </div>
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">$.000</b></div>
+                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionespagadas)}}</b></div>
                             <div class="card-header"><b class="h5">- $.000 (EXTRAS)</b></div>
                         <div class="card-body">
                             

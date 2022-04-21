@@ -137,8 +137,16 @@ class GastoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Gasto $gasto)
     {
-        //
+        if($gasto->pedidos){
+            foreach ($gasto->pedidos as $pedido){
+            $pedido->status = 3;
+            $pedido->save();
+        }}
+
+        $gasto->delete();
+
+        return redirect()->route('admin.gastos.index');
     }
 }

@@ -110,6 +110,14 @@
                                                     
                                     {!! Form::close() !!}
                             </td>
+                            <td> 
+                                <form action="{{route('admin.gastos.destroy',$gasto)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+
+                                    <button class="btn btn-danger btn-sm" type="submit"> RECHAZAR </button>
+                                </form>
+                            </td>
                             
                         </tr>
                         

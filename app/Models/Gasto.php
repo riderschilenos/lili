@@ -25,4 +25,8 @@ class Gasto extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    public function gastotype(){
+        return $this->belongsTo('App\Models\Gastotype');
+    }
 }

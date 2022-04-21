@@ -571,10 +571,216 @@
                                 
                     
                     </div>
+
+                 
                 </div>
     
          
-            </div>
+            </div>   
+    
+    <h1 class="text-3xl text-gray-800 text-center font-bold py-8">Historial de Retiros</h1>
+
+    @php
+   
+        $total=0;
+        $pendientes=0;
+    @endphp
+    @foreach ($gastos as $pago)
+    @if ($pago->estado==1)
+        @if ($pago->gastotype_id==3)
+            
+            @php                                   
+                $pendientes=$pendientes+$pago->cantidad;
+            @endphp
+            
+        @endif
+    @endif
+    @if ($pago->estado==2)
+        @if ($pago->gastotype_id==2)
+            
+            @php                                   
+                $total=$total+$pago->cantidad;
+            @endphp
+            
+        @endif
+    @endif
+           
+    @endforeach
+
+<div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+<div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+<img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
+<div class="text-center">
+<h1 class="text-4xl font-bold text-gray-800">${{number_format($pendientes)}}</h1>
+<span class="text-gray-500">Comisiones</span>
+
+<span class="text-blue-500 font-bold">Pendientes</span>
+</div>
+</div>
+<div>
+<img class="hidden lg:block" src="https://www.pngkit.com/png/detail/297-2979179_una-estrella-y-es-la-ms-cercana-a.png" alt="" />
+
+</div>
+
+<div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+<img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
+<div class="text-center">
+<h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
+<span class="text-gray-500">Comisiones</span>
+
+<span class="text-blue-500 font-bold">Retiradas</span>
+</div>
+</div>
+
+
+
+<!-- 
+
+<div class="bg-white w-1/3 rounded-xl shadow-lg flex items-center justify-around">
+
+<div class="text-center">
+<span class="text-gray-500">BONO</span>
+<h1 class="text-4xl font-bold text-gray-800">$500.000</h1>
+<span class="text-gray-500">En ventas</span>
+</div>
+<div class="text-center">
+<img src="https://static.vecteezy.com/system/resources/previews/001/609/741/non_2x/padlock-security-symbol-isolated-cartoon-free-vector.jpg" class="h-20" alt="" />
+<span class="text-gray-500">MAS INFO</span>
+</div>       
+</div>
+-->
+
+</div>
+
+<x-table-responsive>
+
+
+
+@if ($gastos->count())
+
+<table class="min-w-full divide-y divide-gray-200 mt-4">
+<thead class="bg-gray-50">
+<tr>
+    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+    Nro
+    </th>
+    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Método
+    </th>
+    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Cantidad                       
+    </th>
+    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Pedidos
+    </th>
+    
+    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+    Estado
+    </th>
+    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+    Fecha
+    </th>
+    <th scope="col" class="relative px-6 py-3">
+    <span class="sr-only">Edit</span>
+    </th>
+</tr>
+</thead>
+<tbody class="bg-white divide-y divide-gray-200">
+    @php
+        $counter=$gastos->count();
+     
+    @endphp
+   @foreach ($gastos as $pago)
+        @php
+            $counter-=1
+         
+        @endphp
+    @if ($pago->gastotype_id==3)
+        
+    
+        
+    
+            <tr>
+                <td class="px-6 py-4 justify-center">
+                    <p class="text-center">{{$counter+1}}</p>
+                   
+                </td>
+
+                <td class="px-6 py-4 whitespace-nowrap">
+                    
+                    @if ($pago->metodo=="MERCADOPAGO")
+                        <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                            MERCADOPAGO
+                        </span>
+                    @else
+                        <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            TRANSFERENCIA
+                        </span>
+                        
+                   
+                    @endif
+                          
+                    
+                </td>
+
+               
+                <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900 ml-3">${{number_format($pago->cantidad)}}</div>
+                    
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900 ml-3">{{$pago->pedidos->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>
+                    <div class="text-sm text-gray-500">Pedidos</div>
+                </td>
+
+                
+
+                
+
+                <td class="px-6 py-4 whitespace-nowrap">    
+
+                    @switch($pago->estado)
+                        @case(1)
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                Pendiente de Aprobación
+                            </span>
+                            @break
+                        @case(2)
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                Aprobado
+                            </span>
+                            @break
+                       
+                            
+                        @endswitch
+                        
+                </td>
+                
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pago->created_at))-1]}}</div>
+                    <div class="text-sm text-gray-900">{{$pago->created_at->format('d-m-Y')}}</div>    
+                </td>
+                {{-- comment 
+                
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <a href="{{route('vendedor.pedidos.edit',$pago)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
+                    
+                </td>--}}
+            </tr>
+    @endif
+    @endforeach
+<!-- More people... -->
+</tbody>
+</table>
+@else
+<div class="px-6 py-4">
+No hay ningun retiro realizado
+</div>
+@endif 
+
+</x-table-responsive>
+
+
 
 
   

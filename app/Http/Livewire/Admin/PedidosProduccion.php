@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Gasto;
 use App\Models\Invitado;
 use App\Models\Lote;
 use App\Models\Orden;
@@ -37,9 +38,14 @@ class PedidosProduccion extends Component
         $socios= Socio::all();
         $lotes=Lote::where('estado',1)->latest('id')->paginate($this->paginate);
         $alllotes=Lote::where('estado',2)->latest('id')->paginate($this->paginate);
+
+        $gastos=Gasto::where('user_id',auth()->user()->id)
+                        ->orderby('id','DESC')
+                        ->latest('id')
+                        ->get();
         
 
-        return view('livewire.admin.pedidos-produccion',compact('pedidos','users','invitados','socios','lotes','alllotes'));
+        return view('livewire.admin.pedidos-produccion',compact('pedidos','users','invitados','socios','lotes','alllotes','gastos'));
     }
     public function updateselectedproduccion(){
 
@@ -73,7 +79,7 @@ class PedidosProduccion extends Component
 
 
     public function encaja()
-    {
+    {   
         if($this->file){
                 
             $foto = Str::random(10).$this->file->getClientOriginalName();
@@ -136,7 +142,10 @@ class PedidosProduccion extends Component
     }
 
     public function despachado(Pedido $pedido)
-    {
+    {   $this->validate([
+        'file'=>'required'
+            ]);
+            
         if($this->file){
                 
             $foto = Str::random(10).$this->file->getClientOriginalName();
@@ -158,6 +167,19 @@ class PedidosProduccion extends Component
 
         $pedido->status=7;
         $pedido->save();
+
+        $valor=0;
+
+        foreach ($pedido->ordens as $orden){
+            $valor=$valor+1500;
+        }
+
+        $gasto=Gasto::create([
+            'user_id'=> Auth()->user()->id,
+            'metodo'=> 'TRANSFERENCIA',
+            'estado'=> 1,
+            'cantidad'=> $valor,
+            'gastotype_id'=> 3 ]);
     
 
         $this->reset(['file']);

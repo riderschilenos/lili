@@ -10,4 +10,8 @@ class Gastotype extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function Gastos(){
+        return $this->hasMany('App\Models\Gasto');
+    }
 }

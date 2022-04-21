@@ -3,7 +3,27 @@
 @section('title', 'RidersChilenos')
 
 @section('content_header')
+<div>
+   
+        @php
+            $total=0;
+        @endphp
+    
+        @foreach ($gastos->reverse() as $ga) 
+            @php
+                    $total=$total+$ga->cantidad;
+                    
+            @endphp
+    
+        @endforeach
+
+        
+
+</div>
+    <h1 class="float-right"> ${{number_format($total)}}</h1>
     <h1>Pagos pendientes de aprobación</h1>
+    
+   
 @stop
 
 @section('content')
@@ -13,9 +33,10 @@
             {{session('info')}}
         </div>
     @endif
-
+    
     <div class="card">
         <div class="card-body">
+            
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -23,6 +44,7 @@
                         <th>Vendedor / Trabajador</th>
                         <th>Pedidos</th>
                         <th>Metodo</th>
+                        <th>Tipo</th>
                         
                         <th class="text-center">Fecha Solicitud</th>
 
@@ -70,6 +92,7 @@
                                 
                             </td>
                             <td>{{$gasto->metodo}}</td>
+                            <td>{{$gasto->gastotype->name}}</td>
                            {{-- comment
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">

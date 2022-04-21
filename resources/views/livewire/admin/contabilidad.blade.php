@@ -193,7 +193,7 @@
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionespagadas)}}</b></div>
-                            {{-- comment<div class="card-header"><b class="h5">- $.000 (EXTRAS)</b></div> --}}
+                           <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
                         <div class="card-body">
                             
                                 <h5 class="card-title">Gastos generales</h5><br>

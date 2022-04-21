@@ -467,7 +467,15 @@
                     @endforeach
 
     <div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
-
+        <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+            <img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
+            <div class="text-center">
+              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
+              <span class="text-gray-500">Total</span>
+              
+              <span class="text-blue-500 font-bold">Comisiones</span>
+            </div>
+        </div>
        <div>
 
        </div>

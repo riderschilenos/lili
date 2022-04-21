@@ -77,7 +77,7 @@
 
     <div class="container">
         <div class="card-header mb-4">
-            <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-$totalsuscrip)}}</b></h1>
+            <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-$comisiones)}}</b></h1>
         </div>
         <div class="row justify-content-md-center">
             <div class="col">
@@ -121,12 +121,12 @@
                 </div>
             </div>
             <div class="col">
-                <h2 class="text-center"><b>${{number_format($comisionespagadas+$totalsuscrip)}}</b></h2>
+                <h2 class="text-center"><b>${{number_format($comisiones)}}</b></h2>
                 <h5 class="text-center">GASTOS</h5>
                 <div class="row justify-content-md-center">
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionespagadas)}}</b></div>
+                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisiones)}}</b></div>
                             <div class="card-header"><b class="h5">+ ${{number_format($comisiones)}} (Pendientes)</b></div>
                         <div class="card-body">
                             
@@ -138,8 +138,8 @@
                     </div>
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">$125.000</b></div>
-                            <div class="card-header"><b class="h5">- $125.000 (EXTRAS)</b></div>
+                            <div class="card-title px-2 pt-2"><b class="h1">$.000</b></div>
+                            <div class="card-header"><b class="h5">- $.000 (EXTRAS)</b></div>
                         <div class="card-body">
                             
                                 <h5 class="card-title">Gastos generales</h5><br>

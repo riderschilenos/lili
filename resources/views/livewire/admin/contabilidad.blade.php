@@ -140,7 +140,7 @@
                 <div class="row justify-content-md-center">
                     <div class="col">
                         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($total)}}</b></div>
+                            <div class="card-header"><b class="h1">${{number_format($total)}}</b></div>
                         <div class="card-body">
                             
                                 <h5 class="card-title">Pagos</h5><br>

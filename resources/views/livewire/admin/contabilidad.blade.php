@@ -206,12 +206,12 @@
                 <div class="row justify-content-md-center">
                     
                     <div class="col">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><b class="h1">{{$carcasas}}</b></div>
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-center"><b class="h1">{{$carcasas}}</b></div>
                             <img src="" alt="">
                         <div class="card-body">
                             
-                                <h5 class="card-title">Carcasas</h5><br>
+                                <h5 class="card-title mx-auto">Carcasas</h5><br>
                             
                         
                         </div>
@@ -219,55 +219,55 @@
                     </div>
                    
                     <div class="col">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><b class="h1">{{$llaveros}}</b></div>
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-center"><b class="h1">{{$llaveros}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Llaveros</h5><br>
+                                <h5 class="card-title mx-auto">Llaveros</h5><br>
                             
                         
                         </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><b class="h1">{{$collares}}</b></div>
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-center"><b class="h1">{{$collares}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Collares</h5><br>
+                                <h5 class="card-title mx-auto">Collares</h5><br>
                             
                         
                         </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><b class="h1">{{$colgantes}}</b></div>
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-center"><b class="h1">{{$colgantes}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Colgantes</h5><br>
+                                <h5 class="card-title mx-auto">Colgantes</h5><br>
                             
                         
                         </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><b class="h1">{{$poleras}}</b></div>
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-center"><b class="h1">{{$poleras}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Poleras</h5><br>
+                                <h5 class="card-title mx-auto">Poleras</h5><br>
                             
                         
                         </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><b class="h1">{{$polerones}}</b></div>
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-center"><b class="h1">{{$polerones}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Polerones</h5><br>
+                                <h5 class="card-title mx-auto">Polerones</h5><br>
                             
                         
                         </div>

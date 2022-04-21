@@ -18,7 +18,10 @@ class PagoController extends Controller
      */
     public function index()
     {
-        //
+        $pagos = Pago::where('estado',1)->paginate(80);
+        $pagosok = Pago::where('estado',2)->paginate(80);
+
+        return view('admin.pagos.index',compact('pagos','pagosok'));
     }
 
     /**
@@ -120,14 +123,15 @@ class PagoController extends Controller
     public function destroy(Pago $pago)
     {
         
-        foreach ($pago->pedidos as $pedido){
+        if($pago->pedidos){
+            foreach ($pago->pedidos as $pedido){
             $pedido->status = 2;
             $pedido->save();
-        }
+        }}
 
         $pago->delete();
 
-        return redirect()->back();
+        return redirect()->route('admin.pagos.index');
 
     }
 

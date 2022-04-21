@@ -49,6 +49,12 @@
                             </td>
                             <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
                             <td>
+                                <form action="{{route('admin.pagos.destroy',$pago)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+
+                                    <button class="btn btn-danger btn-sm" type="submit"> RECHAZAR </button>
+                                </form>
                                 <form action="{{route('admin.pago.approved',$pago)}}" method="POST">
                                     @csrf
             

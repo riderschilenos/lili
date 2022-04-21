@@ -1,9 +1,19 @@
 <div>
     @php
     $total=0;
+
     $comisiones=0;
+
     $comisionespagadas=0;
-    $totalsuscrip=0;
+
+    $totalsuscrip=0; //ingresos por suscripcion
+
+    $carcasas=0;
+    $llaveros=0;
+    $collares=0;
+    $colgantes=0;
+    $poleras=0;
+    $polerones=0;
     @endphp
 
     @foreach ($pedidos as $pedido)
@@ -13,6 +23,25 @@
             @php
                 
                 $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+
+                if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7){
+                $carcasas+=1;   }
+                elseif($orden->producto->id==4){
+                    $llaveros+=1; 
+                }
+                elseif($orden->producto->id==10){
+                    $collares+=1; 
+                }
+                elseif($orden->producto->id==8){
+                    $colgantes+=1; 
+                }
+                elseif($orden->producto->id==5 || $orden->producto->id==6){
+                    $poleras+=1; 
+                }
+                elseif($orden->producto->id==13){
+                    $polerones+=1; 
+                }
+
 
             @endphp    
             @endforeach
@@ -33,7 +62,7 @@
             @foreach ($pedido->ordens as $orden)
              
 
-            @if($pedido->status==8)
+            @if($pedido->status==9)
                 @php
                     $comisionespagadas+=$orden->producto->comision_socio;
                 @endphp   
@@ -150,6 +179,85 @@
                     </div>
                 </div>
             </div>
+            
+            
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col">
+
+                <div class="row justify-content-md-center">
+                    
+                    <div class="col">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><b class="h1">{{$carcasas}}</b></div>
+                            <img src="" alt="">
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">Carcasas</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><b class="h1">{{$llaveros}}</b></div>
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">Llaveros</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><b class="h1">{{$collares}}</b></div>
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">Collares</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><b class="h1">{{$colgantes}}</b></div>
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">Colgantes</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><b class="h1">{{$poleras}}</b></div>
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">Poleras</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                            <div class="card-header"><b class="h1">{{$polerones}}</b></div>
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">Polerones</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             
             
         </div>

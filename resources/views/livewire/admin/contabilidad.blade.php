@@ -138,7 +138,7 @@
                 <h2 class="text-center"><b>${{number_format($total+$totalsuscrip)}}</b></h2>
                 <h5 class="text-center">INGRESOS</h5>
                 <div class="row justify-content-md-center mx-auto">
-                    <div class="mx-auto">
+                    <div class="col mx-auto">
                         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
                             <div class="card-header"><b class="h1">${{number_format($total)}}</b></div>
                         <div class="card-body">
@@ -149,7 +149,7 @@
                         </div>
                         </div>
                     </div>
-                    <div class="mx-auto">
+                    <div class="col mx-auto">
                         <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
                             <div class="card-header"><b class="h1">${{number_format($totalsuscrip)}}</b></div>
                         <div class="card-body">

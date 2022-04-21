@@ -143,7 +143,7 @@
                             <div class="card-header"><b class="h1">${{number_format($total)}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Pagos</h5><br>
+                                <h5 class="card-title">Ventas en Productos</h5><br>
                             
                         
                         </div>

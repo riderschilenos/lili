@@ -140,10 +140,10 @@
                 <div class="row justify-content-md-center">
                     <div class="mx-auto" min-width="80%">
                         <div class="card text-white bg-success mb-3" style="min-width: 16rem;">
-                            <div class="card-header"><b class="h1">${{number_format($total)}}</b></div>
+                            <div class="card-header text-center"><b class="h1">${{number_format($total)}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Ventas en Productos</h5><br>
+                                <h5 class="card-title text-center">Ventas en Productos</h5>
                             
                         
                         </div>
@@ -151,10 +151,10 @@
                     </div>
                     <div class="mx-auto" min-width="80%">
                         <div class="card text-white bg-success mb-3" style="min-width: 16rem;">
-                            <div class="card-header"><b class="h1">${{number_format($totalsuscrip)}}</b></div>
+                            <div class="card-header text-center"><b class="h1">${{number_format($totalsuscrip)}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title">Ventas en Suscripciones</h5><br>
+                                <h5 class="card-title text-center">Ventas en Suscripciones</h5>
                             
                         
                         </div>

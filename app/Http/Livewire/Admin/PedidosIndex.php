@@ -33,7 +33,7 @@ class PedidosIndex extends Component
                 ->orwhere('status',6)
                 ->orwhere('status',7)
                 ->orderby('status','DESC')
-                ->paginate(100);
+                ->paginate(1000);
         $pedidosint=Pedido::all();
 
         return view('livewire.admin.pedidos-index',compact('pedidos','pedidosint','users','invitados','socios','total'));

@@ -14,6 +14,7 @@
     $colgantes=0;
     $poleras=0;
     $polerones=0;
+    $stickers=0;
 
     @endphp
 
@@ -41,6 +42,9 @@
                 }
                 elseif($orden->producto->id==13){
                     $polerones+=1; 
+                }
+                elseif($orden->producto->id==9){
+                    $stickers+=1; 
                 }
 
 
@@ -71,6 +75,10 @@
                 elseif($orden->producto->id==13){
                     $polerones+=1; 
                 }
+                elseif($orden->producto->id==9){
+                    $stickers+=1; 
+                }
+                
 
             @endphp    
             @endforeach
@@ -278,6 +286,17 @@
                         <div class="card-body">
                             
                                 <h5 class="card-title mx-auto">Polerones</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-center"><b class="h1">{{$stickers}}</b></div>
+                        <div class="card-body">
+                            
+                                <h5 class="card-title mx-auto">Styckers</h5><br>
                             
                         
                         </div>

@@ -22,7 +22,7 @@ class VehiculoCreate extends Component
 
     public function updatedselectedvehiculotype($vehiculo_type){
         
-        if($vehiculo_type==1 or $vehiculo_type==2 or $vehiculo_type==3 or $vehiculo_type==7){
+        if($vehiculo_type==1 or $vehiculo_type==2 or $vehiculo_type==3 or $vehiculo_type==7 or $vehiculo_type==15){
             $disciplina_id=1;
         }
 

@@ -276,6 +276,14 @@ return [
            
         ],
         [
+            'text'        => 'Vendedores',
+            'route'         => 'admin.vendedors.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'can'         => 'Leer usuarios',
+            'active'     => ['admin/socios*']
+           
+        ],
+        [
             'text'        => 'Suscripcions',
             'route'         => 'admin.suscripcions.index',
             'icon'        => 'fas fa-fw fa-users',

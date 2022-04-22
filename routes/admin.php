@@ -28,6 +28,8 @@ use App\Http\Controllers\Admin\SocioController;
 use App\Http\Controllers\Admin\SuscripcionController;
 use App\Http\Controllers\Admin\Vehiculo_typeController;
 use App\Http\Controllers\Admin\VehiculoController;
+use App\Http\Controllers\Admin\VendedorsController;
+use App\Http\Controllers\Vendedor\HomeController as VendedorHomeController;
 use App\Http\Controllers\Vendedor\PagoController;
 
 Route::get('/',[HomeController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
@@ -81,6 +83,8 @@ Route::post('{marca}/image',[MarcaController::class, 'image'])->name('marca.imag
 //Route::get('pagos/admin',[PagoController::class, 'adminindex'])->name('pagos.index');
 
 Route::resource('pagos',PagoController::class)->names('pagos');
+
+Route::resource('vendedors',VendedorsController::class)->names('vendedors');
 
 Route::get('qrprinting',[QrregisterController::class, 'impresion'])->name('qrregister.impresion');
 

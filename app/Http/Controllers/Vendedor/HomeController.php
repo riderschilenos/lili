@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Vendedor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Disciplina;
 use App\Models\Invitado;
 use App\Models\Pedido;
 use App\Models\Socio;
@@ -16,8 +17,20 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('vendedor.pedidos.index');
+    {   
+        if (auth()->user()->vendedor) {
+            if (auth()->user()->vendedor->estado==2) {
+                return view('vendedor.pedidos.index');
+            }else{
+                $disciplinas= Disciplina::pluck('name','id');
+                return view('vendedor.create',compact('disciplinas'));
+            }
+            
+        }else{
+            $disciplinas= Disciplina::pluck('name','id');
+             return view('vendedor.create',compact('disciplinas'));
+        }
+        
     }
 
     public function prepay()

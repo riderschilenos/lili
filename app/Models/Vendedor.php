@@ -11,6 +11,10 @@ class Vendedor extends Model
 
     protected $guarded = ['id'];
 
+    const BORRADOR =1;
+    const ACTIVO =2;
+    const BLOQUEADO =3;
+
     //relacion uno uno inversa
 
     public function user(){

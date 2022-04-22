@@ -46,7 +46,6 @@
     ,[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedor.home.index'),
-        'can'=>'Vender',
         'active'=>request()->routeIs('vendedor.*')
 
     ]

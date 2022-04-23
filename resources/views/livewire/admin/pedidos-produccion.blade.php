@@ -596,7 +596,7 @@
         @endif
     @endif
     @if ($pago->estado==2)
-        @if ($pago->gastotype_id==2)
+        @if ($pago->gastotype_id==3)
             
             @php                                   
                 $total=$total+$pago->cantidad;

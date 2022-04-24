@@ -142,6 +142,8 @@
 
                @foreach ($pedidos as $pedido)
 
+                @if($pedido->status==7 || $pedido->status==8)
+
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">

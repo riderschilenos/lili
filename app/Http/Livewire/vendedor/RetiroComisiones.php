@@ -21,8 +21,6 @@ class RetiroComisiones extends Component
         
         
         $pedidos= Pedido::where('user_id',auth()->user()->id)
-                            ->where('status',7)
-                            ->orwhere('status',8)
                             ->orderby('status','DESC')
                             ->latest('id')
                             ->get();

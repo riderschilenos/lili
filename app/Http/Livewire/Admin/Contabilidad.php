@@ -12,7 +12,7 @@ class Contabilidad extends Component
     public function render()
     {   $pedidos=Pedido::where('status',4)
         ->orwhere('status',5)
-        ->orwhere('status',6)
+        ->orwhere('status',6) 
         ->orwhere('status',7)
         ->orwhere('status',8)
         ->orwhere('status',9)

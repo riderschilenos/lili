@@ -58,7 +58,9 @@
                         <tr>
                             <td>{{$gasto->id}}</td>
                             <td> 
+                                @if($gasto->user)
                                     {{$gasto->user->name}}<br>
+                                @endif
                             </td>
                             <td> 
                                 @foreach ($gasto->pedidos as $pedido)

@@ -196,7 +196,7 @@
                 </div>
             </div>
             <div class="col">
-                <h2 class="text-center"><b>${{number_format($comisiones+$comisionespagadas)}}</b></h2>
+                <h2 class="text-center"><b>${{number_format($comisionventas+$comisiondiseño+$comisionproduccion)}}</b></h2>
                 <h5 class="text-center">GASTOS</h5>
                 <div class="row justify-content-md-center">
                     <div class="col">

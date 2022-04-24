@@ -360,18 +360,16 @@
                         <div class="card"><div class="card-body">
                                     
                             <img class="h-14 w-38 object-contain" src="{{asset('img/home/mercadopago.png')}}" alt="">
-                            <h1 class="text-lg ml-2 text-center"><b>Pago Nro: {{$pagos->count()}}</b></h1>
+                            <h1 class="text-lg ml-2 text-center"><b>Retiro Nro: {{$pagos->count()}}</b></h1>
                             <article class="flex items-center">
-                                        <h1 class="text-lg ml-2"><b>Monto a pagar:</b></h1>
+                                        <h1 class="text-lg ml-2"><b>Monto a Retirar:</b></h1>
                                         
                                     
                                         <p class="text-xl font-bold ml-auto">${{number_format($pago->cantidad)}}</p>
                                     
                             </article>
                             
-                            <div class="cho-container flex justify-center mt-2 mb-4">
-                                <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
-                            </div>
+                            
                             
                         </div></div>
                             
@@ -452,10 +450,6 @@
 
                                                             
 
-                                                            <div class="flex justify-center">
-                                                                {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
-                                                            </div>
-                                                        
                                                     {!! Form::close() !!}
                                                     
                                                 </div></div>

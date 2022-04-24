@@ -25,7 +25,7 @@ class RetiroComisiones extends Component
                             ->latest('id')
                             ->get();
 
-        $pagos=Gasto::where('user_id',auth()->user()->id)
+        $gastos=Gasto::where('user_id',auth()->user()->id)
                                 ->orderby('id','DESC')
                                 ->latest('id')
                                 ->get();
@@ -34,7 +34,7 @@ class RetiroComisiones extends Component
                             ->where('estado',3)
                             ->first();
         
-        return view('livewire.vendedor.retiro-comisiones',compact('pedidos','invitados','socios','pagos','pago'));
+        return view('livewire.vendedor.retiro-comisiones',compact('pedidos','invitados','socios','gastos','pago'));
     }
 
     public function updateselectedtransferencia(Socio $socio){

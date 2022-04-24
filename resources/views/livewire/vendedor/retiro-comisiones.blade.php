@@ -559,11 +559,82 @@
             </div>
             <h1 class="text-3xl text-gray-800 text-center font-bold py-8">Historial de Retiros</h1>
     
+            @php
+                   
+            $total=0;
+            $pendientes=0;
+        @endphp
+        @foreach ($gastos as $pago)
+        @if ($pago->estado==1)
+            @if ($pago->gastotype_id==1)
+                
+                @php                                   
+                    $pendientes=$pendientes+$pago->cantidad;
+                @endphp
+                
+            @endif
+        @endif
+        @if ($pago->estado==2)
+            @if ($pago->gastotype_id==1)
+                
+                @php                                   
+                    $total=$total+$pago->cantidad;
+                @endphp
+                
+            @endif
+        @endif
+               
+        @endforeach
+
+<div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+<div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+<img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
+<div class="text-center">
+  <h1 class="text-4xl font-bold text-gray-800">${{number_format($pendientes)}}</h1>
+  <span class="text-gray-500">Comisiones</span>
+  
+  <span class="text-blue-500 font-bold">Pendientes</span>
+</div>
+</div>
+<div>
+<img class="hidden lg:block" src="https://www.pngkit.com/png/detail/297-2979179_una-estrella-y-es-la-ms-cercana-a.png" alt="" />
+
+</div>
+
+<div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+<img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
+<div class="text-center">
+  <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
+  <span class="text-gray-500">Comisiones</span>
+  
+  <span class="text-blue-500 font-bold">Retiradas</span>
+</div>
+</div>
+
+
+
+<!-- 
+
+<div class="bg-white w-1/3 rounded-xl shadow-lg flex items-center justify-around">
+
+<div class="text-center">
+    <span class="text-gray-500">BONO</span>
+    <h1 class="text-4xl font-bold text-gray-800">$500.000</h1>
+    <span class="text-gray-500">En ventas</span>
+</div>
+<div class="text-center">
+    <img src="https://static.vecteezy.com/system/resources/previews/001/609/741/non_2x/padlock-security-symbol-isolated-cartoon-free-vector.jpg" class="h-20" alt="" />
+    <span class="text-gray-500">MAS INFO</span>
+</div>       
+</div>
+-->
+
+</div>
             <x-table-responsive>
                 
                 
                
-                @if ($pagos->count())
+                @if ($gastos->count())
         
                     <table class="min-w-full divide-y divide-gray-200 mt-4">
                         <thead class="bg-gray-50">
@@ -594,9 +665,9 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @php
-                                $counter=$pagos->count();
+                                $counter=$gastos->count();
                             @endphp
-                           @foreach ($pagos as $pago)
+                           @foreach ($gastos as $pago)
                                 @php
                                     $counter-=1
                                 @endphp

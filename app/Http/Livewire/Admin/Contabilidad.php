@@ -14,6 +14,8 @@ class Contabilidad extends Component
         ->orwhere('status',5)
         ->orwhere('status',6)
         ->orwhere('status',7)
+        ->orwhere('status',8)
+        ->orwhere('status',9)
         ->orderby('status','DESC')
         ->get();
 

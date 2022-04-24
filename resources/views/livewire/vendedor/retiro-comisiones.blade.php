@@ -312,7 +312,7 @@
                                 
                             </td> --}}
                         </tr>
-
+                        @endif
                 @endforeach
             <!-- More people... -->
             </tbody>

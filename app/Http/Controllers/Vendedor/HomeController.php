@@ -7,6 +7,7 @@ use App\Models\Disciplina;
 use App\Models\Invitado;
 use App\Models\Pedido;
 use App\Models\Socio;
+use App\Models\Vendedor;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,9 +19,16 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        if (auth()->user()->vendedor) {
-            if (auth()->user()->vendedor->estado==2) {
-                return view('vendedor.pedidos.index');
+        if (auth()->user()) {
+
+            if (auth()->user()->vendedor) {
+
+                if(auth()->user()->vendedor->estado==2){
+                    return view('vendedor.pedidos.index');
+                }else{
+                    $disciplinas= Disciplina::pluck('name','id');
+                    return view('vendedor.create',compact('disciplinas'));
+                }
             }else{
                 $disciplinas= Disciplina::pluck('name','id');
                 return view('vendedor.create',compact('disciplinas'));
@@ -64,7 +72,24 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nro_cuenta'=>'required',
+            'tipo_cuenta'=>'required',
+            'rut'=>'required',
+            'banco'=>'required'
+        ]);
+
+        $Vendedor = Vendedor::create([
+            'nro_cuenta'=>$request->nro_cuenta,
+            'tipo_cuenta'=>$request->tipo_cuenta,
+            'rut'=>$request->rut,
+            'banco'=>$request->banco,
+            'user_id'=>$request->user_id,
+            'biografia'=>'-',
+
+        ]);
+
+        return redirect()->route('vendedor.home.index');
     }
 
     /**

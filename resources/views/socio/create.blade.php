@@ -30,10 +30,10 @@
     </div>
     
 
-    {{-- @livewire('vendedor.pedidos-index')--}}
     <x-slot name="js">
         
         <script src="{{asset('js/socio/form.js')}}"></script>
+          
         
     </x-slot>
     

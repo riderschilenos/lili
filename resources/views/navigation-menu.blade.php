@@ -28,6 +28,11 @@
         'route'=>route('garage.vehiculos.registerindex'),
         'active'=>request()->routeIs('garage.vehiculos.registerindex')
 
+    ],[   
+        'name'=>'Portal Vendedores',
+        'route'=>route('vendedores.index'),
+        'active'=>request()->routeIs('vendedor.*')
+
     ]
     ,[   
         'name'=>'Diseño',
@@ -43,12 +48,7 @@
         'active'=>request()->routeIs('admin.disenos.produccion')
 
     ]
-    ,[   
-        'name'=>'Portal Vendedores',
-        'route'=>route('vendedor.home.index'),
-        'active'=>request()->routeIs('vendedor.*')
-
-    ]
+   
     /*
     ,[   
         'name'=>'Tienda',
@@ -77,13 +77,6 @@
 
                     @if ($nav_link['name']=='Diseño')
                         @can('Diseño')
-                            <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                                {{ $nav_link['name'] }}
-                            </x-jet-nav-link>
-                        @endcan
-
-                    @elseif($nav_link['name']=='Portal Vendedores')
-                        @can('Vender')
                             <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                                 {{ $nav_link['name'] }}
                             </x-jet-nav-link>
@@ -292,13 +285,6 @@
 
                 @if ($nav_link['name']=='Diseño')
                     @can('Diseño')
-                        <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                            {{ $nav_link['name'] }}
-                        </x-jet-responsive-nav-link>
-                    @endcan
-
-                @elseif($nav_link['name']=='Portal Vendedores')
-                    @can('Vender')
                         <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
                         </x-jet-responsive-nav-link>

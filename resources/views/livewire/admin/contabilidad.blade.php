@@ -22,6 +22,10 @@
     $comisionventas=0;
     $comisiondiseño=0;
     $comisionproduccion=0;
+
+    $pendienteventas=0;
+    $pendientediseño=0;
+    $pendienteproduccion=0;
     @endphp
 
     @foreach ($pedidos as $pedido)
@@ -138,13 +142,23 @@
 
     @foreach ($gastos as $gasto)
         @php
-            if($gasto->gastotype_id==1){
-                $comisionventas+=$gasto->cantidad;   }
+                if($gasto->gastotype_id==1){
+                    $comisionventas+=$gasto->cantidad;   
+                    if($gasto->estado==1){
+                        $pendienteventas+=$gasto->cantidad;
+                    }
+                }
                 elseif($gasto->gastotype_id==2){
                     $comisiondiseño+=$gasto->cantidad;
+                    if($gasto->estado==1){
+                        $pendientediseño+=$gasto->cantidad;
+                    }
                 }
                 elseif($gasto->gastotype_id==3){
                     $comisionproduccion+=$gasto->cantidad;
+                    if($gasto->estado==1){
+                        $pendienteproduccion+=$gasto->cantidad;
+                    }
                 }
         @endphp
     @endforeach
@@ -202,7 +216,10 @@
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionventas)}}</b></div>
-                            <div class="card-header"><b class="h5">+ ${{number_format($comisiones-$comisionespagadas)}} (Pendientes)</b></div>
+                            @if ($pendienteventas>0)
+                                <div class="card-header"><b class="h5">+ ${{number_format($pendienteventas)}} (Pendientes)</b></div>
+                            @endif
+                            
                         <div class="card-body">
                             
                                 <h5 class="card-title">Comisiones en ventas</h5><br>
@@ -214,7 +231,9 @@
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisiondiseño)}}</b></div>
-                            <div class="card-header"><b class="h5">+ ${{number_format($comisiones-$comisionespagadas)}} (Pendientes)</b></div>
+                            @if ($pendientediseño>0)
+                                <div class="card-header"><b class="h5">+ ${{number_format($pendientediseño)}} (Pendientes)</b></div>
+                            @endif
                         <div class="card-body">
                             
                                 <h5 class="card-title">Comisiones en diseño</h5><br>
@@ -226,7 +245,9 @@
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionproduccion)}}</b></div>
-                            <div class="card-header"><b class="h5">+ ${{number_format($comisiones-$comisionespagadas)}} (Pendientes)</b></div>
+                            @if ($pendienteproduccion>0)
+                                <div class="card-header"><b class="h5">+ ${{number_format($pendienteproduccion)}} (Pendientes)</b></div>
+                            @endif
                         <div class="card-body">
                             
                                 <h5 class="card-title">Comisiones en producción</h5><br>

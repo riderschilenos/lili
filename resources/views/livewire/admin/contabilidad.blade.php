@@ -217,7 +217,7 @@
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionventas)}}</b></div>
                             @if ($pendienteventas>0)
-                                <div class="card-header"><b class="h5">+ ${{number_format($pendienteventas)}} (Pendientes)</b></div>
+                                <div class="card-header"><b class="h5">- ${{number_format($pendienteventas)}} (Pendientes)</b></div>
                             @endif
                             
                         <div class="card-body">
@@ -232,7 +232,7 @@
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisiondiseño)}}</b></div>
                             @if ($pendientediseño>0)
-                                <div class="card-header"><b class="h5">+ ${{number_format($pendientediseño)}} (Pendientes)</b></div>
+                                <div class="card-header"><b class="h5">- ${{number_format($pendientediseño)}} (Pendientes)</b></div>
                             @endif
                         <div class="card-body">
                             
@@ -246,7 +246,7 @@
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionproduccion)}}</b></div>
                             @if ($pendienteproduccion>0)
-                                <div class="card-header"><b class="h5">+ ${{number_format($pendienteproduccion)}} (Pendientes)</b></div>
+                                <div class="card-header"><b class="h5">- ${{number_format($pendienteproduccion)}} (Pendientes)</b></div>
                             @endif
                         <div class="card-body">
                             

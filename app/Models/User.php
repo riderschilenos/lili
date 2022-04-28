@@ -107,7 +107,7 @@ class User extends Authenticatable
     }
 
     public function pedidos(){
-        return $this->hasMany('App\Models\pedido');
+        return $this->hasMany('App\Models\Pedido');
     }
 
     public function vehiculos(){

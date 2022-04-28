@@ -18,44 +18,62 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Email</th>
-            <th>Fono</th>
+            <th>Ventas</th>
+            
             <th>Estado</th>
-            <th>Suscripción</th>
+        
             <th></th>
 
         </thead>
         
         <tbody>
-            @foreach ($vendedors->reverse() as $socio)
+            @foreach ($vendedors->reverse() as $vendedor)
                 <tr>
-                    <td>{{$socio->id}}</td>
-                    <td>{{$socio->user->name}}</td>
-                    <td>{{$socio->user->email}}</td>
+                    <td>{{$vendedor->id}}</td>
+                    <td>{{$vendedor->user->name}}</td>
+                    <td>{{$vendedor->user->email}}</td>
                     <td>
-                        @if ($socio->fono)
-                            {{$socio->fono}}
-                        @endif</td>
+                        @php
+                            $total=0;
+                        @endphp
+                        @foreach ($vendedor->user->pedidos as $pedido)
+                            @if($pedido->pedidoable_type=="App\Models\Socio")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+        
+                            @endphp    
+                            @endforeach
+        
+                            @endif
+                            @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                @foreach ($pedido->ordens as $orden)
+                                @php
+                                    
+                                    $total+=$orden->producto->precio;
+            
+                                @endphp    
+                                @endforeach
+            
+                            @endif
+                        @endforeach
+                        
+                        
+                        ${{number_format($total)}}</td>
+                  
                     <td>
-                        @if($socio->estado==1)
+                        @if($vendedor->estado==2)
                         ACTIVO
                         @else
                          INACTIVO
                         @endif
                     
                     </td>
-                    <td width="120px">
-                        @if($socio->estado==2)
-                        <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a>
-                        @else
-                           
-                            <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a> 
-                            
-                            
-                        
-                        @endif
-                    </td>
+                    
                     <td width="10px">
-                        <a class="btn btn-primary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
+                        {{-- comment 
+                        <a class="btn btn-primary" href="{{route('socio.show', $vendedor)}}">Ver Perfil</a>--}}
                     </td>
                 </tr>
                 

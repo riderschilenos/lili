@@ -34,7 +34,7 @@ class GastoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.gastos.create');
     }
 
     /**

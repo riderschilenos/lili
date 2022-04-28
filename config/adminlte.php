@@ -291,6 +291,23 @@ return [
             'active'     => ['admin/suscripcions*']
            
         ],
+        ['header' => 'Contabilidad'],
+        [
+            'text'        => 'Pagos Pendientes',
+            'route'         => 'admin.pagos.index',
+            'icon'        => 'fas fa-fw fa-dollar-sign',
+            'can'         => 'Cuenta corriente',
+            'active'     => ['admin/pagos*']
+           
+        ],
+        [
+            'text'        => 'Comisiones Pendientes',
+            'route'         => 'admin.gastos.index',
+            'icon'        => 'fas fa-fw fa-dollar-sign',
+            'can'         => 'Cuenta corriente',
+            'active'     => ['admin/gastos*']
+           
+        ],
         ['header' => 'Vehiculos'],
         [
             'text'        => 'Vehiculo',
@@ -324,23 +341,7 @@ return [
             'can'         => 'Leer usuarios',
             'active'     => ['admin/pedidos*']
            
-        ],
-        [
-            'text'        => 'Pagos Pendientes',
-            'route'         => 'admin.pagos.index',
-            'icon'        => 'fas fa-fw fa-dollar-sign',
-            'can'         => 'Cuenta corriente',
-            'active'     => ['admin/pagos*']
-           
-        ],
-        [
-            'text'        => 'Comisiones Pendientes',
-            'route'         => 'admin.gastos.index',
-            'icon'        => 'fas fa-fw fa-dollar-sign',
-            'can'         => 'Cuenta corriente',
-            'active'     => ['admin/gastos*']
-           
-        ],
+        ],  
         [
             'text'        => 'Diseño',
             'route'         => 'admin.disenos.index',

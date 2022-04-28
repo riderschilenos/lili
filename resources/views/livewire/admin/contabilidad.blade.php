@@ -26,6 +26,8 @@
     $pendienteventas=0;
     $pendientediseño=0;
     $pendienteproduccion=0;
+
+    $compracarcasas=0;
     @endphp
 
     @foreach ($pedidos as $pedido)
@@ -164,6 +166,10 @@
                         $pendienteproduccion+=$gasto->cantidad;
                     }
                 }
+                elseif($gasto->gastotype_id==4){
+                    $compracarcasas+=$gasto->cantidad;
+                }
+        
         @endphp
     @endforeach
 
@@ -255,6 +261,18 @@
                         <div class="card-body">
                             
                                 <h5 class="card-title">Comisiones en producción</h5><br>
+                            
+                        
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($compracarcasas)}}</b></div>
+                            <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
+                        <div class="card-body">
+                            
+                                <h5 class="card-title">Carcasas</h5><br>
                             
                         
                         </div>

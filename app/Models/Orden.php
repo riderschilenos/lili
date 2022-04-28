@@ -51,4 +51,8 @@ class Orden extends Model
         return $this->hasMany('App\Models\Lote');
     }
 
+    public function gasto(){
+        return $this->hasMany('App\Models\Gasto');
+    }
+
 }

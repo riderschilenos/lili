@@ -181,8 +181,10 @@ class PedidosProduccion extends Component
             'cantidad'=> $valor,
             'gastotype_id'=> 3 ]);
     
+        foreach ($pedido->ordens as $orden){
+            $gasto->ordens()->attach($orden);
+            }
         
-        $gasto->pedidos()->attach($pedido);
         
         $this->reset(['file']);
         

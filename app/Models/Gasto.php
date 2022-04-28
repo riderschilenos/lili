@@ -20,6 +20,11 @@ class Gasto extends Model
         return $this->BelongsToMany('App\Models\Pedido');
     }
 
+    
+    public function ordens(){
+        return $this->BelongsToMany('App\Models\Orden');
+    }
+
     //relacion uno uno inversa
 
     public function user(){

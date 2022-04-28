@@ -61,14 +61,24 @@ class LoteController extends Controller
             $orden->save();
         }
 
+        $gasto=Gasto::create([
+            'user_id'=> Auth()->user()->id,
+            'metodo'=> 'TRANSFERENCIA',
+            'estado'=> 1,
+            'cantidad'=> $valor,
+            'gastotype_id'=> 2 ]);
+
+        
+
+
         foreach ($request->selected as $item){
             $orden = Orden::find($item);
+            $gasto->ordens()->attach($orden);
             foreach($orden->pedido->ordens as $orden){
 
                 if($orden->status==2 || $orden->status==3){
                     $orden->pedido->status=5;
                     $orden->pedido->save();
-    
                 }else{
                     $orden->pedido->status=4;
                     $orden->pedido->save();
@@ -79,16 +89,8 @@ class LoteController extends Controller
 
         }
 
-        $gasto=Gasto::create([
-            'user_id'=> Auth()->user()->id,
-            'metodo'=> 'TRANSFERENCIA',
-            'estado'=> 1,
-            'cantidad'=> $valor,
-            'gastotype_id'=> 2 ]);
+        
 
-        foreach ($request->selected as $item){
-                $gasto->pedidos()->attach($item);
-            }
         
         return redirect()->route('admin.disenos.index');
     }

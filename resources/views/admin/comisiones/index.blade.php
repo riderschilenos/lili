@@ -63,34 +63,46 @@
                                 @endif
                             </td>
                             <td> 
-                                @foreach ($gasto->pedidos as $pedido)
-                                    @php
-                                    $subtotal=0;
-                                    @endphp
-        
-                                    @if($pedido->pedidoable_type=="App\Models\Socio")
-                                    @foreach ($pedido->ordens as $orden)
-                                    @php
-                                        
-                                        $subtotal+=$orden->producto->comision_socio;
-        
-                                    @endphp    
-                                    @endforeach
-        
-                                    @endif
-                                    @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                    @foreach ($pedido->ordens as $orden)
-                                    @php
-                                        
-                                        $subtotal+=$orden->producto->comision_invitado;
-        
-                                    @endphp    
-                                    @endforeach
-        
-                                    @endif
 
-                                     Pedido {{$pedido->id}} - ${{$subtotal}} <br>
-                                @endforeach
+                                @if ($gasto->gastotype->id==2 || $gasto->gastotype->id==3)
+                                           
+                                        @foreach ($gasto->ordens as $orden)
+                                            Orden {{$orden->id}} - $1500 <br>
+                                        @endforeach
+                                        
+                                @else
+                                        @foreach ($gasto->pedidos as $pedido)
+                                            @php
+                                            $subtotal=0;
+                                            @endphp
+                
+                                            @if($pedido->pedidoable_type=="App\Models\Socio")
+                                            @foreach ($pedido->ordens as $orden)
+                                            @php
+                                                
+                                                $subtotal+=$orden->producto->comision_socio;
+                
+                                            @endphp    
+                                            @endforeach
+                
+                                            @endif
+                                            @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                            @foreach ($pedido->ordens as $orden)
+                                            @php
+                                                
+                                                $subtotal+=$orden->producto->comision_invitado;
+                
+                                            @endphp    
+                                            @endforeach
+                
+                                            @endif
+
+                                            
+                                        @endforeach
+
+                                        Pedido {{$pedido->id}} - ${{$subtotal}} <br>
+                                @endif
+                                
                                 
                             </td>
                             <td>{{$gasto->gastotype->name}}</td>
@@ -187,8 +199,12 @@
                                     @endforeach
         
                                     @endif
-
-                                     Pedido {{$pedido->id}} - ${{$subtotal}} <br>
+                                    @if ($gasto->gastotype->id==2 || $gasto->gastotype->id==3)
+                                        Pedido {{$pedido->id}} - $1500 <br>
+                                    @else
+                                        Pedido {{$pedido->id}} - ${{$subtotal}} <br>
+                                    @endif
+                                     
                                 @endforeach
                                 
                             </td>

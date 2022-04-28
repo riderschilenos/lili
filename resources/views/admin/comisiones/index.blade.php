@@ -93,8 +93,9 @@
                                 @endforeach
                                 
                             </td>
-                            <td>{{$gasto->metodo}}</td>
                             <td>{{$gasto->gastotype->name}}</td>
+                            <td>{{$gasto->metodo}}</td>
+                            
                            {{-- comment
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
@@ -191,6 +192,7 @@
                                 @endforeach
                                 
                             </td>
+                            <td>{{$gasto->gastotype->name}}</td>
                             <td>{{$gasto->metodo}}</td>
                             <td>{{$gasto->cantidad}}</td>
                             <td></td>

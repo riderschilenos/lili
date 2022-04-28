@@ -21,6 +21,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Vendedor</th>
+                        <th>Pedidos</th>
                         <th>Metodo</th>
                         <th>Cantidad</th>
                         <th>Comprobante</th>
@@ -37,7 +38,38 @@
                             <td>{{$pago->id}}</td>
                             <td> 
                                 @foreach ($pago->pedidos as $pedido)
-                                    {{$pedido->vendedor->name}}
+                                    {{$pedido->vendedor->name}} <br>
+                                @endforeach
+                                
+                            </td>
+                            <td> 
+                                @foreach ($pago->pedidos as $pedido)
+                                    @php
+                                    $subtotal=0;
+                                    @endphp
+        
+                                    @if($pedido->pedidoable_type=="App\Models\Socio")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+                                    @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->precio;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+
+                                    Pedido {{$pedido->id}} - ${{$subtotal}} <br>
                                 @endforeach
                                 
                             </td>
@@ -75,7 +107,38 @@
                             <td>{{$pago->id}}</td>
                             <td> 
                                 @foreach ($pago->pedidos as $pedido)
-                                    {{$pedido->vendedor->name}}<br>
+                                    {{$pedido->vendedor->name}} <br>
+                                @endforeach
+                                
+                            </td>
+                            <td> 
+                                @foreach ($pago->pedidos as $pedido)
+                                    @php
+                                    $subtotal=0;
+                                    @endphp
+        
+                                    @if($pedido->pedidoable_type=="App\Models\Socio")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+                                    @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                    @foreach ($pedido->ordens as $orden)
+                                    @php
+                                        
+                                        $subtotal+=$orden->producto->precio;
+        
+                                    @endphp    
+                                    @endforeach
+        
+                                    @endif
+
+                                    Pedido {{$pedido->id}} - ${{$subtotal}} <br>
                                 @endforeach
                                 
                             </td>

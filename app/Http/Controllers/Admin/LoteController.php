@@ -85,6 +85,10 @@ class LoteController extends Controller
             'estado'=> 1,
             'cantidad'=> $valor,
             'gastotype_id'=> 2 ]);
+
+        foreach ($request->selected as $item){
+                $gasto->pedidos()->attach($item);
+            }
         
         return redirect()->route('admin.disenos.index');
     }

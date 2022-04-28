@@ -181,7 +181,9 @@ class PedidosProduccion extends Component
             'cantidad'=> $valor,
             'gastotype_id'=> 3 ]);
     
-
+        
+        $gasto->pedidos()->attach($pedido);
+        
         $this->reset(['file']);
         
     }

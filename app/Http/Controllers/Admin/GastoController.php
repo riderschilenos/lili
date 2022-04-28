@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Gasto;
 use App\Models\Pedido;
 use App\Models\User;
+use App\Models\Vendedor;
 use Illuminate\Http\Request;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
@@ -21,9 +22,9 @@ class GastoController extends Controller
     {
         $gastos = Gasto::where('estado',1)->paginate(80);
         $gastosok = Gasto::where('estado',2)->paginate(80);
-        $users= User::all();
+        $vendedors= Vendedor::all();
 
-        return view('admin.comisiones.index',compact('gastos','gastosok','users'));
+        return view('admin.comisiones.index',compact('gastos','gastosok','vendedors'));
     }
 
     /**

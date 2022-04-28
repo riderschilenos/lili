@@ -23,7 +23,6 @@
     <h1 class="float-right"> ${{number_format($total)}}</h1>
     <h1>Pagos pendientes de aprobación</h1>
     
-   
 @stop
 
 @section('content')
@@ -37,6 +36,7 @@
     <div class="card">
         <div class="card-body">
             
+
             <table class="table table-striped">
                 <thead>
                     <tr>

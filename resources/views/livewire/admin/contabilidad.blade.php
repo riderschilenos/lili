@@ -33,8 +33,7 @@
         @if($pedido->pedidoable_type=="App\Models\Socio")
             @foreach ($pedido->ordens as $orden)
             @php
-                
-                $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+
 
                 if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7){
                 $carcasas+=1;   }
@@ -65,8 +64,7 @@
         @if($pedido->pedidoable_type=="App\Models\Invitado")
             @foreach ($pedido->ordens as $orden)
             @php
-                
-                $total+=$orden->producto->precio;
+
 
                 if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7){
                 $carcasas+=1;   }
@@ -138,6 +136,12 @@
         @endphp
        
         
+    @endforeach
+
+    @foreach ($pagos as $pago)
+        @php
+               $total+=$pago->cantidad;
+        @endphp
     @endforeach
 
     @foreach ($gastos as $gasto)

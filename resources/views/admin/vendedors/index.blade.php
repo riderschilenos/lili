@@ -14,33 +14,12 @@
             $totalint=0;
         @endphp
 @foreach ($vendedors->reverse() as $vendedor)
-
-        
-        @foreach ($vendedor->user->pedidos as $pedido)
-            @if($pedido->pedidoable_type=="App\Models\Socio")
-            @foreach ($pedido->ordens as $orden)
-            @php
-                
-                $totalint+=$orden->producto->precio-$orden->producto->descuento_socio;
-
-            @endphp    
-            @endforeach
-
-            @endif
-            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                @foreach ($pedido->ordens as $orden)
-                @php
-                    
-                    $totalint+=$orden->producto->precio;
-
-                @endphp    
-                @endforeach
-
-            @endif
+   
+        @foreach ($vendedor->user->pagos as $pago)
+        @php
+            $totalint+=$pago->cantidad;
+        @endphp               
         @endforeach
-        
-        
-        
 
 @endforeach 
       
@@ -69,27 +48,10 @@
                         @php
                             $total=0;
                         @endphp
-                        @foreach ($vendedor->user->pedidos as $pedido)
-                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                            @foreach ($pedido->ordens as $orden)
+                        @foreach ($vendedor->user->pagos as $pago)
                             @php
-                                
-                                $total+=$orden->producto->precio-$orden->producto->descuento_socio;
-        
-                            @endphp    
-                            @endforeach
-        
-                            @endif
-                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                @foreach ($pedido->ordens as $orden)
-                                @php
-                                    
-                                    $total+=$orden->producto->precio;
-            
-                                @endphp    
-                                @endforeach
-            
-                            @endif
+                                $total+=$pago->cantidad;
+                            @endphp               
                         @endforeach
                         
                         

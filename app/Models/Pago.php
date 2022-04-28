@@ -21,4 +21,10 @@ class Pago extends Model
     public function pedidos(){
         return $this->BelongsToMany('App\Models\Pedido');
     }
+
+    //relacion uno uno inversa
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

@@ -10,7 +10,39 @@
    
 
 @if ($vendedors->count())
-            
+        @php
+            $totalint=0;
+        @endphp
+@foreach ($vendedors->reverse() as $vendedor)
+
+        
+        @foreach ($vendedor->user->pedidos as $pedido)
+            @if($pedido->pedidoable_type=="App\Models\Socio")
+            @foreach ($pedido->ordens as $orden)
+            @php
+                
+                $totalint+=$orden->producto->precio-$orden->producto->descuento_socio;
+
+            @endphp    
+            @endforeach
+
+            @endif
+            @if($pedido->pedidoable_type=="App\Models\Invitado")
+                @foreach ($pedido->ordens as $orden)
+                @php
+                    
+                    $totalint+=$orden->producto->precio;
+
+                @endphp    
+                @endforeach
+
+            @endif
+        @endforeach
+        
+        
+        
+
+@endforeach 
       
 <div class="card-body">
     <table class="table table-striped">
@@ -18,10 +50,11 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Email</th>
-            <th>Ventas</th>
+            <th class="text-center">${{number_format($totalint)}}<br>Ventas</th>
+            <th></th>
             
             <th>Estado</th>
-        
+            
             <th></th>
 
         </thead>
@@ -32,7 +65,7 @@
                     <td>{{$vendedor->id}}</td>
                     <td>{{$vendedor->user->name}}</td>
                     <td>{{$vendedor->user->email}}</td>
-                    <td>
+                    <td class="text-center">
                         @php
                             $total=0;
                         @endphp
@@ -61,7 +94,7 @@
                         
                         
                         ${{number_format($total)}}</td>
-                  
+                    <td></td>
                     <td>
                         @if($vendedor->estado==2)
                         ACTIVO

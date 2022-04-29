@@ -49,7 +49,7 @@
         </thead>
         
         <tbody>
-            @foreach ($vendedors->reverse() as $vendedor)
+            @foreach ($vendedors as $vendedor)
                 <tr>
                     <td>{{$vendedor->id}}</td>
                     <td>{{$vendedor->user->name}}</td>

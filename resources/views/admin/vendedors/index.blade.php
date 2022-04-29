@@ -12,6 +12,7 @@
 @if ($vendedors->count())
         @php
             $totalint=0;
+            $totalgan=0;
         @endphp
 @foreach ($vendedors->reverse() as $vendedor)
    
@@ -20,6 +21,14 @@
             $totalint+=$pago->cantidad;
         @endphp               
         @endforeach
+
+        @foreach ($vendedor->user->gastos as $gasto)
+        @php
+            $totalgan+=$gasto->cantidad;
+        @endphp               
+        @endforeach
+
+
 
 @endforeach 
       
@@ -30,6 +39,7 @@
             <th>Nombre</th>
             <th>Email</th>
             <th class="text-center">${{number_format($totalint)}}<br>Ventas</th>
+            <th class="text-center">${{number_format($totalgan)}}<br>Ganancias</th>
             <th></th>
             
             <th>Estado</th>
@@ -56,7 +66,21 @@
                         
                         
                         ${{number_format($total)}}</td>
-                    <td></td>
+                    
+                    <td class="text-center">
+                            @php
+                                $total=0;
+                            @endphp
+                            @foreach ($vendedor->user->gastos as $gasto)
+                                @php
+                                    $total+=$gasto->cantidad;
+                                @endphp               
+                            @endforeach
+                            
+                            
+                            ${{number_format($total)}}</td>
+                    <td>
+                    
                     <td>
                         @if($vendedor->estado==2)
                         ACTIVO
@@ -65,7 +89,8 @@
                         @endif
                     
                     </td>
-                    
+                    <td>
+                    </td>
                     <td width="10px">
                         {{-- comment 
                         <a class="btn btn-primary" href="{{route('socio.show', $vendedor)}}">Ver Perfil</a>--}}

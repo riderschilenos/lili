@@ -80,9 +80,7 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Lote');
     }
 
-    public function gasto(){
-        return $this->hasOne('App\Models\Gasto');
-    }
+    
 
     //relacion uno a muchos
 
@@ -108,6 +106,10 @@ class User extends Authenticatable
 
     public function pedidos(){
         return $this->hasMany('App\Models\Pedido');
+    }
+
+    public function gastos(){
+        return $this->hasMany('App\Models\Gasto');
     }
 
     public function pagos(){

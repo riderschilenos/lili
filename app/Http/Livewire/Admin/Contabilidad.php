@@ -6,6 +6,7 @@ use App\Models\Gasto;
 use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\Suscripcion;
+use App\Models\Vendedor;
 use Livewire\Component;
 
 class Contabilidad extends Component
@@ -26,6 +27,8 @@ class Contabilidad extends Component
         
         $pagos=Pago::all();
 
-        return view('livewire.admin.contabilidad',compact('pedidos','suscripcions','gastos','pagos'));
+        $vendedors=Vendedor::all();
+
+        return view('livewire.admin.contabilidad',compact('pedidos','suscripcions','gastos','pagos','vendedors'));
     }
 }

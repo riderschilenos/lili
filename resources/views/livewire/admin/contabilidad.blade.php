@@ -387,7 +387,7 @@
                             <div class="card-header text-center"><b class="h1">{{$vendedors->count()}}</b></div>
                         <div class="card-body">
                             
-                                <h5 class="card-title mx-auto">Vendedores</h5><br>
+                                <a href="{{route('admin.vendedors.index')}}"><h5 class="card-title mx-auto">Vendedores</h5></a><br>
                             
                         
                         </div>

@@ -280,7 +280,7 @@ return [
             'route'         => 'admin.vendedors.index',
             'icon'        => 'fas fa-fw fa-users',
             'can'         => 'Leer usuarios',
-            'active'     => ['admin/socios*']
+            'active'     => ['admin/vendedors*']
            
         ],
         [
@@ -293,7 +293,7 @@ return [
         ],
         ['header' => 'Contabilidad'],
         [
-            'text'        => 'Pagos Pendientes',
+            'text'        => 'Ingresos Pendientes',
             'route'         => 'admin.pagos.index',
             'icon'        => 'fas fa-fw fa-dollar-sign',
             'can'         => 'Cuenta corriente',
@@ -305,7 +305,15 @@ return [
             'route'         => 'admin.gastos.index',
             'icon'        => 'fas fa-fw fa-dollar-sign',
             'can'         => 'Cuenta corriente',
-            'active'     => ['admin/gastos*']
+            'active'     => ['admin/gastos/index']
+           
+        ],
+        [
+            'text'        => 'Gastos',
+            'route'         => 'admin.gastos.create',
+            'icon'        => 'fas fa-fw fa-dollar-sign',
+            'can'         => 'Cuenta corriente',
+            'active'     => ['admin/gastos/create*']
            
         ],
         ['header' => 'Vehiculos'],
@@ -348,6 +356,14 @@ return [
             'icon'        => 'fas fa-fw fa-object-group',
             'can'         => 'Diseño',
             'active'     => ['admin/disenos*']
+           
+        ],
+        [
+            'text'        => 'Producción',
+            'route'         => 'admin.disenos.produccion',
+            'icon'        => 'fas fa-fw fa-cogs',
+            'can'         => 'Diseño',
+            'active'     => ['admin/disenos/produccion*']
            
         ],
         [

@@ -33,8 +33,11 @@ class GastoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.gastos.create');
+    {   $gastos = Gasto::where('estado',1)->paginate(80);
+        $gastosok = Gasto::where('estado',2)->paginate(80);
+        $vendedors= Vendedor::all();
+
+        return view('admin.gastos.create',compact('gastos','gastosok','vendedors'));
     }
 
     /**

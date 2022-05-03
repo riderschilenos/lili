@@ -23,9 +23,11 @@
         @endforeach
 
         @foreach ($vendedor->user->gastos as $gasto)
-        @php
-            $totalgan+=$gasto->cantidad;
-        @endphp               
+        @if ($gasto->gastotype_id==1)
+            @php
+                $totalgan+=$gasto->cantidad;
+            @endphp           
+        @endif
         @endforeach
 
 
@@ -59,11 +61,11 @@
                             $total=0;
                         @endphp
                         @foreach ($vendedor->user->pagos as $pago)
-                        @if ($gasto->gastotype_id==1)
+                        
                             @php
                                 $total+=$pago->cantidad;
                             @endphp  
-                        @endif
+                        
                                         
                         @endforeach
                         

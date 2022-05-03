@@ -488,6 +488,8 @@
                     
                                                 {!! Form::hidden('metodo', 'TRANSFERENCIA' ) !!}
 
+                                                {!! Form::hidden('gastotype_id', 1 ) !!}
+
                                                 {!! Form::hidden('cantidad', $comisiones ) !!}
 
                                                 @foreach ($selected as $item)

@@ -52,8 +52,7 @@ class GastoController extends Controller
     {
         $request->validate([
             'metodo'=>'required',
-            'cantidad'=>'required',
-            'user_id'=>'required'
+            'cantidad'=>'required'
             ]);
         
         
@@ -62,17 +61,40 @@ class GastoController extends Controller
                 'metodo'=> $request->metodo,
                 'estado'=> $request->estado,
                 'cantidad'=> $request->cantidad,
-                'gastotype_id'=> 1 ]);
+                'gastotype_id'=> $request->gastotype_id]);
 
-        
-        foreach ($request->selected as $item){
-            $gasto->pedidos()->attach($item);
-            $pedido = Pedido::find($item);
-            $pedido->status = 8;
-            $pedido->save();
+
+        if ($request->file) {
+            $foto = Str::random(10).$request->file('file')->getClientOriginalName();
+            $rutafoto = public_path().'/storage/comprobantes/'.$foto;
+            $img=Image::make($request->file('file'))->orientate()
+                ->resize(1200, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($rutafoto);
+            $img->orientate();
+
+            $gasto->update([
+                'comprobante'=>'comprobantes/'.$foto,
+            ]);    
+        }
+
+        if ($request->selected) {
+            foreach ($request->selected as $item){
+                $gasto->pedidos()->attach($item);
+                $pedido = Pedido::find($item);
+                $pedido->status = 8;
+                $pedido->save();
+            }
+
+            return redirect()->route('vendedor.pedidos.comisiones');
+        }
+        else{
+            return redirect()->route('admin.gastos.create');
         }
         
-        return redirect()->route('vendedor.pedidos.comisiones');
+        
+       
     }
 
     /**

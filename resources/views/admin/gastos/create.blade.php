@@ -9,11 +9,13 @@
             $total=0;
         @endphp
     
-        @foreach ($gastos->reverse() as $ga) 
-            @php
+        @foreach ($gastosok->reverse() as $ga) 
+            @if ($ga->gastotype_id>3)
+                @php
                     $total=$total+$ga->cantidad;
-                    
-            @endphp
+                @endphp
+            @endif
+            
     
         @endforeach
 
@@ -40,11 +42,15 @@
                   
             
             <table class="table table-striped">
-                {!! Form::open(['route'=>'admin.marcas.store']) !!}
+                {!! Form::open(['route'=>'admin.gastos.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                @csrf
+                {!! Form::hidden('user_id', NULL ) !!}
+                {!! Form::hidden('metodo', 'TRANSFERENCIA' ) !!}
+                {!! Form::hidden('estado', '2' ) !!}
                     <thead>
                         <tr>
                             
-                            <th>{!! Form::label('disciplina_id', 'Tipo de gastos:') !!}{!! Form::select('disciplina_id', $gastotypes, null , ['class'=>'form-input ml-2']) !!}</th>
+                            <th>{!! Form::label('gastotype_id', 'Tipo de gastos:') !!}{!! Form::select('gastotype_id', $gastotypes, null , ['class'=>'form-input ml-2']) !!}</th>
                             <th>{!! Form::label('cantidad','Cantidad: ') !!}{!! Form::text('cantidad',null, ['class'=>'form-input ml-2','placeholder'=>'Cantidad en pesos $']) !!}</th>
                             <th>Boleta <input type="file" name="file" id=""></th>
                             
@@ -61,55 +67,39 @@
                 {!! Form::close() !!}
                 
             </table>
-            <table class="table table-striped">
+            
+            <table class="table table-striped mt-4">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Vendedor / Trabajador</th>
-                    
-                        <th>Metodo</th>
                         <th>Tipo</th>
+                        <th>Metodo</th>
+                        <th>Cantidad</th>
+                        <th>Comprobante</th>
                         
-                        <th class="text-center">Fecha Solicitud</th>
+                        <th>Fecha</th>
 
-                        <th class="text-center">Transferir</th>
 
                     </tr>
                 </thead>
-
-                
-            </table>
-            <table class="table table-striped mt-4">
                 <tbody class="">
                     @foreach ($gastosok->reverse() as $gasto)
+
+                    @if ($gasto->gastotype_id>3)
                         <tr>
-                            <td>{{$gasto->id}}</td>
-                            <td> 
-                                @if($gasto->user)
-                                {{$gasto->user->name}}<br>
-                                @endif
-                            </td>
-                            
+                            <td>{{$gasto->id}}</td>                       
                             <td>{{$gasto->gastotype->name}}</td>
                             <td>{{$gasto->metodo}}</td>
                             <td>${{number_format($gasto->cantidad)}}</td>
-                            <td></td>
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($gasto->comprobante)}}" alt="">
                             
                             </td>
                             <td>{{$gasto->created_at->format('d-m-Y H:i:s')}}</td>
-                            <td>
-                                <form action="" >
-                                    
-            
-                                    <button class="btn btn-success" type="submit">Aprobado</button>
-                                </form>   
-                            </td>
                            
                             
                         </tr>
-                        
+                    @endif
                     @endforeach
 
                 </tbody>

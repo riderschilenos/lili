@@ -28,6 +28,7 @@
     $pendienteproduccion=0;
 
     $compracarcasas=0;
+    $gastosgenerales=0;
     @endphp
 
     @foreach ($pedidos as $pedido)
@@ -169,6 +170,9 @@
                 elseif($gasto->gastotype_id==4){
                     $compracarcasas+=$gasto->cantidad;
                 }
+                elseif($gasto->gastotype_id>4){
+                    $gastosgenerales+=$gasto->cantidad;
+                }
         
         @endphp
     @endforeach
@@ -280,7 +284,7 @@
                     </div>
                     <div class="col">
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionespagadas)}}</b></div>
+                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($gastosgenerales)}}</b></div>
                            <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
                         <div class="card-body">
                             

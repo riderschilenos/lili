@@ -180,7 +180,7 @@
 
     <div class="container">
         <div class="card-header mb-4">
-            <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-$comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales)}}</b></h1>
+            <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales))}}</b></h1>
         </div>
         <div class="row justify-content-md-center">
             <div class="col">

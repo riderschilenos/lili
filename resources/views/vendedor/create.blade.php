@@ -31,23 +31,46 @@
     $preference->save();
         
     @endphp
+
+
     <div class="max-w-7xl mx-auto px-4 py-8">
 
         <div class="card pb-8">
-            <div class="card-body">
+           
                 
 
-                <div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="justify-between grid grid-cols-1 lg:grid-cols-3 gap-4 bg-red-700 mb-4">
                
                     <div>
 
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold pb-4 text-center">Vendedores Riders Chilenos</h1>
+                        <h1 class="text-3xl font-bold py-4 text-center text-white">Riders Chilenos</h1>
                         
                     </div>
                    
                 </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+                    <article>
+                        <figure>
+                            <a href=""><img class="rounded-xl h-36 w-46 object-cover" src="{{asset('img/home/carcasas.jpg')}}" alt=""></a>
+                        </figure>
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="" wire:click="download('catalogoportanumeros.pdf')"><img class="rounded-xl h-36 w-46 object-cover" src="{{asset('img/home/accesorios.jpg')}}" alt=""></a>
+                        </figure> 
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="" wire:click="download('polerasmx.pdf')"><img class="rounded-xl h-36 w-46 object-cover" src="{{asset('img/home/poleras.jpeg')}}" alt=""></a>
+                        </figure>              
+                    </article>
+                </div>
+            
+                <div class="card-body">
+                
 
                         @if (auth()->user())
                         

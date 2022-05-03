@@ -316,6 +316,12 @@ return [
             'active'     => ['admin/gastos/create*']
            
         ],
+        [
+            'text' => 'Tipos de gastos',
+            'route'  => 'admin.gastotypes.index',
+            'icon' => 'fas fa-fw fa-cogs',
+            'active'     => ['admin/disciplinas*']
+        ],
         ['header' => 'Vehiculos'],
         [
             'text'        => 'Vehiculo',
@@ -407,12 +413,6 @@ return [
         [
             'text' => 'Disciplinas',
             'route'  => 'admin.disciplinas.index',
-            'icon' => 'fas fa-fw fa-cogs',
-            'active'     => ['admin/disciplinas*']
-        ],
-        [
-            'text' => 'Tipos de gastos',
-            'route'  => 'admin.gastotypes.index',
             'icon' => 'fas fa-fw fa-cogs',
             'active'     => ['admin/disciplinas*']
         ],

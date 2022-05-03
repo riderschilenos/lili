@@ -21,7 +21,7 @@
 
 </div>
     <h1 class="float-right"> ${{number_format($total)}}</h1>
-    <h1>Pagos pendientes de aprobación</h1>
+    <h1>Gastos</h1>
     
 @stop
 
@@ -36,13 +36,35 @@
     <div class="card">
         <div class="card-body">
             
+            
+                  
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        
+                        <th>Tipo de gasto</th>
+                        <th>Boleta</th>
+                        <th>Cantidad</th>
+                        
+                        <th>
+                            <form action="" >
+                        
 
+                                <button class="btn btn-primary" type="submit">Nuevo Gasto</button>
+                            </form> 
+                        </th>
+                    </tr>
+                </thead>
+
+                
+            </table>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Vendedor / Trabajador</th>
-                        <th>Pedidos</th>
+                    
                         <th>Metodo</th>
                         <th>Tipo</th>
                         
@@ -53,115 +75,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
-                    @foreach ($gastos->reverse() as $gasto)
-                        <tr>
-                            <td>{{$gasto->id}}</td>
-                            <td> 
-                                @if($gasto->user)
-                                    {{$gasto->user->name}}<br>
-                                @endif
-                            </td>
-                            <td> 
-
-                                @if ($gasto->gastotype->id==2 || $gasto->gastotype->id==3)
-                                           
-                                        @foreach ($gasto->ordens as $orden)
-                                            Orden {{$orden->id}} - $1500 <br>
-                                        @endforeach
-                                        
-                                @else
-                                        @foreach ($gasto->pedidos as $pedido)
-                                            @php
-                                            $subtotal=0;
-                                            @endphp
                 
-                                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                                            @foreach ($pedido->ordens as $orden)
-                                            @php
-                                                
-                                                $subtotal+=$orden->producto->comision_socio;
-                
-                                            @endphp    
-                                            @endforeach
-                
-                                            @endif
-                                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                            @foreach ($pedido->ordens as $orden)
-                                            @php
-                                                
-                                                $subtotal+=$orden->producto->comision_invitado;
-                
-                                            @endphp    
-                                            @endforeach
-                
-                                            @endif
-
-                                            
-                                        @endforeach
-
-                                        Pedido {{$pedido->id}} - ${{$subtotal}} <br>
-                                @endif
-                                
-                                
-                            </td>
-                            <td>{{$gasto->gastotype->name}}</td>
-                            <td>{{$gasto->metodo}}</td>
-                            
-                           {{-- comment
-                            <td>
-                                <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
-                            
-                            </td> --}}
-                            <td class="text-center">{{$gasto->created_at->format('d-m-Y H:i:s')}}</td>
-                            <td>
-                                {!! Form::open(['route'=>['admin.gastos.update',$gasto],'files'=>true , 'autocomplete'=>'off', 'method'=> 'PUT' ]) !!}
-                                                    @csrf
-
-                                                        <div class="h-32">
-                                                            <h1 class="text-xl text-center"><b>$</b> {{number_format($gasto->cantidad)}}</h1>
-                                                            <hr class="w-full">
-                                                            
-                                                            @if ($gasto->user->vendedor)
-                                    
-
-                                                            <h1 class="text-md text-center"><b>Nombre:</b> {{$gasto->user->vendedor->user->name}}</h1>
-                                                            <h1 class="text-md text-center"><b>Rut:</b> {{$gasto->user->vendedor->rut}}</h1>
-                                                            <h1 class="text-md text-center"><b>Banco:</b> {{$gasto->user->vendedor->banco}}</h1>
-                                                            <h1 class="text-md text-center"><b>Cuenta:</b> {{$gasto->user->vendedor->tipo_cuenta}}</h1>
-                                                            <h1 class="text-md text-center"><b>Nro Cuenta:</b> {{$gasto->user->vendedor->nro_cuenta}}</h1>
-                                                            
-                                                            @endif
-
-                                                            <hr class="w-full">
-                                                            {!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
-                                                            @error('foto')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-
-                                                            
-                                                        </div>
-
-                                                        <div class="flex justify-center">
-                                                            {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
-                                                        </div>
-                                                    
-                                    {!! Form::close() !!}
-                            </td>
-                            <td> 
-                                <form action="{{route('admin.gastos.destroy',$gasto)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-
-                                    <button class="btn btn-danger btn-sm" type="submit"> RECHAZAR </button>
-                                </form>
-                            </td>
-                            
-                        </tr>
-                        
-                    @endforeach
-
-                </tbody>
             </table>
             <table class="table table-striped mt-4">
                 <tbody class="">
@@ -173,52 +87,10 @@
                                 {{$gasto->user->name}}<br>
                                 @endif
                             </td>
-                            <td> 
-
-                                @if ($gasto->gastotype->id==2 || $gasto->gastotype->id==3)
-                                           
-                                        @foreach ($gasto->ordens as $orden)
-                                            Orden {{$orden->id}} - $1500 <br>
-                                        @endforeach
-                                        
-                                @else
-                                        @foreach ($gasto->pedidos as $pedido)
-                                            @php
-                                            $subtotal=0;
-                                            @endphp
-                
-                                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                                            @foreach ($pedido->ordens as $orden)
-                                            @php
-                                                
-                                                $subtotal+=$orden->producto->comision_socio;
-                
-                                            @endphp    
-                                            @endforeach
-                
-                                            @endif
-                                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                            @foreach ($pedido->ordens as $orden)
-                                            @php
-                                                
-                                                $subtotal+=$orden->producto->comision_invitado;
-                
-                                            @endphp    
-                                            @endforeach
-                
-                                            @endif
-
-                                            
-                                        @endforeach
-
-                                        Pedido {{$pedido->id}} - ${{$subtotal}} <br>
-                                @endif
-                                
-                                
-                            </td>
+                            
                             <td>{{$gasto->gastotype->name}}</td>
                             <td>{{$gasto->metodo}}</td>
-                            <td>{{$gasto->cantidad}}</td>
+                            <td>${{number_format($gasto->cantidad)}}</td>
                             <td></td>
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($gasto->comprobante)}}" alt="">

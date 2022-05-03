@@ -312,7 +312,7 @@ return [
             'text'        => 'Gastos',
             'route'         => 'admin.gastos.create',
             'icon'        => 'fas fa-fw fa-dollar-sign',
-            'can'         => 'Cuenta corriente',
+            'can'         => 'Leer usuarios',
             'active'     => ['admin/gastos/create*']
            
         ],

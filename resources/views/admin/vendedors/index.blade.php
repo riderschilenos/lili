@@ -72,9 +72,12 @@
                                 $total=0;
                             @endphp
                             @foreach ($vendedor->user->gastos as $gasto)
+                            @if ($gasto->gastotype_id==1)
                                 @php
                                     $total+=$gasto->cantidad;
-                                @endphp               
+                                @endphp   
+                            @endif
+                                            
                             @endforeach
                             
                             

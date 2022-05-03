@@ -288,7 +288,7 @@
                            <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
                         <div class="card-body">
                             
-                            <a href="{{route('admin.gastos.create')}}"><h5 class="card-title">Gastos generales</h5></a><br>
+                            <a href="{{route('admin.gastos.create')}}" class="link-secondary"><h5 class="card-title">Gastos generales</h5></a><br>
                             
                         
                         </div>
@@ -391,7 +391,7 @@
                             <div class="card-header text-center"><b class="h1">{{$vendedors->count()}}</b></div>
                         <div class="card-body">
                             
-                                <a href="{{route('admin.vendedors.index')}}"><h5 class="card-title mx-auto">Vendedores</h5></a><br>
+                                <a href="{{route('admin.vendedors.index')}}" class="link-secondary"><h5 class="card-title mx-auto">Vendedores</h5></a><br>
                             
                         
                         </div>

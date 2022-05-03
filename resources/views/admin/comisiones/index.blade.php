@@ -44,7 +44,7 @@
                         <th>Vendedor / Trabajador</th>
                         <th>Pedidos</th>
                         <th>Metodo</th>
-                        <th>Tipo</th>
+                        <th>Cantidad</th>
                         
                         <th class="text-center">Fecha Solicitud</th>
 
@@ -218,7 +218,7 @@
                             </td>
                             <td>{{$gasto->gastotype->name}}</td>
                             <td>{{$gasto->metodo}}</td>
-                            <td>{{$gasto->cantidad}}</td>
+                            <td>${{number_format($gasto->cantidad)}}</td>
                             <td></td>
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($gasto->comprobante)}}" alt="">

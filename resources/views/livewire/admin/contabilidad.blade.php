@@ -288,7 +288,7 @@
                            <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
                         <div class="card-body">
                             
-                                <h5 class="card-title">Gastos generales</h5><br>
+                            <a href="{{route('admin.gastos.create')}}"><h5 class="card-title">Gastos generales</h5></a><br>
                             
                         
                         </div>

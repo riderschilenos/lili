@@ -181,7 +181,7 @@
                                             Orden {{$orden->id}} - $1500 <br>
                                         @endforeach
                                         
-                                @else
+                                @elseif($gasto->gastotype->id==1)
                                         @foreach ($gasto->pedidos as $pedido)
                                             @php
                                             $subtotal=0;

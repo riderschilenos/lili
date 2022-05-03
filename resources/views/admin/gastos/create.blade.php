@@ -51,6 +51,7 @@
                         <tr>
                             
                             <th>{!! Form::label('gastotype_id', 'Tipo de gastos:') !!}{!! Form::select('gastotype_id', $gastotypes, null , ['class'=>'form-input ml-2']) !!}</th>
+                            <th>{!! Form::label('detalle','Detalle: ') !!}{!! Form::text('detalle',null, ['class'=>'form-input ml-2','placeholder'=>'Detalle']) !!}</th>
                             <th>{!! Form::label('cantidad','Cantidad: ') !!}{!! Form::text('cantidad',null, ['class'=>'form-input ml-2','placeholder'=>'Cantidad en pesos $']) !!}</th>
                             <th>Boleta <input type="file" name="file" id=""></th>
                             

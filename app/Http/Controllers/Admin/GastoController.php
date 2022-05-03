@@ -61,6 +61,7 @@ class GastoController extends Controller
                 'metodo'=> $request->metodo,
                 'estado'=> $request->estado,
                 'cantidad'=> $request->cantidad,
+                'detalle'=> $request->detalle,
                 'gastotype_id'=> $request->gastotype_id]);
 
 

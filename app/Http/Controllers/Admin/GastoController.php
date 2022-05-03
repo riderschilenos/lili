@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gasto;
+use App\Models\Gastotype;
 use App\Models\Pedido;
 use App\Models\User;
 use App\Models\Vendedor;
@@ -36,8 +37,9 @@ class GastoController extends Controller
     {   $gastos = Gasto::where('estado',1)->paginate(80);
         $gastosok = Gasto::where('estado',2)->paginate(80);
         $vendedors= Vendedor::all();
+        $gastotypes=Gastotype::pluck('name','id');
 
-        return view('admin.gastos.create',compact('gastos','gastosok','vendedors'));
+        return view('admin.gastos.create',compact('gastos','gastosok','vendedors','gastotypes'));
     }
 
     /**

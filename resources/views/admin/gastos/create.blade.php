@@ -40,23 +40,25 @@
                   
             
             <table class="table table-striped">
-                <thead>
-                    <tr>
-                        
-                        <th>Tipo de gasto</th>
-                        <th>Boleta</th>
-                        <th>Cantidad</th>
-                        
-                        <th>
-                            <form action="" >
-                        
+                {!! Form::open(['route'=>'admin.marcas.store']) !!}
+                    <thead>
+                        <tr>
+                            
+                            <th>{!! Form::label('disciplina_id', 'Tipo de gastos:') !!}{!! Form::select('disciplina_id', $gastotypes, null , ['class'=>'form-input ml-2']) !!}</th>
+                            <th>{!! Form::label('cantidad','Cantidad: ') !!}{!! Form::text('cantidad',null, ['class'=>'form-input ml-2','placeholder'=>'Cantidad en pesos $']) !!}</th>
+                            <th>Boleta <input type="file" name="file" id=""></th>
+                            
+                            
+                            <th>
+                                <form action="" >
+                            
 
-                                <button class="btn btn-primary" type="submit">Nuevo Gasto</button>
-                            </form> 
-                        </th>
-                    </tr>
-                </thead>
-
+                                    <button class="btn btn-primary" type="submit">Nuevo Gasto</button>
+                                </form> 
+                            </th>
+                        </tr>
+                    </thead>
+                {!! Form::close() !!}
                 
             </table>
             <table class="table table-striped">

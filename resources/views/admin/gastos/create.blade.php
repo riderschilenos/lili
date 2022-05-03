@@ -73,6 +73,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Tipo</th>
+                        <th>Detalle</th>
                         <th>Metodo</th>
                         <th>Cantidad</th>
                         <th>Comprobante</th>
@@ -89,12 +90,12 @@
                         <tr>
                             <td>{{$gasto->id}}</td>                       
                             <td>{{$gasto->gastotype->name}}</td>
-                            <td>{{$gasto->metodo}}</td>
                             <td>
                                 @if ($gasto->detalle)
                                     {{$gasto->detalle}}
                                 @endif
                             </td>
+                            <td>{{$gasto->metodo}}</td>
                             <td>${{number_format($gasto->cantidad)}}</td>
                             <td>
                                 <img class="object-cover object-center" width="60px" src="{{Storage::url($gasto->comprobante)}}" alt="">

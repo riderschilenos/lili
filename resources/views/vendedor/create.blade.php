@@ -39,7 +39,7 @@
            
                 
 
-                <div class="justify-between grid grid-cols-1 lg:grid-cols-3 gap-4 bg-red-700 mb-4">
+                <div class="justify-between grid grid-cols-1 lg:grid-cols-3 gap-4 bg-red-700">
                
                     <div>
 
@@ -51,23 +51,93 @@
                    
                 </div>
 
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+                <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
                     <article>
                         <figure>
-                            <a href=""><img class="rounded-xl h-36 w-46 object-cover" src="{{asset('img/home/carcasas.jpg')}}" alt=""></a>
+                            <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend1.png')}}" alt=""></a>
                         </figure>
+            
+                      
                     </article>
                     <article>
                         <figure>
-                            <a href="" wire:click="download('catalogoportanumeros.pdf')"><img class="rounded-xl h-36 w-46 object-cover" src="{{asset('img/home/accesorios.jpg')}}" alt=""></a>
-                        </figure> 
+                            <a href="" wire:click="download('catalogoportanumeros.pdf')"><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend2.png')}}" alt=""></a>
+                        </figure>
+                      
                     </article>
                     <article>
                         <figure>
-                            <a href="" wire:click="download('polerasmx.pdf')"><img class="rounded-xl h-36 w-46 object-cover" src="{{asset('img/home/poleras.jpeg')}}" alt=""></a>
-                        </figure>              
+                            <a href="" wire:click="download('polerasmx.pdf')"><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
+                        </figure>
+                       
                     </article>
                 </div>
+
+                <div class="justify-between bg-gray-900 mt-8">
+
+                        <h1 class="text-2xl py-4 text-center text-white">Somos la empresa lider en cobertura audivisual del mundo rider y productos personalizados.</h1>
+                
+                </div>
+
+                <h1 class="text-3xl font-bold text-center my-8">Nuestros productos</h1>
+
+                <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-2 gap-y-2 lg:mx-14">
+                    <article>
+                        <figure>
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/1.png')}}" alt="">
+                        </figure>
+            
+                      
+                    </article>
+                    <article>
+                        <figure>
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/2.png')}}" alt="">
+                        </figure>
+                      
+                    </article>
+                    <article>
+                        <figure>
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/3.png')}}" alt="">
+                        </figure>
+                       
+                    </article>
+                    <article>
+                        <figure>
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/4.png')}}" alt="">
+                        </figure>
+                       
+                    </article>
+                    <article>
+                        <figure>
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/5.png')}}" alt="">
+                        </figure>
+                       
+                    </article>
+                    <article>
+                        <figure>
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/6.png')}}" alt="">
+                        </figure>
+                       
+                    </article>
+                    <div class="hidden md:block">
+
+                    </div>
+                    <article class="hidden md:block">
+                        <figure>
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/7.png')}}" alt="">
+                        </figure>
+                       
+                    </article>
+                </div>
+
+                <div class="block md:hidden">
+                    <article class="flex justify-center mt-2">
+                        <figure>
+                            <img class="w-44 object-contain" src="{{asset('img/vendedores/7.png')}}" alt="">
+                        </figure>
+                    </article>
+                </div>
+             
             
                 <div class="card-body">
                 

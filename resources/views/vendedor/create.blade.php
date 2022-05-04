@@ -35,7 +35,7 @@
 
     <div class="max-w-7xl mx-auto px-4 py-8">
 
-        <div class="card pb-8">
+        <div class="card pb-8 ">
            
                 
 
@@ -130,7 +130,7 @@
                     </article>
                 </div>
 
-                <div class="block md:hidden">
+                <div class="block bg-gray-200  md:hidden">
                     <article class="flex justify-center mt-2">
                         <figure>
                             <img class="w-44 object-contain" src="{{asset('img/vendedores/7.png')}}" alt="">
@@ -138,6 +138,27 @@
                     </article>
                 </div>
              
+                <div class="justify-between mt-8 bg-gray-200">
+
+                    <h1 class="text-2xl py-4 text-center font-bold">Vendedor Destacado</h1>
+                    <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-2 gap-y-2 lg:mx-14 pb-10">
+                
+                        <article>
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/felipe.png')}}" alt="">
+                            </figure>
+                           
+                        </article>
+                        <div>
+                            <h1 class="text-2xl py-4 text-center ml-10 mt-6">"...El poder ganar dinero desde el smartphone, de manera rapida y accesible es algo que todos pueden hacer..."</h1>
+                            <h1 class="text-xl pb-4 pt-6 ml-4">Felipe Caerols<br>Santiago</h1>
+                
+                        </div>
+
+
+                    </div>
+            
+                </div>
             
                 <div class="card-body">
                 

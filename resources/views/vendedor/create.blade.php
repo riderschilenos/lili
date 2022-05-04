@@ -150,7 +150,7 @@
                            
                         </article>
                         <div>
-                            <h1 class="text-2xl py-4 text-center ml-10 mt-6">"...El poder ganar dinero desde el smartphone, de manera rapida y accesible es algo que todos pueden hacer..."</h1>
+                            <h1 class="text-2xl py-4 text-center mt-6 md:ml-10">"...El poder ganar dinero desde el smartphone, de manera rapida y accesible es algo que todos pueden hacer..."</h1>
                             <h1 class="text-xl pb-4 pt-6 ml-4">Felipe Caerols<br>Santiago</h1>
                 
                         </div>

@@ -157,6 +157,57 @@
                 </div>
             
                 <div class="card-body">
+
+                    <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
+
+                    <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-2 gap-y-2 lg:mx-14">
+                        <article>
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/1.png')}}" alt="">
+                            </figure>
+                
+                          
+                        </article>
+                        <article>
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/2.png')}}" alt="">
+                            </figure>
+                          
+                        </article>
+                        <article>
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/3.png')}}" alt="">
+                            </figure>
+                           
+                        </article>
+                        <article>
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/4.png')}}" alt="">
+                            </figure>
+                           
+                        </article>
+                        <article>
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/5.png')}}" alt="">
+                            </figure>
+                           
+                        </article>
+                        <article>
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/6.png')}}" alt="">
+                            </figure>
+                           
+                        </article>
+                        <div class="hidden md:block">
+    
+                        </div>
+                        <article class="hidden md:block">
+                            <figure>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/7.png')}}" alt="">
+                            </figure>
+                           
+                        </article>
+                    </div>
                 
 
                         @if (auth()->user())

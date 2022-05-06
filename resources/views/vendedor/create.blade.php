@@ -39,15 +39,12 @@
            
                 
 
-                <div class="justify-between grid grid-cols-1 lg:grid-cols-3 gap-4 bg-red-700">
+                <div class="justify-between gap-4 bg-red-700">
                
-                    <div>
-
-                    </div>
-                    <div>
-                        <h1 class="text-3xl font-bold py-4 text-center text-white">Riders Chilenos</h1>
+                    
+                        <h1 class="text-3xl font-bold py-4 text-center text-white">Hazte Parte del Equipo de Ventas de <br>Riders Chilenos</h1>
                         
-                    </div>
+                    
                    
                 </div>
 

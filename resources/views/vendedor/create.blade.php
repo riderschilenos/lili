@@ -41,8 +41,7 @@
 
                 <div class="justify-between gap-4 bg-red-700">
                
-                    
-                        <h1 class="text-3xl font-bold py-4 text-center text-white">Hazte Parte del Equipo de Ventas de <br>Riders Chilenos</h1>
+                        <h1 class="text-3xl font-bold py-4 text-center text-white">Haz Parte del Equipo Riders Chilenos</h1>
                         
                     
                    
@@ -70,9 +69,9 @@
                     </article>
                 </div>
 
-                <div class="justify-between bg-gray-900 mt-8">
+                <div class="justify-between bg-gray-900 mt-8 px-4 lg:px-12">
 
-                        <h1 class="text-2xl py-4 text-center text-white">Somos la empresa lider en cobertura audivisual del mundo rider y productos personalizados.</h1>
+                        <h1 class="text-2xl py-4 text-center text-white">Hazte Promotor de Nuestros Productos y Gana Dinero Haciendo lo Que Amas!! Solo debes obtener la membresia y podras recibir comisión en efectivo por cada producto que vendas.</h1>
                 
                 </div>
 

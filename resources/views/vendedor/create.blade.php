@@ -126,7 +126,7 @@
                     </article>
                 </div>
 
-                <div class="block bg-gray-200  md:hidden">
+                <div class="block  md:hidden">
                     <article class="flex justify-center mt-2">
                         <figure>
                             <img class="w-44 object-contain" src="{{asset('img/vendedores/7.png')}}" alt="">

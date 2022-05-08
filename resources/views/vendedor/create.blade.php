@@ -156,7 +156,7 @@
             
                 </div>
             
-                <div class="card-body">
+                
 
                     <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
 
@@ -209,7 +209,7 @@
                         </article>
                     </div>
                 
-
+                <div class="card-body">
                         @if (auth()->user())
                         
                      

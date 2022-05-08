@@ -91,9 +91,16 @@
                     
                     <td>
                         @if($vendedor->estado==2)
-                        ACTIVO
+                            {!! Form::open(['route'=>['admin.vendedors.update',$vendedor], 'method'=> 'PUT' ]) !!}
+                                @csrf
+                            {!! Form::submit('ACTIVO', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                            {!! Form::close() !!}
+
                         @else
-                         INACTIVO
+                            {!! Form::open(['route'=>['admin.vendedors.update',$vendedor], 'method'=> 'PUT' ]) !!}
+                                @csrf
+                            {!! Form::submit('INACTIVO', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                            {!! Form::close() !!}
                         @endif
                     
                     </td>

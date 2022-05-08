@@ -69,9 +69,20 @@ class VendedorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Vendedor $vendedor)
     {
-        //
+        if ($vendedor->estado==2){
+            $vendedor->estado=1;
+            $vendedor->save();
+            return redirect()->route('admin.vendedors.index')->with('info','El vendedor a sido desactivado con exito');
+        }else{
+            $vendedor->estado=2;
+            $vendedor->save();
+            return redirect()->route('admin.vendedors.index')->with('info','El vendedor a sido activado con exito');
+        }
+
+        
+
     }
 
     /**

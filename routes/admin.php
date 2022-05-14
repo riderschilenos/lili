@@ -94,7 +94,7 @@ Route::get('series',[SerieController::class, 'index'])->name('series.index');
 
 Route::get('socios',[SocioController::class, 'index'])->name('socios.index');
 
-Route::get('socios/show',[SocioController::class, 'show'])->name('socios.show');
+Route::get('socios/{socio}/show',[SocioController::class, 'show'])->name('socios.show');
 
 Route::get('series/{serie}',[SerieController::class,'show'])->name('series.show');
 

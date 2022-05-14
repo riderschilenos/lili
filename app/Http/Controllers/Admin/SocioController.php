@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Socio;
 use Illuminate\Http\Request;
 
 class SocioController extends Controller
@@ -12,8 +13,9 @@ class SocioController extends Controller
         return view('admin.socios.index');
     }
 
-    public function show() 
-    {
-        return view('admin.socios.show');
+    public function show(Socio $socio) 
+    {   
+
+        return view('admin.socios.show',compact('socio'));
     }
 }

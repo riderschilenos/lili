@@ -11,6 +11,7 @@
                 <table class="table table-striped">
                     <thead>
                         <th>ID</th>
+                        <th style="text-align: center;">Foto</th>
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Fono</th>
@@ -24,6 +25,12 @@
                         @foreach ($socios->reverse() as $socio)
                             <tr>
                                 <td>{{$socio->id}}</td>
+                                <td style="text-align: center;">
+                                
+                                        <img class="object-cover object-center" width="60px" src="{{ $socio->user->profile_photo_url }}" alt="">
+                                    
+    
+                                </td>
                                 <td>{{$socio->name}}</td>
                                 <td>{{$socio->user->email}}</td>
                                 <td>

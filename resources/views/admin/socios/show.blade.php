@@ -22,13 +22,13 @@
                 </span><span> </span>
                 @isset($socio->foto)
 
-                <img id="picture" class="h-56 w-100 object-contain object-center my-8"src="{{Storage::url($socio->foto)}}" alt="">
+                <img id="picture" class="h-56 w-100 object-contain object-center mt-8"src="{{Storage::url($socio->foto)}}" alt="">
                 @else
                 <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
                 @endif
 
                 @isset($socio->carnet)
-                <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->carnet)}}" alt="">
+                <img id="picture" class="h-56 w-100 object-contain object-center mt-8"src="{{Storage::url($socio->carnet)}}" alt="">
                 @else
                 <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
                 @endisset

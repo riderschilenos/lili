@@ -11,4 +11,9 @@ class SocioController extends Controller
     {
         return view('admin.socios.index');
     }
+
+    public function show() 
+    {
+        return view('admin.socios.show');
+    }
 }

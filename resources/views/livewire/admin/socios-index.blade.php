@@ -59,6 +59,9 @@
                                 <td width="10px">
                                     <a class="btn btn-primary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
                                 </td>
+                                <td width="10px">
+                                    <a class="btn btn-primary" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
+                                </td>
                             </tr>
                             
                         @endforeach

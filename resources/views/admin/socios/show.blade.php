@@ -11,12 +11,31 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="mt-5 object-cover" width="250px" src="{{ $socio->user->profile_photo_url }}"><span class="font-weight-bold">{{$socio->name}}</span><span class="text-black-50">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="mt-5 object-cover" width="250px" src="{{ $socio->user->profile_photo_url }}">
+                
+                <span class="font-weight-bold">{{$socio->name}}</span><span class="text-black-50">
                 @if ($socio->user)
                     {{$socio->user->email}} 
                 @endif
                 
-            </span><span> </span></div>
+                </span><span> </span>
+                @isset($socio->foto)
+
+                <img id="picture" class="h-56 w-100 object-contain object-center my-8"src="{{Storage::url($socio->foto)}}" alt="">
+                @else
+                <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
+                @endif
+
+                @isset($socio->carnet)
+                <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->carnet)}}" alt="">
+                @else
+                <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
+                @endisset
+                
+        
+        
+            </div>
         </div>
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">

@@ -237,12 +237,22 @@
                                 @csrf
                                     
                                 <div class="max-w-full items-center">
-                                    <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
 
-                                    <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
+
+                                    <h1 class="text-xl pb-4 text-center">Datos Personales</h1>
+
+                                    <p class="text-center">Indique los datos del titular de la cuenta</p>
 
                                     <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
                                         <div class="md: col-span-2 lg:col-span-2 ">
+                                            <div class="mb-4">
+                                                {!! Form::label('name', 'Nombre completo:') !!}
+                                                {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+                
+                                                @error('name')
+                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                @enderror
+                                            </div>
                                             <div class="mb-4">
                                                 {!! Form::label('rut', 'Rut:') !!}
                                                 {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
@@ -251,6 +261,32 @@
                                                     <strong class="text-xs text-red-600">{{$message}}</strong>
                                                 @enderror
                                             </div>
+                                            <div class="mb-4">
+                                                {!! Form::label('fono', 'Fono:') !!}
+                                                {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
+                                            </div>
+                                            <div class="mb-4">
+                                                {!! Form::label('localidad', 'Localidad:') !!}
+                                                {!! Form::text('localidad', null , ['class' => 'form-input block w-full mt-1'.($errors->has('localidad')?' border-red-600':'')]) !!}
+                                            </div>
+                                            <div class="mb-4">
+                                                {!! Form::label('disciplina_id', 'Disciplina favorita:') !!}
+                                                {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                                            </div>
+                                            
+                                         
+                                        </div>
+                                    
+                                    </div>
+                                
+
+                                    <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
+
+                                    <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
+
+                                    <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
+                                        <div class="md: col-span-2 lg:col-span-2 ">
+                                            
                                             <div class="mb-4">
                                                 {!! Form::label('banco', 'Banco:') !!}
                                                 {!! Form::select('banco', $bancos, null , ['class'=>'form-input block w-full mt-1']) !!}

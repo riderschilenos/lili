@@ -76,7 +76,11 @@ class HomeController extends Controller
             'nro_cuenta'=>'required',
             'tipo_cuenta'=>'required',
             'rut'=>'required',
-            'banco'=>'required'
+            'banco'=>'required',
+            'name'=>'required',
+            'fono'=>'required',
+            'disciplina_id'=>'required',
+            'localidad'=>'required',
         ]);
 
         $Vendedor = Vendedor::create([
@@ -86,6 +90,10 @@ class HomeController extends Controller
             'banco'=>$request->banco,
             'user_id'=>$request->user_id,
             'biografia'=>'-',
+            'name'=>$request->name,
+            'fono'=>$request->fono,
+            'disciplina_id'=>$request->disciplina_id,
+            'localidad'=>$request->localidad,
 
         ]);
 

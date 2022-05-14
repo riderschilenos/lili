@@ -29,6 +29,8 @@ class Contabilidad extends Component
 
         $vendedors=Vendedor::all();
 
+        
+
         return view('livewire.admin.contabilidad',compact('pedidos','suscripcions','gastos','pagos','vendedors'));
     }
 }

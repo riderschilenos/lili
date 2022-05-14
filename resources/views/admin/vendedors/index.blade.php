@@ -38,6 +38,7 @@
     <table class="table table-striped">
         <thead>
             <th>ID</th>
+            <th style="text-align: center;">Foto</th>
             <th>Nombre</th>
             <th>Email</th>
             <th class="text-center">${{number_format($totalint)}}<br>Ventas</th>
@@ -54,6 +55,9 @@
             @foreach ($vendedors as $vendedor)
                 <tr>
                     <td>{{$vendedor->id}}</td>
+                    <td style="text-align: center;">                            
+                        <img class="object-cover object-center" width="60px" src="{{ $vendedor->user->profile_photo_url }}" alt="">
+                    </td>
                     <td>{{$vendedor->user->name}}</td>
                     <td>{{$vendedor->user->email}}</td>
                     <td class="text-center">

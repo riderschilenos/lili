@@ -40,6 +40,7 @@
             <th>ID</th>
             <th style="text-align: center;">Foto</th>
             <th>Nombre</th>
+            <th>Fono</th>
             <th>Email</th>
             <th class="text-center">${{number_format($totalint)}}<br>Ventas</th>
             <th class="text-center">${{number_format($totalgan)}}<br>Ganancias</th>
@@ -59,6 +60,13 @@
                         <img class="object-cover object-center" width="60px" src="{{ $vendedor->user->profile_photo_url }}" alt="">
                     </td>
                     <td>{{$vendedor->user->name}}</td>
+                    <td>
+                        @if ($vendedor->fono)
+                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $vendedor->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
+                            {{str_replace(' ', '', $vendedor->fono)}}
+                        </a> 
+
+                        @endif</td>
                     <td>{{$vendedor->user->email}}</td>
                     <td class="text-center">
                         @php

@@ -23,7 +23,7 @@
             @include('vendedor.pedidos.partials.form')
 
 
-            <div class="grid grid-cols-3 gap-4">
+                <div class="grid grid-cols-2 gap-4">
                 
                 
                     <div class="flex items-center mt-4">

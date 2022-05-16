@@ -213,7 +213,7 @@
                     
                             {!! Form::hidden('user_id',auth()->user()->id) !!}
                     
-                            {!! Form::hidden('pedidoable_type','App\Models\Invitado') !!}
+                            {!! Form::hidden('pedidoable_type','App\Models\Socio') !!}
                     
                             @include('vendedor.pedidos.partials.formdirection')
                     

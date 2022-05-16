@@ -35,7 +35,7 @@
 </div>
 
 <div class="mb-4">
-    {!! Form::label('region', 'Región') !!}
+    {!! Form::label('region', 'Región / Sucursal') !!}
     {!! Form::text('region', null , ['class' => 'form-input block w-full mt-1'.($errors->has('region')?' border-red-600':'')]) !!}
 
     @error('region')

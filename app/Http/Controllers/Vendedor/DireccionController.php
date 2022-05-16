@@ -38,8 +38,6 @@ class DireccionController extends Controller
     public function store(Request $request)
     {   
         $request->validate([
-        'calle'=>'required',
-        'comuna'=>'required',
         'region'=>'required'
         
         ]);

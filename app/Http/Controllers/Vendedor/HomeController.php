@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
 use App\Models\Invitado;
 use App\Models\Pedido;
+use App\Models\Producto;
 use App\Models\Socio;
 use App\Models\Vendedor;
 use Illuminate\Http\Request;
@@ -56,8 +57,8 @@ class HomeController extends Controller
 
     public function precios()
     {                  
-        
-        return view('vendedor.pedidos.precios');
+        $productos=Producto::all();
+        return view('vendedor.pedidos.precios',compact('productos'));
     }
 
     /**

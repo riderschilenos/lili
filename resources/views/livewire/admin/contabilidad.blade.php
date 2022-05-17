@@ -1,6 +1,11 @@
 <div>
     @php
     $total=0;
+    $total7=0;
+    $total30=0;
+    
+    $gast7=0;
+    $gast30=0;
 
     $comisiones=0;
 
@@ -146,6 +151,31 @@
                $total+=$pago->cantidad;
         @endphp
     @endforeach
+    @foreach ($pagos7 as $pago)
+        @php
+               $total7+=$pago->cantidad;
+        @endphp
+    @endforeach
+    @foreach ($pagos30 as $pago)
+        @php
+               $total30+=$pago->cantidad;
+        @endphp
+    @endforeach
+
+    @foreach ($gastos7 as $gasto)
+        @php
+           
+                $gast7+=$gasto->cantidad;   
+                
+        @endphp
+    @endforeach
+    @foreach ($gastos30 as $gasto)
+        @php
+           
+                $gast30+=$gasto->cantidad;   
+                
+        @endphp
+    @endforeach
 
     @foreach ($gastos as $gasto)
         @php
@@ -182,7 +212,7 @@
         <div class="card-header mb-4">
             <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales))}}</b></h1>
 
-            <h3 class="block sm:hidden text-center">Semana: <b class="mr-4">${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales)*1.5)}}</b> <br >Mes: <b>${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales)*1.5)}}</b></h1>
+            <h3 class="block sm:hidden text-center">Semana: <b class="mr-4">${{number_format($total7-($gast7))}}</b> <br >Mes: <b>${{number_format($total30-($gast30))}}</b></h1>
         
         </div>
         <div class="row justify-content-md-center">

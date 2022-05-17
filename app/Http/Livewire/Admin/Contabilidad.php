@@ -21,16 +21,22 @@ class Contabilidad extends Component
         ->orderby('status','DESC')
         ->get();
 
+
         $suscripcions=Suscripcion::all();
 
         $gastos=Gasto::all();
+        $gastos7=Gasto::where('created_at', '>=', now()->subDays(7));
+        $gastos30=Gasto::where('created_at', '>=', now()->subDays(7));
+
         
         $pagos=Pago::all();
+        $pagos7=Pago::where('created_at', '>=', now()->subDays(7));
+        $pagos30=Pago::where('created_at', '>=', now()->subDays(7));
 
         $vendedors=Vendedor::all();
 
         
 
-        return view('livewire.admin.contabilidad',compact('pedidos','suscripcions','gastos','pagos','vendedors'));
+        return view('livewire.admin.contabilidad',compact('pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
     }
 }

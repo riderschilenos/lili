@@ -21,3 +21,5 @@ Route::get('/prepay',[Homecontroller::class, 'prepay'])->name('pedidos.prepay');
 
 Route::get('/comisiones',[Homecontroller::class, 'comisiones'])->name('pedidos.comisiones');
 
+Route::get('/precios',[Homecontroller::class, 'precios'])->name('pedidos.precios');
+

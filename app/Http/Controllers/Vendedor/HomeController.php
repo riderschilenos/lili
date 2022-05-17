@@ -54,6 +54,12 @@ class HomeController extends Controller
         return view('vendedor.pedidos.comisiones');
     }
 
+    public function precios()
+    {                  
+        
+        return view('vendedor.pedidos.precios');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

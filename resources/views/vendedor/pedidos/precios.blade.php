@@ -1,7 +1,9 @@
 <x-app-layout>
-
-    <h1 class="text-center font-bold text-2xl mt-6">LISTADO DE PRECIO</h1>
-    <div class="container py-8">
+<div class="container py-6">
+    
+    <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800 mt-2 mb-4"></i> Listado de la pedidos</a>
+    <h1 class="text-center font-bold text-2xl mb-6">LISTADO DE PRECIO</h1>
+    
         <!-- This example requires Tailwind CSS v2.0+ -->
         <x-table-responsive>
     <table class="min-w-full divide-y divide-gray-200">

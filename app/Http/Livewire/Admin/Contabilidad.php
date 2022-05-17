@@ -25,13 +25,13 @@ class Contabilidad extends Component
         $suscripcions=Suscripcion::all();
 
         $gastos=Gasto::all();
-        $gastos7=Gasto::where('created_at', '>=', now()->subDays(7));
-        $gastos30=Gasto::where('created_at', '>=', now()->subDays(7));
+        $gastos7=Gasto::all()->where('created_at', '>=', now()->subDays(7));
+        $gastos30=Gasto::all()->where('created_at', '>=', now()->subDays(7));
 
         
         $pagos=Pago::all();
-        $pagos7=Pago::where('created_at', '>=', now()->subDays(7));
-        $pagos30=Pago::where('created_at', '>=', now()->subDays(7));
+        $pagos7=Pago::all()->where('created_at', '>=', now()->subDays(7));
+        $pagos30=Pago::all()->where('created_at', '>=', now()->subDays(7));
 
         $vendedors=Vendedor::all();
 

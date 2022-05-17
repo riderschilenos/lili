@@ -53,7 +53,7 @@
         </thead>
         
         <tbody>
-            @foreach ($vendedors as $vendedor)
+            @foreach ($vendedors->reverse() as $vendedor)
                 <tr>
                     <td>{{$vendedor->id}}</td>
                     <td style="text-align: center;">                            

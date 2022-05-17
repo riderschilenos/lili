@@ -212,12 +212,13 @@
         <div class="card-header mb-4">
             <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales))}}</b></h1>
 
-            <h3 class="block sm:hidden text-center">Semana: <b class="mr-4">${{number_format($total7-($gast7))}}</b> <br >Mes: <b>${{number_format($total30-($gast30))}}</b></h1>
+            <h3 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($total7-($gast7))}}</b> <br >MES: <b>${{number_format($total30-($gast30))}}</b></h3>
         
         </div>
         <div class="row justify-content-md-center">
             <div class="col">
                 <h2 class="text-center"><b>${{number_format($total+$totalsuscrip)}}</b></h2>
+                <h5 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($total7)}}</b> <br >MES: <b>${{number_format($total30)}}</b></h5>
                 <h5 class="text-center">INGRESOS</h5>
                 <div class="row justify-content-md-center">
                     <div class="mx-auto" min-width="80%">
@@ -258,6 +259,7 @@
             </div>
             <div class="col">
                 <h2 class="text-center"><b>${{number_format($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales)}}</b></h2>
+                <h5 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($gast7)}}</b> <br >MES: <b>${{number_format($gast30)}}</b></h5>
                 <h5 class="text-center">GASTOS</h5>
                 <div class="row justify-content-md-center">
                     <div class="col">

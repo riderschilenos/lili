@@ -112,7 +112,7 @@
         </article>
         <article>
             <figure>
-                <a href="{{route('vendedor.pedidos.precios')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/instructivos.jpeg')}}" alt=""></a>
+                <a href="{{route('vendedor.pedidos.precios')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/precios.jpg')}}" alt=""></a>
             </figure>
             
         </article>

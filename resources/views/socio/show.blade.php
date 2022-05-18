@@ -295,41 +295,73 @@
                         <!-- End of Experience and education grid -->
                     </div>
 
-                    <div class="my-4"></div>
+                    <div class="my-4">
                     
                     <div class="bg-white p-3 shadow-sm rounded-sm">
-<!-- Experience and education 
-                        <div class="grid grid-cols-2">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2">
                             <div>
-                                <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                                    <span clas="text-green-500">
-                                        <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                        </svg>
+                                <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
+                                    <span class="text-red-500">
+                                        <i class="fas fa-car text-white-800"></i>
                                     </span>
-                                    <span class="tracking-wide">Experience</span>
+                                    <span>Mi Entrenamiento</span>
+                                       
+                                                    @can('perfil_propio', $socio)
+                                                    <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
+                                                    @endcan
+                                                
+                                    
                                 </div>
                                 <ul class="list-inside space-y-2">
                                     <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                        <div class="flex items-center">
+                                            <span class="text-yellow-600">
+                                                <i class="fas fa-dumbbell text-white-800"></i>
+                                            </span>
+                                            <div class="ml-4">
+                                                <div class="text-teal-600">50 Min Pesas.</div>
+                                                <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                        <div class="flex items-center">
+                                            <span class="text-yellow-600">
+                                                <i class="fas fa-bicycle text-white-800"></i>
+                                            </span>
+                                            <div class="ml-4">
+                                                <div class="text-teal-600">70km Bicicleta</div>
+                                                <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                        <div class="flex items-center">
+                                            <span class="text-yellow-600">
+                                                <i class="fas fa-running"></i>
+                                            </span>
+                                            <div class="ml-4">
+                                                <div class="text-teal-600">10k running</div>
+                                                <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                        <div class="flex items-center">
+                                            <span class="text-yellow-600">
+                                                <i class="fas fa-bicycle text-white-800"></i>
+                                            </span>
+                                            <div class="ml-4">
+                                                <div class="text-teal-600">70km Bicicleta</div>
+                                                <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                            </div>
+                                        </div>
                                     </li>
                                 </ul>
+                            
                             </div>
+                            {{-- commen
                             <div>
                                 <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                                     <span clas="text-green-500">
@@ -354,11 +386,13 @@
                                         <div class="text-gray-500 text-xs">March 2020 - Now</div>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>t --}}
                         </div>
-                        End of Experience and education grid -->
+                        
                     </div> 
-                    <!-- End of profile tab -->
+
+                    </div>
+                    
                 </div>
             </div>
         </div>

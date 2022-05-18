@@ -11,6 +11,8 @@ Route::get('{pago}/activepago', [PaymentController::class, 'pago'])->name('pago'
 
 Route::get('{socio}/active', [PaymentController::class, 'socio'])->name('socio');
 
+Route::get('{vendedor}/active', [PaymentController::class, 'vendedor'])->name('vendedor');
+
 Route::get('{vehiculo}/publicar', [PaymentController::class, 'vehiculo'])->name('vehiculo');
 
 Route::get('{vehiculo}/inscribir', [PaymentController::class, 'vehiculoinsc'])->name('vehiculo.inscribir');

@@ -8,6 +8,7 @@ use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Suscripcion;
 use App\Models\Vehiculo;
+use App\Models\Vendedor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -66,6 +67,34 @@ class PaymentController extends Controller
             ]);
 
             return redirect()->route('socio.create');
+        }
+        else{
+            
+        }
+
+    }
+    public function vendedor(Vendedor $vendedor, Request $request){
+
+        $payment_id = $request->get('payment_id');
+
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1229864100729203-011115-bb72bcc696b175468013c9b12f281869-74165380");
+
+        $response = json_decode($response);
+
+        $status = $response->status;
+
+        if($status == 'approved'){
+            $vendedor->status=2;
+            $vendedor->save();
+
+            $sus = Suscripcion::create([
+                'suscripcionable_type'=>'App\Models\Vendedor',
+                'suscripcionable_id'=>$vendedor->id,
+                'precio'=>10000,
+                'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 10 year"))
+            ]);
+
+            return redirect()->route('vendedores.index');
         }
         else{
             

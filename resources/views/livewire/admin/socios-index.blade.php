@@ -63,12 +63,24 @@
                                     
                                     @endif
                                 </td>
-                                <td width="10px">
-                                    <a class="btn btn-primary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
-                                </td>
-                                <td width="10px">
-                                    <a class="btn btn-primary" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
-                                </td>
+                                @if($socio->status==2)
+                                    <td width="10px">
+                                        <a class="btn btn-primary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
+                                    </td>
+                                    <td width="10px">
+                                        <a class="btn btn-primary" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
+                                    </td>
+                                
+                                @else
+                                    <td width="10px">
+                                        <a class="btn btn-success" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
+                                    </td>
+                                    <td width="10px">
+                                        <a class="btn btn-success" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
+                                    </td>
+                                
+                                @endif
+                               
                             </tr>
                             
                         @endforeach

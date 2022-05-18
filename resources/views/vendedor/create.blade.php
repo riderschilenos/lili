@@ -239,7 +239,7 @@
                                 <div class="max-w-full items-center">
 
 
-                                    <h1 class="text-xl pb-4 text-center">Datos Personales</h1>
+                                    <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
 
                                     <p class="text-center">Indique los datos del titular de la cuenta</p>
 
@@ -325,9 +325,97 @@
 
                 
                         @else
-
-                        <h1 class="text-center 3xl font-bold">Para registrarte como vendedor debes INICIAR SESION en la esquina superior derecha de esta página</h1>
+                            
+                        <h1 class="text-center 3xl font-bold">Para registrarte como vendedor debes <a href="{{ route('login') }}">INICIAR SESIÓN</a> en nuestra plataforma y podras rellenar el siguiente formulario </h1>
+                        @php
+                        $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
+                        $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
+                    @endphp
+                    {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                                
+                    @csrf
                         
+                    <div class="max-w-full items-center">
+
+
+                        <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
+
+                        <p class="text-center">Indique los datos del titular de la cuenta</p>
+
+                        <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
+                            <div class="md: col-span-2 lg:col-span-2 ">
+                                <div class="mb-4">
+                                    {!! Form::label('name', 'Nombre completo:') !!}
+                                    {!! Form::text('name', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+    
+                                    @error('name')
+                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                    @enderror
+                                </div>
+                                <div class="mb-4">
+                                    {!! Form::label('rut', 'Rut:') !!}
+                                    {!! Form::text('rut', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
+    
+                                    @error('rut')
+                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                    @enderror
+                                </div>
+                                <div class="mb-4">
+                                    {!! Form::label('fono', 'Fono:') !!}
+                                    {!! Form::text('fono', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
+                                </div>
+                                <div class="mb-4">
+                                    {!! Form::label('localidad', 'Localidad:') !!}
+                                    {!! Form::text('localidad', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('localidad')?' border-red-600':'')]) !!}
+                                </div>
+                                <div class="mb-4">
+                                    {!! Form::label('disciplina_id', 'Disciplina favorita:') !!}
+                                    {!! Form::select('disciplina_id', $disciplinas, null , ['readonly'=>'redonly','class'=>'form-input block w-full mt-1']) !!}
+                                </div>
+                                
+                             
+                            </div>
+                        
+                        </div>
+                    
+
+                        <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
+
+                        <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
+
+                        <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
+                            <div class="md: col-span-2 lg:col-span-2 ">
+                                
+                                <div class="mb-4">
+                                    {!! Form::label('banco', 'Banco:') !!}
+                                    {!! Form::select('banco', $bancos, null , ['readonly'=>'redonly','class'=>'form-input block w-full mt-1']) !!}
+                                </div>
+                                <div class="mb-4">
+                                    {!! Form::label('tipo_cuenta', 'Tipo de cuenta:') !!}
+                                    {!! Form::select('tipo_cuenta', $cuentas, null , ['readonly'=>'redonly','class'=>'form-input block w-full mt-1']) !!}
+                                </div>
+                                
+                                <div class="mb-4">
+                                    {!! Form::label('nro_cuenta', 'Nro Cuenta*') !!}
+                                    {!! Form::text('nro_cuenta', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('nro_cuenta')?' border-red-600':'')]) !!}
+    
+                                    @error('nro_cuenta')
+                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                    @enderror
+                                </div>
+                                
+                                
+                            </div>
+                        
+                        </div>
+                    
+                        
+                    </div>
+                    {!! Form::close() !!}
+                    <div class="flex justify-center">
+                        <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
+                        
+                    </div>
                         @endif  
                 
                 

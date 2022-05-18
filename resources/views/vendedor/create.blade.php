@@ -23,10 +23,9 @@
         if (auth()->user()->vendedor){
 
             $preference->back_urls = array(
-            "success" => route('payment.vendedor', auth()->user()->vendedor)),
+            "success" => route('payment.vendedor', auth()->user()->vendedor),
             "failure" => "http://www.tu-sitio/failure",
-            "pending" => "http://www.tu-sitio/pending"
-        );
+            "pending" => "http://www.tu-sitio/pending");
         }
         else{
             $preference->back_urls = array(

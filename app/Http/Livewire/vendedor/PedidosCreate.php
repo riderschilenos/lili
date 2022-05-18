@@ -22,8 +22,7 @@ class PedidosCreate extends Component
     public function render()
     {   
         
-        $socios = Socio::
-                    join('users','socios.user_id','=','users.id')
+        $socios = Socio::join('users','socios.user_id','=','users.id')
                     ->select('socios.*','users.name','users.email')
                     ->where('socios.status',1)
                     ->where('rut','LIKE','%'. $this->search .'%')

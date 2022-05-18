@@ -23,7 +23,7 @@ class SocioSearch extends Component
                     ->where('rut','LIKE','%'. $this->search .'%')
                     ->orwhere('email','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
-                    ->latest('id')
+                    ->orderby('status')
                     ->paginate(50);
 
         

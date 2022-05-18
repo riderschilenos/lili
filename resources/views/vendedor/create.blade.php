@@ -21,7 +21,7 @@
     //...
 
     $preference->back_urls = array(
-        "success" => route('payment.socio', $vendedor),
+        "success" => route('payment.vendedor', $vendedor),
         "failure" => "http://www.tu-sitio/failure",
         "pending" => "http://www.tu-sitio/pending"
     );

@@ -18,7 +18,7 @@ class SociosIndex extends Component
     {   
         $socios=Socio::where('name','LIKE','%'.$this->search.'%')
                 ->orwhere('rut','LIKE', '%'.$this->search.'%' )
-                ->paginate(15);
+                ->paginate(200);
 
         return view('livewire.admin.socios-index',compact('socios'));
     }

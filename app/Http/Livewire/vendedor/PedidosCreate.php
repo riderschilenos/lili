@@ -29,7 +29,7 @@ class PedidosCreate extends Component
                     ->orwhere('email','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->latest('id')
-                    ->paginate(8);
+                    ->paginate(800);
 
 
         

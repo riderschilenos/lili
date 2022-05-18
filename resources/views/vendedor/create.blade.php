@@ -326,7 +326,7 @@
                 
                         @else
 
-                        <h1 class="text-center 3xl font-bold">FOTO O TEXTO EXPLICANDO QUE DEBEN CREAR UN USUARIO PARA REGISTRARSE COMO VENDEDORES</h1>
+                        <h1 class="text-center 3xl font-bold">Para registrarte como vendedor debes INICIAR SESION en la esquina superior derecha de esta página</h1>
                         
                         @endif  
                 

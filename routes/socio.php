@@ -3,7 +3,7 @@
 use App\Http\Controllers\Socio\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('socios', [HomeController::class,'index'])->name('index');
+Route::get('riders', [HomeController::class,'index'])->name('index');
 
 Route::get('{socio}', [HomeController::class,'show'])->name('show');
 

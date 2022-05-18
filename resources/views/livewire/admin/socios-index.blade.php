@@ -50,14 +50,14 @@
                                 </td>
                                 <td width="120px">
                                     @if($socio->status==2)
-                                    <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a>
+                                    <a class="btn btn-primary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a>
                                     @else
                                         @if ($socio->suscripcions->count())
                                             {{$socio->suscripcions->first()->end_date}}
 
                                             
                                         @else
-                                        <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a> 
+                                        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a> 
                                         
                                         @endif
                                     
@@ -65,10 +65,10 @@
                                 </td>
                                 @if($socio->status==2)
                                     <td width="10px">
-                                        <a class="btn btn-primary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
+                                        <a class="btn btn-secondary" href="{{route('socio.show', $socio)}}">Ver Perfil</a>
                                     </td>
                                     <td width="10px">
-                                        <a class="btn btn-primary" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
+                                        <a class="btn btn-secondary" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
                                     </td>
                                 
                                 @else

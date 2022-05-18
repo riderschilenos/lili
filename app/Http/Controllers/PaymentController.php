@@ -90,7 +90,7 @@ class PaymentController extends Controller
             $sus = Suscripcion::create([
                 'suscripcionable_type'=>'App\Models\Vendedor',
                 'suscripcionable_id'=>$vendedor->id,
-                'precio'=>10000,
+                'precio'=>14990,
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 10 year"))
             ]);
 

@@ -19,12 +19,30 @@
 
     $preference = new MercadoPago\Preference();
     //...
+    if (auth()->user()){
+        if (auth()->user()->vendedor){
 
-    $preference->back_urls = array(
-        "success" => route('payment.vendedor', $vendedor),
-        "failure" => "http://www.tu-sitio/failure",
-        "pending" => "http://www.tu-sitio/pending"
-    );
+            $preference->back_urls = array(
+            "success" => route('payment.vendedor', auth()->user()->vendedor)),
+            "failure" => "http://www.tu-sitio/failure",
+            "pending" => "http://www.tu-sitio/pending"
+        );
+        }
+        else{
+            $preference->back_urls = array(
+            "success" => "http://www.tu-sitio/success",
+            "failure" => "http://www.tu-sitio/failure",
+            "pending" => "http://www.tu-sitio/pending"
+            );
+        }
+    }else{
+        $preference->back_urls = array(
+            "success" => "http://www.tu-sitio/success",
+            "failure" => "http://www.tu-sitio/failure",
+            "pending" => "http://www.tu-sitio/pending"
+            );
+    }
+
     $preference->auto_return = "approved";
 
     $preference->items = array($item);

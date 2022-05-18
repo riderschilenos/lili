@@ -62,7 +62,8 @@
                             
                             
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$suscripcion)}}">Editar</a>
+                                {{-- comment 
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$suscripcion)}}">Editar</a>--}}
                             </td>
                             <td width="10px">
                                 <form action="{{route('admin.suscripcions.destroy',$suscripcion)}}" method="POST">

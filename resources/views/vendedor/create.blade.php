@@ -412,7 +412,9 @@
                         
                     </div>
                     {!! Form::close() !!}
+                    <h1 class="text-center py-2 font-bold">Para desbloquear el formulario debes ingresar a tu cuenta RCH</h1>
                     <div class="flex justify-center">
+                        
                         <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
                         
                     </div>

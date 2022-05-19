@@ -305,7 +305,7 @@
                                     <span class="text-red-500">
                                         <i class="fas fa-car text-white-800"></i>
                                     </span>
-                                    <span>Mi Entrenamiento</span>
+                                    <span>Mi Entrenamientos</span>
                                        
                                                     
                                                     <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>

@@ -297,9 +297,9 @@
 
                     <div class="my-4">
                     
-                    <div class="bg-white p-3 shadow-sm rounded-sm">
+                    <div class="bg-white px-3 pt-3 pb-12 shadow-sm rounded-sm">
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2">
+                        <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
                             <div>
                                 <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
                                     <span class="text-red-500">

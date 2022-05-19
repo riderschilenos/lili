@@ -307,9 +307,9 @@
                                     </span>
                                     <span>Mi Entrenamiento</span>
                                        
-                                                    @can('perfil_propio', $socio)
+                                                    
                                                     <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
-                                                    @endcan
+                                                   
                                                 
                                     
                                 </div>

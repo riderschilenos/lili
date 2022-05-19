@@ -70,6 +70,9 @@
                                     <td width="10px">
                                         <a class="btn btn-secondary" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
                                     </td>
+                                    <td width="10px">
+                                        <a class="btn btn-secondary" href="{{route('socio.entrenamiento',$socio)}}">Entrenamientos</a>
+                                    </td>
                                 
                                 @else
                                     <td width="10px">
@@ -77,6 +80,9 @@
                                     </td>
                                     <td width="10px">
                                         <a class="btn btn-success" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
+                                    </td>
+                                    <td width="10px">
+                                        <a class="btn btn-success" href="{{route('socio.entrenamiento',$socio)}}">Entrenamientos</a>
                                     </td>
                                 
                                 @endif

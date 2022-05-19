@@ -404,7 +404,7 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsM2NwYXdsYjAwcW4zanBoZ3IzZHdya2kifQ.PfJs-vZuxkQRGavx9Czz8Q';
         var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/gonzapv23/cl3cps8f9000a15qmys4d49b6'
+        style: 'mapbox://styles/mapbox/streets-v11'
         });
         </script>
 

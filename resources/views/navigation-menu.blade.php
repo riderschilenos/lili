@@ -62,7 +62,7 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
     <!-- Primary Navigation Menu -->
 
-    <div class="fixed bottom-0 bg-gray-100 w-full md:relative md:bg-white">
+    <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white">
         <div class="container">
             <div class="flex justify-between h-16">
                 <div class="flex">

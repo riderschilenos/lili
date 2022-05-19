@@ -61,13 +61,19 @@
 
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
     <!-- Primary Navigation Menu -->
-
+    <div class="fixed top-4 left-4 md:hidden">
+        <div class="flex-shrink-0 flex items-center">
+            <a href="{{ route('home') }}">
+                <x-jet-application-mark class="block h-9 w-auto" />
+            </a>
+        </div>
+    </div>
     <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white">
         <div class="container">
             <div class="flex justify-between h-16">
-                <div class="flex">
+                <div class="hidden sm:flex">
                     <!-- Logo -->
-                    <div class="fixed top-4 md:absolute">
+                    <div class="flex">
                         <div class="flex-shrink-0 flex items-center">
                             <a href="{{ route('home') }}">
                                 <x-jet-application-mark class="block h-9 w-auto" />
@@ -281,6 +287,16 @@
                         
                             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                 <a href="{{ route('socio.index') }}"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></a>
+                            </svg>
+                        
+                    </button>
+                </div>
+                <!-- Database -->
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
+                        
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <a href="{{ route('garage.vehiculos.registerindex') }}"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></a>
                             </svg>
                         
                     </button>

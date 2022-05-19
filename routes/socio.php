@@ -13,6 +13,8 @@ Route::post('socio/store', [HomeController::class,'store'])->name('store');
 
 Route::post('{socio}/fotos', [HomeController::class,'fotos'])->name('fotos');
 
+Route::get('{socio}/entrenamiento', [HomeController::class,'entrenamiento'])->name('entrenamiento');
+
 Route::get('socio/{socio}/edit', [HomeController::class,'edit'])->name('edit');
 
 Route::put('socio/{socio}/update', [HomeController::class,'update'])->name('update');

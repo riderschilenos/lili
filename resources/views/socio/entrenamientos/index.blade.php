@@ -184,7 +184,7 @@
 
                     <!-- garage and movie -->
                     <div class="bg-white p-3 shadow-sm rounded-sm">
-
+ <!-- 
                         <div class="grid grid-cols-1 sm:grid-cols-2">
                             <div class="bg-white p-3 hover:shadow">
                                 <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8">
@@ -292,13 +292,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End of Experience and education grid -->
+                       End of Experience and education grid -->
                     </div>
 
                     <div class="my-4">
                     
                     <div class="bg-white p-3 shadow-sm rounded-sm">
-
+{{-- comment 
                         <div class="grid grid-cols-1 sm:grid-cols-2">
                             <div>
                                 <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
@@ -308,7 +308,7 @@
                                     <span>Mi Entrenamiento</span>
                                        
                                                     @can('perfil_propio', $socio)
-                                                    <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
+                                                    <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
                                                     @endcan
                                                 
                                     
@@ -386,9 +386,9 @@
                                         <div class="text-gray-500 text-xs">March 2020 - Now</div>
                                     </li>
                                 </ul>
-                            </div>t --}}
+                            </div>
                         </div>
-                        
+                        --}}
                     </div> 
 
                     </div>

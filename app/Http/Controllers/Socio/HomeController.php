@@ -177,4 +177,10 @@ class HomeController extends Controller
       
 
     }
+
+    public function entrenamiento(Socio $socio)
+    {   
+        return view('socio.entrenamientos.index',compact('socio'));
+
+    }
 }

@@ -67,7 +67,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <!-- Logo -->
-                    <div class="fixed top-4">
+                    <div class="fixed top-4 md:absolute">
                         <div class="flex-shrink-0 flex items-center">
                             <a href="{{ route('home') }}">
                                 <x-jet-application-mark class="block h-9 w-auto" />
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-14 sm:flex">
                     @foreach ($nav_links as $nav_link)
 
                         @if ($nav_link['name']=='Diseño')
@@ -274,6 +274,17 @@
                         </svg>
                     </button>
                 </div>
+
+                <!-- Search -->
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
+                        
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <a href="{{ route('socio.index') }}"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></a>
+                            </svg>
+                        
+                    </button>
+                </div>
                 <!-- Perfil -->
                 
                         <div class="-mr-2 flex items-center sm:hidden">
@@ -295,6 +306,8 @@
                                 @endif
                             </button>
                         </div>
+
+                       
                     
                     
             </div>

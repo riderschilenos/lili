@@ -68,8 +68,8 @@
             </a>
         </div>
     </div>
-    <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white pb-3">
-        <div class="container">
+    <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white pb-3" style="z-index: 2;">
+        <div class="container" >
             <div class="flex justify-between h-16">
                 <div class="hidden sm:flex">
                     <!-- Logo -->

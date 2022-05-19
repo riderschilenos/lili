@@ -268,7 +268,7 @@ return [
            
         ],
         [
-            'text'        => 'Socios',
+            'text'        => 'Riders',
             'route'         => 'admin.socios.index',
             'icon'        => 'fas fa-fw fa-users',
             'can'         => 'Leer usuarios',

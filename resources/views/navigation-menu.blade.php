@@ -306,7 +306,7 @@
         
   
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-14 pb-3 space-y-1">
+        <div class="pt-16 pb-3 space-y-1">
             
             @foreach ($nav_links as $nav_link)
 

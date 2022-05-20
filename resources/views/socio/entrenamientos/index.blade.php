@@ -130,7 +130,7 @@
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </span>
-                            <p class="tracking-wide">Ficha Deportiva
+                            <p class="tracking-wide">Ficha Deportiva {{ $socio->name." ".$socio->second_name }}
 
                                 @can('perfil_propio', $socio)
 
@@ -142,41 +142,32 @@
                                    </p>
                         </div>
                         <div class="text-gray-700">
-                            <div class="grid md:grid-cols-2 text-sm">
+                            <div class="grid md:grid-cols-3 text-sm">
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Nombre</div>
-                                    <div class="px-4 py-2">{{ $socio->name." ".$socio->second_name }}</div>
+                                    <div class="px-4 py-2 font-semibold">IMC</div>
+                                    <div class="px-4 py-2">21.9</div>
+                                    <div class="px-4 py-2 font-semibold">Peso</div>
+                                    <div class="px-4 py-2">65</div>
+                                    <div class="px-4 py-2 font-semibold">Talla</div>
+                                        <div class="px-4 py-2">1,75</div>
+                                        <button
+                            class="col-span-2 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">+ Registro</button>
                                 </div>
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Apellido</div>
-                                    <div class="px-4 py-2">{{ $socio->last_name }}</div>
+                                    <div class="px-4 py-2 font-semibold">Peso</div>
+                                    <div class="px-4 py-2">65</div>
                                 </div>
                                 @if($socio->fono)
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                        <div class="px-4 py-2">{{ $socio->fono }}</div>
+                                        <div class="px-4 py-2 font-semibold">Talla</div>
+                                        <div class="px-4 py-2">1,75</div>
                                     </div>
                                 @endif
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Localidad</div>
-                                        @if($socio->direccion)
-                                            <div class="px-4 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</div>
-                                        @endif
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Email.</div>
-                                    <div class="px-4 py-2">
-                                        <a class="text-blue-800" href="mailto:jane@example.com">{{$socio->user->email}}</a>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Fecha de Nacimiento</div>
-                                    <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
-                                </div>
+                                
                             </div>
                         </div>
                         <button
-                            class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Ver todo</button>
+                            class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">GYM ONLINE</button>
                     </div>
                     <!-- End of about section -->
 

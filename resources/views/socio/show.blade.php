@@ -145,11 +145,11 @@
                             <div class="grid md:grid-cols-2 text-sm">
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Nombre</div>
-                                    <div class="px-4 py-2">{{ $socio->name." ".$socio->second_name }}</div>
+                                    <div class="px-4 py-2">{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}</div>
                                 </div>
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Apellido</div>
-                                    <div class="px-4 py-2">{{ $socio->last_name }}</div>
+                                    <div class="px-4 py-2 font-semibold">Fecha de Nacimiento</div>
+                                    <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
                                 </div>
                                 @if($socio->fono)
                                     <div class="grid grid-cols-2">
@@ -169,10 +169,7 @@
                                         <a class="text-blue-800" href="mailto:jane@example.com">{{$socio->user->email}}</a>
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Fecha de Nacimiento</div>
-                                    <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
-                                </div>
+                                
                             </div>
                         </div>
                         <button

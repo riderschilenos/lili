@@ -64,7 +64,7 @@
                             <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
                         @endcan
                         </div>
-                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Auspiciadores:</h3>
+                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Objetivos:</h3>
                             <div class="grid grid-cols-3">
                                     @if ($socio->user->serie_enrolled)
                                     
@@ -153,16 +153,25 @@
                                         <button
                             class="col-span-2 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">+ Registro</button>
                                 </div>
-                                <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Peso</div>
-                                    <div class="px-4 py-2">65</div>
-                                </div>
-                                @if($socio->fono)
-                                    <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Talla</div>
-                                        <div class="px-4 py-2">1,75</div>
+                                <div class="grid grid-cols-2 col-span-2">
+                                    <div class="">
+                                        <div class="w-24 h-24 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
+                                            <span class="text-center text-gray-600 w-full">
+                                                <svg class="w-full px-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                            </span>
+                                        </div>
+                                        <div class="px-4 py-2 font-semibold text-center">Entrenamientos</div>
                                     </div>
-                                @endif
+                                    <div class="">
+                                        <div class="w-24 h-24 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
+                                            <span class="text-center text-gray-600 w-full">
+                                                <svg class="w-full px-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                            </span>
+                                        </div>
+                                        <div class="px-4 py-2 font-semibold text-center">Estadistica</div>
+                                    </div>
+                                    
+                                </div>
                                 
                             </div>
                         </div>

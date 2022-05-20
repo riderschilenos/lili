@@ -145,11 +145,11 @@
                             <div class="grid md:grid-cols-3 text-sm">
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">IMC</div>
-                                    <div class="px-4 py-2">21.9</div>
+                                    <div class="px-4 py-2">22.9</div>
                                     <div class="px-4 py-2 font-semibold">Peso</div>
-                                    <div class="px-4 py-2">65</div>
+                                    <div class="px-4 py-2">--</div>
                                     <div class="px-4 py-2 font-semibold">Talla</div>
-                                        <div class="px-4 py-2">1,75</div>
+                                        <div class="px-4 py-2">--</div>
                                         <button
                             class="col-span-2 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">+ Registro</button>
                                 </div>

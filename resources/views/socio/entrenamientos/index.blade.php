@@ -57,7 +57,7 @@
                         <div class="flex">
                         <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Ficha Deportiva</h1>
                         @can('perfil_propio', $socio)
-                            <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
+                            <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a class="btn btn-success ml-2 text-center" href="">+ Agregar</a></h1>
                         @endcan
                         </div>
                         <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
@@ -187,7 +187,7 @@
 
                     <!-- garage and movie -->
                     <div class="bg-white p-3 shadow-sm rounded-sm mb-14">
-                        <h1 class="text-center font-bold py-2">GEOLOCALIZACIÓN DE ENTRENAMIENTOS</h1>
+                        <h1 class="text-center font-bold py-2">GEOLOCALIZACIÓN PARA ENTRENAMIENTOS</h1>
                         <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
 
  <!-- 

@@ -53,13 +53,9 @@
                                                     
                                         @endswitch
                     
-                        <div class="image overflow-hidden">
-                            <img class="h-auto w-full mx-auto object-cover"
-                                src="{{ $socio->user->profile_photo_url }}"
-                                alt="">
-                        </div>
+                       
                         <div class="flex">
-                        <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio->slug }}</h1>
+                        <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Ficha Deportiva</h1>
                         @can('perfil_propio', $socio)
                             <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
                         @endcan
@@ -102,7 +98,7 @@
                                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </span>
-                            <p class="tracking-wide">Ficha Deportiva {{ $socio->name." ".$socio->second_name }}
+                            <p class="tracking-wide">{{ $socio->name." ".$socio->second_name }}
 
                                 @can('perfil_propio', $socio)
 
@@ -114,7 +110,12 @@
                                    </p>
                         </div>
                         <div class="text-gray-700">
-                            <div class="grid md:grid-cols-3 text-sm">
+                            <div class="grid grid-cols-2 md:grid-cols-4 text-sm">
+                                <div class="image overflow-hidden mt-4">
+                                    <img class="h-40 w-30 mx-auto object-cover"
+                                        src="{{ $socio->user->profile_photo_url }}"
+                                        alt="">
+                                </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">IMC</div>
                                     <div class="px-4 py-2">22.9</div>
@@ -125,7 +126,7 @@
                                         <button
                             class="col-span-2 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">+ Registro</button>
                                 </div>
-                                <div class="grid grid-cols-2 col-span-2">
+                                <div class="grid grid-cols-2 col-span-2 mt-6 sm:mt-4">
                                     <div class="">
                                         <div class="w-24 h-24 mx-auto bg-white border-2 border-gray-200 rounded-full text-lg text-white flex items-center">
                                             <span class="text-center text-gray-600 w-full">

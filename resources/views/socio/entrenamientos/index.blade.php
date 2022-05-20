@@ -60,23 +60,53 @@
                             <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
                         @endcan
                         </div>
-                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Objetivos:</h3>
-                            <div class="grid grid-cols-3">
-                                    @if ($socio->user->serie_enrolled)
-                                    
-                                        @foreach ($socio->user->serie_enrolled as $serie)
-                                            <div class="text-center my-2">
-                                                <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                    <img class="h-16 w-20 mx-auto"
-                                                    src="{{Storage::url($serie->image->url)}}"
-                                                    alt="">
-                                                </a>
-                                            </div>
-                                        @endforeach
-
-                                    @endif
-
-                            </div>
+                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
+                        <ul class="list-inside space-y-2">
+                            <li>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-600">
+                                        <i class="fas fa-dumbbell text-white-800"></i>
+                                    </span>
+                                    <div class="ml-4">
+                                        <div class="text-teal-600">50 Min Pesas.</div>
+                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-600">
+                                        <i class="fas fa-bicycle text-white-800"></i>
+                                    </span>
+                                    <div class="ml-4">
+                                        <div class="text-teal-600">70km Bicicleta</div>
+                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-600">
+                                        <i class="fas fa-running"></i>
+                                    </span>
+                                    <div class="ml-4">
+                                        <div class="text-teal-600">10k running</div>
+                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-600">
+                                        <i class="fas fa-bicycle text-white-800"></i>
+                                    </span>
+                                    <div class="ml-4">
+                                        <div class="text-teal-600">70km Bicicleta</div>
+                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                         
                     </div>
                     <!-- End of profile card -->

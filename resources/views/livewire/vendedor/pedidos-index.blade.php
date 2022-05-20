@@ -83,7 +83,7 @@
     @endforeach
 
 
-    <h1 class="text-center text-3xl font-bold pb-4">CATALOGO PRODUCTOS</h1>
+    <h1 class="text-center text-3xl font-bold pb-4 pt-8 sm:pt-4">CATALOGO PRODUCTOS</h1>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
         <article>
             <figure>

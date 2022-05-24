@@ -6,10 +6,10 @@
             <h1 class="text-white font-bold text-4xl">Carreras, Clinicas y Entrenamientos</h1>
             <p class="text-white text-lg mt-2 mb-4">Inscribete y reserva tu cupo ahora!!</p>
                 <!-- component -->
-                <!-- This is an example component -->
+                <!-- This is an example component 
                 
-                @livewire('search')
-                
+              
+                -->
             </div>
         </div>
 

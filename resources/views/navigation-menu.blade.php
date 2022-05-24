@@ -13,8 +13,8 @@
     ] ,[   
         'name'=>'Eventos',
         'route'=>route('ticket.evento.index'),
-        'active'=>request()->routeIs('ticket.evento.*'),
         'can'=>'Diseño',
+        'active'=>request()->routeIs('ticket.evento.*')
 
     ] 
     ,[   

@@ -103,6 +103,12 @@
                                     {{ $nav_link['name'] }}
                                 </x-jet-nav-link>
                             @endcan
+                        @elseif($nav_link['name']=='Eventos')
+                            @can('Diseño')
+                                <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                                    {{ $nav_link['name'] }}
+                                </x-jet-nav-link>
+                            @endcan
                         @else
                             <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                                 {{ $nav_link['name'] }}
@@ -426,6 +432,13 @@ c1312 0 1644 -3 1640 -12z m724 -495 c106 -197 206 -381 221 -409 l28 -50 -64
                     @endcan
 
                 @elseif($nav_link['name']=='Producción')
+                    @can('Diseño')
+                        <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                            {{ $nav_link['name'] }}
+                        </x-jet-responsive-nav-link>
+                    @endcan
+
+                @elseif($nav_link['name']=='Eventos')
                     @can('Diseño')
                         <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}

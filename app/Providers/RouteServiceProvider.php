@@ -71,6 +71,11 @@ class RouteServiceProvider extends ServiceProvider
                 //->namespace($this->namespace)
                 ->group(base_path('routes/vendedor.php'));   
             
+            Route::middleware('web')
+                ->name('ticket.')
+                //->namespace($this->namespace)
+                ->group(base_path('routes/ticket.php'));
+
             Route::middleware('web','auth')
                 ->name('payment.')
                 ->prefix('payment')
@@ -81,6 +86,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('socio.')
                 //->namespace($this->namespace)
                 ->group(base_path('routes/socio.php'));
+
+           
 
         });
     }

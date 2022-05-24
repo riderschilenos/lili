@@ -10,6 +10,12 @@
         'route'=>route('series.index'),
         'active'=>request()->routeIs('series.*')
 
+    ] ,[   
+        'name'=>'Eventos',
+        'route'=>route('ticket.evento.index'),
+        'active'=>request()->routeIs('ticket.evento.*'),
+        'can'=>'Diseño',
+
     ] 
     ,[   
         'name'=>'División Usados',

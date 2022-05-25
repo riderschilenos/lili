@@ -39,7 +39,7 @@
                                 
                             </td>
                             <td class="text-center">
-                                <img class="object-cover object-center" width="60px" src="{{asset('img/qrregister/qrregister.png')}}" alt="">
+                                <img class="object-cover object-center" width="60px" src="{{asset('img/qrregister/qrregister2.png')}}" alt="">
                                 
                                 
                             </td>

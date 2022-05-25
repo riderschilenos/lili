@@ -78,6 +78,7 @@ class RouteServiceProvider extends ServiceProvider
             
             Route::middleware('web')
                 ->name('organizador.')
+                ->prefix('organizador')
                 //->namespace($this->namespace)
                 ->group(base_path('routes/organizador.php'));
 

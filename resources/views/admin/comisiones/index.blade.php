@@ -165,7 +165,7 @@
             </table>
             <table class="table table-striped mt-4">
                 <tbody class="">
-                    @foreach ($gastosok->reverse() as $gasto)
+                    @foreach ($gastosok as $gasto)
                         <tr>
                             <td>{{$gasto->id}}</td>
                             <td> 

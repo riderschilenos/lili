@@ -22,7 +22,7 @@ class GastoController extends Controller
     public function index()
     {
         $gastos = Gasto::where('estado',1)->paginate(80);
-        $gastosok = Gasto::where('estado',2)->paginate(80);
+        $gastosok = Gasto::where('estado',2)->orderby('id','ASC')->paginate(80);
         $vendedors= Vendedor::all();
 
         return view('admin.comisiones.index',compact('gastos','gastosok','vendedors'));

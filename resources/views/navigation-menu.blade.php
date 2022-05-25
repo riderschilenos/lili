@@ -239,6 +239,12 @@
                                     </x-jet-dropdown-link>
                                 @endcan
 
+                                @can('Crear evento')
+                                    <x-jet-dropdown-link href="{{ route('organizador.eventos.index') }}">
+                                        {{ __('Organizador') }}
+                                    </x-jet-dropdown-link>
+                                @endcan
+
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                         {{ __('API Tokens') }}

@@ -44,7 +44,7 @@
                                 
                             </td>
                             <td class="text-center">
-                                <p class=""><b>{{$qrregister->nro}}</b></p>
+                                <p class="h3"><b>{{$qrregister->nro}}</b></p>
 
                             </td>
                             <td class="text-center">

@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                     @foreach ($qrregisters as $qrregister)
-                    @if($qrregister->proceso>2)
+                    @if($qrregister->proceso==4)
                         <tr>
                             <td>
                                 {{$qrregister->id}}

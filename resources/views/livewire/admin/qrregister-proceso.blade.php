@@ -23,12 +23,12 @@
             @break
         @case(5)
         <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
-        <a class="btn btn-danger btn-sm" href="">CONSIGNACION</a>
+        <a class="btn btn-danger btn-sm" href="">VENDIDO</a>
         <a class="btn btn-secondary btn-sm" href="" wire:click="procesomas({{$qrregister}})">+</a>
           @break
         @case(6)
         <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
-        <a class="btn btn-success btn-sm" href="">VENDIDO</a>
+        <a class="btn btn-success btn-sm" href="">ACTIVADO</a>
         
           @break
                                           

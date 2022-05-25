@@ -19,6 +19,7 @@
                     <tr>
                         <th>ID</th>
                         <th class="text-center">Tipo</th>
+                        <th class="text-center">QR</th>
                         <th class="text-center">Numero</th>
                         <th class="text-center">Numero</th>
                         <th class="text-center">PASS</th>
@@ -35,6 +36,11 @@
                             </td>
                             <td class="text-center">
                                 ${{number_format($qrregister->value)}}
+                                
+                            </td>
+                            <td class="text-center">
+                                <img class="object-cover object-center" width="60px" src="{{asset('img/qrregister/qrregister.png')}}" alt="">
+                                
                                 
                             </td>
                             <td class="text-center">

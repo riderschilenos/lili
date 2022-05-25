@@ -72,6 +72,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Serie');
     }
 
+    public function evento(){
+        return $this->hasOne('App\Models\Evento');
+    }
+
     public function socio(){
         return $this->hasOne('App\Models\Socio');
     }
@@ -86,6 +90,10 @@ class User extends Authenticatable
 
     public function seriesby(){
         return $this->hasMany('App\Models\Serie');
+    }
+
+    public function eventosby(){
+        return $this->hasMany('App\Models\Evento');
     }
     
     public function reviews(){
@@ -129,6 +137,10 @@ class User extends Authenticatable
 
     public function serie_enrolled(){
         return $this->belongsToMany('App\Models\Serie');
+    }
+
+    public function evento_enrolled(){
+        return $this->belongsToMany('App\Models\Evento');
     }
     
     public function videos(){

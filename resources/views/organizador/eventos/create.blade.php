@@ -6,14 +6,14 @@
                 <h1 class="text-2xl font-bold">CREAR NUEVO EVENTO</h1>
                 <hr class="mt-2 mb-6">
 
-                {!! Form::open(['route'=>'filmmaker.series.store','files'=>true , 'autocomplete'=>'off']) !!}
+                {!! Form::open(['route'=>'organizador.eventos.store','files'=>true , 'autocomplete'=>'off']) !!}
                     
                     {!! Form::hidden('user_id',auth()->user()->id) !!}
 
                     @include('organizador.eventos.partials.form')
 
                     <div class="flex justify-end">
-                        {!! Form::submit('Crear nueva serie', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                        {!! Form::submit('Crear nuevo evento', ['class'=>'btn btn-primary cursor-pointer']) !!}
                     </div>
 
                 {!! Form::close() !!}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Organizador;
 
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
+use App\Models\Evento;
 use App\Models\Precio;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,31 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titulo'=>'required',
+            'subtitulo'=>'required',
+            'descripcion'=>'required',
+            'slug'=>'required|unique:eventos',
+            'fecha'=>'required',
+            'ubicacion'=>'required',
+            'disciplina_id'=>'required',
+            'file'=>'image'
+
+        ]);
+
+        $serie = Evento::create($request->all());
+
+
+        if($request->file('file')){
+            $url = Storage::put('series',$request->file('file'));
+
+            $serie->image()->create([
+                'url'=>$url
+            ]);
+        }
+        return redirect()->route('filmmaker.series.edit',$serie);
+
+
     }
 
     /**

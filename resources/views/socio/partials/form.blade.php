@@ -100,7 +100,7 @@
                         
                         
                             <div>
-                                    {!! Form::label('username', 'Url de tu perfil*') !!}
+                                    {!! Form::label('username', 'Nombre de usuario* (puedes usar el mismo de instagram)') !!}
                                     {!! Form::text('username', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
                                     @error('username')
                                         <strong class="text-xs text-red-600">{{$message}}</strong>

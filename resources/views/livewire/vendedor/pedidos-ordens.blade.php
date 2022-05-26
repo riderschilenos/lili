@@ -348,15 +348,18 @@
                 </div>
 
             @elseif($pedido->status==2)
-                <div class="flex justify-center">
-                                        
-                    <form action="{{route('vendedor.pedidos.prepay')}}">
-                       
+               
+                    <div class="flex justify-center">
+                          @if(auth()->user())                   
+                        <form action="{{route('vendedor.pedidos.prepay')}}">
+                        
 
-                        <button class="btn btn-success justify-center mt-4" type="submit">Pagar</button>
-                    </form>
-
-                </div>
+                            <button class="btn btn-success justify-center mt-4" type="submit">Pagar</button>
+                        </form>
+                        @endif
+                        <h1 class="text-center mb-14">Es necesario pagar el pedido para avanzar a su proceso productivo.</h1>
+                    </div>
+                
             @endif
         @endif
     </div>

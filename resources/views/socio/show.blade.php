@@ -319,6 +319,9 @@
                                         <i class="fas fa-film text-white-800"></i>
                                     </span>
                                     <span>MovieCollection</span>
+                                      
+                                    <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
+                                                  
                                 </div>
                                 <div class="grid grid-cols-4 gap-4">
                                  

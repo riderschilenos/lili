@@ -149,7 +149,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
     
                        @foreach ($pedidos as $pedido)
-                       @if($pedido->status==2 || $pedido->status==3)
+                       @if($pedido->status==2 | $pedido->status==3)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">

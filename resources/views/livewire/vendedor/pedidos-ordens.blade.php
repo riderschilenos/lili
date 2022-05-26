@@ -351,13 +351,13 @@
                
                     <div class="flex justify-center">
                           @if(auth()->user())                   
-                        <form action="{{route('vendedor.pedidos.prepay')}}">
-                        
+                            <form action="{{route('vendedor.pedidos.prepay')}}">
+                            
 
-                            <button class="btn btn-success justify-center mt-4" type="submit">Pagar</button>
-                        </form>
+                                <button class="btn btn-success justify-center mt-4" type="submit">Pagar</button>
+                            </form>
                         @endif
-                        <h1 class="text-center mb-14">Es necesario pagar el pedido para avanzar a su proceso productivo.</h1>
+                        <h1 class="text-center mb-14 mt-6">Es necesario pagar el pedido para avanzar a su proceso productivo.</h1>
                     </div>
                 
             @endif

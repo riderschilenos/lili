@@ -8,7 +8,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-4 hidden">
                         {!! Form::label('slug', 'Slug del evento') !!}
                         {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1']) !!}
                     </div>

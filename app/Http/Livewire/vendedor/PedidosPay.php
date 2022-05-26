@@ -20,8 +20,6 @@ class PedidosPay extends Component
         
         
         $pedidos= Pedido::where('user_id',auth()->user()->id)
-                            ->where('status',2)
-                            ->orwhere('status',3)
                             ->orderby('status','DESC')
                             ->latest('id')
                             ->get();

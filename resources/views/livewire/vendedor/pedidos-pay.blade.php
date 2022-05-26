@@ -9,55 +9,57 @@
                 
             
             @foreach ($pedidos as $pedido)
-            @foreach ($selected as $item)
-                @if ($pedido->id==$item)
+            @if($pedido->status==2 || $pedido->status==3)
+                @foreach ($selected as $item)
+                    @if ($pedido->id==$item)
+                        
                     
-                
-                    
-                    
-                    @if($pedido->pedidoable_type=="App\Models\Socio")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $total+=$orden->producto->precio-$orden->producto->descuento_socio;
-    
-                        @endphp    
-                        @endforeach
-    
+                        
+                        
+                        @if($pedido->pedidoable_type=="App\Models\Socio")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $total+=$orden->producto->precio-$orden->producto->descuento_socio;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
+                        @if($pedido->pedidoable_type=="App\Models\Invitado")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $total+=$orden->producto->precio;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
+        
+                        @if($pedido->pedidoable_type=="App\Models\Socio")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $comisiones+=$orden->producto->comision_socio;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
+                        @if($pedido->pedidoable_type=="App\Models\Invitado")
+                            @foreach ($pedido->ordens as $orden)
+                            @php
+                                
+                                $comisiones+=$orden->producto->comision_invitado;
+        
+                            @endphp    
+                            @endforeach
+        
+                        @endif
                     @endif
-                    @if($pedido->pedidoable_type=="App\Models\Invitado")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $total+=$orden->producto->precio;
-    
-                        @endphp    
-                        @endforeach
-    
-                    @endif
-    
-                    @if($pedido->pedidoable_type=="App\Models\Socio")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $comisiones+=$orden->producto->comision_socio;
-    
-                        @endphp    
-                        @endforeach
-    
-                    @endif
-                    @if($pedido->pedidoable_type=="App\Models\Invitado")
-                        @foreach ($pedido->ordens as $orden)
-                        @php
-                            
-                            $comisiones+=$orden->producto->comision_invitado;
-    
-                        @endphp    
-                        @endforeach
-    
-                    @endif
-                @endif
-            @endforeach
+                @endforeach
+            @endif
     @endforeach
 
             @php

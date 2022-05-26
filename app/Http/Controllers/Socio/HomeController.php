@@ -50,6 +50,7 @@ class HomeController extends Controller
             'username'=>'required',
             'rut'=>'required',
             'nro'=>'required',
+            'slug'=>'required',
             'disciplina_id'=>'required'
             ]);
     

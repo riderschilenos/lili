@@ -3,7 +3,7 @@
     <x-table-responsive>
             <div class="px-6 py-4 flex">
                 <input wire:keydown="limpiar_page" wire:model="search" class="form-input flex-1 shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre de una serie">
-                <a class="btn btn-danger ml-2" href="{{route('filmmaker.series.create')}}">Crear nuevo evento</a>
+                <a class="btn btn-danger ml-2" href="{{route('organizador.eventos.create')}}">Crear nuevo evento</a>
             </div>
 
             @if ($eventos->count())

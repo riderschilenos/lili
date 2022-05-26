@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Organizador;
 
 use App\Http\Controllers\Controller;
+use App\Models\Disciplina;
+use App\Models\Precio;
 use Illuminate\Http\Request;
 
 class EventoController extends Controller
@@ -24,7 +26,11 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
+        $disciplinas= Disciplina::pluck('name','id');
+
+        $precios= Precio::pluck('name','id');
+
+        return view('organizador.eventos.create',compact('disciplinas','precios'));
     }
 
     /**

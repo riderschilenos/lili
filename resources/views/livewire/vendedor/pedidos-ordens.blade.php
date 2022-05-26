@@ -349,7 +349,7 @@
 
             @elseif($pedido->status==2)
                
-                    <div class="flex justify-center">
+                    <div class="flex justify-center mb-14">
                           @if(auth()->user())                   
                             <form action="{{route('vendedor.pedidos.prepay')}}">
                             

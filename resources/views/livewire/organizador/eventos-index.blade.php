@@ -57,12 +57,12 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{$serie->Videos->count()}} <i class="fas fa-video text-gray-400"></i></div>
+                                        <div class="text-sm text-gray-900">7 <i class="fas fa-video text-gray-400"></i></div>
                                         <div class="text-sm text-gray-500">Videos</div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{$serie->Sponsors->count()}}</div>
+                                        <div class="text-sm text-gray-900">5</div>
                                         <div class="text-sm text-gray-500">Sponsors</div>
                                     </td>
 

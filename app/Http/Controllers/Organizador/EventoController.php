@@ -73,7 +73,7 @@ class EventoController extends Controller
                 ]);
         }
 
-        return redirect()->route('ticket.eventos.edit',$evento);
+        return redirect()->route('organizador.eventos.edit',$evento);
 
 
     }
@@ -95,9 +95,11 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Evento $evento)
     {
-        //
+        $disciplinas= Disciplina::pluck('name','id');
+        
+        return view('organizador.eventos.edit', compact('evento','disciplinas'));
     }
 
     /**

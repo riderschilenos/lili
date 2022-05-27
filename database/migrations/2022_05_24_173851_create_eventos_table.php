@@ -22,13 +22,14 @@ class CreateEventosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->enum('status',[Evento::BORRADOR,Evento::REVISION,Evento::PUBLICADO])->default(Evento::BORRADOR);
             $table->string('slug');
-
-            $table->string('fecha');
-            $table->string('ubicacion');
+            
+            $table->integer('entrada')->nullable();
+            $table->integer('entrada_niño')->nullable();
 
             $table  ->foreignId('user_id')
+            ->nullable()
             ->constrained()
-            ->onDelete('cascade');
+            ->onDelete('set null');
 
             $table  ->foreignId('disciplina_id')
             ->nullable()

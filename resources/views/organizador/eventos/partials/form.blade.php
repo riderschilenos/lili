@@ -37,11 +37,11 @@
                         </div>
                         <div>
                             {!! Form::label('precio_id', 'Entrada adultos') !!}
-                            {!! Form::select('precio_id', $precios, null , ['class'=>'form-input block w-full mt-1']) !!}
+                            {!! Form::number('entrada', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':''),'step' => '0.5','placeholder'=>'$']) !!}
                         </div>
                         <div>
                             {!! Form::label('precio_id', 'Entrada niños') !!}
-                            {!! Form::select('precio_id', $precios, null , ['class'=>'form-input block w-full mt-1']) !!}
+                            {!! Form::number('entrada_niño', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':''),'step' => '0.5','placeholder'=>'$']) !!}                   
                         </div>
 
                     </div>

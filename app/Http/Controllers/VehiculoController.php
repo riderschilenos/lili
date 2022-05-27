@@ -223,24 +223,18 @@ class VehiculoController extends Controller
         $request->validate([
             'file'=>'required|image'
         ]);
-
         $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
-
         $ruta = public_path().'/storage/vehiculos/'.$nombre;
-
         Image::make($request->file('file'))->orientate()
                 ->resize(1200, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($ruta);
-
         $vehiculo->image()->create([
                     'url'=>'vehiculos/'.$nombre
-                ]);
-        
-        return redirect()->route('garage.image',$vehiculo);
+                ]);   
 
-   
+        return redirect()->route('garage.image',$vehiculo);
 
     }
 

@@ -8,6 +8,9 @@ use App\Models\Evento;
 use App\Models\Precio;
 use Illuminate\Http\Request;
 
+use Intervention\Image\Facades\Image;
+use Illuminate\support\Str;
+
 class EventoController extends Controller
 {
     /**
@@ -47,24 +50,30 @@ class EventoController extends Controller
             'subtitulo'=>'required',
             'descripcion'=>'required',
             'slug'=>'required|unique:eventos',
-            'fecha'=>'required',
-            'ubicacion'=>'required',
             'disciplina_id'=>'required',
             'file'=>'image'
 
         ]);
 
-        $serie = Evento::create($request->all());
+        $evento = Evento::create($request->all());
 
 
         if($request->file('file')){
-            $url = Storage::put('series',$request->file('file'));
+        
+        $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+        $ruta = public_path().'/storage/eventos/'.$nombre;
 
-            $serie->image()->create([
-                'url'=>$url
-            ]);
+        Image::make($request->file('file'))->orientate()
+                ->resize(1200, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($ruta);
+        $evento->image()->create([
+                    'url'=>'eventos/'.$nombre
+                ]);
         }
-        return redirect()->route('filmmaker.series.edit',$serie);
+
+        return redirect()->route('ticket.eventos.edit',$evento);
 
 
     }

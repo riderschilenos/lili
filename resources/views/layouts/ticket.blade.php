@@ -32,6 +32,8 @@
             <!-- Page Content -->
             <div class="container py-8 grid grid-cols-5 gap-6">
 
+             
+
                 <aside>
                     <a href="{{route('filmmaker.series.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la series</a>
         
@@ -52,11 +54,7 @@
 
                     @switch($evento->status)
                         @case(1)
-                            <form action="" method="POST">
-                                @csrf
-        
-                                <button class="btn btn-danger" type="submit">Solicitar Revisión</button>
-                            </form>
+                           
                             @break
 
                         @case(2)

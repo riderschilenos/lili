@@ -1,4 +1,4 @@
-<x-app-layout :evento="$evento">
+<x-ticket-layout :evento="$evento">
 
     
 
@@ -21,4 +21,4 @@
         <script src="{{asset('js/filmmaker/series/form.js')}}"></script>
     </x-slot>
 
-</x-app-layout>
+</x-ticket-layout>

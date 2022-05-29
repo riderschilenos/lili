@@ -33,7 +33,7 @@
             <div class="container py-8 grid grid-cols-5 gap-6">
 
                 <aside>
-                    <a href="{{route('filmmaker.series.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de series</a>
+                    <a href="{{route('filmmaker.series.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la series</a>
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
                         <li class="leading-7 mb-1 border-l-4 @routeIs('filmmaker.series.edit',$serie) border-indigo-400 @else border-transparent @endif pl-2">

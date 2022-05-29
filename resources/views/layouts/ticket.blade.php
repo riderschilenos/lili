@@ -35,24 +35,18 @@
              
 
                 <aside>
-                    <a href="{{route('organizador.eventos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de eventos</a>
+                    <a href="{{route('filmmaker.series.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la series</a>
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
                         <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Información del evento</a>
+                            <a href="">Información de la serie</a>
                         </li>
                         <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Fechas y Categorias</a>
+                            <a href="">Videos de la serie</a>
                         </li>
                    
                         <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Listado de Inscritos</a>
-                        </li>
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Listado de Asistentes</a>
-                        </li>
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Retirar dinero</a>
+                            <a href="">Sponsors</a>
                         </li>
 
                         

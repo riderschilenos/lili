@@ -44,7 +44,7 @@
         <div class="grid grid-cols-2 gap-4">
             <figure>
                 @isset($vehiculo->image)
-                    <img id="picture" class="w-full h-64 object-cover object-contain"src="{{Storage::url($vehiculo->image->url)}}" alt="">
+                    <img id="picture" class="w-full h-64 object-cover"src="{{Storage::url($vehiculo->image->url)}}" alt="">
                 @else
                     <img id="picture" class="w-full h-64 object-cover object-center"src="https://congresosdeformacion.com/wp-content/uploads/2018/12/fotografia2.jpg" alt="">
                     

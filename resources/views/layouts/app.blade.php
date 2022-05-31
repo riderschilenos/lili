@@ -25,7 +25,7 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100"  x-data="{home: true}">
+        <div class="min-h-screen bg-gray-100"  x-data="{home: true, socio: true, registro: true}">
             @livewire('navigation-menu')
 
             <!-- Page Content -->

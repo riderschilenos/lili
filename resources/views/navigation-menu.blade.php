@@ -306,7 +306,7 @@
                 <!-- Hamburger -->
                 <div class="-mr-2 flex items-center sm:hidden">
                     
-                        <button @click="home = true; topFunction()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
+                        <button @click="home = true; socio = false; registro = false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                             </svg>
@@ -316,7 +316,7 @@
 
                 <!-- Search -->
                 <div class="-mr-2 flex items-center sm:hidden">
-                    <button @click="home = false; topFunction()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
+                    <button @click="socio = true; home = false; registro = false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                         
                             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             {{-- comment <a href="{{ route('socio.index') }}"> --}}   
@@ -328,8 +328,7 @@
                 </div>
                 <!-- Database -->
                 <div class="-mr-2 flex items-center sm:hidden">
-                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
-                        <a href="{{ route('garage.vehiculos.registerindex') }}">
+                    <button @click="registro = true; home = false; socio = false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">          
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                     class="h-10 w-10" viewBox="0 0 1280.000000 1280.000000"
                                         preserveAspectRatio="xMidYMid meet">
@@ -394,9 +393,7 @@
                                         180 6 -3 93 -61 194 -130z m807 -225 c-19 -37 -58 -91 -86 -119 -50 -51 -126
                                         -109 -133 -102 -9 10 -136 270 -136 279 0 6 70 10 196 10 l195 0 -36 -68z"/>
                                         </g>
-                                </svg>
-
-                        </a>
+                            </svg>      
                     </button>
                 </div>
                 <!-- Portal Vendedores -->

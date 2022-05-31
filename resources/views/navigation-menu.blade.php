@@ -65,7 +65,7 @@
  ]   
 @endphp
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
+<nav x-data="{ open: false }" class="border-b border-gray-100 shadow" style="z-index: 20;">
     <!-- Primary Navigation Menu -->
     <div class="fixed top-4 left-4 md:hidden">
         <div class="flex-shrink-0 flex items-center">
@@ -88,7 +88,7 @@
     
 
 
-    <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white pb-3" style="z-index: 2;">
+    <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white pb-3" style="z-index: 20;">
         <div class="container" >
             <div class="flex justify-between h-16">
                 <div class="hidden sm:flex">

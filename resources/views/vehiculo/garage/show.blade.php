@@ -180,7 +180,7 @@
 
 
         <div class="order-2 lg:order-2">
-            <section class="card mb-24">
+            <section class="card mb-26">
                 <div class="card-body">
                     @if($vehiculo->property==1)
                         <div class="flex items-center">

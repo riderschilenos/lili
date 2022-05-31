@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="container py-6">
+<div class="container py-6 mt-12 mb-10">
     
     <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800 mt-2 mb-4"></i> Listado de la pedidos</a>
     <h1 class="text-center font-bold text-2xl mb-6">LISTADO DE PRECIO</h1>

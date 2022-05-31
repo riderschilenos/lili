@@ -78,9 +78,9 @@
 
 
 
-        <div class="flex items-center mt-4">
-            <Label class="w-80">Tipo de Vehiculo:</Label>
-            <select wire:model="selectedvehiculotype" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center mt-4">
+            <Label class="w-80 text-center py-4">Tipo de Vehiculo:</Label>
+            <select wire:model="selectedvehiculotype" class="mb-4 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 <option value="">Selecciona una opción</option>
                 @foreach ($vehiculo_types as $vehiculo_type)
 
@@ -98,7 +98,7 @@
             {!! Form::open(['route'=>'garage.vehiculo.store', 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
                 @csrf
 
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8 mt-6">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8 mt-2">
 
                     <div class="flex items-center mt-4">
                         <Label class="w-80">Marca:</Label>
@@ -189,7 +189,7 @@
                       
 
                         <div class="flex justify-center">
-                          {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                          {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer mb-14']) !!}
                       </div>
 
             {!! Form::close() !!}

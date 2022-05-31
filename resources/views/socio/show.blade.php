@@ -1745,7 +1745,7 @@
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Localidad</div>
                                                 @if($socio->direccion)
-                                                    <div class="px-4 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</div>
+                                                    <div class="px-4 py-2">{{$socio->direccion->comuna}}, @if($socio->direccion) {{$socio->direccion->region}} @endif</div>
                                                 @endif
                                         </div>
                                         <div class="grid grid-cols-2">

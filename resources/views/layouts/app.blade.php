@@ -25,11 +25,11 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100"  x-data="{home: true, socio: false, registro: false, user: false}">
+        <div class="min-h-screen bg-gray-100"  x-data="{home: true, socio: false, registro: false, user: false, vendedor: false}">
             @livewire('navigation-menu')
 
             <!-- Page Content -->
-            <main>
+            <main style="z-index: 10;"> 
                 {{ $slot }}
             </main>
             

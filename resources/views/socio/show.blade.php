@@ -1225,7 +1225,7 @@
                                 <!-- Left Side -->
                                 <div class="w-full md:w-3/12 md:mx-2">
                                     <!-- Profile Card -->
-                                                @switch($socio->status)
+                                                @switch($socio2->status)
                                                                 @case(1)
                                                                 <div class="bg-white p-3 border-t-4 border-green-500">
                                                                     @break
@@ -1340,7 +1340,7 @@
                                                 <div class="grid grid-cols-2">
                                                     <div class="px-4 py-2 font-semibold">Localidad</div>
                                                         @if($socio2->direccion)
-                                                            <div class="px-4 py-2">{{$socio2->direccion->comuna}}, @if($socio->direccion) {{$socio->direccion->region}} @endif</div>
+                                                            <div class="px-4 py-2">{{$socio2->direccion->comuna}}, @if($socio2->direccion) {{$socio2->direccion->region}} @endif</div>
                                                         @endif
                                                 </div>
                                                 <div class="grid grid-cols-2">
@@ -1986,8 +1986,6 @@
 
 
         </div>
-
-        
 
     </div>
 

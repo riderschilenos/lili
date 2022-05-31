@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 //use App\Models\Image;
+
+use App\Models\Disciplina;
 use App\Models\Qrregister;
+use App\Models\Serie;
+use App\Models\Socio;
 use App\Models\Vehiculo;
 use App\Models\Vehiculo_type;
 use Carbon\Carbon;
@@ -88,9 +92,34 @@ class VehiculoController extends Controller
 
     public function show(Vehiculo $vehiculo){
 
+        $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+
+        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+        
+        if(auth()->user())
+        {
+            if(auth()->user()->socio)
+            {
+                $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+            }else{
+                $socio2=null;
+            }
+            
+        }
+        else{
+            $socio2=null;
+        }
+
+       $disciplinas= Disciplina::pluck('name','id');
+
         $qr=Qrregister::where('slug', $vehiculo->slug)->first();
 
-        return view('vehiculo.garage.show',compact('vehiculo','qr'));
+        return view('vehiculo.garage.show',compact('vehiculo','qr','socio2','disciplinas','riders','series','autos'));
     }
 
     public function store(Request $request)

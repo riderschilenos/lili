@@ -1683,7 +1683,7 @@
                                                 @endswitch
                                                 
                                         </li>
-{{-- comment
+                                    {{-- comment
                                         @if($socio->suscripcions)
                                             @if($socio->suscripcions->count())
                                             
@@ -1987,6 +1987,7 @@
 
         </div>
 
+        
 
     </div>
 

@@ -82,7 +82,7 @@ class HomeController extends Controller
      */
     public function show(Socio $socio)
     {   
-         $vehiculos = Vehiculo::where('status',4)
+        $vehiculos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);

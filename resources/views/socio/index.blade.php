@@ -77,10 +77,5 @@
             
         </div>
 
-    </div>
-    
-
-    {{-- @livewire('vendedor.pedidos-index')--}}
-    
-    
+    </div>  
 </x-app-layout>

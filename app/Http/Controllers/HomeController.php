@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Disciplina;
 use App\Models\Filmmaker;
 use Illuminate\Http\Request;
 use App\Models\Serie;
@@ -36,8 +37,9 @@ class HomeController extends Controller
         else{
             $socio=null;
         }
-       
-        return view('welcome',compact('series','socios','vehiculos','socio'));
+
+       $disciplinas= Disciplina::pluck('name','id');
+        return view('welcome',compact('series','socios','vehiculos','socio','disciplinas'));
         
     }
 }

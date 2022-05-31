@@ -125,7 +125,7 @@
             </section>
         </div>
 
-        <div :class="{'block': socio, 'hidden': ! socio}" class="hidden sm:hidden">
+        <div :class="{'block': socio, 'hidden': ! socio}" class="hidden">
             
             <div class="container py-8">
 
@@ -209,7 +209,7 @@
 
         </div>
 
-        <div :class="{'block': registro, 'hidden': ! registro}" class="hidden sm:hidden">
+        <div :class="{'block': registro, 'hidden': ! registro}" class="hidden">
             
             <div class="container py-8 ">
         
@@ -242,7 +242,7 @@
 
         </div>
 
-        <div :class="{'block': vendedor, 'hidden': ! vendedor}" class="hidden sm:hidden">
+        <div :class="{'block': vendedor, 'hidden': ! vendedor}" class="hidden">
             
             @php
                 // SDK de Mercado Pago
@@ -710,7 +710,7 @@
 
         </div>
 
-        <div :class="{'block': user, 'hidden': ! user}" class="hidden sm:hidden">
+        <div :class="{'block': user, 'hidden': ! user}" class="hidden">
             @if($socio)
                 <div>
                     @php

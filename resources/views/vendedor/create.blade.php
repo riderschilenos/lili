@@ -377,54 +377,12 @@
                                         <strong class="text-xs text-red-600">{{$message}}</strong>
                                     @enderror
                                 </div>
-                                <div class="mb-4">
-                                    {!! Form::label('fono', 'Fono:') !!}
-                                    {!! Form::text('fono', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
-                                </div>
-                                <div class="mb-4">
-                                    {!! Form::label('localidad', 'Localidad:') !!}
-                                    {!! Form::text('localidad', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('localidad')?' border-red-600':'')]) !!}
-                                </div>
-                                <div class="mb-4">
-                                    {!! Form::label('disciplina_id', 'Disciplina favorita:') !!}
-                                    {!! Form::select('disciplina_id', $disciplinas, null , ['readonly'=>'redonly','class'=>'form-input block w-full mt-1']) !!}
-                                </div>
                                 
                              
                             </div>
                         
                         </div>
                     
-
-                        <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
-
-                        <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
-
-                        <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                            <div class="md: col-span-2 lg:col-span-2 ">
-                                
-                                <div class="mb-4">
-                                    {!! Form::label('banco', 'Banco:') !!}
-                                    {!! Form::select('banco', $bancos, null , ['readonly'=>'redonly','class'=>'form-input block w-full mt-1']) !!}
-                                </div>
-                                <div class="mb-4">
-                                    {!! Form::label('tipo_cuenta', 'Tipo de cuenta:') !!}
-                                    {!! Form::select('tipo_cuenta', $cuentas, null , ['readonly'=>'redonly','class'=>'form-input block w-full mt-1']) !!}
-                                </div>
-                                
-                                <div class="mb-4">
-                                    {!! Form::label('nro_cuenta', 'Nro Cuenta*') !!}
-                                    {!! Form::text('nro_cuenta', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('nro_cuenta')?' border-red-600':'')]) !!}
-    
-                                    @error('nro_cuenta')
-                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                    @enderror
-                                </div>
-                                
-                                
-                            </div>
-                        
-                        </div>
                     
                         
                     </div>
@@ -432,7 +390,7 @@
                     <h1 class="text-center py-2 font-bold">Para desbloquear el formulario debes ingresar a tu cuenta RCH</h1>
                     <div class="flex justify-center">
                         
-                        <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary mb-4">Iniciar Sesión</a>
                         
                     </div>
                         @endif  

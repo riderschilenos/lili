@@ -2,7 +2,7 @@
 
     <div>
 
-        <div :class="{'block': home, 'hidden': ! home}">
+        <div :class="{'block': home, 'hidden': !  home}">
             
             <section class="bg-cover bg-center" style="background-image: url({{asset('img/home/homefotomini.png')}})">
 
@@ -715,9 +715,7 @@
 
                 @endif
             @else
-               
 
-            
 
                 @php
                     // SDK de Mercado Pago

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Socio;
 
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
+use App\Models\Serie;
 use App\Models\Socio;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\support\Str;
@@ -79,8 +81,33 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Socio $socio)
-    {
-        return view('socio.show',compact('socio'));
+    {   
+         $vehiculos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+
+        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+        
+        if(auth()->user())
+        {
+            if(auth()->user()->socio)
+            {
+                $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+            }else{
+                $socio2=null;
+            }
+            
+        }
+        else{
+            $socio2=null;
+        }
+
+       $disciplinas= Disciplina::pluck('name','id');
+
+        return view('socio.show',compact('socio','socio2','disciplinas','riders','series','vehiculos'));
     }
 
     /**

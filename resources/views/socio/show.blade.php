@@ -1687,14 +1687,14 @@
                                                 
                                         </li>
 
-                                        @if($socio->suscripcions->count())
-
+                                        @if($socio->suscripcions)
+                                            @if($socio->suscripcions->count())
                                             
-                                        <li class="flex items-center py-3">
-                                            <span>Fecha Vencimiento</span>
-                                            <span class="ml-auto">{{date('d', strtotime($socio->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
-                                        </li>
-
+                                                <li class="flex items-center py-3">
+                                                    <span>Fecha Vencimiento</span>
+                                                    <span class="ml-auto">{{date('d', strtotime($socio->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
+                                                </li>
+                                            @endif
                                         @endif
                                     </ul>
                                 </a>

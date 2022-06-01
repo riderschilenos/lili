@@ -213,7 +213,7 @@
 
         <div :class="{'block': registro, 'hidden': ! registro}" class="hidden">
             
-            <div class="container py-8 ">
+            <div class="max-w-7xl mx-auto py-8 ">
         
                 <div class="card">
                     <div class="card-body">

@@ -1383,15 +1383,15 @@
                                                 @if ($socio2->user->vehiculos)
                                                     
                                                 
-                                                    @foreach ($socio2->user->vehiculos as $vehiculo)
-                                                        @if($vehiculo->status==5 || $vehiculo->status==6)
+                                                    @foreach ($socio2->user->vehiculos as $car)
+                                                        @if($car->status==5 || $car->status==6)
                                                         <div class="text-center my-2">
-                                                            <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
+                                                            <a href="{{route('garage.vehiculo.show', $car)}}" class="text-main-color">
                                                                 <img class="h-24 w-34 mx-auto"
-                                                                src="{{Storage::url($vehiculo->image->first()->url)}}"
+                                                                src="{{Storage::url($car->image->first()->url)}}"
                                                                 alt="">
-                                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                                                                    <h1 class="text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                                                                <a href="{{route('garage.vehiculo.show', $car)}}">
+                                                                    <h1 class="text-md">{{$car->marca->name.' '.strtoupper($car->modelo).$car->cilindrada.' '.$car->año}}</h1>
                                                                 </a>
                                                             </a>
                                                         </div>

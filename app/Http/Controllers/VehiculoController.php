@@ -88,13 +88,62 @@ class VehiculoController extends Controller
     
 
     public function create(){
+        $autos = Vehiculo::where('status',4)
+        ->orwhere('status',5)
+        ->orwhere('status',7)
+        ->latest('id')->get()->take(3);
 
-        return view('vehiculo.garage.create');
+        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+
+        if(auth()->user())
+        {
+        if(auth()->user()->socio)
+        {
+        $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+        }else{
+        $socio2=null;
+        }
+
+        }
+        else{
+        $socio2=null;
+        }
+
+        $disciplinas= Disciplina::pluck('name','id');
+
+        return view('vehiculo.garage.create',compact('series','riders','autos','socio2','disciplinas'));
     }
 
     public function vender(){
+        
+        $autos = Vehiculo::where('status',4)
+        ->orwhere('status',5)
+        ->orwhere('status',7)
+        ->latest('id')->get()->take(3);
 
-        return view('vehiculo.usados.create');
+        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+
+        if(auth()->user())
+        {
+        if(auth()->user()->socio)
+        {
+        $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+        }else{
+        $socio2=null;
+        }
+
+        }
+        else{
+        $socio2=null;
+        }
+
+        $disciplinas= Disciplina::pluck('name','id');
+
+        return view('vehiculo.usados.create',compact('series','riders','autos','socio2','disciplinas'));
     }
 
     public function edit(Vehiculo $vehiculo){

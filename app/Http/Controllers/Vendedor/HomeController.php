@@ -45,7 +45,7 @@ class HomeController extends Controller
     }
 
     public function prepay()
-    {   $vehiculos = Vehiculo::where('status',4)
+    {   $autos = Vehiculo::where('status',4)
         ->orwhere('status',5)
         ->orwhere('status',7)
         ->latest('id')->get()->take(3);
@@ -71,7 +71,7 @@ class HomeController extends Controller
         $disciplinas= Disciplina::pluck('name','id');
                        
         
-        return view('vendedor.pedidos.prepay',compact('socio2','disciplinas','riders','series','vehiculos'));
+        return view('vendedor.pedidos.prepay',compact('socio2','disciplinas','riders','series','autos'));
     }
 
     public function comisiones()

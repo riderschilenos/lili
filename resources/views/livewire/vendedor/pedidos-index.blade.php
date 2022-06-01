@@ -84,7 +84,7 @@
 
 
     <h1 class="text-center text-3xl font-bold pb-4 pt-10 sm:pt-4">CATALOGO PRODUCTOS</h1>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
         <article>
             <figure>
                 <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/carcasas.jpg')}}" alt=""></a>
@@ -110,12 +110,16 @@
             </figure>
             
         </article>
+        <article class="sm:hidden">
+
+        </article>
         <article>
             <figure>
                 <a href="{{route('vendedor.pedidos.precios')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/precios.jpg')}}" alt=""></a>
             </figure>
             
         </article>
+        
     
     </div>
 

@@ -27,7 +27,33 @@ class HomeController extends Controller
             if (auth()->user()->vendedor) {
 
                 if(auth()->user()->vendedor->estado==2){
-                    return view('vendedor.pedidos.index');
+
+                    $autos = Vehiculo::where('status',4)
+                    ->orwhere('status',5)
+                    ->orwhere('status',7)
+                    ->latest('id')->get()->take(3);
+
+                    $series = Serie::where('status',3)->latest('id')->get()->take(8);
+
+                    $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+
+                    if(auth()->user())
+                    {
+                    if(auth()->user()->socio)
+                    {
+                    $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+                    }else{
+                    $socio2=null;
+                    }
+
+                    }
+                    else{
+                    $socio2=null;
+                    }
+
+                    $disciplinas= Disciplina::pluck('name','id');
+                    return view('vendedor.pedidos.index',compact('series','riders','autos','socio2','disciplinas'));
+                    
                 }else{
                     $disciplinas= Disciplina::pluck('name','id');
                     return view('vendedor.create',compact('disciplinas'));

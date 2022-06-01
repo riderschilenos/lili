@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2">
+    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
        
         <section class="bg-gray-700 py-12 mb-8 ">
             <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -130,6 +130,6 @@
             </div>
 
         </div>
-        
+
     </x-fast-view>
 </x-app-layout>

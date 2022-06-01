@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2">
+    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
        
     
         <section class="bg-cover bg-center" style="background-image: url({{asset('img/home/video.jpg')}})">

@@ -1,6 +1,6 @@
 <x-app-layout>
     
-    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2">
+    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
             @php
                 $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
             @endphp

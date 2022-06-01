@@ -113,9 +113,9 @@
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
 
-                @foreach ($series as $serie)
+                @foreach ($series as $peli)
 
-                    <x-serie-card :serie="$serie" />
+                    <x-serie-card :serie="$peli" />
                     
                 @endforeach
 

@@ -13,6 +13,7 @@ use App\Models\Video;
 class SerieController extends Controller
 {
     public function index(){
+
         $autos = Vehiculo::where('status',4)
         ->orwhere('status',5)
         ->orwhere('status',7)
@@ -53,8 +54,32 @@ class SerieController extends Controller
                             ->latest('id')
                             ->take(5)
                             ->get();
+        $autos = Vehiculo::where('status',4)
+            ->orwhere('status',5)
+            ->orwhere('status',7)
+            ->latest('id')->get()->take(3);
+                    
+        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+                    
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+                    
+            if(auth()->user())
+            {
+            if(auth()->user()->socio)
+            {
+        $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+            }else{
+        $socio2=null;
+            }
+                    
+            }
+            else{
+        $socio2=null;
+            }
+                    
+        $disciplinas= Disciplina::pluck('name','id');                  
 
-        return view('serie.show',compact('serie','videos','similares'));
+        return view('serie.show',compact('serie','videos','similares','series','riders','autos','socio2','disciplinas'));
     }
 
     public function enrolled(Serie $serie){

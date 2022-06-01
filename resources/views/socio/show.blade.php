@@ -129,7 +129,7 @@
 
         <div :class="{'block': socio, 'hidden': ! socio}" class="hidden">
             
-            <div class="container py-8">
+            <div class="max-w-7xl mx-auto py-8">
 
                 <div class="card">
                     

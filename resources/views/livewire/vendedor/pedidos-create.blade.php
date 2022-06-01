@@ -1,12 +1,9 @@
 <div>
 
-    <div class="flex mt-4 items-center justify-center">
-        @if(is_null($selectedSocios))
-            
-            <button class="btn btn-danger form-control" wire:click="updateselectedInvitado">Invitado</button>
-            
+    <div class="flex my-4 items-center justify-center">
+        @if(is_null($selectedSocios))   
+            <button class="btn btn-danger form-control" wire:click="updateselectedInvitado">Invitado</button>    
         @endif
-
         @if(is_null($invitados))
             <button class="btn btn-success ml-2 form-control" wire:click="updateselectedSocios">Socio</button>
         @endif

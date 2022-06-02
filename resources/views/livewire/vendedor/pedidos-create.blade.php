@@ -1,6 +1,6 @@
 <div>
 
-    <div class="flex my-4 items-center justify-center">
+    <div class="flex my-auto items-center justify-center">
         @if(is_null($selectedSocios))   
             <button class="btn btn-danger form-control" wire:click="updateselectedInvitado">Invitado</button>    
         @endif

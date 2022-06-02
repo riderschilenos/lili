@@ -1316,7 +1316,7 @@
                                             @can('perfil_propio', $socio2)
             
                                             
-                                                <a href="{{route('socio.edit',$socio2)}}"><h5 class="text-blue-600 font-bold text-sm cursor-pointer">(Editar)</h5></a>
+                                                <a href="{{route('socio.edit',$socio2)}}"><h5 class="text-blue-600 font-bold text-sm cursor-pointer ml-10">(Editar)</h5></a>
                                             
                                             @endcan
                                             

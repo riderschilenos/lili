@@ -186,7 +186,13 @@
                                 <!-- garage and movie -->
                                 <div class="bg-white p-3 shadow-sm rounded-sm mb-14">
                                     <h1 class="text-center font-bold py-2">GEOLOCALIZACIÓN PARA ENTRENAMIENTOS</h1>
-                                    <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
+                                    <div id="area-nav">
+                                        <div><h2>Pide permisos de hubicacion al navegador</h2></div>
+                                        <button id="pedirvan">Pedir permisos geolocalizacion navegador</button>
+                                        <div>por navegador</div>
+                                        <div id="nlat"></div>
+                                        <div id="nlon"></div>
+                                    </div>
 
                 <!-- 
                                     <div class="grid grid-cols-1 sm:grid-cols-2">
@@ -402,25 +408,31 @@
                     </div>
             </div>
             <script>
-                mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsM2NwYXdsYjAwcW4zanBoZ3IzZHdya2kifQ.PfJs-vZuxkQRGavx9Czz8Q';
-                var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11'
+                $(document).ready(function () {
+                    //Click al boton para pedir permisos
+                    $("#pedirvan").click(function () {
+                        //Si el navegador soporta geolocalizacion
+                        if (!!navigator.geolocation) {
+                            //Pedimos los datos de geolocalizacion al navegador
+                            navigator.geolocation.getCurrentPosition(
+                                    //Si el navegador entrega los datos de geolocalizacion los imprimimos
+                                    function (position) {
+                                        window.alert("nav permitido");
+                                        $("#nlat").text(position.coords.latitude);
+                                        $("#nlon").text(position.coords.longitude);
+                                    },
+                                    //Si no los entrega manda un alerta de error
+                                    function () {
+                                        window.alert("nav no permitido");
+                                    }
+                            );
+                        }
+                    });
+        
                 });
-
-                
-                // Add geolocate control to the map.
-                map.addControl(
-                new mapboxgl.GeolocateControl({
-                positionOptions: {
-                enableHighAccuracy: true
-                },
-                // When active the map will receive updates to the device's location as it changes.
-                trackUserLocation: true,
-                // Draw an arrow next to the location dot to indicate which direction the device is heading.
-                showUserHeading: true
-                })
-                );
+        
+        
+        
             </script>
 
     </x-fast-view>

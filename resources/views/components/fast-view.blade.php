@@ -1211,7 +1211,7 @@
                 <div class="bg-gray-100">
                     <div class="w-full text-white bg-main-color">
                         <div x-data="{ open: false }"
-                            class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                            class="flex flex-col max-w-screen-xl py-5 sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                             <div class="flex flex-row items-center justify-between p-4 ">
                                 <a href="{{route('socio.index')}}"
                                     class="hidden md:inline text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline cursor-pointer"><i class="fas fa-arrow-circle-left text-white-800"></i> Seguir Navegando</a>

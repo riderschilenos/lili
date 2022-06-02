@@ -29,7 +29,7 @@
 
 
 
-            <div class="bg-gray-100">
+            <div class="bg-gray-100 min-h-screen pb-6">
                 <div class="w-full text-white bg-main-color">
                     <div x-data="{ open: false }"
                         class="flex flex-col max-w-screen-xl py-5 sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
@@ -42,7 +42,7 @@
                 </div>
                 <!-- End of Navbar -->
 
-                <div class="container mx-auto mb-5 p-5">
+                <div class="max-w-7xl mx-auto mb-5 p-5">
                     <div class="md:flex no-wrap md:-mx-2 ">
                         <!-- Left Side -->
                         <div class="w-full md:w-3/12 md:mx-2">
@@ -123,11 +123,11 @@
                             <!-- End of friends card -->
                         </div>
                         <!-- Right Side -->
-                        <div class="w-full md:w-9/12 mx-2 h-64">
+                        <div class="w-full md:w-9/12 mx-0 sm:mx-2 h-64">
                             <!-- Profile tab -->
                             <!-- About Section -->
-                            <div class="bg-white p-3 shadow-sm rounded-sm">
-                                <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                            <div class="bg-white shadow-sm rounded-sm">
+                                <div class="flex items-center space-x-2 p-3 font-semibold text-gray-900 leading-8">
                                     <span clas="text-green-500">
                                         <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor">
@@ -185,10 +185,10 @@
                             </div>
                             <!-- End of about section -->
 
-                            <div class="my-4"></div>
+                           
 
                             <!-- garage and movie -->
-                            <div class="bg-white p-3 shadow-sm rounded-sm">
+                            <div class="bg-white shadow-sm rounded-sm">
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2">
                                     <div class="bg-white p-3 hover:shadow">

@@ -1303,7 +1303,7 @@
                                 <!-- Profile tab -->
                                 <!-- About Section -->
                                 <div class="bg-white shadow-sm rounded-sm">
-                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                                    <div class="flex items-center space-x-2 p-3 font-semibold text-gray-900 leading-8">
                                         <span clas="text-green-500">
                                             <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke="currentColor">

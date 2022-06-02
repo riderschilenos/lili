@@ -1322,7 +1322,7 @@
                                             
                                             </p>
                                     </div>
-                                    <div class="text-gray-700">
+                                    <div class="text-gray-700" x-data="{open: true}">
                                         <div class="grid md:grid-cols-2 text-sm">
                                             <div class="grid grid-cols-2">
                                                 <div class="px-4 py-2 font-semibold">Nombre</div>
@@ -1333,28 +1333,31 @@
                                                 <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio2->born_date))}}</div>
                                             </div>
                                             @if($socio2->fono)
-                                                <div class="grid grid-cols-2">
-                                                    <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                                    <div class="px-4 py-2">{{ $socio2->fono }}</div>
-                                                </div>
+                                                    <div class="grid grid-cols-2">
+                                                        <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
+                                                        <div class="px-4 py-2">{{ $socio2->fono }}</div>
+                                                    </div>
                                             @endif
-                                            <div class="grid grid-cols-2">
-                                                <div class="px-4 py-2 font-semibold">Localidad</div>
-                                                    @if($socio2->direccion)
-                                                        <div class="px-4 py-2">{{$socio2->direccion->comuna}}, @if($socio2->direccion) {{$socio2->direccion->region}} @endif</div>
-                                                    @endif
-                                            </div>
-                                            <div class="grid grid-cols-2">
-                                                <div class="px-4 py-2 font-semibold">Email.</div>
-                                                <div class="px-4 py-2">
-                                                    <a class="text-blue-800" href="mailto:jane@example.com">{{$socio2->user->email}}</a>
+                                                <div class="grid grid-cols-2">
+                                                    <div class="px-4 py-2 font-semibold">Localidad</div>
+                                                        @if($socio2->direccion)
+                                                            <div class="px-4 py-2">{{$socio2->direccion->comuna}}, @if($socio2->direccion) {{$socio2->direccion->region}} @endif</div>
+                                                        @endif
+                                                </div>
+                                            <div x-show="!open">
+                                                
+                                                <div class="grid grid-cols-2">
+                                                    <div class="px-4 py-2 font-semibold">Email.</div>
+                                                    <div class="px-4 py-2">
+                                                        <a class="text-blue-800" href="mailto:jane@example.com">{{$socio2->user->email}}</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            
                                         </div>
+                                    
+                                        <button x-on:click="open=false" x-show="open" class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Ver todo</button>
+                                        <button x-on:click="open=true" x-show="!open" class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Resume</button>
                                     </div>
-                                    <button
-                                        class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Ver todo</button>
                                 </div>
                                 <!-- End of about section -->
             

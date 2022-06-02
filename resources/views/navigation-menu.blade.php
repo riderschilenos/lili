@@ -88,8 +88,8 @@
     
 
 
-    <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white pb-6" style="z-index: 20;">
-        <div class="container" >
+    <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white" style="z-index: 20;">
+        <div class="container mb-6" >
             <div class="flex justify-between h-16">
                 <div class="hidden sm:flex">
                     <!-- Logo -->

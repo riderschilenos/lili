@@ -85,7 +85,7 @@
                     </tr>
                 </thead>
                 <tbody class="">
-                    @foreach ($gastosok->reverse() as $gasto)
+                    @foreach ($gastosok as $gasto)
 
                     @if ($gasto->gastotype_id>3)
                         <tr>

@@ -262,7 +262,7 @@
                                                         
                                             
                                         </div>
-                                        <ul class="list-inside space-y-2 ml-2">
+                                        <ul class="list-inside space-y-2 ml-2 hidden">
                                             <li>
                                                 <div class="flex items-center">
                                                     <span class="text-yellow-600">

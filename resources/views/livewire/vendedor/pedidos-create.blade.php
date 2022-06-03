@@ -23,8 +23,8 @@
                 <div class="grid grid-cols-2 gap-4">
                 
                 
-                    <div class="flex items-center mt-4">
-                        <Label class="w-80">Despacho:</Label>
+                    <div class="items-center mt-4">
+                        
                         <select wire:model="selecteddespacho" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                             <option value="">--Despacho--</option>
 
@@ -37,7 +37,7 @@
 
                     <div>
                         @if(!is_null($transportistas))
-                            {!! Form::label('transportista_id', 'Transportista') !!}
+                            {!! Form::label('transportista_id', 'Transportista:') !!}
                             {!! Form::select('transportista_id', $transportistas, null , ['class'=>'form-input block w-full mt-1']) !!}
                         @endif
                     </div>

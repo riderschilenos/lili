@@ -76,7 +76,7 @@ class RouteServiceProvider extends ServiceProvider
                 //->namespace($this->namespace)
                 ->group(base_path('routes/ticket.php'));
             
-            Route::middleware('web')
+            Route::middleware('web','auth')
                 ->name('organizador.')
                 ->prefix('organizador')
                 //->namespace($this->namespace)

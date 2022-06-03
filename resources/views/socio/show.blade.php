@@ -249,7 +249,7 @@
                                             --}}
                                         </div>
                                     </div>
-                                    <div class="bg-white p-3 hover:shadow">
+                                    <div class="bg-white p-3 hover:shadow hidden">
                                         <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
                                             <span class="text-red-500">
                                                 <i class="fas fa-dumbbell text-white-800"></i>

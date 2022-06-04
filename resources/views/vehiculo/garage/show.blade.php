@@ -3,8 +3,28 @@
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
 
             <section class="bg-gray-700 pb-12 pt-20 mb-8 ">
+                <figure class="block sm:hidden pt-6 pb-4">
+    
+                    @if($vehiculo->image->first())
+                    
+                        <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                        <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8">
+
+                            @foreach ($vehiculo->image as $image)
+                
+                                <img class="h-24 w-full object-contain object-center" src="{{Storage::url($image->url)}}" alt="">
+                        
+                                
+                            @endforeach
+                
+                        </div>
+                    @else
+                        <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                    
+                    @endif
+                </figure>
                 <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <figure>
+                    <figure class="hidden sm:block">
     
                         @if($vehiculo->image->first())
                         

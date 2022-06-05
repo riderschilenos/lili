@@ -132,7 +132,7 @@
                                                         
                                 </ul>
                             </div>
-                            <div class="card-body bg-gray-100">
+                            <div class="px-2 py-4 bg-gray-100">
                                 <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2" x-on:click="slr=!slr">
                                     
                                     <div>

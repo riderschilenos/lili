@@ -1265,32 +1265,65 @@
                                                 @endif
             
                                         </div>
-                                    <a href="{{ route('socio.create') }}">
-                                        <ul
-                                            class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                                            <li class="flex items-center py-3">
-                                                <span>Suscripción</span>
-                                                    @switch($socio2->status)
-                                                            @case(1)
-                                                                <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
-                                                                @break
-                                                            @case(2)
-                                                                <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
-                                                                @break
-                                                            @default
-                                                                
-                                                    @endswitch
-                                                    
-                                            </li>
-                          {{-- commen              
-                                            @if($socio2->suscripcions->count())   
+                                        @can('perfil_propio', $socio)
+                                        <a href="{{ route('socio.create') }}">
+                                            <ul
+                                                class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                                 <li class="flex items-center py-3">
-                                                    <span>Fecha Vencimiento</span>
-                                                    <span class="ml-auto">{{date('d', strtotime($socio2->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
+                                                    <span>Suscripción</span>
+                                                        @switch($socio->status)
+                                                                @case(1)
+                                                                    <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
+                                                                    @break
+                                                                @case(2)
+                                                                    <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
+                                                                    @break
+                                                                @default
+                                                                    
+                                                        @endswitch
+                                                        
                                                 </li>
-                                            @endift --}}    
-                                        </ul>
-                                    </a>
+                                            {{-- comment
+                                                @if($socio->suscripcions)
+                                                    @if($socio->suscripcions->count())
+                                                    
+                                                        <li class="flex items-center py-3">
+                                                            <span>Fecha Vencimiento</span>
+                                                            <span class="ml-auto">{{date('d', strtotime($socio->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
+                                                        </li>
+                                                    @endif
+                                                @endif --}}
+                                            </ul>
+                                        </a>
+                                    @else
+                                            <ul
+                                                class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                                <li class="flex items-center py-3">
+                                                    <span>Suscripción</span>
+                                                        @switch($socio->status)
+                                                                @case(1)
+                                                                    <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
+                                                                    @break
+                                                                @case(2)
+                                                                    <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
+                                                                    @break
+                                                                @default
+                                                                    
+                                                        @endswitch
+                                                        
+                                                </li>
+                                                {{-- comment
+                                                @if($socio->suscripcions)
+                                                    @if($socio->suscripcions->count())
+                                                    
+                                                        <li class="flex items-center py-3">
+                                                            <span>Fecha Vencimiento</span>
+                                                            <span class="ml-auto">{{date('d', strtotime($socio->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
+                                                        </li>
+                                                    @endif
+                                                @endif --}}
+                                            </ul>
+                                    @endcan
                                 </div>
                                 <!-- End of profile card -->
                                 <div class="my-4"></div>

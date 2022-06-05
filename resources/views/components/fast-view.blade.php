@@ -1248,6 +1248,12 @@
                                         <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
                                     @endcan
                                     </div>
+                                    <div
+                                    class="fb-like"
+                                    data-share="true"
+                                    data-width="450"
+                                    data-show-faces="true">
+                                    </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
                                         <div class="grid grid-cols-3">
                                                 @if ($socio2->user->serie_enrolled)

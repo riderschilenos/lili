@@ -87,7 +87,7 @@
                                             @endif
 
                                     </div>
-                                <a href="{{ route('socio.create') }}">
+                                
                                     <ul
                                         class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                         <li class="flex items-center py-3">
@@ -115,7 +115,7 @@
                                             @endif
                                         @endif --}}
                                     </ul>
-                                </a>
+                               
                             </div>
                             <!-- End of profile card -->
                             <div class="my-4"></div>

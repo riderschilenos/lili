@@ -22,8 +22,8 @@
                     @endif
                     
                     
-                    <div class="grid grid-cols-5">
-                        <div class="col-span-5">
+                    <div>
+                        <div>
                             
                                 @if($vehiculo->image->first())
                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}">

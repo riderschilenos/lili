@@ -2522,7 +2522,7 @@ select {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 100%;
+    height: 480px;
 
     overflow-x: scroll;
     -ms-scroll-snap-type: x mandatory;

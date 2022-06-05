@@ -18,16 +18,7 @@
                             @endforeach
                 
                         </div>
-                        
-                        <div class="ml-14 py-4">
-                            <div
-                            class="fb-like"
-                            data-share="true"
-                            data-width="300">
-                            </div>
-                        </div>
-
-
+    
                     @else
                         <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                     
@@ -73,13 +64,7 @@
                     
                         @endif
 
-                        <div class="ml-14 hidden sm:block my-4">
-                            <div
-                            class="fb-like"
-                            data-share="true"
-                            data-width="500">
-                            </div>
-                        </div>
+
     
                         @if ($qr)
                             @if ($qr->value==5000)

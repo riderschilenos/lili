@@ -100,7 +100,7 @@
     
             </section>
             <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="order-1 lg:col-span-2 lg:order-1">
+                <div class="order-1 lg:col-span-2 lg:order-1 ">
                     <section class="card  mb-8">
                         <div class="card-body">
                             <div class="grid grid-cols-2">
@@ -171,6 +171,8 @@
                     </section>  
 
                     @livewire('vehiculo.vehiculo-mantencion',['vehiculo' => $vehiculo])
+
+                    <hr class="mt-2 mb-6">
     {{-- comment                    @if ($qr)
                         
                     @else

@@ -141,7 +141,7 @@
                                     </div>
                                     
                                         
-                                        <div class="mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                        <div class="mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-2">
 
                                             <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->foto)}}" alt="">
                                             @if($mantencion->repuestos)
@@ -163,8 +163,10 @@
 
         </div>
     </div>
+    
     <x-slot name="js">
         <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
         <script src="{{asset('js/mantencion/form.js')}}"></script>
     </x-slot>
+    
 </section>

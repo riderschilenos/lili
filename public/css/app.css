@@ -2525,6 +2525,8 @@ select {
     width: 100%;
 
     overflow-x: scroll;
+    overflow-y: none;
+
     -ms-scroll-snap-type: x mandatory;
         scroll-snap-type: x mandatory;
 }

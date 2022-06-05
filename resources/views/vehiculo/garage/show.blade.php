@@ -19,7 +19,7 @@
                 
                         </div>
                         
-                        <div class="ml-14 block sm:hidden py-4">
+                        <div class="ml-14 py-4">
                             <div
                             class="fb-like"
                             data-share="true"
@@ -72,7 +72,7 @@
                             <p class="my-2 text-2xl"><i class="fas fa-dollar-sign"></i> Precio: ${{number_format($vehiculo->precio, 0, '.', '.')}}-.</p>
                     
                         @endif
-                        
+
                         <div class="ml-14 hidden sm:block my-4">
                             <div
                             class="fb-like"

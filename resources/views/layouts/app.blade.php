@@ -15,7 +15,6 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" href="{{asset('css/slider.css')}}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>

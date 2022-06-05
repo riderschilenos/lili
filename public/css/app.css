@@ -2537,6 +2537,7 @@ select {
     -ms-scroll-snap-type: x mandatory;
         scroll-snap-type: x mandatory;
     scroll-snap-align: center;
+    overflow-y: none;
 }
 .container {
   margin-left: auto;

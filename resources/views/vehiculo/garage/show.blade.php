@@ -18,7 +18,7 @@
                             @endforeach
                 
                         </div>
-                        <div class="flex justify-center">
+                        <div class="ml-14">
                             <div
                             class="fb-like"
                             data-share="true"

@@ -22,7 +22,7 @@
                     @endif
                     
                     
-                    <div>
+                    <div class="flex items-center w-full justify-center">
                         <div class="flex flex-col">
                             
                                 @if($vehiculo->image->first())

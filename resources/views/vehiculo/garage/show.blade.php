@@ -3,11 +3,11 @@
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
 
 
-        <section class="slider">
-            @foreach ($vehiculo->image as $image)            
-            <img class="" src="{{Storage::url($image->url)}}" alt="">
-            @endforeach
-        </section>
+            <section class="slider">
+                @foreach ($vehiculo->image as $image)            
+                    <img class="" src="{{Storage::url($image->url)}}" alt="">
+                @endforeach
+            </section>
             <section class="bg-gray-700 pb-12 pt-20 mb-8 ">
                 <figure class="block sm:hidden pt-6 pb-4">
     

@@ -169,10 +169,9 @@
                         </div>
     
                     </section>  
-    
-                    @if ($qr)
-    
-                        @livewire('vehiculo.vehiculo-mantencion',['vehiculo' => $vehiculo])
+
+                    @livewire('vehiculo.vehiculo-mantencion',['vehiculo' => $vehiculo])
+    {{-- comment                    @if ($qr)
                         
                     @else
                     <section class="mb-8">
@@ -190,7 +189,8 @@
     
                     </section>
                     @endif
-        
+         --}}
+
                     
     
                 </div>

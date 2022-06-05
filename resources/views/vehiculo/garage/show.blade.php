@@ -3,18 +3,24 @@
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
 
 
-            <section class="hidden">
-                @foreach ($vehiculo->image as $image)            
-                    <img class="" src="{{Storage::url($image->url)}}" alt="">
-                @endforeach
-            </section>
+           
+
+
+
             <section class="bg-gray-700 pb-12 pt-20 mb-8 ">
                 <figure class="block sm:hidden pt-6 pb-4">
     
                     @if($vehiculo->image->first())
                     
-                        <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
-                        <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8">
+                        {{-- comment <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">--}}
+                        <ul class="snap-mandatory flex overflow-x-auto gap-6 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ;'>
+                            @foreach ($vehiculo->image as $image)  
+                            <li class="shrink-0 snap-center w-full snap-mandatory">       
+                                <img class="" src="{{Storage::url($image->url)}}" alt="">
+                            </li>
+                            @endforeach
+                        </ul>
+                        <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8" style='z-index: 10 ;'>
 
                             @foreach ($vehiculo->image as $image)
                 

@@ -2,7 +2,7 @@
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
        
-        <div class="container py-8 ">  
+        <div class="container py-8 mb-10">  
             <div class="card">
                 <div class="card-body">
                     <div class="grid grid-cols-3">

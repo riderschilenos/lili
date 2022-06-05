@@ -23,7 +23,7 @@
                     
                     
                     <div>
-                        <div>
+                        <div class="photo-wrapper">
                             
                                 @if($vehiculo->image->first())
                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}">

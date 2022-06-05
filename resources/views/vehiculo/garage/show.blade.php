@@ -23,8 +23,7 @@
                             <div
                             class="fb-like"
                             data-share="true"
-                            data-width="300"
-                            data-show-faces="true">
+                            data-width="300">
                             </div>
                         </div>
 
@@ -50,14 +49,7 @@
                                 @endforeach
                     
                             </div>
-                            <div class="ml-14 hidden sm:block">
-                                <div
-                                class="fb-like"
-                                data-share="true"
-                                data-width="450"
-                                data-show-faces="true">
-                                </div>
-                            </div>
+                            
                         @else
                             <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                         
@@ -69,6 +61,7 @@
                         @if($vehiculo->ubicacion)
                             <h2 class="text xl mb-3">Ubicación: {{$vehiculo->ubicacion}}</h2>
                         @endif
+                       
                         {{-- comment
                         
                         <p class="mb-2"><i class="fas fa-wrench"></i> <b>3</b> Mantenciones registradas</p>
@@ -79,6 +72,14 @@
                             <p class="my-2 text-2xl"><i class="fas fa-dollar-sign"></i> Precio: ${{number_format($vehiculo->precio, 0, '.', '.')}}-.</p>
                     
                         @endif
+                        
+                        <div class="ml-14 hidden sm:block my-4">
+                            <div
+                            class="fb-like"
+                            data-share="true"
+                            data-width="500">
+                            </div>
+                        </div>
     
                         @if ($qr)
                             @if ($qr->value==5000)

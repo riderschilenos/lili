@@ -23,7 +23,7 @@
                             <div
                             class="fb-like"
                             data-share="true"
-                            data-width="280"
+                            data-width="290"
                             data-show-faces="true">
                             </div>
                         </div>

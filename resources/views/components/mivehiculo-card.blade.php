@@ -21,9 +21,7 @@
                         </div>
                     @endif
                     
-                    
-                    <div class="flex items-center w-full justify-center">
-                        <div class="flex flex-col">
+                  
                             
                                 @if($vehiculo->image->first())
                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
@@ -34,12 +32,7 @@
                                     <img class="h-45 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                                 </a>
                                 @endif
-                            
-                        </div>
-                        
-
-                        
-                    </div>
+                    
 
                 <div class="flex flex-1 flex-col">
                     @if($vehiculo->status==1)

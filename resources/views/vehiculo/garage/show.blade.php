@@ -18,14 +18,17 @@
                             @endforeach
                 
                         </div>
-                        <div class="ml-14">
+                        
+                        <div class="ml-14 block sm:hidden py-4">
                             <div
                             class="fb-like"
                             data-share="true"
-                            data-width="450"
+                            data-width="250"
                             data-show-faces="true">
                             </div>
                         </div>
+
+
                     @else
                         <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                     
@@ -47,7 +50,14 @@
                                 @endforeach
                     
                             </div>
-                            
+                            <div class="ml-14 hidden sm:block">
+                                <div
+                                class="fb-like"
+                                data-share="true"
+                                data-width="450"
+                                data-show-faces="true">
+                                </div>
+                            </div>
                         @else
                             <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                         

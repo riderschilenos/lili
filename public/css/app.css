@@ -2529,8 +2529,6 @@ select {
         scroll-snap-type: x mandatory;
 }
 .slider img {
-    width: 100%;
-    height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
     -ms-scroll-snap-type: x mandatory;

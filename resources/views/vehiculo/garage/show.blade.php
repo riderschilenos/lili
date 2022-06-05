@@ -4,7 +4,11 @@
 
 
            
-
+<style>
+    .slider::-webkit-scrollbar {
+  display: none;
+}
+</style>
 
 
             <section class="bg-gray-700 pb-12 pt-20 mb-8 ">
@@ -13,10 +17,10 @@
                     @if($vehiculo->image->first())
                     
                         {{-- comment <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">--}}
-                        <ul class="snap-mandatory flex overflow-x-auto gap-6 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ;'>
+                        <ul class="slider snap-mandatory flex overflow-x-auto gap-6 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                             @foreach ($vehiculo->image as $image)  
                             <li class="shrink-0 snap-center w-full snap-mandatory">       
-                                <img class="" src="{{Storage::url($image->url)}}" alt="">
+                                <img class="" src="{{Storage::url($image->url)}}" alt="" style="scroll-snap-align: center;">
                             </li>
                             @endforeach
                         </ul>

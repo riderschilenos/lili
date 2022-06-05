@@ -2,7 +2,7 @@
 
 <article class="card">
                
-               <div class="card-body">
+               <div class="px-2 py-4">
                     @if ($vehiculo->precio)
 
                         <div class="grid grid-cols-2">

@@ -172,7 +172,7 @@
 
                     @livewire('vehiculo.vehiculo-mantencion',['vehiculo' => $vehiculo])
 
-                    <hr class="mt-2 mb-6">
+                    <hr class="mt-2 mb-2 sm:mb-6">
     {{-- comment                    @if ($qr)
                         
                     @else

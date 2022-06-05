@@ -10,7 +10,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
+    
     theme: {
         extend: {
             fontFamily: {
@@ -20,8 +20,10 @@ module.exports = {
     },
 
     corePlugins: {
+
+        preflight: false,
         // ...
-       container: false,
+        container: false,
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

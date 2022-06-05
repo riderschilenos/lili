@@ -1,6 +1,6 @@
 @props(['vehiculo'])
 
-<article class="card">
+<article class="card flex flex-col">
                
                <div class="px-2 py-4">
                     @if ($vehiculo->precio)

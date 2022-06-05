@@ -26,5 +26,5 @@ module.exports = {
        container: false,
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [require('tailwindcss'),require('autoprefixer'),require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

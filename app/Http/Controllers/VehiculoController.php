@@ -292,27 +292,11 @@ class VehiculoController extends Controller
             'vehiculo_type_id'=> $request->vehiculo_type_id
             ]);
         
-        
 
-        if($request->file('file')){
-
-                $url = Storage::put('vehiculos',$request->file('file'));
-    
-                $vehiculo->image()->create([
-                    'url'=>$url
-                ]);
-            }
-
-        if($request->status==2){
+   
             
 
             return redirect()->route('garage.image',$vehiculo);
-
-        }
-        elseif($request->status==1){
-
-            return redirect()->route('garage.image',$vehiculo);
-        }
 
     }
 

@@ -1,4 +1,11 @@
 <section class="mt-4" x-data="{open: false}">
+
+    <style>
+        .slider::-webkit-scrollbar {
+      display: none;
+    }
+    </style>
+
     @php
         $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     @endphp
@@ -98,37 +105,56 @@
             
 
             @foreach ($vehiculo->mantencions->reverse() as $mantencion)
-                <article class="mb-4 text-gray-800">
+                <article class="mb-4 text-gray-800" x-data="{slr: false}">
+
                     <div class="mx-auto px-4 sm:px-6 lg:px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4">
-                    <figure class="flex lg:block mr-4 mt-4 ">
-                        <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($mantencion->created_at))-1]}}</div>
-                        <div class="ml-2 lg:ml-0 text-sm text-gray-900">{{$mantencion->created_at->format('d-m-Y')}}</div>    
-                    </figure>
+                        <figure class="flex lg:block mr-4 mt-4 ">
+                            <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($mantencion->created_at))-1]}}</div>
+                            <div class="ml-2 lg:ml-0 text-sm text-gray-900">{{$mantencion->created_at->format('d-m-Y')}}</div>    
+                        </figure>
 
-                    <div class="card flex-1 col-span-3">
-                        <div class="card-body bg-gray-100">
-                            <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                                
-                                <div>
-                                    <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i></p>
-                                    {!!$mantencion->servicio!!}
-                                </div>
-                                
+                        <div class="card flex-1 col-span-3">
+                            <div x-show="slr">
+                                <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' x-on:click="slr=!slr">
+                                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                                        <img class="" src="{{Storage::url($mantencion->foto)}}" alt="" style="scroll-snap-align: center;">
+                                    </li>
+                                    @if($mantencion->repuestos)
+                                        <li class="shrink-0 snap-center w-full snap-mandatory">       
+                                            <img class="" src="{{Storage::url($mantencion->repuestos)}}" alt="" style="scroll-snap-align: center;">
+                                        </li>
+                                    @endif
+                                    @if($mantencion->comprobante!='mantencions/')
+                                        <li class="shrink-0 snap-center w-full snap-mandatory">       
+                                            <img class="" src="{{Storage::url($mantencion->comprobante)}}" alt="" style="scroll-snap-align: center;">
+                                        </li>
+                                    @endif
+                                                        
+                                </ul>
+                            </div>
+                            <div class="card-body bg-gray-100">
+                                <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2" x-on:click="slr=!slr">
                                     
-                                    <div class="mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
-
-                                        <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->foto)}}" alt="">
-                                        @if($mantencion->repuestos)
-                                            <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->repuestos)}}" alt="">
-                                        @endif
-                                        @if($mantencion->comprobante!='mantencions/')
-                                            <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->comprobante)}}" alt="">
-                                        @endif
+                                    <div>
+                                        <p><b>{{$mantencion->titulo}}</b> <i class="fas fa-tools text-grey-800"></i></p>
+                                        {!!$mantencion->servicio!!}
                                     </div>
-                                
+                                    
+                                        
+                                        <div class="mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
+
+                                            <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->foto)}}" alt="">
+                                            @if($mantencion->repuestos)
+                                                <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->repuestos)}}" alt="">
+                                            @endif
+                                            @if($mantencion->comprobante!='mantencions/')
+                                                <img class="h-50 w-72 object-contain object-center" src="{{Storage::url($mantencion->comprobante)}}" alt="">
+                                            @endif
+                                        </div>
+                                    
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
 
                 </article>

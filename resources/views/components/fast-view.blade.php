@@ -57,7 +57,7 @@
             <p class="text-center text-white pb-6">Unete a la comunidad rider más grande del país</p>
             
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 gap-y-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
 
                 @foreach ($riders as $rider)
 
@@ -1248,7 +1248,6 @@
                                         <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
                                     @endcan
                                     </div>
-                                    
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
                                         <div class="grid grid-cols-3">
                                                 @if ($socio2->user->serie_enrolled)

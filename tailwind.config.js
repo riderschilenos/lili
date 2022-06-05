@@ -19,11 +19,11 @@ module.exports = {
         },
     },
 
-    corePlugins: {
+    separator: '_',
 
+    corePlugins: {
         preflight: false,
-        // ...
-        container: false,
+       container: false,
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

@@ -40,7 +40,7 @@ class VehiculoInscripcion extends Component
 
         $this->selecteddisciplina=$disciplina_id;
         
-        $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();
+        $this->marcas = Marca::where('disciplina_id',$disciplina_id)->pluck('name','id');
         
         $this->selectedvehiculo_type = $vehiculo_type;
     

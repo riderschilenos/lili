@@ -8,7 +8,6 @@
                     
                     <h1 class="text-2xl font-bold">CREAR NUEVO PEDIDO</h1>
                     <hr class="mt-2 mb-6">
-                    <h5 class="text-xs text-center py-4">SI LOS BOTONES NO FUNCIONAN, REFRESCA LA PAGINA, ESTAMOS TRABAJANDO PARA SOLUCIONAR ESTE ERROR</h5>
                     
                     @livewire('vendedor.pedidos-create')
                   

@@ -300,7 +300,7 @@
                 $preference->save();
                     
             @endphp
-            <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="max-w-7xl mx-auto px-4 pb-16">
 
                 <div class="card pb-8 ">
             
@@ -725,7 +725,7 @@
             @endphp
             <div class="max-w-7xl mx-auto px-4 py-8">
 
-                <div class="card pb-8 ">
+                <div class="card pb-8 my-8 sm:my-2">
             
                     
 

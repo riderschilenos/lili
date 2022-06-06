@@ -1348,7 +1348,7 @@
                                                         @if($car->status==5 || $car->status==6)
                                                         <div class="text-center my-2">
                                                             <a href="{{route('garage.vehiculo.show', $car)}}" class="text-main-color">
-                                                                <img class="h-24 w-34 mx-auto"
+                                                                <img class="h-28 w-40 mx-auto"
                                                                 src="{{Storage::url($car->image->first()->url)}}"
                                                                 alt="">
                                                                 <a href="{{route('garage.vehiculo.show', $car)}}">

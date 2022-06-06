@@ -96,19 +96,19 @@
     </div>
 
     <div class="card">
-        <div class="px-2 sm:px-6 py-4">
+        <div class="px-0 sm:px-6 py-4">
             @if ($vehiculo->mantencions->count()==1)
-                <p class="text-grey-800 text-xl">1 Mantención</p>
+                <p class="text-grey-800 text-xl px-2">1 Mantención</p>
             @else
-                <p class="text-grey-800 text-xl">{{$vehiculo->mantencions->count()}} Mantenciones</p>
+                <p class="text-grey-800 text-xl px-2">{{$vehiculo->mantencions->count()}} Mantenciones</p>
             @endif
             
 
             @foreach ($vehiculo->mantencions->reverse() as $mantencion)
                 <article class="mb-4 text-gray-800" x-data="{slr: false}">
 
-                    <div class="mx-auto px-2 sm:px-6 lg:px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4">
-                        <figure class="flex lg:block mr-4 mt-4 ">
+                    <div class="mx-auto px-0 sm:px-4 lg:px-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4">
+                        <figure class="flex lg:block mr-4 mt-4 px-2">
                             <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($mantencion->created_at))-1]}}</div>
                             <div class="ml-2 lg:ml-0 text-sm text-gray-900">{{$mantencion->created_at->format('d-m-Y')}}</div>    
                         </figure>

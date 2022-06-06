@@ -2,7 +2,7 @@
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
        
-        <div class="container pb-8 pt-12 mb-12">  
+        <div class="container pb-8 pt-12 my-12">  
             <div class="card">
                 <div class="card-body">
                     <div class="grid grid-cols-3">

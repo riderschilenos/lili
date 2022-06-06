@@ -248,15 +248,16 @@
                           <tr>
                               <td class="px-6 py-4 whitespace-nowrap">
                                   <div class="flex items-center">
-                                      <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                      
                                       {{$pedido->id}}
                                       <div class="ml-2 flex-shrink-0 h-10 w-10">
-                                          @isset($pedido->image)
-                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
-                                          @else
-                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
-                                          @endisset
-                                          
+                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                            @isset($pedido->image)
+                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
+                                            @else
+                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
+                                            @endisset
+                                        </a>
                                       </div>
                                       <div class="ml-4">
                                       <div class="text-sm font-medium text-gray-900">
@@ -265,10 +266,13 @@
                                             @foreach ($socios as $socio)
                                                     
                                                     @if($socio->id == $pedido->pedidoable_id)
-                                                        {{$socio->user->name}}
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                            Socio
-                                                        </span>
+                                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                            {{$socio->user->name}}
+                                                        
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                Socio
+                                                            </span>
+                                                        </a>
                                                     @endif
                                             @endforeach
                                         @endif
@@ -276,9 +280,12 @@
                                             @foreach ($invitados as $invitado)
                                                     
                                                     @if($invitado->id == $pedido->pedidoable_id)
-                                                        {{$invitado->name}} <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                        {{$invitado->name}} 
+                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                                             Invitado
                                                         </span>
+                                                    </a> 
                                                     @endif
                                             @endforeach
                                         @endif
@@ -286,38 +293,38 @@
 
                                       </div>
                                       <div class="text-sm text-gray-500">
-
-                                            @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                
-                                                @foreach ($socios as $socio)
-                                                    @if(!is_null($socio->direccion))
-                                                        @if($socio->id == $pedido->pedidoable_id)
-                                                            {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
-                                                        @endif
-                                                    @endif
-                                                @endforeach
-                                            @endif
-
-                                            @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                                @foreach ($invitados as $invitado)
+                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                @if($pedido->pedidoable_type=='App\Models\Socio')
                                                     
-                                                        @if($invitado->id == $pedido->pedidoable_id)
+                                                    @foreach ($socios as $socio)
+                                                        @if(!is_null($socio->direccion))
+                                                            @if($socio->id == $pedido->pedidoable_id)
+                                                                {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+
+                                                @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                                    @foreach ($invitados as $invitado)
                                                         
-                                                            @if(!is_null($invitado->direccion))
-                                                                {{$invitado->direccion->comuna.", ".$invitado->direccion->region}}
-                                                            @else
-                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                    FALTA DIRECCIÓN DE DESPACHO
-                                                                </span>
+                                                            @if($invitado->id == $pedido->pedidoable_id)
+                                                            
+                                                                @if(!is_null($invitado->direccion))
+                                                                    {{$invitado->direccion->comuna.", ".$invitado->direccion->region}}
+                                                                @else
+                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                                        FALTA DIRECCIÓN DE DESPACHO
+                                                                    </span>
+                                                                @endif
+                                                            
                                                             @endif
                                                         
-                                                        @endif
-                                                    
-                                                @endforeach
-                                            @endif
-
+                                                    @endforeach
+                                                @endif
+                                            </a>
                                       </div>
-                                      </div></a>
+                                      </div>
                                   </div>
                             </td>
 

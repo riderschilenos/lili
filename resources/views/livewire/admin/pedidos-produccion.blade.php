@@ -42,9 +42,9 @@
                 </svg>
                 
                 <span class="mt-2 text-base leading-normal text-center">Lote N° {{$lote->id}}</span>
-                <div class="flex">
+                <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-8">
                     @foreach($lote->ordens as $orden)
-                        <div class="p-1 mx-1 rounded-lg btn-danger ">
+                        <div class="p-1 mx-1 rounded-lg btn-danger text-center">
                             {{$orden->id}}
                         </div>
                     @endforeach

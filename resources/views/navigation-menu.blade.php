@@ -65,7 +65,7 @@
  ]   
 @endphp
 
-<nav x-data="{ open: false }" class="border-b border-gray-100 shadow" style="z-index: 20;">
+<nav x-data="{ open: false }" class="border-b border-gray-100" style="z-index: 20;">
     <!-- Primary Navigation Menu -->
     <div class="fixed top-4 left-4 md:hidden">
         <div class="flex-shrink-0 flex items-center">

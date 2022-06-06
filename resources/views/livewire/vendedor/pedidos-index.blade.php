@@ -144,7 +144,7 @@
                 
         
                 <div class="w-full rounded-xl flex items-center justify-center order-2 md:order-3">
-                    <a class="btn btn-success ml-2 text-center text-lg" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
+                    <a class="btn btn-success ml-2 text-center text-xl" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
                 </div>
              
                 

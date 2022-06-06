@@ -248,6 +248,7 @@
                           <tr>
                               <td class="px-6 py-4 whitespace-nowrap">
                                   <div class="flex items-center">
+                                      <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                       {{$pedido->id}}
                                       <div class="ml-2 flex-shrink-0 h-10 w-10">
                                           @isset($pedido->image)
@@ -316,7 +317,7 @@
                                             @endif
 
                                       </div>
-                                      </div>
+                                      </div></a>
                                   </div>
                             </td>
 

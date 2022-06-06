@@ -1,11 +1,11 @@
-<div>
+<div wire:key="foo">
 
     <div class="flex my-auto items-center justify-center" >
         @if(is_null($selectedSocios))   
-            <a class="btn btn-danger form-control cursor-pointer" wire:click="updateselectedInvitado">Invitado</a>    
+            <a class="btn btn-danger form-control cursor-pointer" wire:click="updateselectedInvitado" wire:key="foo">Invitado</a>    
         @endif
         @if(is_null($invitados))
-            <a class="btn btn-success ml-2 form-control cursor-pointer" wire:click="updateselectedSocios">Socio</a>
+            <a class="btn btn-success ml-2 form-control cursor-pointer" wire:click="updateselectedSocios" wire:key="foo">Socio</a>
         @endif
     </div>
 
@@ -233,7 +233,5 @@
         
 
     @endif
-
-    
 
 </div>

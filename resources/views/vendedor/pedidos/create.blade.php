@@ -18,8 +18,7 @@
         </div>
 
         <x-slot name="js">
-            <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
-            <script src="{{asset('js/filmmaker/series/form.js')}}"></script>
+
         </x-slot>
 
     </x-fast-view>

@@ -105,22 +105,8 @@
 
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-8 mt-6">
 
-                        <div class="flex items-center mt-4">
-                            <Label class="w-80">Marca:</Label>
-                            <select wire:model="selectedmarca" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value="">--Marca--</option>
-                                        
-                                
-                                @foreach ($marcas as $marca)
-                                    
-
-                                    <option value="{{$marca->id}}">{{$marca->name}}</option>
-              
-                                    
-                                @endforeach
-
-                            </select>
-                        </div>
+                      {!! Form::label('marca_id', 'Marca:') !!}
+                      {!! Form::select('marca_id', $marcas, null , ['class'=>'form-input block w-full mt-1']) !!}
                         
                         @if($selecteddisciplina==1)
                             @include('vehiculo.usados.partials.formmoto')
@@ -195,7 +181,6 @@
                       
                       {!! Form::hidden('user_id',auth()->user()->id) !!}
     
-                      {!! Form::hidden('marca_id',$selectedmarca) !!}
                   
                       {!! Form::hidden('status', 1 ) !!}
                   

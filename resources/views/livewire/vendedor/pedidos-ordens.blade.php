@@ -42,17 +42,17 @@
         
 
         
-        <article class="card" x-show="open">
+        <article class="card mb-20" x-show="open">
             <div class="card-body bg-gray-100">
                 <h1 class="text-xl font bold">Agregando Productos</h1>
 
                 <div class="flex items-center mt-4">
-                    <Label class="w-32">CATEGORIA:</Label>
+         
                     <select wire:model="selectedcategory" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option value="">Selecciona una opción</option>
+                        <option value="" class="text-center">Selecciona una categoría</option>
                         @foreach ($category_products as $category_product)
 
-                            <option value="{{$category_product->id}}">{{$category_product->name}}</option>
+                            <option value="{{$category_product->id}}" class="text-center">{{$category_product->name}}</option>
                             
                         @endforeach
                     </select>

@@ -83,17 +83,17 @@
 
 
 
-            <div class="flex items-center mt-4">
-                <Label class="w-80">Tipo de Vehiculo:</Label>
-                <select wire:model="selectedvehiculotype" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                    <option value="">Selecciona una opción</option>
-                    @foreach ($vehiculo_types as $vehiculo_type)
-        
-                        <option value="{{$vehiculo_type->id}}">{{$vehiculo_type->name}}</option>
-                        
-                    @endforeach
-                </select>
-            </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 items-center mt-4">
+            <Label class="w-80 text-center py-4">Tipo de Vehiculo:</Label>
+            <select wire:model="selectedvehiculotype" class="mb-4 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="">Selecciona una opción</option>
+                @foreach ($vehiculo_types as $vehiculo_type)
+
+                    <option value="{{$vehiculo_type->id}}">{{$vehiculo_type->name}}</option>
+                    
+                @endforeach
+            </select>
+        </div>
 
         </div>
       

@@ -19,7 +19,7 @@
                             </div>
                     
                 
-                    <hr class="mt-2 mb-6">
+                    <hr class="mt-2 mb-4">
 
                         
                         

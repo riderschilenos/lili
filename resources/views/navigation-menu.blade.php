@@ -222,11 +222,11 @@
                                 <!-- Account Management -->
                                 @if(auth()->user()->socio)
                                     <x-jet-dropdown-link href="{{ route('socio.show', auth()->user()->socio) }}">
-                                        {{ __('Perfil Rider') }}
+                                        {{ __('Mi Perfil') }}
                                     </x-jet-dropdown-link>
                                 @endif
                                 <x-jet-dropdown-link href="{{ route('socio.create') }}">
-                                    {{ __('Suscripción RCH') }}
+                                    {{ __('Suscripción') }}
                                 </x-jet-dropdown-link>
 
                                 <x-jet-dropdown-link href="{{ route('garage.vehiculos.index') }}">
@@ -566,11 +566,11 @@
                 <!-- Account Management --> 
                 @if(auth()->user()->socio)
                     <x-jet-responsive-nav-link href="{{ route('socio.show', auth()->user()->socio) }}" :active="request()->routeIs('socio.show')">
-                        {{ __('Perfil Rider') }}
+                        {{ __('Mi Perfil') }}
                     </x-jet-responsive-nav-link>
                 @endif
                 <x-jet-responsive-nav-link href="{{ route('socio.create') }}" :active="request()->routeIs('socio.create')">
-                    {{ __('Suscripción Rider') }}
+                    {{ __('Suscripción') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('garage.vehiculos.index') }}" :active="request()->routeIs('garage.vehiculos.index')">
                     {{ __('Mis vehiculos') }}

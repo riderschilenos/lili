@@ -11,7 +11,7 @@
 
     @if(!is_null($invitados))
 
-        {!! Form::open(['route' => 'vendedor.pedidos.store', 'method'=> 'POST']) !!}
+            {!! Form::open(['route' => 'vendedor.pedidos.store', 'method'=> 'POST']) !!}
             @csrf
             {!! Form::hidden('user_id',auth()->user()->id) !!}
 
@@ -20,33 +20,32 @@
             @include('vendedor.pedidos.partials.form')
 
 
-                <div class="grid grid-cols-2 gap-4">
-                
-                
-                    <div class="items-center mt-4">
-                        
-                        <select wire:model="selecteddespacho" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                            <option value="">--Despacho--</option>
-
-                                <option value="1">Domicilio</option>
-                                <option value="2">Sucursal</option>
-                                <option value="3">Retiro en tienda</option>
-          
-                        </select>
-                    </div>
-
-                    <div>
-                        @if(!is_null($transportistas))
-                            {!! Form::label('transportista_id', 'Transportista:') !!}
-                            {!! Form::select('transportista_id', $transportistas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                        @endif
-                    </div>
-                
-                <div>
+                    <div class="grid grid-cols-2 gap-4">
                     
-                </div>
+                    
+                        <div class="items-center mt-4">
+                            
+                            <select wire:model="selecteddespacho" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option value="">--Despacho--</option>
+
+                                    <option value="1">Domicilio</option>
+                                    <option value="2">Sucursal</option>
+                                    <option value="3">Retiro en tienda</option>
             
-            </div>
+                            </select>
+                        </div>
+
+                        <div>
+                            @if(!is_null($transportistas))
+                                {!! Form::label('transportista_id', 'Transportista:') !!}
+                                {!! Form::select('transportista_id', $transportistas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                            @endif
+                        </div>
+                    
+                        <div>
+                        </div>
+            
+                    </div>
 
 
 
@@ -135,7 +134,7 @@
 
                                 @endif
                             @endforeach
-                        <!-- More people... -->
+                            <!-- More people... -->
                         </tbody>
                     </table>
                     

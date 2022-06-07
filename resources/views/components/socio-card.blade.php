@@ -14,11 +14,12 @@
 
                     <div class="px-2 flex flex-1 flex-col">
                         <a href= "{{route('socio.show', $socio)}}">
-                        <h3 class="text-center cursor-pointer text-xl text-gray-900 font-medium leading-8">{{$socio->name}}</h3>
+                        <h3 class="text-center cursor-pointer text-xl text-gray-900 font-medium leading-8">{{Str::limit($socio->name,16)}}</h3>
                         </a>
-                        <div class="text-center text-gray-400 text-xs font-semibold ">
+                        
+                        {{-- <div class="text-center text-gray-400 text-xs font-semibold ">
                             <p>Socio RidersChilenos</p>
-                        </div>
+                        </div> --}}
                         <table class="text-xs mt-auto">
                             <tbody>
                                 

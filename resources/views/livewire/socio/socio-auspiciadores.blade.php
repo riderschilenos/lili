@@ -1,8 +1,8 @@
 <div>
     <div class="grid grid-cols-3">
-        @if ($user->Auspiciadors->count())
+        @if ($auspiciadores->count())
         
-            @foreach ($user->Auspiciadors as $auspiciador)
+            @foreach ($auspiciadores as $auspiciador)
                 <div class="text-center my-2" >          
                         <img class="h-16 w-20 mx-auto object-contain"
                         src="{{Storage::url($auspiciador->logo)}}"

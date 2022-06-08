@@ -57,7 +57,7 @@
     @endif
         
 
-    @if ($formulario)
+    @if ($formulario!=FALSE)
         <article class="my-4 text-center">
         
         

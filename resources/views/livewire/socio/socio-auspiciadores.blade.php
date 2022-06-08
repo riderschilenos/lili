@@ -1,5 +1,5 @@
-<div>
-    <div class="grid grid-cols-3">
+<div x-data="{form: false}">
+    <div class="grid grid-cols-3" x-on:click="form=false">
         @if ($auspiciadores->count())
         
             @foreach ($auspiciadores as $auspiciador)
@@ -23,13 +23,13 @@
             </ul>
         @endif
         @can('perfil_propio', $socio)
-            @if (!$formulario)
-                <div class="flex justify-center items-center" wire:click="formulario">
+            
+                <div class="flex justify-center items-center" x-show="!form">
                     <img class="h-8 w-12 mx-auto object-contain"
                     src="{{asset('img/socio/addnew.png')}}"
-                    alt="">
+                    alt="" x-on:click="form=true">
                 </div>
-            @endif
+
         @endcan
     </div>
 
@@ -57,8 +57,8 @@
     @endif
         
 
-    @if ($formulario!=FALSE)
-        <article class="my-4 text-center">
+
+        <article class="my-4 text-center" x-show="form">
         
         
             {!! Form::open(['route'=>'socio.auspiciadors.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
@@ -104,7 +104,7 @@
                     {!! Form::hidden('user_id',$user->id) !!}
     
                 <div class="flex justify-center">
-                    <a class="btn btn-danger mr-2 ml-auto" wire:click="formulario">Cancelar</a> 
+                    <a class="btn btn-danger mr-2 ml-auto" x-on:click="form=false" >Cancelar</a> 
                     {!! Form::submit('Guardar', ['class'=>'btn btn-primary cursor-pointer']) !!}
                     {!! Form::close() !!}
                 </div>
@@ -113,5 +113,5 @@
                                                        
             
         </article>
-    @endif 
+
 </div>

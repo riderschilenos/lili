@@ -34,27 +34,7 @@
         @endcan
     </div>
 
-    @if ($current)
-        <div wire:click="show({{$current}})">
-            <div class="col-span-3 bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow px-3 mt-3 divide-y rounded shadow-sm">
-                <div class="grid grid-cols-3">
-                    <div>
-                        <div class="text-center my-2" >          
-                            <img class="h-16 w-20 mx-auto object-contain"
-                            src="{{Storage::url($current->logo)}}"
-                            alt="">
-                        </div>
-                    </div>
-                    <div class="col-span-2 items-center my-auto mx-auto border-2 py-3 px-5">
-                        <h1 class="text-center text-xl font-bold">{{$current->name}}</h1>
-                                
-                    </div>
-                </div>
-                <h1 class="text-center py-3">{{$current->beneficio}}</h1>
-                <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$current}})">Eliminar</h1>  
-            </div>
-        </div>
-    @endif
+    
         
 
         <article class="my-4 text-center">

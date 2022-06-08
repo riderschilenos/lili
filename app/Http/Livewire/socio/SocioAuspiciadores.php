@@ -18,20 +18,14 @@ class SocioAuspiciadores extends Component
 
     use AuthorizesRequests;
 
-    public $user, $socio , $current=NULL, $formulario=FALSE, $auspiciadores;
+    public $socio , $socioid, $current=NULL, $formulario=FALSE, $auspiciadores;
 
     public function mount(Socio $socio){
-        $this->user= User::find($socio->user_id);
-        $this->auspiciadores=$this->user->auspiciadors;
         $this->socio= $socio;}
 
     public function render()
-    {   
-        $auspiciadores=$this->user->auspiciadors;
-        $socio=Socio::find($this->socio->id);
-        $user=User::find($this->user->id);
-
-        return view('livewire.socio.socio-auspiciadores',compact('auspiciadores','socio','user'));
+    {   $socio=Socio::find($this->socio->id);
+        return view('livewire.socio.socio-auspiciadores',compact('socio'));
     }
 
     public function show(Auspiciador $auspiciador){
@@ -64,7 +58,5 @@ class SocioAuspiciadores extends Component
         $this->current->delete();
         $this->current=NULL;
        
-
-
     }
 }

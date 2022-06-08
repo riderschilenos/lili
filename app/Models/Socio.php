@@ -43,6 +43,7 @@ class Socio extends Model
     public function suscripcions(){
         return $this->morphMany('App\Models\Suscripcion','suscripcionable');
     }
+    
 
 
 }

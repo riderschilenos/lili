@@ -26,6 +26,8 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
+     
     protected $fillable = [
         'name',
         'email',
@@ -107,10 +109,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Mantencion');
     }
 
-    public function auspiciadors(){
-        return $this->hasMany('App\Models\Auspiciador');
-    }
-
     public function comentarios(){
         return $this->hasMany('App\Models\Comentario');
     }
@@ -154,7 +152,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Video');
     }
 
-    
+    //relacion uno a uno polimorfica
+    public function auspiciadors(){
+        return $this->morphMany('App\Models\Auspiciador','auspiciadorable');
+    }
 
     
 }

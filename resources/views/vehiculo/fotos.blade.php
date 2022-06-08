@@ -144,7 +144,7 @@
                                 {{session('info')}}
                             </div>
                       @endif
-              {{-- comment  
+                    {{-- comment  
                       <div class="flex justify-center">
                         <div class="card">
                         <div class="card-body">
@@ -196,7 +196,7 @@
                             </div>
                         @endif
                       
-                      @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculos-image.'.$vehiculo->slug))
+                      @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculo-image.'.$vehiculo->slug))
               {{-- comment      --}}
                       
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Socio;
 
 use App\Http\Controllers\Controller;
 use App\Models\Auspiciador;
+use App\Models\Socio;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -47,9 +48,6 @@ class AuspiciadorController extends Controller
             'beneficio'=>'required'  
            // 'slug'=>'required|unique:vehiculos',
         ]);
-    
-
-    $user = User::find($request->user_id);
 
     
     $logo = Str::random(10).$request->file('logo')->getClientOriginalName();
@@ -65,12 +63,14 @@ class AuspiciadorController extends Controller
         'control' => TRUE,
         'name' => $request->name,
         'beneficio' => $request->beneficio,
-        'user_id' => $request->user_id,
-        'logo'=>'auspiciadores/'.$logo
+        'logo'=>'auspiciadores/'.$logo,
+        'auspiciadorable_id'=> $request->auspiciadorable_id,
+        'auspiciadorable_type'=> $request->auspiciadorable_type
     ]);
+   
+    $socio= Socio::find($request->socio_id);
 
-    
-    return redirect()->back();
+    return redirect()->route('socio.show',$socio);
     }
 
     /**

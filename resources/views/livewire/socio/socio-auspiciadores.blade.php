@@ -1,8 +1,8 @@
 <div>
     <div class="grid grid-cols-3">
-        @if ($auspiciadores->count())
+        @if ($socio->user->auspiciadors->count())
         
-            @foreach ($auspiciadores as $auspiciador)
+            @foreach ($socio->user->auspiciadors as $auspiciador)
                 <div class="text-center my-2" >          
                         <img class="h-16 w-20 mx-auto object-contain"
                         src="{{Storage::url($auspiciador->logo)}}"
@@ -16,7 +16,7 @@
                     @can('perfil_propio', $socio)
                         <h1 class="text-center text-xs">Agrega tu primer auspiciador</h1>
                     @else
-                        <h1 class="text-center text-xs">{{$user->name}} no cuenta con auspiciadores</h1>
+                        <h1 class="text-center text-xs">{{$socio->user->name}} no cuenta con auspiciadores</h1>
                     @endcan
                                                
                 </li>
@@ -100,8 +100,11 @@
                 </div>
     
                 
-          
-                    {!! Form::hidden('user_id',$user->id) !!}
+                    {!! Form::hidden('auspiciadorable_id', $socio->user_id ) !!}
+
+                    {!! Form::hidden('auspiciadorable_type','App\Models\User') !!}
+
+                    {!! Form::hidden('socio_id',$socio->id) !!}
     
                 <div class="flex justify-center">
                     <a class="btn btn-danger mr-2 ml-auto" wire:click="formulario">Cancelar</a> 

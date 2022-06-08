@@ -12,10 +12,8 @@ class Auspiciador extends Model
     protected $guarded = ['id'];
  
 
-    // relacion uno a muchos inversa
-
-    public function user(){
-        return $this->belongsTo('App\Models\User');
+    public function auspiciadorable(){
+        return $this->morphTo();
     }
     
 

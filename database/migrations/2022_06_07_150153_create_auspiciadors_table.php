@@ -21,9 +21,10 @@ class CreateAuspiciadorsTable extends Migration
             $table->string('control');
             $table->string('beneficio');
 
-            $table ->foreignId('user_id')
-            ->constrained('users')
-            ->onDelete('cascade');
+ 
+
+            $table->unsignedbigInteger('auspiciadorable_id');
+            $table->string('auspiciadorable_type');
 
             $table->timestamps();
         });

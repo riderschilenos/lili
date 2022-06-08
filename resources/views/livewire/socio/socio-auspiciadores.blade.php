@@ -13,7 +13,7 @@
             <ul class="@can('perfil_propio', $socio)col-span-2 @else col-span-3 @endcan bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                 <li class="items-center py-3 mx-auto">
                     @can('perfil_propio', $socio)
-                       
+                        <h1 class="text-center text-xs">Agrega tu primer auspiciador</h1>
                     @else
                         <h1 class="text-center text-xs">{{$user->name}} no cuenta con auspiciadores</h1>
                     @endcan
@@ -23,11 +23,13 @@
             </ul>
         @endif
         @can('perfil_propio', $socio)
-            <div class="flex justify-center items-center" wire:click="formulario">
-                <img class="h-8 w-12 mx-auto object-contain"
-                src="{{asset('img/socio/addnew.png')}}"
-                alt="">
-            </div>
+            @if (!$formulario)
+                <div class="flex justify-center items-center" wire:click="formulario">
+                    <img class="h-8 w-12 mx-auto object-contain"
+                    src="{{asset('img/socio/addnew.png')}}"
+                    alt="">
+                </div>
+            @endif
         @endcan
     </div>
 
@@ -58,7 +60,7 @@
         <article class="my-4 text-center">
         
         
-            {!! Form::open(['route'=>'socio.auspiciadores.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+            {!! Form::open(['route'=>'socio.auspiciadors.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
             @csrf
     
             <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-2 mt-6">

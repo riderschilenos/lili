@@ -26,8 +26,12 @@ class SocioAuspiciadores extends Component
         $this->socio= $socio;}
 
     public function render()
-    {
-        return view('livewire.socio.socio-auspiciadores');
+    {   
+        $auspiciadores=$this->user->auspiciadors;
+        $socio=Socio::find($this->socio->id);
+        $user=User::find($this->user->id);
+
+        return view('livewire.socio.socio-auspiciadores',compact('auspiciadores','socio','user'));
     }
 
     public function show(Auspiciador $auspiciador){

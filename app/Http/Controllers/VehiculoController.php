@@ -332,10 +332,33 @@ class VehiculoController extends Controller
 
     public function imageupload(Vehiculo $vehiculo)
     {   
-        //$this->authorize('dicatated',$serie);
+        $autos = Vehiculo::where('status',4)
+        ->orwhere('status',5)
+        ->orwhere('status',7)
+        ->latest('id')->get()->take(3);
+
+        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+
+        if(auth()->user())
+        {
+        if(auth()->user()->socio)
+        {
+        $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+        }else{
+        $socio2=null;
+        }
+
+        }
+        else{
+        $socio2=null;
+        }
+
+        $disciplinas= Disciplina::pluck('name','id');
 
         
-        return view('vehiculo.fotos', compact('vehiculo'));
+        return view('vehiculo.fotos', compact('vehiculo','socio2','disciplinas','riders','series','autos'));
     }
 
     public function upload(Request $request, Vehiculo $vehiculo)

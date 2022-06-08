@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Socio\AuspiciadorController;
 use App\Http\Controllers\Socio\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,5 @@ Route::get('{socio}/entrenamiento', [HomeController::class,'entrenamiento'])->na
 Route::get('socio/{socio}/edit', [HomeController::class,'edit'])->name('edit');
 
 Route::put('socio/{socio}/update', [HomeController::class,'update'])->name('update');
+
+Route::resource('auspiciador', AuspiciadorController::class)->names('auspiciadors');

@@ -18,6 +18,7 @@ class Serie extends Model
     const BORRADOR =1;
     const REVISION =2;
     const PUBLICADO =3;
+    
     //query scopes
 
     public function scopeDisciplina($query,$disciplina_id){
@@ -31,10 +32,6 @@ class Serie extends Model
             return $query->where('user_id',$filmmaker_id);
         }
 }
-
-  
-
-
 
     public function getRatingAttribute(){
 

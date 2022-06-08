@@ -20,7 +20,9 @@ class VehiculoMantencion extends Component
     public $rating = 5;
     
     public function mount(Vehiculo $vehiculo){
+
     $this->vehiculo_id=$vehiculo->id;
+    
     }
     public function render()
     {   

@@ -62,6 +62,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    protected $withCount = ['auspiciadors'];
+    
+
     //relacion uno a uno
 
     public function vendedor(){
@@ -102,6 +105,10 @@ class User extends Authenticatable
 
     public function mantencions(){
         return $this->hasMany('App\Models\Mantencion');
+    }
+
+    public function auspiciadors(){
+        return $this->hasMany('App\Models\Auspiciador');
     }
 
     public function comentarios(){

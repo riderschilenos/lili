@@ -76,7 +76,7 @@
                                     @livewire('socio.socio-auspiciadores',['socio' => $socio],key($socio->id))
 --}}
                                     <div class="grid grid-cols-3">
-                                        @if ($socio->user->serie_enrolled)
+                                        @if ($socio2->user->serie_enrolled)
                                         
                                             @foreach ($socio2->user->serie_enrolled as $serie)
                                                 <div class="text-center my-2">

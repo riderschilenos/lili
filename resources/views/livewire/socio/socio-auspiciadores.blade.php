@@ -42,7 +42,7 @@
             @if (!$formulario)
                 <div class="rounded text-center m-auto p-1 border-8">
                     <img class="h-8 w-12 mx-auto object-contain"
-                    src="{{asset('img/socio/addnew.png')}}"
+                    src="{{asset('img/socio/addnew2.png')}}"
                     alt="" wire:click="formulario">
                     <h1 class="text-center text-xs">Nuevo</h1>
                 </div>

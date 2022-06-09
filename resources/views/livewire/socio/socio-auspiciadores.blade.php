@@ -89,7 +89,7 @@
             <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-2 mt-6">
                 <div class="">
                         
-                    {!! Form::label('name', 'Nombre del Auspiciador:*') !!}
+                    {!! Form::label('name', 'Nombre del auspiciador:*') !!}
                     {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
             
                     @error('name')

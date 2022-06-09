@@ -63,7 +63,7 @@
                                     alt="">
                                 </div>
                             </div>
-                            <div class="col-span-2 items-center my-auto mx-auto border-2 py-3 px-5">
+                            <div class="col-span-2 items-center my-auto mx-auto py-3 px-5">
                                 <h1 class="text-center text-xl font-bold cursor-pointer">{{$current->name}}</h1>
                                         
                             </div>

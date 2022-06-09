@@ -64,11 +64,11 @@
                                 </div>
                             </div>
                             <div class="col-span-2 items-center my-auto mx-auto border-2 py-3 px-5">
-                                <h1 class="text-center text-xl font-bold">{{$current->name}}</h1>
+                                <h1 class="text-center text-xl font-bold cursor-pointer">{{$current->name}}</h1>
                                         
                             </div>
                         </div>
-                        <h1 class="text-center py-3">{{$current->beneficio}}</h1>
+                        <h1 class="text-center py-3 cursor-pointer">{{$current->beneficio}}</h1>
                          
                     </div>
                     @can('perfil_propio', $socio)

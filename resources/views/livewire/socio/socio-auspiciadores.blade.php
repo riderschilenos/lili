@@ -72,7 +72,7 @@
                          
                     </div>
                     @can('perfil_propio', $socio)
-                        <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$auspiciador}})">Eliminar</h1> 
+                        <h1 class="text-center text-xs py-1 cursor-pointer" wire:click="destroy({{$auspiciador}})">(Eliminar)</h1> 
                     @endcan
                 </div>
                 

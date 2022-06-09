@@ -30,7 +30,7 @@
                         </li>
                     @else
                         <li class="items-center py-3 mx-auto">
-                            <h1 class="text-center text-xs">{{$socio->user->name}} no cuenta con auspiciadores</h1>
+                            <h1 class="text-center text-xs">{{$socio->user->name}} aun no cuenta con auspiciadores</h1>
                         </li>
                     @endcan
                                                

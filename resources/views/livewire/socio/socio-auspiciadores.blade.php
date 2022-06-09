@@ -1,5 +1,5 @@
 <div>
-    <div class="grid grid-cols-3 bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+    <div class="grid grid-cols-3 @if ($socio->user->auspiciadors->count()) bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm @else  @endif">
         @if ($socio->user->auspiciadors->count())
         
             @foreach ($socio->user->auspiciadors as $auspiciador)
@@ -40,8 +40,8 @@
         @endif
         @can('perfil_propio', $socio)
             @if (!$formulario)
-                <div class="rounded text-center m-auto p-1 border-2">
-                    <img class="h-8 w-12 mx-auto object-contain p-1"
+                <div class="rounded text-center m-auto py-auto border-2 items-center">
+                    <img class="h-8 w-12 mx-auto object-contain p-1 my-auto"
                     src="{{asset('img/socio/addnew2.png')}}"
                     alt="" wire:click="formulario">
                     <h1 class="text-center text-xs">Nuevo</h1>

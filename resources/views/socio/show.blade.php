@@ -73,7 +73,7 @@
                                 <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
                                 
                           
-                                    @livewire('socio.socio-auspiciadores',['socio' => $socio] ,key('socio-auspiciadores.'.$socio->slug))
+                                    @livewire('socio.socio-auspiciadores',['socio' => $socio], key('socio-auspiciadores.'.$socio->slug))
      {{-- comment 
                                     <div class="grid grid-cols-3">
                                         @if ($socio->user->serie_enrolled)

@@ -3,57 +3,79 @@
         @if ($socio->user->auspiciadors->count())
         
             @foreach ($socio->user->auspiciadors as $auspiciador)
-                <div class="text-center my-2" >          
+                @if ($current)
+
+                    @if ($auspiciador->id!=$current->id)
+                        <div class="text-center my-2" >          
+                            <img class="h-16 w-20 mx-auto object-contain"
+                            src="{{Storage::url($auspiciador->logo)}}"
+                            alt="" wire:click="show({{$auspiciador}})">
+                        </div>
+                    @endif
+                    
+                @else
+                    <div class="text-center my-2" >          
                         <img class="h-16 w-20 mx-auto object-contain"
                         src="{{Storage::url($auspiciador->logo)}}"
                         alt="" wire:click="show({{$auspiciador}})">
-                </div>
-                
+                    </div>
+                @endif
+                <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$auspiciador}})">Eliminar</h1>
             @endforeach
         @else
             <ul class="@can('perfil_propio', $socio)col-span-2 @else col-span-3 @endcan bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                <li class="items-center py-3 mx-auto">
+                
                     @can('perfil_propio', $socio)
-                        <h1 class="text-center text-xs">Agrega tu primer auspiciador</h1>
+                        <li class="items-center py-3 mx-auto" wire:click="formulario">
+                            <h1 class="text-center text-xs">Agrega tu primer auspiciador</h1>
+                        </li>
                     @else
-                        <h1 class="text-center text-xs">{{$socio->user->name}} no cuenta con auspiciadores</h1>
+                        <li class="items-center py-3 mx-auto">
+                            <h1 class="text-center text-xs">{{$socio->user->name}} no cuenta con auspiciadores</h1>
+                        </li>
                     @endcan
                                                
-                </li>
+                
             
             </ul>
         @endif
         @can('perfil_propio', $socio)
             @if (!$formulario)
-                <div class="flex justify-center items-center" wire:click="formulario">
+                <div class="flex justify-center items-center">
                     <img class="h-8 w-12 mx-auto object-contain"
                     src="{{asset('img/socio/addnew.png')}}"
-                    alt="">
+                    alt="" wire:click="formulario">
                 </div>
             @endif
         @endcan
     </div>
 
     @if ($current)
-        <div wire:click="show({{$current}})">
-            <div class="col-span-3 bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow px-3 mt-3 divide-y rounded shadow-sm">
-                <div class="grid grid-cols-3">
-                    <div>
-                        <div class="text-center my-2" >          
-                            <img class="h-16 w-20 mx-auto object-contain"
-                            src="{{Storage::url($current->logo)}}"
-                            alt="">
+        @foreach ($socio->user->auspiciadors as $auspiciador)
+            @if ($auspiciador->id==$current->id)
+                <div class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow px-3 mt-3">
+                    <div class="col-span-3  divide-y rounded shadow-sm" wire:click="show({{$current}})">
+                        <div class="grid grid-cols-3">
+                            <div>
+                                <div class="text-center my-2" >          
+                                    <img class="h-16 w-20 mx-auto object-contain"
+                                    src="{{Storage::url($current->logo)}}"
+                                    alt="">
+                                </div>
+                            </div>
+                            <div class="col-span-2 items-center my-auto mx-auto border-2 py-3 px-5">
+                                <h1 class="text-center text-xl font-bold">{{$current->name}}</h1>
+                                        
+                            </div>
                         </div>
+                        <h1 class="text-center py-3">{{$current->beneficio}}</h1>
+                         
                     </div>
-                    <div class="col-span-2 items-center my-auto mx-auto border-2 py-3 px-5">
-                        <h1 class="text-center text-xl font-bold">{{$current->name}}</h1>
-                                
-                    </div>
+                    <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$auspiciador}})">Eliminar</h1> 
                 </div>
-                <h1 class="text-center py-3">{{$current->beneficio}}</h1>
-                <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$current}})">Eliminar</h1>  
-            </div>
-        </div>
+                
+            @endif
+        @endforeach
     @endif
         
 

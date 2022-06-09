@@ -71,7 +71,9 @@
                         <h1 class="text-center py-3">{{$current->beneficio}}</h1>
                          
                     </div>
-                    <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$auspiciador}})">Eliminar</h1> 
+                    @can('perfil_propio', $socio)
+                        <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$auspiciador}})">Eliminar</h1> 
+                    @endcan
                 </div>
                 
             @endif

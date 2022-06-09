@@ -1,12 +1,12 @@
 <div>
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-3 bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
         @if ($socio->user->auspiciadors->count())
         
             @foreach ($socio->user->auspiciadors as $auspiciador)
                 @if ($current)
 
                     @if ($auspiciador->id!=$current->id)
-                        <div class="text-center my-2" >          
+                        <div class="text-center my-auto" >          
                             <img class="h-16 w-20 mx-auto object-contain"
                             src="{{Storage::url($auspiciador->logo)}}"
                             alt="" wire:click="show({{$auspiciador}})">
@@ -14,7 +14,7 @@
                     @endif
                     
                 @else
-                    <div class="text-center my-2" >          
+                    <div class="text-center my-auto" >          
                         <img class="h-16 w-20 mx-auto object-contain"
                         src="{{Storage::url($auspiciador->logo)}}"
                         alt="" wire:click="show({{$auspiciador}})">
@@ -40,10 +40,11 @@
         @endif
         @can('perfil_propio', $socio)
             @if (!$formulario)
-                <div class="flex justify-center items-center">
+                <div class="rounded text-center m-auto p-1 border-8">
                     <img class="h-8 w-12 mx-auto object-contain"
                     src="{{asset('img/socio/addnew.png')}}"
                     alt="" wire:click="formulario">
+                    <h1 class="text-center text-xs">Nuevo</h1>
                 </div>
             @endif
         @endcan

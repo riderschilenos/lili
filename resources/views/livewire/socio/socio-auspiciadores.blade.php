@@ -20,7 +20,6 @@
                         alt="" wire:click="show({{$auspiciador}})">
                     </div>
                 @endif
-                <h1 class="text-right text-xs py-1 cursor-pointer" wire:click="destroy({{$auspiciador}})">Eliminar</h1>
             @endforeach
         @else
             <ul class="@can('perfil_propio', $socio)col-span-2 @else col-span-3 @endcan bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">

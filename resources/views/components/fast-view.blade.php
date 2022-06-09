@@ -67,22 +67,9 @@
                                     @endcan
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
-                                        <div class="grid grid-cols-3">
-                                                @if ($socio2->user->serie_enrolled)
-                                                
-                                                    @foreach ($socio2->user->serie_enrolled as $serie)
-                                                        <div class="text-center my-2">
-                                                            <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                                <img class="h-16 w-20 mx-auto"
-                                                                src="{{Storage::url($serie->image->url)}}"
-                                                                alt="">
-                                                            </a>
-                                                        </div>
-                                                    @endforeach
-            
-                                                @endif
-            
-                                        </div>
+                                        
+                                    @livewire('socio.socio-auspiciadores',['socio' => $socio], key('socio-auspiciadores.'.$socio->slug))
+                                    
                                     <a href="{{ route('socio.create') }}">
                                         <ul
                                             class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">

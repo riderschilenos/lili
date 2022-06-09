@@ -68,8 +68,8 @@
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
                                         
-                                    @livewire('socio.socio-auspiciadores',['socio' => $socio], key('socio-auspiciadores.'.$socio->slug))
-                                    
+                                    @livewire('socio.socio-auspiciadores',['socio' => $socio2], key('socio-auspiciadores.'.$socio2->slug))
+
                                     <a href="{{ route('socio.create') }}">
                                         <ul
                                             class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">

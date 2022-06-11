@@ -14,7 +14,7 @@ class SerieController extends Controller
 {
     public function index(){
 
-        $series = Serie::where('status',2)->paginate(8);
+        $series = Serie::where('status',2)->where('content','serie')->paginate(8);
 
         return view('admin.series.index',compact('series'));
     }

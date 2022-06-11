@@ -49,6 +49,7 @@ class SerieController extends Controller
         $videos= Video::where('serie_id',$serie->id)
                         ->paginate();
         $similares = Serie::where('disciplina_id',$serie->disciplina_id)
+                            ->where('content','serie')
                             ->where('id','!=',$serie->id)
                             ->where('status',3)
                             ->latest('id')
@@ -59,7 +60,7 @@ class SerieController extends Controller
             ->orwhere('status',7)
             ->latest('id')->get()->take(3);
                     
-        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
                     
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
                     

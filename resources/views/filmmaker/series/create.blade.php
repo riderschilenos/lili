@@ -9,6 +9,7 @@
                 {!! Form::open(['route'=>'filmmaker.series.store','files'=>true , 'autocomplete'=>'off']) !!}
                     
                     {!! Form::hidden('user_id',auth()->user()->id) !!}
+                    {!! Form::hidden('content','serie') !!}
 
                     @include('filmmaker.series.partials.form')
 

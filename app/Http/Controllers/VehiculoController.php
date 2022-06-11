@@ -27,7 +27,7 @@ class VehiculoController extends Controller
             ->orwhere('status',7)
             ->latest('id')->get()->take(3);
 
-        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
@@ -56,7 +56,7 @@ class VehiculoController extends Controller
             ->orwhere('status',7)
             ->latest('id')->get()->take(3);
 
-        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
@@ -87,7 +87,7 @@ class VehiculoController extends Controller
             ->orwhere('status',7)
             ->latest('id')->get()->take(3);
 
-        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
@@ -117,7 +117,7 @@ class VehiculoController extends Controller
         ->orwhere('status',7)
         ->latest('id')->get()->take(3);
 
-        $series = Serie::where('status',3)->latest('id')->get()->take(8);
+        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 

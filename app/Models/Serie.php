@@ -64,11 +64,14 @@ class Serie extends Model
         return $this->hasMany('App\Models\Review');
     }
 
+    //relacion uno a uno polimorfica
     public function videos(){
-        return $this->hasMany('App\Models\Video');
+        return $this->morphMany('App\Models\Video','videoable');
     }
 
-    
+    //public function videos(){
+    //    return $this->hasMany('App\Models\Video');
+    //}
 
 
     // relacion uno a muchos inversa

@@ -17,8 +17,13 @@ class Video extends Model
     }
     
     // relacion uno a muchos inversa
-    public function serie(){
-        return $this->BelongsTo('App\Models\Serie');
+    //public function serie(){
+    //    return $this->BelongsTo('App\Models\Serie');
+    //}
+
+    
+    public function videoable(){
+        return $this->morphTo();
     }
 
     public function platform(){

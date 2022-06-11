@@ -25,6 +25,7 @@ class SeriesIndex extends Component
         
         $series = Serie::where('status',3)
                         ->Disciplina($this->disciplina_id)
+                        ->where('content','serie')
                         ->Filmmaker($this->filmmaker_id)
                         ->latest('id')
                         ->paginate(8);

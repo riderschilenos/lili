@@ -18,6 +18,7 @@ class SeriesIndex extends Component
         
         $series = Serie::where('titulo','LIKE','%'.$this->search.'%')
                         ->where('user_id',auth()->user()->id)
+                        ->where('content','serie')
                         ->orderby('status','DESC')
                         ->latest('id')
                         ->paginate(15);

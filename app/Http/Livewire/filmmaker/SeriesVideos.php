@@ -56,6 +56,8 @@ class SeriesVideos extends Component
             'name'=> $this->name,
             'platform_id'=> $this->platform_id,
             'url'=> $this->url,
+            'videoable_type'=> 'App\Models\Serie',
+            'videoable_id'=>$this->serie->id,
             'serie_id'=>$this->serie->id
         ]);
 

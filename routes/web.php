@@ -27,17 +27,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('series', [SerieController::class,'index'])->name('series.index');
+Route::get('content', [SerieController::class,'index'])->name('series.index');
 
 Route::get('vendedores', [VendedorHomeController::class,'index'])->name('vendedores.index');
 
 Route::get('catalogo', [VendedorHomeController::class,'catalogos'])->name('catalogo.index');
 
-Route::get('series/{serie}',[SerieController::class,'show'])->name('series.show');
+Route::get('content/{serie}',[SerieController::class,'show'])->name('series.show');
 
 Route::get('seguimiento/{pedido}',[PedidoController::class,'seguimiento'])->name('pedido.seguimiento');
 
-Route::post('series/{serie}/enrolled', [SerieController::class, 'enrolled'])->middleware('auth')->name('serie.enrolled');
+Route::post('content/{serie}/enrolled', [SerieController::class, 'enrolled'])->middleware('auth')->name('serie.enrolled');
 
 Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->middleware('auth');
 

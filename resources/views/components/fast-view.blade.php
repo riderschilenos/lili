@@ -327,7 +327,7 @@
             
                                 <div class="my-4">
                                 
-                                <div class="bg-white px-3 pt-3 pb-12 shadow-sm rounded-sm">
+                                <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
             
                                     <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
                                     

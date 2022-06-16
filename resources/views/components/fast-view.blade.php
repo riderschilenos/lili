@@ -230,6 +230,35 @@
                                                 --}}
                                             </div>
                                         </div>
+                                        <div class="bg-white p-3 hover:shadow">
+                                            <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-film text-white-800"></i>
+                                                </span>
+                                                <span>Mis Cursos</span>
+                                                
+                                                <a href=""><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Pronto)</span></a>
+                                                            
+                                            </div>
+                                            <div class="grid grid-cols-4 gap-4 hidden">
+                                            
+                                                @if ($socio->user->serie_enrolled)
+                                                    
+                                                
+                                                    @foreach ($socio->user->serie_enrolled as $serie)
+                                                        <div class="text-center my-2">
+                                                            <a href="{{route('series.show', $serie)}}" class="text-main-color">
+                                                                <img class="h-16 w-20 mx-auto"
+                                                                src="{{Storage::url($serie->image->url)}}"
+                                                                alt="">
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
+    
+                                                @endif
+                                                                       
+                                            </div>
+                                        </div>
                                         <div class="bg-white p-3 hover:shadow hidden">
                                             <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
                                                 <span class="text-red-500">

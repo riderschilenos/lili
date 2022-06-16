@@ -1,6 +1,6 @@
 
                     <div class="mb-4">
-                        {!! Form::label('titulo', 'Titulo de la serie') !!}
+                        {!! Form::label('titulo', 'Titulo') !!}
                         {!! Form::text('titulo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
                         @error('titulo')
@@ -9,12 +9,12 @@
                     </div>
 
                     <div class="mb-4">
-                        {!! Form::label('slug', 'Slug del la serie') !!}
+                        {!! Form::label('slug', 'Slug') !!}
                         {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1']) !!}
                     </div>
 
                     <div class="mb-4">
-                        {!! Form::label('subtitulo', 'Subtitulo de la serie') !!}
+                        {!! Form::label('subtitulo', 'Subtitulo') !!}
                         {!! Form::text('subtitulo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('subtitulo')?' border-red-600':'')]) !!}
 
                         @error('subtitulo')

@@ -249,7 +249,7 @@
 
                                 @can('Leer series')
                                     <x-jet-dropdown-link href="{{ route('filmmaker.series.index') }}">
-                                        {{ __('Filmmaker') }}
+                                        {{ __('Creador de Contenido') }}
                                     </x-jet-dropdown-link>
                                 @endcan
 
@@ -585,7 +585,7 @@
                 @endcan
                 @can('Leer series')
                     <x-jet-responsive-nav-link href="{{ route('filmmaker.series.index') }}" :active="request()->routeIs('filmmaker.series.index')">
-                        {{ __('Filmmaker') }}
+                        {{ __('Creador de Contenido') }}
                     </x-jet-responsive-nav-link>
                 @endcan
                 

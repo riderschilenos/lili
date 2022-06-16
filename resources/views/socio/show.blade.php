@@ -261,7 +261,7 @@
                                             </span>
                                             <span>Mis Cursos</span>
                                             
-                                            <a href=""><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Pronto)</span></a>
+                                           <span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Pronto)</span>
                                                         
                                         </div>
                                         <div class="grid grid-cols-4 gap-4 hidden">

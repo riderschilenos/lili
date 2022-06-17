@@ -135,12 +135,6 @@ class HomeController extends Controller
         return view('vendedor.pedidos.precios',compact('productos'));
     }
 
-    public function catalogos()
-    {                  
-        $productos=Producto::all();
-        return view('vendedor.catalogo.index',compact('productos'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -31,8 +31,6 @@ Route::get('content', [SerieController::class,'index'])->name('series.index');
 
 Route::get('vendedores', [VendedorHomeController::class,'index'])->name('vendedores.index');
 
-Route::get('catalogo', [VendedorHomeController::class,'catalogos'])->name('catalogo.index');
-
 Route::get('content/{serie}',[SerieController::class,'show'])->name('series.show');
 
 Route::get('seguimiento/{pedido}',[PedidoController::class,'seguimiento'])->name('pedido.seguimiento');

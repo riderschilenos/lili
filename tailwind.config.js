@@ -12,15 +12,15 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
-        "./resources/**/*.css",
+        "./resources/**/*.css",'./src/**/*.{html,js}'
     ],
     
     theme: {
-        extend: {
-            fontFamily: {
+        
+        fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-        },
+        
     },
 
     separator: '_',
@@ -34,5 +34,8 @@ module.exports = {
                 require('autoprefixer'),
                 require('@tailwindcss/forms'), 
                 require('@tailwindcss/typography'),
-                require('postcss-import')],
+                require('postcss-import'),
+                require('@tailwindcss/aspect-ratio')
+            ],
+                
 };

@@ -147,17 +147,26 @@ class GastoController extends Controller
             }else{
                 $foto='';
             }
-            
-        $gasto->update([
-            'comprobante'=>'comprobantes/'.$foto,
-            'estado'=>2
-        ]);    
+        
+        foreach ($request->selected as $item){
+                $gasto = Gasto::find($item);
+                $gasto->update([
+                    'comprobante'=>'comprobantes/'.$foto,
+                    'estado'=>2
+                ]);
+
+                if ($gasto->gastotype_id==1) {
+                    foreach ($gasto->pedidos as $pedido){
+                        $pedido->status = 9;
+                        $pedido->save();
+                }
+                
+                }
+            }
+        
 
         
-        foreach ($gasto->pedidos as $pedido){
-            $pedido->status = 9;
-            $pedido->save();
-        }
+        
         
         return redirect()->route('admin.gastos.index');
     }
@@ -168,15 +177,22 @@ class GastoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gasto $gasto)
-    {
-        if($gasto->pedidos){
-            foreach ($gasto->pedidos as $pedido){
-            $pedido->status = 3;
-            $pedido->save();
-        }}
-
-        $gasto->delete();
+    public function destroy(Request $request, Gasto $gasto)
+    {   
+        foreach ($request->selected as $item){
+            $gasto = Gasto::find($item);
+            if ($gasto->gastotype_id==1) {
+                if($gasto->pedidos){
+                    foreach ($gasto->pedidos as $pedido){
+                    $pedido->status = 7;
+                    $pedido->save();
+                }}
+        
+                $gasto->delete();
+            }
+        }
+        
+        
 
         return redirect()->route('admin.gastos.index');
     }

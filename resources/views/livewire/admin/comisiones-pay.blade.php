@@ -170,7 +170,7 @@
                                                             @endforeach
                                 
                                                             @endif
-                                                            
+
                                                             Pedido {{$pedido->id}} - ${{$subtotal}} <br>
                                                             
                                                         @endforeach
@@ -216,9 +216,11 @@
                             <td> 
                                 @if($gasto->user)
                                 {{$gasto->user->name}}<br>
+                                @else
+                               RIDESCHILENOS
                                 @endif
                             </td>
-                            <td> 
+                            <td class="text-center"> 
 
                                 @if ($gasto->gastotype->id==2 || $gasto->gastotype->id==3)
                                            
@@ -257,7 +259,8 @@
                                             
                                         @endforeach
 
-                                        
+                                @else
+                                s/o
                                 @endif
                                 
                                 

@@ -1,5 +1,22 @@
 @props(['series','riders','autos','socio2','disciplinas'])
-<div>
+<div>  
+    <style>
+    :root {
+        --main-color: #4a76a8;
+    }
+
+    .bg-main-color {
+        background-color: var(--main-color);
+    }
+
+    .text-main-color {
+        color: var(--main-color);
+    }
+
+    .border-main-color {
+        border-color: var(--main-color);
+    }
+</style>
     <div class="w-full text-white bg-main-color block sm:hidden">
         <div x-data="{ open: false }"
             class="flex flex-col max-w-screen-xl pt-3 pb-4 sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">

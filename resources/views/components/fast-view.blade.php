@@ -422,7 +422,7 @@
     
     <div :class="{'block': home, 'hidden': ! home}" class="hidden">
         
-        <section class="bg-cover bg-center" style="background-image: url({{asset('img/home/homefotomini.png')}})">
+        <section class="bg-cover bg-center hidden sm:block" style="background-image: url({{asset('img/home/homefotomini.png')}})">
 
             <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 pt-64 pb-8">
                 
@@ -437,7 +437,7 @@
 
         </section>
 
-        <section class="mt-16">
+        <section class="mt-24 sm:mt-16">
             
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">

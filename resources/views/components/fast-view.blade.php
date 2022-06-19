@@ -2,8 +2,8 @@
 <div>
     <div class="w-full text-white bg-main-color block sm:hidden">
         <div x-data="{ open: false }"
-            class="flex flex-col max-w-screen-xl py-4 sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-            <div class="flex flex-row pl-6 items-center justify-center">
+            class="flex flex-col max-w-screen-xl pt-3 pb-b sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+            <div class="flex flex-row pl-7 items-center justify-center">
                 @livewire('search')
             </div>
         </div>

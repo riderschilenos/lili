@@ -30,7 +30,7 @@
 
 
             <div class="bg-gray-100 min-h-screen pb-6">
-                <div class="w-full text-white bg-main-color">
+                <div class="w-full text-white bg-main-color hidden sm:block">
                     <div x-data="{ open: false }"
                         class="flex flex-col max-w-screen-xl py-5 sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                         <div class="flex flex-row items-center justify-between p-4 ">

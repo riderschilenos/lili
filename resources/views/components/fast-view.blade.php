@@ -553,7 +553,7 @@
 
     <div :class="{'block': socio, 'hidden': ! socio}" class="hidden">
         
-        <div class="max-w-7xl mx-auto py-8">
+        <div class="max-w-7xl mx-auto pb-8">
 
             <div class="card">
                 
@@ -637,7 +637,7 @@
 
     <div :class="{'block': registro, 'hidden': ! registro}" class="hidden">
         
-        <div class="max-w-7xl mx-auto py-8 ">
+        <div class="max-w-7xl mx-auto pb-8 ">
     
             <div class="card">
                 <div class="card-body">

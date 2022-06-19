@@ -1,4 +1,4 @@
-<div class="mb-12">
+<div class="mb-12 hidden">
     <div class="bg-white">
         <div class="py-16 sm:py-8 lg:max-w-7xl lg:mx-auto lg:px-8">
 

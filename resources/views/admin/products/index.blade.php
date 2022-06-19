@@ -35,7 +35,27 @@
                         <td>{{$producto->id}}</td>
                         <td>
                             @if ($producto->image)
-                                <img width="60" class="object-cover object-center rounded-full" src="{{Storage::url($producto->image)}}" alt="">    
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <img width="60" class="object-cover object-center rounded-full" src="{{Storage::url($producto->image)}}" alt="">    
+                                    </div>
+                                    <div>
+                                        {!! Form::open(['route'=>['admin.producto.imageup',$producto],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                            @csrf
+
+                                        
+                                            {!! Form::file('file', ['class'=>'form-input w-full mt-6'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                            
+
+                                            <div class="flex justify-center">
+                                                {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                            </div>
+                                        
+                                        {!! Form::close() !!}
+                             
+                                    </div>
+                                </div>
+                                
                             @else
                             {!! Form::open(['route'=>['admin.producto.imageup',$producto],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
                             @csrf

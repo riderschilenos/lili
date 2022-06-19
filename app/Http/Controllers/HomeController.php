@@ -24,23 +24,9 @@ class HomeController extends Controller
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
-        if(auth()->user())
-        {
-        if(auth()->user()->socio)
-        {
-        $socio2 = Socio::where('user_id',auth()->user()->id)->first();
-        }else{
-        $socio2=null;
-        }
+       
 
-        }
-        else{
-        $socio2=null;
-        }
-
-        $disciplinas= Disciplina::pluck('name','id');
-
-        return view('welcome',compact('series','riders','autos','socio2','disciplinas'));
+        return view('welcome',compact('series','riders','autos'));
         
     }
 }

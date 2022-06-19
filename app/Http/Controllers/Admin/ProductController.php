@@ -7,6 +7,7 @@ use App\Models\Category_product;
 use App\Models\Disciplina;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -33,6 +34,9 @@ class ProductController extends Controller
         $request->validate([
             'file'=>'required'
         ]);
+        if($producto->image){
+            Storage::delete($producto->image);
+        }
 
         $foto = Str::random(10).$request->file('file')->getClientOriginalName();
         $rutafoto = public_path().'/storage/productos/'.$foto;

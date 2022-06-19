@@ -16,9 +16,7 @@ class PedidosPay extends Component
     public function render()
     {   $invitados= Invitado::all();
         $socios= Socio::all();
-
-        
-        
+ 
         $pedidos= Pedido::where('user_id',auth()->user()->id)
                             ->orderby('status','DESC')
                             ->latest('id')

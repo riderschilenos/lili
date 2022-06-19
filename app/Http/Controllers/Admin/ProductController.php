@@ -7,6 +7,8 @@ use App\Models\Category_product;
 use App\Models\Disciplina;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\support\Str;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -18,9 +20,36 @@ class ProductController extends Controller
     public function index()
     {   
 
-        $roles = Producto::all();
+        $productos = Producto::all();
 
-        return view('admin.products.index',compact('roles'));
+        return view('admin.products.index',compact('productos'));
+    }
+
+    public function image(Request $request, Producto $producto)
+    {   
+        //$this->authorize('dicatated',$serie);
+        
+        
+        $request->validate([
+            'file'=>'required'
+        ]);
+
+        $foto = Str::random(10).$request->file('file')->getClientOriginalName();
+        $rutafoto = public_path().'/storage/productos/'.$foto;
+        $img=Image::make($request->file('file'))->orientate()
+            ->resize(1200, null , function($constraint){
+            $constraint->aspectRatio();
+            })
+            ->save($rutafoto);
+        $img->orientate();
+
+        $producto->update([
+            'image'=>'productos/'.$foto,
+        ]);    
+
+
+        return redirect()->route('admin.products.index');
+
     }
 
     /**

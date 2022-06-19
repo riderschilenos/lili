@@ -80,6 +80,8 @@ Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.i
 
 Route::post('{marca}/image',[MarcaController::class, 'image'])->name('marca.image');
 
+Route::post('{producto}/imagerepair',[ProductController::class, 'image'])->name('producto.imageup');
+
 //Route::get('pagos/admin',[PagoController::class, 'adminindex'])->name('pagos.index');
 
 Route::resource('pagos',PagoController::class)->names('pagos');

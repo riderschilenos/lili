@@ -19,6 +19,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>image</th>
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Comisión Invitado</th>
@@ -29,20 +30,38 @@
 
                 </thead>
                 <tbody>
-                    @forelse($roles as $role)
+                    @forelse($productos as $producto)
                     <tr>
-                        <td>{{$role->id}}</td>
-                        <td>{{$role->name}}</td>
-                        <td>{{$role->precio}}</td>
-                        <td>{{$role->comision_invitado}}</td>
-                        <td>{{$role->comision_socio}}</td>
+                        <td>{{$producto->id}}</td>
+                        <td>
+                            @if ($producto->image)
+                                <img width="60" class="object-cover object-center rounded-full" src="{{Storage::url($producto->image)}}" alt="">    
+                            @else
+                            {!! Form::open(['route'=>['admin.producto.imageup',$producto],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                            @csrf
+
+                              
+                                    {!! Form::file('file', ['class'=>'form-input w-full mt-6'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                 
+
+                                <div class="flex justify-center">
+                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                </div>
+                            
+                            {!! Form::close() !!}
+                            @endif
+                        </td>
+                        <td>{{$producto->name}}</td>
+                        <td>{{$producto->precio}}</td>
+                        <td>{{$producto->comision_invitado}}</td>
+                        <td>{{$producto->comision_socio}}</td>
 
 
                         <td width='10px'> 
-                            <a class="btn btn-secondary" href="{{route('admin.products.edit', $role)}}">Edit</a>
+                            <a class="btn btn-secondary" href="{{route('admin.products.edit', $producto)}}">Edit</a>
                         </td>
                         <td width='10px'>
-                            <form action="{{route('admin.products.destroy', $role)}}" method="POST">
+                            <form action="{{route('admin.products.destroy', $producto)}}" method="POST">
                             @method('delete')
                             @csrf
 
@@ -53,7 +72,7 @@
                     @empty
                         
                     <tr>
-                        <td colspan="4"> No hay ningun roll registrado</td>
+                        <td colspan="4"> No hay ningun producto registrado</td>
                     </tr>
 
                     @endforelse

@@ -54,18 +54,6 @@
                 </div>
                  
 
-                    
- {{-- comment    
-                    <form action="{{route('garage.upload',$vehiculo)}}"
-                    method="POST"
-                    class="dropzone"
-                    id="my-awesome-dropzone">
-                    <div class="dz-message " data-dz-message>
-                      <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
-                      <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
-                    </div>
-                    </form>
- --}}
                     <div class="flex justify-center">
                       <a href="{{route('admin.marcas.index')}}">
                         <button class="btn btn-primary mt-4">
@@ -73,10 +61,7 @@
                         </button>
                       </a>
                     </div>
-               {{-- comm   
-                  @livewire('vehiculo.vehiculo-image', ['vehiculo' => $vehiculo], key('vehiculos-image.'.$vehiculo->slug))
-           ent      --}}
-                  
+
             </div>
         </div>
 

@@ -1,8 +1,8 @@
 <div class="mb-12">
     <div class="bg-white">
-        <div class="py-16 sm:py-8 lg:max-w-7xl lg:mx-auto lg:px-8">
+        <div class="py-10 sm:py-4 lg:max-w-7xl lg:mx-auto lg:px-8">
 
-            <h1 class="text-center text-3xl font-bold pb-4 pt-10 sm:pt-4">CATALOGO PRODUCTOS</h1>
+            <h1 class="text-center text-3xl font-bold pb-4">CATALOGO PRODUCTOS</h1>
 
             
 

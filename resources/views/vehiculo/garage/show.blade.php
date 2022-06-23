@@ -54,6 +54,15 @@
                             
                                     
                                 @endforeach
+
+                                @can('vehiculo_propio', $vehiculo)
+                                    <a href="{{route('garage.image',$vehiculo)}}" class="my-auto">
+                                        <div>
+                                            <img class="h-10 w-full object-contain object-center my-auto" src="{{asset('img/vehiculo/camara.png')}}" alt="">
+                                            <h1 class="text-center text-xs text-white">AGREGAR</h1>
+                                        </div>
+                                    </a>
+                                @endcan
                     
                             </div>
                             

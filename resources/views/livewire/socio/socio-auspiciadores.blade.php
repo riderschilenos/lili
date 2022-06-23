@@ -40,7 +40,7 @@
         @endif
         @can('perfil_propio', $socio)
             @if (!$formulario)
-                <div class="rounded text-center m-auto py-auto border-2 items-center">
+                <div class="rounded text-center m-auto py-auto cursor-pointer items-center bg-white">
                     <img class="h-8 w-12 mx-auto object-contain p-1 my-auto"
                     src="{{asset('img/socio/addnew2.png')}}"
                     alt="" wire:click="formulario">

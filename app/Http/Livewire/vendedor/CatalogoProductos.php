@@ -2,6 +2,9 @@
 
 namespace App\Http\Livewire\Vendedor;
 
+use App\Models\Marca;
+use App\Models\Producto;
+use App\Models\Smartphone;
 use Livewire\Component;
 
 class CatalogoProductos extends Component
@@ -17,14 +20,25 @@ class CatalogoProductos extends Component
         
         $this->selectedcategory = $suscripcion;
 
-        if($suscripcion=='carcasa'){
-            $this->selectedcategory=1;
-        }
-        if($suscripcion=='accesorios'){
-            $this->selectedcategory=2;
-        }
-        if($suscripcion=='ropa'){
-            $this->selectedcategory=3;            
-        }
+        $this->products = Producto::where('category_product_id',$this->selectedcategory)->get();
     }
+
+    public function updatedselectedproduct($producto_id){
+        
+        $disciplina_id = Producto::find($producto_id)->disciplina_id;
+        $category_product_id = Producto::find($producto_id)->category_product_id;
+        $this->producto_id = $producto_id;
+
+        $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();
+        
+        if($category_product_id == 1){
+            $this->smartphones = Smartphone::where('stock', '>=', 1)
+                                            ->orderby('marcasmartphone_id','ASC')
+                                            ->orderby('modelo','ASC')
+                                            ->get();
+        }
+    
+    }
+
+
 }

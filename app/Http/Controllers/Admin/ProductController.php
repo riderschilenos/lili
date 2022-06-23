@@ -41,7 +41,7 @@ class ProductController extends Controller
         $foto = Str::random(10).$request->file('file')->getClientOriginalName();
         $rutafoto = public_path().'/storage/productos/'.$foto;
         $img=Image::make($request->file('file'))->orientate()
-            ->resize(1200, null , function($constraint){
+            ->resize(600, null , function($constraint){
             $constraint->aspectRatio();
             })
             ->save($rutafoto);

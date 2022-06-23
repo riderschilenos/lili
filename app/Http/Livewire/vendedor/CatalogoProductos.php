@@ -23,7 +23,7 @@ class CatalogoProductos extends Component
         $this->products = Producto::where('category_product_id',$this->selectedcategory)->get();
     }
 
-    public function updatedselectedproduct($producto_id){
+    public function producto($producto_id){
         
         $disciplina_id = Producto::find($producto_id)->disciplina_id;
         $category_product_id = Producto::find($producto_id)->category_product_id;

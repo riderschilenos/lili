@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="container pt-8 pb-12 grid grid-cols-5 mb-12 mt-10 sm:my-2">
+            <div class="container pt-0 sm:pt-8 pb-12 grid grid-cols-5 mb-12 mt-10 sm:my-2">
 
                 <aside class="hidden sm:block">
                     <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de la pedidos</a>

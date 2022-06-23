@@ -4,7 +4,7 @@
         {{$pedido->id}}
     </x-slot>
     
-    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
+    <x-fast-view-vendedor :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
 
         
         <div class="mb-20">

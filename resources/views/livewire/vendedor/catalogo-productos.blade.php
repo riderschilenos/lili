@@ -33,7 +33,7 @@
                 @endif
                 
                 @if(!is_null($marcas))
-                <h1 class="text-center mb-12"> Seleccione un producto </h1>
+                <h1 class="text-center mb-12"> Seleccione una marca </h1>
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">
                         @foreach ($marcas as $marca)    
                                 @if ($marca->image)

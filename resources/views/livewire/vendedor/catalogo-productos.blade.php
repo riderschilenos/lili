@@ -34,12 +34,12 @@
                 
                 @if(!is_null($marcas))
                 <h1 class="text-center mb-12"> Seleccione un producto </h1>
-                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">
                         @foreach ($marcas as $marca)    
                                 @if ($marca->image)
                                     <div class="flex h-screen cursor-pointer">
                                         <div class="m-auto">
-                                            <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{Storage::url($marca->image->url)}}" alt="">
+                                            <img class="h-38 mx-auto w-44 object-contain" src="{{Storage::url($marca->image->url)}}" alt="">
                                         </div>
                                     </div>
                                 @else
@@ -54,7 +54,7 @@
                     </div>
                 @elseif(!is_null($selectedcategory))
                 <h1 class="text-center mb-12"> Seleccione un producto </h1>
-                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">
                         @foreach ($products as $product)    
                                 @if ($product->image)
                                     <article class="cursor-pointer" wire:click="producto({{$product->id}})">

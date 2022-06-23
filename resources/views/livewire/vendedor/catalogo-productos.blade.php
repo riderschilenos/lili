@@ -44,7 +44,7 @@
                                     </div>
                                 @else
                                 <div class="flex h-screen bg-gray-800 cursor-pointer">
-                                    <div class="m-auto p-2">
+                                    <div class="m-auto p-1">
                                       <h3 class="text-center text-white my-4 font-bold">{{$marca->name}}</h3>
                                     </div>
                                   </div>
@@ -64,7 +64,7 @@
                                     </article>
                                 @else
                                     <div class="flex h-screen bg-gray-800 cursor-pointer" wire:click="producto({{$product->id}})">
-                                        <div class="m-auto p-2">
+                                        <div class="m-auto p-1">
                                             <h3 class="text-center text-white my-4 font-bold">{{$product->name}}</h3>
                                         </div>
                                     </div>

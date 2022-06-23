@@ -39,7 +39,7 @@
                                 @if ($marca->image)
                                     <article>
                                         <figure>
-                                                <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{Storage::url($marca->image)}}" alt="">
+                                                <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{Storage::url($marca->image->url)}}" alt="">
                                         </figure>
                                     </article>
                                 @else

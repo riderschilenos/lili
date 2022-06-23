@@ -44,8 +44,8 @@
                                     </div>
                                 @else
                                 <div class="flex h-screen bg-gray-800 cursor-pointer">
-                                    <div class="m-auto">
-                                      <h3 class="text-center text-white my-4">{{$marca->name}}</h3>
+                                    <div class="m-auto p-2">
+                                      <h3 class="text-center text-white my-4 font-bold">{{$marca->name}}</h3>
                                     </div>
                                   </div>
                                 @endif
@@ -63,11 +63,11 @@
                                         </figure>
                                     </article>
                                 @else
-                                    <article class="cursor-pointer" wire:click="producto({{$product->id}})">
-                                        <figure>
-                                                <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{asset('img/home/poleras.jpeg')}}" alt="">
-                                        </figure>
-                                    </article>
+                                    <div class="flex h-screen bg-gray-800 cursor-pointer" wire:click="producto({{$product->id}})">
+                                        <div class="m-auto p-2">
+                                            <h3 class="text-center text-white my-4 font-bold">{{$product->name}}</h3>
+                                        </div>
+                                    </div>
                                 @endif
                         @endforeach
 

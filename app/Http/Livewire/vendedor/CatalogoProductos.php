@@ -43,5 +43,23 @@ class CatalogoProductos extends Component
     
     }
 
+    public function marca($marca_id){
+        
+        $this->marca_id = $marca_id;
+        $this->selectedmarca=Marca::find($marca_id);
+    }
+
+    public function cancelcategory(){
+        $this->reset(['selectedcategory','producto','producto_id','marcas','selectedmarca']);
+    }
+
+    public function cancelproducto(){
+        $this->reset(['producto','producto_id','marcas','selectedmarca']);
+    }
+
+    public function cancelmarca(){
+        $this->reset(['selectedmarca']);
+    }
+
 
 }

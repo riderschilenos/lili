@@ -27,4 +27,8 @@ class Marca extends Model
     public function image(){
         return $this->MorphOne('App\Models\Image','imageable');
     }
+
+    public function catalogo(){
+        return $this->MorphOne('App\Models\Image','imageable');
+    }
 }

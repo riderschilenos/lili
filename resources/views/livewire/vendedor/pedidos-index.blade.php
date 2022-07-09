@@ -85,35 +85,8 @@
 
     @livewire('vendedor.catalogo-productos')
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
-        <article>
-            <figure>
-                <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/carcasas.jpg')}}" alt=""></a>
-            </figure>
-
-          
-        </article>
-        <article>
-            <figure>
-                <a href="" wire:click="download('catalogoportanumeros.pdf')"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/accesorios.jpg')}}" alt=""></a>
-            </figure>
-          
-        </article>
-        <article>
-            <figure>
-                <a href="" wire:click="download('polerasmx.pdf')"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/poleras.jpeg')}}" alt=""></a>
-            </figure>
-           
-        </article>
-        <article>
-            <figure>
-                <a href="" wire:click="download('poleronesmx.pdf')"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/polerones.jpeg')}}" alt=""></a>
-            </figure>
-            
-        </article>
-        <article class="sm:hidden">
-
-        </article>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8 hidden">
+       
         <article>
             <figure>
                 <a href="{{route('vendedor.pedidos.precios')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/precios.jpg')}}" alt=""></a>
@@ -139,7 +112,7 @@
                 </div>
         
                 <div class="w-full rounded-xl flex items-center justify-around">
-                  
+                    <a class="btn bg-gray-700 text-white ml-2 text-center text-xl" href="{{route('vendedor.pedidos.precios')}}">Precios y Comisiones</a>
                 </div>
         
                 

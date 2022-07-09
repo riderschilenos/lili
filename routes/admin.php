@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CatalogoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -62,6 +63,8 @@ Route::resource('lote',LoteController::class)->names('lotes');
 
 Route::resource('gastos', GastoController::class)->names('gastos');
 
+Route::resource('catalogos', CatalogoController::class)->names('catalogos');
+
 Route::resource('gastotypes', GastotypesController::class)->names('gastotypes');
 
 Route::get('produccion',[DisenoController::class, 'indexproduccion'])->name('disenos.produccion');
@@ -79,6 +82,10 @@ Route::resource('qrregister',QrregisterController::class)->names('qrregister');
 Route::get('{marca}/fotos', [Marcacontroller::class,'imageform'])->name('marca.imageform');
 
 Route::post('{marca}/image',[MarcaController::class, 'image'])->name('marca.image');
+
+Route::post('{marca}/catalogocarcasas',[MarcaController::class, 'catalogocarcasas'])->name('marca.catalogocarcasas');
+
+Route::post('{marca}/catalogoaccesorios',[MarcaController::class, 'catalogoaccesorios'])->name('marca.catalogoaccesorios');
 
 Route::post('{producto}/imagerepair',[ProductController::class, 'image'])->name('producto.imageup');
 

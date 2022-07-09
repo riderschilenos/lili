@@ -137,26 +137,56 @@
                 @if(!is_null($marcas))
 
                 @if($selectedmarca)
-                    
-                <h1 class="text-center py-10 font-bold">CATALOGO DE LA MARCA {{$selectedmarca->name}}</h1>
+                <h1 class="text-center py-10 font-bold">CATALOGO DE LA MARCA {{$selectedmarca->name}}</h1>      
+                    @if ($selectedcategory->id==1)             
+                        <img class="w-full object-cover object-center rounded-lg" src="{{Storage::url($selectedmarca->catalogocarcasas)}}" alt="">    
+                    @endif
+                    @if ($selectedcategory->id==2)             
+                    <img class="w-full object-cover object-center rounded-lg" src="{{Storage::url($selectedmarca->catalogoaccesorios)}}" alt="">    
+                @endif
+
 
                 @else
                     <h1 class="text-center mb-12"> Seleccione una marca </h1>
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">
-                        @foreach ($marcas as $marca)    
-                                @if ($marca->image)
-                                    <div class="flex h-screen cursor-pointer" wire:click="marca({{$marca->id}})">
-                                        <div class="m-auto">
-                                            <img class="h-38 mx-auto w-44 object-contain" src="{{Storage::url($marca->image->url)}}" alt="">
+                        @foreach ($marcas as $marca)
+                            @if ($selectedcategory->id==1)
+                                @if ($marca->catalogocarcasas)
+                                    @if ($marca->image)
+                                        <div class="flex h-screen cursor-pointer" wire:click="marca({{$marca->id}})">
+                                            <div class="m-auto">
+                                                <img class="h-38 mx-auto w-44 object-contain" src="{{Storage::url($marca->image->url)}}" alt="">
+                                            </div>
+                                        </div>
+                                    @else
+                                    <div class="flex h-screen bg-gray-800 cursor-pointer" wire:click="marca({{$marca->id}})">
+                                        <div class="m-auto p-1">
+                                        <h3 class="text-center text-white my-4 font-bold">{{$marca->name}}</h3>
                                         </div>
                                     </div>
-                                @else
-                                <div class="flex h-screen bg-gray-800 cursor-pointer" wire:click="marca({{$marca->id}})">
-                                    <div class="m-auto p-1">
-                                      <h3 class="text-center text-white my-4 font-bold">{{$marca->name}}</h3>
+                                    @endif
+                                @endif 
+                            @endif
+                            @if ($selectedcategory->id==2)
+                                @if ($marca->catalogoaccesorios)
+                                    @if ($marca->image)
+                                        <div class="flex h-screen cursor-pointer" wire:click="marca({{$marca->id}})">
+                                            <div class="m-auto">
+                                                <img class="h-38 mx-auto w-44 object-contain" src="{{Storage::url($marca->image->url)}}" alt="">
+                                            </div>
+                                        </div>
+                                    @else
+                                    <div class="flex h-screen bg-gray-800 cursor-pointer" wire:click="marca({{$marca->id}})">
+                                        <div class="m-auto p-1">
+                                        <h3 class="text-center text-white my-4 font-bold">{{$marca->name}}</h3>
+                                        </div>
                                     </div>
-                                  </div>
-                                @endif
+                                    @endif
+                                @endif 
+                            @endif 
+                                    
+                            
+
                         @endforeach
 
                     </div>

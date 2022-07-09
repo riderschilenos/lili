@@ -7,6 +7,8 @@ use App\Models\Disciplina;
 use App\Models\Marca;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\support\Str;
+use Intervention\Image\Facades\Image;
 
 class MarcaController extends Controller
 {
@@ -40,6 +42,63 @@ class MarcaController extends Controller
 
         
         return view('admin.marcas.image', compact('marca'));
+    }
+
+    public function catalogocarcasas(Request $request, Marca $marca)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+        $request->validate([
+            'file'=>'required'
+        ]);
+        if($marca->catalogocarcasas){
+            Storage::delete($marca->catalogocarcasas);
+        }
+
+        $foto = Str::random(10).$request->file('file')->getClientOriginalName();
+        $rutafoto = public_path().'/storage/marcas/'.$foto;
+        $img=Image::make($request->file('file'))->orientate()
+            ->resize(600, null , function($constraint){
+            $constraint->aspectRatio();
+            })
+            ->save($rutafoto);
+        $img->orientate();
+
+        $marca->update([
+            'catalogocarcasas'=>'marcas/'.$foto,
+        ]);    
+
+
+        return redirect()->route('admin.marcas.index');
+
+    }
+    public function catalogoaccesorios(Request $request, Marca $marca)
+    {   
+        //$this->authorize('dicatated',$serie);
+
+        $request->validate([
+            'file'=>'required'
+        ]);
+        if($marca->catalogoaccesorios){
+            Storage::delete($marca->catalogoaccesorios);
+        }
+
+        $foto = Str::random(10).$request->file('file')->getClientOriginalName();
+        $rutafoto = public_path().'/storage/marcas/'.$foto;
+        $img=Image::make($request->file('file'))->orientate()
+            ->resize(600, null , function($constraint){
+            $constraint->aspectRatio();
+            })
+            ->save($rutafoto);
+        $img->orientate();
+
+        $marca->update([
+            'catalogoaccesorios'=>'marcas/'.$foto,
+        ]);    
+
+
+        return redirect()->route('admin.marcas.index');
+
     }
 
     /**

@@ -393,6 +393,13 @@ return [
             'active'     => ['admin/modelo*']
            
         ],
+        [
+            'text'        => 'Catalogos',
+            'route'         => 'admin.catalogos.index',
+            'icon'        => 'fas fa-fw fa-cogs',
+            'active'     => ['admin/catalogo*']
+           
+        ],
         ['header' => 'Bodega'],
         [
             'text'        => "Carcasas de Smartphone's",

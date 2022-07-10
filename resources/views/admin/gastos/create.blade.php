@@ -115,7 +115,7 @@
         </div>
 
         <div class="card-footer">
-            {{$gastos->links('vendor.pagination.bootstrap-4')}}
+            {{$gastosok->links('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
 @stop

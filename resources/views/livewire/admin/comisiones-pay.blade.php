@@ -211,80 +211,81 @@
             <table class="table table-striped mt-4">
                 <tbody class="mt-12">
                     @foreach ($gastosok as $gasto)
-                        <tr>
-                            <td>{{$gasto->id}}</td>
-                            <td> 
-                                @if($gasto->user)
-                                {{$gasto->user->name}}<br>
-                                @else
-                               RIDESCHILENOS
-                                @endif
-                            </td>
-                            <td class="text-center"> 
+                        @if ($gasto->gastotype_id<4)
+                            <tr>
+                                <td>{{$gasto->id}}</td>
+                                <td> 
+                                    @if($gasto->user)
+                                    {{$gasto->user->name}}<br>
+                                    @else
+                                RIDESCHILENOS
+                                    @endif
+                                </td>
+                                <td class="text-center"> 
 
-                                @if ($gasto->gastotype->id==2 || $gasto->gastotype->id==3)
-                                           
-                                        @foreach ($gasto->ordens as $orden)
-                                            Orden {{$orden->id}} - $1500 <br>
-                                        @endforeach
-                                        
-                                @elseif($gasto->gastotype->id==1)
-                                        @foreach ($gasto->pedidos as $pedido)
-                                            @php
-                                            $subtotal=0;
-                                            @endphp
-                
-                                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                                            @foreach ($pedido->ordens as $orden)
-                                            @php
-                                                
-                                                $subtotal+=$orden->producto->comision_socio;
-                
-                                            @endphp    
-                                            @endforeach
-                
-                                            @endif
-                                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                            @foreach ($pedido->ordens as $orden)
-                                            @php
-                                                
-                                                $subtotal+=$orden->producto->comision_invitado;
-                
-                                            @endphp    
-                                            @endforeach
-                
-                                            @endif
-
-                                            Pedido {{$pedido->id}} - ${{$subtotal}} <br>
+                                    @if ($gasto->gastotype->id==2 || $gasto->gastotype->id==3)
                                             
-                                        @endforeach
+                                            @foreach ($gasto->ordens as $orden)
+                                                Orden {{$orden->id}} - $1500 <br>
+                                            @endforeach
+                                            
+                                    @elseif($gasto->gastotype->id==1)
+                                            @foreach ($gasto->pedidos as $pedido)
+                                                @php
+                                                $subtotal=0;
+                                                @endphp
+                    
+                                                @if($pedido->pedidoable_type=="App\Models\Socio")
+                                                @foreach ($pedido->ordens as $orden)
+                                                @php
+                                                    
+                                                    $subtotal+=$orden->producto->comision_socio;
+                    
+                                                @endphp    
+                                                @endforeach
+                    
+                                                @endif
+                                                @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                                @foreach ($pedido->ordens as $orden)
+                                                @php
+                                                    
+                                                    $subtotal+=$orden->producto->comision_invitado;
+                    
+                                                @endphp    
+                                                @endforeach
+                    
+                                                @endif
 
-                                @else
-                                s/o
-                                @endif
-                                
-                                
-                            </td>
-                            <td>{{$gasto->gastotype->name}}</td>
-                            <td>{{$gasto->metodo}}</td>
-                            <td>${{number_format($gasto->cantidad)}}</td>
-                         
-                            <td>
-                                <img class="object-cover object-center" width="60px" src="{{Storage::url($gasto->comprobante)}}" alt="">
-                            
-                            </td>
-                            <td>{{$gasto->created_at->format('d-m-Y H:i:s')}}</td>
-                            <td>
-                                <form action="" >
+                                                Pedido {{$pedido->id}} - ${{$subtotal}} <br>
+                                                
+                                            @endforeach
+
+                                    @else
+                                    s/o
+                                    @endif
                                     
-            
-                                    <button class="btn btn-success" type="submit">Aprobado</button>
-                                </form>   
-                            </td>
-                           
+                                    
+                                </td>
+                                <td>{{$gasto->gastotype->name}}</td>
+                                <td>{{$gasto->metodo}}</td>
+                                <td>${{number_format($gasto->cantidad)}}</td>
                             
-                        </tr>
-                        
+                                <td>
+                                    <img class="object-cover object-center" width="60px" src="{{Storage::url($gasto->comprobante)}}" alt="">
+                                
+                                </td>
+                                <td>{{$gasto->created_at->format('d-m-Y H:i:s')}}</td>
+                                <td>
+                                    <form action="" >
+                                        
+                
+                                        <button class="btn btn-success" type="submit">Aprobado</button>
+                                    </form>   
+                                </td>
+                            
+                                
+                            </tr>
+                        @endif
                     @endforeach
 
                 </tbody>

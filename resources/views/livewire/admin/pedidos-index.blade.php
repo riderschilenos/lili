@@ -53,30 +53,8 @@
 
 
     <div class="card">
-        <table class="table table-striped hidden">
-            <tr>
-                <td>
-                    <div class="bg-white rounded-xl shadow-lg flex items-center justify-around">
-                                                     <div class="text-center">
-                        <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
-                        <span class="text-gray-500">TOTAL</span>
-                        </div>
-                    </div>
-                </td>
-                
-                
-                <td>
-                    <div class="bg-white rounded-xl shadow-lg flex items-center justify-around">
-                        
-                        <div class="text-center">
-                        <h1 class="text-4xl font-bold text-gray-800">${{number_format($comisiones)}}</h1>
-                        <span class="text-gray-500">Comisiones</span>
-                        <span class="text-blue-500 font-bold">PAGAR</span>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+
+        <h3 class="ml-4 mt-2 font-bold">Buscador de Pedidos:</h3>
         <div class="card-header">
             <input wire:keydown="limpiar_page" wire:model="search" class="form-control w-100" placeholder="Escriba un nombre">
         </div>

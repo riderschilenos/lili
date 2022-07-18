@@ -337,7 +337,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                             </div>
                         </div>
                         
-                        <div class="mt-4  pb-20" name="productos">
+                        <div class="mt-4  mb-20" name="productos">
 
                             @livewire('vendedor.pedidos-ordens', ['pedido' => $pedido], key('pedidos-ordens.'.$pedido->id))
                             

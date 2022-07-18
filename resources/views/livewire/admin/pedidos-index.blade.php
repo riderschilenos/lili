@@ -53,7 +53,7 @@
 
 
     <div class="card">
-        <table class="table table-striped">
+        <table class="table table-striped hidden">
             <tr>
                 <td>
                     <div class="bg-white rounded-xl shadow-lg flex items-center justify-around">

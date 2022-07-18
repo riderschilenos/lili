@@ -190,7 +190,7 @@
         </article>
 
     
-        <x-table-responsive>
+        <x-table-responsive class="mb-20">
 
           
             @if ($pedido->ordens->count())

@@ -21,7 +21,7 @@
         border-color: var(--main-color);
     }
 </style>
-    <div class="container pt-8" >
+    <div class="container pt-8 mb-20" >
 
         @livewire('vendedor.pedido-seguimiento', ['pedido' => $pedido], key('pedido-seguimiento.'.$pedido->id))
 

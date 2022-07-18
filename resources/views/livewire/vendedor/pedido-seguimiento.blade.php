@@ -149,7 +149,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                             @endforeach
                         </div>
         
-<div x-data="{open: false}">
+<div x-data="{open: true}">
     <div class="text-center md:hidden" >
         <h1 class="text-xl font-bold">INFORMACIÓN DEL PEDIDO</h1>
 

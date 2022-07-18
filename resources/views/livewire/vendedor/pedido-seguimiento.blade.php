@@ -62,7 +62,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
 
 <h1 class="text-xl text-center font-bold pb-4">Estado del Pedido<br>Nro: {{$pedido->id}}</h1>
         
-    <div class="w-full pt-6 pb-8">
+    <div class="w-full pt-6 pb-2">
         <div class="flex">
           <div class="w-1/4">
             <div class="relative mb-2">

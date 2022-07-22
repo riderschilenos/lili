@@ -100,7 +100,7 @@
                         <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $serie->productor->profile_photo_url }}" alt="{{ $serie->productor->name }}"  />
                         <div class="ml-4">
                             <h1 class="font-fold text-gray-500 text-lg">Filmmaker: {{ $serie->productor->name }}</h1>
-                            <a class="text-blue-400 text-sm font-bold" href="">{{'@'.Str::slug($serie->productor->filmmakers->first()->name,'')}}</a>
+                            <a class="text-blue-400 text-sm font-bold" href="">{{'@'.Str::slug($serie->productor->first()->name,'')}}</a>
                         </div>
                     </div>
 

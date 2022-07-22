@@ -32,6 +32,6 @@ class RejectSerie extends Mailable
     public function build()
     {
         return $this->view('mail.reject-serie')
-                    ->subject('Serie rechazada');
+                    ->subject('Contenido Rechazado');
     }
 }

@@ -34,7 +34,6 @@
                         <tr>
                             <td>{{$serie->id}}</td>
                             <td>{{$serie->titulo}}</td>
-                            <td>{{$serie->productor->filmmakers->first()->name}}</td>
                             <td>{{$serie->disciplina->name}}</td>
                             <td>
                                 <a class="btn btn-primary"    href="{{route('admin.series.show',$serie )}}">Revisar</a>

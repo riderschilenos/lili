@@ -11,7 +11,6 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 use Spatie\Permission\Traits\HasRoles;
-use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -21,12 +20,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-    
-    
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPasswordNotification($token));
-    }
+
     /**
      * The attributes that are mass assignable.
      *

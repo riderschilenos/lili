@@ -65,7 +65,7 @@ class SerieController extends Controller
         $serie->save();
 
         $mail = new RejectSerie($serie); 
-        Mail::to($serie->productor->email)->queue($mail);
+        Mail::to($serie->productor->first()->email)->queue($mail);
 
         return redirect()->route('admin.series.index')->with('info','La serie se ha rechazado con éxito');
 

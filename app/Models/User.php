@@ -20,13 +20,6 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-
-    use Notifiable;
-
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPasswordNotification($token));
-    }
     
     /**
      * The attributes that are mass assignable.

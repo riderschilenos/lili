@@ -75,9 +75,9 @@ class PasswordReset extends Notification
     protected function buildMailMessage($url)
     {
         return (new MailMessage)
-            ->subject(Lang::get('Solicitud para reestablecer contraseña'))
+            ->subject(Lang::get('Solicitud para Reestablecer Contraseña'))
             ->line(Lang::get('Haz recibido este email porque respondimos a tu solicitud de nueva contraseña.'))
-            ->action(Lang::get('Reset Password'), $url)
+            ->action(Lang::get('Restablecer Contraseña'), $url)
             ->line(Lang::get('Este link de restauración va a expirar en :count minutos.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
             ->line(Lang::get('Si no es solicitado este link, no es necesario que realices el cambio de contraseña.'));
     }

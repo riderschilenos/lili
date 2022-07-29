@@ -1,4 +1,4 @@
-<section class="mt-4 mb-20">
+<section class="mt-4 mb-12">
     <h1 class="font-bold text-2xl mb-2 text-gray-800">Valoración</h1>
 
     @can('enrolled', $serie)

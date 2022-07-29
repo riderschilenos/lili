@@ -131,7 +131,7 @@
 
         </div>
 
-        <h1 class="text-xs text-gray-400 py-20">Todos Los derechos Reservados</h1>
+        <h1 class="text-center text-xs text-gray-400 py-20 my-12">Todos Los derechos Reservados</h1>
 
     </x-fast-view>
 </x-app-layout>

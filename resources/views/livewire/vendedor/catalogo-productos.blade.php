@@ -2,7 +2,7 @@
     <div class="bg-white">
         <div class="py-10 sm:py-4 lg:max-w-7xl lg:mx-auto lg:px-8">
 
-            <h1 class="text-center text-3xl font-bold py-4">CATÁLOGO PRODUCTOS</h1>
+            <h1 class="text-center text-3xl font-bold py-4">CATALOGO PRODUCTOS</h1>
 
                 <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2">
 
@@ -107,7 +107,7 @@
             
 
                 @if(is_null($selectedcategory))
-                    <h1 class="text-center mb-12"> ¿Qué Tipo de producto buscas?</h1>
+                    <h1 class="text-center mb-12"> ¿Que Tipo de producto buscas?</h1>
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
                       
                         <article class="cursor-pointer" wire:click="category(1)">

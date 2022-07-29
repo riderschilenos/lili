@@ -51,9 +51,6 @@ class Evento extends Model
         return $this->BelongsTo('App\Models\User','user_id');
     }
 
-    public function fechas(){
-        return $this->hasMany('App\Models\Fecha');
-    }
     
     public function disciplina(){
         return $this->BelongsTo('App\Models\Disciplina');

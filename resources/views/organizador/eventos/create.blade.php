@@ -10,25 +10,6 @@
                     
                     {!! Form::hidden('user_id',auth()->user()->id) !!}
 
-
-                    <h1 class="text-center font-bold">Tipo de contenido:</h1>
-
-                        <div class="form-group flex justify-center">
-                            <div class="form-check">
-                              <input type="radio" name="type" id="type" value="carrera">
-                              <label class="text-2xl mr-4" for="type">
-                                    Carrera
-                              </label>
-                            </div>
-                            <div class="form-check ml-2">
-                              <input type="radio" name="type" id="type" value="campeonato">
-                              <label class="text-2xl mr-4" for="type">
-                                    Campeonato
-                              </label>
-                            </div>
-                        </div>
-
-
                     @include('organizador.eventos.partials.form')
 
                     <div class="flex justify-end">

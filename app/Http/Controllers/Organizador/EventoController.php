@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Organizador;
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
 use App\Models\Evento;
-use App\Models\Fecha;
 use App\Models\Precio;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 use Intervention\Image\Facades\Image;
 use Illuminate\support\Str;
 
@@ -47,13 +46,13 @@ class EventoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type'=>'required',
             'titulo'=>'required',
             'subtitulo'=>'required',
             'descripcion'=>'required',
             'slug'=>'required|unique:eventos',
             'disciplina_id'=>'required',
             'file'=>'image'
+
         ]);
 
         $evento = Evento::create($request->all());
@@ -73,13 +72,6 @@ class EventoController extends Controller
                     'url'=>'eventos/'.$nombre
                 ]);
         }
-        if($request->type=="carrera"){
-            Fecha::create([
-                'evento_id'=>$evento->id,
-                'name'=>$request->titulo
-            ]);
-        }
-
 
         return redirect()->route('organizador.eventos.edit',$evento);
 
@@ -117,35 +109,9 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evento $evento)
+    public function update(Request $request, $id)
     {
-
-        $evento->update($request->all());
-
-        if($request->file('file')){
-            $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
-            $ruta = public_path().'/storage/eventos/'.$nombre;
-
-            Image::make($request->file('file'))->orientate()
-                    ->resize(1200, null , function($constraint){
-                    $constraint->aspectRatio();
-                    })
-                    ->save($ruta);
-            
-            if($evento->image){
-                Storage::delete($evento->image->url);
-                $evento->image()->update([
-                        'url'=>'eventos/'.$nombre
-                    ]);
-                
-            }else{
-                $evento->image()->create([
-                    'url'=>'eventos/'.$nombre
-                ]);
-                }
-            }
-
-        return redirect()->route('organizador.eventos.edit',$evento);
+        //
     }
 
     /**

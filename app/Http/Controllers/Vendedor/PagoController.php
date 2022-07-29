@@ -154,8 +154,8 @@ class PagoController extends Controller
             }
 
               //enviar mail
-            $mail = new DisenoPendiente($pedido); 
-            Mail::to('dollenzjohn@gmail.com')->send($mail);
+            //$mail = new DisenoPendiente($pedido); 
+            //Mail::to('dollenzjohn@gmail.com')->send($mail);
 
             return redirect()->route('admin.pagos.index');
     

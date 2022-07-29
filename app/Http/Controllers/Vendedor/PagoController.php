@@ -151,7 +151,6 @@ class PagoController extends Controller
                 $pedido->save();
             }
 
-
             return redirect()->route('admin.pagos.index');
     
     }

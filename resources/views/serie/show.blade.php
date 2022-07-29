@@ -28,7 +28,7 @@
         </section>
 
         <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="order-2 lg:col-span-2 lg:order-1">
+            <div class="order-2 lg:col-span-2 lg:order-1 mb-24">
                 <section class="card">
                     <div class="card-body">
                         <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás ver en esta producción?</h1>

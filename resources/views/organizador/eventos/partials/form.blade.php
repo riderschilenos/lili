@@ -49,8 +49,8 @@
                     <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
                     <div class="grid grid-cols-2 gap-4">
                         <figure>
-                            @isset($serie->image)
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($serie->image->url)}}" alt="">
+                            @isset($evento->image)
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
                                 @else
                                 <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
                                 

@@ -71,7 +71,7 @@
                         
                     </div>
                 </section>
-                <div class="mb-24 py-20">
+                <div class="mb-12 py-20">
                     @livewire('series-reviews',['serie' => $serie])
                 </div>
             </div>
@@ -132,7 +132,7 @@
             
 
         </div>
-        
+
         <h1 class="text-center text-xs text-gray-400 py-12">Todos Los derechos Reservados</h1>
         
 

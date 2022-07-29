@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Vendedor;
 
 use App\Http\Controllers\Controller;
-use App\Mail\DisenoPendiente;
 use App\Models\Pago;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -152,10 +150,6 @@ class PagoController extends Controller
                 $pedido->status=4;
                 $pedido->save();
             }
-
-              //enviar mail
-            //$mail = new DisenoPendiente($pedido); 
-            //Mail::to('dollenzjohn@gmail.com')->send($mail);
 
             return redirect()->route('admin.pagos.index');
     

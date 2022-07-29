@@ -37,7 +37,7 @@
     @endcan
 
     <div class="card">
-        <div class="card-body">
+        <div class="px-6 pb-24">
             <p class="text-grey-800 text-xl">{{$serie->reviews->count()}} Valoraciones</p>
 
             @foreach ($serie->reviews->reverse() as $review)

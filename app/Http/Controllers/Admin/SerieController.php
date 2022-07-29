@@ -43,7 +43,7 @@ class SerieController extends Controller
 
         //enviar mail
         $mail = new ApprovedSerie($serie); 
-        Mail::to($serie->user->email)->queue($mail);
+        Mail::to($serie->user->email)->send($mail);
 
         return redirect()->route('admin.series.index')->with('info','La serie se publico con exito');
     }

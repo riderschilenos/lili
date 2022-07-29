@@ -27,7 +27,7 @@
 
         </section>
 
-        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20 pb-20">
             <div class="order-2 lg:col-span-2 lg:order-1 mb-24 pb-24">
                 <section class="card">
                     <div class="card-body">

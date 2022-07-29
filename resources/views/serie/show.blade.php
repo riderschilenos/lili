@@ -71,9 +71,9 @@
                         
                     </div>
                 </section>
-
-                @livewire('series-reviews',['serie' => $serie])
-
+                <div class="mb-24">
+                    @livewire('series-reviews',['serie' => $serie])
+                </div>
             </div>
 
 

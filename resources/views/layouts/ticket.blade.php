@@ -39,13 +39,21 @@
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
                         <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Información del evento</a>
+                            <a href="{{route('organizador.eventos.edit',$evento)}}">Información del evento</a>
                         </li>
                         <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Fechas y Categorias</a>
+                            @if ($evento->type=='carrera')
+                                <a href="{{route('organizador.eventos.fechas',$evento)}}">Fecha y Categorias</a>
+                            @else
+                                <a href="{{route('organizador.eventos.fechas',$evento)}}">Fechas y Categorias</a>
+                            @endif
+                            
                         </li>
                         <li class="leading-7 mb-1 border-l-4  pl-2">
                             <a href="">Listado de Inscritos</a>
+                        </li>
+                        <li class="leading-7 mb-1 border-l-4  pl-2">
+                            <a href="">Resultados</a>
                         </li>
                         <li class="leading-7 mb-1 border-l-4  pl-2">
                             <a href="">Listado de Asistentes</a>

@@ -2,8 +2,16 @@
 
     
 
-
-    <h1 class="text-2xl font-bold">INFORMACIÓN DEL EVENTO</h1>
+    <div class="flex justify-between">
+        <h1 class="text-2xl font-bold">INFORMACIÓN DEL EVENTO</h1>
+        <h1 class="justify-end text-2xl font-bold text-red-600">
+            @if ($evento->type=='carrera')
+            CARRERAS
+            @else
+            CAMPEONATO
+            @endif
+        </h1>
+    </div>
     <hr class="mt-2 mb-6">
     
    

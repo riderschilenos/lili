@@ -148,6 +148,11 @@ class EventoController extends Controller
         return redirect()->route('organizador.eventos.edit',$evento);
     }
 
+    public function fechas(Evento $evento)
+    {   
+
+        return view('organizador.eventos.fechas', compact('evento'));
+    }
     /**
      * Remove the specified resource from storage.
      *

@@ -30,11 +30,13 @@
                             <strong class="text-xs text-red-600">{{$message}}</strong>
                         @enderror
                     </div>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div>
-                            {!! Form::label('disciplina_id', 'Disciplina') !!}
-                            {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                        </div>
+                    <div>
+                        <p class="pt-3 pb-2">Si deseas vender entradas para tu evento, las siguientes casillas te serán de utilidad para cobrar el valor de tus entradas.</p>
+                        <h1 class="font-bold">Como vender:</h1>
+                        <h1>Escribe el valor en la casilla correspondiente y dale aceptar para pasar al siguiente paso.</h1>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 pt-3">
+                      
                         <div>
                             {!! Form::label('precio_id', 'Entrada adultos') !!}
                             {!! Form::number('entrada', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':''),'step' => '0.5','placeholder'=>'$']) !!}
@@ -44,6 +46,10 @@
                             {!! Form::number('entrada_niño', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':''),'step' => '0.5','placeholder'=>'$']) !!}                   
                         </div>
 
+                    </div>
+                    <div class="py-4">
+                        {!! Form::label('disciplina_id', 'Disciplina') !!}
+                        {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
                     </div>
 
                     <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
@@ -58,7 +64,7 @@
                             @endisset
                             </figure>
                         <div>
-                            <p class="mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, in magnam sunt ipsa blanditiis eaque libero sed aliquam vel perspiciatis, rem cum ratione alias dignissimos totam unde beatae quo nostrum.</p>
+                            <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
                             {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
                             @error('file')
                                 <strong class="text-xs text-red-600">{{$message}}</strong>

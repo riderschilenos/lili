@@ -7,7 +7,7 @@
 
                     <div class="photo-wrapper p-2">
                         <a href= "{{route('socio.show', $socio)}}">
-                        <img class="w-44 cursor-pointer h-48 mx-auto object-cover rounded-md" src="{{ $socio->user->profile_photo_url }}" alt="{{$socio->name}}">
+                        <img loading="lazy" class="w-44 cursor-pointer h-48 mx-auto object-cover rounded-md" src="{{ $socio->user->profile_photo_url }}" alt="{{$socio->name}}">
                         </a>
                     </div>
 

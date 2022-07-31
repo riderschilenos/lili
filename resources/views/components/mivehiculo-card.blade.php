@@ -25,11 +25,11 @@
                             
                                 @if($vehiculo->image->first())
                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                                    <img class="h-44 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                    <img loading="lazy" class="h-44 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                 </a>
                                 @else
                                 <a href="{{route('garage.image', $vehiculo)}}">
-                                    <img class="h-44 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                    <img loading="lazy" class="h-44 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                                 </a>
                                 @endif
                     

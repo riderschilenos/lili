@@ -4,7 +4,7 @@
                 @isset($serie->image)
                     <a href="{{route('series.show', $serie)}}"><img class="h-36 w-full object-cover" src=" {{Storage::url($serie->image->url)}}" alt=""></a>
                 @else
-                    <img class="h-36 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                    <img loading="lazy" class="h-36 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
 
                @endisset
 

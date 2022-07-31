@@ -14,7 +14,8 @@
         </div>
 
     </section>
-
+    
+    @livewire('eventos-index')
     @livewire('series-index')
 
 

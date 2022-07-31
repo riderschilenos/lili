@@ -444,7 +444,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 pt-64 pb-8">
                 
                     <h1 class="text-white font-fold text-4xl text-center">RidersChilenos</h1>
-                    <p class="text-white text-lg mt-2 mb-4 text-center">Bienvenido al Portal Rider Más Grande del País..</p>
+                    <p class="text-white text-lg mt-2 mb-4 text-center">Bienvenido al Portal Rider Más Grande del País.</p>
                         <!-- component -->
                         <!-- This is an example component -->
                 

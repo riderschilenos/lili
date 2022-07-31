@@ -3,12 +3,13 @@
 @section('title', 'RidersChilenos')
 
 @section('content_header')
-    <h1 class="text-center">RIDERS CHILENOS</h1>
+    
 @stop
 
 @section('content')
-   
 
+    <h2 class="text-center">Seleccione un Periodo:</h2>
+    
     @livewire('admin.contabilidad')
 
     @livewire('admin.pedidos-index')

@@ -207,7 +207,26 @@
         @endphp
     @endforeach
 
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <h5 class="text-center">
+        <select wire:model="selectedperiodo" class="appearance-none border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="">Julio 2022</option>
+                <option value="1">Junio 2022</option>
+                <option value="2">Abril 2022</option>
+                <option value="3">Marzo 2022</option>
+        </select>                                                                                   
+    </h5>
 
+    <figure class="highcharts-figure">
+        <div id="grafico"></div>
+    </figure>
+    
+                
     <div class="container">
         <div class="card-header mb-4">
             <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales))}}</b></h1>
@@ -439,4 +458,69 @@
             
         </div>
     </div>
+
+    <script>
+        Highcharts.chart('grafico', {
+
+title: {
+    text: 'Riders Chilenos'
+},
+
+subtitle: {
+    text: 'Ventas-Gastos'
+},
+
+yAxis: {
+    title: {
+        text: 'Number of Employees'
+    }
+},
+
+xAxis: {
+    accessibility: {
+        rangeDescription: 'Range: 2010 to 2017'
+    }
+},
+
+legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+},
+
+plotOptions: {
+    series: {
+        label: {
+            connectorAllowed: false
+        },
+        pointStart: 1
+    }
+},
+
+series: [{
+    name: 'Ventas',
+    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+}, {
+    name: 'Gastos',
+    data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+} ],
+
+responsive: {
+    rules: [{
+        condition: {
+            maxWidth: 500
+        },
+        chartOptions: {
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            }
+        }
+    }]
+}
+
+});
+      
+    </script>
 </div>

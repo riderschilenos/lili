@@ -10,7 +10,9 @@ use App\Models\Vendedor;
 use Livewire\Component;
 
 class Contabilidad extends Component
-{
+{   
+    public $selectedperiodo;
+
     public function render()
     {   $pedidos=Pedido::where('status',4)
         ->orwhere('status',5)

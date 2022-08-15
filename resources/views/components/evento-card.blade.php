@@ -9,13 +9,13 @@
                @endisset
 
                <div class="card-body flex flex-1 flex-col">
-                   <a href="{{route('ticket.evento.show', $evento)}}"><h1 class="card-tittle">{{Str::limit($evento->titulo,40)}}</h1></a>
+                   <a href="{{route('ticket.evento.show', $evento)}}"><h1 class="card-tittle">{{Str::limit($evento->titulo,40)}}</h1>
                    <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$evento->disciplina->name}}</p> 
                    <p class="text-gray-500 text-sm mb-2">Organizador: {{$evento->organizador->first()->name}}</p>
                    <p class="text-gray-500 text-sm mb-2 "><b>{{$evento->fechas_count}}</b> Fechas </p> 
                    
                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
-
+                </a>
                    <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
                     $30.000 - $40.000
                     </a>

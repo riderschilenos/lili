@@ -4,11 +4,11 @@
        
         <section class="bg-gray-700 py-12 mb-8 ">
             <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <figure>
+                <figure class="flex justify-center">
                     @isset($evento->image)
-                        <img class="h-72 w-full object-cover object-center" src="{{Storage::url($evento->image->url)}}" alt="">
+                        <img class="h-72 w-72 object-contain object-center" src="{{Storage::url($evento->image->url)}}" alt="">
                     @else
-                        <img class="h-72 w-full object-cover object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                        <img class="h-72 w-72 object-contain object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
                     @endisset
                 </figure>
 

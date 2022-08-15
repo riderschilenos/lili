@@ -16,7 +16,6 @@
     </section>
     
     @livewire('eventos-index')
-    @livewire('series-index')
 
 
 </x-app-layout>

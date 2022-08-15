@@ -33,7 +33,7 @@
                     <div>
                         <p class="pt-3 pb-2">Si deseas vender entradas para tu evento, las siguientes casillas te serán de utilidad para cobrar el valor de tus entradas.</p>
                         <h1 class="font-bold">Cobrar entrada a los asistentes:</h1>
-                        <h1>En caso de querer cobrar entrada a los asistentes escribe el valor en la casilla correspondiente y dale aceptar para pasar al siguiente paso.</h1>
+                        <h1>Si deseas cobrar entrada a los asistentes al evento escribe el valor en la casilla correspondiente y dale aceptar para pasar al siguiente paso.</h1>
                     </div>
                     <div class="grid grid-cols-3 gap-4 pt-3">
                       

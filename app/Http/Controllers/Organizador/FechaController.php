@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Ticket;
+namespace App\Http\Controllers\Organizador;
 
 use App\Http\Controllers\Controller;
 use App\Models\Evento;
 use App\Models\Fecha;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\support\Str;
 
-class EventoController extends Controller
+class FechaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return view('Evento.index');
+        //
     }
 
     /**
@@ -37,7 +39,33 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'fecha'=>'required',
+            'lugar'=>'required',
+            'file'=>'image'
+        ]);
+
+        $fecha = Fecha::create($request->all());
+        $evento = Evento::find($request->evento_id);
+
+        if($request->file('file')){
+        
+        $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+        $ruta = public_path().'/storage/eventos/'.$nombre;
+
+        Image::make($request->file('file'))->orientate()
+                ->resize(1200, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($ruta);
+        $fecha->image()->create([
+                    'url'=>'eventos/'.$nombre
+                ]);
+        }
+
+        return redirect()->route('organizador.eventos.fechas',$evento);
+
     }
 
     /**
@@ -46,17 +74,9 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Evento $evento)
-    {    $fechas= Fecha::where('evento_id',$evento->id)
-        ->paginate();
-        $similares = Evento::where('disciplina_id',$evento->disciplina_id)
-                            ->where('id','!=',$evento->id)
-                            ->where('status',1)
-                            ->latest('id')
-                            ->take(5)
-                            ->get();
-
-        return view('Evento.show',compact('evento','fechas','similares'));
+    public function show($id)
+    {
+        //
     }
 
     /**

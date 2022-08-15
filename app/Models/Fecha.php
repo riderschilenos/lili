@@ -16,4 +16,9 @@ class Fecha extends Model
         return $this->BelongsTo('App\Models\Evento');
     }
 
+    //relacion uno a uno polimorfica
+    public function image(){
+        return $this->MorphOne('App\Models\Image','imageable');
+    }
+
 }

@@ -6,7 +6,7 @@
         <h1 class="text-2xl font-bold">INFORMACIÓN DEL EVENTO</h1>
         <h1 class="justify-end text-2xl font-bold text-red-600">
             @if ($evento->type=='carrera')
-            CARRERAS
+            CARRERA
             @else
             CAMPEONATO
             @endif

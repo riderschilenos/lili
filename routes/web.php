@@ -37,6 +37,8 @@ Route::get('seguimiento/{pedido}',[PedidoController::class,'seguimiento'])->name
 
 Route::post('content/{serie}/enrolled', [SerieController::class, 'enrolled'])->middleware('auth')->name('serie.enrolled');
 
+Route::post('evento/{evento}/enrolled', [SerieController::class, 'enrolled'])->middleware('auth')->name('evento.enrolled');
+
 Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->middleware('auth');
 
 Route::post('webhooks', WebhooksController::class);

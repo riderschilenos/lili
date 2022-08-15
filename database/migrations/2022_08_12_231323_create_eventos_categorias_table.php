@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFechasTable extends Migration
+class CreateEventosCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,8 @@ class CreateFechasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fechas', function (Blueprint $table) {
+        Schema::create('eventos_categorias', function (Blueprint $table) {
             $table->id();
-
-            $table  ->foreignId('evento_id')
-            ->constrained()
-            ->onDelete('cascade');
-
-
-            $table->string('name');
-
-            //datos del evento
-            $table->date('fecha')->Nullable();
-            $table->string('lugar')->Nullable();
-
             $table->timestamps();
         });
     }
@@ -38,6 +26,6 @@ class CreateFechasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fechas');
+        Schema::dropIfExists('eventos_categorias');
     }
 }

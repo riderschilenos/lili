@@ -23,11 +23,11 @@ class Evento extends Model
         }
     }
 
-    //public function scopeOrganizador($query,$filmmaker_id){
-      //  if($filmmaker_id){
-        //    return $query->where('user_id',$filmmaker_id);
-      //  }
-  //  }
+    public function scopeOrganizador($query,$filmmaker_id){
+        if($filmmaker_id){
+            return $query->where('user_id',$filmmaker_id);
+        }
+    }
 
     public function getRouteKeyName()
     {

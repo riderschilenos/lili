@@ -2,6 +2,8 @@
     <div x-data="{open: false, categoria:false}">
 
         @if ($evento->type!='carrera')
+
+            <h1 x-show="!open" class="text-center mb-4">Preciona el boton para iniciar el formulario de una nueva fecha</h1>
             <a x-show="!open" x-on:click="open=true" class="flex items-center cursor-pointer justify-center">
                 <i class="far fa-plus-square text-2xl text-red-500 mr-2"></i>
                 Agregar Fecha
@@ -9,12 +11,58 @@
         @endif
           
         <div x-show="open">
-            <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es su evento?</h2>
-                    {!! Form::date('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
+            <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es la fecha?</h2>
+
+            {!! Form::open(['route'=>'organizador.fechas.store','files'=>true , 'autocomplete'=>'off']) !!}
+                    
+                    {!! Form::hidden('evento_id',$evento->id) !!}
+
+                    {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
+                    
+                    <div class="my-4">
+                      {!! Form::label('name', 'Nombre de la Fecha') !!}
+                      {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+
+                      @error('name')
+                          <strong class="text-xs text-red-600">{{$message}}</strong>
+                      @enderror
+                    </div>
+
+                    <div class="my-4">
+                      {!! Form::label('lugar', 'Lugar') !!}
+                      {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+
+                      @error('lugar')
+                          <strong class="text-xs text-red-600">{{$message}}</strong>
+                      @enderror
+                    </div>
+
+                    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
+                    <div class="grid grid-cols-2 gap-4">
+                        <figure>
+                            @isset($evento->image)
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
+                                @else
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                
+                            
+                            @endisset
+                            </figure>
+                        <div>
+                            <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
+                            {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                            @error('file')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="flex justify-center mt-2">
                         <button href="" class="btn btn-danger mx-4" x-on:click="open=!open">Cancelar</button>
-                        {!! Form::submit('Siguiente', ['class'=>'btn btn-primary']) !!}
-                </div>
+                        {!! Form::submit('Agregar', ['class'=>'btn btn-primary']) !!}
+                    </div>
+            {!! Form::close() !!}
+
         </div>
 
         @foreach ($evento->fechas as $fecha)
@@ -24,12 +72,185 @@
                 @if (IS_NULL($fecha->fecha))
 
                     <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es su evento?</h2>
+                
+                {!! Form::model($fecha, ['route'=>['organizador.fechas.update',$fecha],'method' => 'put', 'files'=> true , 'autocomplete'=>'off']) !!}
 
-                    {!! Form::date('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}
+                    {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}
                     
+                    <div class="my-4">
+
+                      
+                      @if ($evento->type=='carrera')
+                          {!! Form::label('name', 'Nombre de la Carrera') !!}
+                      @else
+                          {!! Form::label('name', 'Nombre de la Fecha') !!}
+                      @endif
+                      {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+
+                      @error('name')
+                          <strong class="text-xs text-red-600">{{$message}}</strong>
+                      @enderror
+                    </div>
+
+                    <div class="my-4">
+                      {!! Form::label('lugar', 'Lugar') !!}
+                      {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+
+                      @error('lugar')
+                          <strong class="text-xs text-red-600">{{$message}}</strong>
+                      @enderror
+                    </div>
+
+
+
                     <div class="flex justify-center mt-2">
                         {!! Form::submit('Siguiente', ['class'=>'btn btn-primary']) !!}
                     </div>
+                
+                {!! Form::close() !!}
+
+                @elseif($fecha->fecha)
+
+                    <div class="bg-gray-100 p-6 mt-6" x-data="{open: false}">
+                      <header class="flex justify-between item-center" x-on:click="open=!open" >
+                        <h1 class="cursor-pointer"><strong>Fecha:</strong> {{$fecha->name}}</h1>
+                        <div>
+                            <i class="fas fa-eye cursor-pointer text-blue-500 mr-2" ></i>
+                            <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar"></i>
+                        </div>
+                      </header>
+                      
+                      <div x-show="open">
+                        <h1 class="font-bold mt-4"><strong>Lugar:</strong> {{$fecha->lugar}}</h1>
+                        <h1 class="font-bold mt-4"><strong>Fecha:</strong> {{$fecha->fecha}}</h1>
+
+                        
+                        
+                        
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+<div class="flex justify-center items-center h-screen">
+	<!--actual component start-->
+	<div x-data="setup()">
+
+		<ul class="flex justify-center items-center my-4">
+			<template x-for="(tab, index) in tabs" :key="index">
+				<li class="cursor-pointer py-3 px-4 rounded transition"
+					:class="activeTab===index ? 'bg-green-500 text-white' : ' text-gray-500'" @click="activeTab = index"
+					x-text="tab"></li>
+			</template>
+		</ul>
+    <div x-show="activeTab===0">
+      <h1 class="font-bold mt-12">INGRESA LAS CATEGORIAS</h1>
+              <p class="mb-4">Pincha las categorias que deseas incluir en tu eventos</p>
+                      
+              <div class="flex justify-between">
+                  <div class="shaddow h-60 bg-gray-300 w-full mr-2 p-2">
+                      <button class="btn bg-red-500 text-white">
+                          INFANTIL
+                      </button>
+                      <button class="btn bg-red-500 text-white">
+                          Novicios
+                      </button>
+                  </div>
+      
+                  <div class="my-auto">
+                      <img class="h-5 w-8" src="https://cdn-icons-png.flaticon.com/512/4305/4305572.png" alt="">
+                  </div>
+                  <div class="shaddow h-60 bg-gray-300 w-full ml-2 p-2">
+                      <button class="btn bg-green-500 text-white">
+                          Expertos
+                      </button>
+                      <button class="btn bg-green-500 text-white">
+                          Damas
+                      </button>
+                  </div>
+                  
+              </div>
+      </div>
+		<div class="w-80 bg-white p-16 h-32 text-center mx-auto border mt-4">
+			<div x-show="activeTab===1">Content 2</div>
+			<div x-show="activeTab===2">Content 3</div>
+			<div x-show="activeTab===3">Content 4</div>
+		</div>
+
+		
+		<div class="flex gap-4 justify-center border-t p-4">
+			<button
+				class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
+				@click="activeTab--" x-show="activeTab>0"
+				>Anterior</button>
+			<button
+				class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
+				@click="activeTab++" x-show="activeTab<tabs.length-1"
+				>Siguiente</button>
+		</div>
+	</div>
+	<!--actual component end-->
+</div>
+
+<script>
+	function setup() {
+    return {
+      activeTab: 0,
+      tabs: [
+          "Agregar Categoria",
+          "Valor de Inscripción",
+          "Limite de Inscritos",
+          "Quitar Categoria",
+      ]
+    };
+  };
+</script>
+
+<!--
+# Changelog:
+
+## [1.1] - 2021-05-01
+### Added
+ - Back/Next buttons
+
+## [1.0] - 2021-05-01
+### Added
+ - Nav bar with two styles
+ - Set tabs title dynamically and render on page
+-->
+                        
+                        <div class="flex" x-on:click="categoria=!categoria">
+                            <div class="max-w-lg mx-auto">
+                                <div class="text-center mt-12">
+                                  <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                  </svg>
+                                  <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
+                                  <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
+                                </div>
+                                
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="flex">
+                          <div class="max-w-2xl mx-auto">
+                            <div class="text-center mt-2">
+                              <form action="#" class="mt-6 mb-12 flex" x-show="categoria">
+                                <label for="email" class="sr-only">Email address</label>
+                                <input class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa la categoria">
+                                <button type="submit" class="ml-4 flex-shrink-0 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Agregar</button>
+                              </form>
+                              <div class="flex justify-center" x-show="!categoria">
+                                <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" x-on:click="categoria=!categoria">Agregar Categoria</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                      
+                
+        
+
 
                 @endif
 
@@ -42,57 +263,6 @@
         @endforeach
 
         
-        <h1 class="font-bold mt-12">INGRESA LAS CATEGORIAS</h1>
-        <p class="mb-4">Pincha las categorias que deseas incluir en tu eventos</p>
-                
-        <div class="flex justify-between">
-            <div class="shaddow h-60 bg-gray-300 w-full mr-2 p-2">
-                <button class="btn bg-red-500 text-white">
-                    INFANTIL
-                </button>
-                <button class="btn bg-red-500 text-white">
-                    Novicios
-                </button>
-            </div>
-
-            <div class="my-auto">
-                <img class="h-5 w-8" src="https://cdn-icons-png.flaticon.com/512/4305/4305572.png" alt="">
-            </div>
-            <div class="shaddow h-60 bg-gray-300 w-full ml-2 p-2">
-                <button class="btn bg-green-500 text-white">
-                    Expertos
-                </button>
-                <button class="btn bg-green-500 text-white">
-                    Damas
-                </button>
-            </div>
-            
-        </div>
-        <div class="flex justify-between">
-            <button type="submit" class="btn bg-blue-800 text-white justify-end mt-2 mr-4" x-on:click="categoria=!categoria">Agregar Categoria</button>
-
-        
-        </div>
-        
-        <div class="flex" x-show="categoria">
-            <div class="max-w-lg mx-auto">
-                <div class="text-center mt-12">
-                  <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                  <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
-                  <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
-                </div>
-                <form action="#" class="mt-6 mb-12 flex" >
-                  <label for="email" class="sr-only">Email address</label>
-                  <input class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa la categoria">
-                  <button type="submit" class="ml-4 flex-shrink-0 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Agregar</button>
-                </form>
-            </div>
-        </div>
-      
-
-
 
 
 
@@ -225,4 +395,9 @@
         </div>
 
     </div>
+
+    
+    <script src="{{asset('js/filmmaker/series/form.js')}}"></script>
+  
+
 </div>

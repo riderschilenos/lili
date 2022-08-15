@@ -2,37 +2,26 @@
 
 <article class="card flex flex-col">
                 @isset($evento->image)
-                    <a href="{{route('ticket.evento.show', $evento)}}"><img class="h-36 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                    <a href="{{route('ticket.evento.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
                 @else
-                    <img loading="lazy" class="h-36 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                    <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
 
                @endisset
 
                <div class="card-body flex flex-1 flex-col">
                    <a href="{{route('ticket.evento.show', $evento)}}"><h1 class="card-tittle">{{Str::limit($evento->titulo,40)}}</h1></a>
                    <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$evento->disciplina->name}}</p> 
-                   <p class="text-gray-500 text-sm mb-2">Filmmaker: {{$evento->organizador->first()->name}}</p>
-                   <p class="text-gray-500 text-sm mb-2 "><b>{{$evento->videos_count}}</b> Capítulos </p> 
+                   <p class="text-gray-500 text-sm mb-2">Organizador: {{$evento->organizador->first()->name}}</p>
+                   <p class="text-gray-500 text-sm mb-2 "><b>{{$evento->fechas_count}}</b> Fechas </p> 
                    
+                   <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
 
-                    <div class="flex">
-                        <ul class="flex text-sm">
-                            <li class="mr-1">
-                                <i class="fas fa-star text-{{$evento->rating>= 1 ? 'yellow' : 'gray'}}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                            <i class="fas fa-star text-{{$evento->rating>= 2 ? 'yellow' : 'gray'}}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                                <i class="fas fa-star text-{{$evento->rating>= 3 ? 'yellow' : 'gray'}}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                            <i class="fas fa-star text-{{$evento->rating>= 4 ? 'yellow' : 'gray'}}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                            <i class="fas fa-star text-{{$evento->rating>= 5 ? 'yellow' : 'gray'}}-400"></i>
-                            </li>
-                        </ul>
+                   <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                    $30.000 - $40.000
+                    </a>
+
+                    <div class="flex mt-2">
+                        <p class="text-gray-500 text-md mb-2">INSCRITOS</p>
                         <p class="text-sm text-gray-500 ml-auto"> 
                             <i class="fas fa-users"></i>
                             ({{$evento->sponsors_count}})
@@ -49,7 +38,17 @@
                         @if ($evento->entrada == 0)
                         <p class="my-2 text-green-800 font-bold">GRATIS</p>
                         @else
-                            <p class="my-2 text-gray-500 font-bold">${{number_format($evento->entrada)}}</p>
+                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                            <div class="flex justify-between mb-4">
+                                <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                    <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                </div>
+                                <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
+                                    <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                </div>
+                            </div>
                         @endif
 
                         <a href= "{{route('ticket.evento.show', $evento)}}" class="btn btn-danger btn-block">

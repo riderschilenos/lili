@@ -37,7 +37,7 @@
                     
                         <p class="text-gray-700 text-base">{!!$evento->descripcion!!}</p>
 
-                        <h1 class="font-bold text-xl my-4 text-gray-800">Si te haces Sponsor, automáticamente tendrás acceso a {{$evento->videos_count}} videos exclusivos.</h1>
+                        <h1 class="font-bold text-xl my-4 text-gray-800">La organización estipula {{$evento->fechas_count}} fechas para este campeonato.</h1>
                         <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
                             @foreach ($fechas as $fecha)
                                 @if ($fecha->image)
@@ -90,7 +90,7 @@
                         </div>
                         @can('enrolled', $evento)
 
-                            <a class="btn btn-danger btn-block mt-4" href="{{route('eventos.status',$evento)}}">Ver la evento</a>
+                            <a class="btn btn-danger btn-block mt-4" href="{{route('eventos.status',$evento)}}">Ver mis tickets</a>
 
                         @else 
                             @if ($evento->entrada == 0)
@@ -98,12 +98,24 @@
                                 
                                 <form action="{{route('evento.enrolled',$evento)}}" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger btn-block" type="submit">INSCRIBIRME</button>
+                                    <button class="btn btn-danger btn-block" type="submit">Entradas-Inscripción</button>
                                 </form>
 
                             @else
                                 <p class="text-2xl font-bold text-gray-500 mt-3 mb-2 text-center">${{number_format($evento->entrada)}}</p>
-                                <a href="{{route('payment.checkout', $evento)}}" class="btn btn-danger btn-block">INSCRIBIRBE</a>
+                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">INSCRIBIRBE</a>
+                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                                <div class="flex justify-between mb-4">
+                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                    </div>
+                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
+                                        <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                    </div>
+                                </div>
+                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
                             @endif
                     @endcan
                     </div>

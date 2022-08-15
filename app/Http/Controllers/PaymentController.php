@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evento;
 use App\Models\Pago;
 use App\Models\Qrregister;
 use App\Models\Serie;
@@ -18,6 +19,11 @@ class PaymentController extends Controller
     public function checkout(Serie $serie){
 
         return view('payment.checkout',compact('serie'));
+    }
+
+    public function checkoutevento(Evento $evento){
+
+        return view('payment.checkoutevento',compact('evento'));
     }
 
     
@@ -43,6 +49,25 @@ class PaymentController extends Controller
         
 
       
+    }
+
+    public function evento(Evento $evento, Request $request){
+
+        $payment_id = $request->get('payment_id');
+
+        $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id"."?access_token=APP_USR-1229864100729203-011115-bb72bcc696b175468013c9b12f281869-74165380");
+
+        $response = json_decode($response);
+
+        $status = $response->status;
+
+        if($status == 'approved'){
+            $evento->inscrito()->attach(auth()->user()->id);
+            return redirect()->route('series.status',$evento);
+        }
+        else{
+            
+        }
     }
 
     public function socio(Socio $socio, Request $request){

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Organizador;
 
+use App\Models\Categoria;
 use App\Models\Evento;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
@@ -20,7 +21,8 @@ class EventosFechas extends Component
     }
 
     public function render()
-    {
-        return view('livewire.organizador.eventos-fechas');
+    {   $categorias=Categoria::where('disciplina_id',$this->evento->disciplina_id)->get();
+
+        return view('livewire.organizador.eventos-fechas',compact('categorias'));
     }
 }

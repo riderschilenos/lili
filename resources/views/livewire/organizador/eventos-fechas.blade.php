@@ -37,6 +37,16 @@
                       @enderror
                     </div>
 
+                    <div class="my-4">
+                      {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
+                      <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
+                      {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+
+                      @error('inscripcion')
+                          <strong class="text-xs text-red-600">{{$message}}</strong>
+                      @enderror
+                    </div>
+
                     <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
                     <div class="grid grid-cols-2 gap-4">
                         <figure>
@@ -145,13 +155,13 @@
               <p class="mb-4">Pincha las categorias que deseas incluir en tu eventos</p>
                       
               <div class="flex justify-between">
-                  <div class="shaddow h-60 bg-gray-300 w-full mr-2 p-2">
-                      <button class="btn bg-red-500 text-white">
-                          INFANTIL
-                      </button>
-                      <button class="btn bg-red-500 text-white">
-                          Novicios
-                      </button>
+                  <div class="shaddow h-60 bg-gray-300 w-full mr-2 p-1">
+                    @foreach ($categorias as $categoria)
+                        <button class="btn bg-red-500 text-white my-1 mx-1">
+                          {{$categoria->name}}
+                        </button>
+                    @endforeach
+
                   </div>
       
                   <div class="my-auto">
@@ -168,7 +178,32 @@
                   
               </div>
       </div>
-		<div class="w-80 bg-white p-16 h-32 text-center mx-auto border mt-4">
+		<div class="w-80 bg-white p-16 h-72 text-center mx-auto border mt-4">
+      <div x-show="activeTab===0">
+              <div class="bg-blue-900 rounded-lg max-w-sm mx-auto ">
+                <h1 class="text-center font-bold text-white pt-6">Agregar Categorias:</h1>
+                <div class="flex justify-center mt-2 mb-4 ">
+                    
+                <form action="" method="POST">
+                    @csrf
+                    
+                    <div class="mb-4">
+                        
+                        <h1 class="text-center font-bold text-white mt-6">Precio Inscripción:</h1>
+                        {!! Form::number('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
+
+                        @error('nro')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+
+                    <div class="flex justify-center">
+                        <button class="btn btn-primary my-4" type="submit">Agregar</button>
+                    </div>
+                </form>   
+              </div>
+            </div>
+        </div>
 			<div x-show="activeTab===1">Content 2</div>
 			<div x-show="activeTab===2">Content 3</div>
 			<div x-show="activeTab===3">Content 4</div>
@@ -233,11 +268,20 @@
                         <div class="flex">
                           <div class="max-w-2xl mx-auto">
                             <div class="text-center mt-2">
-                              <form action="#" class="mt-6 mb-12 flex" x-show="categoria">
-                                <label for="email" class="sr-only">Email address</label>
-                                <input class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Ingresa la categoria">
-                                <button type="submit" class="ml-4 flex-shrink-0 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Agregar</button>
-                              </form>
+                              {!! Form::open(['route'=>'organizador.categorias.store','files'=>true , 'autocomplete'=>'off']) !!}
+                              <div x-show="categoria" class="flex">
+                                        
+                                      {!! Form::hidden('disciplina_id',$evento->disciplina_id) !!}
+
+                                        <div>
+                                          {!! Form::text('name', null , ['class' => 'form-input w-full'.($errors->has('name')?' border-red-600':'')]) !!}
+                                        </div>
+                                        <div>
+                                              {!! Form::submit('Agregar', ['class'=>'ml-2 btn btn-primary']) !!}
+                                        </div>
+    
+                              </div>
+                              {!! Form::close() !!}
                               <div class="flex justify-center" x-show="!categoria">
                                 <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" x-on:click="categoria=!categoria">Agregar Categoria</button>
                               </div>

@@ -15,6 +15,20 @@ class CreateEventosCategoriasTable extends Migration
     {
         Schema::create('eventos_categorias', function (Blueprint $table) {
             $table->id();
+
+            $table  ->foreignId('evento_id')
+            ->constrained()
+            ->onDelete('cascade');
+
+            $table  ->foreignId('categoria_id')
+            ->constrained()
+            ->onDelete('cascade');
+
+            $table->string('inscripcion')->Nullable();
+            $table->string('limite')->Nullable();
+
+
+
             $table->timestamps();
         });
     }

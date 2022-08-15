@@ -26,6 +26,7 @@ class CreateFechasTable extends Migration
             //datos del evento
             $table->date('fecha')->Nullable();
             $table->string('lugar')->Nullable();
+            $table->string('inscripcion')->Nullable();
 
             $table->timestamps();
         });

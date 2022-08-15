@@ -12,6 +12,8 @@ use App\Models\Producto;
 use App\Models\Smartphone;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\support\Str;
+use Intervention\Image\Facades\Image;
 
 
 class PedidosOrdens extends Component
@@ -20,7 +22,7 @@ class PedidosOrdens extends Component
    
 
     public $pedido, $pedido_id, $file, $category_product, $selectedproduct, $selectedcategory, $producto_id, $products, $marcas, $selectedmarca, $modelos, $modelo_id;
-    public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal;
+    public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal, $image;
 
     public function mount(Pedido $pedido){
 
@@ -83,7 +85,7 @@ class PedidosOrdens extends Component
         
         $this->validate ($rules);
         
-        Orden::create([
+        $orden= Orden::create([
             'producto_id'=> $this->producto_id,
             'modelo_id'=> $this->modelo_id,
             'talla'=> $this->talla,
@@ -93,8 +95,29 @@ class PedidosOrdens extends Component
             'detalle'=>$this->detalle,
             'pedido_id'=>$this->pedido_id,
         ]);
+
+        if($this->image){
+                
+            $foto = Str::random(10).$this->image->getClientOriginalName();
+            $rutafoto = public_path().'/storage/ordens/'.$foto;
+            $img=Image::make($this->image)->orientate()
+                ->resize(1200, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($rutafoto);
+            $img->orientate();
+
+            $orden->referencia()->create([
+                'url'=>'ordens/'.$foto
+            ]);
+
+        }else{
+            $foto='nn';
+        }
+
+
         
-        $this->reset(['producto_id','modelo_id','talla','smartphone_id','name','numero','detalle','selectedmarca','selectedproduct','selectedcategory','products','smartphones']);
+        $this->reset(['producto_id','modelo_id','talla','smartphone_id','name','numero','detalle','selectedmarca','selectedproduct','selectedcategory','products','smartphones','image']);
 
         $this->pedido = Pedido::find($this->pedido_id);
 

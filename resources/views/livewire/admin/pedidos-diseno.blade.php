@@ -324,11 +324,20 @@
                                             <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">    
               
                                                 <label class="mx-4">
+                                                    <p>
                                                     @if ($orden->detalle)
+                                                    @if ($orden->referencia)
+                                                        <i wire:click="download({{$orden->id}})" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>
+                                                    @endif
                                                         {{$orden->detalle}} 
                                                     @else
-                                                        -
-                                                    @endif</label>
+                                                    @if ($orden->referencia)
+                                                    <i wire:click="download({{$orden->id}})" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>
+                                                    @endif 
+                                                    -
+                                                    @endif
+                                                    </p>
+                                                </label>
                                                     
                                             </td>
                                           

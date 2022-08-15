@@ -45,6 +45,13 @@ class PedidosDiseno extends Component
         $this->reset(['produccion']);
     }
 
+    public function download($orden_id){
+
+        $orden=Orden::find($orden_id);
+
+        return response()->download(storage_path('app/public/'.$orden->referencia->url));
+    }
+
     public function descartar()
     {
         

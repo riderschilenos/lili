@@ -27,7 +27,7 @@
 
 
 
-    <div x-data="{open: false}">
+    <div x-data="{open: false, referencia: false}">
         <div class="flex">
             <h1 class="text-xl font-bold mt-6">Subtotal: ${{number_format($subtotal)}}-.</h1>
             @if($pedido->status==1)
@@ -162,6 +162,40 @@
                         <div class="flex items-center mt-4">
                             <label class="w-32">Detalles:</label>
                             <input wire:model="detalle" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                        </div>
+                        <div class="flex items-center mt-4">
+                            <label class="w-32">Referencia:</label>
+                            <div class="flex justify-center" x-show="!referencia">
+                                <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" x-on:click="referencia=!referencia">Agregar Referencia</button>
+                            </div>
+                        </div>
+
+
+                        <div class="grid grid-cols-3 " x-show="referencia">
+                            
+                            @if ($image)
+        
+                                <div class="">
+                                              
+                                    <img src="{{$image->temporaryUrl()}}" alt="">                      
+                                
+                                </div>
+                            @endif
+        
+                            <div class="col-span-2 ml-2 mt-6">
+                                <div class="flex items-center mt-2">
+                                    
+                                    <input type="file" wire:model="image">
+                                </div>
+                                
+                                
+                                @error('image')
+                                    <span class="text-sm text-red-500">{{$message}}</span>
+                                @enderror
+                                    
+                        
+        
+                            </div>
                         </div>
                         
                        

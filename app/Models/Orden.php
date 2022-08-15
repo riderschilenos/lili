@@ -36,6 +36,10 @@ class Orden extends Model
     public function image(){
         return $this->MorphOne('App\Models\Image','imageable');
     }
+
+    public function referencia(){
+        return $this->MorphOne('App\Models\Image','imageable');
+    }
     //relacion uno a muchos polimorfica 
     public function comentarios(){
         return $this->morphMany('App\Models\Comentario','comentable');

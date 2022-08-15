@@ -98,7 +98,7 @@
                                 
                                 <form action="{{route('evento.enrolled',$evento)}}" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger btn-block" type="submit">Entradas-Inscripción</button>
+                                    <button class="btn btn-danger btn-block" type="submit">Entrada-Inscripción</button>
                                 </form>
 
                             @else

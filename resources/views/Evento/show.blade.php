@@ -98,8 +98,21 @@
                                 
                                 <form action="{{route('evento.enrolled',$evento)}}" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger btn-block" type="submit">Entrada-Inscripción</button>
+                                    <button class="btn btn-danger btn-block" type="submit">Inscribirme</button>
                                 </form>
+
+                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                                <div class="flex justify-between mb-4">
+                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                    </div>
+                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
+                                        <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                    </div>
+                                </div>
+                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
 
                             @else
                                 <p class="text-2xl font-bold text-gray-500 mt-3 mb-2 text-center">${{number_format($evento->entrada)}}</p>

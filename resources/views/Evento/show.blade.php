@@ -15,11 +15,11 @@
                 <div class="text-white">
                     <h1 class="text-4xl">{{$evento->titulo}}</h1>
                     <h2 class="text xl mb-3">{{$evento->subtitulo}}</h2>
-                    <p class="mb-2"><i class="fas fa-film"></i> <b>{{$evento->videos_count}}</b> Capitulos</p>
+                    <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>
                     <p class="mb-2"><i class="fas fa-biking"></i> Disciplina: {{$evento->disciplina->name}}</p>
-                    <p class="mb-2"><i class="fas fa-camera"></i> Organizador: {{$evento->user->name}}</p>
-                    <p class="mb-2"><i class="fas fa-users"></i> Sponsors: {{$evento->Inscritos_count}}</p>
-                    <p class="mb-2"><i class="fas fa-star"></i> Calificación: {{$evento->rating}}</p>
+                    <p class="mb-2"><i class="fas fa-user"></i> Organizador: {{$evento->user->name}}</p>
+                    <p class="mb-2"><i class="fas fa-users"></i> Limite de inscritos: {{$evento->Inscritos_count}}</p>
+                   
 
                 </div>
 
@@ -31,7 +31,7 @@
             <div class="order-2 lg:col-span-2 lg:order-1 mb-24 pb-24">
                 <section class="card">
                     <div class="card-body">
-                        <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás ver en esta producción?</h1>
+                        <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
 
                         
                     
@@ -98,7 +98,7 @@
                                 
                                 <form action="{{route('evento.enrolled',$evento)}}" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger btn-block" type="submit">Obtener evento</button>
+                                    <button class="btn btn-danger btn-block" type="submit">INSCRIBIRME</button>
                                 </form>
 
                             @else

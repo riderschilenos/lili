@@ -11,7 +11,7 @@ class Evento extends Model
 
     protected $guarded = ['id','status'];
     
-    protected $withCount = ['inscritos'];
+    protected $withCount = ['inscritos','fechas'];
 
     const BORRADOR =1;
     const REVISION =2;

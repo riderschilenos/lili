@@ -4,7 +4,7 @@
             
             <button class="bg-white shadow h-12 px-4 rounded-lg text-gray-700 mr-4" wire:click="resetFilters">
                 <i class="fas fa-archway text-xs mr-2"></i>
-                Todos los   eventos
+                Todos los eventos
             </button>
           
                 <!-- Dropdown Filmmaker -->

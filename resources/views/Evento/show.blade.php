@@ -1,4 +1,5 @@
-<x-app-layout>
+<x-evento-layout :evento="$evento">
+    
 
     
        
@@ -93,9 +94,39 @@
                             <a class="btn btn-danger btn-block mt-4" href="{{route('eventos.status',$evento)}}">Ver mis tickets</a>
 
                         @else 
-                            @if ($evento->entrada == 0)
-                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2 text-center">GRATIS</p>
-                                
+
+                        @php
+                            $min=0;
+                            $max=0;
+                        @endphp
+                        @foreach ($fechas as $fecha)
+                            @php
+                                //if ($min==0) {
+                                //    $min=$fecha->categoria_evento->inscripcion;
+                                //    $max=$fecha->categoria_evento->inscripcion;
+                                //}else{
+                                //    if ($fecha->categoria_evento->inscripcion<$min) {
+                               //         $min=$fecha->categoria_evento->inscripcion;
+                               //     }elseif($fecha->categoria_evento->inscripcion>$max){
+                               //         $max=$fecha->categoria_evento->inscripcion;
+                               //     }
+                               // }
+                               
+                            @endphp    
+                        @endforeach
+
+                            @if ($min == 0 && $max==0)
+                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion GRATIS</p>
+                                @elseif($min==$max)
+                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                <a href= "" class="btn bg-gray-300 btn-block">
+                                    {{$min}} 
+                                    </a>
+                                @else
+                                <a href= "" class="btn bg-gray-300 btn-block">
+                                    {{$min}} - {{$max}}
+                                    </a>
+                            @endif
                                 <form action="{{route('evento.enrolled',$evento)}}" method="POST">
                                     @csrf
                                     <button class="btn btn-danger btn-block" type="submit">Inscribirme</button>
@@ -114,22 +145,7 @@
                                 </div>
                                 <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
 
-                            @else
-                                <p class="text-2xl font-bold text-gray-500 mt-3 mb-2 text-center">${{number_format($evento->entrada)}}</p>
-                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">INSCRIBIRBE</a>
-                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
-                                <div class="flex justify-between mb-4">
-                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
-                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
-                                    </div>
-                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
-                                        <p class="text-gray-500 text-sm text-center">Niños</p> 
-                                    </div>
-                                </div>
-                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
-                            @endif
+                           
                     @endcan
                     </div>
                 </section>
@@ -162,4 +178,4 @@
         <h1 class="text-center text-xs text-gray-400 py-12">Todos Los derechos Reservados</h1>
         
 
-</x-app-layout>
+</x-evento-layout>

@@ -16,6 +16,8 @@ class EventosFechas extends Component
 
     public $evento;
 
+    public $selectedcategoria=[];
+
     public function mount(Evento $evento){
         $this->evento = $evento;
     }
@@ -25,4 +27,11 @@ class EventosFechas extends Component
 
         return view('livewire.organizador.eventos-fechas',compact('categorias'));
     }
+
+    public function selectedcategoria($categoria){
+        
+        $this->selectedcategoria=[$this->selectedcategoria,$categoria];
+    }
+
+    
 }

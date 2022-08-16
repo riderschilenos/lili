@@ -21,4 +21,6 @@ class Fecha extends Model
         return $this->MorphOne('App\Models\Image','imageable');
     }
 
+    
+
 }

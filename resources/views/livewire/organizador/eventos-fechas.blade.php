@@ -157,8 +157,8 @@
               <div class="flex justify-between">
                   <div class="shaddow h-60 bg-gray-300 w-full mr-2 p-1">
                     @foreach ($categorias as $categoria)
-                        <button class="btn bg-red-500 text-white my-1 mx-1">
-                          {{$categoria->name}}
+                        <button class="btn bg-red-500 text-white my-1 mx-1" wire:click="selectedcategoria({{$categoria->id}})">
+                         {{$categoria->name}}
                         </button>
                     @endforeach
 

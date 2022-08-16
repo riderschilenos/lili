@@ -11,7 +11,7 @@
         @endisset
       
 
-        <meta name="description" content="{{$evento->descripcion}}">
+        <meta name="description" content="{!!$evento->descripcion!!}">
         <meta property="og:image" content="{{Storage::url($evento->image->url)}}">
         <link rel="shortcut icon" href="{{asset('img/logo.png')}}">
 

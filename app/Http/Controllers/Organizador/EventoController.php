@@ -65,7 +65,7 @@ class EventoController extends Controller
         $ruta = public_path().'/storage/eventos/'.$nombre;
 
         Image::make($request->file('file'))->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($ruta);
@@ -127,7 +127,7 @@ class EventoController extends Controller
             $ruta = public_path().'/storage/eventos/'.$nombre;
 
             Image::make($request->file('file'))->orientate()
-                    ->resize(1200, null , function($constraint){
+                    ->resize(600, null , function($constraint){
                     $constraint->aspectRatio();
                     })
                     ->save($ruta);

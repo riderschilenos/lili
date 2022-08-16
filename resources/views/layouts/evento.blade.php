@@ -6,13 +6,12 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="facebook-domain-verification" content="et4ybouboiv1kxdkkqknc1zjtsz9qw" />
 
-        @isset($evento)
-            <link rel="image_src" type="image/jpeg" href="{{Storage::url($evento->image->url)}}">
-        @endisset
+
+        <link rel="image_src" type="image/jpeg" href="{{Storage::url($evento->image->url)}}">
+
       
 
-        <meta name="description" content="{!!$evento->descripcion!!}">
-        <meta property="og:image" content="{{Storage::url($evento->image->url)}}">
+        <meta name="description" content="Te invitamos a visualizar el contenido del portal rider más importante del Pais, haz click y revisa lo que hay detras de este link.">
         <link rel="shortcut icon" href="{{asset('img/logo.png')}}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -65,6 +64,8 @@
                     </div>
                 </div>
             </div>
+
+            <img class="hidden" src="{{Storage::url($evento->image->url)}}" alt="">
             
             <main style="z-index: 10;"> 
                 {{ $slot }}

@@ -1,4 +1,21 @@
 <x-app-layout>
+    <style>
+        :root {
+            --main-color: #4a76a8;
+        }
+    
+        .bg-main-color {
+            background-color: var(--main-color);
+        }
+    
+        .text-main-color {
+            color: var(--main-color);
+        }
+    
+        .border-main-color {
+            border-color: var(--main-color);
+        }
+    </style>
     <section class="bg-cover bg-center" style="background-image: url({{asset('img/home/riders.jpg')}})">
 
         <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-24">

@@ -8,6 +8,7 @@
 
 
         <link rel="image_src" type="image/jpeg" href="{{Storage::url($evento->image->url)}}">
+        <meta property="og:image" content="{{Storage::url($evento->image->url)}}">
 
       
 

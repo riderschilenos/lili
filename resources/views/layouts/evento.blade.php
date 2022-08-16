@@ -6,12 +6,23 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="facebook-domain-verification" content="et4ybouboiv1kxdkkqknc1zjtsz9qw" />
 
-        <meta property="og:url" content="https://riderschilenos.cl/eventos/{{$evento->slug}}">
-        <meta property="og:image" content="{{Storage::url($evento->image->url)}}">
+        
+       
         <meta property="og:title" content="{{$evento->titulo}} - Ticket Online"/>  
         <meta property="og:description" content="Te invitamos a visualizar el contenido del portal rider más importante del Pais, haz click y revisa lo que hay detras de este link."/>  
 
         <link rel="shortcut icon" href="{{Storage::url($evento->image->url)}}">
+        <meta property="og:type" content="website" />
+<!-- <meta property="og:type" content="article" />  PARA ARTÍCULOS  -->
+<meta property="og:title" content="{{$evento->titulo}} - Ticket Online" />
+<meta property="og:description" content="Te invitamos a visualizar el contenido del portal rider más importante del Pais, haz click y revisa lo que hay detras de este link." />
+<meta property="og:image" content="{{Storage::url($evento->image->url)}}">
+<meta property="og:image:width" content="800" /><!-- Importante -->
+<meta property="og:image:height" content="418" /><!-- Importante -->
+<meta property="og:url" content="https://riderschilenos.cl/eventos/{{$evento->slug}}">
+<meta property="og:site_name" content="{{$evento->titulo}} - Ticket Online" /> 
+
+<meta property="fb:app_id" content="330307617951079"/>  
 
         <meta name="description" content="Te invitamos a visualizar el contenido del portal rider más importante del Pais, haz click y revisa lo que hay detras de este link.">
        

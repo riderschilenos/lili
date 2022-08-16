@@ -13,8 +13,7 @@
       
 
         <meta name="description" content="Te invitamos a visualizar el contenido del portal rider más importante del Pais, haz click y revisa lo que hay detras de este link.">
-        <link rel="shortcut icon" href="{{asset('img/logo.png')}}">
-
+       
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->

@@ -11,7 +11,8 @@
         @endisset
       
 
-        <meta name="description" content="Te invitamos a visualizar el contenido del portal rider más importante del Pais, haz click y revisa lo que hay detras de este link.">
+        <meta name="description" content="{{$evento->descripcion}}">
+        <meta property="og:image" content="{{Storage::url($evento->image->url)}}">
         <link rel="shortcut icon" href="{{asset('img/logo.png')}}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>

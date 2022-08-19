@@ -145,11 +145,12 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
 
                         <div class="max-w-7xl mx-auto pb-6 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
                             @foreach ($pedido->ordens as $orden)
-                                @if($orden->image)
-                                <img class="h-26 w-32 object-contain justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
-                                
-                                @endif
+                                @foreach ($orden->images as $image)
+                                    <img class="h-26 w-32 object-contain justify-center mx-auto" src=" {{Storage::url($image->url)}}" alt="">
+                                @endforeach()
                             @endforeach
+
+                            
                         </div>
         
 <div x-data="{open: true}">

@@ -100,7 +100,7 @@ class PedidosProduccion extends Component
             $orden->status = 3;
             $orden->save();
             if($foto!='nn'){
-                $orden->image()->create([
+                $orden->images()->create([
                     'url'=>'ordens/'.$foto
                 ]);
             }
@@ -161,7 +161,7 @@ class PedidosProduccion extends Component
             $foto='nn';
         }
 
-        $pedido->image()->create([
+        $pedido->images()->create([
                     'url'=>'pedidos/'.$foto
                 ]);
 

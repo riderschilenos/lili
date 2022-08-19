@@ -33,8 +33,8 @@ class Orden extends Model
     }
     //relacion uno a uno polimorfica
 
-    public function image(){
-        return $this->MorphOne('App\Models\Image','imageable');
+    public function images(){
+        return $this->MorphMany('App\Models\Image','imageable');
     }
 
     public function referencia(){

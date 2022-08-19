@@ -141,9 +141,6 @@
                                     
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @isset($pedido->image)
-                                                <label>
-                                                    <input type="checkbox" wire:model="selectedetiquetas" value="{{$pedido->id}}" class="mr-4 mt-2">
-                                                </label>
                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                             @else
                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
@@ -347,6 +344,9 @@
                                     <tr>
                                             <td class="text-center">
                                                 @if($orden->image)
+                                                    <label>
+                                                        <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
+                                                    </label>
                                                     <img class="h-18 w-20 object-contain justify-center mx-auto" src=" {{Storage::url($orden->image->url)}}" alt="">
                                                     
                                                 @elseif($orden->status>=2)

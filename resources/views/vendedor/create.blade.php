@@ -13,7 +13,7 @@
     $item = new MercadoPago\Item();
     $item->title = 'Suscripción Vendedor Rider Chilenos:';
     $item->quantity = 1;
-    $item->unit_price = 14990;
+    $item->unit_price = 25000;
 
     
 

@@ -135,8 +135,8 @@
                         <h1 class="font-bold mt-4"><strong>Fecha:</strong> {{$fecha->fecha}}</h1>
 
                         
-                        
-                        
+
+                                               
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 <div class="flex justify-center items-center h-screen">
@@ -151,32 +151,53 @@
 			</template>
 		</ul>
     <div x-show="activeTab===0">
+                        <div class="flex" x-on:click="categoria=!categoria">
+                          <div class="max-w-lg mx-auto">
+                              <div class="text-center mt-12">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                                <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
+                                <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
+                              </div>
+                              
+                              
+                          </div>
+                          
+                      </div>
+                      <div class="flex">
+                        <div class="max-w-2xl mx-auto">
+                          <div class="text-center mt-2">
+                            {!! Form::open(['route'=>'organizador.categorias.store','files'=>true , 'autocomplete'=>'off']) !!}
+                            <div x-show="categoria" class="flex">
+                                      
+                                    {!! Form::hidden('disciplina_id',$evento->disciplina_id) !!}
+
+                                      <div>
+                                        {!! Form::text('name', null , ['class' => 'form-input w-full'.($errors->has('name')?' border-red-600':'')]) !!}
+                                      </div>
+                                      <div>
+                                            {!! Form::submit('Agregar', ['class'=>'ml-2 btn btn-primary']) !!}
+                                      </div>
+  
+                            </div>
+                            {!! Form::close() !!}
+                            <div class="flex justify-center" x-show="!categoria">
+                              <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" x-on:click="categoria=!categoria">Agregar Categoria</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+ 
       <h1 class="font-bold mt-12">INGRESA LAS CATEGORIAS</h1>
               <p class="mb-4">Pincha las categorias que deseas incluir en tu eventos</p>
                       
-              <div class="flex justify-between">
-                  <div class="shaddow h-60 bg-gray-300 w-full mr-2 p-1">
-                    @foreach ($categorias as $categoria)
-                        <button class="btn bg-red-500 text-white my-1 mx-1" wire:click="selectedcategoria({{$categoria->id}})">
-                         {{$categoria->name}}
-                        </button>
-                    @endforeach
+              @foreach ($categorias as $categoria)
+              <h1 class="font-bold my-1 mx-1" wire:click="selectedcategoria({{$categoria->id}})">
+               {{$categoria->name}}
+              </h1>
+              @endforeach
 
-                  </div>
-      
-                  <div class="my-auto">
-                      <img class="h-5 w-8" src="https://cdn-icons-png.flaticon.com/512/4305/4305572.png" alt="">
-                  </div>
-                  <div class="shaddow h-60 bg-gray-300 w-full ml-2 p-2">
-                      <button class="btn bg-green-500 text-white">
-                          Expertos
-                      </button>
-                      <button class="btn bg-green-500 text-white">
-                          Damas
-                      </button>
-                  </div>
-                  
-              </div>
       </div>
 		<div class="w-80 bg-white p-16 h-72 text-center mx-auto border mt-4">
       <div x-show="activeTab===0">
@@ -251,43 +272,7 @@
  - Set tabs title dynamically and render on page
 -->
                         
-                        <div class="flex" x-on:click="categoria=!categoria">
-                            <div class="max-w-lg mx-auto">
-                                <div class="text-center mt-12">
-                                  <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                                  </svg>
-                                  <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
-                                  <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
-                                </div>
-                                
-                                
-                            </div>
-                            
-                        </div>
-                        <div class="flex">
-                          <div class="max-w-2xl mx-auto">
-                            <div class="text-center mt-2">
-                              {!! Form::open(['route'=>'organizador.categorias.store','files'=>true , 'autocomplete'=>'off']) !!}
-                              <div x-show="categoria" class="flex">
-                                        
-                                      {!! Form::hidden('disciplina_id',$evento->disciplina_id) !!}
-
-                                        <div>
-                                          {!! Form::text('name', null , ['class' => 'form-input w-full'.($errors->has('name')?' border-red-600':'')]) !!}
-                                        </div>
-                                        <div>
-                                              {!! Form::submit('Agregar', ['class'=>'ml-2 btn btn-primary']) !!}
-                                        </div>
-    
-                              </div>
-                              {!! Form::close() !!}
-                              <div class="flex justify-center" x-show="!categoria">
-                                <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" x-on:click="categoria=!categoria">Agregar Categoria</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      
                       </div>
                       
                     </div>

@@ -40,7 +40,7 @@
             <div class="card-body">
                 <article class="grid grid-cols-1 md:grid-cols-2 items-center">
                     <div class="flex">
-                        <img class="h-12 w-12 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
+                        <img class="h-24 w-20 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
                         <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
                     </div>
                     <div class="ml-auto justify-end grid grid-cols-2 md:grid-cols-1">

@@ -36,8 +36,8 @@
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 py-12">
         <h1 class="text-gray-500 text-3xl font-bold mb-2">Proceso de Inscripción</h1>
 
-        <div class="card text-gray-600">
-            <div class="card-body mx-2">
+        <div class="mx-2 card text-gray-600">
+            <div class="card-body">
                 <article class="flex items-center">
                     <img class="h-12 w-12 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
                     <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>

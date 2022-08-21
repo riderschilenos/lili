@@ -34,16 +34,23 @@
 
 
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 py-12">
-        <h1 class="text-gray-500 text-3xl font-bold mb-2">Proceso de Inscripción</h1>
+        <h1 class="text-gray-500 text-3xl font-bold mb-2 mx-2">Proceso de Inscripción</h1>
 
         <div class="mx-2 card text-gray-600">
             <div class="card-body">
-                <article class="flex items-center">
-                    <img class="h-12 w-12 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
-                    <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
-                    <div class="ml-auto justify-end">
-                        <p class="text-xl font-bold ml-auto">Inscripción Adultos ${{number_format($evento->entrada)}}</p>
-                        <p class="text-xl font-bold ml-auto">Inscripción Niños ${{number_format($evento->entrada_niño)}}</p>
+                <article class="grid grid-cols-1 md:grid-cols-2 items-center">
+                    <div class="flex">
+                        <img class="h-12 w-12 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
+                        <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
+                    </div>
+                    <div class="ml-auto justify-end grid grid-cols-2 md:grid-cols-1">
+                        <p class="text-xl font-bold ml-auto">Insc. Adultos ${{number_format($evento->entrada)}}</p>
+                        @if ($evento->entrada_niño==0)
+                            <p class="text-xl font-bold ml-auto">Insc. Niños Gratis</p>
+                        @else
+                            <p class="text-xl font-bold ml-auto">Insc. Niños ${{number_format($evento->entrada_niño)}}</p>
+                        @endif
+                        
                     </div>
                 </article>
                

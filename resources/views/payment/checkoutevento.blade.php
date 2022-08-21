@@ -37,7 +37,7 @@
         <h1 class="text-gray-500 text-3xl font-bold mb-2">Proceso de Inscripción</h1>
 
         <div class="card text-gray-600">
-            <div class="card-body">
+            <div class="card-body mx-2">
                 <article class="flex items-center">
                     <img class="h-12 w-12 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
                     <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="mt-6 grid grid-cols-1 gap-y-4 xl:mt-12">
+        <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12">
             <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">

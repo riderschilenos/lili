@@ -24,7 +24,7 @@
                         <p class="text-gray-500 text-md mb-2">INSCRITOS</p>
                         <p class="text-sm text-gray-500 ml-auto"> 
                             <i class="fas fa-users"></i>
-                            ({{$evento->sponsors_count}})
+                            ({{$evento->inscritos_count}})
                         </p>
                     </div>
 

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-evento-layout :evento="$evento">
 
     @php
         // SDK de Mercado Pago
@@ -175,4 +175,4 @@
               }
         });
         </script>
-</x-app-layout>
+</x-evento-layout>

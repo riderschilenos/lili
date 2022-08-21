@@ -153,6 +153,13 @@ class EventoController extends Controller
 
         return view('organizador.eventos.fechas', compact('evento'));
     }
+
+    public function categorias(Fecha $fecha)
+    {   $evento=Evento::find($fecha->evento_id);
+        
+
+        return view('organizador.eventos.categorias', compact('evento','fecha'));
+    }
     /**
      * Remove the specified resource from storage.
      *

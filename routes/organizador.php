@@ -12,6 +12,8 @@ Route::resource('evento', EventoController::class)->names('eventos');
 
 Route::get('evento/{evento}/fechas',[EventoController::class, 'fechas'])->name('eventos.fechas');
 
+Route::get('fecha/{fecha}/categorias',[EventoController::class, 'categorias'])->name('eventos.categorias');
+
 Route::resource('fecha', FechaController::class)->names('fechas');
 
 Route::resource('categoria', CategoriaController::class)->names('categorias');

@@ -168,62 +168,19 @@
                       <div class="flex">
                         <div class="max-w-2xl mx-auto">
                           <div class="text-center mt-2">
-                            {!! Form::open(['route'=>'organizador.categorias.store','files'=>true , 'autocomplete'=>'off']) !!}
-                            <div x-show="categoria" class="flex">
-                                      
-                                    {!! Form::hidden('disciplina_id',$evento->disciplina_id) !!}
-
-                                      <div>
-                                        {!! Form::text('name', null , ['class' => 'form-input w-full'.($errors->has('name')?' border-red-600':'')]) !!}
-                                      </div>
-                                      <div>
-                                            {!! Form::submit('Agregar', ['class'=>'ml-2 btn btn-primary']) !!}
-                                      </div>
-  
-                            </div>
-                            {!! Form::close() !!}
-                            <div class="flex justify-center" x-show="!categoria">
-                              <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" x-on:click="categoria=!categoria">Agregar Categoria</button>
+                            <div class="flex justify-center" >
+                              <a href="{{route('organizador.eventos.categorias',$fecha)}}">
+                                <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" >Agregar Categoria</button>
+                              </a>
                             </div>
                           </div>
                         </div>
                       </div>
+              </div>
  
-      <h1 class="font-bold mt-12">INGRESA LAS CATEGORIAS</h1>
-              <p class="mb-4">Pincha las categorias que deseas incluir en tu eventos</p>
-                      
-              @foreach ($categorias as $categoria)
-              <h1 class="font-bold my-1 mx-1" wire:click="selectedcategoria({{$categoria->id}})">
-               {{$categoria->name}}
-              </h1>
-              @endforeach
-
-      </div>
 		<div class="w-80 bg-white p-16 h-72 text-center mx-auto border mt-4">
       <div x-show="activeTab===0">
-              <div class="bg-blue-900 rounded-lg max-w-sm mx-auto ">
-                <h1 class="text-center font-bold text-white pt-6">Agregar Categorias:</h1>
-                <div class="flex justify-center mt-2 mb-4 ">
-                    
-                <form action="" method="POST">
-                    @csrf
-                    
-                    <div class="mb-4">
-                        
-                        <h1 class="text-center font-bold text-white mt-6">Precio Inscripción:</h1>
-                        {!! Form::number('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
-
-                        @error('nro')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                    </div>
-
-                    <div class="flex justify-center">
-                        <button class="btn btn-primary my-4" type="submit">Agregar</button>
-                    </div>
-                </form>   
-              </div>
-            </div>
+           
         </div>
 			<div x-show="activeTab===1">Content 2</div>
 			<div x-show="activeTab===2">Content 3</div>

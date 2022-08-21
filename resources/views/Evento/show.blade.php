@@ -127,10 +127,7 @@
                                     {{$min}} - {{$max}}
                                     </a>
                             @endif
-                                <form action="{{route('evento.enrolled',$evento)}}" method="POST">
-                                    @csrf
-                                    <button class="btn btn-danger btn-block" type="submit">Inscribirme</button>
-                                </form>
+                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
 
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 <div class="flex justify-between mb-4">

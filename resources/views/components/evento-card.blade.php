@@ -30,7 +30,7 @@
 
                     @can('enrolled', $evento)
 
-                        <a href= "{{route('eventos.show', $evento)}}" class="btn btn-success btn-block mt-10">
+                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn btn-success btn-block mt-10">
                             Ver evento
                         </a>
 

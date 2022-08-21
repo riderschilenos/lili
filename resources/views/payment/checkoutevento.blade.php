@@ -141,7 +141,7 @@
             </div>
            
 
-            <div class="flex justify-center mb-10">
+            <div class="flex justify-center mb-20">
                 <a href="{{route('ticket.evento.show', $evento)}}">
                         <button class="bg-gray-800 px-8 py-2 tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
                     Volver Atras

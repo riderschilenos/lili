@@ -13,7 +13,7 @@
                     @endisset
                 </div>
 
-                <div class="text-gray-700">
+                <div class="text-gray-100 items-center my-auto bg-gray-700 p-4 rounded-2xl  ">
                     <h1 class="text-4xl">{{$evento->titulo}}</h1>
                     <h2 class="text xl mb-3">{{$evento->subtitulo}}</h2>
                     <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>

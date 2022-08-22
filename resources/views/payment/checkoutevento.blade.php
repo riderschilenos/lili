@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-        <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12">
+        <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12" x-data="condiciones:false">
             <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
@@ -112,7 +112,7 @@
                 </div>
                 
                
-                
+                <input type="checkbox"  value="" class="mr-4 mt-2" x-on-click="condiciones=!condiciones">
             </div>
 
             <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
@@ -151,9 +151,11 @@
                     </div>
                  </div>
 
-                <div class="cho-container flex justify-center mt-2 mb-4">
+                <div class="cho-container flex justify-center mt-2 mb-4" x-show="condiciones">
                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                 </div>
+          
+              
 
 
                     <hr>

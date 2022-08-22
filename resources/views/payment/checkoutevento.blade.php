@@ -12,7 +12,7 @@
 
         // Crea un ítem en la preferencia
         $item = new MercadoPago\Item();
-        $item->title = $evento->titulo;
+        $item->title = 'Inscripción '.$evento->titulo;
         $item->quantity = 1;
         $item->unit_price = $evento->entrada;
 

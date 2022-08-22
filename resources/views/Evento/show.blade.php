@@ -3,17 +3,17 @@
 
     
        
-        <section class="bg-gray-700 py-12 mb-8 ">
+        <section class="bg-white py-12 mb-8 ">
             <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <figure class="flex justify-center">
                     @isset($evento->image)
-                        <img class="h-72 w-72 object-contain object-center" src="{{Storage::url($evento->image->url)}}" alt="">
+                        <img class="h-70 w-72 object-contain object-center" src="{{Storage::url($evento->image->url)}}" alt="">
                     @else
-                        <img class="h-72 w-72 object-contain object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                        <img class="h-70 w-72 object-contain object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
                     @endisset
                 </figure>
 
-                <div class="text-white">
+                <div class="text-gray-700">
                     <h1 class="text-4xl">{{$evento->titulo}}</h1>
                     <h2 class="text xl mb-3">{{$evento->subtitulo}}</h2>
                     <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>

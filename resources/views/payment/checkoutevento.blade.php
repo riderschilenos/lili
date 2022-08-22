@@ -42,7 +42,10 @@
                     <article class="grid grid-cols-1 md:grid-cols-2 items-center">
                         <div class="flex">
                             <img class="h-24 w-20 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
-                            <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
+                            <div>
+                                <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
+                                <h2 class="text-md ml-2 mb-3">{{$evento->subtitulo}}</h2>
+                            </div>
                         </div>
                         <div class="ml-auto justify-end grid grid-cols-2 md:grid-cols-1">
                             <p class="text-xl font-bold ml-auto">Insc. Adultos ${{number_format($evento->entrada)}}</p>
@@ -126,8 +129,28 @@
                         </div>
                     </div>
                     
-                    <h2 class="text-2xl font-semibold text-blue-600 sm:text-4xl">$32.000 <span class="text-base font-medium">/CLP</span></h2>
+                 
                 </div>
+
+                    <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
+                        <div class="flex items-center justify-between px-8">
+                        <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
+                        <p class="text-base leading-none text-gray-800 dark:text-white">$32.000</p>
+                        </div>
+                      
+
+                        <div class="flex items-center justify-between pt-5 px-8">
+                        <p class="text-base leading-none text-gray-800 dark:text-white">Costos del Servicio</p>
+                        <p class="text-base leading-none text-gray-800 dark:text-white">$2.300</p>
+                        </div>
+                    
+                  </div>
+                  <div>
+                    <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
+                      <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
+                      <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">$34.300</p>
+                    </div>
+                 </div>
 
                 <div class="cho-container flex justify-center mt-2 mb-4">
                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->

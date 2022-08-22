@@ -178,7 +178,7 @@
                       </div>
               </div>
  
-		<div class="w-80 bg-white p-16 h-72 text-center mx-auto border mt-4">
+		<div class="w-80 bg-white p-16 h-72 text-center mx-auto mt-4">
       <div x-show="activeTab===0">
            
         </div>
@@ -188,7 +188,7 @@
 		</div>
 
 		
-		<div class="flex gap-4 justify-center border-t p-4">
+		<div class="flex gap-4 justify-center p-4">
 			<button
 				class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
 				@click="activeTab--" x-show="activeTab>0"

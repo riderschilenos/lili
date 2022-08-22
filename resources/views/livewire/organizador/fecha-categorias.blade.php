@@ -75,124 +75,63 @@
                         
                             <table class="min-w-full divide-y divide-gray-200 mt-4">
                                 <thead class="bg-gray-50">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Agregar 
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Categoria             
-                                    </th>
-                                    {{-- comment
+                                  <tr>
+                                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                          Agregar 
+                                      </th>
+                                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                          Categoria             
+                                      </th>
                                     
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Productos
-                                    </th>
-                                    
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Estado
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Fecha
-                                    </th>
-                                    <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span>
-                                    </th> --}}
-                                </tr>
+                                  </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
 
-                                @foreach ($categorias as $categoria)
+                                  @foreach ($categorias as $categoria)
 
-                                    
+                                      
 
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex h-10 w-10">
-                                                            
-                                                                    <label>
-                                                                        <input type="checkbox" wire:model="selected" value="{{$categoria->id}}" class="ml-4 mt-2">
-                                                                    </label>
-                                                            
-                                                                
-                                                            
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                              <tr>
+                                                  <td class="px-6 py-4 whitespace-nowrap">
+                                                      <div class="flex items-center">
+                                                          <div class="flex h-10 w-10">
+                                                              
+                                                                      <label>
+                                                                          <input type="checkbox" wire:model="selected" value="{{$categoria->id}}" class="ml-4 mt-2">
+                                                                      </label>
+                                                              
+                                                                  
+                                                              
+                                                              
+                                                          </div>
+                                                      </div>
+                                                  </td>
 
-                                        
+                                          
 
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex h-10 w-10">
-                                                            
-                                                        
-                                                                
-                                                                <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
-                                                            
-                                                                <div class="text-sm text-gray-900 ml-3">{{$categoria->name}}</div>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    
-                                                </td>
-                                                
-                                                {{-- comment
-                                                
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900 ml-3">{{$pedido->Ordens->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>
-                                                    <div class="text-sm text-gray-500">Productos</div>
-                                                </td>
-
-                                                
-
-                                                
-
-                                                <td class="px-6 py-4 whitespace-nowrap">    
-
-                                                    @switch($pedido->status)
-                                                        @case(1)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                Borrador
-                                                            </span>
-                                                            @break
-                                                        @case(2)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                Pendiente de Pago
-                                                            </span>
-                                                            @break
-                                                        @case(3)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                            Procesando Pago
-                                                            </span>
-                                                            @break
-                                                        @case(4)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                Despachado
-                                                            </span>
-                                                            @break
-                                                        @default
-                                                            
-                                                        @endswitch
-                                                        
-                                                </td>
-                                                
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
-                                                    <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
-                                                </td>
-
-                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
-                                                    
-                                                </td> --}}
-                                            </tr>
-                                            
-                                    @endforeach
-                                <!-- More people... -->
+                                                  <td class="px-6 py-4 whitespace-nowrap">
+                                                      <div class="flex items-center">
+                                                          <div class="flex h-10 w-10">
+                                                              
+                                                          
+                                                                  
+                                                                  <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                              
+                                                                  <div class="text-sm text-gray-900 ml-3">{{$categoria->name}}</div>
+                                                              
+                                                          </div>
+                                                      </div>
+                                                      
+                                                      
+                                                  </td>
+                                                  
+                                              
+                                              </tr>
+                                              
+                                  @endforeach
+                                
                                 </tbody>
+
                             </table>
                         @else
                             <div class="px-6 py-4">
@@ -206,6 +145,17 @@
 
                     <div class="bg-blue-900 rounded-lg max-w-sm mx-auto my-12">
                         <h1 class="text-center font-bold text-white pt-6">Agregar Categorias:</h1>
+                        <div class="grid grid-cols-3">
+                              @foreach ($selected as $item)
+                                    @foreach ($categorias as $categoria)
+                                        @if ($categoria->id==$item)
+                                          <h1 class="text-white text-center mx-2">{{$categoria->name}}</h1>
+                                        @endif
+                                        
+                                    @endforeach
+                                    
+                              @endforeach
+                        </div>
                         <div class="flex justify-center mt-2 mb-4 ">
                             
                         <form action="" method="POST">
@@ -214,7 +164,7 @@
                             <div class="mb-4">
                                 
                                 <h1 class="text-center font-bold text-white mt-6">Precio Inscripción:</h1>
-                                {!! Form::number('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
+                                {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
         
                                 @error('nro')
                                     <strong class="text-xs text-red-600">{{$message}}</strong>

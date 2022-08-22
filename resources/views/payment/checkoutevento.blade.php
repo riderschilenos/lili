@@ -82,6 +82,21 @@
                 
                 <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
             </div>
+            <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+
+                    <div class="flex flex-col items-center mx-5 space-y-1">
+                        <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">2) Terminos y Condiciones</h2>
+                       
+                    </div>
+                </div>
+                
+               
+                <input type="checkbox"  value="" class="mr-4 mt-2">
+            </div>
 
             <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
                 <div class="flex items-center">
@@ -90,7 +105,7 @@
                     </svg>
 
                     <div class="flex flex-col items-center mx-5 space-y-1">
-                        <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">2) Fechas</h2>
+                        <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">3) Fechas</h2>
                      
                     </div>
                 </div>
@@ -99,21 +114,7 @@
 
            
 
-            <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                    </svg>
-
-                    <div class="flex flex-col items-center mx-5 space-y-1">
-                        <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">3) Terminos y Condiciones</h2>
-                       
-                    </div>
-                </div>
-                
-               
-                <input type="checkbox"  value="" class="mr-4 mt-2" x-on-click="condiciones=!condiciones">
-            </div>
+            
 
             <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
                 <div class="flex justify-between">
@@ -151,7 +152,7 @@
                     </div>
                  </div>
 
-                <div class="cho-container flex justify-center mt-2 mb-4" x-show="condiciones">
+                <div class="cho-container flex justify-center mt-2 mb-4">
                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                 </div>
           

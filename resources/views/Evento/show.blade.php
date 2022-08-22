@@ -127,7 +127,7 @@
                                     {{$min}} - {{$max}}
                                     </a>
                             @endif
-                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
+                                <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
 
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 <div class="flex justify-between mb-4">
@@ -140,7 +140,7 @@
                                         <p class="text-gray-500 text-sm text-center">Niños</p> 
                                     </div>
                                 </div>
-                                <a href="{{route('payment.checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
+                                <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
 
                            
                     @endcan

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\UsadoController;
 use App\Http\Controllers\Vendedor\HomeController as VendedorHomeController;
@@ -42,3 +43,5 @@ Route::post('evento/{evento}/enrolled', [SerieController::class, 'enrolled'])->m
 Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->middleware('auth');
 
 Route::post('webhooks', WebhooksController::class);
+
+Route::get('ticket/{evento}', [PaymentController::class, 'checkoutevento'])->name('checkout.evento');

@@ -14,7 +14,7 @@
         $item = new MercadoPago\Item();
         $item->title = 'Inscripción '.$evento->titulo;
         $item->quantity = 1;
-        $item->unit_price = $evento->entrada;
+        $item->unit_price = 34300;
 
         
 
@@ -95,7 +95,6 @@
                     </div>
                 </div>
                 
-                <h2 class="text-2xl font-semibold text-blue-600 sm:text-4xl">$32.000 <span class="text-base font-medium">/CLP</span></h2>
             </div>
 
            

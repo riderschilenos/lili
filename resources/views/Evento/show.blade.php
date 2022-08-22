@@ -5,13 +5,13 @@
        
         <section class="bg-white py-12 mb-8 ">
             <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <figure class="flex justify-center">
+                <div class="flex justify-center">
                     @isset($evento->image)
-                        <img class="h-70 w-72 object-contain object-center" src="{{Storage::url($evento->image->url)}}" alt="">
+                        <img class="h-72 w-72 object-center" src="{{Storage::url($evento->image->url)}}" alt="">
                     @else
-                        <img class="h-70 w-72 object-contain object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                        <img class="h-72 w-72 object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
                     @endisset
-                </figure>
+                </div>
 
                 <div class="text-gray-700">
                     <h1 class="text-4xl">{{$evento->titulo}}</h1>
@@ -42,9 +42,9 @@
                         <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
                             @foreach ($fechas as $fecha)
                                 @if ($fecha->image)
-                                <li><img class="h-24 w-full object-cover" src=" {{Storage::url($fecha->image->url)}}" alt="">{{$fecha->name }} </li>
+                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($fecha->image->url)}}" alt="">{{$fecha->name }} </li>
                                 @else
-                                <li><img class="h-24 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt="">{{$fecha->name }} </li>
+                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($evento->image->url)}}" alt="">{{$fecha->name }} </li>
                                 @endif
                                 
                                 

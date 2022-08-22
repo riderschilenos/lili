@@ -34,31 +34,32 @@
 
 
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 py-12">
-        <h1 class="text-gray-500 text-3xl font-bold mx-2 text-center mb-4">Proceso de Inscripción</h1>
+        
+            <h1 class="text-gray-500 text-3xl font-bold mx-2 text-center mb-4">Proceso de Inscripción</h1>
 
-        <div class="mx-2 card text-gray-600">
-            <div class="card-body">
-                <article class="grid grid-cols-1 md:grid-cols-2 items-center">
-                    <div class="flex">
-                        <img class="h-24 w-20 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
-                        <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
-                    </div>
-                    <div class="ml-auto justify-end grid grid-cols-2 md:grid-cols-1">
-                        <p class="text-xl font-bold ml-auto">Insc. Adultos ${{number_format($evento->entrada)}}</p>
-                        @if ($evento->entrada_niño==0)
-                            <p class="text-xl font-bold ml-auto">Insc. Niños Gratis</p>
-                        @else
-                            <p class="text-xl font-bold ml-auto">Insc. Niños ${{number_format($evento->entrada_niño)}}</p>
-                        @endif
-                        
-                    </div>
-                </article>
-               
-                <hr>
+            <div class="mx-2 card text-gray-600">
+                <div class="card-body">
+                    <article class="grid grid-cols-1 md:grid-cols-2 items-center">
+                        <div class="flex">
+                            <img class="h-24 w-20 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
+                            <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
+                        </div>
+                        <div class="ml-auto justify-end grid grid-cols-2 md:grid-cols-1">
+                            <p class="text-xl font-bold ml-auto">Insc. Adultos ${{number_format($evento->entrada)}}</p>
+                            @if ($evento->entrada_niño==0)
+                                <p class="text-xl font-bold ml-auto">Insc. Niños Gratis</p>
+                            @else
+                                <p class="text-xl font-bold ml-auto">Insc. Niños ${{number_format($evento->entrada_niño)}}</p>
+                            @endif
+                            
+                        </div>
+                    </article>
+                
+                    <hr>
 
-                <p class="text-sm mt-4">{!!$evento->descripcion!!}</p>
+                    <p class="text-sm mt-4">{!!$evento->descripcion!!}</p>
+                </div>
             </div>
-        </div>
 
         <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12">
             <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">

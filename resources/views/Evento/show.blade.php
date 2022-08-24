@@ -153,7 +153,7 @@
                             <img class="h-32 w-40 object-cover"src="{{Storage::url($similar->image->url)}}" alt="">
                             <div class="ml-3">
                                 <h1>
-                                    <a class="font-bold text-gray-500 mb-3" href="{{route('eventos.show', $similar)}}">{{Str::limit($similar->titulo, 40)}}</a>
+                                    <a class="font-bold text-gray-500 mb-3" href="{{route('ticket.evento.show', $similar)}}">{{Str::limit($similar->titulo, 40)}}</a>
                                 </h1>
 
                                 <div class="flex items-center mb-2">

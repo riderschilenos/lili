@@ -118,7 +118,7 @@
                         @foreach ($evento->fechas as $fecha)
                             <div class="flex items-center justify-between pb-5 px-8">
                                 <p class="text-base leading-none text-gray-800 dark:text-white"> <input type="checkbox" value="{{$fecha->id}}" class="mr-4"> {{$fecha->name}}</p>
-                                <p class="text-base leading-none text-gray-800 dark:text-white">$2.300</p>
+                                <p class="text-base leading-none text-gray-800 dark:text-white">$32.000</p>
                             </div>
                         @endforeach
                     </div>

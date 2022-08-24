@@ -11,6 +11,13 @@ class Categoria extends Model
     
     protected $guarded = ['id'];
 
+    protected $withCount = ['fecha_categorias'];
 
+    //relacion uno a muchos
+
+    public function fecha_categorias(){
+        return $this->hasMany('App\Models\Fecha_categoria');
+    }
+    
     
 }

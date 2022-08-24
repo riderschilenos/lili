@@ -111,8 +111,35 @@
                       @enderror
                     </div>
 
+                    <div class="my-4">
+                      {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
+                      <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
+                      {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
 
+                      @error('inscripcion')
+                          <strong class="text-xs text-red-600">{{$message}}</strong>
+                      @enderror
+                    </div>
 
+                    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
+                    <div class="grid grid-cols-2 gap-4">
+                        <figure>
+                            @isset($evento->image)
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
+                                @else
+                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                
+                            
+                            @endisset
+                            </figure>
+                        <div>
+                            <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
+                            {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                            @error('file')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="flex justify-center mt-2">
                         {!! Form::submit('Siguiente', ['class'=>'btn btn-primary']) !!}
                     </div>
@@ -153,6 +180,10 @@
     <div x-show="activeTab===0">
                         <div class="flex" x-on:click="categoria=!categoria">
                           <div class="max-w-lg mx-auto">
+
+                            <div class="btn btn-primary">
+                                <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
+                            </div>
                               <div class="text-center mt-12">
                                 <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -178,13 +209,316 @@
                       </div>
               </div>
  
-		<div class="w-80 bg-white p-16 h-72 text-center mx-auto mt-4">
+		<div class="w-full bg-white p-16 h-72 text-center mx-auto mt-4">
       <div x-show="activeTab===0">
            
         </div>
-			<div x-show="activeTab===1">Content 2</div>
-			<div x-show="activeTab===2">Content 3</div>
-			<div x-show="activeTab===3">Content 4</div>
+			<div x-show="activeTab===1">     
+        
+        <x-table-responsive>
+                        
+
+            @if ($fecha->categorias->count())
+            
+                <table class="min-w-full divide-y divide-gray-200 mt-4">
+                    <thead class="bg-gray-50">
+                      <tr>
+                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              ID 
+                          </th>
+                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Categoria             
+                          </th>
+                          <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Valor Inscripción             
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Actualizar          
+                      </th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+
+                      @foreach ($fecha->categorias as $item)
+
+                          
+
+                                  <tr>
+                                      <td class="px-6 py-4 whitespace-nowrap">
+                                          <div class="flex items-center">
+                                              <div class="flex h-10 w-10">
+                                                  
+                        
+                            
+
+                            <label>
+                              {{$item->categoria->id}}
+                            </label>
+
+              
+                                                          
+                                                  
+                                                      
+                                                  
+                                                  
+                                              </div>
+                                          </div>
+                                      </td>
+
+                              
+
+                                      <td class="px-6 py-4 whitespace-nowrap">
+                                          <div class="flex items-center">
+                                              <div class="flex">
+                                                  
+                                              
+                                                      
+                                                      <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                  
+                                                      <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
+                                                  
+                                              </div>
+                                          </div>
+                                          
+                                          
+                                      </td>
+                                      <td class="text-center">
+                                
+                                           
+                                                    <div class="text-sm text-gray-900 text-center">{{$item->inscripcion}}</div>
+                                         
+                                     
+                                        
+                                        
+                                    </td>
+                                    <td class="text-center">
+                                  
+                                        
+                                              
+                                                  <div class="text-sm text-gray-900 text-center">{{$item->inscripcion}}</div>
+                                
+                                      
+                                      
+                                  </td>
+                                      
+                                  
+                                  </tr>
+                                  
+                      @endforeach
+                    
+                    </tbody>
+
+                </table>
+            @else
+                <div class="px-6 py-4">
+                    No hay pedidos pendientes de pago
+                </div>
+            @endif 
+        
+        </x-table-responsive>
+      </div>
+
+			<div x-show="activeTab===2">
+        <x-table-responsive>
+                        
+
+          @if ($fecha->categorias->count())
+          
+              <table class="min-w-full divide-y divide-gray-200 mt-4">
+                  <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            ID 
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Categoria             
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Limite de Inscritos         
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Actualizar          
+                    </th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+
+                    @foreach ($fecha->categorias as $item)
+
+                        
+
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex h-10 w-10">
+                                                
+                      
+                          
+
+                          <label>
+                            {{$item->categoria->id}}
+                          </label>
+
+            
+                                                        
+                                                
+                                                    
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </td>
+
+                            
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex">
+                                                
+                                            
+                                                    
+                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                
+                                                    <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </td>
+                                  <td class="text-center">
+                                
+                                           
+                                      <div class="text-sm text-gray-900 text-center">{{$item->limite}}</div>
+                           
+                       
+                          
+                          
+                                  </td>
+                                  <td class="text-center">
+                    
+                          
+                                
+                                    <div class="text-sm text-gray-900 text-center">{{$item->limite}}</div>
+                  
+                        
+                        
+                                  </td>
+                                    
+                                
+                                </tr>
+                                
+                    @endforeach
+                  
+                  </tbody>
+
+              </table>
+          @else
+              <div class="px-6 py-4">
+                  No hay pedidos pendientes de pago
+              </div>
+          @endif 
+      
+      </x-table-responsive>
+      </div>
+			<div x-show="activeTab===3">
+        <x-table-responsive>
+                        
+
+          @if ($fecha->categorias->count())
+          
+              <table class="min-w-full divide-y divide-gray-200 mt-4">
+                  <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            ID 
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Categoria             
+                        </th>
+                      
+                      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                       Quitar          
+                    </th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+
+                    @foreach ($fecha->categorias as $item)
+
+                        
+
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex h-10 w-10">
+                                                
+                      
+                          
+
+                          <label>
+                            {{$item->categoria->id}}
+                          </label>
+
+            
+                                                        
+                                                
+                                                    
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </td>
+
+                            
+
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex">
+                                                
+                                            
+                                                    
+                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                
+                                                    <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </td>
+                              
+                                  <td class="text-center">
+                    
+                          
+                                
+                                    <div class="text-sm text-gray-900 text-center">
+                                        <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar"></i>
+                                    </div>
+                  
+                        
+                        
+                                  </td>
+                                    
+                                
+                                </tr>
+                                
+                    @endforeach
+                  
+                  </tbody>
+
+              </table>
+          @else
+              <div class="px-6 py-4">
+                  No hay pedidos pendientes de pago
+              </div>
+          @endif 
+      
+      </x-table-responsive>
+      </div>
 		</div>
 
 		

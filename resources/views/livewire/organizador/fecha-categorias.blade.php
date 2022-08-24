@@ -67,7 +67,7 @@
                         <p class="mb-4">Pincha las categorias que deseas incluir en tu eventos</p>
                       
 
-                        
+                
                     <x-table-responsive>
                         
 
@@ -95,10 +95,32 @@
                                                   <td class="px-6 py-4 whitespace-nowrap">
                                                       <div class="flex items-center">
                                                           <div class="flex h-10 w-10">
-                                                              
-                                                                      <label>
-                                                                          <input type="checkbox" wire:model="selected" value="{{$categoria->id}}" class="ml-4 mt-2">
-                                                                      </label>
+                                       
+                                                           
+                                                                @php
+                                                                    $check=FALSE;
+                                                                @endphp
+                                                            @foreach ($items as $item)
+
+                                                                  @php
+                                                                      if($categoria->id==$item->categoria_id){
+                                                                        $check=TRUE;
+                                                                      }
+                                                                  @endphp
+                                                                
+                                                            @endforeach
+                                      
+                                                            @if ($check )
+                                                  
+                                                            Esta categoria a sido agregada
+                                                                            
+                                                            @else
+
+                                                            <label>
+                                                              <input type="checkbox" wire:model="selected" value="{{$categoria->id}}" class="ml-4 mt-2">
+                                                            </label>
+
+                                                          @endif
                                                               
                                                                   
                                                               
@@ -135,7 +157,7 @@
                             </table>
                         @else
                             <div class="px-6 py-4">
-                                No hay pedidos pendientes de pago
+                                No hay categorias ingresadas
                             </div>
                         @endif 
                         
@@ -158,23 +180,23 @@
                         </div>
                         <div class="flex justify-center mt-2 mb-4 ">
                             
-                        <form action="" method="POST">
-                            @csrf
+                        <div class="block">
                             
                             <div class="mb-4">
                                 
                                 <h1 class="text-center font-bold text-white mt-6">Precio Inscripción:</h1>
-                                {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro')?' border-red-600':'')]) !!}
-        
-                                @error('nro')
-                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                @enderror
+                                <input wire:model="inscripcion" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
                             </div>
-        
-                            <div class="flex justify-center">
-                                <button class="btn btn-primary my-4" type="submit">Agregar</button>
+                            <div class="mb-4">
+                                
+                              <h1 class="text-center font-bold text-white mt-6">Limite de inscritos:</h1>
+                              <input wire:model="limite" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
                             </div>
-                        </form>   
+      
+                            <div class="flex justify-center mb-4">                 
+                                <button class="btn btn-primary" wire:click="agregarcategoria">Agregar</button>
+                            </div>
+                        </div> 
                       </div>
                     </div>
 

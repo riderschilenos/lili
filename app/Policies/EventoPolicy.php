@@ -23,4 +23,6 @@ class EventoPolicy
     public function enrolled(User $user, Evento $evento){
         return $evento->inscritos->contains($user->id);
     }
+
+    
 }

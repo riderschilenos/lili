@@ -41,32 +41,33 @@
                 <div class="card-body">
                     <article class="grid grid-cols-1 md:grid-cols-2 items-center">
                         <div class="flex">
-                            <img class="h-24 w-20 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
-                            <div>
+                            <img class="h-28 w-24 object-cover" src="{{Storage::url($evento->image->url)}}" alt="">
+                            <div class="ml-2 mt-5">
                                 <h1 class="text-lg ml-2">{{$evento->titulo}}</h1>
                                 <h2 class="text-md ml-2 mb-3">{{$evento->subtitulo}}</h2>
                             </div>
                         </div>
-                     
-                        <div class="ml-auto justify-end grid grid-cols-2 md:grid-cols-1">
-                           
-                            <p class="hidden sm:block text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                        <div class="">
+                            <div class="mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
                             
-                                <div class="flex justify-between mb-4">
-                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                        @if ($evento->entrada_niño==0)
-                                            <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
-                                        @else
-                                            <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
-                                        @endif
-                                        <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                
+                                    <div class="flex mx-auto mb-4 w-72   px-24">
+                                        <div class="bg-gray-100 p-1 rounded-3xl w-full">
+                                            @if ($evento->entrada_niño==0)
+                                                <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                            @else
+                                                <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
+                                            @endif
+                                            <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                        </div>
+                                        <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                            <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                            <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                        </div>
+                                        
                                     </div>
-                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
-                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
-                                    </div>
-                                    
-                                </div>
+                            </div>
                         </div>
                     </article>
                 

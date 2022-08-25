@@ -47,8 +47,8 @@ class EventoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Evento $evento)
-    {    $fechas= Fecha::where('evento_id',$evento->id)
-        ->paginate();
+    {   $fechas= Fecha::where('evento_id',$evento->id)->paginate();
+        
         $similares = Evento::where('disciplina_id',$evento->disciplina_id)
                             ->where('id','!=',$evento->id)
                             ->where('status',1)

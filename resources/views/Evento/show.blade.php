@@ -96,8 +96,8 @@
                         @else 
 
                         @php
-                            $min=0;
-                            $max=0;
+                            $min=32000;
+                            $max=32000;
                         @endphp
                         @foreach ($fechas as $fecha)
                             @foreach($fecha->categorias as $categoria)

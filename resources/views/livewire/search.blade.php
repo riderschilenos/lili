@@ -38,7 +38,7 @@
                         </li>
                         @empty
                         <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
-                            No se encontraron series...
+                            No se encontraron eventos...
                         </li>
                             
                         

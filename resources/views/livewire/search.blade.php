@@ -32,6 +32,17 @@
                             
                         
                     @endforelse
+                    @forelse ($this->eventos as $evento)
+                        <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
+                            <a href="{{route('ticket.evento.show',$evento)}}">{{$evento->titulo}}</a>
+                        </li>
+                        @empty
+                        <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
+                            No se encontraron series...
+                        </li>
+                            
+                        
+                    @endforelse
                    
                     
                 </ul>

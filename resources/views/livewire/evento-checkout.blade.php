@@ -22,7 +22,7 @@
         //...
         $preference->back_urls = array(
             "success" => route('payment.evento', $evento),
-            "failure" => "http://www.tu-sitio/failure",
+            "failure" => route('checkout.evento', $evento),
             "pending" => "http://www.tu-sitio/pending"
         );
         $preference->auto_return = "approved";

@@ -47,14 +47,26 @@
                                 <h2 class="text-md ml-2 mb-3">{{$evento->subtitulo}}</h2>
                             </div>
                         </div>
+                     
                         <div class="ml-auto justify-end grid grid-cols-2 md:grid-cols-1">
-                            <p class="text-xl font-bold ml-auto">Insc. Adultos ${{number_format($evento->entrada)}}</p>
-                            @if ($evento->entrada_niño==0)
-                                <p class="text-xl font-bold ml-auto">Insc. Niños Gratis</p>
-                            @else
-                                <p class="text-xl font-bold ml-auto">Insc. Niños ${{number_format($evento->entrada_niño)}}</p>
-                            @endif
+                           
+                            <p class="hidden sm:block text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                             
+                                <div class="flex justify-between mb-4">
+                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        @if ($evento->entrada_niño==0)
+                                            <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                        @else
+                                            <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
+                                        @endif
+                                        <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                    </div>
+                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                    </div>
+                                    
+                                </div>
                         </div>
                     </article>
                 
@@ -93,7 +105,6 @@
                        
                     </div>
                 </div>
-                
                
                 <input type="checkbox"  value="" class="mr-4 mt-2">
             </div>

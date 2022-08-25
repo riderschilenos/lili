@@ -132,13 +132,14 @@
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 <div class="flex justify-between mb-4">
                                     <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
-                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
-                                    </div>
-                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
                                         <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
                                         <p class="text-gray-500 text-sm text-center">Niños</p> 
                                     </div>
+                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                    </div>
+                                   
                                 </div>
                                 <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
 

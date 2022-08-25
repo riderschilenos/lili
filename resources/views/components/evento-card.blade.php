@@ -16,9 +16,48 @@
                    
                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                 </a>
-                   <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
-                    $30.000 - $40.000
-                    </a>
+
+                @php
+                $min=32000;
+                $max=32000;
+            @endphp
+            @foreach ($evento->fechas as $fecha)
+                @foreach($fecha->categorias as $categoria)
+                    @php
+                        if ($min==0) {
+                            $min=$categoria->inscripcion;
+                            $max=$categoria->inscripcion;
+                        }else{
+                            if ($categoria->inscripcion<$min) {
+                                $min=$categoria->inscripcion;
+                            }elseif($categoria->inscripcion>$max){
+                                $max=$categoria->inscripcion;
+                            }
+                        }
+                    
+                    @endphp    
+                @endforeach
+            @endforeach
+
+                    @if ($min == 0 && $max==0)
+                      
+                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                            Inscripcion GRATIS
+                            </a>
+                    @elseif($min==$max)
+                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                        
+                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                            ${{number_format($min)}}
+                        </a>
+                    @else
+                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                        
+                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                            ${{number_format($min)}} - ${{number_format($max)}}
+                        </a>
+                @endif
+                
 
                     <div class="flex mt-2">
                         <p class="text-gray-500 text-md mb-2">INSCRITOS</p>

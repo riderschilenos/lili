@@ -160,8 +160,15 @@
                         </div>
                         
                     </div>
-                    
-                    <input type="checkbox"  value="" class="mr-4 mt-2">
+                    <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <option value="">--Categoria--</option>
+                        @foreach ($fecha->categorias as $item)
+
+                            <option value="{{$item->id}}">{{$item->categoria->name}}-${{number_format($item->inscripcion)}}</option>
+                            
+                        @endforeach
+                    </select>
+                   
                  
                 </div>
 
@@ -169,7 +176,26 @@
                         @foreach ($evento->fechas as $fecha)
                             <div class="flex items-center justify-between pb-5 px-8">
                                 <p class="text-base leading-none text-gray-800 dark:text-white"> <input type="checkbox" value="{{$fecha->id}}" class="mr-4"> {{$fecha->name}}</p>
-                                <p class="text-base leading-none text-gray-800 dark:text-white">$32.000</p>
+                                @php
+                                    $ins=32000;
+                                @endphp
+                            @foreach ($fechas as $fecha)
+                                @foreach($fecha->categorias as $categoria)
+                                    @php
+                                        if ($categoria->id==$categoria_id) {
+                                            $ins=$categoria->inscripcion;
+                                        }
+                                    
+                                    @endphp    
+                                @endforeach
+                            @endforeach
+                           
+                                
+                                @if ($categoria_id)  
+                                    <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($ins)}}</p>
+                                @else
+                                    <p class="text-base leading-none text-gray-800 dark:text-white">Ingrese una categoria</p>
+                                @endif        
                             </div>
                         @endforeach
                     </div>

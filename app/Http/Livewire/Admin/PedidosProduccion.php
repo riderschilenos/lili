@@ -161,7 +161,7 @@ class PedidosProduccion extends Component
             $foto='nn';
         }
 
-        $pedido->images()->create([
+        $pedido->image()->create([
                     'url'=>'pedidos/'.$foto
                 ]);
 

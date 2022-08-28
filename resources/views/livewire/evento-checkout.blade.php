@@ -115,23 +115,64 @@
             </div>
 
         <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12" x-data="condiciones:false">
-            <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                    </svg>
+           
+            <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
+                <div class="flex justify-between">
+                        <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
 
-                    <div class="flex flex-col items-center mx-5 space-y-1">
-                        <h2 class="px-2 text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
-                        
+                        <div class="flex flex-col items-center mx-5 space-y-1">
+                            <h2 class="px-2 text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
+                            
+                        </div>
+
+                     
                     </div>
-
-
-                    
+                    <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
+           
+                 
                 </div>
+
+                    <div class="">
+                        <div>
+                            <div class="items-center mt-4">
+                                <label class="w-32">Nombre</label>
+                                <input wire:model="detalle" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                            </div>
+            
+                            <div class="items-center mt-4">
+                                <label class="w-32">Correo</label>
+                                <input wire:model="detalle" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                          
+                            <hr class="mt-10 mb-4">
+                                <div class="flex items-center pb-6 justify-center lg:pt-5 pt-2 px-8">
+                                    <div>
+
+                                        <p class="text-2xl leading-normal text-gray-800 dark:text-white">¿Estas Registrado?</p>
+                                        <p class="text-2xl font-bold leading-normal text-center text-gray-800 dark:text-white">Iniciar Sesión</p>
+                                      
+                                    </div>
+                                </div>
+                            
+
+                        </div>
+                    </div>
+                 
+
+              
+                 
+              
+
+            
                 
-                <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
             </div>
+            
+
             <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">

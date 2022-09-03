@@ -86,10 +86,11 @@
 
 
     
+    <h1 class="text-center hidden">hola mundo</h1>
 
 
     <div class="fixed bottom-0 bg-red-600 w-full md:relative md:bg-white sm:pt-3" style="z-index: 20;">
-        <div class="container mb-6" >
+        <div class="container mb-0 sm:mb-6" >
             <div class="flex justify-between h-16">
                 <div class="hidden sm:flex">
                     <!-- Logo -->
@@ -102,41 +103,42 @@
                     </div>
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-14 sm:flex">
-                    @foreach ($nav_links as $nav_link)
+                        @foreach ($nav_links as $nav_link)
 
-                        @if ($nav_link['name']=='Diseño')
-                            @can('Diseño')
+                            @if ($nav_link['name']=='Diseño')
+                                @can('Diseño')
+                                    <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                                        {{ $nav_link['name'] }}
+                                    </x-jet-nav-link>
+                                @endcan
+                                
+                            @elseif($nav_link['name']=='Producción')
+                                @can('Diseño')
+                                    <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                                        {{ $nav_link['name'] }}
+                                    </x-jet-nav-link>
+                                @endcan
+                            @elseif($nav_link['name']=='Eventos')
+                                @can('Diseño')
+                                    <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                                        {{ $nav_link['name'] }}
+                                    </x-jet-nav-link>
+                                @endcan
+                            @else
                                 <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                                     {{ $nav_link['name'] }}
                                 </x-jet-nav-link>
-                            @endcan
-                            
-                        @elseif($nav_link['name']=='Producción')
-                            @can('Diseño')
-                                <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                                    {{ $nav_link['name'] }}
-                                </x-jet-nav-link>
-                            @endcan
-                        @elseif($nav_link['name']=='Eventos')
-                            @can('Diseño')
-                                <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                                    {{ $nav_link['name'] }}
-                                </x-jet-nav-link>
-                            @endcan
-                        @else
-                            <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                                {{ $nav_link['name'] }}
-                            </x-jet-nav-link>
-                        @endif
-                            
+                            @endif
+                                
 
-                    @endforeach  
+                        @endforeach  
                         
 
                     </div>
+                    
                 </div>
                 
-            
+                
 
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     
@@ -502,7 +504,7 @@
 
     <!-- Responsive Navigation Menu -->
     
-        
+    <h1 class="text-center text-xs font-bold my-1">Obten tu suscripcion de RidersChilenos</h1>
   
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-16 pb-3 space-y-1">
@@ -654,7 +656,7 @@
 
         </div>
         @endauth
-
+        
     </div>
-
+    
 </nav>

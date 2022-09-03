@@ -17,9 +17,10 @@ class CreatePagosTable extends Migration
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
 
-            $table->string('metodo');
+            
             $table->enum('estado',[Pago::PENDIENTE,Pago::APROBADO])->default(Pago::PENDIENTE);
 
+            $table->string('metodo');
             $table->integer('cantidad');
             $table->string('comprobante')->nullable();
 

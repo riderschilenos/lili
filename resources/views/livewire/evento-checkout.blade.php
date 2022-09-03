@@ -136,6 +136,18 @@
                 </div>
 
                     <div class="">
+                        
+                                <div class="flex items-center pb-6 justify-center lg:pt-5 pt-2 px-8">
+                                    <div>
+
+                                        <p class="text-2xl leading-normal text-gray-800 dark:text-white">¿Estas Registrado?</p>
+                                        <p class="text-2xl font-bold leading-normal text-center text-gray-800 dark:text-white">Iniciar Sesión</p>
+                                      
+                                    </div>
+                                </div>
+
+                                <hr class="mt-2 mb-4">
+
                         <div>
                             <div class="items-center mt-4">
                                 <label class="w-32">Nombre</label>
@@ -147,17 +159,9 @@
                                 <input wire:model="detalle" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
                             </div>
                         </div>
-                        <div>
+                    <div>
                           
-                            <hr class="mt-10 mb-4">
-                                <div class="flex items-center pb-6 justify-center lg:pt-5 pt-2 px-8">
-                                    <div>
-
-                                        <p class="text-2xl leading-normal text-gray-800 dark:text-white">¿Estas Registrado?</p>
-                                        <p class="text-2xl font-bold leading-normal text-center text-gray-800 dark:text-white">Iniciar Sesión</p>
-                                      
-                                    </div>
-                                </div>
+                            
                             
 
                         </div>

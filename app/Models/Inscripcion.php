@@ -12,5 +12,5 @@ class Inscripcion extends Model
     const BORRADOR =1;
     const PAGADA =2;
     const ACTIVA =3;
-    const USADA =3;
+    const USADA =4;
 }

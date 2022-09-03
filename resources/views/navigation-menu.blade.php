@@ -504,7 +504,7 @@
 
     <!-- Responsive Navigation Menu -->
     
-    <h1 class="text-center text-xs font-bold my-1">Obten tu suscripcion de RidersChilenos</h1>
+    <h1 class="text-center text-xs font-bold my-1 hidden md:block">Obten tu suscripcion de RidersChilenos</h1>
   
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-16 pb-3 space-y-1">

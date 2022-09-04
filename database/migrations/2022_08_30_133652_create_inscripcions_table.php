@@ -16,14 +16,19 @@ class CreateInscripcionsTable extends Migration
     {
         Schema::create('inscripcions', function (Blueprint $table) {
             $table->id();
+            
+            $table  ->foreignId('ticket_id')
+                    ->constrained()
+                    ->onDelete('cascade');
 
             $table  ->foreignId('fecha_categoria_id')
                     ->constrained()
                     ->onDelete('cascade');
 
-            $table->unsignedbigInteger('inscripcionable_id');
-            $table->string('inscripcionable_type');
+            $table->string('nro')->nullable();
             
+            $table->string('resultado')->nullable();
+
             $table->enum('estado',[Inscripcion::BORRADOR,Inscripcion::PAGADA,Inscripcion::ACTIVA,Inscripcion::USADA])->default(Inscripcion::BORRADOR);
 
             $table->timestamps();

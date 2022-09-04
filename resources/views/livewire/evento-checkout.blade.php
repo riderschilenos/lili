@@ -114,6 +114,8 @@
                 </div>
             </div>
 
+            
+
         <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12" x-data="condiciones:false">
            
             <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
@@ -137,12 +139,14 @@
 
                     <div class="">
                         
-                                <div class="flex items-center pb-6 justify-center lg:pt-5 pt-2 px-8">
-                                    <div>
+                                <div class="flex items-center pb-6 lg:pt-5 pt-2 px-8">
+                                    <div class="w-full">
 
-                                        <p class="text-2xl leading-normal text-gray-800 dark:text-white">¿Estas Registrado?</p>
                                         <p class="text-2xl font-bold leading-normal text-center text-gray-800 dark:text-white">Iniciar Sesión</p>
                                       
+
+                                        <p class="text-xl leading-normal text-gray-800 dark:text-white">Bienvenido {{auth()->user()->name}}, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
+                                     
                                     </div>
                                 </div>
 

@@ -147,7 +147,7 @@
                                 </svg> Sus datos estan Registrados</p>
                                 <div style="line-height: 1.3rem;" class="mx-auto mt-6 pr-8">
                                     <h1 style="font-size: 1.5rem;" class="text-center font-bold">{{$socio->name}} </h1>
-                                    <h1 style="font-size: 1.125rem;" class="text-center font-bold" >{{$socio->rut}} </h1>
+                                    <h1 style="font-size: 1.125rem;" class="text-center font-bold inline" >{{$socio->rut}} </h1>
                                   
                                 </div>
                             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Socio;
 
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
+use App\Models\Evento;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Vehiculo;
@@ -95,7 +96,18 @@ class HomeController extends Controller
                     'user_id'=> $request->user_id]);
             
     
-        return redirect()->route('socio.create');
+        
+
+        if($request->evento_id=='suscripcion'){
+
+            return redirect()->route('socio.create');
+        }
+        else{
+            $evento = Evento::find($request->evento_id);
+            return redirect()->route('checkout.evento', $evento);
+        }
+
+
     }
 
     /**

@@ -118,67 +118,99 @@
 
         <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12" x-data="condiciones:false">
            
-            <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
-                <div class="flex justify-between">
-                        <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                        </svg>
+                <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
+                    <div class="flex justify-between">
+                            <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
 
-                        <div class="flex flex-col items-center mx-5 space-y-1">
-                            <h2 class="px-2 text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
-                            
-                        </div>
+                            <div class="flex flex-col items-center mx-5 space-y-1">
+                                <h2 class="px-2 text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
+                                
+                            </div>
 
-                     
-                    </div>
-                    <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
-           
-                 
-                </div>
-
-                    <div class="">
                         
-                                <div class="flex items-center pb-6 lg:pt-5 pt-2 px-8">
-                                    <div class="w-full">
-
-                                        <p class="text-2xl font-bold leading-normal text-center text-gray-800 dark:text-white">Iniciar Sesión</p>
-                                      
-
-                                        <p class="text-xl leading-normal text-gray-800 dark:text-white">Bienvenido {{auth()->user()->name}}, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
-                                     
-                                    </div>
-                                </div>
-
-                                <hr class="mt-2 mb-4">
-
-                        <div>
-                            <div class="items-center mt-4">
-                                <label class="w-32">Nombre</label>
-                                <input wire:model="detalle" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-                            </div>
-            
-                            <div class="items-center mt-4">
-                                <label class="w-32">Correo</label>
-                                <input wire:model="detalle" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-                            </div>
                         </div>
-                    <div>
+                        <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
+            
+                    
+                    </div>
+
+
+                        
+                        @if (!IS_NULL($socio))
+                            <div class="flex justify-between items-center mx-auto my-4 bg-gray-100 rounded-lg pb-6 max-w-2xl">
+                                <p class="mx-auto items-center mt-6 text font-bold flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 w-9 h-9 text-blue-600 my-auto mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg> Sus datos estan Registrados</p>
+                                <div style="line-height: 1.3rem;" class="mx-auto mt-6">
+                                    <h1 style="font-size: 1.5rem;" class="text-center font-bold">{{$socio->name}} </h1>
+                                    <h1 style="font-size: 1.125rem;" class="text-center font-bold" >{{$socio->rut}} </h1>
+                                  
+                                </div>
+                            </div>
+
+                        @else
+                            
+                                
+                                    <div class="flex items-center pb-6 lg:pt-5 pt-2 px-8">
+                                        <div class="w-full">
+
+                                            <p class="text-2xl font-bold leading-normal text-center text-gray-800 dark:text-white">Iniciar Sesión</p>
+                                        
+
+                                            <p class="text-xl leading-normal text-gray-800 dark:text-white">Bienvenido {{auth()->user()->name}}, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
+                                        
+                                        </div>
+                                    </div>
+
+                                    <hr class="mt-2 mb-4">
+
+                              
+                                
+                                {!! Form::open(['route'=>'socio.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                                    
+                                    @csrf
+                                        
+                                    <div class="max-w-full items-center">
+                                        @include('socio.partials.form')
+                                    </div>
+                                    
+                                    {!! Form::hidden('user_id',auth()->user()->id) !!}
+
+                                    {!! Form::hidden('evento_id', $evento->id ) !!}
+
+                        
+
+                                    @error('user_id')
+                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                    @enderror
+                                    
+                                    <div class="flex justify-center">
+                                        {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                                    </div>
+                    
+                                {!! Form::close() !!}
+                          
+                        @endif
+
+                            
+                </div>
+                    
+            
                           
                             
                             
 
-                        </div>
-                    </div>
+           
                  
 
               
                  
               
 
-            
-                
-            </div>
             
 
             <div class="w-full bg-white flex items-center justify-between px-8 py-4 mx-auto border cursor-pointer rounded-xl dark:border-gray-700">

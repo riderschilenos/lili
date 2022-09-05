@@ -1,7 +1,7 @@
 
                     <h1 class="text-xl pb-4 text-center">Datos Personales</h1>
                     <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-4 gap-y-8">
-                        <div class="md: col-span-2 lg:col-span-2 ">
+                        <div class="md: col-span-3 lg:col-span-3 ">
                             <div class="mb-4">
                                 {!! Form::label('name', 'Primer Nombre *') !!}
                                 {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
@@ -83,10 +83,19 @@
                     
                     <h1 class="text-xl pb-4 text-center">Perfil Rider</h1>
 
-                    <div class="mb-4">
-                        {!! Form::label('disciplina_id', 'Disciplina') !!}
-                        {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                    </div>
+                    @isset($evento)
+
+                        {!! Form::hidden('disciplina_id', $evento->disciplina_id ) !!}
+                        
+                    @else
+                        <div class="mb-4">
+                            {!! Form::label('disciplina_id', 'Disciplina') !!}
+                            {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                        </div>
+                    @endisset
+
+                    
+
                     <div class="mb-4">
                         {!! Form::label('nro', 'Numero Rider (Moto/Bicicleta)') !!}
                         {!! Form::text('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}

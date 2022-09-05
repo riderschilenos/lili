@@ -257,6 +257,9 @@
                     @include('socio.partials.form')
                 </div>
                 {!! Form::hidden('user_id',auth()->user()->id) !!}
+
+                {!! Form::hidden('evento_id', 'suscripcion' ) !!}
+                
                 @error('user_id')
                         <strong class="text-xs text-red-600">{{$message}}</strong>
                 @enderror

@@ -145,7 +145,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 w-9 h-9 text-blue-600 my-auto mr-1" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                 </svg> Sus datos estan Registrados</p>
-                                <div style="line-height: 1.3rem;" class="mx-auto mt-6 mr-8">
+                                <div style="line-height: 1.3rem;" class="mx-auto mt-6 pr-8">
                                     <h1 style="font-size: 1.5rem;" class="text-center font-bold">{{$socio->name}} </h1>
                                     <h1 style="font-size: 1.125rem;" class="text-center font-bold" >{{$socio->rut}} </h1>
                                   

@@ -438,8 +438,16 @@
     </div>
     
     <div :class="{'block': home, 'hidden': ! home}" class="hidden">
+
         
-        <section class="bg-cover bg-center hidden sm:block" style="background-image: url({{asset('img/home/homefotomini.png')}})">
+        <div class="flex justify-center max-w-7xl mt-10 mb-6 mx-auto">
+            <img src="{{asset('img/homeslider/poleras.png')}}" class="w-full" alt="...">
+            
+        </div>
+
+     
+        
+        <section class="bg-cover bg-center hidden sm:hidden" style="background-image: url({{asset('img/home/homefotomini.png')}})">
 
             <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 pt-64 pb-8">
                 

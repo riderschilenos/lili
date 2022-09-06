@@ -441,7 +441,7 @@
 
         
         <div class="flex justify-center max-w-7xl mt-10 mb-6 mx-auto">
-            <img src="{{asset('img/homeslider/poleras.png')}}" class="w-full" alt="...">
+            <img src="{{asset('img/homeslider/poleras.png')}}" class="w-full px-2" alt="...">
             
         </div>
 

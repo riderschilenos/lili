@@ -1,7 +1,7 @@
 <div>
 
 
-<div class="container grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4">
+<div class="container grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
     
     <!-- seccion pequeña -->
     <div class="">

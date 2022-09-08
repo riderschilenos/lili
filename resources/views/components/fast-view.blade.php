@@ -620,9 +620,9 @@
         
         </section>
 
-        <section class="my-4  py-12">
-            <h1 class="text-center text-3xl text-gray-600">Ultimos Videos y Carreras</h1>
-            <p class="text-center text-gray-500 text-sm mb-6">Compra y apoya las producciones nacionales</p>
+        <section class="mt-4 bg-rider-color pt-12 pb-50">
+            <h1 class="text-center text-3xl text-white pt-6">Ultimos Videos y Carreras</h1>
+            <p class="text-center text-white text-sm mb-6">Compra y apoya las producciones nacionales</p>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
 
@@ -633,8 +633,9 @@
                 @endforeach
 
             </div>
-        
+            <h1 class="text-center text-xs text-white py-12">Todos Los derechos Reservados</h1>
         </section>
+       
     </div>
 
     <div :class="{'block': socio, 'hidden': ! socio}" class="hidden">

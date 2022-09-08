@@ -566,11 +566,11 @@
         </section>
         
         <section class="mt-16 bg-rider-color py-12">
-            <h1 class="text-center text-white text-3xl mt-20">Últimos Riders Registrados</h1>
+            <h1 class="text-center text-white text-3xl mt-4">Últimos Riders Registrados</h1>
             <p class="text-center text-white pb-6">Unete a la comunidad rider más grande del país</p>
             
 
-            <div class="max-w-7xl mx-auto px-4 pt-6 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
+            <div class="max-w-7xl mx-auto px-4 pt-10 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
 
                 @foreach ($riders as $rider)
 
@@ -622,7 +622,7 @@
 
         <section class="mt-4 bg-rider-color pt-12 pb-50">
             <h1 class="text-center text-3xl text-white pt-16">Ultimos Videos y Carreras</h1>
-            <p class="text-center text-white text-sm mb-16">Compra y apoya las producciones nacionales</p>
+            <p class="text-center text-white text-sm pb-16">Compra y apoya las producciones nacionales</p>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
 

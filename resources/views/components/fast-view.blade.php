@@ -439,7 +439,7 @@
     
     <div :class="{'block': home, 'hidden': ! home}" class="hidden">
 
-        <div id="default-carousel" class="mx-auto relative max-w-7xl md:mt-16" data-carousel="static">
+        <div id="default-carousel" class="hidden sm:block mx-auto relative max-w-7xl md:mt-16" data-carousel="static">
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                  <!-- Item 1 -->
@@ -481,6 +481,32 @@
                 </span>
             </button>
         </div>
+
+        <figure class="block sm:hidden pt-6 pb-4">
+    
+           
+            
+                {{-- comment <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">--}}
+                <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
+                    
+                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                        <img class="" src="{{asset('img/mobileslider/carcasas.png')}}" alt="" style="scroll-snap-align: center;">
+                    </li>
+                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                        <img class="" src="{{asset('img/mobileslider/poleras.png')}}" alt="" style="scroll-snap-align: center;">
+                    </li>
+                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                        <img class="" src="{{asset('img/mobileslider/polerones.png')}}" alt="" style="scroll-snap-align: center;">
+                    </li>
+                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                        <img class="" src="{{asset('img/mobileslider/tienda.png')}}" alt="" style="scroll-snap-align: center;">
+                    </li>
+                  
+                </ul>
+               
+
+          
+        </figure>
         
      
         

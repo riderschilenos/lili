@@ -3,10 +3,15 @@
     <style>
     :root {
         --main-color: #4a76a8;
+        --rider-color: #314780;
     }
 
     .bg-main-color {
         background-color: var(--main-color);
+    }
+
+    .bg-rider-color {
+        background-color: var(--rider-color);
     }
 
     .text-main-color {
@@ -560,7 +565,7 @@
 
         </section>
         
-        <section class="mt-16 bg-gray-700 py-12">
+        <section class="mt-16 bg-rider-color py-12">
             <h1 class="text-center text-white text-3xl">Ultimos Riders Registrados</h1>
             <p class="text-center text-white pb-6">Unete a la comunidad rider más grande del país</p>
             

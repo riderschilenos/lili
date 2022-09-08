@@ -488,16 +488,16 @@
             
                 {{-- comment <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">--}}
                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
-                    
+                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                        <img class="" src="{{asset('img/mobileslider/polerones.png')}}" alt="" style="scroll-snap-align: center;">
+                    </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
                         <img class="" src="{{asset('img/mobileslider/carcasas.png')}}" alt="" style="scroll-snap-align: center;">
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
                         <img class="" src="{{asset('img/mobileslider/poleras.png')}}" alt="" style="scroll-snap-align: center;">
                     </li>
-                    <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="" src="{{asset('img/mobileslider/polerones.png')}}" alt="" style="scroll-snap-align: center;">
-                    </li>
+                    
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
                         <img class="" src="{{asset('img/mobileslider/tienda.png')}}" alt="" style="scroll-snap-align: center;">
                     </li>

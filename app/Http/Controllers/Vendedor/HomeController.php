@@ -221,7 +221,8 @@ class HomeController extends Controller
         }
 
         $disciplinas= Disciplina::pluck('name','id');  
-        return view('vendedor.catalogo.carcasas');
+
+        return view('vendedor.catalogo.carcasas',compact('series','riders','autos','socio2','disciplinas'));
     }
 
     /**

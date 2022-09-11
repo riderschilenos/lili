@@ -8,6 +8,8 @@ use App\Models\Precio;
 use Illuminate\Http\Request;
 use App\Models\Serie;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\support\Str;
 
 
 
@@ -62,14 +64,21 @@ class SerieController extends Controller
 
         $serie = Serie::create($request->all());
 
-
         if($request->file('file')){
-            $url = Storage::put('series',$request->file('file'));
-
+        
+            $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+            $ruta = public_path().'/storage/series/'.$nombre;
+    
+            Image::make($request->file('file'))->orientate()
+                    ->resize(600, 600 , function($constraint){
+                    $constraint->aspectRatio();
+                    })
+                    ->save($ruta);
             $serie->image()->create([
-                'url'=>$url
-            ]);
-        }
+                        'url'=>'series/'.$nombre
+                    ]);
+            }
+
         return redirect()->route('filmmaker.series.edit',$serie);
 
 
@@ -149,19 +158,27 @@ class SerieController extends Controller
 
         $serie->update($request->all());
 
+
         if($request->file('file')){
-            $url=Storage::put('series',$request->file('file'));
+            $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+            $ruta = public_path().'/storage/series/'.$nombre;
+    
+            Image::make($request->file('file'))->orientate()
+                    ->resize(600, 600 , function($constraint){
+                    $constraint->aspectRatio();
+                    })
+                    ->save($ruta);
             
             if($serie->image){
                 Storage::delete($serie->image->url);
 
                 $serie->image->update([
-                    'url'=>$url
+                    'url'=>'series/'.$nombre
                 ]);
             }else{
                 $serie->image()->create([
-                    'url' => $url
-                    ]);
+                    'url'=>'series/'.$nombre
+                ]);
                 }
             }
         

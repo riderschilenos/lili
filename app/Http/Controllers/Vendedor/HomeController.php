@@ -43,7 +43,12 @@ class HomeController extends Controller
                     }
 
 
-                    $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+                    if(Cache::has('riders')){
+            $riders = Cache::get('riders');
+        }else{
+            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+            Cache::put('riders',$riders);
+         }
 
                     if(auth()->user())
                     {
@@ -97,7 +102,12 @@ class HomeController extends Controller
          }
 
 
-        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+        if(Cache::has('riders')){
+            $riders = Cache::get('riders');
+        }else{
+            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+            Cache::put('riders',$riders);
+         }
 
         if(auth()->user())
         {
@@ -138,7 +148,12 @@ class HomeController extends Controller
          }
 
 
-        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+        if(Cache::has('riders')){
+            $riders = Cache::get('riders');
+        }else{
+            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+            Cache::put('riders',$riders);
+         }
 
         if(auth()->user())
         {
@@ -184,7 +199,12 @@ class HomeController extends Controller
          }
 
 
-        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+        if(Cache::has('riders')){
+            $riders = Cache::get('riders');
+        }else{
+            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+            Cache::put('riders',$riders);
+         }
 
         if(auth()->user())
         {

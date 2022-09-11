@@ -500,7 +500,7 @@ comment --}}
         </article>
         <article>
             <figure>
-                <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt=""></a>
+                <a href="{{route('vendedor.catalogo.carcasas')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt=""></a>
             </figure>
         
         </article>

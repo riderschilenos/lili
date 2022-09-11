@@ -135,6 +135,11 @@ class HomeController extends Controller
         return view('vendedor.pedidos.precios',compact('productos'));
     }
 
+    public function catalogoscarcasas()
+    {                  
+        return view('vendedor.catalogo.carcasas');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

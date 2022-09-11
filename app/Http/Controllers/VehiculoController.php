@@ -390,7 +390,7 @@ class VehiculoController extends Controller
         
 
    
-            
+            Cache::flush();
 
             return redirect()->route('garage.image',$vehiculo);
 
@@ -527,6 +527,8 @@ class VehiculoController extends Controller
 
         $vehiculo->save();
 
+        Cache::flush();
+
         return redirect()->route('garage.vehiculo.show',$vehiculo);
     }
 
@@ -535,6 +537,8 @@ class VehiculoController extends Controller
         $vehiculo->status=6;
 
         $vehiculo->save();
+
+        Cache::flush();
 
         return redirect()->route('garage.inscripcion',$vehiculo);
     }
@@ -566,6 +570,7 @@ class VehiculoController extends Controller
                 }
 
                 $vehiculo->save();
+                Cache::flush();
 
                 return redirect()->route('garage.inscripcion',$vehiculo);
             } else{
@@ -574,6 +579,7 @@ class VehiculoController extends Controller
         }else{
             return redirect()->route('garage.inscripcion',$vehiculo)->with('info','NRO o PASS no coinciden.');;
         }
+        
         
         
     }

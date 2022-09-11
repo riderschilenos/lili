@@ -115,7 +115,7 @@ class HomeController extends Controller
                     'user_id'=> $request->user_id]);
             
     
-        
+        Cache::flush();
 
         if($request->evento_id=='suscripcion'){
 
@@ -206,6 +206,8 @@ class HomeController extends Controller
         
 
         $socio->update($request->all());
+
+        Cache::flush();
 
         return redirect()->route('socio.edit',$socio)->with('info','La información se actualizo con éxito.');
 

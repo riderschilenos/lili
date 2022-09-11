@@ -9,6 +9,8 @@ use App\Models\Video;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApprovedSerie;
 use App\Mail\RejectSerie;
+use Illuminate\Support\Facades\Cache;
+
 
 class SerieController extends Controller
 {
@@ -41,9 +43,12 @@ class SerieController extends Controller
         $serie->status = 3;
         $serie->save();
 
+        Cache::flush();
+
         //enviar mail
         $mail = new ApprovedSerie($serie); 
         Mail::to($serie->user->email)->queue($mail);
+
 
         return redirect()->route('admin.series.index')->with('info','La serie se publico con exito');
     }

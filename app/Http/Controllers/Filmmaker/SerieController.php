@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\support\Str;
 
+use Illuminate\Support\Facades\Cache;
+
 
 
 class SerieController extends Controller
@@ -63,6 +65,8 @@ class SerieController extends Controller
         ]);
 
         $serie = Serie::create($request->all());
+
+        Cache::flush();
 
         if($request->file('file')){
         

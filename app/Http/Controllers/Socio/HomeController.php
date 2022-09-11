@@ -75,9 +75,49 @@ class HomeController extends Controller
      */
     public function create()
     {   
-        $socios= Socio::all();
 
-        return view('socio.create',compact('socios'));
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
+
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
+
+        if(Cache::has('riders')){
+            $riders = Cache::get('riders');
+        }else{
+            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+            Cache::put('riders',$riders);
+         }
+        
+        if(auth()->user())
+        {
+            if(auth()->user()->socio)
+            {
+                $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+            }else{
+                $socio2=null;
+            }
+            
+        }
+        else{
+            $socio2=null;
+        }
+
+       $disciplinas= Disciplina::pluck('name','id');
+
+        return view('socio.create',compact('socio2','disciplinas','riders','series','autos'));
     }
 
     /**

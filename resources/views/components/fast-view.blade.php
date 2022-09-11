@@ -444,8 +444,7 @@
     
     <div :class="{'block': home, 'hidden': ! home}" class="hidden">
 
-        
-        <div id="default-carousel" class="hidden sm:block mx-auto relative max-w-7xl md:mt-16" data-carousel="static" style='z-index: 1 ; '>
+        {{--         <div id="default-carousel" class="hidden sm:block mx-auto relative max-w-7xl md:mt-16" data-carousel="static" style='z-index: 1 ; '>
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
@@ -487,7 +486,35 @@
                 </span>
             </button>
         </div>
+comment --}}
+<section class="mt-12 sm:mt-16">
+            
 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+        <article>
+            <figure>
+                <a href="catalogos/poleronesmx.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/polerones-min.png')}}" alt=""></a>
+            </figure>
+
+        
+        </article>
+        <article>
+            <figure>
+                <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt=""></a>
+            </figure>
+        
+        </article>
+        <article>
+            <figure>
+                <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/poleras-min.png')}}" alt=""></a>
+            </figure>
+        
+        </article>
+       
+    
+    </div>
+
+</section>
         <figure class="block sm:hidden pt-0 pb-4">
 
         
@@ -496,7 +523,7 @@
                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                     
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;">
+                        <a href="catalogos/poleronesmx.pdf"><img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
                         <img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;">
@@ -817,9 +844,9 @@
             
             
             <div class="max-w-7xl mx-auto px-4 pb-16">
-
-                @livewire('vendedor.catalogo-productos')
-
+            {{-- 
+                            @livewire('vendedor.catalogo-productos')
+            comment --}}
                 <div class="card pb-8 ">
             
                     
@@ -835,20 +862,20 @@
                     <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
                         <article>
                             <figure>
-                                <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend1.png')}}" alt=""></a>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend1.png')}}" alt="">
                             </figure>
                 
                         
                         </article>
                         <article>
                             <figure>
-                                <a href="" wire:click="download('catalogoportanumeros.pdf')"><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend2.png')}}" alt=""></a>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend2.png')}}" alt="">
                             </figure>
                         
                         </article>
                         <article>
                             <figure>
-                                <a href="" wire:click="download('polerasmx.pdf')"><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
+                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt="">
                             </figure>
                         
                         </article>
@@ -1199,7 +1226,7 @@
             <div class="max-w-7xl mx-auto px-4 py-8">
                 {{-- comment
                 @livewire('vendedor.catalogo-productos')
- --}}
+                                        --}}
                 <div class="card pb-8 my-8 sm:my-2">
             
                     

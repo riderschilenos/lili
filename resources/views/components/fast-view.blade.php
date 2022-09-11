@@ -506,7 +506,7 @@ comment --}}
         </article>
         <article>
             <figure>
-                <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/poleras-min.png')}}" alt=""></a>
+                <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/poleras-min.png')}}" alt=""></a>
             </figure>
         
         </article>

@@ -9,20 +9,20 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
                 <article>
                     <figure>
-                        <a href="catalogos/poleronesmx.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/mx-min.jpg')}}" alt=""></a>
+                        <a href="catalogos/catalogomotos_compressed.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/mx-min.jpg')}}" alt=""></a>
                     </figure>
         
                 
                 </article>
                 <article>
                     <figure>
-                        <a href="{{route('catalogo.carcasas')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/mtb-min.jpg')}}" alt=""></a>
+                        <a href="catalogos/catalogomtb_compressed.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/mtb-min.jpg')}}" alt=""></a>
                     </figure>
                 
                 </article>
                 <article>
                     <figure>
-                        <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/Multimarca-min.jpg')}}" alt=""></a>
+                        <a href="catalogos/catalogomultimarca_compressed.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/Multimarca-min.jpg')}}" alt=""></a>
                     </figure>
                 
                 </article>

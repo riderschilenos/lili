@@ -1197,9 +1197,9 @@
             
 
             <div class="max-w-7xl mx-auto px-4 py-8">
-
+                {{-- comment
                 @livewire('vendedor.catalogo-productos')
-
+ --}}
                 <div class="card pb-8 my-8 sm:my-2">
             
                     

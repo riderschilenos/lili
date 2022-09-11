@@ -46,4 +46,4 @@ Route::post('webhooks', WebhooksController::class);
 
 Route::get('ticket/{evento}', [PaymentController::class, 'checkoutevento'])->name('checkout.evento')->middleware('auth');
 
-Route::get('catalogos',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');
+Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');

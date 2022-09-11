@@ -24,10 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {   
-       $autos = Vehiculo::where('status',4)
+       if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -120,10 +125,15 @@ class HomeController extends Controller
      */
     public function show(Socio $socio)
     {   
-        $autos = Vehiculo::where('status',4)
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 

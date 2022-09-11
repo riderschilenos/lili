@@ -24,10 +24,15 @@ class VehiculoController extends Controller
     
     public function index(){
         
-       $autos = Vehiculo::where('status',4)
+       if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -53,10 +58,15 @@ class VehiculoController extends Controller
     }
 
     public function personalindex(){
-       $autos = Vehiculo::where('status',4)
+       if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -82,10 +92,15 @@ class VehiculoController extends Controller
     
     public function registerindex(){
 
-        $autos = Vehiculo::where('status',4)
-        ->orwhere('status',5)
-        ->orwhere('status',7)
-        ->latest('id')->get()->take(3);
+         if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -112,10 +127,15 @@ class VehiculoController extends Controller
     
 
     public function create(){
-       $autos = Vehiculo::where('status',4)
+       if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -142,10 +162,15 @@ class VehiculoController extends Controller
 
     public function vender(){
         
-       $autos = Vehiculo::where('status',4)
+       if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -216,10 +241,15 @@ class VehiculoController extends Controller
 
     public function show(Vehiculo $vehiculo){
 
-       $autos = Vehiculo::where('status',4)
+       if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -332,10 +362,15 @@ class VehiculoController extends Controller
 
     public function imageupload(Vehiculo $vehiculo)
     {   
-       $autos = Vehiculo::where('status',4)
+       if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 

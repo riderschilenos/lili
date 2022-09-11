@@ -186,9 +186,9 @@
                                 <!-- garage and movie -->
                                 <div class="bg-white p-3 shadow-sm rounded-sm mb-14">
                                     <h1 class="text-center font-bold py-2">GEOLOCALIZACIÓN PARA ENTRENAMIENTOS</h1>
-                                    <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
+                                  <!--    <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
 
-                <!-- 
+               
                                     <div class="grid grid-cols-1 sm:grid-cols-2">
                                         <div class="bg-white p-3 hover:shadow">
                                             <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8">
@@ -401,7 +401,7 @@
                         </div>
                     </div>
             </div>
-            <script>
+          {{--   <script>
                 mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsM2NwYXdsYjAwcW4zanBoZ3IzZHdya2kifQ.PfJs-vZuxkQRGavx9Czz8Q';
                 var map = new mapboxgl.Map({
                 container: 'map',
@@ -421,7 +421,7 @@
                 showUserHeading: true
                 })
                 );
-            </script>
+            </script>comment --}}
 
     </x-fast-view>
       

@@ -843,11 +843,11 @@
             @endphp
             
             
-            <div class="max-w-7xl mx-auto px-4 pb-16">
-            {{-- 
-                            @livewire('vendedor.catalogo-productos')
-            comment --}}
-                <div class="card pb-8 ">
+           <div class="max-w-7xl mx-auto px-4 py-8">
+                {{-- comment
+                @livewire('vendedor.catalogo-productos')
+                                        --}}
+                <div class="card pb-8 my-8 sm:my-2">
             
                     
 
@@ -1223,7 +1223,7 @@
 
             
 
-            <div class="max-w-7xl mx-auto px-4 py-8 mt-4">
+            <div class="max-w-7xl mx-auto px-4 py-8">
                 {{-- comment
                 @livewire('vendedor.catalogo-productos')
                                         --}}
@@ -1231,7 +1231,7 @@
             
                     
 
-                    <div class="justify-between gap-4 bg-red-700 mt-4">
+                    <div class="justify-between gap-4 bg-red-700">
                 
                             <h1 class="text-3xl font-bold py-4 text-center text-white">Haz Parte del Equipo Riders Chilenos</h1>
                             

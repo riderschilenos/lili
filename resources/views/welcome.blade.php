@@ -1,4 +1,26 @@
 <x-app-layout>
+    <style>
+        :root {
+            --main-color: #4a76a8;
+            --rider-color: #314780;
+        }
+    
+        .bg-main-color {
+            background-color: var(--main-color);
+        }
+    
+        .bg-rider-color {
+            background-color: var(--rider-color);
+        }
+    
+        .text-main-color {
+            color: var(--main-color);
+        }
+    
+        .border-main-color {
+            border-color: var(--main-color);
+        }
+    </style>
 
     <div id="default-carousel" class="hidden sm:block mx-auto relative max-w-7xl md:mt-16" data-carousel="static" style='z-index: 1 ; '>
         <!-- Carousel wrapper -->

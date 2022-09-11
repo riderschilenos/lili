@@ -13,6 +13,8 @@ use App\Models\Vehiculo;
 use App\Models\Vendedor;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Cache;           
+
 class HomeController extends Controller
 {
     /**
@@ -33,7 +35,13 @@ class HomeController extends Controller
                     ->orwhere('status',7)
                     ->latest('id')->get()->take(3);
 
-                    $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+                    if(Cache::has('series')){
+                        $series = Cache::get('series');
+                    }else{
+                        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+                        Cache::put('series',$series);
+                    }
+
 
                     $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
@@ -71,12 +79,23 @@ class HomeController extends Controller
     }
 
     public function prepay()
-    {   $autos = Vehiculo::where('status',4)
-        ->orwhere('status',5)
-        ->orwhere('status',7)
-        ->latest('id')->get()->take(3);
+    {   if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
@@ -101,12 +120,23 @@ class HomeController extends Controller
     }
 
     public function comisiones()
-    {   $autos = Vehiculo::where('status',4)
-        ->orwhere('status',5)
-        ->orwhere('status',7)
-        ->latest('id')->get()->take(3);
+    {   if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
@@ -136,12 +166,23 @@ class HomeController extends Controller
     }
 
     public function catalogoscarcasas()
-    {    $autos = Vehiculo::where('status',4)
-        ->orwhere('status',5)
-        ->orwhere('status',7)
-        ->latest('id')->get()->take(3);
+    {    if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 

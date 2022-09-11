@@ -13,6 +13,8 @@ use App\Models\Transportista;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Cache;
+
 class PedidoController extends Controller
 {
     /**
@@ -35,12 +37,23 @@ class PedidoController extends Controller
 
     {   $transportistas = Transportista::pluck('name','id');
         
-        $autos = Vehiculo::where('status',4)
-        ->orwhere('status',5)
-        ->orwhere('status',7)
-        ->latest('id')->get()->take(3);
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
@@ -142,12 +155,23 @@ class PedidoController extends Controller
 
         $socios=Socio::all();
 
-        $autos = Vehiculo::where('status',4)
-        ->orwhere('status',5)
-        ->orwhere('status',7)
-        ->latest('id')->get()->take(3);
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 

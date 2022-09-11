@@ -34,7 +34,13 @@ class VehiculoController extends Controller
             Cache::put('autos',$autos);
          }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
@@ -68,7 +74,13 @@ class VehiculoController extends Controller
             Cache::put('autos',$autos);
          }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
@@ -102,7 +114,13 @@ class VehiculoController extends Controller
             Cache::put('autos',$autos);
          }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
@@ -137,7 +155,13 @@ class VehiculoController extends Controller
             Cache::put('autos',$autos);
          }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
@@ -172,7 +196,13 @@ class VehiculoController extends Controller
             Cache::put('autos',$autos);
          }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
@@ -251,7 +281,13 @@ class VehiculoController extends Controller
             Cache::put('autos',$autos);
          }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
@@ -372,7 +408,13 @@ class VehiculoController extends Controller
             Cache::put('autos',$autos);
          }
 
-        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
 
         $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 

@@ -22,7 +22,7 @@
                 </article>
                 <article>
                     <figure>
-                        <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/multimarca-min.jpg')}}" alt=""></a>
+                        <a href=""><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('catalogos/Multimarca-min.jpg')}}" alt=""></a>
                     </figure>
                 
                 </article>

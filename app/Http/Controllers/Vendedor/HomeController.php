@@ -13,8 +13,6 @@ use App\Models\Vehiculo;
 use App\Models\Vendedor;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Cache;
-
 class HomeController extends Controller
 {
     /**
@@ -37,12 +35,7 @@ class HomeController extends Controller
 
                     $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
-                     if(Cache::has('riders')){
-            $riders = Cache::get('autos');
-        }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
-            Cache::put('riders',$riders);
-        }
+                    $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
                     if(auth()->user())
                     {
@@ -85,12 +78,7 @@ class HomeController extends Controller
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
-         if(Cache::has('riders')){
-            $riders = Cache::get('autos');
-        }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
-            Cache::put('riders',$riders);
-        }
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
         if(auth()->user())
         {
@@ -120,12 +108,7 @@ class HomeController extends Controller
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
-         if(Cache::has('riders')){
-            $riders = Cache::get('autos');
-        }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
-            Cache::put('riders',$riders);
-        }
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
         if(auth()->user())
         {
@@ -153,24 +136,14 @@ class HomeController extends Controller
     }
 
     public function catalogoscarcasas()
-        {    if(Cache::has('autos')){
-            $autos = Cache::get('autos');
-        }else{
-            $autos = Vehiculo::where('status',4)
-                            ->orwhere('status',5)
-                            ->orwhere('status',7)
-                            ->latest('id')->get()->take(3);
-            Cache::put('autos',$autos);
-        }
+    {    $autos = Vehiculo::where('status',4)
+        ->orwhere('status',5)
+        ->orwhere('status',7)
+        ->latest('id')->get()->take(3);
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
-         if(Cache::has('riders')){
-            $riders = Cache::get('autos');
-        }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
-            Cache::put('riders',$riders);
-        }
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
         if(auth()->user())
         {
@@ -186,9 +159,8 @@ class HomeController extends Controller
         $socio2=null;
         }
 
-        $disciplinas= Disciplina::pluck('name','id');
-
-        return view('vendedor.catalogo.carcasas',compact('series','riders','autos','socio2','disciplinas'));
+        $disciplinas= Disciplina::pluck('name','id');  
+        return view('vendedor.catalogo.carcasas');
     }
 
     /**

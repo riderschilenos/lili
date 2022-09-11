@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Vehiculo;
 use App\Models\Vehiculo;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\Cache;
+
 class VehiculoSearch extends Component
 {   
     use WithPagination;
@@ -14,21 +14,15 @@ class VehiculoSearch extends Component
 
     public function render()
     {   
-       
-        if(Cache::has('vehiculos')){
-            $vehiculos = Cache::get('vehiculos');
-        }else{
-            $vehiculos = Vehiculo::
-                            join('users','vehiculos.user_id','=','users.id')
-                            ->select('vehiculos.*','users.name','users.email')
-                            ->orwhere('name','LIKE','%'. $this->search .'%')
-                            ->orwhere('users.email','LIKE','%'. $this->search .'%')
-                            ->orwhere('vehiculos.modelo','LIKE','%'. $this->search .'%')
-                            ->orwhere('vehiculos.nro_serie','LIKE','%'. $this->search .'%')
-                            ->latest('id')
-                            ->paginate(100);
-            Cache::put('vehiculos',$vehiculos);
-        }
+        $vehiculos = Vehiculo::
+        join('users','vehiculos.user_id','=','users.id')
+        ->select('vehiculos.*','users.name','users.email')
+        ->orwhere('name','LIKE','%'. $this->search .'%')
+        ->orwhere('users.email','LIKE','%'. $this->search .'%')
+        ->orwhere('vehiculos.modelo','LIKE','%'. $this->search .'%')
+        ->orwhere('vehiculos.nro_serie','LIKE','%'. $this->search .'%')
+        ->latest('id')
+        ->paginate(100);
 
         return view('livewire.vehiculo.vehiculo-search',compact('vehiculos'));
     }

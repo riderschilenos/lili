@@ -7,8 +7,6 @@ use App\Models\Socio;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-use Illuminate\Support\Facades\Cache;
-
 class SocioSearch extends Component
 {   
     use WithPagination;
@@ -19,23 +17,17 @@ class SocioSearch extends Component
     {   
         $disciplinas = Disciplina::all();
 
-        if(Cache::has('socios')){
-            $socios = Cache::get('socios');
-        }else{
-            $socios = Socio::
-                join('users','socios.user_id','=','users.id')
-                ->select('socios.*','users.name','users.email')
-                ->where('rut','LIKE','%'. $this->search .'%')
-                ->orwhere('email','LIKE','%'. $this->search .'%')
-                ->orwhere('socios.name','LIKE','%'. $this->search .'%')
-                ->orwhere('users.name','LIKE','%'. $this->search .'%')
-                ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
-                ->orderby('status')
-                ->latest('id')
-                ->paginate(50);
-            Cache::put('socios',$socios);
-        }
-      
+        $socios = Socio::
+                    join('users','socios.user_id','=','users.id')
+                    ->select('socios.*','users.name','users.email')
+                    ->where('rut','LIKE','%'. $this->search .'%')
+                    ->orwhere('email','LIKE','%'. $this->search .'%')
+                    ->orwhere('socios.name','LIKE','%'. $this->search .'%')
+                    ->orwhere('users.name','LIKE','%'. $this->search .'%')
+                    ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
+                    ->orderby('status')
+                    ->latest('id')
+                    ->paginate(50);
 
         
         return view('livewire.socio.socio-search',compact('socios','disciplinas'));

@@ -24,24 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        if(Cache::has('autos')){
-            $autos = Cache::get('autos');
-        }else{
-            $autos = Vehiculo::where('status',4)
+       $autos = Vehiculo::where('status',4)
                             ->orwhere('status',5)
                             ->orwhere('status',7)
                             ->latest('id')->get()->take(3);
-            Cache::put('autos',$autos);
-        }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
-         if(Cache::has('riders')){
-            $riders = Cache::get('autos');
-        }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
-            Cache::put('riders',$riders);
-        }
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
         if(auth()->user())
         {
@@ -137,12 +127,7 @@ class HomeController extends Controller
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
-         if(Cache::has('riders')){
-            $riders = Cache::get('autos');
-        }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
-            Cache::put('riders',$riders);
-        }
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
         
         if(auth()->user())
         {
@@ -267,12 +252,7 @@ class HomeController extends Controller
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
-         if(Cache::has('riders')){
-            $riders = Cache::get('autos');
-        }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
-            Cache::put('riders',$riders);
-        }
+        $riders = Socio::where('status',1)->latest('id')->get()->take(4);
 
         if(auth()->user())
         {

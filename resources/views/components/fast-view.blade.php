@@ -450,19 +450,19 @@
                  <!-- Item 1 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <span class="hidden absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-                    <img src="{{asset('img/homeslider/carcasas.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{asset('img/homeslider/carcasas-min.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{asset('img/homeslider/polerones.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{asset('img/homeslider/polerones-min.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{asset('img/homeslider/poleras.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{asset('img/homeslider/poleras-min.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                  <!-- Item 4 -->
                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{asset('img/homeslider/tienda.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{asset('img/homeslider/tienda-min.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
             <!-- Slider indicators -->
@@ -495,16 +495,16 @@
                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                     
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="" src="{{asset('img/mobileslider/polerones.png')}}" alt="" style="scroll-snap-align: center;">
+                        <img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;">
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="" src="{{asset('img/mobileslider/carcasas.png')}}" alt="" style="scroll-snap-align: center;">
+                        <img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;">
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="" src="{{asset('img/mobileslider/poleras.png')}}" alt="" style="scroll-snap-align: center;">
+                        <img class="" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;">
                     </li>        
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="" src="{{asset('img/mobileslider/tienda.png')}}" alt="" style="scroll-snap-align: center;">
+                        <img class="" src="{{asset('img/mobileslider/tienda-min.png')}}" alt="" style="scroll-snap-align: center;">
                     </li>
                   
                 </ul>

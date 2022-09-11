@@ -500,7 +500,7 @@ comment --}}
         </article>
         <article>
             <figure>
-                <a href="{{route('vendedor.catalogo.carcasas')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt=""></a>
+                <a href="{{route('catalogo.carcasas')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt=""></a>
             </figure>
         
         </article>
@@ -526,7 +526,7 @@ comment --}}
                         <a href="catalogos/poleronesmx.pdf"><img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <a href="{{route('vendedor.catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
+                        <a href="{{route('catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
                         <img class="" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;">

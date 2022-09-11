@@ -45,3 +45,5 @@ Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->m
 Route::post('webhooks', WebhooksController::class);
 
 Route::get('ticket/{evento}', [PaymentController::class, 'checkoutevento'])->name('checkout.evento')->middleware('auth');
+
+Route::get('/catalogoscarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');

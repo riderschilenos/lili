@@ -38,9 +38,9 @@ class HomeController extends Controller
         $socio2=null;
         }
 
+        $disciplinas= Disciplina::pluck('name','id');
 
-
-        return view('welcome',compact('series','riders','autos','socio2'));
+        return view('welcome',compact('series','riders','autos','socio2','disciplinas'));
         
     }
 }

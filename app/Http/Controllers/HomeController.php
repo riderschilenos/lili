@@ -9,16 +9,23 @@ use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Vehiculo;
 
+use Illuminate\Support\Facades\Cache;
+
 class HomeController extends Controller
 {
 
     public function __invoke()
     {   
-      
-        $autos = Vehiculo::where('status',4)
-        ->orwhere('status',5)
-        ->orwhere('status',7)
-        ->latest('id')->get()->take(3);
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+        }
+        
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 

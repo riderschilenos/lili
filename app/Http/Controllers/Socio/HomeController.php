@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
 
+use Illuminate\Support\Facades\Cache;
+
 class HomeController extends Controller
 {
     /**
@@ -22,10 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $autos = Vehiculo::where('status',4)
-            ->orwhere('status',5)
-            ->orwhere('status',7)
-            ->latest('id')->get()->take(3);
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+        }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 

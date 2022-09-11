@@ -91,18 +91,16 @@ class VehiculoController extends Controller
     }
     
     public function registerindex(){
-        $vehiculos = Vehiculo::where('status',6)
-                            ->latest('id')->get();
 
-                            if(Cache::has('autos')){
-                                $autos = Cache::get('autos');
-                            }else{
-                                $autos = Vehiculo::where('status',4)
-                                                ->orwhere('status',5)
-                                                ->orwhere('status',7)
-                                                ->latest('id')->get()->take(3);
-                                Cache::put('autos',$autos);
-                            }
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
 
         $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
 
@@ -124,7 +122,7 @@ class VehiculoController extends Controller
 
        $disciplinas= Disciplina::pluck('name','id');
 
-        return view('vehiculo.index',compact('vehiculos','socio2','disciplinas','riders','series','autos'));
+        return view('vehiculo.index',compact('socio2','disciplinas','riders','series','autos'));
     }
     
 

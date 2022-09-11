@@ -493,7 +493,7 @@ comment --}}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
         <article>
             <figure>
-                <a href="catalogos/poleronesmx.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/polerones-min.png')}}" alt=""></a>
+                <a href="catalogos/polerones.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/polerones-min.png')}}" alt=""></a>
             </figure>
 
         
@@ -523,7 +523,7 @@ comment --}}
                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                     
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <a href="catalogos/poleronesmx.pdf"><img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
+                        <a href="catalogos/polerones.pdf"><img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
                         <a href="{{route('catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>

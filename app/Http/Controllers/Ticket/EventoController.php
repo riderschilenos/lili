@@ -58,15 +58,13 @@ class EventoController extends Controller
                             ->get();
           
         if(auth()->user())
-        {   if(auth()->user()->socio){
+        {   
                 if(Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)){    
                     $ticket = Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)->first();
                 }else{
                     $ticket =null;
                 }    
-            }else{
-                $ticket =null;
-            }         
+                
         }
         else{
             $ticket =null;

@@ -40,6 +40,10 @@ class Socio extends Model
         return $this->MorphOne('App\Models\Direccion','direccionable');
     }
 
+    public function tickets(){
+        return $this->MorphOne('App\Models\Ticket','ticketable');
+    }
+
     public function suscripcions(){
         return $this->morphMany('App\Models\Suscripcion','suscripcionable');
     }

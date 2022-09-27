@@ -145,7 +145,7 @@ class EventoController extends Controller
                 }
             }
 
-        return redirect()->route('organizador.eventos.edit',$evento);
+        return redirect()->back();
     }
 
     public function fechas(Evento $evento)
@@ -160,6 +160,18 @@ class EventoController extends Controller
 
         return view('organizador.eventos.categorias', compact('evento','fecha'));
     }
+
+    public function terminos(Evento $evento)
+    {  
+        return view('organizador.eventos.terminos', compact('evento'));
+    }
+
+    public function inscritos(Evento $evento)
+    {  
+        return view('organizador.eventos.inscritos', compact('evento'));
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *

@@ -37,10 +37,13 @@
                     <a href="{{route('organizador.eventos.index')}}" class="font-bold text-lg mb-4 cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800"></i> Listado de eventos</a>
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('organizador.eventos.edit',$evento) border-indigo-400 @else @endif pl-2">
                             <a href="{{route('organizador.eventos.edit',$evento)}}">Información del evento</a>
                         </li>
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('organizador.eventos.terminos',$evento) border-indigo-400 @else @endif pl-2">
+                            <a href="{{route('organizador.eventos.terminos',$evento)}}">Terminos y Condiciones</a>
+                        </li>
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('organizador.eventos.fechas',$evento) border-indigo-400 @else @endif pl-2">
                             @if ($evento->type=='carrera')
                                 <a href="{{route('organizador.eventos.fechas',$evento)}}">Fecha y Categorias</a>
                             @else
@@ -48,13 +51,13 @@
                             @endif
                             
                         </li>
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Listado de Inscritos</a>
+                        <li class="leading-7 mb-1 border-l-4  @routeIs('organizador.eventos.inscritos',$evento) border-indigo-400 @else @endif  pl-2">
+                            <a href="{{route('organizador.eventos.inscritos',$evento)}}">Listado de Inscritos</a>
                         </li>
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
+                        <li class="hidden leading-7 mb-1 border-l-4  pl-2">
                             <a href="">Resultados</a>
                         </li>
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
+                        <li class="hidden leading-7 mb-1 border-l-4  pl-2">
                             <a href="">Listado de Asistentes</a>
                         </li>
                         <li class="leading-7 mb-1 border-l-4  pl-2">

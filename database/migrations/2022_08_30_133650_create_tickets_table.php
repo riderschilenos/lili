@@ -19,7 +19,12 @@ class CreateTicketsTable extends Migration
 
             $table->enum('status',[Ticket::BORRADOR,Ticket::PAGADO])->default(Ticket::BORRADOR);
                         
-            $table  ->foreignId('user_id')
+            $table->foreignId('user_id')
+                    ->nullable()
+                    ->constrained()
+                    ->onDelete('set null');
+
+            $table->foreignId('evento_id')
                     ->nullable()
                     ->constrained()
                     ->onDelete('set null');

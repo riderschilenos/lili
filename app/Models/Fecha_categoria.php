@@ -21,4 +21,7 @@ class Fecha_categoria extends Model
         return $this->belongsTo('App\Models\Categoria');
     }
     
+    public function inscripcions(){
+        return $this->hasMany('App\Models\Inscripcion');
+    }
 }

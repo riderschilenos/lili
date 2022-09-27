@@ -96,8 +96,8 @@
                         @else 
 
                         @php
-                            $min=32000;
-                            $max=32000;
+                            $min=0;
+                            $max=0;
                         @endphp
                         @foreach ($fechas as $fecha)
                             @foreach($fecha->categorias as $categoria)
@@ -130,8 +130,14 @@
                                         ${{number_format($min)}} - ${{number_format($max)}}
                                     </a>
                             @endif
+                            @if ($ticket)
+                                    <a href="{{route('checkout.evento', $evento).'/#pago'}}" class="btn btn-danger btn-block">Finalizar Inscripcion</a>
+
+                            @else
                                 <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
 
+                            @endif
+                            
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 <div class="flex justify-between mb-4">
                                     <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
@@ -144,8 +150,14 @@
                                     </div>
                                    
                                 </div>
-                                <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
+                                @if ($ticket)
+                                    <a href="{{route('checkout.evento', $evento).'/#pago'}}" class="btn btn-danger btn-block">Obtener Entradas</a>
 
+                                @else
+                                    <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
+
+                                @endif
+                                
                            
                     @endcan
                     </div>

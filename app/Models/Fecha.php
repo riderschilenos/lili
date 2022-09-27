@@ -16,6 +16,10 @@ class Fecha extends Model
         return $this->BelongsTo('App\Models\Evento');
     }
 
+    public function fecha(){
+        return $this->BelongsTo('App\Models\Fecha');
+    }
+
 
     //relacion uno a uno polimorfica
     public function image(){
@@ -28,5 +32,7 @@ class Fecha extends Model
     public function categorias(){
         return $this->hasMany('App\Models\Fecha_categoria');
     }
+
+   
 
 }

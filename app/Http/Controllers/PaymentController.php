@@ -8,6 +8,7 @@ use App\Models\Qrregister;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Suscripcion;
+use App\Models\Ticket;
 use App\Models\Vehiculo;
 use App\Models\Vendedor;
 use Carbon\Carbon;
@@ -51,7 +52,7 @@ class PaymentController extends Controller
       
     }
 
-    public function evento(Evento $evento, Request $request){
+    public function ticket(Ticket $ticket, Request $request){
 
         $payment_id = $request->get('payment_id');
 
@@ -62,8 +63,10 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
+            $evento=Evento::find($ticket->evento_id);
             $evento->inscrito()->attach(auth()->user()->id);
-            return redirect()->route('series.status',$evento);
+
+            return redirect()->route('checkout.evento',$evento);
         }
         else{
             

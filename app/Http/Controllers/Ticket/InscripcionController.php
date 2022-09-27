@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Ticket;
 
 use App\Http\Controllers\Controller;
 use App\Models\Evento;
-use App\Models\Fecha;
+use App\Models\Inscripcion;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class EventoController extends Controller
+class InscripcionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return view('Evento.index');
+        //
     }
 
     /**
@@ -38,7 +38,14 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          
+        $inscripcion = Inscripcion::create($request->all());
+        $ticket= Ticket::find($request->ticket_id);
+        $evento= Evento::find($ticket->evento->id);
+
+        //return redirect()->route('checkout.evento',$evento);
+        return redirect(route('checkout.evento',$evento).'/#pago');
+
     }
 
     /**
@@ -47,30 +54,9 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Evento $evento)
-    {   $fechas= Fecha::where('evento_id',$evento->id)->paginate();
-        
-        $similares = Evento::where('disciplina_id',$evento->disciplina_id)
-                            ->where('id','!=',$evento->id)
-                            ->where('status',1)
-                            ->latest('id')
-                            ->take(5)
-                            ->get();
-          
-        if(auth()->user()->socio)
-        {
-            
-            if(Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)){    
-                $ticket = Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)->first();
-            }else{
-                $ticket =null;
-            }          
-        }
-        else{
-            $ticket =null;
-        }                   
-
-        return view('Evento.show',compact('evento','fechas','similares','ticket'));
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -102,8 +88,15 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Inscripcion $inscripcion,Request $request)
     {
-        //
+        $inscripcion->delete();
+        $ticket= Ticket::find($request->ticket_id);
+        $evento= Evento::find($ticket->evento->id);
+
+        //return redirect()->route('checkout.evento',$evento);
+        return redirect(route('checkout.evento',$evento).'/#pago');
+        return redirect()->route('admin.disciplinas.index')->with('info','La disciplina se elimino con éxito.');
+
     }
 }

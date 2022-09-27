@@ -18,10 +18,10 @@
                             Videos
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Sponsors
+                        Inscritos
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Calificación
+                        Cupos
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Estado
@@ -57,13 +57,13 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">7 <i class="fas fa-video text-gray-400"></i></div>
-                                        <div class="text-sm text-gray-500">Videos</div>
+                                        <div class="text-sm text-gray-900">{{$serie->fechas->count()}}<i class="fas fa-video text-gray-400"></i></div>
+                                        <div class="text-sm text-gray-500">Fechas</div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">5</div>
-                                        <div class="text-sm text-gray-500">Sponsors</div>
+                                        <div class="text-sm text-gray-500">Inscritos</div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
@@ -86,7 +86,7 @@
                                             </li>
                                         </ul>
                                         </div>
-                                        <div class="text-sm text-gray-500">Valoración del curso</div>
+                                        <div class="text-sm text-gray-500">Capacidad del evento</div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">    

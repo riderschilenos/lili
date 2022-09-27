@@ -18,8 +18,8 @@
                 </a>
 
                 @php
-                $min=32000;
-                $max=32000;
+                $min=0;
+                $max=0;
             @endphp
             @foreach ($evento->fechas as $fecha)
                 @foreach($fecha->categorias as $categoria)

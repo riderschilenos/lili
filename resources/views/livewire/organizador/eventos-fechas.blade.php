@@ -8,7 +8,14 @@
                 <i class="far fa-plus-square text-2xl text-red-500 mr-2"></i>
                 Agregar Fecha
             </a>
+        @elseif($evento->fechas->count()==0)
+          <h1 x-show="!open" class="text-center mb-4">Preciona el boton para iniciar el formulario de una nueva fecha</h1>
+          <a x-show="!open" x-on:click="open=true" class="flex items-center cursor-pointer justify-center">
+              <i class="far fa-plus-square text-2xl text-red-500 mr-2"></i>
+              Agregar Fecha
+          </a>
         @endif
+        
           
         <div x-show="open">
             <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es la fecha?</h2>

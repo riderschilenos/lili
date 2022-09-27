@@ -130,7 +130,7 @@
                                         ${{number_format($min)}} - ${{number_format($max)}}
                                     </a>
                             @endif
-                            
+                          
                                 <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
 
                            
@@ -147,10 +147,10 @@
                                     </div>
                                    
                                 </div>
-                               
+                              
                                     <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
 
-                               
+                             
                                 
                            
                     @endcan

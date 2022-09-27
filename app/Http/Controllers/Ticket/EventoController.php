@@ -57,7 +57,7 @@ class EventoController extends Controller
                             ->take(5)
                             ->get();
           
-        if(auth()->user()->socio)
+       /* if(auth()->user()->socio)
         {
             
             if(Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)){    
@@ -68,9 +68,9 @@ class EventoController extends Controller
         }
         else{
             $ticket =null;
-        }                   
+        }   */                
 
-        return view('Evento.show',compact('evento','fechas','similares','ticket'));
+        return view('Evento.show',compact('evento','fechas','similares'));
     }
 
     /**

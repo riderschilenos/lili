@@ -24,28 +24,14 @@ class EventoShow extends Component
     }
 
     public function render()
-    {    $fechas= Fecha::where('evento_id',$this->evento->id)->paginate();
-        
+    {   $fechas= Fecha::where('evento_id',$this->evento->id)->paginate();
         $similares = Evento::where('disciplina_id',$this->evento->disciplina_id)
                             ->where('id','!=',$this->evento->id)
                             ->where('status',1)
                             ->latest('id')
                             ->take(5)
-                            ->get();
-          
-        if(auth()->user())
-        {   
-                if(Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)){    
-                    $ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
-                }else{
-                    $ticket =null;
-                }    
-                
-        }
-        else{
-            $ticket =null;
-        }                   
+                            ->get();      
 
-        return view('livewire.ticket.evento-show',compact('fechas','similares','ticket'));
+        return view('livewire.ticket.evento-show',compact('fechas','similares'));
     }
 }

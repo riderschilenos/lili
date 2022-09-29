@@ -18,9 +18,7 @@ class EventoShow extends Component
     public $evento;
 
     public function mount(Evento $evento){
-        
         $this->evento=$evento;
-
     }
 
     public function render()

@@ -128,14 +128,10 @@
                                     ${{number_format($min)}} - ${{number_format($max)}}
                                 </a>
                         @endif
-                        @can('ticketed', $evento)
+                        
                             
                             <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
-                        @else
-                            
-                            <a href="{{route('checkout.evento', $evento).'/#pago'}}" class="btn btn-danger btn-block">Finalizar Inscripción</a>
-
-                        @endcan
+                        
                         
                             <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                             <div class="flex justify-between mb-4">
@@ -149,12 +145,9 @@
                                 </div>
                                
                             </div>
-                            @can('ticketed', $evento)
-                                <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>                       
-                            @else
-                                <a href="{{route('checkout.evento', $evento).'/#pago'}}" class="btn btn-danger btn-block">Obtener Entradas</a>
-
-                            @endcan
+                            
+                            <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>                       
+                           
                             
                        
                 @endcan

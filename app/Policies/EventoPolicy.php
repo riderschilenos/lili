@@ -3,7 +3,6 @@
 namespace App\Policies;
 
 use App\Models\Evento;
-use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -23,19 +22,6 @@ class EventoPolicy
 
     public function enrolled(User $user, Evento $evento){
         return $evento->inscritos->contains($user->id);
-    }
-
-    public function ticketed(User $user, Evento $evento){
-        if(auth()->user()){
-            if (Ticket::where('user_id', $user->id)->where('evento_id',$evento->id)->count()){
-                return false;
-            }else{
-                return true;
-            }   
-        }else{
-            return true;
-        }
-       
     }
 
     

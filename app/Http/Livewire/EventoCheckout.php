@@ -21,15 +21,15 @@ class EventoCheckout extends Component
         
         $this->evento =$evento;
 
-        if(auth()->user()->socio)
-        {
-            $this->socio = Socio::where('user_id',auth()->user()->id)->first();
-            if(Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)){    
-                $this->ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
-            }else{
-                $this->ticket =null;
-            }
-                            
+        if(auth()->user())
+        {   if(auth()->user()->socio){
+                $this->socio = Socio::where('user_id',auth()->user()->id)->first();
+                if(Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)){    
+                    $this->ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
+                }else{
+                    $this->ticket =null;
+                }
+            }     
         }
         else{
             $this->socio=null;

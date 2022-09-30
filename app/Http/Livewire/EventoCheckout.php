@@ -30,13 +30,14 @@ class EventoCheckout extends Component
         $fechas= Fecha::where('evento_id',$this->evento->id)->paginate();
         $disciplinas= Disciplina::pluck('name','id');
 
-        if(auth()->user()->socio)
-        {
+        if(auth()->user())
+        {   if(auth()->user()->socio){
             $socio = Socio::where('user_id',auth()->user()->id)->first();
             if(Ticket::where('user_id', auth()->user()->id)->where('evento_id',$this->evento->id)->count()){    
                 $ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
             }else{
                 $ticket =null;
+            }
             }
                             
         }

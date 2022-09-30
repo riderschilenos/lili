@@ -21,15 +21,15 @@ class EventoCheckout extends Component
         
         $this->evento =$evento;
 
-        if(auth()->user())
-        {   if(auth()->user()->socio){
-                $this->socio = Socio::where('user_id',auth()->user()->id)->first();
-                if(Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)){    
-                    $this->ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
-                }else{
-                    $this->ticket =null;
-                }
-            }     
+        if(auth()->user()->socio)
+        {
+            $this->socio = Socio::where('user_id',auth()->user()->id)->first();
+            if(Ticket::where('user_id', auth()->user()->id)->where('evento_id',$evento->id)->count()){    
+                $this->ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
+            }else{
+                $this->ticket =null;
+            }
+                            
         }
         else{
             $this->socio=null;
@@ -54,22 +54,5 @@ class EventoCheckout extends Component
         $this->fechacategoria=Fecha_categoria::find($this->categoria_id);
     }
 
-    public function add(Fecha_categoria $fecha){
-        $rules = [
-            'nro'=>'required'
-        ];
-
-        $this->validate ($rules);
-        
-        $inscripcion = Inscripcion::create([
-            'ticket_id'=> $this->ticket->id,
-            'fecha_categoria_id'=> $this->categoria_id,
-            'nro'=> $this->nro,
-            'fecha_id'=> $fecha->id
-        ]);
-
-        $this->reset(['ticket','nro']);
-
-        return redirect()->route('checkout.evento',$this->evento).'/#pago';
-    }
+    
 }

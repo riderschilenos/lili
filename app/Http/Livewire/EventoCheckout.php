@@ -14,27 +14,14 @@ use Livewire\Component;
 
 class EventoCheckout extends Component
 {   
-    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro, $ticket, $socio;
+    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro;
 
 
     public function mount(Evento $evento){
         
         $this->evento =$evento;
 
-        if(auth()->user()->socio)
-        {
-            $this->socio = Socio::where('user_id',auth()->user()->id)->first();
-            if(Ticket::where('user_id', auth()->user()->id)->where('evento_id',$evento->id)->count()){    
-                $this->ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
-            }else{
-                $this->ticket =null;
-            }
-                            
-        }
-        else{
-            $this->socio=null;
-            $this->ticket =null;
-        }
+        
         
     }
 
@@ -43,9 +30,24 @@ class EventoCheckout extends Component
         $fechas= Fecha::where('evento_id',$this->evento->id)->paginate();
         $disciplinas= Disciplina::pluck('name','id');
 
+        if(auth()->user()->socio)
+        {
+            $socio = Socio::where('user_id',auth()->user()->id)->first();
+            if(Ticket::where('user_id', auth()->user()->id)->where('evento_id',$this->evento->id)->count()){    
+                $ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
+            }else{
+                $ticket =null;
+            }
+                            
+        }
+        else{
+            $socio=null;
+            $ticket =null;
+        }
+
        
 
-        return view('livewire.evento-checkout',compact('fechas','disciplinas'));
+        return view('livewire.evento-checkout',compact('fechas','disciplinas','socio','ticket'));
     }
 
     public function updatedselectedcategoria($category_product){

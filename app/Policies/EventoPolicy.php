@@ -32,7 +32,6 @@ class EventoPolicy
             }else{
                 return false;
             }   
-        
        
     }
 

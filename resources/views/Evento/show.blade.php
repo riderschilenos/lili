@@ -131,7 +131,7 @@
                                     </a>
                                 @endif
                                 @can('ticketed', $evento)
-                                    <a href="{{route('checkout.evento', $evento).'/#pago'}}" class="btn btn-danger btn-block">Finalizar Inscripción</a>
+                                    <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Finalizar Inscripción</a>
                                 @else
                                     
                                     <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>

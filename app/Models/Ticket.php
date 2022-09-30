@@ -10,6 +10,7 @@ class Ticket extends Model
     use HasFactory;
 
     protected $guarded = ['id','status'];
+    
 
     const BORRADOR =1;
     const PAGADO =2;

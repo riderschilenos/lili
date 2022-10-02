@@ -2,7 +2,7 @@
 
 <div class="hidden">
     {{$total=0;}}     
-    {{$total2=0;}}
+    {{$valor=0;}}
          
 </div>
 @foreach ($evento->fechas as $fecha)                                                        
@@ -10,7 +10,8 @@
         @foreach($const->inscripcions as $inscripcion)
             @php
                 $total+=$inscripcion->fecha_categoria->inscripcion;
-                $total2+=$inscripcion->fecha_categoria->inscripcio;
+
+                $valor+=$inscripcion->fecha_categoria->valor;
 
             @endphp
         @endforeach
@@ -32,7 +33,7 @@
         $item = new MercadoPago\Item();
         $item->title = 'Inscripción '.$evento->titulo;
         $item->quantity = 1;
-        $item->unit_price = $total2;
+        $item->unit_price = $valor;
 
         
 

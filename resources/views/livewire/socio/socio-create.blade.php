@@ -201,7 +201,7 @@
                                         </div>
                                         <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now.'+ 1 year'))}}</p>
                                     </div>
-                                <p class="text-xl font-bold ml-auto">$14.990</p>
+                                <p class="text-xl font-bold ml-auto">$25.000</p>
                                 </article>
                                 
                                 <div class="cho-container flex justify-center mt-2 mb-4">

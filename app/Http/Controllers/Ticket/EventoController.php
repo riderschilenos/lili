@@ -56,9 +56,21 @@ class EventoController extends Controller
                             ->latest('id')
                             ->take(5)
                             ->get();
+
+        if(auth()->user())
+        {   
+                if(Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)){    
+                    $ticket = Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)->first();
+                }else{
+                    $ticket =null;
+                }             
+        }
+        else{
+            $ticket =null;
+        }        
           
         
-        return view('Evento.show',compact('evento','fechas','similares'));
+        return view('Evento.show',compact('evento','fechas','similares','ticket'));
     }
 
     /**

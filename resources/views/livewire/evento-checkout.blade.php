@@ -19,7 +19,10 @@ scroll-page {
   font-size: 5em;
 }
     </style>
-{{$total=0;}}
+    @php
+        $total=0;        
+    @endphp
+
 @foreach ($evento->fechas as $fecha)                                                        
     @foreach ($fecha->categorias as $const)
         @foreach($const->inscripcions as $inscripcion)

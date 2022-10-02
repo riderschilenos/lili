@@ -19,10 +19,9 @@ scroll-page {
   font-size: 5em;
 }
     </style>
-    @php
-        $total=0;        
-    @endphp
-
+<div class="hidden">
+    {{$total=0;}}        
+</div>
 @foreach ($evento->fechas as $fecha)                                                        
     @foreach ($fecha->categorias as $const)
         @foreach($const->inscripcions as $inscripcion)
@@ -35,7 +34,6 @@ scroll-page {
 
     @php
         $com=$total*0.072;
-        $total+=$com;
     
         // SDK de Mercado Pago
         require base_path('/vendor/autoload.php');
@@ -50,7 +48,7 @@ scroll-page {
         $item = new MercadoPago\Item();
         $item->title = 'Inscripción '.$evento->titulo;
         $item->quantity = 1;
-        $item->unit_price = $total;
+        $item->unit_price = $total+$com;
 
         
 

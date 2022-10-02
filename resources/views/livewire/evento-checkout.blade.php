@@ -43,7 +43,7 @@
         $preference->back_urls = array(
             "success" => route('payment.ticket', $ticket),
             "failure" => route('checkout.evento', $evento),
-            "pending" => "http://www.tu-sitio/pending"
+            "pending" => route('checkout.evento', $evento)
         );
         $preference->auto_return = "approved";
 

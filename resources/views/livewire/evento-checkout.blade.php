@@ -28,7 +28,7 @@
         $item = new MercadoPago\Item();
         $item->title = 'Inscripción '.$evento->titulo;
         $item->quantity = 1;
-        $item->unit_price = $total*1.072;
+        $item->unit_price = $total;
 
         
 

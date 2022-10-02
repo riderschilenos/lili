@@ -33,10 +33,8 @@ class EventoCheckout extends Component
         if(auth()->user()->socio)
         {
             $socio = Socio::where('user_id',auth()->user()->id)->first();
-           
-                $ticket =null;
-            
-                            
+            $ticket = Ticket::where('evento_id',$this->evento->id)->where('user_id',auth()->user()->id)->first();
+                      
         }
         else{
             $socio=null;

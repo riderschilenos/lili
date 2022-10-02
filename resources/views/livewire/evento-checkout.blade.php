@@ -1,24 +1,5 @@
 <div>
-    <style>
-    
-scroll-container {
-  display: block;
-  width: 100%;
-  height: 200px;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  background: #ffffff;
-  padding-left: 0.5rem;
-}
-scroll-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  height: 100%;
-  font-size: 5em;
-}
-    </style>
+
 <div class="hidden">
     {{$total=0;}}        
 </div>
@@ -33,8 +14,7 @@ scroll-page {
 @endforeach
 
     @php
-       
-    
+
         // SDK de Mercado Pago
         require base_path('/vendor/autoload.php');
         // Agrega credenciales
@@ -66,6 +46,27 @@ scroll-page {
         $preference->save();
         }
     @endphp
+
+<style>
+    
+    scroll-container {
+      display: block;
+      width: 100%;
+      height: 200px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      background: #ffffff;
+      padding-left: 0.5rem;
+    }
+    scroll-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      height: 100%;
+      font-size: 5em;
+    }
+        </style>
 
 
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 py-12">

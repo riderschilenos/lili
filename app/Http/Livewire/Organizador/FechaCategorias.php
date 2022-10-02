@@ -49,6 +49,7 @@ class FechaCategorias extends Component
                 'fecha_id'=> $this->fecha->id,
                 'categoria_id'=> $item,
                 'inscripcion'=> $this->inscripcion,
+                'inscripcio'=> $this->inscripcion*1.072,
                 'limite'=> $this->limite
             ]);
         }

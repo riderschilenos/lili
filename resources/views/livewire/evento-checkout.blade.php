@@ -3,14 +3,14 @@
 <div class="hidden">
     {{$total=0;}}     
     {{$total2=0;}}
-    {{$dsct=1.072;}}        
+         
 </div>
 @foreach ($evento->fechas as $fecha)                                                        
     @foreach ($fecha->categorias as $const)
         @foreach($const->inscripcions as $inscripcion)
             @php
                 $total+=$inscripcion->fecha_categoria->inscripcion;
-                $total2+=$inscripcion->fecha_categoria->inscripcion*$dsct;
+                $total2+=$inscripcion->fecha_categoria->inscripcio;
 
             @endphp
         @endforeach

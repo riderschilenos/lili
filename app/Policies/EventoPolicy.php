@@ -28,9 +28,9 @@ class EventoPolicy
     public function ticketed(User $user, Evento $evento){
        
             if (Ticket::where('user_id', $user->id)->where('evento_id',$evento->id)->count()){
-                return true;
-            }else{
                 return false;
+            }else{
+                return true;
             }   
        
     }

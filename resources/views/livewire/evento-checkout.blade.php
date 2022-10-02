@@ -33,7 +33,7 @@ scroll-page {
 @endforeach
 
     @php
-        $com=$total*0.072;
+       
     
         // SDK de Mercado Pago
         require base_path('/vendor/autoload.php');
@@ -48,7 +48,7 @@ scroll-page {
         $item = new MercadoPago\Item();
         $item->title = 'Inscripción '.$evento->titulo;
         $item->quantity = 1;
-        $item->unit_price = $total+$com;
+        $item->unit_price = $total*1.072;
 
         
 

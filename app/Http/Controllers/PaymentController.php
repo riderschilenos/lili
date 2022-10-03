@@ -52,7 +52,7 @@ class PaymentController extends Controller
       
     }
 
-    public function ticket(Ticket $ticket,Evento $evento, Request $request){
+    public function ticket(Ticket $ticket, Request $request){
 
         $payment_id = $request->get('payment_id');
 
@@ -65,7 +65,7 @@ class PaymentController extends Controller
         if($status == 'approved'){
             $ticket->status=2;
             $ticket->save();
-
+            $evento=Evento::find($ticket->evento->id);
             $evento->inscritos()->attach(auth()->user()->id);
 
             return redirect()->route('checkout.evento',$evento);
@@ -73,10 +73,10 @@ class PaymentController extends Controller
         else{
             $ticket->status=2;
             $ticket->save();
-
+            $evento=Evento::find($ticket->evento->id);
             $evento->inscritos()->attach(auth()->user()->id);
-            
-            return redirect()->route('checkout.evento',$evento);   
+
+            return redirect()->route('checkout.evento',$evento);
         }
     }
 

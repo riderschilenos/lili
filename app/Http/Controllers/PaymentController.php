@@ -64,12 +64,11 @@ class PaymentController extends Controller
 
         if($status == 'approved'){
             $evento->inscritos()->attach(auth()->user()->id);
-
-
             return redirect()->route('checkout.evento',$evento);
         }
         else{
-            
+            $evento->inscritos()->attach(auth()->user()->id);
+            return redirect()->route('checkout.evento',$evento);   
         }
     }
 

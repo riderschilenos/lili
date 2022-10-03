@@ -7,7 +7,7 @@ Route::get('{serie}/checkout', [PaymentController::class, 'checkout'])->name('ch
 
 Route::get('{serie}/aproved', [PaymentController::class, 'serie'])->name('serie');
 
-Route::get('{ticket}/aproved', [PaymentController::class, 'ticket'])->name('ticket');
+Route::get('{evento}/aproved', [PaymentController::class, 'evento'])->name('evento');
 
 Route::get('{pago}/activepago', [PaymentController::class, 'pago'])->name('pago');
 

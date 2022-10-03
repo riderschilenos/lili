@@ -65,8 +65,6 @@ class PaymentController extends Controller
         if($status == 'approved'){
             $ticket->status=2;
             $ticket->save();
-           
-
             return redirect()->route('ticket.enrolled',$ticket);
         }
         else{

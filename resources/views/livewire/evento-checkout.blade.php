@@ -543,7 +543,12 @@
                 </div>
 
                 <div>
-                    <p wire:click="enrolled" class="btn btn-primary">Agregar</p> 
+                    <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
+                        @csrf
+                     
+                        <button class="btn btn-primary" >Agregar </button>
+                        
+                    </form>
                 </div>
           
               

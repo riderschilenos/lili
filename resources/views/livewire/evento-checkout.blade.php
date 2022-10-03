@@ -541,6 +541,10 @@
                 <div class="cho-container flex justify-center mt-2 mb-4">
                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                 </div>
+
+                <div>
+                    <p wire:click="enrolled" class="btn btn-primary">Agregar</p> 
+                </div>
           
               
 

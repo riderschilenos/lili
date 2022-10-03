@@ -63,11 +63,19 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
+            $ticket->status=2;
+            $ticket->save();
+
             $evento->inscritos()->attach(auth()->user()->id);
+
             return redirect()->route('checkout.evento',$evento);
         }
         else{
+            $ticket->status=2;
+            $ticket->save();
+
             $evento->inscritos()->attach(auth()->user()->id);
+            
             return redirect()->route('checkout.evento',$evento);   
         }
     }

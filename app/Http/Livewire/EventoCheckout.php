@@ -56,5 +56,9 @@ class EventoCheckout extends Component
         $this->fechacategoria=Fecha_categoria::find($this->categoria_id);
     }
 
+    public function enrolled(){
+        $this->evento->inscritos()->attach(auth()->user()->id);
+    }
+
     
 }

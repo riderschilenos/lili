@@ -91,7 +91,7 @@
                         </div>
                         @can('enrolled', $evento)
 
-                            <a class="btn btn-danger btn-block mt-4" href="{{route('eventos.status',$evento)}}">Ver mis tickets</a>
+                            <a class="btn btn-danger btn-block mt-4" href="{{route('checkout.evento', $evento).'/#pago'}}">Ver mis tickets</a>
 
                         @else 
 

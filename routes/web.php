@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Organizador\TicketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SerieController;
+use App\Http\Controllers\Ticket\EventoController;
 use App\Http\Controllers\UsadoController;
 use App\Http\Controllers\Vendedor\HomeController as VendedorHomeController;
 use App\Http\Controllers\Vendedor\PedidoController;
@@ -38,7 +40,7 @@ Route::get('seguimiento/{pedido}',[PedidoController::class,'seguimiento'])->name
 
 Route::post('content/{serie}/enrolled', [SerieController::class, 'enrolled'])->middleware('auth')->name('serie.enrolled');
 
-Route::post('evento/{evento}/enrolled', [SerieController::class, 'enrolled'])->middleware('auth')->name('evento.enrolled');
+Route::post('evento/{evento}/enrolled', [EventoController::class, 'enrolled'])->middleware('auth')->name('evento.enrolled');
 
 Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->middleware('auth');
 
@@ -47,3 +49,5 @@ Route::post('webhooks', WebhooksController::class);
 Route::get('ticket/{evento}', [PaymentController::class, 'checkoutevento'])->name('checkout.evento')->middleware('auth');
 
 Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');
+
+Route::post('ticket/{ticket}/enrolled', [TicketController::class, 'enrolled'])->middleware('auth')->name('ticket.enrolled');

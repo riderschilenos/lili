@@ -106,4 +106,10 @@ class EventoController extends Controller
     {
         //
     }
+
+    public function enrolled(Evento $evento){
+        $evento->inscritos()->attach(auth()->user()->id);
+        
+        return redirect()->route('ticket.evento.show',$evento);
+    }
 }

@@ -125,4 +125,13 @@ class TicketController extends Controller
     {
         //
     }
+
+    public function enrolled(Ticket $ticket){
+        $evento=Evento::find($ticket->evento_id);
+        $evento->inscritos()->attach(auth()->user()->id);
+        
+        return redirect()->route('ticket.evento.show',$evento);
+    }
+
+
 }

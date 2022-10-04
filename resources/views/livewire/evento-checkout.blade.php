@@ -1,7 +1,7 @@
 <div>
 
 <div class="hidden">
-    {{$total=0;}}     
+    {{$alfa=0;}}     
     {{$valor=0;}}
          
 </div>
@@ -9,7 +9,7 @@
     @foreach ($fecha->categorias as $const)
         @foreach($const->inscripcions as $inscripcion)
             @php
-                $total+=$inscripcion->fecha_categoria->inscripcion;
+                $alfa+=$inscripcion->fecha_categoria->inscripcion;
 
                 $valor+=$inscripcion->fecha_categoria->valor;
 
@@ -516,25 +516,25 @@
                     
                  
                 </div>
-                @if ($total>0)
+                @if ($alfa>0)
                 <section>
                     <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                         <div class="flex items-center justify-between px-8">
                         <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
-                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($total)}}</p>
+                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa)}}</p>
                         </div>
                       
 
                         <div class="flex items-center justify-between pt-5 px-8">
                         <p class="text-base leading-none text-gray-800 dark:text-white">Costos del Servicio</p>
-                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($total*0.072)}}</p>
+                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa*0.072)}}</p>
                         </div>
                     
                     </div>
                 <div>
                     <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
                       <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
-                      <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($total*0.072+$total)}}</p>
+                      <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($alfa*0.072+$alfa)}}</p>
                     </div>
                 </div>
 

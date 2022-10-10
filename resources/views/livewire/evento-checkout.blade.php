@@ -41,7 +41,7 @@
         //...
         if($ticket){
         $preference->back_urls = array(
-            "success" => route('payment.evento', $evento),
+            "success" => route('payment.ticket', $evento),
             "failure" => route('checkout.evento', $evento),
             "pending" => route('checkout.evento', $evento)
         );

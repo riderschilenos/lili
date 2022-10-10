@@ -54,6 +54,11 @@ class Evento extends Model
     public function fechas(){
         return $this->hasMany('App\Models\Fecha');
     }
+
+    public function tickets(){
+        return $this->hasMany('App\Models\Ticket');
+    }
+    
     
     public function disciplina(){
         return $this->BelongsTo('App\Models\Disciplina');

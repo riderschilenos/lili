@@ -11,12 +11,18 @@ class Ticket extends Model
 
     protected $guarded = ['id','status'];
     
+    protected $withCount = ['inscripcions'];
 
     const BORRADOR =1;
     const PAGADO =2;
 
     public function ticketable(){
         return $this->morphTo();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'id';
     }
 
     //relacion uno a muchos

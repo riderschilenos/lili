@@ -91,7 +91,7 @@
                         </div>
                         @can('enrolled', $evento)
 
-                            <a class="btn btn-danger btn-block mt-4" href="{{route('checkout.evento', $evento).'/#pago'}}">Ver mis tickets</a>
+                            <a class="btn btn-danger btn-block mt-4" href="{{route('evento.view',$evento)}}">Ver mis tickets</a>
 
                         @else 
 
@@ -131,9 +131,9 @@
                                     </a>
                                 @endif
                                 @if ($ticket)
-                                    <a href="{{route('checkout.evento', $evento).'/#pago'}}" class="btn btn-danger btn-block">Finalizar Inscripción</a>
+                                    <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Finalizar Inscripción</a>
                                 @else
-                                    <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
+                                    <a href="{{route('ticket.evento.preticket', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
                                 @endif
                                
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
@@ -149,7 +149,12 @@
                                    
                                 </div>
                             
-                                <a href="{{route('checkout.evento', $evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
+                                @if ($ticket)
+                                    <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
+                                @else
+                                    <a href="{{route('ticket.evento.preticket', $evento)}}}" class="btn btn-danger btn-block">Obtener Entradas</a>
+                                @endif
+                              
 
                              
                                 

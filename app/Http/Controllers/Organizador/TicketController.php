@@ -75,7 +75,7 @@ class TicketController extends Controller
                 
                 $evento=Evento::find($request->evento_id);
 
-                return redirect(route('checkout.evento',$evento).'/#pago');
+                return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
             }
     
             
@@ -130,7 +130,7 @@ class TicketController extends Controller
         $evento=Evento::find($ticket->evento_id);
         $evento->inscritos()->attach(auth()->user()->id);
         
-        return redirect()->route('ticket.evento.show',$evento);
+        return redirect()->route('evento.view',$evento);
     }
 
 

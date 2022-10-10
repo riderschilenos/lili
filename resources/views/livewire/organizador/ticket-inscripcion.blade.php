@@ -1,0 +1,68 @@
+<div>
+    <div class="flex">
+        <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
+                    
+        <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="">--Categoria--</option>
+            @foreach ($fecha->categorias as $item)
+
+                <option value="{{$item->id}}">{{$item->categoria->name}}-${{number_format($item->inscripcion)}}</option>
+                
+            @endforeach
+        </select>
+    </div>
+
+        @foreach ($ticket->evento->fechas as $fecha)
+            <div class="flex items-center justify-between pb-5 px-8 bg-blue-900 text-white py-2 my-4">
+                <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                
+        
+                
+                
+                @if ($categoria_id)  
+                    <div class="block">
+                        <p class="text-base leading-none mx-auto text-center">Categoria:  </p>
+                        <h1 style="font-size: 1rem;white-space: nowrap;" class="text-center">{{$fechacategoria->categoria->name}}</h1>
+                    </div>
+                
+                    <div class="text-white  text-md font-bold px-4" wire:loading wire:target="selectedcategoria">
+                        <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
+                    </div>
+                    <div class="block">
+                        <p class="ml-4">Número de Moto: </p>
+                    
+                        <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
+                        <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
+                            <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
+                        </div>
+
+                    </div>
+
+                    <form action="{{route('ticket.inscripcions.store')}}" method="POST">
+                        @csrf
+                        
+
+                        <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
+                        <input name="fecha_categoria_id" type="hidden" value="{{$categoria_id}}">
+                        <input name="nro" type="hidden" value="{{$nro}}">
+                        <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
+
+                        <button class="btn btn-primary" type="submit">Agregar</button>
+                    </form>   
+
+                    <p wire:click="add({{$fecha}})" class="hidden btn btn-primary">Agregar</p>
+
+
+
+                @else
+                    <div class="text-white  text-md font-bold px-4" wire:loading wire:target="selectedcategoria">
+                        <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
+                    </div>
+                    <p class="bg-white text-gray-900 py-2 px-4 rounded-lg">Ingrese una categoria</p>
+                @endif        
+            </div>
+        @endforeach
+
+            {{-- PREFICHA --}}
+
+</div>

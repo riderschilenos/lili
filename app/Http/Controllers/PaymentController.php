@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use App\Models\Fecha;
 use App\Models\Pago;
 use App\Models\Qrregister;
 use App\Models\Serie;
@@ -22,13 +23,6 @@ class PaymentController extends Controller
         return view('payment.checkout',compact('serie'));
     }
 
-    public function checkoutevento(Evento $evento){
-
-        return view('payment.checkoutevento',compact('evento'));
-    }
-
-    
-
     public function serie(Serie $serie, Request $request){
 
         $payment_id = $request->get('payment_id');
@@ -43,16 +37,17 @@ class PaymentController extends Controller
             $serie->sponsors()->attach(auth()->user()->id);
             return redirect()->route('series.status',$serie);
         }
-        else{
-            
+        else{          
         }
-
-        
-
-      
     }
 
-    public function evento(Evento $evento, Request $request){
+    public function checkoutticket(Ticket $ticket){
+        $fechas= Fecha::where('evento_id',$ticket->evento->id)->paginate();
+        $socio = Socio::where('user_id',auth()->user()->id)->first();
+        return view('payment.checkoutticket',compact('ticket','fechas','socio'));
+    }
+
+    public function ticket(Ticket $ticket, Request $request){
 
         
         $payment_id = $request->get('payment_id');
@@ -64,10 +59,13 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
+            $ticket->status=2;
+            $ticket->save();
+            $evento=Evento::find($ticket->evento_id);
             $evento->inscritos()->attach(auth()->user()->id);
-        
-            return redirect()->route('ticket.evento.show',$evento);
-        }
+            
+            return redirect()->route('evento.view',$evento);
+         }
         else{
            
         }

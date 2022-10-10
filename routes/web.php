@@ -10,6 +10,7 @@ use App\Http\Controllers\UsadoController;
 use App\Http\Controllers\Vendedor\HomeController as VendedorHomeController;
 use App\Http\Controllers\Vendedor\PedidoController;
 use App\Http\Controllers\WebhooksController;
+use App\Http\Livewire\EventoView;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Livewire\SerieStatus;
@@ -44,10 +45,13 @@ Route::post('evento/{evento}/enrolled', [EventoController::class, 'enrolled'])->
 
 Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->middleware('auth');
 
+Route::get('evento-view/{evento}', EventoView::class)->name('evento.view')->middleware('auth');
+
 Route::post('webhooks', WebhooksController::class);
 
-Route::get('ticket/{evento}', [PaymentController::class, 'checkoutevento'])->name('checkout.evento')->middleware('auth');
+Route::get('ticket/{evento}', [PaymentController::class, 'checkoutticket'])->name('checkout.evento')->middleware('auth');
 
 Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');
 
 Route::post('ticket/{ticket}/enrolled', [TicketController::class, 'enrolled'])->middleware('auth')->name('ticket.enrolled');
+

@@ -41,10 +41,10 @@ class InscripcionController extends Controller
           
         $inscripcion = Inscripcion::create($request->all());
         $ticket= Ticket::find($request->ticket_id);
-        $evento= Evento::find($ticket->evento->id);
+        //$evento= Evento::find($ticket->evento->id);
 
         //return redirect()->route('checkout.evento',$evento);
-        return redirect(route('checkout.evento',$evento).'/#pago');
+        return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
 
     }
 
@@ -92,11 +92,9 @@ class InscripcionController extends Controller
     {
         $inscripcion->delete();
         $ticket= Ticket::find($request->ticket_id);
-        $evento= Evento::find($ticket->evento->id);
 
         //return redirect()->route('checkout.evento',$evento);
-        return redirect(route('checkout.evento',$evento).'/#pago');
-        return redirect()->route('admin.disciplinas.index')->with('info','La disciplina se elimino con éxito.');
-
+        return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+     
     }
 }

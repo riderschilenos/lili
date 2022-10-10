@@ -1,9 +1,5 @@
 <x-evento-layout>
 
-    @livewire('evento-checkout', ['evento' => $evento], key($evento->id))
-
-    
-
 
     
     <x-slot name="js">

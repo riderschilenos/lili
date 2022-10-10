@@ -19,9 +19,7 @@ class EventoCheckout extends Component
 
     public function mount(Evento $evento){
         
-        $this->evento =$evento;
-
-        
+        $this->evento =$evento;        
         
     }
 

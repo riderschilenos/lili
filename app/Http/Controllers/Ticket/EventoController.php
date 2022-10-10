@@ -115,9 +115,6 @@ class EventoController extends Controller
 
     public function preticket(Evento $evento)
     {  
-
-    
-        
         return view('Evento.preticket',compact('evento'));
     }
 }

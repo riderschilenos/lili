@@ -1,4 +1,4 @@
-<x-evento-layout :evento="$evento">
+<x-evento-layout>
 
     @livewire('evento-checkout', ['evento' => $evento], key($evento->id))
 

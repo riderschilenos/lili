@@ -9,7 +9,7 @@ Route::get('eventos', [EventoController::class,'index'])->name('evento.index');
 
 Route::get('eventos/{evento}',[EventoController::class,'show'])->name('evento.show');
 
-Route::get('preticket/{evento}',[EventoController::class,'preticket'])->name('evento.preticket')->middleware('auth');
+Route::get('ticket/create/{evento}',[EventoController::class,'preticket'])->name('evento.preticket')->middleware('auth');
 
 Route::resource('inscripcion', InscripcionController::class)->names('inscripcions');
 

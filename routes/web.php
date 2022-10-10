@@ -49,7 +49,7 @@ Route::get('evento-view/{evento}', EventoView::class)->name('evento.view')->midd
 
 Route::post('webhooks', WebhooksController::class);
 
-Route::get('ticket/{evento}', [EventoController::class,'preticket'])->name('checkout.evento')->middleware('auth');
+Route::get('checkout/{evento}', [EventoController::class,'preticket'])->name('checkout.evento')->middleware('auth');
 
 Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');
 

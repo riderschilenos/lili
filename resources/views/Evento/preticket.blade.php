@@ -1,8 +1,8 @@
 <x-evento-layout>
 
-    @livewire('evento-checkout', ['evento' => $evento], key($evento->id))
-
     
+    @livewire('evento-checkout', ['evento' => $evento], key('evento-checkout.'.$evento->id))
+                
 
 
     

@@ -133,7 +133,7 @@
                                 @if ($ticket)
                                     <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Finalizar Inscripción</a>
                                 @else
-                                    <a href="{{route('ticket.evento.preticket', $evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
+                                    <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">Inscribirme</a>
                                 @endif
                                
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
@@ -152,7 +152,7 @@
                                 @if ($ticket)
                                     <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
                                 @else
-                                    <a href="{{route('ticket.evento.preticket', $evento)}}}" class="btn btn-danger btn-block">Obtener Entradas</a>
+                                    <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
                                 @endif
                               
 

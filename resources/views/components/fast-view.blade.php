@@ -529,7 +529,7 @@
                         <a href="{{route('catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="catalogos/catalogopolerasmx_compressed.pdf" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;">
+                        <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>        
                     <li class="shrink-0 snap-center w-full snap-mandatory">       
                         <img class="" src="{{asset('img/mobileslider/tienda-min.png')}}" alt="" style="scroll-snap-align: center;">

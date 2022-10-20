@@ -85,7 +85,7 @@ class PedidosProduccion extends Component
             $foto = Str::random(10).$this->file->getClientOriginalName();
             $rutafoto = public_path().'/storage/ordens/'.$foto;
             $img=Image::make($this->file)->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutafoto);

@@ -1,8 +1,7 @@
 <x-evento-layout>
 
     
-    {{-- comment @livewire('evento-checkout', ['evento' => $evento], key('evento-checkout.'.$evento->slug)) --}}
-    @livewire('evento-checkout', ['evento' => $evento], key($evento->slug))
+    @livewire('evento-checkout', ['evento' => $evento], key('evento-checkout.'.$evento->slug))
                 
 
 

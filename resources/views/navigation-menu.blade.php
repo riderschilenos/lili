@@ -131,6 +131,8 @@
                                 
 
                         @endforeach  
+
+                        <a href="https://tienda.riderschilenos.cl/" class="btn btn-danger h-10 my-auto">Tienda</a>
                         
 
                     </div>
@@ -515,7 +517,7 @@
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-14 sm:flex">
                         @foreach ($nav_links as $nav_link)
-
+                                
                             @if ($nav_link['name']=='Diseño')
                                 @can('Diseño')
                                     <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
@@ -921,6 +923,10 @@
   
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-16 pb-3 space-y-1">
+
+            <x-jet-responsive-nav-link href="https://tienda.riderschilenos.cl/" :active="$nav_link['active']">
+                Tienda
+            </x-jet-responsive-nav-link>
             
             @foreach ($nav_links as $nav_link)
 

@@ -531,11 +531,13 @@
                     <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
                         <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>        
-                    <li class="shrink-0 snap-center w-full h-20 snap-mandatory">       
-                        <a href="https://tienda.riderschilenos.cl"><img class="" src="{{asset('img/mobileslider/tienda-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
+                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
+                        <a href="https://tienda.riderschilenos.cl"><img class="" src="{{asset('img/mobileslider/tienda-minc.jpg')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                 
                 </ul>
+
+                <a href="https://tienda.riderschilenos.cl"><img class="" src="{{asset('img/mobileslider/tienda-minc.jpg')}}" alt="" style="scroll-snap-align: center;"></a>
             
 
         

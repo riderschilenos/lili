@@ -487,7 +487,7 @@
                     </button>
                 </div>
         comment --}}
-        <section class="hidden md:block mt-12 sm:mt-16">
+        <section class="hidden md:hidden mt-12 sm:mt-16">
                     
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
@@ -522,17 +522,17 @@
                 {{-- comment <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">--}}
                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                     
-                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
                         <a href="catalogos/polerones.pdf"><img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
-                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
                         <a href="{{route('catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
-                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
                         <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>        
-                    <li class="shrink-0 snap-center w-full snap-mandatory">       
-                        <img class="" src="{{asset('img/mobileslider/tienda-min.png')}}" alt="" style="scroll-snap-align: center;">
+                    <li class="shrink-0 snap-center w-full h-20 snap-mandatory">       
+                        <a href="https://tienda.riderschilenos.cl"><img class="" src="{{asset('img/mobileslider/tienda-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                 
                 </ul>

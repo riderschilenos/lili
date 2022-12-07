@@ -273,6 +273,7 @@
     
         
         <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script src="{{asset('js/socio/form.js')}}"></script>
   
         <script>
         // Agrega credenciales de SDK

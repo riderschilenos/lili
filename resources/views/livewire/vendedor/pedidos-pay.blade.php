@@ -111,6 +111,9 @@
     
                     
             <h1 class="text-2xl text-red-600 text-center font-bold">PEDIDOS PENDIENTES DE PAGO</h1>
+            <div class="w-full rounded-xl flex items-center justify-center order-2 md:order-3">
+                <a class="btn btn-success ml-2 text-center text-xl" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
+            </div>
             <a href="{{route('vendedor.home.index')}}" class="font-bold text-lg cursor-pointer"><i class="fas fa-arrow-circle-left text-gray-800 mt-2 mb-4"></i> Listado de la pedidos</a>
             <p class="px-12">Selecciona los pedidos que deseas pagar.</p>
             

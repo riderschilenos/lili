@@ -52,6 +52,14 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
+        
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => '147.182.215.33',
+            'username' => 'forge',
+            'password' => 'root',
+            'root' => '/' // for example: /var/www/html/dev/images
+        ],
 
     ],
 

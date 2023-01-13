@@ -30,11 +30,12 @@
         $preference = new MercadoPago\Preference();
 
         // Crea un ítem en la preferencia
-        $item = new MercadoPago\Item();
-        $item->title = 'Inscripción '.$ticket->evento->titulo;
-        $item->quantity = 1;
-        $item->unit_price = $valor;
-
+        if($ticket){
+            $item = new MercadoPago\Item();
+            $item->title = 'Inscripción '.$ticket->evento->titulo;
+            $item->quantity = 1;
+            $item->unit_price = $valor;
+        }
         
 
         $preference = new MercadoPago\Preference();

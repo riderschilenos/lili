@@ -9,18 +9,18 @@
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
     if($vehiculo->comision==1){
-    // Crea un ítem en la preferencia
-    $item = new MercadoPago\Item();
-    $item->title = 'Comision:';
-    $item->quantity = 1;
-    $item->unit_price = 5000;
+        // Crea un ítem en la preferencia
+        $item = new MercadoPago\Item();
+        $item->title = 'Comision:';
+        $item->quantity = 1;
+        $item->unit_price = 5000;
     }
     elseif($vehiculo->comision==2){
-        // Crea un ítem en la preferencia
-    $item = new MercadoPago\Item();
-    $item->title = 'Comision:';
-    $item->quantity = 1;
-    $item->unit_price = $vehiculo->precio*0.005;
+            // Crea un ítem en la preferencia
+        $item = new MercadoPago\Item();
+        $item->title = 'Comision:';
+        $item->quantity = 1;
+        $item->unit_price = $vehiculo->precio*0.005;
 
     }
 

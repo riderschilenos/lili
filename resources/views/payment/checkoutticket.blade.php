@@ -1,8 +1,4 @@
 <x-app-layout>  
-    
-
-
-
     @php
 
         // SDK de Mercado Pago
@@ -19,10 +15,9 @@
             $item = new MercadoPago\Item();
             $item->title = 'Inscripción '.$ticket->evento->titulo;
             $item->quantity = 1;
-            $item->unit_price = $ticket->valor;
+            $item->unit_price = $ticket->inscripcion;
         }
         
-
         $preference = new MercadoPago\Preference();
         //...
         if($ticket){
@@ -456,7 +451,7 @@
         <div>
             <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
               <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
-              <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($ticket->valor)}}</p>
+              <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
             </div>
         </div>
 

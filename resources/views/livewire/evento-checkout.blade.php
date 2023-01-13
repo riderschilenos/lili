@@ -521,13 +521,13 @@
                     <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                         <div class="flex items-center justify-between px-8">
                         <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
-                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($inscripcion)}}</p>
+                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa)}}</p>
                         </div>
                       
 
                         <div class="flex items-center justify-between pt-5 px-8">
                         <p class="text-base leading-none text-gray-800 dark:text-white">Costos del Servicio</p>
-                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($valor-$inscripcion)}}</p>
+                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($valor-$alfa)}}</p>
                         </div>
                     
                     </div>
@@ -543,12 +543,14 @@
                 </div>
 
                 <div>
-                    <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
-                        @csrf
-                     
-                        <button class="btn btn-primary" >Agregar </button>
+                    @if ($ticket)
+                        <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
+                            @csrf
                         
-                    </form>
+                            <button class="btn btn-primary" >Agregar </button>
+                            
+                        </form>
+                    @endif
                 </div>
           
               

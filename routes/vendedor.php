@@ -19,6 +19,8 @@ Route::post('{pedido}/close',[PedidoController::class, 'close'])->name('pedido.c
 
 Route::get('/prepay',[Homecontroller::class, 'prepay'])->name('pedidos.prepay');
 
+Route::delete('{vendedor}/destroy',[Homecontroller::class, 'destroy'])->name('perfil.destroy');
+
 Route::get('/comisiones',[Homecontroller::class, 'comisiones'])->name('pedidos.comisiones');
 
 Route::get('/precios',[Homecontroller::class, 'precios'])->name('pedidos.precios');

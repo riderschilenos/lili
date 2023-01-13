@@ -30,7 +30,7 @@
     $item = new MercadoPago\Item();
     $item->title = 'Suscripción Vendedor Rider Chilenos:';
     $item->quantity = 1;
-    $item->unit_price = 25000;
+    $item->unit_price = 29990;
 
     
 
@@ -74,15 +74,17 @@
 
         <div class="card pb-8 ">
            
-                
+            @if (auth()->user()->vendedor)
 
-                <div class="hidden justify-between gap-4 bg-red-700">
-               
-                        <h1 class="px-2 text-3xl font-bold py-4 text-center text-white">Haz Parte del Equipo Riders Chilenos</h1>
-                        
+                <div class="justify-between gap-4 bg-red-700">
+                
+                    <h1 class="px-2 text-3xl font-bold py-4 text-center text-white">Estas a un Paso de Finalizar</h1>
                     
-                   
                 </div>
+
+            @else
+
+               
 
                 <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-4 lg:mx-14">
                     <article class="col-span-2 sm:col-span-2">
@@ -93,59 +95,65 @@
                       
                     </article>
                     <article  class="hidden md:block mx-10">
-                        <div class="bg-red-600 rounded-lg max-w-sm mx-auto">
-                            <h1 class="text-3xl text-center font-bold text-white pt-4">ACCESO RIDERS</h1>
+                        @if (auth()->user())
+                            <figure>
+                                <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
+                            </figure>
+                        @else
+                            <div class="bg-red-600 rounded-lg max-w-sm mx-auto">
+                                <h1 class="text-3xl text-center font-bold text-white pt-4">ACCESO RIDERS</h1>
+                                
+                                <div class="flex justify-center mb-4 ">
+                                    
+                                <div class="block w-full mx-4 pb-4 text-white">
+                                    
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
                             
-                            <div class="flex justify-center mb-4 ">
-                                
-                            <div class="block w-full mx-4 pb-4 text-white">
-                                
-                                <form method="POST" action="{{ route('login') }}">
-                                    @csrf
-                        
-                                    <div>
-                                        <x-jet-label for="email" value="{{ __('Email') }}" class="text-white" />
-                                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                                    </div>
-                        
-                                    <div class="mt-4">
-                                        <x-jet-label for="password" value="{{ __('Contraseña') }}" class="text-white"/>
-                                        <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                                    </div>
-                        
-                                    <div class="block mt-4">
-                                        <label for="remember_me" class="flex items-center">
-                                            <x-jet-checkbox id="remember_me" name="remember" />
-                                            <span class="ml-2 text-sm text-white">{{ __('Recordar mi cuenta') }}</span>
-                                        </label>
-                                    </div>
-                        
-                                    <div class="flex items-center justify-end mt-4">
-                                        @if (Route::has('password.request'))
-                                            <a class="underline text-sm text-white hover:text-gray-900 mr-auto" href="{{ route('register') }}">
-                                            {{ __('Registrarme') }}
-                                            </a>
-                                           
-                                        @endif
-                        
-                                        <x-jet-button class="ml-4">
-                                            {{ __('Ingresar') }}
-                                        </x-jet-button>
-                                    </div>
-                                </form>
-                            </div> 
-                          </div>
-                        </div>
-                       
+                                        <div>
+                                            <x-jet-label for="email" value="{{ __('Email') }}" class="text-white" />
+                                            <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                                        </div>
+                            
+                                        <div class="mt-4">
+                                            <x-jet-label for="password" value="{{ __('Contraseña') }}" class="text-white"/>
+                                            <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                                        </div>
+                            
+                                        <div class="block mt-4">
+                                            <label for="remember_me" class="flex items-center">
+                                                <x-jet-checkbox id="remember_me" name="remember" />
+                                                <span class="ml-2 text-sm text-white">{{ __('Recordar mi cuenta') }}</span>
+                                            </label>
+                                        </div>
+                            
+                                        <div class="flex items-center justify-end mt-4">
+                                            @if (Route::has('password.request'))
+                                                <a class="underline text-sm text-white hover:text-gray-900 mr-auto" href="{{ route('register') }}">
+                                                {{ __('Registrarme') }}
+                                                </a>
+                                            
+                                            @endif
+                            
+                                            <x-jet-button class="ml-4">
+                                                {{ __('Ingresar') }}
+                                            </x-jet-button>
+                                        </div>
+                                    </form>
+                                </div> 
+                                </div>
+                            </div>
+                        @endif
+
                     </article>
                 </div>
 
-               
+            @endif
 
                 <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
                     <article class="hidden  md:block col-span-2 md:col-span-1">
                         <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/second2.png')}}" alt="">
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/second3.png')}}" alt="">
                         </figure>
             
                       
@@ -153,7 +161,7 @@
                     <div class="block  md:hidden col-span-2 md:col-span-1">
                         <article class="flex justify-center mt-2">
                             <figure>
-                                <img class="h-48 object-contain" src="{{asset('img/vendedores/second2.png')}}" alt="">
+                                <img class="h-48 object-contain" src="{{asset('img/vendedores/second3.png')}}" alt="">
                             </figure>
                         </article>
                     </div>
@@ -166,8 +174,12 @@
                   
                   
                 </div>
+            
 
             
+            @if (auth()->user()->vendedor)
+
+            @else
              
                 <div class="justify-between mt-8 bg-gray-200">
 
@@ -193,10 +205,10 @@
             
                 </div>
             
-                
-
-                    <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
-
+                <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
+            
+            @endif
+               
               
                 <div class="card-body">
                         @if (auth()->user())
@@ -205,12 +217,23 @@
                             @if (auth()->user()->vendedor)
 
                                 
-                                <h1 class="text-center">Para activar tu registro como vendedor debes aceptar los terminos y condiciones y hacer el pago correspondiente</h1>
+                                <h1 class="text-center">Para activar tu registro como vendedor debes hacer el pago correspondiente</h1>
 
-                                <h1 class="text-center">{{auth()->user()->name}}</h1>
+                                <h1 class="text-center text-2xl font-bold my-4">{{auth()->user()->name}}</h1>
                                 
                                 <div class="cho-container flex justify-center mt-2 mb-4">
                                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                </div>
+
+                                <div class="flex justify-center">
+                                    <div class="">
+                                        <form action="{{route('vendedor.perfil.destroy',auth()->user()->vendedor)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                            
+                                            <button class="btn btn-danger btn-sm" type="submit"> Cancelar</button>
+                                        </form>
+                                    </div>
                                 </div>
 
                                 

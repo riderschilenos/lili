@@ -51,6 +51,27 @@
 {{-- comment
     @livewire('vendedor.catalogo-productos')
  --}}
+ <style>
+    
+    scroll-container {
+      display: block;
+      width: 100%;
+      height: 200px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      background: #ffffff;
+      padding-left: 0.5rem;
+    }
+    scroll-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      height: 100%;
+      font-size: 5em;
+    }
+        </style>
+
     <div class="max-w-7xl mx-auto px-2 py-8">
 
         <div class="card pb-8 ">

@@ -59,7 +59,7 @@
 
                 <div class="justify-between gap-4 bg-red-700">
                
-                        <h1 class="text-3xl font-bold py-4 text-center text-white">Haz Parte del Equipo Riders Chilenos</h1>
+                        <h1 class="px-2 text-3xl font-bold py-4 text-center text-white">Haz Parte del Equipo Riders Chilenos</h1>
                         
                     
                    
@@ -136,55 +136,7 @@
 
                     <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
 
-                    <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-2 gap-y-2 lg:mx-14">
-                        <article>
-                            <figure>
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/1.png')}}" alt="">
-                            </figure>
-                
-                          
-                        </article>
-                        <article>
-                            <figure>
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/2.png')}}" alt="">
-                            </figure>
-                          
-                        </article>
-                        <article>
-                            <figure>
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/3.png')}}" alt="">
-                            </figure>
-                           
-                        </article>
-                        <article>
-                            <figure>
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/4.png')}}" alt="">
-                            </figure>
-                           
-                        </article>
-                        <article>
-                            <figure>
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/5.png')}}" alt="">
-                            </figure>
-                           
-                        </article>
-                        <article>
-                            <figure>
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/6.png')}}" alt="">
-                            </figure>
-                           
-                        </article>
-                        <div class="hidden md:block">
-    
-                        </div>
-                        <article class="hidden md:block">
-                            <figure>
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/7.png')}}" alt="">
-                            </figure>
-                           
-                        </article>
-                    </div>
-                
+              
                 <div class="card-body">
                         @if (auth()->user())
                         

@@ -50,22 +50,19 @@ class PaymentController extends Controller
         $evento=$ticket->evento;
 
         $alfa=0;     
-        $valor=0;
-
+      
         foreach ($ticket->evento->fechas as $fecha)   {                                                   
             foreach ($fecha->categorias as $const){
                 foreach($const->inscripcions as $inscripcion){
                 
                         $alfa+=$inscripcion->fecha_categoria->inscripcion;
 
-                        $valor+=$inscripcion->fecha_categoria->valor;
+         
                     }
                 }
             }  
         
             $ticket->inscripcion=$alfa;
-
-            $ticket->valor=$valor;
 
             $ticket->save();
 

@@ -1,25 +1,21 @@
 <x-app-layout>
     <style>
+        :root {
+            --main-color: #4a76a8;
+        }
     
-        scroll-container {
-          display: block;
-          width: 100%;
-          height: 200px;
-          overflow-y: scroll;
-          scroll-behavior: smooth;
-          background: #ffffff;
-          padding-left: 0.5rem;
+        .bg-main-color {
+            background-color: var(--main-color);
         }
-        scroll-page {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: #ffffff;
-          height: 100%;
-          font-size: 5em;
+    
+        .text-main-color {
+            color: var(--main-color);
         }
-            </style>
-            
+    
+        .border-main-color {
+            border-color: var(--main-color);
+        }
+    </style>
     @php
     // SDK de Mercado Pago
     require base_path('/vendor/autoload.php');

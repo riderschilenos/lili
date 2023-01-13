@@ -65,92 +65,50 @@
                    
                 </div>
 
-                <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
-                    <article>
+                <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
+                    <article class="col-span-2 sm:col-span-2">
                         <figure>
-                            <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend1.png')}}" alt=""></a>
+                            <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/f1.png')}}" alt=""></a>
                         </figure>
             
                       
                     </article>
-                    <article>
+                    <article  class="hidden md:block m-10">
                         <figure>
-                            <a href="" wire:click="download('catalogoportanumeros.pdf')"><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend2.png')}}" alt=""></a>
-                        </figure>
-                      
-                    </article>
-                    <article>
-                        <figure>
-                            <a href="" wire:click="download('polerasmx.pdf')"><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
+                            <a href="" wire:click="download('polerasmx.pdf')"><img class="h-35 w-55 object-contain px-8" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
                         </figure>
                        
                     </article>
                 </div>
 
-                <div class="justify-between bg-gray-900 mt-8 px-4 lg:px-12">
+               
 
-                        <h1 class="text-2xl py-4 text-center text-white">Hazte Promotor de Nuestros Productos y Gana Dinero Haciendo lo Que Amas!! Solo debes obtener la membresia y podras recibir comisión en efectivo por cada producto que vendas.</h1>
-                
-                </div>
-
-                <h1 class="text-3xl font-bold text-center my-8">Nuestros productos</h1>
-
-                <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-2 gap-y-2 lg:mx-14">
-                    <article>
+                <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
+                    <article class="hidden  md:block col-span-2 md:col-span-1">
                         <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/1.png')}}" alt="">
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/f2.png')}}" alt="">
                         </figure>
             
                       
                     </article>
-                    <article>
-                        <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/2.png')}}" alt="">
-                        </figure>
-                      
-                    </article>
-                    <article>
-                        <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/3.png')}}" alt="">
-                        </figure>
-                       
-                    </article>
-                    <article>
-                        <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/4.png')}}" alt="">
-                        </figure>
-                       
-                    </article>
-                    <article>
-                        <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/5.png')}}" alt="">
-                        </figure>
-                       
-                    </article>
-                    <article>
-                        <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/6.png')}}" alt="">
-                        </figure>
-                       
-                    </article>
-                    <div class="hidden md:block">
-
+                    <div class="block  md:hidden col-span-2 md:col-span-1">
+                        <article class="flex justify-center mt-2">
+                            <figure>
+                                <img class="h-44 object-contain" src="{{asset('img/vendedores/f2.png')}}" alt="">
+                            </figure>
+                        </article>
                     </div>
-                    <article class="hidden md:block">
+                    <article class="col-span-2 sm:col-span-2">
                         <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/7.png')}}" alt="">
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/f3.png')}}" alt="">
                         </figure>
-                       
+                      
                     </article>
+                  
+                  
                 </div>
 
-                <div class="block  md:hidden">
-                    <article class="flex justify-center mt-2">
-                        <figure>
-                            <img class="w-44 object-contain" src="{{asset('img/vendedores/7.png')}}" alt="">
-                        </figure>
-                    </article>
-                </div>
+            
              
                 <div class="justify-between mt-8 bg-gray-200">
 

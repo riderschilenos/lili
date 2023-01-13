@@ -22,7 +22,7 @@
         //...
         if($ticket){
             $preference->back_urls = array(
-                "success" => route('payment.ticketaprov', $ticket),
+                "success" => route('payment.ticketaprov',$ticket),
                 "failure" => "http://www.tu-sitio/failure",
                 "pending" => "http://www.tu-sitio/pending"
             );

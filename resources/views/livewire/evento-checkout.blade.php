@@ -1,22 +1,6 @@
 <div>
 
-<div class="hidden">
-    {{$alfa=0;}}     
-    {{$valor=0;}}
-         
-</div>
-@foreach ($evento->fechas as $fecha)                                                        
-    @foreach ($fecha->categorias as $const)
-        @foreach($const->inscripcions as $inscripcion)
-            @php
-                $alfa+=$inscripcion->fecha_categoria->inscripcion;
 
-                $valor+=$inscripcion->fecha_categoria->valor;
-
-            @endphp
-        @endforeach
-    @endforeach
-@endforeach
 
     @php
 
@@ -31,9 +15,9 @@
 
         // Crea un ítem en la preferencia
         $item = new MercadoPago\Item();
-        $item->title = 'Inscripción '.$evento->titulo;
+        $item->title = 'Inscripción ';
         $item->quantity = 1;
-        $item->unit_price = $valor;
+        $item->unit_price = 100000;
 
         
 

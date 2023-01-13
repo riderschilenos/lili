@@ -105,7 +105,7 @@
                                     
                                     <div class="flex justify-center mb-4 ">
                                         
-                                    <div class="block w-full mx-4 pb-4 text-white">
+                                    <div class="block w-full mx-4 pb-4">
                                         
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf

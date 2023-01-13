@@ -94,7 +94,7 @@
                     <div class="block  md:hidden col-span-2 md:col-span-1">
                         <article class="flex justify-center mt-2">
                             <figure>
-                                <img class="h-44 object-contain" src="{{asset('img/vendedores/f2.png')}}" alt="">
+                                <img class="h-48 object-contain" src="{{asset('img/vendedores/f2.png')}}" alt="">
                             </figure>
                         </article>
                     </div>

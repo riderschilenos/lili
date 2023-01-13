@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Disciplina;
 use App\Models\Evento;
 use App\Models\Fecha;
 use App\Models\Pago;
+use App\Models\Pedido;
 use App\Models\Qrregister;
 use App\Models\Serie;
 use App\Models\Socio;
@@ -44,7 +46,9 @@ class PaymentController extends Controller
     public function checkoutticket(Ticket $ticket){
         $fechas= Fecha::where('evento_id',$ticket->evento->id)->paginate();
         $socio = Socio::where('user_id',auth()->user()->id)->first();
-        return view('payment.checkoutticket',compact('ticket','fechas','socio'));
+        $disciplinas= Disciplina::pluck('name','id');
+        $evento=$ticket->evento;
+        return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento'));
     }
 
     public function ticket(Ticket $ticket, Request $request){
@@ -91,6 +95,13 @@ class PaymentController extends Controller
                 'precio'=>25000,
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year"))
             ]);
+
+            $pedido = Pedido::create([
+                'user_id'=> $socio->user_id,
+                'transportista_id'=> 1,
+                'pedidoable_id'=> $socio->id,
+                'status'=>4,
+                'pedidoable_type'=> 'App\Models\Socio']);
 
             return redirect()->route('socio.create');
         }

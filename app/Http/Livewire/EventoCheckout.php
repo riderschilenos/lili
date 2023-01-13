@@ -48,7 +48,6 @@ class EventoCheckout extends Component
     public function updatedselectedcategoria($category_product){
        
         $this->categoria_id = $category_product;
-        $this->fechacategoria=Fecha_categoria::find($this->categoria_id);
     }
 
     public function enrolled(){

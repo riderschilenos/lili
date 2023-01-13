@@ -16,7 +16,6 @@ class AddValuesToTickets extends Migration
         Schema::table('tickets', function (Blueprint $table) {
             
             $table->integer('inscripcion')->Nullable();
-            $table->integer('valor')->Nullable();
             
         });
     }

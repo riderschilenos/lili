@@ -41,6 +41,26 @@ class InscripcionController extends Controller
           
         $inscripcion = Inscripcion::create($request->all());
         $ticket= Ticket::find($request->ticket_id);
+        
+        $alfa=0;     
+        $valor=0;
+
+        foreach ($ticket->evento->fechas as $fecha)   {                                                   
+            foreach ($fecha->categorias as $const){
+                foreach($const->inscripcions as $inscripcion){
+                
+                        $alfa+=$inscripcion->fecha_categoria->inscripcion;
+
+                        $valor+=$inscripcion->fecha_categoria->valor;
+                    }
+                }
+            }  
+        
+            $ticket->inscripcion=$alfa;
+
+            $ticket->valor=$valor;
+
+            $ticket->save();
         //$evento= Evento::find($ticket->evento->id);
 
         //return redirect()->route('checkout.evento',$evento);

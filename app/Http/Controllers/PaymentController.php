@@ -48,6 +48,27 @@ class PaymentController extends Controller
         $socio = Socio::where('user_id',auth()->user()->id)->first();
         $disciplinas= Disciplina::pluck('name','id');
         $evento=$ticket->evento;
+
+        $alfa=0;     
+        $valor=0;
+
+        foreach ($ticket->evento->fechas as $fecha)   {                                                   
+            foreach ($fecha->categorias as $const){
+                foreach($const->inscripcions as $inscripcion){
+                
+                        $alfa+=$inscripcion->fecha_categoria->inscripcion;
+
+                        $valor+=$inscripcion->fecha_categoria->valor;
+                    }
+                }
+            }  
+        
+            $ticket->inscripcion=$alfa;
+
+            $ticket->valor=$valor;
+
+            $ticket->save();
+
         return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento'));
     }
 

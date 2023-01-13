@@ -1,22 +1,7 @@
 <x-app-layout>  
     
-<div class="hidden">
-    {{$alfa=0;}}     
-    {{$valor=0;}}
-         
-</div>
-@foreach ($ticket->evento->fechas as $fecha)                                                        
-    @foreach ($fecha->categorias as $const)
-        @foreach($const->inscripcions as $inscripcion)
-            @php
-                $alfa+=$inscripcion->fecha_categoria->inscripcion;
 
-                $valor+=$inscripcion->fecha_categoria->valor;
 
-            @endphp
-        @endforeach
-    @endforeach
-@endforeach
 
     @php
 
@@ -34,7 +19,7 @@
             $item = new MercadoPago\Item();
             $item->title = 'Inscripción '.$ticket->evento->titulo;
             $item->quantity = 1;
-            $item->unit_price = $valor;
+            $item->unit_price = $ticket->valor;
         }
         
 
@@ -453,25 +438,25 @@
             
          
         </div>
-        @if ($alfa>0)
+        @if ($ticket->valor)
         <section>
             <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                 <div class="flex items-center justify-between px-8">
                 <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
-                <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa)}}</p>
+                <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
                 </div>
               
 
                 <div class="flex items-center justify-between pt-5 px-8">
                 <p class="text-base leading-none text-gray-800 dark:text-white">Costos del Servicio</p>
-                <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa*0.072)}}</p>
+                <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($ticket->valor-$ticket->inscripcion)}}</p>
                 </div>
             
             </div>
         <div>
             <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
               <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
-              <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($alfa*0.072+$alfa)}}</p>
+              <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($ticket->valor)}}</p>
             </div>
         </div>
 

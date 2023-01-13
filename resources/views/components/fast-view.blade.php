@@ -1009,7 +1009,7 @@
                                         </div>
                                         <article class="col-span-2 sm:col-span-2">
                                             <figure>
-                                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree2.png')}}" alt="">
+                                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree3.png')}}" alt="">
                                             </figure>
                                         
                                         </article>
@@ -1501,7 +1501,7 @@
                                 </div>
                                 <article class="col-span-2 sm:col-span-2">
                                     <figure>
-                                        <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree2.png')}}" alt="">
+                                        <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree3.png')}}" alt="">
                                     </figure>
                                 
                                 </article>
@@ -1993,7 +1993,7 @@
                             </div>
                             <article class="col-span-2 sm:col-span-2">
                                 <figure>
-                                    <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree2.png')}}" alt="">
+                                    <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree3.png')}}" alt="">
                                 </figure>
                             
                             </article>

@@ -72,7 +72,7 @@
 
     <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
 
-        <div class="card pb-8 ">
+        <div class="card ">
             @if (auth()->user())
                 @if (auth()->user()->vendedor)
 
@@ -215,7 +215,7 @@
                 </div>
 
             @endif
-                <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
+                <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-4 mt-2 lg:mx-14">
                     <article class="hidden  md:block col-span-2 md:col-span-1">
                         <figure>
                             <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/second3.png')}}" alt="">
@@ -232,7 +232,7 @@
                     </div>
                     <article class="col-span-2 sm:col-span-2">
                         <figure>
-                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree2.png')}}" alt="">
+                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/tree3.png')}}" alt="">
                         </figure>
                       
                     </article>

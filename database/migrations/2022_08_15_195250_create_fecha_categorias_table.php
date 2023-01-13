@@ -25,7 +25,6 @@ class CreateFechaCategoriasTable extends Migration
                 ->onDelete('cascade');
 
                 $table->integer('inscripcion')->Nullable();
-                $table->integer('valor')->Nullable();
                 $table->string('limite')->Nullable();
 
             $table->timestamps();

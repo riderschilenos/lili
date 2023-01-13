@@ -12,7 +12,6 @@ Route::get('{ticket}/check', [PaymentController::class, 'checkoutticket'])->name
 
 Route::get('{ticket}/aproved', [PaymentController::class, 'ticket'])->name('ticket');
 
-
 Route::get('{pago}/activepago', [PaymentController::class, 'pago'])->name('pago');
 
 Route::get('{socio}/active', [PaymentController::class, 'socio'])->name('socio');

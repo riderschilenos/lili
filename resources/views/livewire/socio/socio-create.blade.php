@@ -13,7 +13,7 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Suscripción:';
                 $item->quantity = 1;
-                $item->unit_price = 54;
+                $item->unit_price = 25000;
 
                 
 

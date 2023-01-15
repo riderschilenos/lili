@@ -5,36 +5,37 @@
         'route'=>route('home'),
         'active'=>request()->routeIs('home')
     ]
-    ,[   
+    /*,[   
         'name'=>'RCH-TV',
         'route'=>route('series.index'),
         'active'=>request()->routeIs('series.*')
 
-    ]
+    ]*/
     ,[   
         'name'=>'Eventos',
         'route'=>route('ticket.evento.index'),
         'can'=>'Diseño',
         'active'=>request()->routeIs('ticket.evento.*')
-    ] 
+    ] /*
     ,[   
         'name'=>'División Usados',
         'route'=>route('garage.usados'),
         'active'=>request()->routeIs('usados.*')
 
-    ]
+    ]*/
     ,[   
-        'name'=>'RIDERS',
+        'name'=>'Servicios',
         'route'=>route('socio.index'),
         'active'=>request()->routeIs('socios.*')
 
-    ]
-    ,[   
-        'name'=>'DATABASE',
+    ],
+    /*
+    [   'name'=>'DATABASE',
         'route'=>route('garage.vehiculos.registerindex'),
         'active'=>request()->routeIs('garage.vehiculos.registerindex')
 
-    ],[   
+    ],*/
+    [   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedores.index'),
         'active'=>request()->routeIs('vendedor.*')

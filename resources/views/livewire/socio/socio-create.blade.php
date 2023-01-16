@@ -14,7 +14,6 @@
                 $item->title = 'Suscripción:';
                 $item->quantity = 1;
                 $item->unit_price = 100;
-
       
                 //...
                 if($socio){

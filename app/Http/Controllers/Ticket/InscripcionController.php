@@ -49,7 +49,7 @@ class InscripcionController extends Controller
             foreach ($fecha->categorias as $const){
                 foreach($const->inscripcions as $inscripcion){
                 
-                        $alfa+=$inscripcion->fecha_categoria->inscripcion;
+                        $alfa+=$inscripcion->fecha_categoria->inscripcion*1.072;
 
                     }
                 }

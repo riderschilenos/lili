@@ -28,7 +28,7 @@
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
-    $item->title = 'Suscripción Vendedor Rider Chilenos:';
+    $item->title = 'Suscripción Vendedor RiderChilenos:';
     $item->quantity = 1;
     $item->unit_price = 100;
 

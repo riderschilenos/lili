@@ -476,7 +476,7 @@
         foreach ($dias as $day) {
             $totaldia=0;
             foreach ($pagos30 as $pago) {
-                if (intval($pago->created_at->format('')) == $day) {
+                if (intval($pago->created_at->format('d')) == $day) {
                     $totaldia+=$pago->cantidad;
                 }
             }

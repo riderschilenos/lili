@@ -33,7 +33,7 @@ class Contabilidad extends Component
         
         $pagos=Pago::all();
         $pagos7=Pago::all()->where('created_at', '>=', now()->subDays(7));
-        $pagos30=Pago::all()->where('created_at', '>=', now()->subDays(30));
+        $pagos30=Pago::all()->where('created_at', '>=', now()->subDays(28));
 
         $vendedors=Vendedor::all();
 

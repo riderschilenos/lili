@@ -468,7 +468,7 @@
 
 
     @php
-        $dias =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+        $dias =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
             
         
 
@@ -476,7 +476,7 @@
         foreach ($dias as $day) {
             $totaldia=0;
             foreach ($pagos30 as $pago) {
-                if (intval($pago->created_at->format('d')) == $day) {
+                if (intval($pago->created_at->format('')) == $day) {
                     $totaldia+=$pago->cantidad;
                 }
             }

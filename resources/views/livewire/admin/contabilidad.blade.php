@@ -488,12 +488,14 @@
 
 
         $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
+        
     @endphp
 
 
     <script>
         var ventas = <?php echo json_encode($ventas) ?>;
         var gastos = <?php echo json_encode($gastos) ?>;
+        var now = <?php echo intval($pago->created_at->format('d'))?>;
 
         Highcharts.chart('grafico', {title: {
                                         text: 'Riders Chilenos'},

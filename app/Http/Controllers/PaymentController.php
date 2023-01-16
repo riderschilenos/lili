@@ -55,7 +55,7 @@ class PaymentController extends Controller
             foreach ($fecha->categorias as $const){
                 foreach($const->inscripcions as $inscripcion){
                 
-                        $alfa+=$inscripcion->fecha_categoria->inscripcion*1.072;
+                        $alfa+=$inscripcion->fecha_categoria->inscripcion;
 
          
                     }

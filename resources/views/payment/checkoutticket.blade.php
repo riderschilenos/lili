@@ -15,7 +15,7 @@
             $item = new MercadoPago\Item();
             $item->title = 'Inscripción: ';
             $item->quantity = 1;
-            $item->unit_price =100;
+            $item->unit_price =$ticket->inscripcion;
         
 
         $preference = new MercadoPago\Preference();

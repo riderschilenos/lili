@@ -52,8 +52,8 @@
                                 @if($suscripcion->suscripcionable_type=="App\Models\Vendedor")
                                     @foreach ($vendedors as $vendedor)
                                                         
-                                            @if($socio->id == $suscripcion->suscripcionable_id)
-                                                {{$socio->user->name}}
+                                            @if($vendedor->id == $suscripcion->suscripcionable_id)
+                                                {{$vendedor->user->name}}
                                             
                                             @endif
                                     @endforeach

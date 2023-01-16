@@ -13,11 +13,9 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Suscripción:';
                 $item->quantity = 1;
-                $item->unit_price = 29990;
+                $item->unit_price = 100;
 
-                
-
-                $preference = new MercadoPago\Preference();
+      
                 //...
                 if($socio){
                 $preference->back_urls = array(

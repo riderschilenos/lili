@@ -32,9 +32,6 @@
     $item->quantity = 1;
     $item->unit_price = 100;
 
-    
-
-    $preference = new MercadoPago\Preference();
     //...
     if (auth()->user()){
         if (auth()->user()->vendedor){

@@ -142,14 +142,12 @@ class PaymentController extends Controller
         if($status == 'approved'){
 
             $sus = Suscripcion::create([
-                'suscripcionable_type'=>'App\Models\Socio',
+                'suscripcionable_type'=>'App\Models\Vendedor',
                 'suscripcionable_id'=>$vendedor->id,
                 'precio'=>29990,
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 2 year"))
             ]);
 
-            $vendedor->status=2;
-            $vendedor->save();
 
             return redirect()->route('vendedores.index');
         }

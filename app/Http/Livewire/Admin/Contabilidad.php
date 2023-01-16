@@ -37,8 +37,10 @@ class Contabilidad extends Component
 
         $vendedors=Vendedor::all();
 
+        $ventas=json_encode([43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]);
+
         
 
-        return view('livewire.admin.contabilidad',compact('pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
+        return view('livewire.admin.contabilidad',compact('ventas','pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
     }
 }

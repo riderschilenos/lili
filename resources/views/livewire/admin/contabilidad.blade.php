@@ -459,22 +459,52 @@
         </div>
     </div>
 
+    @foreach ($pagos30 as $pago)
+
+        {{$pago}}
+        
+    @endforeach
+
+
+
+    @php
+        $dias =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+            
+        
+
+        $ventas=[];
+        foreach ($dias as $day) {
+            $totaldia=0;
+            foreach ($pagos30 as $pago) {
+                if (intval($pago->created_at->format('d')) == $day) {
+                    $totaldia+=$pago->cantidad;
+                }
+            }
+            $ventas[]=$totaldia;
+            }
+
+        //$ventas =[43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175];
+
+
+
+        $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
+    @endphp
+
+
     <script>
-        Highcharts.chart('grafico', {
+        var ventas = <?php echo json_encode($ventas) ?>;
+        var gastos = <?php echo json_encode($gastos) ?>;
 
-title: {
-    text: 'Riders Chilenos'
-},
-
-subtitle: {
-    text: 'Ventas-Gastos'
-},
-
-yAxis: {
-    title: {
-        text: 'Pesos Chilenos'
-    }
-},
+        Highcharts.chart('grafico', {title: {
+                                        text: 'Riders Chilenos'},
+                                    subtitle: {
+                                        text: 'Ventas-Gastos'
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: 'Pesos Chilenos'
+                                        }
+                                },
 
 xAxis: {
     accessibility: {
@@ -499,10 +529,10 @@ plotOptions: {
 
 series: [{
     name: 'Ventas',
-    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+    data: ventas
 }, {
     name: 'Gastos',
-    data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+    data: gastos
 } ],
 
 responsive: {

@@ -480,6 +480,14 @@
                     $totaldia+=$pago->cantidad;
                 }
             }
+            foreach ($suscripcion28 as $suscripcion){
+                if (intval($suscripcion->created_at->format('d')) == $day) {
+                    $totaldia+=$suscripcion->precio;
+                }
+                
+
+            }
+       
             $ventas[]=$totaldia;
             }
 

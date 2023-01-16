@@ -30,7 +30,7 @@
     $item = new MercadoPago\Item();
     $item->title = 'Suscripción Vendedor Rider Chilenos:';
     $item->quantity = 1;
-    $item->unit_price = 29990;
+    $item->unit_price = 100;
 
     
 
@@ -48,14 +48,14 @@
             $preference->back_urls = array(
             "success" => "http://www.tu-sitio/success",
             "failure" => "http://www.tu-sitio/failure",
-            "pending" => "http://www.tu-sitio/pending"
+            "pending" =>  route('payment.vendedor', auth()->user()->vendedor)
             );
         }
     }else{
         $preference->back_urls = array(
-            "success" => "http://www.tu-sitio/success",
+            "success" => route('payment.vendedor', auth()->user()->vendedor),
             "failure" => "http://www.tu-sitio/failure",
-            "pending" => "http://www.tu-sitio/pending"
+            "pending" =>  route('payment.vendedor', auth()->user()->vendedor)
             );
     }
 
@@ -459,8 +459,7 @@
     </div>
 
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-  
-        <script>
+    <script>
         // Agrega credenciales de SDK
           const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
                 locale: 'es-AR'

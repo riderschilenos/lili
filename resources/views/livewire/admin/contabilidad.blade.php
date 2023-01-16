@@ -483,11 +483,22 @@
             $ventas[]=$totaldia;
             }
 
+        $gastos=[];
+        foreach ($dias as $day) {
+            $totaldia=0;
+            foreach ($gastos30 as $pago) {
+                if (intval($pago->created_at->format('d')) == $day) {
+                    $totaldia+=$pago->cantidad;
+                }
+            }
+            $gastos[]=$totaldia;
+            }
+
         //$ventas =[43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175];
 
 
 
-        $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
+       // $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
         
     @endphp
 

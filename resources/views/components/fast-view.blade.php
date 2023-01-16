@@ -793,55 +793,7 @@
                     @livewire('vendedor.pedidos-index')
 
                 @else
-                        @php
-                        // SDK de Mercado Pago
-                        require base_path('/vendor/autoload.php');
-                        // Agrega credenciales
-                        MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
                     
-                    
-                        // Crea un objeto de preferencia
-                        $preference = new MercadoPago\Preference();
-                    
-                        // Crea un ítem en la preferencia
-                        $item = new MercadoPago\Item();
-                        $item->title = 'Suscripción Vendedor Rider Chilenos:';
-                        $item->quantity = 1;
-                        $item->unit_price = 29990;
-                    
-                        
-                    
-                        $preference = new MercadoPago\Preference();
-                        //...
-                        if (auth()->user()){
-                            if (auth()->user()->vendedor){
-                    
-                                $preference->back_urls = array(
-                                "success" => route('payment.vendedor', auth()->user()->vendedor),
-                                "failure" => "http://www.tu-sitio/failure",
-                                "pending" => "http://www.tu-sitio/pending");
-                            }
-                            else{
-                                $preference->back_urls = array(
-                                "success" => "http://www.tu-sitio/success",
-                                "failure" => "http://www.tu-sitio/failure",
-                                "pending" => "http://www.tu-sitio/pending"
-                                );
-                            }
-                        }else{
-                            $preference->back_urls = array(
-                                "success" => "http://www.tu-sitio/success",
-                                "failure" => "http://www.tu-sitio/failure",
-                                "pending" => "http://www.tu-sitio/pending"
-                                );
-                        }
-                    
-                        $preference->auto_return = "approved";
-                    
-                        $preference->items = array($item);
-                        $preference->save();
-                            
-                        @endphp
                         {{-- comment
                             @livewire('vendedor.catalogo-productos')
                         --}}
@@ -1263,77 +1215,11 @@
                     
                         </div>
                     
-                        <script src="https://sdk.mercadopago.com/js/v2"></script>
-                
-                        <script>
-                        // Agrega credenciales de SDK
-                        const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
-                                locale: 'es-AR'
-                        });
-                        
-                        // Inicializa el checkout
-                        mp.checkout({
-                            preference: {
-                                id: '{{ $preference->id }}'
-                            },
-                            render: {
-                                    container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                                    label: 'Pagar', // Cambia el texto del botón de pago (opcional)
-                            }
-                        });
-                        </script>
+                   
                     
                 @endif
             @else
-                @php
-                // SDK de Mercado Pago
-                require base_path('/vendor/autoload.php');
-                // Agrega credenciales
-                MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
-            
-            
-                // Crea un objeto de preferencia
-                $preference = new MercadoPago\Preference();
-            
-                // Crea un ítem en la preferencia
-                $item = new MercadoPago\Item();
-                $item->title = 'Suscripción Vendedor Rider Chilenos:';
-                $item->quantity = 1;
-                $item->unit_price = 29990;
-            
-                
-            
-                $preference = new MercadoPago\Preference();
-                //...
-                if (auth()->user()){
-                    if (auth()->user()->vendedor){
-            
-                        $preference->back_urls = array(
-                        "success" => route('payment.vendedor', auth()->user()->vendedor),
-                        "failure" => "http://www.tu-sitio/failure",
-                        "pending" => "http://www.tu-sitio/pending");
-                    }
-                    else{
-                        $preference->back_urls = array(
-                        "success" => "http://www.tu-sitio/success",
-                        "failure" => "http://www.tu-sitio/failure",
-                        "pending" => "http://www.tu-sitio/pending"
-                        );
-                    }
-                }else{
-                    $preference->back_urls = array(
-                        "success" => "http://www.tu-sitio/success",
-                        "failure" => "http://www.tu-sitio/failure",
-                        "pending" => "http://www.tu-sitio/pending"
-                        );
-                }
-            
-                $preference->auto_return = "approved";
-            
-                $preference->items = array($item);
-                $preference->save();
-                    
-                @endphp
+           
                 {{-- comment
                     @livewire('vendedor.catalogo-productos')
                 --}}
@@ -1580,9 +1466,7 @@
             
                                             <h1 class="text-center text-2xl font-bold my-4">{{auth()->user()->name}}</h1>
                                             
-                                            <div class="cho-container flex justify-center mt-2 mb-4">
-                                                <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
-                                            </div>
+                                            <button class="btn btn-primary btn-sm" type="submit"> Ir a pagar </button>
             
                                             <div class="flex justify-center">
                                                 <div class="">
@@ -1755,77 +1639,10 @@
             
                 </div>
             
-                <script src="https://sdk.mercadopago.com/js/v2"></script>
-            
-                    <script>
-                    // Agrega credenciales de SDK
-                    const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
-                            locale: 'es-AR'
-                    });
-                    
-                    // Inicializa el checkout
-                    mp.checkout({
-                        preference: {
-                            id: '{{ $preference->id }}'
-                        },
-                        render: {
-                                container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                                label: 'Pagar', // Cambia el texto del botón de pago (opcional)
-                        }
-                    });
-                    </script>
-
+               
             @endif
         @else
-            @php
-            // SDK de Mercado Pago
-            require base_path('/vendor/autoload.php');
-            // Agrega credenciales
-            MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
-        
-        
-            // Crea un objeto de preferencia
-            $preference = new MercadoPago\Preference();
-        
-            // Crea un ítem en la preferencia
-            $item = new MercadoPago\Item();
-            $item->title = 'Suscripción Vendedor Rider Chilenos:';
-            $item->quantity = 1;
-            $item->unit_price = 29990;
-        
-            
-        
-            $preference = new MercadoPago\Preference();
-            //...
-            if (auth()->user()){
-                if (auth()->user()->vendedor){
-        
-                    $preference->back_urls = array(
-                    "success" => route('payment.vendedor', auth()->user()->vendedor),
-                    "failure" => "http://www.tu-sitio/failure",
-                    "pending" => "http://www.tu-sitio/pending");
-                }
-                else{
-                    $preference->back_urls = array(
-                    "success" => "http://www.tu-sitio/success",
-                    "failure" => "http://www.tu-sitio/failure",
-                    "pending" => "http://www.tu-sitio/pending"
-                    );
-                }
-            }else{
-                $preference->back_urls = array(
-                    "success" => "http://www.tu-sitio/success",
-                    "failure" => "http://www.tu-sitio/failure",
-                    "pending" => "http://www.tu-sitio/pending"
-                    );
-            }
-        
-            $preference->auto_return = "approved";
-        
-            $preference->items = array($item);
-            $preference->save();
-                
-            @endphp
+           
             {{-- comment
                 @livewire('vendedor.catalogo-productos')
             --}}
@@ -2222,26 +2039,6 @@
                 </div>
         
             </div>
-        
-            <script src="https://sdk.mercadopago.com/js/v2"></script>
-        
-                <script>
-                // Agrega credenciales de SDK
-                const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
-                        locale: 'es-AR'
-                });
-                
-                // Inicializa el checkout
-                mp.checkout({
-                    preference: {
-                        id: '{{ $preference->id }}'
-                    },
-                    render: {
-                            container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                            label: 'Pagar', // Cambia el texto del botón de pago (opcional)
-                    }
-                });
-                </script>
             
 
         @endif

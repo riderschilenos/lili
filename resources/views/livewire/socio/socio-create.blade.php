@@ -4,7 +4,6 @@
                 require base_path('/vendor/autoload.php');
                 // Agrega credenciales
                 MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
-
             
                 // Crea un objeto de preferencia
                 $preference = new MercadoPago\Preference();
@@ -13,8 +12,8 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Suscripción:';
                 $item->quantity = 1;
-                $item->unit_price = 100;
-      
+                $item->unit_price = 29990;
+
                 //...
                 if($socio){
                 $preference->back_urls = array(
@@ -201,6 +200,10 @@
                                 <p class="text-xl font-bold ml-auto">$25.000</p>
                                 </article>
                                 
+                                <div class="cho-container flex justify-center mt-2 mb-4">
+                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                </div>
+
                                 <div class="cho-container flex justify-center mt-2 mb-4">
                                     <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
                                 </div>

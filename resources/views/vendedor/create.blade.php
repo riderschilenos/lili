@@ -45,14 +45,14 @@
             $preference->back_urls = array(
             "success" => "http://www.tu-sitio/success",
             "failure" => "http://www.tu-sitio/failure",
-            "pending" =>  route('payment.vendedor', auth()->user()->vendedor)
+            "pending" => "http://www.tu-sitio/pending"
             );
         }
     }else{
         $preference->back_urls = array(
-            "success" => route('payment.vendedor', auth()->user()->vendedor),
+            "success" => "http://www.tu-sitio/success",
             "failure" => "http://www.tu-sitio/failure",
-            "pending" =>  route('payment.vendedor', auth()->user()->vendedor)
+            "pending" => "http://www.tu-sitio/pending"
             );
     }
 
@@ -456,7 +456,8 @@
     </div>
 
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <script>
+  
+        <script>
         // Agrega credenciales de SDK
           const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
                 locale: 'es-AR'

@@ -1,7 +1,9 @@
 <x-app-layout>
-   
-    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2"  :disciplinas="$disciplinas">
 
+    
+
+   
+    
         <div class="max-w-7xl mx-auto px-4 py-8">
 
             <div class="card pb-8">
@@ -38,6 +40,6 @@
             
         </x-slot>
         
-    </x-fast-view>
+
     
 </x-app-layout>

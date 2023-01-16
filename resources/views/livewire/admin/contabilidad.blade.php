@@ -458,12 +458,12 @@
             
         </div>
     </div>
-
-    @foreach ($pagos30 as $pago)
+{{-- comment    @foreach ($pagos30 as $pago)
 
         {{$pago->cantidad."el dia ".$pago->created_at->format('d-m-Y')}} <br>
         
     @endforeach
+ --}}
 
 
 

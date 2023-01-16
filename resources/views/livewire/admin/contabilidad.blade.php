@@ -458,7 +458,7 @@
             
         </div>
     </div>
-   @foreach ($suscripcion as $suscripcion)
+    @foreach ($suscripcion28 as $suscripcion)
 
         {{$suscripcion->precio."el dia ".$suscripcion->created_at->format('d-m-Y')}} <br>
         

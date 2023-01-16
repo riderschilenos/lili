@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Socio;
 use App\Models\Suscripcion;
 use App\Models\User;
+use App\Models\Vendedor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class SuscripcionController extends Controller
     public function index()
     {   
         $socios=Socio::all();
-        $vendedors=Socio::all();
+        $vendedors=Vendedor::all();
         $suscripcions=Suscripcion::all();
         return view('admin.suscripcions.index',compact('suscripcions','socios','vendedors'));
     }

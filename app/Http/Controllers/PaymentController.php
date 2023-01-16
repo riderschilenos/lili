@@ -104,15 +104,16 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
-            $socio->status=2;
-            $socio->save();
 
             $sus = Suscripcion::create([
                 'suscripcionable_type'=>'App\Models\Socio',
                 'suscripcionable_id'=>$socio->id,
-                'precio'=>25000,
+                'precio'=>19990,
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year"))
             ]);
+
+            $socio->status=1;
+            $socio->save();
 
             $pedido = Pedido::create([
                 'user_id'=> $socio->user_id,

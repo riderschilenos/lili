@@ -105,7 +105,7 @@
                         @if($vendedor->estado==2)
                             {!! Form::open(['route'=>['admin.vendedors.update',$vendedor], 'method'=> 'PUT' ]) !!}
                                 @csrf
-                            {!! Form::submit('ACTIVO', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                            {!! Form::submit('ACTIVO', ['class'=>'btn btn-success cursor-pointer']) !!}
                             {!! Form::close() !!}
 
                         @else

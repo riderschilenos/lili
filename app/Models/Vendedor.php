@@ -25,4 +25,8 @@ class Vendedor extends Model
     {
         return 'id';
     }
+    
+    public function suscripcions(){
+        return $this->morphMany('App\Models\Suscripcion','suscripcionable');
+    }
 }

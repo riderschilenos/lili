@@ -11,18 +11,16 @@
         $preference = new MercadoPago\Preference();
 
         // Crea un ítem en la preferencia
-        if($ticket){
+        
             $item = new MercadoPago\Item();
             $item->title = 'Inscripción: ';
             $item->quantity = 1;
-            $item->unit_price =$ticket->inscripcion;
-        }
+            $item->unit_price =100;
+        
 
         $preference = new MercadoPago\Preference();
-        
-        //...
-        if($ticket){
-            $preference->back_urls = array(
+
+        $preference->back_urls = array(
                 "success" => route('payment.ticketaprov',$ticket),
                 "failure" => "http://www.tu-sitio/failure",
                 "pending" => "http://www.tu-sitio/pending"
@@ -31,7 +29,7 @@
 
             $preference->items = array($item);
             $preference->save();
-        }
+
     @endphp
 
 <style>

@@ -104,7 +104,7 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
-            $socio->status=1;
+            $socio->status=2;
             $socio->save();
 
             $sus = Suscripcion::create([

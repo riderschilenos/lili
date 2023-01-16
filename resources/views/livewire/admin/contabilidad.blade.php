@@ -458,12 +458,12 @@
             
         </div>
     </div>
-{{-- comment    @foreach ($pagos30 as $pago)
+   @foreach ($suscripcion as $suscripcion)
 
-        {{$pago->cantidad."el dia ".$pago->created_at->format('d-m-Y')}} <br>
+        {{$suscripcion->precio."el dia ".$suscripcion->created_at->format('d-m-Y')}} <br>
         
     @endforeach
- --}}
+ 
 
 
 

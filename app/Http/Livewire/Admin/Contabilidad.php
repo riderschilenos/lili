@@ -25,7 +25,7 @@ class Contabilidad extends Component
 
 
         $suscripcions=Suscripcion::all();
-        $suscripcion28=Pago::all()->where('created_at', '>=', now()->subDays(28));
+        $suscripcion28=Suscripcion::all()->where('created_at', '>=', now()->subDays(28));
 
 
         $gastos=Gasto::all();

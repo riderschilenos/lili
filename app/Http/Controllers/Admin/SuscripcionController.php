@@ -19,8 +19,9 @@ class SuscripcionController extends Controller
     public function index()
     {   
         $socios=Socio::all();
+        $vendedors=Socio::all();
         $suscripcions=Suscripcion::all();
-        return view('admin.suscripcions.index',compact('suscripcions','socios'));
+        return view('admin.suscripcions.index',compact('suscripcions','socios','vendedors'));
     }
 
     /**

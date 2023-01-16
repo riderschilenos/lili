@@ -17,6 +17,8 @@
             $item->quantity = 1;
             $item->unit_price =$ticket->inscripcion;
         }
+
+        $preference = new MercadoPago\Preference();
         
         //...
         if($ticket){

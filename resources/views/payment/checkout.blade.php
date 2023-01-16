@@ -14,7 +14,7 @@
         $item = new MercadoPago\Item();
         $item->title = 'Serie:';
         $item->quantity = 1;
-        $item->unit_price = $serie->precio->value;
+        $item->unit_price = 100;
 
         
 

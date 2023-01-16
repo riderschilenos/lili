@@ -148,6 +148,8 @@ class PaymentController extends Controller
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 2 year"))
             ]);
 
+            $vendedor->estado=2;
+            $vendedor->save();
 
             return redirect()->route('vendedores.index');
         }

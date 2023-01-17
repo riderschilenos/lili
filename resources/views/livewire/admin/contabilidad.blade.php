@@ -213,14 +213,7 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     
-    <h5 class="text-center">
-        <select wire:model="selectedperiodo" class="appearance-none border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-            <option value="">Julio 2022</option>
-                <option value="1">Junio 2022</option>
-                <option value="2">Abril 2022</option>
-                <option value="3">Marzo 2022</option>
-        </select>                                                                                   
-    </h5>
+    
 
     <figure class="highcharts-figure">
         <div id="grafico"></div>

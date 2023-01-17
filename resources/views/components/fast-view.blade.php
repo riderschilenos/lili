@@ -842,7 +842,7 @@
                                                 </div>
                                                 <div class="flex-grow pl-4">
                                                   <h2 class="title-font mb-1 text-sm font-medium tracking-wider text-gray-900">2 Registro de Mantenciones</h2>
-                                                  <p class="font-laonoto leading-relaxed">Podras <b>registrar</b> ຫຼື <b>la realizacion de cada una de las mantenciones realizadas a tu vehiculo</b>.</p>
+                                                  <p class="font-laonoto leading-relaxed">Podras <b>registrar</b><b> la realizacion de cada una de las mantenciones realizadas a tu vehiculo</b>.</p>
                                                 </div>
                                               </div>
                                               <div class="relative flex pb-4">

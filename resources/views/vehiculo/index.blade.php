@@ -15,7 +15,7 @@
                             <div class="max-w-7xl mx-auto sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-x-2 gap-y-8">
                                 <article>
                                     <figure class="flex justify-center">
-                                        <a href="{{route('socio.index')}}"><img class="rounded-xl mr-8 object-contain object-center" width="300" src="{{asset('img/home/qrpubli.png')}}" alt=""></a>
+                                        <a href="{{route('socio.index')}}"><img class="rounded-xl mx-auto md:mr-8 object-contain object-center" width="300" src="{{asset('img/home/qrpubli.png')}}" alt=""></a>
                                     </figure>
                 
                                 

@@ -16,7 +16,7 @@
 
                         </div>
                         <div>
-                            <h1 class="text-2xl font-bold pb-4 text-center">Suscripción Club Riders Chilenos</h1>
+                            <h1 class="text-2xl font-bold pb-4 text-center">Registro Nacional de Riders Chilenos</h1>
                             
                         </div>
                     

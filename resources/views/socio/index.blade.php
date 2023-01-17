@@ -46,24 +46,25 @@
                             <div class="flex justify-center ">
 
                                 
-                                    @if(auth()->user())
-                                        @if(auth()->user()->socio)
-                                            <a href="{{ route('socio.show', auth()->user()->socio)}}">
-                                                <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Perfil</button>
-                                            </a>
-                                            <a href="{{route('socio.create')}}">
-                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Mi Suscripción</button>
-                                            </a>
-                                        @else
-                                            <a href="{{route('socio.create')}}">
-                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
-                                            </a>
-                                        @endif
+                                    
+                                @if(auth()->user())
+                                    @if(auth()->user()->socio)
+                                        <a href="{{ route('socio.show', auth()->user()->socio)}}">
+                                            <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Mi Perfil</button>
+                                        </a>
+                                        <a href="{{route('socio.create')}}">
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Mi Perfil</button>
+                                        </a>
                                     @else
                                         <a href="{{route('socio.create')}}">
-                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
                                         </a>
-                                    @endif    
+                                    @endif
+                                @else
+                                    <a href="{{route('socio.create')}}">
+                                        <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
+                                    </a>
+                                @endif     
                                 
 
                             </div>

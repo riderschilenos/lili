@@ -692,7 +692,7 @@
                                                 <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Perfil</button>
                                             </a>
                                             <a href="{{route('socio.create')}}">
-                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Mi Suscripción</button>
+                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Suscripción</button>
                                             </a>
                                             </div>
                                         @else
@@ -719,7 +719,7 @@
                                                 <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Mi Perfil</button>
                                             </a>
                                             <a href="{{route('socio.create')}}">
-                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Mi Perfil</button>
+                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Suscripción</button>
                                             </a>
                                         @else
                                             <a href="{{route('socio.create')}}">

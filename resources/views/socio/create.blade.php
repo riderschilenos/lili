@@ -1,6 +1,28 @@
 <x-app-layout>
 
-    
+    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
+                    
+                
+        @php
+            $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        @endphp
+        <style>
+            :root {
+                --main-color: #4a76a8;
+            }
+
+            .bg-main-color {
+                background-color: var(--main-color);
+            }
+
+            .text-main-color {
+                color: var(--main-color);
+            }
+
+            .border-main-color {
+                border-color: var(--main-color);
+            }
+        </style>
 
    
     
@@ -10,7 +32,7 @@
                 <div class="card-body">
                     
 
-                    <div class="justify-between mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div class="justify-between mt-2 grid grid-cols-1 lg:grid-cols-3 gap-4">
                 
                         <div>
 
@@ -40,6 +62,6 @@
             
         </x-slot>
         
-
+    </x-fast-view>
     
 </x-app-layout>

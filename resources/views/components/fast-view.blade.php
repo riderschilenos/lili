@@ -797,10 +797,10 @@
                     <div class="max-w-7xl mx-auto sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2">
                         <article>
                             <figure class="hidden sm:flex justify-center">
-                                <a href="{{route('socio.index')}}"><img class="rounded-xl md:mr-8 ml-24 object-contain object-center" width="300" src="{{asset('img/home/qrpubli.png')}}" alt=""></a>
+                                <a href="{{route('socio.index')}}"><img class="md:mr-8 ml-8 object-contain object-center" width="460" src="{{asset('img/home/qrpubli2.png')}}" alt=""></a>
                             </figure>
                             <figure class="flex justify-center sm:hidden">
-                                <a href="{{route('socio.index')}}"><img class="rounded-xl mx-auto md:mr-8 object-contain object-center" width="140" src="{{asset('img/home/qrpubli.png')}}" alt=""></a>
+                                <a href="{{route('socio.index')}}"><img class="mx-auto md:mr-8 object-contain object-center" width="280" src="{{asset('img/home/qrpubli2.png')}}" alt=""></a>
                             </figure>
         
                         

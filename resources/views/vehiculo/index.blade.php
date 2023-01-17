@@ -12,10 +12,13 @@
                                
                             </div>
 
-                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-x-2 gap-y-8">
+                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-8 flex">
                                 <article>
-                                    <figure class="flex justify-center">
-                                        <a href="{{route('socio.index')}}"><img class="rounded-xl mx-auto md:mr-8 object-contain object-center" width="300" src="{{asset('img/home/qrpubli.png')}}" alt=""></a>
+                                    <figure class="hidden sm:flex justify-center">
+                                        <a href="{{route('socio.index')}}"><img class="rounded-xl md:mr-8 object-contain object-center" width="300" src="{{asset('img/home/qrpubli.png')}}" alt=""></a>
+                                    </figure>
+                                    <figure class="flex sm:hidden">
+                                        <a href="{{route('socio.index')}}"><img class="rounded-xl mx-auto md:mr-8 object-contain object-center" width="140" src="{{asset('img/home/qrpubli.png')}}" alt=""></a>
                                     </figure>
                 
                                 
@@ -28,7 +31,7 @@
                                                 <div class="flex-wrap md:flex">
                                                 
                                                     <!-- Step Checkout -->
-                                                    <div class="mt-8 max-w-sm md:mt-0 md:ml-10 md:w-2/3">
+                                                    <div class="mt-8 md:mt-0  md:w-2/3">
                                                       <div class="relative flex pb-12">
                                                         <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
                                                           <div class="pointer-events-none h-full w-1 bg-gray-200"></div>

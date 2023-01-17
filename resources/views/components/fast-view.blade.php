@@ -621,6 +621,22 @@
         
         </section>
 
+        <section class="mt-4 bg-rider-color pt-12 pb-50">
+            <h1 class="text-center text-3xl text-white pt-16">Ultimos Videos y Carreras</h1>
+            <p class="text-center text-white text-sm pb-16">Compra y apoya las producciones nacionales</p>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
+
+                @foreach ($series as $peli)
+
+                    <x-serie-card :serie="$peli" />
+                    
+                @endforeach
+
+            </div>
+            <h1 class="text-center text-xs text-white py-12">Todos Los derechos Reservados</h1>
+        </section>
+
         <section class="my-4  py-12">
             <h1 class="text-center text-3xl text-gray-600 font-bold">Compra y Venta Rider</h1>
             <p class="text-center text-gray-500 text-sm mb-6 pb-10">Bicicletas, Motos y Otros.</p>
@@ -648,21 +664,7 @@
         
         </section>
 
-        <section class="mt-4 bg-rider-color pt-12 pb-50">
-            <h1 class="text-center text-3xl text-white pt-16">Ultimos Videos y Carreras</h1>
-            <p class="text-center text-white text-sm pb-16">Compra y apoya las producciones nacionales</p>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
-
-                @foreach ($series as $peli)
-
-                    <x-serie-card :serie="$peli" />
-                    
-                @endforeach
-
-            </div>
-            <h1 class="text-center text-xs text-white py-12">Todos Los derechos Reservados</h1>
-        </section>
+       
 
        
     </div>

@@ -7,10 +7,7 @@
                 <div class="card-body">
                     <h1 class="hidden text-2xl font-bold text-center">Registro RCH</h1>
                     
-                            <div class="mx-auto flex justify-center mt-4">
-                                            
-                               
-                            </div>
+                        
 
                             <div class="max-w-7xl mx-auto sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2">
                                 <article>
@@ -31,7 +28,7 @@
                                                 <div class="flex-wrap md:flex justify-center">
                                                 
                                                     <!-- Step Checkout -->
-                                                    <div class="my-12 ml-2 md:ml-12 md:mt-4  md:w-2/3">
+                                                    <div class="my-12 ml-2 md:ml-12 mt-4 d:mt-4  md:w-2/3">
                                                       <div class="relative flex pb-4">
                                                         <div class="absolute inset-0 flex h-full w-10 items-center justify-center">
                                                           <div class="pointer-events-none h-full w-1 bg-gray-200"></div>

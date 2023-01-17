@@ -1,11 +1,11 @@
 <x-app-layout>
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
-
+        <h1 class="text-xs font-bold text-center">Registro RCH</h1>
         <div class="max-w-7xl mx-auto py-8 ">      
             <div class="card">
                 <div class="card-body">
-                    <h1 class="hidden text-2xl font-bold text-center">Registro RCH</h1>
+                    
                     
                         
 

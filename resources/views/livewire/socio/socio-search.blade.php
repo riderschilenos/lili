@@ -122,7 +122,7 @@
                 <!-- More people... -->
                 </tbody>
             </table>--}}
-            <section class="my-4 py-12">
+            <section class="mb-4 pt-2 pb-12">
                
                 <div class="max-w-7xl mx-auto px-4 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-8">
 

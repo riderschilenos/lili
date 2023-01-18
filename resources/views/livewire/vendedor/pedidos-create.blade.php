@@ -5,7 +5,7 @@
             <a class="btn btn-danger form-control cursor-pointer" wire:click="updateselectedInvitado">Invitado</a>    
         @endif
         @if(is_null($invitados))
-            <a class="btn btn-success ml-2 form-control cursor-pointer" wire:click="updateselectedSocios">Socio</a>
+            <a class="btn btn-success ml-2 form-control cursor-pointer" wire:click="updateselectedSocios">Rider Registrado</a>
         @endif
     </div>
 

@@ -59,38 +59,38 @@
                 </div>
                 @if(!is_null($products))
 
-                <div class="flex items-center mt-4">
-                    <Label class="w-32">PRODUCTO:</Label>
-                    <select wire:model="selectedproduct" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option value="">--PRODUCTOS--</option>
-                                
-                        
-                        @foreach ($products as $product)
-                            
-                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                                
-                                
-                                <option value="{{$product->id}}">{{$product->name."  -  $".number_format($product->precio-$product->descuento_socio)}}</option>
-                                
-                                
-                
-                            @endif
-                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                
-                                
+                    <div class="flex items-center mt-4">
+                        <Label class="w-32">PRODUCTO:</Label>
+                        <select wire:model="selectedproduct" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            <option value="">--PRODUCTOS--</option>
                                     
-                                <option value="{{$product->id}}">{{$product->name."  -  $".number_format($product->precio)}}</option>
-                
-                                   
-                               
-                
-                            @endif
+                            
+                            @foreach ($products as $product)
+                                
+                                @if($pedido->pedidoable_type=="App\Models\Socio")
+                                    
+                                    
+                                    <option value="{{$product->id}}">{{$product->name."  -  $".number_format($product->precio-$product->descuento_socio)}}</option>
+                                    
+                                    
+                    
+                                @endif
+                                @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                    
+                                    
+                                        
+                                    <option value="{{$product->id}}">{{$product->name."  -  $".number_format($product->precio)}}</option>
+                    
+                                    
+                                
+                    
+                                @endif
 
-                            
-                            
-                        @endforeach
-                    </select>
-                </div>
+                                
+                                
+                            @endforeach
+                        </select>
+                    </div>
                 
                     @if(!is_null($marcas))
 
@@ -204,11 +204,6 @@
 
                     @else
 
-                        
-                    
-                        
-
-                   
                     
 
                     @endif

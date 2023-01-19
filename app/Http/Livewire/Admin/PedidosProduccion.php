@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Gasto;
+use App\Models\Image as ModelsImage;
 use App\Models\Invitado;
 use App\Models\Lote;
 use App\Models\Orden;
 use App\Models\Pedido;
 use App\Models\Socio;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
@@ -199,6 +201,13 @@ class PedidosProduccion extends Component
         $lote->estado=2;
         $lote->save();
  
+    }
+
+    public function imagedestroy(ModelsImage $image){
+
+        Storage::delete($image->url);
+        $image->delete();
+       
     }
 
 }

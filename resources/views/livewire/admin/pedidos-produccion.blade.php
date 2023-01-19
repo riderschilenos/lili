@@ -547,12 +547,14 @@
                                         <div class="h-32">
                                             <h1 class="text-xl font-bold text-center py-2 mt-4">Adjunte fotos si desea</h1>
                                             <hr class="w-full">
-                                            <input wire:model="file" type="file" class="form-input flex-1 bg-gray-200"> 
+                                            <input wire:model="file" type="file" class="form-input flex-1 bg-gray-200">                                      
                                             @error('lote')
                                                 <strong class="text-xs text-red-600">{{$message}}</strong>
                                             @enderror
-
                                             
+                                        </div>
+                                        <div class="text-white  text-md font-bold px-4" wire:loading wire:target="file">
+                                            <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                                         </div>
 
 

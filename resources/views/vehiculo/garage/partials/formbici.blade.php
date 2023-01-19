@@ -28,10 +28,18 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        {!! Form::label('aro_front', 'Aro:') !!}
+                        {!! Form::label('aro_front', 'Aro Delantero:') !!}
                         {!! Form::number('aro_front', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':''),'step' => '0.5']) !!}
 
                         @error('aro_front')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
+                        {!! Form::label('aro_back', 'Aro trasero:') !!}
+                        {!! Form::number('aro_back', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':''),'step' => '0.5']) !!}
+
+                        @error('aro_back')
                             <strong class="text-xs text-red-600">{{$message}}</strong>
                         @enderror
                     </div>

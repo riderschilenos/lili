@@ -29,9 +29,9 @@
 
             
             <div class="grid grid-cols-3 gap-3">
-                    <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}</button>
-                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}} MOTOS</button>
-                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}} BICICLETAS</button>
+                    <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
+                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTOS</button>
+                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETAS</button>
                    
             </div>
             

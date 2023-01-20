@@ -20,18 +20,17 @@
                         {{-- <div class="text-center text-gray-400 text-xs font-semibold ">
                             <p>Socio RidersChilenos</p>
                         </div> --}}
+                        <div class="flex  text-sm justify-between px-2">
+                            <div class="px-2 py-2 text-gray-500 font-semibold">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            @if(!is_null($socio->direccion))
+                            <div class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</div>
+                            @endif
+                        </div>
                         <table class="text-xs mt-auto">
                             <tbody>
-                                
-                           
-                                <tr>
-                                    <td class="px-2 py-2 text-gray-500 font-semibold">Localidad</td>
-                                    @if(!is_null($socio->direccion))
-                                    <td class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</td>
-                                    @endif
-                                </tr>
-                            
-                            
+
                             <tr>
                                 <td class="px-2 py-2 text-gray-500 font-semibold">Disciplina</td>
                                 <td class="px-2 py-2">{{$socio->disciplina->name}}</td>

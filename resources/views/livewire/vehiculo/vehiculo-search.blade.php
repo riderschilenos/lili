@@ -43,7 +43,7 @@
 
             
                 
-                <button class="btn bg-gray-800 text-white w-full max-w-xs items-center justify-items-center m2-2">{{$bicicletas+$motos}}</button>
+                <button class="btn bg-gray-800 text-white w-full max-w-xs items-center justify-items-center mr-2">{{$bicicletas+$motos}}</button>
          
                 <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTOS</button>
            

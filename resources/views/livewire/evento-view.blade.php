@@ -38,8 +38,8 @@
     
                     </div>
                     <div class="flex flex-col ml-auto">
-                      <span class="text-sm">Gate</span>
-                      <div class="font-semibold">B3</div>
+                      <span class="text-sm">Inscritos</span>
+                      <div class="font-semibold text-center">26</div>
     
                     </div>
                   </div>

@@ -47,7 +47,7 @@ class VehiculoMantencion extends Component
             $foto = Str::random(10).$this->foto->getClientOriginalName();
             $rutafoto = public_path().'/storage/mantencions/'.$foto;
             $img=Image::make($this->foto)->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutafoto);
@@ -63,7 +63,7 @@ class VehiculoMantencion extends Component
             $rutarepuestos = public_path().'/storage/mantencions/'.$repuestos;
   
             $img=Image::make($this->repuestos)->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutarepuestos);
@@ -78,7 +78,7 @@ class VehiculoMantencion extends Component
             $rutacomprobante = public_path().'/storage/mantencions/'.$comprobante;
   
             $img=Image::make($this->comprobante)->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutacomprobante);

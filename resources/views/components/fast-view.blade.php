@@ -159,12 +159,7 @@
                                                 <div class="px-4 py-2 font-semibold">Fecha de Nacimiento</div>
                                                 <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio2->born_date))}}</div>
                                             </div>
-                                            @if($socio2->fono)
-                                                    <div class="grid grid-cols-2">
-                                                        <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                                        <div class="px-4 py-2">{{ $socio2->fono }}</div>
-                                                    </div>
-                                            @endif
+                                            
                                                 <div class="grid grid-cols-2">
                                                     <div class="px-4 py-2 font-semibold">Localidad</div>
                                                         @if($socio2->direccion)
@@ -172,6 +167,12 @@
                                                         @endif
                                                 </div>
                                             <div x-show="!open">
+                                                @if($socio2->fono)
+                                                    <div class="grid grid-cols-2">
+                                                        <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
+                                                        <div class="px-4 py-2">{{ $socio2->fono }}</div>
+                                                    </div>
+                                                @endif
                                                 
                                                 <div class="grid grid-cols-2">
                                                     <div class="px-4 py-2 font-semibold">Email.</div>

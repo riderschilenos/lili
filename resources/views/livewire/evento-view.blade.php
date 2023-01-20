@@ -9,11 +9,11 @@
             
               <div class="w-full mx-12">
                 <div class="flex items-center justify-between">
-                  <div class="flex items-center  my-1">
-                    <span class="mr-3 rounded-full bg-white w-8 h-8">
-                    <img src="{{asset('img/logo.png')}}" class="h-8 p-1">
-                  </span>
-                      <h2 class="font-medium mx-4">{{$evento->titulo}}</h2>
+                  <div class="flex items-center justify-between  my-1">
+                    <span class="mr-3 rounded-full bg-white">
+                    <img src="{{asset('img/ticket.png')}}" class="w-10 p-1">
+                    </span>
+                      <h2 class="text-xl mx-4">{{$evento->titulo}}</h2>
                     </div>
                    
                   </div>

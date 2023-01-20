@@ -1,6 +1,6 @@
 <div class="flex justify-center w-full bg-blue-900">
 
-  <div class="rounded-lg my-12">
+  <div class="rounded-lg mt-12 mb-28">
   
       <div class="z-10 bg-blue-900 rounded-lg pb-20">
         <div class="flex mb-24">

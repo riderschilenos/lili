@@ -27,8 +27,9 @@
                    
                   </div>
                   <div class="border-b border-dashed border-b-2 my-5 pt-5">
-                    <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
-                    <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
+                    <div class="absolute rounded-full w-5 h-5 bg-red-600 -mt-2 -left-2"></div>
+                    <h1 class="text-xs text-center">Información de carrera</h1>
+                  
                   </div>
                   <div class="flex items-center mb-5 p-5 text-sm">
                     <div class="flex flex-col">
@@ -60,8 +61,9 @@
                     </div>
                   </div>
                   <div class="border-b border-dashed border-b-2 my-5 pt-5">
-                    <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
-                    <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
+                    <div class="absolute rounded-full w-5 h-5 bg-red-600 -mt-2 -left-2"></div>
+                    <h1 class="text-xs text-center">Información del Rider</h1>
+                  
                   </div>
                   <div class="flex items-center px-5 pt-3 text-sm">
                     <div class="flex flex-col">

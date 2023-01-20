@@ -7,24 +7,13 @@
       transform: translateX(-90px);
     }
   </style>
-  <div class="flex items-center justify-center bg-center bg-cover rounded-lg my-12">
+  <div class="rounded-lg mt-8 mb-16">
   
       <div class="w-full  z-10 bg-blue-900 rounded-lg">
         <div class="flex ">
           <div class="bg-white drop-shadow-2xl  rounded-lg p-4 m-4">
             <div class="flex-none sm:flex">
-              <div class=" relative   sm:mb-0 mb-3 hidden">
-                <img src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg" alt="aji" class="object-cover rounded-2xl">
-                <a href="#"
-                  class="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                    class="h-4 w-4">
-                    <path
-                      d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                    </path>
-                  </svg>
-                </a>
-              </div>
+            
               <div class="flex-auto justify-evenly">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center  my-1">

@@ -161,12 +161,7 @@
                                             <div class="px-4 py-2 font-semibold">Fecha de Nacimiento</div>
                                             <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
                                         </div>
-                                        @if($socio->fono)
-                                                <div class="grid grid-cols-2">
-                                                    <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                                    <div class="px-4 py-2">{{ $socio->fono }}</div>
-                                                </div>
-                                        @endif
+                                      
                                             <div class="grid grid-cols-2">
                                                 <div class="px-4 py-2 font-semibold">Localidad</div>
                                                     @if($socio->direccion)
@@ -174,6 +169,12 @@
                                                     @endif
                                             </div>
                                         <div x-show="!open">
+                                            @if($socio->fono)
+                                                <div class="grid grid-cols-2">
+                                                    <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
+                                                    <div class="px-4 py-2">{{ $socio->fono }}</div>
+                                                </div>
+                                            @endif
                                             
                                             <div class="grid grid-cols-2">
                                                 <div class="px-4 py-2 font-semibold">Email.</div>
@@ -181,6 +182,7 @@
                                                     <a class="text-blue-800" href="mailto:jane@example.com">{{$socio->user->email}}</a>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 

@@ -7,14 +7,14 @@
       transform: translateX(-90px);
     }
   </style>
-  <div class="flex flex-col items-center justify-center bg-center bg-cover rounded-lg my-12">
+  <div class="flex items-center justify-center bg-center bg-cover rounded-lg my-12">
   
-      <div class="max-w-md w-full  mx-auto z-10 bg-blue-900 rounded-lg">
-        <div class="flex flex-col">
-          <div class="bg-white relative drop-shadow-2xl  rounded-lg p-4 m-4">
+      <div class="w-full  z-10 bg-blue-900 rounded-lg">
+        <div class="flex ">
+          <div class="bg-white drop-shadow-2xl  rounded-lg p-4 m-4">
             <div class="flex-none sm:flex">
-              <div class=" relative h-32 w-32   sm:mb-0 mb-3 hidden">
-                <img src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg" alt="aji" class=" w-32 h-32 object-cover rounded-2xl">
+              <div class=" relative   sm:mb-0 mb-3 hidden">
+                <img src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg" alt="aji" class="object-cover rounded-2xl">
                 <a href="#"
                   class="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -119,6 +119,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>

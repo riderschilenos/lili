@@ -2132,27 +2132,64 @@
                                 $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
                                 $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
                             @endphp
-                            {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                                        
-                            @csrf
                                 
-                            <div class="max-w-full items-center">
-        
-        
-                                <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
-        
-                       
+                                
+                                <h1 class="text-center py-2 font-bold">Una vez que hayas creado tu cuenta con nosotros podras registrarte como vendedor autorizado de RidersChilenos</h1>
+                                <div class="flex justify-center mx-4 pb-20 mb-20">
+                                    
+                                    <form method="POST" action="{{ route('register') }}" class="w-full">
+                                        @csrf
                             
+                                        <div>
+                                            <x-jet-label for="name" value="{{ __('Nombre') }}" />
+                                            <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                        </div>
                             
-                                
-                            </div>
-                            {!! Form::close() !!}
-                            <h1 class="text-center py-2 font-bold">Para desbloquear el formulario debes ingresar a tu cuenta RCH</h1>
-                            <div class="flex justify-center">
-                                
-                                <a href="{{ route('login') }}" class="btn btn-primary mb-4">Iniciar Sesión</a>
-                                
-                            </div>
+                                        <div class="mt-4">
+                                            <x-jet-label for="email" value="{{ __('Email') }}" />
+                                            <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                                        </div>
+                            
+                                        <div class="mt-4">
+                                            <x-jet-label for="password" value="{{ __('Contraseña') }}" />
+                                            <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                                        </div>
+                            
+                                        <div class="mt-4">
+                                            <x-jet-label for="password_confirmation" value="{{ __('Confirmar contraseña') }}" />
+                                            <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                                        </div>
+                            
+                                        @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                            <div class="mt-4">
+                                                <x-jet-label for="terms">
+                                                    <div class="flex items-center">
+                                                        <x-jet-checkbox name="terms" id="terms"/>
+                            
+                                                        <div class="ml-2">
+                                                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                                            ]) !!}
+                                                        </div>
+                                                    </div>
+                                                </x-jet-label>
+                                            </div>
+                                        @endif
+                            
+                                        <div class="flex items-center justify-end mt-4">
+                                            <h1 class="text-sm mr-2">Ya tienes una cuenta? </h1>
+                                            <a class="underline text-sm text-gray-600 hover:text-gray-900 mr-auto" href="{{ route('login') }}">
+                                                {{ __('Ingresar') }}
+                                            </a>
+                            
+                                            <x-jet-button class="ml-4">
+                                                {{ __('Registrarme') }}
+                                            </x-jet-button>
+                                        </div>
+                                    </form>
+                                    
+                                </div>
                                 @endif  
                         
                         

@@ -10,7 +10,7 @@
   <div class="flex flex-col items-center justify-center min-h-screen bg-center bg-cover rounded-lg"
     style="background-image: url(https://images.unsplash.com/photo-1519666336592-e225a99dcd2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1888&q=80);">
     <div class="absolute bg-blue-900 opacity-80 inset-0 z-0"></div>
-    <div class="max-w-md w-full h-full mx-auto z-10 bg-blue-900 rounded-lg">
+    <div class="max-w-md w-full h-screen  mx-auto z-10 bg-blue-900 rounded-lg">
       <div class="flex flex-col">
         <div class="bg-white relative drop-shadow-2xl  rounded-lg p-4 m-4">
           <div class="flex-none sm:flex">

@@ -28,13 +28,11 @@
         <div class="flex justify-end mr-4 ">
 
             
-            <div class="grid grid-cols-2 gap-2">
-                <a href="{{ route('socio.show', auth()->user()->socio) }}">
+            <div class="grid grid-cols-3 gap-3">
+                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}</button>
                     <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}} MOTOS</button>
-                </a>
-                <a href="{{route('socio.create')}}">
                     <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}} BICICLETAS</button>
-                </a>
+                   
             </div>
             
 
@@ -45,19 +43,20 @@
 
             
                 
-            <a href="{{ route('socio.show', auth()->user()->socio)}}">
+                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas+$motos}}</button>
+         
                 <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}} MOTOS</button>
-            </a>
-            <a href="{{route('socio.create')}}">
+           
+          
                 <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}} BICICLETAS</button>
-            </a>
+                
             
 
         </div>
     </div>
 </div>
 
-    <div class="px-6 py-2">
+    <div class="px-6 py-2 mt-2">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre del dueño" autocomplete="off">
     </div>
     @if($vehiculos->count())

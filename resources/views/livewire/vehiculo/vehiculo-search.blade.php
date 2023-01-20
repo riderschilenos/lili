@@ -1,4 +1,61 @@
 <div>
+    @php
+
+    $motos=0;
+    $bicicletas=0;
+
+        foreach ($vehiculos as $vehiculo) {
+            if ($vehiculo->status==5) {
+                if ($vehiculo->vehiculo_type->id==9 or $vehiculo->vehiculo_type->id==10 or $vehiculo->vehiculo_type->id==11 ) {
+                    $bicicletas+=1;}
+                else {
+                    $motos+=1;
+                
+                }    
+            }
+        }
+
+
+    @endphp
+
+<div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-x-4">
+                
+    <div>
+
+    </div>
+   
+    <div class="hidden sm:block">
+        <div class="flex justify-end mr-4 ">
+
+            
+            <div class="grid grid-cols-2 gap-2">
+                <a href="{{ route('socio.show', auth()->user()->socio) }}">
+                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}} MOTOS</button>
+                </a>
+                <a href="{{route('socio.create')}}">
+                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}} BICICLETAS</button>
+                </a>
+            </div>
+            
+
+        </div>
+    </div>
+    <div class="block sm:hidden">
+        <div class="flex justify-center ">
+
+            
+                
+            <a href="{{ route('socio.show', auth()->user()->socio)}}">
+                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}} MOTOS</button>
+            </a>
+            <a href="{{route('socio.create')}}">
+                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}} BICICLETAS</button>
+            </a>
+            
+
+        </div>
+    </div>
+</div>
 
     <div class="px-6 py-2">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre del dueño" autocomplete="off">

@@ -108,7 +108,7 @@
                 
                     <hr class="mt-2 mb-4">
 
-                        
+                    
                         
                     @livewire('vehiculo.vehiculo-search')
                 

@@ -1,5 +1,24 @@
 <div>
+    @php
 
+    $bicicletas=0;
+    $motos=0;
+
+        foreach ($socios as $socio) {
+            
+           
+                if ($socio->disciplina_id==2 or $socio->disciplina_id==2 or $socio->disciplina_id=5 or $socio->disciplina_id=8 ) {
+                    $bicicletas+=1;}
+                else {
+                    $motos+=1;
+                
+                }    
+            
+            
+        }
+
+
+    @endphp
         {{-- 
         
         <div class="bg-gray-200 py-4 mb-8">
@@ -49,9 +68,49 @@
             </div>
         </div>  
             --}}
+
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-x-4">
+                
+                <div>
+            
+                </div>
+               
+                <div class="hidden sm:block">
+                    <div class="flex justify-end mr-4 ">
+            
+                        
+                        <div class="grid grid-cols-3 gap-3">
+                                <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
+                                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
+                                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETA</button>
+                               
+                        </div>
+                        
+            
+                    </div>
+                </div>
+                <div class="block sm:hidden">
+                    <div class="flex justify-center ">
+            
+                        
+                            
+                            <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center mr-2">{{$bicicletas+$motos}}<br> TOTAL</button>
+                     
+                            <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
+                       
+                      
+                            <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}}<br> BICICLETA</button>
+                            
+                        
+            
+                    </div>
+                </div>
+            </div>
         <div class="px-6 py-4">
             <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre de un rider" autocomplete="off">
         </div>
+
+
 
         @if ($socios->count())
 

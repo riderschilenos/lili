@@ -21,7 +21,7 @@
                             <p>Socio RidersChilenos</p>
                         </div> --}}
                         <div class="flex  text-sm justify-between px-2">
-                            <div class="px-2 py-2 text-gray-500 font-semibold">
+                            <div class="px-2 py-2 text-red-600 font-semibold">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             @if(!is_null($socio->direccion))

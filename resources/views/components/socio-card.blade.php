@@ -20,14 +20,14 @@
                         {{-- <div class="text-center text-gray-400 text-xs font-semibold ">
                             <p>Socio RidersChilenos</p>
                         </div> --}}
+                        @if(!is_null($socio->direccion))
                         <div class="flex  text-sm justify-between px-2">
                             <div class="px-2 py-2 text-red-500 font-semibold">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
-                            @if(!is_null($socio->direccion))
                             <div class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</div>
-                            @endif
                         </div>
+                        @endif
                         <table class="text-xs mt-auto">
                             <tbody>
 

@@ -4,7 +4,7 @@
   
       <div class="z-10 bg-blue-900 rounded-lg pb-20">
         <div class="flex mb-24">
-          <div class="bg-white w-full rounded-lg px-12 py-10">
+          <div class="bg-white w-full rounded-lg px-6 py-5">
 
             
               <div class="w-full mx-12">
@@ -42,19 +42,19 @@
     
                     </div>
                   </div>
-                  <div class="flex items-center mb-4 px-5">
+                  <div class="flex items-center mb-4 px-5 gap-x-6">
                     <div class="flex flex-col text-sm">
-                      <span class="">Board</span>
+                      <span class="">Entrenamientos</span>
                       <div class="font-semibold">11:50AM</div>
     
                     </div>
                     <div class="flex flex-col mx-auto text-sm">
-                      <span class="">Departs</span>
+                      <span class="">Clasificación</span>
                       <div class="font-semibold">11:30Am</div>
     
                     </div>
                     <div class="flex flex-col text-sm">
-                      <span class="">Arrived</span>
+                      <span class="">Final</span>
                       <div class="font-semibold">2:00PM</div>
     
                     </div>
@@ -65,7 +65,7 @@
                   </div>
                   <div class="flex items-center px-5 pt-3 text-sm">
                     <div class="flex flex-col">
-                      <span class="">Passanger</span>
+                      <span class="">Rider</span>
                       <div class="font-semibold">Ajimon</div>
     
                     </div>

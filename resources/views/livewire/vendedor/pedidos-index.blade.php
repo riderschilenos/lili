@@ -83,7 +83,7 @@
     @endforeach
 
 
-                    <div class="max-w-xs mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 mb-6">
+                    <div class="max-w-xs mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6">
                         <article>
                             <figure>
                                 <a href="https://chat.whatsapp.com/EEb1N0D0ubK9QHX3pYCPjH"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/whatsapp.png')}}" alt=""></a>

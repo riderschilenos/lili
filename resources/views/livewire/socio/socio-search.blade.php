@@ -7,7 +7,7 @@
         foreach ($socios as $socio) {
             
            
-                if ($socio->disciplina_id==2 or $socio->disciplina_id==2 or $socio->disciplina_id=5 or $socio->disciplina_id=8 ) {
+                if ($socio->disciplina_id==2 or $socio->disciplina_id==4 or $socio->disciplina_id=5 or $socio->disciplina_id=8 ) {
                     $bicicletas+=1;}
                 else {
                     $motos+=1;

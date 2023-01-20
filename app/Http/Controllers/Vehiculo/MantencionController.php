@@ -53,7 +53,7 @@ class MantencionController extends Controller
             $foto = Str::random(10).$request->file('foto')->getClientOriginalName();
             $rutafoto = public_path().'/storage/mantencions/'.$foto;
             $img=Image::make($request->file('foto'))->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutafoto);
@@ -69,7 +69,7 @@ class MantencionController extends Controller
             $rutarepuestos = public_path().'/storage/mantencions/'.$repuestos;
   
             $img=Image::make($request->file('repuestos'))->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutarepuestos);
@@ -84,7 +84,7 @@ class MantencionController extends Controller
             $rutacomprobante = public_path().'/storage/mantencions/'.$comprobante;
   
             $img=Image::make($request->file('comprobante'))->orientate()
-                ->resize(1200, null , function($constraint){
+                ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutacomprobante);

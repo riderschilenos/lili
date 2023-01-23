@@ -17,6 +17,8 @@ class SocioSearch extends Component
     {   
         $disciplinas = Disciplina::all();
 
+        $sociosfull = Socio::all();
+
         $socios = Socio::
                     join('users','socios.user_id','=','users.id')
                     ->select('socios.*','users.name','users.email')
@@ -30,7 +32,7 @@ class SocioSearch extends Component
                     ->paginate(50);
 
         
-        return view('livewire.socio.socio-search',compact('socios','disciplinas'));
+        return view('livewire.socio.socio-search',compact('socios','disciplinas','sociosfull'));
     }
 
     

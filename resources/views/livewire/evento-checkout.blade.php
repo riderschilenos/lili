@@ -500,50 +500,50 @@
                     
                  
                 </div>
-                @if ($alfa>0)
-                <section>
-                    <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
-                        <div class="flex items-center justify-between px-8">
-                        <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
-                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa)}}</p>
-                        </div>
-                      
-
-                        <div class="flex items-center justify-between pt-5 px-8">
-                        <p class="text-base leading-none text-gray-800 dark:text-white">Costos del Servicio</p>
-                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($valor-$alfa)}}</p>
-                        </div>
-                    
-                    </div>
-                <div>
-                    <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
-                      <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
-                      <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($valor)}}</p>
-                    </div>
-                </div>
-
-                <div class="cho-container flex justify-center mt-2 mb-4">
-                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
-                </div>
-
-                <div>
-                    @if ($ticket)
-                        <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
-                            @csrf
+                @if ($ticket>0)
+                    <section>
+                        <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
+                            <div class="flex items-center justify-between px-8">
+                            <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
+                            <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa)}}</p>
+                            </div>
                         
-                            <button class="btn btn-primary" >Agregar </button>
-                            
-                        </form>
-                    @endif
-                </div>
-          
-              
+
+                            <div class="flex items-center justify-between pt-5 px-8">
+                            <p class="text-base leading-none text-gray-800 dark:text-white">Costos del Servicio</p>
+                            <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($valor-$alfa)}}</p>
+                            </div>
+                        
+                        </div>
+                            <div>
+                                <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
+                                <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
+                                <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($valor)}}</p>
+                                </div>
+                            </div>
+
+                            <div class="cho-container flex justify-center mt-2 mb-4">
+                                <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                            </div>
+
+                            <div>
+                                @if ($ticket)
+                                    <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
+                                        @csrf
+                                    
+                                        <button class="btn btn-primary" >Agregar </button>
+                                        
+                                    </form>
+                                @endif
+                            </div>
+                    
+                        
 
 
-                    <hr>
+                                <hr>
 
-                <p class="text-sm mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ipsum tenetur beatae esse placeat eos, inventore quod amet tempora voluptas dicta, reprehenderit aliquid praesentium earum magnam est sequi fugiat? <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
-            </section>
+                            <p class="text-sm mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ipsum tenetur beatae esse placeat eos, inventore quod amet tempora voluptas dicta, reprehenderit aliquid praesentium earum magnam est sequi fugiat? <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
+                    </section>
                 
                     
                 @endif

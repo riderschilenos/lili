@@ -66,7 +66,7 @@
                     <div class="bg-white py-2 px-4">
                         <ul class="sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-6 mt-8">
                             @foreach ($evento->Inscritos->reverse() as $sponsor)
-                                <li><img class="flex ml-3 h-12 w-12 rounded-full object-cover" src="{{ $sponsor->profile_photo_url }}" alt=""  />{{ Str::limit($sponsor->name, 10) }}</li>
+                                <li><a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $sponsor->socio)}}"><img class="flex ml-3 h-12 w-12 rounded-full object-cover" src="{{ $sponsor->profile_photo_url }}" alt=""  />{{ Str::limit($sponsor->name, 10) }}</a>  </li>
                                 @endforeach
                         </ul>
                         

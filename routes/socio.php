@@ -16,6 +16,8 @@ Route::post('{socio}/fotos', [HomeController::class,'fotos'])->name('fotos');
 
 Route::get('{socio}/entrenamiento', [HomeController::class,'entrenamiento'])->name('entrenamiento');
 
+Route::get('{socio}/tienda',[Homecontroller::class, 'showstore'])->name('store.show');
+
 Route::get('socio/{socio}/edit', [HomeController::class,'edit'])->name('edit');
 
 Route::put('socio/{socio}/update', [HomeController::class,'update'])->name('update');

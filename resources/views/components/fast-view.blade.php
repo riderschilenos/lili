@@ -979,11 +979,7 @@
 
                 @else
                     
-                        {{-- comment
-                            @livewire('vendedor.catalogo-productos')
-                        --}}
-                        
-                    
+
                         <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
                     
                             <div class="card pb-8 ">
@@ -1403,6 +1399,7 @@
                    
                     
                 @endif
+
             @else
            
                 {{-- comment

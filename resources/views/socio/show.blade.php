@@ -76,7 +76,7 @@
                                     </div>
                                   
                                         <div class="flex justify-center">
-                                            <div class="px-2 py-2 text-red-500 font-semibold">
+                                            <div class="px-2 py-2 text-red-500 font-semibold items-center">
                                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                             </div>
                                                 @if($socio->direccion)

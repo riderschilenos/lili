@@ -5,7 +5,7 @@
             <article class="flex flex-col">
                 <div class="bg-white shadow-xl rounded-lg">
 
-                    <div class="photo-wrapper p-2">
+                    <div class="photo-wrapper">
                         <a href= "{{route('socio.show', $socio)}}">
                         <img loading="lazy" class="cursor-pointer h-36 w-full object-cover rounded-md" src="{{ $socio->user->profile_photo_url }}" alt="{{$socio->name}}">
                         </a>

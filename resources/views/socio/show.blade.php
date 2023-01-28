@@ -77,7 +77,7 @@
                                         <div class="px-2 py-2 text-sm">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
                                     </div>
                                   
-                                    <div class="flex content-center">
+                                    <div class="flex items-center content-center">
                                             @if($socio->direccion)
                                                 <div class="px-2 py-2 text-red-500 font-semibold content-center">
                                                     <i class="fa fa-map-marker my-auto py-auto" aria-hidden="true"></i>
@@ -87,7 +87,7 @@
                                                 @endif
                                     </div>
 
-                                    
+
                                     
                                 </div>
                             </div>

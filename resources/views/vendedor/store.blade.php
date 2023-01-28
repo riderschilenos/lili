@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="col-spam-3 px-4 w-full">
                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 justify-between">
-                                        <div class="flex">
+                                        <div class="flex items-center">
                                             <span clas="text-green-500">
                                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                     stroke="currentColor">

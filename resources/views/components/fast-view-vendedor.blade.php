@@ -118,7 +118,7 @@
                                                                     @endif
                                                                 @endif --}}
                                                             </ul>
-                                                       
+                                                    </div>
                                                         
                                 <!-- End of profile card -->
                                 <div class="my-4"></div>

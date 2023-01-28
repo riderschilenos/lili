@@ -90,18 +90,21 @@
                                                         </div>
                                                         <div class="col-spam-3 px-4 w-full">
                                                             <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio2->slug }}</h1>
-                                                            <div class="grid grid-cols-2">
-                                                                <div class="px-4 py-2 font-semibold">Fecha de Nacimiento</div>
-                                                                <div class="px-4 py-2">{{date('d-m-Y', strtotime($socio2->born_date))}}</div>
+                                                            <div class="flex content-center">
+                                                                <div class="px-2 py-2 text-red-500 font-semibold content-center">
+                                                                    <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>
+                                                                </div>
+                                                                <div class="px-2 py-2 text-sm">{{date('d-m-Y', strtotime($socio2->born_date))}}</div>
                                                             </div>
                                                           
                                                                 <div class="flex justify-center">
-                                                                    <div class="px-2 py-2 text-red-500 font-semibold">
-                                                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                                    </div>
-                                                                        @if($socio2->direccion)
-                                                                            <div class="px-4 py-2">{{$socio2->direccion->comuna}}, @if($socio2->direccion) {{$socio2->direccion->region}} @endif</div>
-                                                                        @endif
+                                                                    @if($socio2->direccion)
+                                                                        <div class="px-2 py-2 text-red-500 font-semibold">
+                                                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                                        </div>                  
+                                                                        
+                                                                        <div class="px-4 py-2">{{$socio2->direccion->comuna}}, @if($socio2->direccion) {{$socio2->direccion->region}} @endif</div>
+                                                                    @endif
                                                                 </div>
                                                           
                                                         </div>

@@ -77,7 +77,7 @@
                                   
                                         <div class="flex justify-center">
                                             <div class="px-2 py-2 text-red-500 font-semibold items-center">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                <i class="fa fa-map-marker my-auto" aria-hidden="true"></i>
                                             </div>
                                                 @if($socio->direccion)
                                                     <div class="px-4 py-2">{{$socio->direccion->comuna}}, @if($socio->direccion) {{$socio->direccion->region}} @endif</div>

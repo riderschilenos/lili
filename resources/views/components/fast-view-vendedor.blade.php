@@ -72,48 +72,54 @@
                                                                 
                                                     @endswitch
                                 
-                                    <div class="image overflow-hidden">
-                                        <img class="h-auto w-full mx-auto object-cover"
-                                            src="{{ $socio2->user->profile_photo_url }}"
-                                            alt="">
-                                    </div>
-                                    <div class="flex">
-                                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio2->slug }}</h1>
-                                    @can('perfil_propio', $socio2)
-                                        <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
-                                    @endcan
-                                    </div>
-                                    <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
-                                        
-                                    @livewire('socio.socio-auspiciadores',['socio' => $socio2], key('socio-auspiciadores.'.$socio2->slug))
-
-                                    <a href="{{ route('socio.create') }}">
-                                        <ul
-                                            class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                                            <li class="flex items-center py-3">
-                                                <span>Suscripción</span>
-                                                    @switch($socio2->status)
-                                                            @case(1)
-                                                                <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
-                                                                @break
-                                                            @case(2)
-                                                                <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
-                                                                @break
-                                                            @default
-                                                                
-                                                    @endswitch
+                                                    <div class="flex">
+                                                        <div class="">
+                                                            <div class="image overflow-hidden">
+                                                                <img class="h-auto w-44 mx-auto object-cover"
+                                                                    src="{{ $socio2->user->profile_photo_url }}"
+                                                                    alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-spam-3 px-4 w-full">
+                                                            <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio2->slug }}</h1>
+                                                            @can('perfil_propio', $socio2)
+                                                                <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
+                                                            @endcan
+                                                        </div>
+                                                    </div>
+                                                            <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
+                                                        
                                                     
-                                            </li>
-                          {{-- commen              
-                                            @if($socio2->suscripcions->count())   
-                                                <li class="flex items-center py-3">
-                                                    <span>Fecha Vencimiento</span>
-                                                    <span class="ml-auto">{{date('d', strtotime($socio2->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
-                                                </li>
-                                            @endift --}}    
-                                        </ul>
-                                    </a>
-                                </div>
+                                                            @livewire('socio.socio-auspiciadores',['socio' => $socio2], key('socio-auspiciadores.'.$socio2->slug))
+                                                            <ul
+                                                                class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                                                <li class="flex items-center py-3">
+                                                                    <span>Suscripción</span>
+                                                                        @switch($socio2->status)
+                                                                                @case(1)
+                                                                                    <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
+                                                                                    @break
+                                                                                @case(2)
+                                                                                    <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
+                                                                                    @break
+                                                                                @default
+                                                                                    
+                                                                        @endswitch
+                                                                        
+                                                                </li>
+                                                            {{-- comment
+                                                                @if($socio->suscripcions)
+                                                                    @if($socio->suscripcions->count())
+                                                                    
+                                                                        <li class="flex items-center py-3">
+                                                                            <span>Fecha Vencimiento</span>
+                                                                            <span class="ml-auto">{{date('d', strtotime($socio->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
+                                                                        </li>
+                                                                    @endif
+                                                                @endif --}}
+                                                            </ul>
+                                                       
+                                                        
                                 <!-- End of profile card -->
                                 <div class="my-4"></div>
                                 <!-- Friends card -->

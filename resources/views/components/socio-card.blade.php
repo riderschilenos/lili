@@ -1,13 +1,13 @@
 @props(['socio'])
 
-<article class="flex items-center w-full justify-center">
+<div class="flex items-center w-full justify-center">
 
-            <div class="flex flex-col">
+            <article class="flex flex-col">
                 <div class="bg-white shadow-xl rounded-lg">
 
                     <div class="photo-wrapper p-2">
                         <a href= "{{route('socio.show', $socio)}}">
-                        <img loading="lazy" class="w-44 cursor-pointer h-48 mx-auto object-cover rounded-md" src="{{ $socio->user->profile_photo_url }}" alt="{{$socio->name}}">
+                        <img loading="lazy" class="cursor-pointer h-36 w-full object-cover rounded-md" src="{{ $socio->user->profile_photo_url }}" alt="{{$socio->name}}">
                         </a>
                     </div>
 
@@ -58,6 +58,6 @@
                     </div>
 
                 </div>
-            </div>
+            </article>
     
-</article>
+</div>

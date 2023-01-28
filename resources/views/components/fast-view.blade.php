@@ -89,7 +89,7 @@
                                                             @endcan
                                                         </div>
                                                         <div class="col-spam-3 px-4 w-full">
-                                                            <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ '@'.$socio2->slug }}</h1>
+                                                            <h1 class="text-gray-900 font-bold text-lg leading-8 my-1">{{ '@'.$socio2->slug }}</h1>
                                                             <div class="flex content-center">
                                                                 <div class="px-2 py-2 text-red-500 font-semibold content-center">
                                                                     <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>
@@ -103,7 +103,7 @@
                                                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                                         </div>                  
                                                                         
-                                                                        <div class="px-4 py-2">{{$socio2->direccion->comuna}}, @if($socio2->direccion) {{$socio2->direccion->region}} @endif</div>
+                                                                        <div class="px-2 py-2">{{$socio2->direccion->comuna}}, @if($socio2->direccion) {{$socio2->direccion->region}} @endif</div>
                                                                     @endif
                                                                 </div>
                                                           

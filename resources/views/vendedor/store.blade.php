@@ -57,6 +57,27 @@
                                                         @default
                                                             
                                 @endswitch
+                                <div class="flex items-center space-x-2 mb-2 font-semibold text-gray-900 leading-8 justify-between">
+                                    <div class="flex items-center">
+                                        <span clas="text-green-500">
+                                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                            </svg>
+                                        </span>
+                                        <p class="ml-2 tracking-wide">{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}
+                                        
+                                    </div>
+                                        @can('perfil_propio', $socio)
+
+                                        
+                                            <a href="{{route('socio.edit',$socio)}}" class="ml-2"><h5 class="text-blue-600 font-bold text-sm cursor-pointer ml-4">(Editar)</h5></a>
+                                        
+                                        @endcan
+                                        
+                                    </p>
+                                </div>
                             <div class="flex">
                                 <div class="content-center">
                                     <div class="image overflow-hidden">
@@ -69,27 +90,7 @@
                                     @endcan
                                 </div>
                                 <div class="col-spam-3 px-4 w-full">
-                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 justify-between">
-                                        <div class="flex items-center">
-                                            <span clas="text-green-500">
-                                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                                </svg>
-                                            </span>
-                                            <p class="ml-2 tracking-wide">{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}
-                                            
-                                        </div>
-                                            @can('perfil_propio', $socio)
-    
-                                            
-                                                <a href="{{route('socio.edit',$socio)}}" class="ml-2"><h5 class="text-blue-600 font-bold text-sm cursor-pointer ml-4">(Editar)</h5></a>
-                                            
-                                            @endcan
-                                            
-                                        </p>
-                                    </div>
+                                   
                                     <h1 class="text-gray-900 font-bold text-lg leading-8 my-1">{{ '@'.$socio->slug }}</h1>
                                     <div class="flex content-center">
                                         <div class="px-2 py-2 text-red-500 font-semibold content-center">

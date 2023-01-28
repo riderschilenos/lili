@@ -58,7 +58,7 @@ class PedidoController extends Controller
         if(Cache::has('riders')){
             $riders = Cache::get('riders');
         }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+            $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
             Cache::put('riders',$riders);
          }
 
@@ -181,7 +181,7 @@ class PedidoController extends Controller
         if(Cache::has('riders')){
             $riders = Cache::get('riders');
         }else{
-            $riders = Socio::where('status',1)->latest('id')->get()->take(4);
+            $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
             Cache::put('riders',$riders);
          }
 

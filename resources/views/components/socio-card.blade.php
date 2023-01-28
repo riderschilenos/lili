@@ -25,7 +25,7 @@
                             <div class="px-2 py-2 text-red-500 font-semibold">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
-                            <div class="px-2 py-2">{{$socio->direccion->comuna}}, {{$socio->direccion->region}}</div>
+                            <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
                         </div>
                         @endif
                         <table class="text-xs mt-auto">

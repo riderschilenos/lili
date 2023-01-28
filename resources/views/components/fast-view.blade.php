@@ -646,7 +646,7 @@
 
         </section>
         
-        <section class="mt-4 bg-rider-color py-12">
+        <section class="mt-4 bg-rider-color pt-8 pb-12">
             <h1 class="text-center text-white text-3xl mb-4">Registro Nacional de Riders</h1>
             @livewire('socio.socios-count')
 

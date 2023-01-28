@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="col-spam-3 px-4 w-full">
                                    
-                                    <h1 class="text-gray-900 font-bold text-lg leading-8 my-1">{{ '@'.$socio->slug }}</h1>
+                                    <h1 class="text-gray-900 font-bold text-lg leading-8 mb-1">{{ '@'.$socio->slug }}</h1>
                                     <div class="flex content-center">
                                         <div class="px-2 py-2 text-red-500 font-semibold content-center">
                                             <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>

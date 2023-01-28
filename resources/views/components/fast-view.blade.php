@@ -612,10 +612,10 @@
         </section>
     
 
-        <section class="mt-6 sm:mt-16">
+        <section class="mt-2 sm:mt-16">
             
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                 <article>
                     <figure>
                         <a href="{{route('socio.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/RIDERS-min.png')}}" alt=""></a>
@@ -646,7 +646,7 @@
 
         </section>
         
-        <section class="mt-8 bg-rider-color py-12">
+        <section class="mt-4 bg-rider-color py-12">
             <h1 class="text-center text-white text-3xl mb-4">Registro Nacional de Riders</h1>
             @livewire('socio.socios-count')
 

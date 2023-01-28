@@ -83,7 +83,7 @@
                                                     <i class="fa fa-map-marker my-auto py-auto" aria-hidden="true"></i>
                                                 </div>
                                                 
-                                                    <div class="px-2 py-2">{{$socio->direccion->comuna}}, @if($socio->direccion) {{$socio->direccion->region}} @endif</div>
+                                                    <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
                                                 @endif
                                         </div>
                                     

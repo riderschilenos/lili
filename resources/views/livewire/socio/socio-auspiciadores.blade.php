@@ -1,53 +1,57 @@
 <div>
-    <div class="grid grid-cols-3 @if ($socio->user->auspiciadors->count())bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm @else bg-white @endif">
-        @if ($socio->user->auspiciadors->count())
-        
-            @foreach ($socio->user->auspiciadors as $auspiciador)
-                @if ($current)
+    <div class="@if ($socio->user->auspiciadors->count())bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm @else bg-white @endif">
 
-                    @if ($auspiciador->id!=$current->id)
+        <h3 class="text-gray-600 text-sm text-semibold text-center">Auspiciadores</h3>
+        <div class="grid grid-cols-3 @if ($socio->user->auspiciadors->count())bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm @else bg-white @endif">
+            @if ($socio->user->auspiciadors->count())
+            
+                @foreach ($socio->user->auspiciadors as $auspiciador)
+                    @if ($current)
+
+                        @if ($auspiciador->id!=$current->id)
+                            <div class="text-center my-auto" >          
+                                <img class="h-20 w-26 mx-auto object-contain"
+                                src="{{Storage::url($auspiciador->logo)}}"
+                                alt="" wire:click="show({{$auspiciador}})">
+                            </div>
+                        @endif
+                        
+                    @else
                         <div class="text-center my-auto" >          
                             <img class="h-20 w-26 mx-auto object-contain"
                             src="{{Storage::url($auspiciador->logo)}}"
                             alt="" wire:click="show({{$auspiciador}})">
                         </div>
                     @endif
+                @endforeach
+            @else
+                <ul class="@can('perfil_propio', $socio)col-span-2 @else col-span-3 @endcan bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                     
-                @else
-                    <div class="text-center my-auto" >          
-                        <img class="h-20 w-26 mx-auto object-contain"
-                        src="{{Storage::url($auspiciador->logo)}}"
-                        alt="" wire:click="show({{$auspiciador}})">
+                        @can('perfil_propio', $socio)
+                            <li class="items-center py-3 mx-auto" wire:click="formulario">
+                                <h1 class="text-center text-xs">Agrega tu primer auspiciador</h1>
+                            </li>
+                        @else
+                            <li class="items-center py-3 mx-auto">
+                                <h1 class="text-center text-xs">{{$socio->user->name}} aun no cuenta con auspiciadores</h1>
+                            </li>
+                        @endcan
+                                                
+                    
+                
+                </ul>
+            @endif
+            @can('perfil_propio', $socio)
+                @if (!$formulario)
+                    <div class="rounded text-center m-auto py-auto cursor-pointer items-center bg-white">
+                        <img class="h-8 w-12 mx-auto object-contain p-1 my-auto"
+                        src="{{asset('img/socio/addnew2.png')}}"
+                        alt="" wire:click="formulario">
+                        <h1 class="text-center text-xs">Nuevo</h1>
                     </div>
                 @endif
-            @endforeach
-        @else
-            <ul class="@can('perfil_propio', $socio)col-span-2 @else col-span-3 @endcan bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                
-                    @can('perfil_propio', $socio)
-                        <li class="items-center py-3 mx-auto" wire:click="formulario">
-                            <h1 class="text-center text-xs">Agrega tu primer auspiciador</h1>
-                        </li>
-                    @else
-                        <li class="items-center py-3 mx-auto">
-                            <h1 class="text-center text-xs">{{$socio->user->name}} aun no cuenta con auspiciadores</h1>
-                        </li>
-                    @endcan
-                                               
-                
-            
-            </ul>
-        @endif
-        @can('perfil_propio', $socio)
-            @if (!$formulario)
-                <div class="rounded text-center m-auto py-auto cursor-pointer items-center bg-white">
-                    <img class="h-8 w-12 mx-auto object-contain p-1 my-auto"
-                    src="{{asset('img/socio/addnew2.png')}}"
-                    alt="" wire:click="formulario">
-                    <h1 class="text-center text-xs">Nuevo</h1>
-                </div>
-            @endif
-        @endcan
+            @endcan
+        </div>
     </div>
 
     @if ($current)

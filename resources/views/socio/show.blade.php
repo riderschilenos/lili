@@ -43,7 +43,7 @@
                 <!-- End of Navbar -->
 
                 <div class="max-w-7xl mx-auto mb-5">
-                    <div class="md:flex no-wrap md:-mx-2 ">
+                    <div class="md:flex no-wrap md:-mx-2">
                         <!-- Left Side -->
                         <div class="w-full md:w-3/12 md:mx-2"  x-data="{open: true}">
                             <!-- Profile Card -->
@@ -144,7 +144,7 @@
 
 
 
-                                    <h3 class="text-gray-600 font-lg text-semibold leading-6 text-center py-2">Auspiciadores</h3>
+                                   
                                 
                             
                                     @livewire('socio.socio-auspiciadores',['socio' => $socio], key('socio-auspiciadores.'.$socio->slug))

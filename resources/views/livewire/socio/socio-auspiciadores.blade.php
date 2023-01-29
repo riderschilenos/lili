@@ -1,7 +1,10 @@
 <div>
     <div class="@if ($socio->user->auspiciadors->count())bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm @else bg-white @endif">
+        @if ($socio->user->auspiciadors->count())
+            <h3 class="text-gray-600 text-sm text-semibold text-center">Auspiciadores</h3>
+        @endif
+        
 
-        <h3 class="text-gray-600 text-sm text-semibold text-center">Auspiciadores</h3>
         <div class="grid grid-cols-3 @if ($socio->user->auspiciadors->count())bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm @else bg-white @endif">
             @if ($socio->user->auspiciadors->count())
             

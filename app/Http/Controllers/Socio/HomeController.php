@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Socio;
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
 use App\Models\Evento;
+use App\Models\Producto;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Vehiculo;
@@ -264,7 +265,9 @@ class HomeController extends Controller
 
        $disciplinas= Disciplina::pluck('name','id');
 
-        return view('vendedor.store',compact('socio','socio2','disciplinas','riders','series','autos'));
+       $productos = Producto::all();
+
+        return view('vendedor.store',compact('socio','socio2','disciplinas','riders','series','autos','productos'));
     }
 
     /**

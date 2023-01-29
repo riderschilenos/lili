@@ -143,8 +143,7 @@
 
 
                                  
-                                    <ul
-                                        class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                    <ul class="hidden bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                         <li class="flex items-center py-3">
                                             <span>Suscripción</span>
                                                 @switch($socio->status)
@@ -180,7 +179,7 @@
                             <!-- End of friends card -->
                         </div>
                         <!-- Right Side -->
-                        <div class="w-full md:w-9/12 mx-0 sm:mx-2 h-64">
+                        <div class="w-full md:w-9/12 mx-0 sm:mx-2">
                       
                             <div class="bg-white shadow-sm rounded-sm">
 
@@ -218,7 +217,7 @@
                             </div>
 
                             <div class="my-4">
-                           <h1 class="text-center text-xs text-white py-12">Todos Los derechos Reservados</h1>
+                           <h1 class="text-center text-xs text-gray-700 pb-6">Todos Los derechos Reservados</h1>
 
                             </div>
                             

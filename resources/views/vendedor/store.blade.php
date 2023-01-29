@@ -206,7 +206,7 @@
                                                 @foreach ($productos as $producto)
                                                     @if ($producto->image)
                                                    
-                                                    <x-producto-card :producto="$producto" />
+                                                    <x-producto-card :producto="$producto" :socio="$socio"/>
 
                                                     @endif
                                                 @endforeach

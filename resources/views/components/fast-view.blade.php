@@ -133,6 +133,17 @@
                                                                     <button x-on:click="open=false" x-show="open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Información de Contácto</button>
                                                                     <button x-on:click="open=true" x-show="!open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Resume</button>
                                                                </div>
+                                                                @if($socio2->user->vendedor) 
+                                                                    @if($socio2->user->vendedor->estado==2) 
+                                                                        @if($socio2->fono) 
+                                                                            <div >
+                                                                                <a href="{{route('socio.store.show', $socio2)}}">
+                                                                                    <button class="bg-red-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:shadow-outline focus:bg-red-500 hover:shadow-xs p-3 my-4">TIENDA ONLINE</button>
+                                                                                </a>
+                                                                            </div>
+                                                                        @endif
+                                                                    @endif
+                                                                @endif
                                                         </div>
                                                     </div>
 

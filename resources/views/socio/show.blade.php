@@ -118,11 +118,13 @@
 
                                             @if($socio->user->vendedor) 
                                                 @if($socio->user->vendedor->estado==2) 
-                                                    <div >
-                                                        <a href="{{route('socio.store.show', $socio)}}">
-                                                            <button class="bg-red-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:shadow-outline focus:bg-red-500 hover:shadow-xs p-3 my-4">TIENDA ONLINE</button>
-                                                        </a>
-                                                    </div>
+                                                    @if($socio->fono) 
+                                                        <div >
+                                                            <a href="{{route('socio.store.show', $socio)}}">
+                                                                <button class="bg-red-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:shadow-outline focus:bg-red-500 hover:shadow-xs p-3 my-4">TIENDA ONLINE</button>
+                                                            </a>
+                                                        </div>
+                                                    @endif
                                                 @endif
                                             @endif
                                     

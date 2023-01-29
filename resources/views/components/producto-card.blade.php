@@ -7,7 +7,7 @@
 
                     <div class="photo-wrapper">
                         <a href= "">
-                        <img loading="lazy" class="cursor-pointer h-36 w-full object-cover rounded-md" src="{{Storage::url($producto->image)}}" alt="{{$producto->name}}">
+                        <img loading="lazy" class="cursor-pointer h-48 w-full object-cover rounded-md" src="{{Storage::url($producto->image)}}" alt="{{$producto->name}}">
                         </a>
                     </div>
 

@@ -64,8 +64,9 @@
                                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                             </svg>
                                         </span>
-                                        <p class="ml-2 tracking-wide">{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}
-                                        
+                                        <a href="{{route('socio.show', $socio)}}">
+                                            <p class="ml-2 tracking-wide">{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}
+                                        </a>
                                     </div>
                                         @can('perfil_propio', $socio)
 
@@ -89,7 +90,9 @@
                                         @endcan
                                     </div>
                                     <div class="col-spam-3 px-4 w-full">
-                                        <h1 class="text-gray-900 font-bold text-lg leading-8 mb-1">{{ '@'.$socio->slug }}</h1>
+                                        <a href="{{route('socio.show', $socio)}}">
+                                            <h1 class="text-gray-900 font-bold text-lg leading-8 mb-1">{{ '@'.$socio->slug }}</h1>
+                                        </a>    
                                         <div class="flex content-center">
                                             <div class="px-2 py-2 text-red-500 font-semibold content-center">
                                                 <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>

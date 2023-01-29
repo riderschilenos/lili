@@ -181,7 +181,7 @@
                         <!-- Right Side -->
                         <div class="w-full md:w-9/12 mx-0 sm:mx-2">
                       
-                            <div class="bg-white shadow-sm rounded-sm">
+                            <div class="rounded-sm">
 
                                 <div class="grid grid-cols-1">
                                     <div class="bg-white p-3">
@@ -214,10 +214,12 @@
                                     
                                    
                                 <!-- End of Experience and education grid -->
-                            </div>
+                            
 
-                            <div class="my-4">
-                           <h1 class="text-center text-xs text-gray-700 pb-6">Todos Los derechos Reservados</h1>
+                            <div class="mt-4 mb-12">
+                                <h1 class="text-center text-xs text-gray-700 pb-6">Todos Los derechos Reservados</h1>
+
+                            </div>
 
                             </div>
                             

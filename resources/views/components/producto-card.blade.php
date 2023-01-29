@@ -1,6 +1,6 @@
 @props(['producto'])
 
-<div class="flex items-center w-full justify-center bg-gray-50  p-5">
+<div class="flex items-center w-full justify-center  p-5">
 
             <article class="flex flex-col">
                 <div class="bg-white shadow-xl rounded-lg  p-2  hover:shadow  hover:bg-gray-100">

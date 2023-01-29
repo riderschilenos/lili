@@ -7,7 +7,7 @@
 
                     @if ($auspiciador->id!=$current->id)
                         <div class="text-center my-auto" >          
-                            <img class="h-16 w-20 mx-auto object-contain"
+                            <img class="h-16 w-24 mx-auto object-contain"
                             src="{{Storage::url($auspiciador->logo)}}"
                             alt="" wire:click="show({{$auspiciador}})">
                         </div>
@@ -15,7 +15,7 @@
                     
                 @else
                     <div class="text-center my-auto" >          
-                        <img class="h-16 w-20 mx-auto object-contain"
+                        <img class="h-16 w-24 mx-auto object-contain"
                         src="{{Storage::url($auspiciador->logo)}}"
                         alt="" wire:click="show({{$auspiciador}})">
                     </div>

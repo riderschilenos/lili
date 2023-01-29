@@ -80,7 +80,7 @@
                             </div>
 
                                 <div class="flex">
-                                    <div class="content-center">
+                                    <div class="content-center items-center">
                                         <div class="image overflow-hidden">
                                             <img class="h-auto w-44 mx-auto object-cover"
                                                 src="{{ $socio->user->profile_photo_url }}"

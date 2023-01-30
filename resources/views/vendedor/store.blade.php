@@ -111,10 +111,9 @@
                                         </div>
 
                                         <div class="text-gray-700">
-                                           
-                                        
-                                            <button x-on:click="open=false" x-show="open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Información de Contácto</button>
-                                            <button x-on:click="open=true" x-show="!open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Resume</button>
+                                            <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola%20{{str_replace(' ', '%20', $socio->name)}}%20Obtuve%20tu%20contacto%20desde%20RidersChilenos,%20Deseo%20hacer%20una%20consulta%20sobre" target="_blank">
+                                                <button class="bg-green-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-green-500 focus:outline-none focus:shadow-outline focus:bg-green-500 hover:shadow-xs p-3 my-4">Hablemos por Whatsapp</button>
+                                            </a>
                                         </div>
 
 
@@ -122,28 +121,7 @@
                                     </div>
                                 </div>
 
-                                <div class="grid md:grid-cols-2 text-sm">
-                                            
-                                                
-                                    <div x-show="!open">
-                                        @if($socio->fono)
-                                            <div class="grid grid-cols-2">
-                                                <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                                <div class="px-4 py-2">{{ $socio->fono }}</div>
-                                            </div>
-                                        @endif
-                                        
-                                        <div class="grid grid-cols-2">
-                                            <div class="px-4 py-2 font-semibold">Email.</div>
-                                            <div class="px-4 py-2">
-                                                <a class="text-blue-800" href="mailto:jane@example.com">{{$socio->user->email}}</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
+                               
 
                                  
                                     <ul class="hidden bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">

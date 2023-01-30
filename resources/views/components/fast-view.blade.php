@@ -110,7 +110,9 @@
                                                             @endcan
                                                         </div>
                                                         <div class="col-spam-3 px-4 w-full">
-                                                            <h1 class="text-gray-900 font-bold text-lg leading-8 mb-1">{{ '@'.$socio2->slug }}</h1>
+                                                            <a href="{{route('socio.show', $socio2)}}">
+                                                                <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1">{{ '@'.$socio2->slug }}</h1>
+                                                            </a>  
                                                             <div class="flex content-center">
                                                                 <div class="px-2 py-2 text-red-500 font-semibold content-center">
                                                                     <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>

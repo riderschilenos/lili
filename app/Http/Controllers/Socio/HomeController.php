@@ -137,7 +137,7 @@ class HomeController extends Controller
             'username'=>'required',
             'rut'=>'required',
             'nro'=>'required',
-            'slug'=>'required',
+            'slug'=>'required|unique:socios',
             'disciplina_id'=>'required'
             ]);
     

@@ -114,7 +114,26 @@ class EventoController extends Controller
     }
 
     public function preticket(Evento $evento)
-    {  
-        return view('Evento.preticket',compact('evento'));
+    {   
+        $ticket=Ticket::where('user_id', auth()->user()->id)->where('evento_id',$evento->id)->first();
+
+        if ($ticket){
+            if ($ticket->status==2) {
+                return redirect()->route('evento.view',$ticket->evento);
+            }else{
+                if($ticket->evento->inscritos->contains(auth()->user()->id)){
+                    return redirect()->route('evento.view',$ticket->evento);
+                }else{
+                    return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+                }
+            }
+           
+
+        }else{
+           
+            return view('Evento.preticket',compact('evento'));
+        }   
+        
+        
     }
 }

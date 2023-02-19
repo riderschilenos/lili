@@ -147,6 +147,10 @@ public function sendPasswordResetNotification($token)
         return $this->hasMany('App\Models\Vehiculo');
     }
 
+    public function tickets(){
+        return $this->hasMany('App\Models\Ticket');
+    }
+
     public function filmmakers(){
         return $this->hasMany('App\Models\Filmmaker');
     }

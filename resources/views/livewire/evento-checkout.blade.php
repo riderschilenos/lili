@@ -417,12 +417,9 @@
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
                                                 
-                                                @foreach ($evento->fechas as $fecha)
+                                               
 
-                                                            
-                                                            @foreach ($fecha->categorias as $const)
-
-                                                                @foreach($const->inscripcions as $inscripcion)
+                                                                @foreach($ticket->inscripcions as $inscripcion)
                                                                 
                                                                         <tr>
                                                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -463,14 +460,11 @@
                             
                                                                         </tr>
                                                                 @endforeach
-                                                            @endforeach
-                                                    
-
-                                                @endforeach
+                                                          
                                             </tbody>
                                         </table>
                             
-                            </x-table-responsive>
+                                </x-table-responsive>
 
                         </div>
 

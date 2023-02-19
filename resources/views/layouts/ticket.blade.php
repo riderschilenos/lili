@@ -60,8 +60,8 @@
                         <li class="hidden leading-7 mb-1 border-l-4  pl-2">
                             <a href="">Listado de Asistentes</a>
                         </li>
-                        <li class="leading-7 mb-1 border-l-4  pl-2">
-                            <a href="">Retirar dinero</a>
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('organizador.eventos.retiros',$evento) border-indigo-400 @else @endif  pl-2">
+                            <a href="{{route('organizador.eventos.retiros',$evento)}}">Retirar dinero</a>
                         </li>
 
                         

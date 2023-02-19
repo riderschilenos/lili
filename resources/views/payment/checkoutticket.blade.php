@@ -349,56 +349,47 @@
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         
-                                        @foreach ($ticket->evento->fechas as $fecha)
-
-                                                    
-                                                    @foreach ($fecha->categorias as $const)
-
-                                                        @foreach($const->inscripcions as $inscripcion)
-                                                        
-                                                                <tr>
-                                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                                        <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
-                                                                    </td>
+                                        @foreach($ticket->inscripcions as $inscripcion)
                                                                 
-                                                                        <td class="px-6 py-4 whitespace-nowrap">
-                                                                    
-                                                                            {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                        <tr>
+                                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                                <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+                                                                            </td>
                                                                         
-                                                                        </td>
-                                                            
-                                                                
-                                    
-                                                                        <td class="px-6 py-4 whitespace-nowrap">
-                                                                            <div class="items-center">
-                                                                                <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
-                                                                            </div>
-                                                                        </td>
-                                                                    
-                                                                        <td class="px-6 py-4 whitespace-nowrap">
-                                                                            <div class="items-center">
+                                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                            
+                                                                                    {{$inscripcion->fecha_categoria->categoria->name}}
                                                                                 
-                        
-                                                                                    <form action="{{route('ticket.inscripcions.destroy',$inscripcion)}}" method="POST">
-                                                                                        @csrf
-                                                                                        @method('delete')
-                                                                                        <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                                                                                        <p class="mx-4 text-center" > ${{number_format($inscripcion->fecha_categoria->inscripcion)}} 
-                                                                                        <button class="" ><i class="fas fa-trash cursor-pointer text-red-500 ml-6" type="submit" alt="Eliminar"></i> </button>
-                                                                                        
-                                                                                    </form>
-                                                                                       </p>
-                                                                            </div>
-                                                                        </td>
+                                                                                </td>
                                                                     
-                                
-                    
-                                                                </tr>
-                                                        @endforeach
-                                                    @endforeach
+                                                                        
                                             
-
-                                        @endforeach
+                                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                                    <div class="items-center">
+                                                                                        <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
+                                                                                    </div>
+                                                                                </td>
+                                                                            
+                                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                                    <div class="items-center">
+                                                                                        
+                                
+                                                                                            <form action="{{route('ticket.inscripcions.destroy',$inscripcion)}}" method="POST">
+                                                                                                @csrf
+                                                                                                @method('delete')
+                                                                                                <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
+                                                                                                <p class="mx-4 text-center" > ${{number_format($inscripcion->fecha_categoria->inscripcion)}} 
+                                                                                                <button class="" ><i class="fas fa-trash cursor-pointer text-red-500 ml-6" type="submit" alt="Eliminar"></i> </button>
+                                                                                                
+                                                                                            </form>
+                                                                                               </p>
+                                                                                    </div>
+                                                                                </td>
+                                                                            
+                                        
+                            
+                                                                        </tr>
+                                                                @endforeach
                                     </tbody>
                                 </table>
                     

@@ -171,6 +171,11 @@ class EventoController extends Controller
         return view('organizador.eventos.inscritos', compact('evento'));
     }
 
+    public function retiros(Evento $evento)
+    {  
+        return view('organizador.eventos.retiros', compact('evento'));
+    }
+
 
     /**
      * Remove the specified resource from storage.

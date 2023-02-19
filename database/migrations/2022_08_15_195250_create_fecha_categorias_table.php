@@ -20,7 +20,7 @@ class CreateFechaCategoriasTable extends Migration
                 ->constrained()
                 ->onDelete('cascade');
 
-                $table  ->foreignId('categoria_id')
+                $table->foreignId('categoria_id')
                 ->constrained()
                 ->onDelete('cascade');
 

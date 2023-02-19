@@ -4,11 +4,11 @@
 
 
     <h1 class="text-2xl font-bold"> 
-            Listado de Inscritos: {{$evento->titulo}}
+        Retiros de dinero: {{$evento->titulo}}
     </h1>
     <hr class="mt-2 mb-6">
 
-   @livewire('organizador.evento-inscritos', ['evento' => $evento], key('evento.'.$evento->id))
+   @livewire('organizador.retiro-dinero', ['evento' => $evento], key('evento.'.$evento->id))
     
 
 </x-ticket-layout>

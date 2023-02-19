@@ -44,6 +44,7 @@ class PaymentController extends Controller
     }
 
     public function checkoutticket(Ticket $ticket){
+        
         $fechas= Fecha::where('evento_id',$ticket->evento->id)->paginate();
         $socio = Socio::where('user_id',auth()->user()->id)->first();
         $disciplinas= Disciplina::pluck('name','id');
@@ -51,19 +52,12 @@ class PaymentController extends Controller
 
         $alfa=0;     
       
-        foreach ($ticket->evento->fechas as $fecha)   {                                                   
-            foreach ($fecha->categorias as $const){
-                foreach($const->inscripcions as $inscripcion){
-                
-                        $alfa+=$inscripcion->fecha_categoria->inscripcion;
-
-         
-                    }
-                }
+        foreach ($ticket->inscripcions as $inscripcion){
+                    
+                            $alfa+=$inscripcion->fecha_categoria->inscripcion;
             }  
-        
+            
             $ticket->inscripcion=$alfa;
-
             $ticket->save();
 
         return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento'));

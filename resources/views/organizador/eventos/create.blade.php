@@ -11,7 +11,7 @@
                     {!! Form::hidden('user_id',auth()->user()->id) !!}
 
 
-                    <h1 class="text-center font-bold">Tipo de contenido:</h1>
+                    <h1 class="text-center font-bold">Tipo de evento:</h1>
 
                         <div class="form-group flex justify-center">
                             <div class="form-check">

@@ -744,11 +744,11 @@
                     @endcan
 
                 @elseif($nav_link['name']=='Eventos')
-                    @can('Diseño')
+                    
                         <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
                         </x-jet-responsive-nav-link>
-                    @endcan
+              
                     
                 @else
                     <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">

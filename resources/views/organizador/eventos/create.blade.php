@@ -31,7 +31,7 @@
 
                     @include('organizador.eventos.partials.form')
 
-                    <div class="flex justify-end">
+                    <div class="flex justify-end mb-6">
                         {!! Form::submit('Crear nuevo evento', ['class'=>'btn btn-primary cursor-pointer']) !!}
                     </div>
 

@@ -99,7 +99,7 @@
 
 
 
-            <div class="justify-center mt-4 grid grid-cols-3 lg:grid-cols-3 gap-4">
+            <div class="justify-center mt-4 grid grid-cols-2 lg:grid-cols-3 gap-4">
 
                 <div class="w-full rounded-xl flex items-center justify-center mx-auto">
                         <a class="cursor-pointer text-gray-500 font-bold text-center" wire:click="periodo">
@@ -118,7 +118,8 @@
         
                 
         
-                <div class="w-full rounded-xl flex items-center justify-center order-2 md:order-3">
+                <div class="w-full rounded-xl flex items-center justify-center col-span-2 md:col-span-1 order-2 md:order-3">
+                    <a class="btn btn-primary ml-2 text-center text-xl" href="{{ route('organizador.eventos.index') }}">Nuevo Evento</a>
                     <a class="btn btn-success ml-2 text-center text-xl" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
                 </div>
              

@@ -14,7 +14,6 @@
     ,[   
         'name'=>'Eventos',
         'route'=>route('ticket.evento.index'),
-        'can'=>'Diseño',
         'active'=>request()->routeIs('ticket.evento.*')
     ] /*
     ,[   

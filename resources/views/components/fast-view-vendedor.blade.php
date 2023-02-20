@@ -693,7 +693,15 @@
             @if(auth()->user()->vendedor) 
                 @if(auth()->user()->vendedor->estado==2) 
 
-                    @livewire('vendedor.pedidos-index')
+                <div x-data="setup()">
+
+                    
+                    <div x-show="activeTab===0">
+                        @livewire('vendedor.pedidos-index')
+                    </div>
+                    
+                </div>
+
 
                 @else
                     

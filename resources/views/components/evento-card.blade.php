@@ -14,7 +14,7 @@
                    <p class="text-gray-500 text-sm mb-2">Organizador: {{$evento->organizador->first()->name}}</p>
                    <p class="text-gray-500 text-sm mb-2 "><b>{{$evento->fechas_count}}</b> Fechas </p> 
                    
-                   <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+
                 </a>
 
                 @php
@@ -74,7 +74,7 @@
                         </a>
 
                     @else 
-                        @if ($evento->entrada == 0)
+                       {{-- comment @if ($evento->entrada == 0)
                         <p class="my-2 text-green-800 font-bold">GRATIS</p>
                         @else
                             <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
@@ -88,7 +88,7 @@
                                     <p class="text-gray-500 text-sm text-center">Niños</p> 
                                 </div>
                             </div>
-                        @endif
+                        @endif --}}
 
                         <a href= "{{route('ticket.evento.show', $evento)}}" class="btn btn-danger btn-block">
                             Obtener

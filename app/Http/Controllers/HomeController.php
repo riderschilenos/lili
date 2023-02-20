@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Disciplina;
 use App\Models\Filmmaker;
+use App\Models\Gasto;
 use Illuminate\Http\Request;
 use App\Models\Serie;
 use App\Models\Socio;
@@ -59,6 +60,8 @@ class HomeController extends Controller
         }
 
         $disciplinas= Disciplina::pluck('name','id');
+
+    
 
         return view('welcome',compact('series','riders','autos','socio2','disciplinas'));
         

@@ -24,6 +24,12 @@ class Inscripcion extends Model
     public function fecha(){
         return $this->belongsTo('App\Models\Fecha');
     }
+
+    //relacion uno a muchos inversa 
+
+   public function ticket(){
+    return $this->belongsTo('App\Models\Ticket');
+    }
     
 
 }

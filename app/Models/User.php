@@ -139,6 +139,10 @@ public function sendPasswordResetNotification($token)
         return $this->hasMany('App\Models\Gasto');
     }
 
+    public function retiros(){
+        return $this->hasMany('App\Models\Retiro');
+    }
+
     public function pagos(){
         return $this->hasMany('App\Models\Pago');
     }

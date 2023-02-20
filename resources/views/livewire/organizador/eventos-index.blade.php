@@ -15,9 +15,9 @@
                         Nombre
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Videos
+                        Fechas
                         </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Inscritos
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -39,19 +39,23 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                @isset($serie->image)
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($serie->image->url)}}" alt="">
-                                                @else
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
-                                                @endisset
+                                                <a href="{{route('organizador.eventos.edit',$serie)}}">
+                                                    @isset($serie->image)
+                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($serie->image->url)}}" alt="">
+                                                    @else
+                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                                    @endisset
+                                                </a>
                                             </div>
                                             <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                {{$serie->titulo}}
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                                {{$serie->disciplina->name}}
-                                            </div>
+                                                <a href="{{route('organizador.eventos.edit',$serie)}}">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        {{$serie->titulo}}
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        {{$serie->disciplina->name}}
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </td>
@@ -62,8 +66,10 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">5</div>
-                                        <div class="text-sm text-gray-500">Inscritos</div>
+                                        @if ($serie->inscritos)
+                                            <div class="text-sm text-gray-900 text-center">{{$serie->inscritos->count()}}</div>
+                                            <div class="text-sm text-gray-500 text-center">Inscritos</div>
+                                        @endif
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">

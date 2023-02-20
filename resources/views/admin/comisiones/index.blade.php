@@ -35,6 +35,8 @@
     
    @livewire('admin.comisiones-pay')
 
+   @livewire('organizador.retiros-pay')
+
 @stop
 
 @section('css')

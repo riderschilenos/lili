@@ -3,6 +3,7 @@
 use App\Http\Controllers\Organizador\CategoriaController;
 use App\Http\Controllers\Organizador\EventoController;
 use App\Http\Controllers\Organizador\FechaController;
+use App\Http\Controllers\Organizador\RetiroController;
 use App\Http\Controllers\Organizador\TicketController;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,5 @@ Route::resource('fecha', FechaController::class)->names('fechas');
 Route::resource('categoria', CategoriaController::class)->names('categorias');
 
 Route::resource('ticket', TicketController::class)->names('tickets');
+
+Route::resource('retiro', RetiroController::class)->names('retiros');

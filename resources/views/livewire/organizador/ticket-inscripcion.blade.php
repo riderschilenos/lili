@@ -43,7 +43,8 @@
                         
 
                         <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                        <input name="fecha_categoria_id" type="hidden" value="{{$categoria_id}}">
+                        <input name="categoria_id" type="hidden" value="{{$categoria_id}}">
+                        <input name="fecha_categoria_id" type="hidden" value="{{$fechacategoria->id}}">
                         <input name="nro" type="hidden" value="{{$nro}}">
                         <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
 

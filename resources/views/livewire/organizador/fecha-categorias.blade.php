@@ -180,23 +180,23 @@
                         </div>
                         <div class="flex justify-center mt-2 mb-4 ">
                             
-                        <div class="block">
-                            
-                            <div class="mb-4">
+                            <div class="block">
                                 
-                                <h1 class="text-center font-bold text-white mt-6">Precio Inscripción:</h1>
-                                <input wire:model="inscripcion" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-                            </div>
-                            <div class="mb-4">
-                                
-                              <h1 class="text-center font-bold text-white mt-6">Limite de inscritos:</h1>
-                              <input wire:model="limite" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-                            </div>
-      
-                            <div class="flex justify-center mb-4">                 
-                                <button class="btn btn-primary" wire:click="agregarcategoria">Agregar</button>
-                            </div>
-                        </div> 
+                                <div class="mb-4">
+                                    
+                                    <h1 class="text-center font-bold text-white mt-6">Precio Inscripción:</h1>
+                                    <input wire:model="inscripcion" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                                </div>
+                                <div class="mb-4">
+                                    
+                                <h1 class="text-center font-bold text-white mt-6">Limite de inscritos:</h1>
+                                <input wire:model="limite" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+                                </div>
+        
+                                <div class="flex justify-center mb-4">                 
+                                    <button class="btn btn-primary" wire:click="agregarcategoria">Agregar</button>
+                                </div>
+                            </div> 
                       </div>
                     </div>
              

@@ -19,8 +19,7 @@ class SocioSearch extends Component
 
         $sociosfull = Socio::all();
 
-        $socios = Socio::
-                    join('users','socios.user_id','=','users.id')
+        $socios = Socio::join('users','socios.user_id','=','users.id')
                     ->select('socios.*','users.name','users.email')
                     ->where('rut','LIKE','%'. $this->search .'%')
                     ->orwhere('email','LIKE','%'. $this->search .'%')

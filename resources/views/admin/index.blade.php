@@ -8,6 +8,14 @@
 
 @section('content')
 
+    @if ($gastos->count())
+        @livewire('admin.comisiones-pay')
+    @endif
+    @if ($retiros->count())
+        @livewire('organizador.retiros-pay')
+    @endif
+
+   
     
     @livewire('admin.contabilidad')
 

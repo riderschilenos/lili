@@ -1028,7 +1028,35 @@
             @if(auth()->user()->vendedor) 
                 @if(auth()->user()->vendedor->estado==2) 
 
-                    @livewire('vendedor.pedidos-index')
+                    <div x-data="setup()">
+                        <ul class="flex justify-center items-center my-4">
+                            <template x-for="(tab, index) in tabs" :key="index">
+                                <li class="cursor-pointer py-3 px-4 rounded transition"
+                                    :class="activeTab===index ? 'bg-red-500 text-white' : ' text-gray-500'" @click="activeTab = index"
+                                    x-text="tab"></li>
+                            </template>
+                        </ul>
+                        <div x-show="activeTab===0">
+                            @livewire('vendedor.pedidos-index')
+                        </div>
+                        <div x-show="activeTab===1">
+                            
+                            @livewire('vendedor.public-show')
+                    
+                   
+                        </div>
+                    </div>
+                        <script>
+                                function setup() {
+                                return {
+                                activeTab: 0,
+                                tabs: [
+                                    "Vendedor",
+                                    "Público"
+                                ]
+                                };
+                            };
+                        </script>
 
                 @else
                     
@@ -1036,8 +1064,8 @@
                         <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
                     
                             <div class="card pb-8 ">
-                                @if (auth()->user())
-                                    @if (auth()->user()->vendedor)
+                              
+                                  
                     
                                         <div class="justify-between gap-4 bg-red-700">
                                         
@@ -1045,139 +1073,8 @@
                                             
                                         </div>
                     
-                                    @else
-                    
-                                    
-                    
-                                        <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-4 lg:mx-14">
-                                            <article class="col-span-2 sm:col-span-2">
-                                                <figure>
-                                                    <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/first.png')}}" alt=""></a>
-                                                </figure>
-                                    
-                                            
-                                            </article>
-                                            <article  class="hidden md:block mx-10">
-                                                @if (auth()->user())
-                                                    <figure>
-                                                        <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
-                                                    </figure>
-                                                @else
-                                                    <div class="bg-red-600 rounded-lg max-w-sm mx-auto">
-                                                        <h1 class="text-3xl text-center font-bold text-white pt-4">ACCESO RIDERS</h1>
-                                                        
-                                                        <div class="flex justify-center mb-4 ">
-                                                            
-                                                        <div class="block w-full mx-4 pb-4">
-                                                            
-                                                            <form method="POST" action="{{ route('login') }}">
-                                                                @csrf
-                                                    
-                                                                <div>
-                                                                    <x-jet-label for="email" value="{{ __('Email') }}" class="text-white" />
-                                                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                                                                </div>
-                                                    
-                                                                <div class="mt-4">
-                                                                    <x-jet-label for="password" value="{{ __('Contraseña') }}" class="text-white"/>
-                                                                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                                                                </div>
-                                                    
-                                                                <div class="block mt-4">
-                                                                    <label for="remember_me" class="flex items-center">
-                                                                        <x-jet-checkbox id="remember_me" name="remember" />
-                                                                        <span class="ml-2 text-sm text-white">{{ __('Recordar mi cuenta') }}</span>
-                                                                    </label>
-                                                                </div>
-                                                    
-                                                                <div class="flex items-center justify-end mt-4">
-                                                                    @if (Route::has('password.request'))
-                                                                        <a class="underline text-sm text-white hover:text-gray-900 mr-auto" href="{{ route('register') }}">
-                                                                        {{ __('Registrarme') }}
-                                                                        </a>
-                                                                    
-                                                                    @endif
-                                                    
-                                                                    <x-jet-button class="ml-4">
-                                                                        {{ __('Ingresar') }}
-                                                                    </x-jet-button>
-                                                                </div>
-                                                            </form>
-                                                        </div> 
-                                                        </div>
-                                                    </div>
-                                                @endif
-                    
-                                            </article>
-                                        </div>
-                    
-                                    @endif
-                                @else
-                    
-                                    
-                                    <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-4 lg:mx-14">
-                                        <article class="col-span-2 sm:col-span-2">
-                                            <figure>
-                                                <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/first.png')}}" alt=""></a>
-                                            </figure>
-                                
-                                        
-                                        </article>
-                                        <article  class="hidden md:block mx-10">
-                                            @if (auth()->user())
-                                                <figure>
-                                                    <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
-                                                </figure>
-                                            @else
-                                                <div class="bg-red-600 rounded-lg max-w-sm mx-auto">
-                                                    <h1 class="text-3xl text-center font-bold text-white pt-4">ACCESO RIDERS</h1>
-                                                    
-                                                    <div class="flex justify-center mb-4 ">
-                                                        
-                                                    <div class="block w-full mx-4 pb-4 text-white">
-                                                        
-                                                        <form method="POST" action="{{ route('login') }}">
-                                                            @csrf
-                                                
-                                                            <div>
-                                                                <x-jet-label for="email" value="{{ __('Email') }}" class="text-white" />
-                                                                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                                                            </div>
-                                                
-                                                            <div class="mt-4">
-                                                                <x-jet-label for="password" value="{{ __('Contraseña') }}" class="text-white"/>
-                                                                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                                                            </div>
-                                                
-                                                            <div class="block mt-4">
-                                                                <label for="remember_me" class="flex items-center">
-                                                                    <x-jet-checkbox id="remember_me" name="remember" />
-                                                                    <span class="ml-2 text-sm text-white">{{ __('Recordar mi cuenta') }}</span>
-                                                                </label>
-                                                            </div>
-                                                
-                                                            <div class="flex items-center justify-end mt-4">
-                                                                @if (Route::has('password.request'))
-                                                                    <a class="underline text-sm text-white hover:text-gray-900 mr-auto" href="{{ route('register') }}">
-                                                                    {{ __('Registrarme') }}
-                                                                    </a>
-                                                                
-                                                                @endif
-                                                
-                                                                <x-jet-button class="ml-4">
-                                                                    {{ __('Ingresar') }}
-                                                                </x-jet-button>
-                                                            </div>
-                                                        </form>
-                                                    </div> 
-                                                    </div>
-                                                </div>
-                                            @endif
-                    
-                                        </article>
-                                    </div>
-                    
-                                @endif
+                               
+                             
                                     <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
                                         <article class="hidden  md:block col-span-2 md:col-span-1">
                                             <figure>
@@ -1203,10 +1100,8 @@
                                     
                                     </div>
                                 
-                            @if (auth()->user())
-                                @if (auth()->user()->vendedor)
-                    
-                                @else
+                           
+                                
                                 
                                     <div class="justify-between mt-8 bg-gray-200">
                     
@@ -1233,41 +1128,13 @@
                                     </div>
                                 
                                     <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
-                                
-                                @endif
-                            @else
-                                <div class="justify-between mt-8 bg-gray-200">
-                    
-                                    <h1 class="text-2xl py-4 text-center font-bold">Vendedor Destacado</h1>
-                                    <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-2 gap-y-2 lg:mx-14 pb-10">
-                                
-                                        <article>
-                                            <figure>
-                                                <a href="https://www.instagram.com/reel/CVyzsrhpZE3/?utm_source=ig_web_copy_link" target="_blank">
-                                                    <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/felipe2.png')}}" alt="">
-                                                </a>
-                                            </figure>
-                                        
-                                        </article>
-                                        <div>
-                                            <h1 class="text-2xl py-4 text-center mt-6 md:ml-10">"...El poder ganar dinero desde su smartphone, de manera rapida y accesible es algo que todos pueden hacer..."</h1>
-                                            <h1 class="text-xl pb-4 pt-6 ml-4">Felipe Caerols<br>Santiago</h1>
-                                
-                                        </div>
-                    
-                    
-                                    </div>
                             
-                                </div>
-                            
-                                <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
-                                
-                            @endif 
+                          
                                     <div class="card-body">
-                                            @if (auth()->user())
+                                      
                                             
                                         
-                                                @if (auth()->user()->vendedor)
+   
                     
                                                     
                                                     <h1 class="text-center">Para activar tu registro como vendedor debes hacer el pago correspondiente</h1>
@@ -1290,158 +1157,7 @@
                                                     </div>
                     
                                                     
-                                                @else
-                    
-                                                <div>
-                                                    @php
-                                                        $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
-                                                        $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
-                                                    @endphp
-                                                    {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                                                                
-                                                    @csrf
-                                                        
-                                                    <div class="max-w-full items-center">
-                    
-                    
-                                                        <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
-                    
-                                                        <p class="text-center">Indique los datos del titular de la cuenta</p>
-                    
-                                                        <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                                            <div class="md: col-span-2 lg:col-span-2 ">
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('name', 'Nombre completo:') !!}
-                                                                    {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
-                                    
-                                                                    @error('name')
-                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                    @enderror
-                                                                </div>
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('rut', 'Rut:') !!}
-                                                                    {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
-                                    
-                                                                    @error('rut')
-                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                    @enderror
-                                                                </div>
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('fono', 'Fono:') !!}
-                                                                    {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
-                                                                </div>
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('localidad', 'Localidad:') !!}
-                                                                    {!! Form::text('localidad', null , ['class' => 'form-input block w-full mt-1'.($errors->has('localidad')?' border-red-600':'')]) !!}
-                                                                </div>
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('disciplina_id', 'Disciplina favorita:') !!}
-                                                                    {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                                </div>
-                                                                
-                                                            
-                                                            </div>
-                                                        
-                                                        </div>
-                                                    
-                    
-                                                        <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
-                    
-                                                        <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
-                    
-                                                        <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                                            <div class="md: col-span-2 lg:col-span-2 ">
-                                                                
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('banco', 'Banco:') !!}
-                                                                    {!! Form::select('banco', $bancos, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                                </div>
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('tipo_cuenta', 'Tipo de cuenta:') !!}
-                                                                    {!! Form::select('tipo_cuenta', $cuentas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                                </div>
-                                                                
-                                                                <div class="mb-4">
-                                                                    {!! Form::label('nro_cuenta', 'Nro Cuenta*') !!}
-                                                                    {!! Form::text('nro_cuenta', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_cuenta')?' border-red-600':'')]) !!}
-                                    
-                                                                    @error('nro_cuenta')
-                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                    @enderror
-                                                                </div>
-                                                                
-                                                                
-                                                            </div>
-                                                        
-                                                        </div>
-                                                    
-                                                        
-                                                    </div>
-                                                    {!! Form::hidden('user_id',auth()->user()->id) !!}
-                                                
-                                                        <div class="flex justify-center">
-                                                            {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
-                                                        </div>
-                                                    
-                                                    {!! Form::close() !!}
-                                                </div>
-                                                    
-                                                @endif
-                    
-                                    
-                                            @else
-                                                
-                                            <h1 class="text-center 3xl font-bold">Para registrarte como vendedor debes <a href="{{ route('login') }}">INICIAR SESIÓN</a> en nuestra plataforma y podras rellenar el siguiente formulario </h1>
-                                            @php
-                                            $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
-                                            $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
-                                        @endphp
-                                        {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                                                    
-                                        @csrf
-                                            
-                                        <div class="max-w-full items-center">
-                    
-                    
-                                            <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
-                    
-                                            <p class="text-center">Indique los datos del titular de la cuenta</p>
-                    
-                                            <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                                <div class="md: col-span-2 lg:col-span-2 ">
-                                                    <div class="mb-4">
-                                                        {!! Form::label('name', 'Nombre completo:') !!}
-                                                        {!! Form::text('name', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
-                        
-                                                        @error('name')
-                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        {!! Form::label('rut', 'Rut:') !!}
-                                                        {!! Form::text('rut', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
-                        
-                                                        @error('rut')
-                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                        @enderror
-                                                    </div>
-                                                    
-                                                
-                                                </div>
-                                            
-                                            </div>
-                                        
-                                        
-                                            
-                                        </div>
-                                        {!! Form::close() !!}
-                                        <h1 class="text-center py-2 font-bold">Para desbloquear el formulario debes ingresar a tu cuenta RCH</h1>
-                                        <div class="flex justify-center">
-                                            
-                                            <a href="{{ route('login') }}" class="btn btn-primary mb-4">Iniciar Sesión</a>
-                                            
-                                        </div>
-                                            @endif  
+                                           
                                     
                                     
                                 </div>
@@ -1463,16 +1179,8 @@
                 <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
             
                     <div class="card pb-8 ">
-                        @if (auth()->user())
-                            @if (auth()->user()->vendedor)
-            
-                                <div class="justify-between gap-4 bg-red-700">
-                                
-                                    <h1 class="px-2 text-3xl font-bold py-4 text-center text-white">Estas a un Paso de Finalizar</h1>
-                                    
-                                </div>
-            
-                            @else
+                        
+                            
             
                             
             
@@ -1538,73 +1246,8 @@
                                     </article>
                                 </div>
             
-                            @endif
-                        @else
-            
-                            
-                            <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-4 lg:mx-14">
-                                <article class="col-span-2 sm:col-span-2">
-                                    <figure>
-                                        <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/first.png')}}" alt=""></a>
-                                    </figure>
-                        
-                                
-                                </article>
-                                <article  class="hidden md:block mx-10">
-                                    @if (auth()->user())
-                                        <figure>
-                                            <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
-                                        </figure>
-                                    @else
-                                        <div class="bg-red-600 rounded-lg max-w-sm mx-auto">
-                                            <h1 class="text-3xl text-center font-bold text-white pt-4">ACCESO RIDERS</h1>
-                                            
-                                            <div class="flex justify-center mb-4 ">
-                                                
-                                            <div class="block w-full mx-4 pb-4 text-white">
-                                                
-                                                <form method="POST" action="{{ route('login') }}">
-                                                    @csrf
-                                        
-                                                    <div>
-                                                        <x-jet-label for="email" value="{{ __('Email') }}" class="text-white" />
-                                                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                                                    </div>
-                                        
-                                                    <div class="mt-4">
-                                                        <x-jet-label for="password" value="{{ __('Contraseña') }}" class="text-white"/>
-                                                        <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                                                    </div>
-                                        
-                                                    <div class="block mt-4">
-                                                        <label for="remember_me" class="flex items-center">
-                                                            <x-jet-checkbox id="remember_me" name="remember" />
-                                                            <span class="ml-2 text-sm text-white">{{ __('Recordar mi cuenta') }}</span>
-                                                        </label>
-                                                    </div>
-                                        
-                                                    <div class="flex items-center justify-end mt-4">
-                                                        @if (Route::has('password.request'))
-                                                            <a class="underline text-sm text-white hover:text-gray-900 mr-auto" href="{{ route('register') }}">
-                                                            {{ __('Registrarme') }}
-                                                            </a>
-                                                        
-                                                        @endif
-                                        
-                                                        <x-jet-button class="ml-4">
-                                                            {{ __('Ingresar') }}
-                                                        </x-jet-button>
-                                                    </div>
-                                                </form>
-                                            </div> 
-                                            </div>
-                                        </div>
-                                    @endif
-            
-                                </article>
-                            </div>
-            
-                        @endif
+                           
+                       
                             <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
                                 <article class="hidden  md:block col-span-2 md:col-span-1">
                                     <figure>
@@ -1630,10 +1273,8 @@
                             
                             </div>
                         
-                    @if (auth()->user())
-                        @if (auth()->user()->vendedor)
-            
-                        @else
+                   
+                       
                         
                             <div class="justify-between mt-8 bg-gray-200">
             
@@ -1661,212 +1302,109 @@
                         
                             <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
                         
-                        @endif
-                    @else
-                        <div class="justify-between mt-8 bg-gray-200">
-            
-                            <h1 class="text-2xl py-4 text-center font-bold">Vendedor Destacado</h1>
-                            <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-2 gap-y-2 lg:mx-14 pb-10">
-                        
-                                <article>
-                                    <figure>
-                                        <a href="https://www.instagram.com/reel/CVyzsrhpZE3/?utm_source=ig_web_copy_link" target="_blank">
-                                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/felipe2.png')}}" alt="">
-                                        </a>
-                                    </figure>
-                                
-                                </article>
-                                <div>
-                                    <h1 class="text-2xl py-4 text-center mt-6 md:ml-10">"...El poder ganar dinero desde su smartphone, de manera rapida y accesible es algo que todos pueden hacer..."</h1>
-                                    <h1 class="text-xl pb-4 pt-6 ml-4">Felipe Caerols<br>Santiago</h1>
-                        
-                                </div>
-            
-            
-                            </div>
-                    
-                        </div>
-                    
-                        <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
-                        
-                    @endif 
+                       
+                   
+          
                             <div class="card-body">
-                                    @if (auth()->user())
-                                    
                                 
-                                        @if (auth()->user()->vendedor)
-            
-                                            
-                                            <h1 class="text-center">Para activar tu registro como vendedor debes hacer el pago correspondiente</h1>
-            
-                                            <h1 class="text-center text-2xl font-bold my-4">{{auth()->user()->name}}</h1>
-                                            
-                                            <button class="btn btn-primary btn-sm" type="submit"> Ir a pagar </button>
-            
-                                            <div class="flex justify-center">
-                                                <div class="">
-                                                    <form action="{{route('vendedor.perfil.destroy',auth()->user()->vendedor)}}" method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                        
-                                                        <button class="btn btn-danger btn-sm" type="submit"> Cancelar</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-            
-                                            
-                                        @else
-            
-                                        <div>
-                                            @php
-                                                $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
-                                                $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
-                                            @endphp
-                                            {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                                                        
-                                            @csrf
-                                                
-                                            <div class="max-w-full items-center">
-            
-            
-                                                <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
-            
-                                                <p class="text-center">Indique los datos del titular de la cuenta</p>
-            
-                                                <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                                    <div class="md: col-span-2 lg:col-span-2 ">
-                                                        <div class="mb-4">
-                                                            {!! Form::label('name', 'Nombre completo:') !!}
-                                                            {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
-                            
-                                                            @error('name')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            {!! Form::label('rut', 'Rut:') !!}
-                                                            {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
-                            
-                                                            @error('rut')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            {!! Form::label('fono', 'Fono:') !!}
-                                                            {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            {!! Form::label('localidad', 'Localidad:') !!}
-                                                            {!! Form::text('localidad', null , ['class' => 'form-input block w-full mt-1'.($errors->has('localidad')?' border-red-600':'')]) !!}
-                                                        </div>
-                                                        <div class="mb-4">
-                                                            {!! Form::label('disciplina_id', 'Disciplina favorita:') !!}
-                                                            {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                        </div>
+                                            <div>
+                                                @php
+                                                    $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
+                                                    $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
+                                                @endphp
+                                                {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                                                            
+                                                @csrf
+                                                    
+                                                <div class="max-w-full items-center">
+                
+                
+                                                    <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
+                
+                                                    <p class="text-center">Indique los datos del titular de la cuenta</p>
+                
+                                                    <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
+                                                        <div class="md: col-span-2 lg:col-span-2 ">
+                                                            <div class="mb-4">
+                                                                {!! Form::label('name', 'Nombre completo:') !!}
+                                                                {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+                                
+                                                                @error('name')
+                                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                {!! Form::label('rut', 'Rut:') !!}
+                                                                {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
+                                
+                                                                @error('rut')
+                                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                {!! Form::label('fono', 'Fono:') !!}
+                                                                {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                {!! Form::label('localidad', 'Localidad:') !!}
+                                                                {!! Form::text('localidad', null , ['class' => 'form-input block w-full mt-1'.($errors->has('localidad')?' border-red-600':'')]) !!}
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                {!! Form::label('disciplina_id', 'Disciplina favorita:') !!}
+                                                                {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                                                            </div>
+                                                            
                                                         
+                                                        </div>
                                                     
                                                     </div>
                                                 
-                                                </div>
-                                            
-            
-                                                <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
-            
-                                                <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
-            
-                                                <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                                    <div class="md: col-span-2 lg:col-span-2 ">
-                                                        
-                                                        <div class="mb-4">
-                                                            {!! Form::label('banco', 'Banco:') !!}
-                                                            {!! Form::select('banco', $bancos, null , ['class'=>'form-input block w-full mt-1']) !!}
+                
+                                                    <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
+                
+                                                    <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
+                
+                                                    <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
+                                                        <div class="md: col-span-2 lg:col-span-2 ">
+                                                            
+                                                            <div class="mb-4">
+                                                                {!! Form::label('banco', 'Banco:') !!}
+                                                                {!! Form::select('banco', $bancos, null , ['class'=>'form-input block w-full mt-1']) !!}
+                                                            </div>
+                                                            <div class="mb-4">
+                                                                {!! Form::label('tipo_cuenta', 'Tipo de cuenta:') !!}
+                                                                {!! Form::select('tipo_cuenta', $cuentas, null , ['class'=>'form-input block w-full mt-1']) !!}
+                                                            </div>
+                                                            
+                                                            <div class="mb-4">
+                                                                {!! Form::label('nro_cuenta', 'Nro Cuenta*') !!}
+                                                                {!! Form::text('nro_cuenta', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_cuenta')?' border-red-600':'')]) !!}
+                                
+                                                                @error('nro_cuenta')
+                                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                @enderror
+                                                            </div>
+                                                            
+                                                            
                                                         </div>
-                                                        <div class="mb-4">
-                                                            {!! Form::label('tipo_cuenta', 'Tipo de cuenta:') !!}
-                                                            {!! Form::select('tipo_cuenta', $cuentas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                        </div>
-                                                        
-                                                        <div class="mb-4">
-                                                            {!! Form::label('nro_cuenta', 'Nro Cuenta*') !!}
-                                                            {!! Form::text('nro_cuenta', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_cuenta')?' border-red-600':'')]) !!}
-                            
-                                                            @error('nro_cuenta')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-                                                        
-                                                        
+                                                    
                                                     </div>
                                                 
+                                                    
                                                 </div>
+                                                {!! Form::hidden('user_id',auth()->user()->id) !!}
                                             
+                                                    <div class="flex justify-center">
+                                                        {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                                                    </div>
                                                 
+                                                {!! Form::close() !!}
                                             </div>
-                                            {!! Form::hidden('user_id',auth()->user()->id) !!}
-                                        
-                                                <div class="flex justify-center">
-                                                    {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
-                                                </div>
                                             
-                                            {!! Form::close() !!}
-                                        </div>
-                                            
-                                        @endif
+                                    
             
                             
-                                    @else
-                                        
-                                    <h1 class="text-center 3xl font-bold">Para registrarte como vendedor debes <a href="{{ route('login') }}">INICIAR SESIÓN</a> en nuestra plataforma y podras rellenar el siguiente formulario </h1>
-                                    @php
-                                    $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
-                                    $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
-                                @endphp
-                                {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                                            
-                                @csrf
-                                    
-                                <div class="max-w-full items-center">
-            
-            
-                                    <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
-            
-                                    <p class="text-center">Indique los datos del titular de la cuenta</p>
-            
-                                    <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                        <div class="md: col-span-2 lg:col-span-2 ">
-                                            <div class="mb-4">
-                                                {!! Form::label('name', 'Nombre completo:') !!}
-                                                {!! Form::text('name', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
-                
-                                                @error('name')
-                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-4">
-                                                {!! Form::label('rut', 'Rut:') !!}
-                                                {!! Form::text('rut', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
-                
-                                                @error('rut')
-                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                @enderror
-                                            </div>
-                                            
-                                        
-                                        </div>
-                                    
-                                    </div>
-                                
-                                
-                                    
-                                </div>
-                                {!! Form::close() !!}
-                                <h1 class="text-center py-2 font-bold">Para desbloquear el formulario debes ingresar a tu cuenta RCH</h1>
-                                <div class="flex justify-center">
-                                    
-                                    <a href="{{ route('login') }}" class="btn btn-primary mb-4">Iniciar Sesión</a>
-                                    
-                                </div>
-                                    @endif  
+                                   
                             
                             
                         </div>
@@ -1886,84 +1424,7 @@
             <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
         
                 <div class="card pb-8 ">
-                    @if (auth()->user())
-                        @if (auth()->user()->vendedor)
-        
-                            <div class="justify-between gap-4 bg-red-700">
-                            
-                                <h1 class="px-2 text-3xl font-bold py-4 text-center text-white">Estas a un Paso de Finalizar</h1>
-                                
-                            </div>
-        
-                        @else
-        
-                        
-        
-                            <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-4 lg:mx-14">
-                                <article class="col-span-2 sm:col-span-2">
-                                    <figure>
-                                        <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/first.png')}}" alt=""></a>
-                                    </figure>
-                        
-                                
-                                </article>
-                                <article  class="hidden md:block mx-10">
-                                    @if (auth()->user())
-                                        <figure>
-                                            <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
-                                        </figure>
-                                    @else
-                                        <div class="bg-red-600 rounded-lg max-w-sm mx-auto">
-                                            <h1 class="text-3xl text-center font-bold text-white pt-4">ACCESO RIDERS</h1>
-                                            
-                                            <div class="flex justify-center mb-4 ">
-                                                
-                                            <div class="block w-full mx-4 pb-4">
-                                                
-                                                <form method="POST" action="{{ route('login') }}">
-                                                    @csrf
-                                        
-                                                    <div>
-                                                        <x-jet-label for="email" value="{{ __('Email') }}" class="text-white" />
-                                                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                                                    </div>
-                                        
-                                                    <div class="mt-4">
-                                                        <x-jet-label for="password" value="{{ __('Contraseña') }}" class="text-white"/>
-                                                        <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                                                    </div>
-                                        
-                                                    <div class="block mt-4">
-                                                        <label for="remember_me" class="flex items-center">
-                                                            <x-jet-checkbox id="remember_me" name="remember" />
-                                                            <span class="ml-2 text-sm text-white">{{ __('Recordar mi cuenta') }}</span>
-                                                        </label>
-                                                    </div>
-                                        
-                                                    <div class="flex items-center justify-end mt-4">
-                                                        @if (Route::has('password.request'))
-                                                            <a class="underline text-sm text-white hover:text-gray-900 mr-auto" href="{{ route('register') }}">
-                                                            {{ __('Registrarme') }}
-                                                            </a>
-                                                        
-                                                        @endif
-                                        
-                                                        <x-jet-button class="ml-4">
-                                                            {{ __('Ingresar') }}
-                                                        </x-jet-button>
-                                                    </div>
-                                                </form>
-                                            </div> 
-                                            </div>
-                                        </div>
-                                    @endif
-        
-                                </article>
-                            </div>
-        
-                        @endif
-                    @else
-        
+              
                         
                         <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-4 lg:mx-14">
                             <article class="col-span-2 sm:col-span-2">
@@ -2027,7 +1488,7 @@
                             </article>
                         </div>
         
-                    @endif
+              
                         <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-8 lg:mx-14">
                             <article class="hidden  md:block col-span-2 md:col-span-1">
                                 <figure>
@@ -2053,39 +1514,7 @@
                         
                         </div>
                     
-                @if (auth()->user())
-                    @if (auth()->user()->vendedor)
-        
-                    @else
-                    
-                        <div class="justify-between mt-8 bg-gray-200">
-        
-                            <h1 class="text-2xl py-4 text-center font-bold">Vendedor Destacado</h1>
-                            <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-2 gap-y-2 lg:mx-14 pb-10">
-                        
-                                <article>
-                                    <figure>
-                                        <a href="https://www.instagram.com/reel/CVyzsrhpZE3/?utm_source=ig_web_copy_link" target="_blank">
-                                            <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/felipe2.png')}}" alt="">
-                                        </a>
-                                    </figure>
-                                
-                                </article>
-                                <div>
-                                    <h1 class="text-2xl py-4 text-center mt-6 md:ml-10">"...El poder ganar dinero desde su smartphone, de manera rapida y accesible es algo que todos pueden hacer..."</h1>
-                                    <h1 class="text-xl pb-4 pt-6 ml-4">Felipe Caerols<br>Santiago</h1>
-                        
-                                </div>
-        
-        
-                            </div>
-                    
-                        </div>
-                    
-                        <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
-                    
-                    @endif
-                @else
+               
                     <div class="justify-between mt-8 bg-gray-200">
         
                         <h1 class="text-2xl py-4 text-center font-bold">Vendedor Destacado</h1>
@@ -2112,140 +1541,15 @@
                 
                     <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
                     
-                @endif 
+           
                         <div class="card-body">
-                                @if (auth()->user())
-                                
-                            
-                                    @if (auth()->user()->vendedor)
-        
-                                        
-                                        <h1 class="text-center">Para activar tu registro como vendedor debes hacer el pago correspondiente</h1>
-        
-                                        <h1 class="text-center text-2xl font-bold my-4">{{auth()->user()->name}}</h1>
-                                        
-                                        <div class="cho-container flex justify-center mt-2 mb-4">
-                                            <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
-                                        </div>
-        
-                                        <div class="flex justify-center">
-                                            <div class="">
-                                                <form action="{{route('vendedor.perfil.destroy',auth()->user()->vendedor)}}" method="POST">
-                                                    @csrf
-                                                    @method('delete')
-                                    
-                                                    <button class="btn btn-danger btn-sm" type="submit"> Cancelar</button>
-                                                </form>
-                                            </div>
-                                        </div>
-        
-                                        
-                                    @else
-        
-                                    <div>
-                                        @php
-                                            $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
-                                            $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
-                                        @endphp
-                                        {!! Form::open(['route'=>'vendedor.home.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                                                    
-                                        @csrf
-                                            
-                                        <div class="max-w-full items-center">
-        
-        
-                                            <h1 class="text-xl pb-4 text-center">Formulario de Promotor RCH</h1>
-        
-                                            <p class="text-center">Indique los datos del titular de la cuenta</p>
-        
-                                            <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                                <div class="md: col-span-2 lg:col-span-2 ">
-                                                    <div class="mb-4">
-                                                        {!! Form::label('name', 'Nombre completo:') !!}
-                                                        {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
-                        
-                                                        @error('name')
-                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        {!! Form::label('rut', 'Rut:') !!}
-                                                        {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
-                        
-                                                        @error('rut')
-                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        {!! Form::label('fono', 'Fono:') !!}
-                                                        {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        {!! Form::label('localidad', 'Localidad:') !!}
-                                                        {!! Form::text('localidad', null , ['class' => 'form-input block w-full mt-1'.($errors->has('localidad')?' border-red-600':'')]) !!}
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        {!! Form::label('disciplina_id', 'Disciplina favorita:') !!}
-                                                        {!! Form::select('disciplina_id', $disciplinas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                    </div>
-                                                    
-                                                
-                                                </div>
-                                            
-                                            </div>
-                                        
-        
-                                            <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
-        
-                                            <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
-        
-                                            <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
-                                                <div class="md: col-span-2 lg:col-span-2 ">
-                                                    
-                                                    <div class="mb-4">
-                                                        {!! Form::label('banco', 'Banco:') !!}
-                                                        {!! Form::select('banco', $bancos, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        {!! Form::label('tipo_cuenta', 'Tipo de cuenta:') !!}
-                                                        {!! Form::select('tipo_cuenta', $cuentas, null , ['class'=>'form-input block w-full mt-1']) !!}
-                                                    </div>
-                                                    
-                                                    <div class="mb-4">
-                                                        {!! Form::label('nro_cuenta', 'Nro Cuenta*') !!}
-                                                        {!! Form::text('nro_cuenta', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_cuenta')?' border-red-600':'')]) !!}
-                        
-                                                        @error('nro_cuenta')
-                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                        @enderror
-                                                    </div>
-                                                    
-                                                    
-                                                </div>
-                                            
-                                            </div>
-                                        
-                                            
-                                        </div>
-                                        {!! Form::hidden('user_id',auth()->user()->id) !!}
-                                    
-                                            <div class="flex justify-center">
-                                                {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
-                                            </div>
-                                        
-                                        {!! Form::close() !!}
-                                    </div>
-                                        
-                                    @endif
-        
-                        
-                                @else
+                          
                                     
                                 <h1 class="text-center 3xl font-bold">Para registrarte como vendedor debes <a href="{{ route('login') }}">INICIAR SESIÓN</a> en nuestra plataforma y podras rellenar el siguiente formulario </h1>
                                 @php
-                                $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
-                                $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
-                            @endphp
+                                    $bancos=['Banco Estado'=>'Banco Estado','Banco Santander'=>'Banco Santander','Banco de Chile'=>'Banco de Chile','Banco Falabella'=>'Banco Falabella','Banco BCI'=>'Banco BCI'];
+                                    $cuentas=['Cuenta Vista'=>'Cuenta Vista','Cuenta Corriente'=>'Cuenta Corriente','Cuenta Ahorro'=>'Cuenta Ahorro','Cuenta Rut'=>'Cuenta Rut'];
+                                @endphp
                                 
                                 
                                 <h1 class="text-center py-2 font-bold">Una vez que hayas creado tu cuenta con nosotros podras registrarte como vendedor autorizado de RidersChilenos</h1>
@@ -2304,7 +1608,7 @@
                                     </form>
                                     
                                 </div>
-                                @endif  
+                         
                         
                         
                     </div>

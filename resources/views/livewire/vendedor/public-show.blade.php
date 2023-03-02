@@ -59,10 +59,10 @@
     
             <div class="mt-1 p-2">
                 <h2 class="text-slate-700">{{$producto->name}}</h2>
-                <p class="mt-1 text-sm text-slate-400">Lisbon, Portugal</p>
+                <p class="mt-1 text-sm text-slate-400">Despacho todo Chile</p>
     
                 <div class="mt-3 flex items-end justify-between">
-                    <p class="text-lg font-bold text-blue-500">${{$producto->precio}}</p>
+                    <p class="text-lg font-bold text-blue-500">${{number_format($producto->precio)}}</p>
     
                 <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">

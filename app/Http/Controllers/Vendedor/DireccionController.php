@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Direccion;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\MockObject\Stub\ReturnSelf;
 
 class DireccionController extends Controller
 {
@@ -109,8 +110,10 @@ class DireccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Direccion $direccion)
     {
-        //
+        $direccion->delete();
+
+        return redirect()->back();
     }
 }

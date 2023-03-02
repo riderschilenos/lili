@@ -13,7 +13,7 @@ use Livewire\WithPagination;
 
 class PedidosCreate extends Component
 {   
-    public $invitados, $selectedSocios, $selectedInvitado, $selecteddespacho, $search, $socio_id, $transportista_id, $transportistas;
+    public $invitados, $selectedSocios, $selectedInvitado, $selecteddespacho, $search, $socio_id, $invitado_id, $transportista_id, $transportistas;
     
 
     use WithPagination;
@@ -30,11 +30,19 @@ class PedidosCreate extends Component
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->latest('id')
                     ->paginate(800);
+        
+        $guess = Invitado::where('rut','LIKE','%'. $this->search .'%')
+                    ->orwhere('email','LIKE','%'. $this->search .'%')
+                    ->orwhere('name','LIKE','%'. $this->search .'%')
+                    ->orwhere('fono','LIKE','%'. $this->search .'%')
+                    ->latest('id')
+                    ->paginate(3);
+
 
 
         
 
-        return view('livewire.vendedor.pedidos-create',compact('socios'));
+        return view('livewire.vendedor.pedidos-create',compact('socios','guess'));
     }
 
     public function updateselectedSocios(Socio $socio){
@@ -79,6 +87,12 @@ class PedidosCreate extends Component
                             ->get();
 
         $this->socio_id = $socio_id;
+    }
+
+    public function updateinvitado_id($invitado_id){
+
+
+        $this->invitado_id = $invitado_id;
     }
 
 

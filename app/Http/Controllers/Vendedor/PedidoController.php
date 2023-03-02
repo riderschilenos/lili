@@ -90,20 +90,37 @@ class PedidoController extends Controller
     public function store(Request $request)
     {   
         if($request->pedidoable_type=='App\Models\Invitado'){
-        $request->validate([
-        'name'=>'required',
-        'rut'=>'required',
-        'fono'=>'required',
-        'email'=>'required',
-        'transportista_id'=>'required'
-        ]);}
-        else{
+            if ($request->invitado_status=='asociado') {     
+                $request->validate([
+                    'transportista_id'=>'required'
+                    ]);
+            }else{
+                $request->validate([
+                    'name'=>'required',
+                    'rut'=>'required',
+                    'fono'=>'required',
+                    'email'=>'required',
+                    'transportista_id'=>'required'
+                    ]);
+              
+            }
+        }else{
             $request->validate([
                 'transportista_id'=>'required'
                 ]);
         }
 
         if($request->pedidoable_type == 'App\Models\Invitado'){
+                
+            if ($request->invitado_status=='asociado') {
+                $pedido = Pedido::create([
+                    'user_id'=> $request->user_id,
+                    'transportista_id'=> $request->transportista_id,
+                    'pedidoable_id'=> $request->pedidoable_id,
+                    'pedidoable_type'=> 'App\Models\Invitado']);
+                return redirect()->route('vendedor.pedidos.edit',$pedido);
+             } else {
+               
                 $invitado =  Invitado::create([
                                 'name'=> $request->name,
                                 'rut'=> $request->rut,
@@ -115,6 +132,9 @@ class PedidoController extends Controller
                     'transportista_id'=> $request->transportista_id,
                     'pedidoable_id'=> $invitado->id,
                     'pedidoable_type'=> $request->pedidoable_type]);
+                return redirect()->route('vendedor.pedidos.edit',$pedido);
+                
+            }
             }
         else{
             $pedido = Pedido::create([
@@ -122,9 +142,10 @@ class PedidoController extends Controller
                 'transportista_id'=> $request->transportista_id,
                 'pedidoable_id'=> $request->pedidoable_id,
                 'pedidoable_type'=> $request->pedidoable_type]);
+            return redirect()->route('vendedor.pedidos.edit',$pedido);
         }
 
-        return redirect()->route('vendedor.pedidos.edit',$pedido);
+       
     }
 
     /**

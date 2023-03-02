@@ -75,7 +75,21 @@
                             @if ($invitado->id == $pedido->pedidoable_id )
                                 @if ($invitado->direccion)
 
-                                    <div class="grid grid-cols-3 md:grid-cols-5 gap-y-4" name="datosdireccioninvitado">
+                                <div>
+                                    <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between">
+                                        <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
+                                        <form action="{{route('vendedor.direccions.destroy',$invitado->direccion)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+            
+                                            <button class="" type="submit"> <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle"  alt="Eliminar"></i></button>
+                                        
+                                        </form>
+                                    
+                                    </header>
+                                    <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 shadow-lg rounded-b-lg">
+                                        
+            
                                         <div>
                                             <p class="font-bold mr-2s">Comuna: </p>{{$invitado->direccion->comuna}}
                                         </div>
@@ -88,30 +102,12 @@
                                         <div>
                                             <p class="font-bold mr-2">{{$invitado->direccion->region}}</p>
                                         </div>
+            
                                         <div>
-                                            @switch($pedido->transportista->id)
-                                                @case(1)
-                                                    <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                        {{$pedido->transportista->name}}
-                                                    </span>
-                                                    @break
-                                                @case(2)
-                                                    <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                        {{$pedido->transportista->name}}
-                                                    </span>
-                                                    @break
-                                                    @case(3)
-                                                    <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                                        {{$pedido->transportista->name}}
-                                                    </span>
-                                                    @break
-                                                
-                                                @default
-                                                    
-                                            @endswitch
-                                            
+            
                                         </div>    
                                     </div>
+                                </div>
                                     
                                     <div class="mt-4" name="productos">
                                         @livewire('vendedor.pedidos-ordens', ['pedido' => $pedido], key('pedidos-ordens.'.$pedido->id))
@@ -138,7 +134,7 @@
                                 
                                 
                                         <div class="flex justify-end">
-                                            <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
+                                           
                                             {!! Form::submit('Agregar Dirección', ['class'=>'btn btn-success cursor-pointer ml-2']) !!}
                                         </div>
                                 
@@ -157,41 +153,37 @@
                             @if ($socio->id == $pedido->pedidoable_id )
                                 @if ($socio->direccion)
 
-                                    <div class="grid grid-cols-3 md:grid-cols-5 gap-y-4" name="datosdireccionsocio">
-                                        <div>
-                                            <p class=" ml-auto font-bold mr-2">Comuna: </p>{{$socio->direccion->comuna}}
-                                        </div>
-                                        <div>
-                                            <p class="ml-auto font-bold mr-2">Calle: </p>{{$socio->direccion->calle}}
-                                        </div>
-                                        <div>
-                                            <p class="ml-auto font-bold mr-2">Nro: </p>{{$socio->direccion->numero}}
-                                        </div>
-                                        <div>
-                                            <p class="font-bold mr-2">{{$socio->direccion->region}}</p>
-                                        </div>
-                                        <div>
-                                            @switch($pedido->transportista->id)
-                                                @case(1)
-                                                    <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                        {{$pedido->transportista->name}}
-                                                    </span>
-                                                    @break
-                                                @case(2)
-                                                    <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                        {{$pedido->transportista->name}}
-                                                    </span>
-                                                    @break
-                                                    @case(3)
-                                                    <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                                        {{$pedido->transportista->name}}
-                                                    </span>
-                                                    @break
-                                                
-                                                @default
-                                                    
-                                            @endswitch
+                                    <div>
+                                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between">
+                                            <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
+                                            <form action="{{route('vendedor.direccions.destroy',$socio->direccion)}}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                
+                                                <button class="" type="submit"> <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle"  alt="Eliminar"></i></button>
                                             
+                                            </form>
+                                        
+                                        </header>
+                                        <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 shadow-lg rounded-b-lg">
+                                            
+                
+                                            <div>
+                                                <p class="font-bold mr-2s">Comuna: </p>{{$socio->direccion->comuna}}
+                                            </div>
+                                            <div>
+                                                <p class="font-bold mr-2s">Calle: </p>{{$socio->direccion->calle}}
+                                            </div>
+                                            <div>
+                                                <p class="font-bold mr-2s">Nro: </p>{{$socio->direccion->numero}}
+                                            </div>
+                                            <div>
+                                                <p class="font-bold mr-2">{{$socio->direccion->region}}</p>
+                                            </div>
+                
+                                            <div>
+                
+                                            </div>    
                                         </div>
                                     </div>
                                     
@@ -210,17 +202,19 @@
                         
 
                                         
-                                        {!! Form::open(['route' => 'vendedor.pedidos.store']) !!}
+                                        {!! Form::open(['route' => 'vendedor.direccions.store']) !!}
+
+                                        {!! Form::hidden('pedido_id', $pedido->id ) !!}
                                 
-                                        {!! Form::hidden('user_id',auth()->user()->id) !!}
-                                
-                                        {!! Form::hidden('pedidoable_type','App\Models\Socio') !!}
-                                
+                                        {!! Form::hidden('direccionable_id', $pedido->pedidoable_id ) !!}
+
+                                        {!! Form::hidden('direccionable_type','App\Models\Socio') !!}
+                                        
                                         @include('vendedor.pedidos.partials.formdirection')
                                 
                                 
                                         <div class="flex justify-end">
-                                            <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
+                                          
                                             {!! Form::submit('Agregar Dirección', ['class'=>'btn btn-success cursor-pointer ml-2']) !!}
                                         </div>
                                 

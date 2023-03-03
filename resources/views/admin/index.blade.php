@@ -8,13 +8,13 @@
 
 @section('content')
 
-@if (session('info'))
+    @if (session('info'))
         <div class="alert alert-success">
             {{session('info')}}
         </div>
     @endif
 
-    @if ($pagos)
+    @if ($pagos->count())
         <div class="card">
             <div class="card-body">
                 <table class="table table-striped">

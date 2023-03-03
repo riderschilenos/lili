@@ -181,29 +181,6 @@
    
         
         
-            <div class="justify-between mt-8 bg-gray-200">
-
-                <h1 class="text-2xl py-4 text-center font-bold">Vendedor Destacado</h1>
-                <div class="max-w-7xl px-4 sm:px-6 mx-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-2 gap-y-2 lg:mx-14 pb-10">
-            
-                    <article>
-                        <figure>
-                            <a href="https://www.instagram.com/reel/CVyzsrhpZE3/?utm_source=ig_web_copy_link" target="_blank">
-                                <img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/felipe2.png')}}" alt="">
-                            </a>
-                        </figure>
-                    
-                    </article>
-                    <div>
-                        <h1 class="text-2xl py-4 text-center mt-6 md:ml-10">"...El poder ganar dinero desde su smartphone, de manera rapida y accesible es algo que todos pueden hacer..."</h1>
-                        <h1 class="text-xl pb-4 pt-6 ml-4">Felipe Caerols<br>Santiago</h1>
-            
-                    </div>
-
-
-                </div>
-        
-            </div>
         
 
     

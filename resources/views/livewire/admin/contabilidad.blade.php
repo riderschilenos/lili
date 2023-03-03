@@ -58,6 +58,7 @@
                     $poleras+=1; 
                 }
                 elseif($orden->producto->id==13  || $orden->producto->id==14  || $orden->producto->id==19 || $orden->producto->id==21){
+                    
                     $polerones+=1; 
                 }
                 elseif($orden->producto->id==9){

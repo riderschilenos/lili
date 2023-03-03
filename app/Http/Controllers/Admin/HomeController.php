@@ -17,8 +17,10 @@ class HomeController extends Controller
 
       $retiros = Retiro::where('estado',1)->where('created_at', '<=', Carbon::now()."+ 1 month")->get();
 
+      $fecha=Carbon::now()."+ 1 month";
+
       $pagos = Pago::where('estado',1)->paginate(80);
 
-      return view('admin.index',compact('gastos','retiros','pagos'));
+      return view('admin.index',compact('gastos','retiros','pagos','fecha'));
    }
 }

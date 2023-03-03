@@ -43,7 +43,7 @@
             @php
 
 
-                if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7){
+                if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3 || $orden->producto->id==7  || $orden->producto->id==21){
                 $carcasas+=1;   }
                 elseif($orden->producto->id==4){
                     $llaveros+=1; 
@@ -57,7 +57,7 @@
                 elseif($orden->producto->id==5 || $orden->producto->id==6){
                     $poleras+=1; 
                 }
-                elseif($orden->producto->id==13){
+                elseif($orden->producto->id==13  || $orden->producto->id==14  || $orden->producto->id==19 || $orden->producto->id==21){
                     $polerones+=1; 
                 }
                 elseif($orden->producto->id==9){

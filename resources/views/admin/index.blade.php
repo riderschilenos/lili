@@ -109,7 +109,7 @@
             </div>
         </div>
     @endif
-        {{$fecha}}
+    
     @if ($gastos->count())
         @livewire('admin.comisiones-pay')
     @endif

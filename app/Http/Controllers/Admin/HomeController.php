@@ -13,14 +13,12 @@ class HomeController extends Controller
 {
    public function index(){
 
-      $gastos = Gasto::where('estado',1)->where('created_at', '<=', Carbon::now()."+ 1 month")->get();
+      $gastos = Gasto::where('estado',1)->paginate(80);
 
-      $retiros = Retiro::where('estado',1)->where('created_at', '<=', Carbon::now()."+ 1 month")->get();
-
-      $fecha=Carbon::now()."+ 1 month";
+      $retiros = Retiro::where('estado',1)->paginate(80);
 
       $pagos = Pago::where('estado',1)->paginate(80);
 
-      return view('admin.index',compact('gastos','retiros','pagos','fecha'));
+      return view('admin.index',compact('gastos','retiros','pagos'));
    }
 }

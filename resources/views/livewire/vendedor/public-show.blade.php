@@ -71,7 +71,7 @@
                     <div class="flex justify-between mx-10">
                         <div class="inline-block align-bottom ml-4 md:ml-8">
                             <span class="text-2xl leading-none align-baseline">$</span>
-                            <span class="font-bold text-5xl leading-none align-baseline">${{number_format($product->precio)}}</span>
+                            <span class="font-bold text-4xl leading-none align-baseline">{{number_format($product->precio)}}</span>
 
                         </div>
                         <div class="align-bottom mr-4 md:mr-8">
@@ -81,22 +81,22 @@
                     <div class="w-full md:w-1/2 relative z-1 rounded overflow-hidden">
                       
                         
-                        <div class="flex justify-center mt-3">
+                        <div class="flex justify-center mt-6 mb-6">
                           <ul>
                             <li class="flex items-center">
-                              <div class="bg-green-200 rounded-full p-2 fill-current text-green-700">
+                              <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-umbrella"><path class="primary" d="M11 3.05V2a1 1 0 0 1 2 0v1.05A10 10 0 0 1 22 13c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a10 10 0 0 1 9-9.95z"/><path class="secondary" d="M11 14a1 1 0 0 1 2 0v5a3 3 0 0 1-6 0 1 1 0 0 1 2 0 1 1 0 0 0 2 0v-5z"/></svg>
                               </div>
                               <span class="text-gray-700 text-lg ml-3">Despacho a todo Chile</span>
                             </li>
                             <li class="flex items-center mt-3">
-                              <div class="bg-green-200 rounded-full p-2 fill-current text-green-700">
+                              <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-shopping-bag"><path class="primary" d="M5 8h14a1 1 0 0 1 1 .92l1 12A1 1 0 0 1 20 22H4a1 1 0 0 1-1-1.08l1-12A1 1 0 0 1 5 8z"/><path class="secondary" d="M9 10a1 1 0 0 1-2 0V7a5 5 0 1 1 10 0v3a1 1 0 0 1-2 0V7a3 3 0 0 0-6 0v3z"/></svg>
                               </div>
                               <span class="text-gray-700 text-lg ml-3">Paga con tarjetas debito y crédito</span>
                             </li>
                             <li class="flex items-center mt-3">
-                              <div class="bg-green-200 rounded-full p-2 fill-current text-green-700">
+                              <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-pie-chart"><path class="primary" d="M14 13h6.78a1 1 0 0 1 .97 1.22A10 10 0 1 1 9.78 2.25a1 1 0 0 1 1.22.97V10a3 3 0 0 0 3 3z"/><path class="secondary" d="M20.78 11H14a1 1 0 0 1-1-1V3.22a1 1 0 0 1 1.22-.97c3.74.85 6.68 3.79 7.53 7.53a1 1 0 0 1-.97 1.22z"/></svg>
                               </div>
                               <span class="text-gray-700 text-lg ml-3">2-3 Dias Hábiles en Despachar</span>

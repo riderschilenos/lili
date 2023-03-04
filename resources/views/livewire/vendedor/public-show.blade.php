@@ -43,14 +43,50 @@
     </div>
   </div>
   
+  @if ($product)
   <!-- Tab Menu -->
+    <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+    <div class="min-w-screen min-h-screen bg-yellow-300 flex items-center lg:p-10 overflow-hidden relative">
+        <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+            <div class="md:flex items-center -mx-10  p-4">
+                <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                    <div class="relative">
+                        <img src="{{Storage::url($product->image)}}" class="h-48 relative z-10" alt="">
+                        <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 px-10">
+                    <div class="mb-10 ml-4">
+                        <h1 class="font-bold uppercase text-2xl mb-5">{{$product->name}}</h1>
+                        <p class="text-sm">
+                            @if ($product->descripcion)
+                                {{$product->descripcion}}
+                            @endif
+                        </p>
+                    </div>
+                    <div class="ml-4">
+                        <div class="inline-block align-bottom mr-5">
+                            <span class="text-2xl leading-none align-baseline">$</span>
+                            <span class="font-bold text-5xl leading-none align-baseline">${{number_format($product->precio)}}</span>
+
+                        </div>
+                        <div class="inline-block align-bottom ml-auto">
+                            <button class="bg-red-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> COMPRAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif 
+  <!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
 
   
   <!-- Product List -->
   <section class="py-10 bg-gray-100">
     <div class="mx-auto grid max-w-7xl  grid-cols-2 gap-6 py-6 px-2 md:px-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
       @foreach ($productos as $producto)
-        <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
+        <article  wire:click="set_product({{$producto->id}})" class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
             <a href="#">
             <div class="relative flex justify-center items-end overflow-hidden rounded-xl">
                 <img src="{{Storage::url($producto->image)}}" class="h-44" alt="Hotel Photo" />

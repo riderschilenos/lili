@@ -74,8 +74,9 @@
                             <span class="font-bold text-4xl leading-none align-baseline">{{number_format($product->precio)}}</span>
 
                         </div>
-                        <div class="align-bottom mr-4 md:mr-8">
+                        <div class="grid grid-cols-1 gap-y-2 align-bottom mr-4 md:mr-8">
                             <button class="bg-red-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> COMPRAR</button>
+                            <button class="bg-blue-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> Agregar al Carro</button>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 relative z-1 rounded overflow-hidden">

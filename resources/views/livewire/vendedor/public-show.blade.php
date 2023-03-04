@@ -70,7 +70,7 @@
                             <span class="font-bold text-5xl leading-none align-baseline">${{number_format($product->precio)}}</span>
 
                         </div>
-                        <div class="inline-block align-bottom ml-auto">
+                        <div class="inline-block align-bottom ml-8">
                             <button class="bg-red-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> COMPRAR</button>
                         </div>
                     </div>

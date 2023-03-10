@@ -130,7 +130,7 @@
 
                         @endforeach  
 
-                        <a href="https://tienda.riderschilenos.cl/" class="btn btn-danger h-10 my-auto">Tienda</a>
+                        <a href="{{route('vendedores.index')}}" class="btn btn-danger h-10 my-auto">Tienda</a>
                         
 
                     </div>
@@ -723,7 +723,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-16 pb-3 space-y-1">
 
-            <x-jet-responsive-nav-link href="https://tienda.riderschilenos.cl/" :active="$nav_link['active']">
+            <x-jet-responsive-nav-link href="{{route('vendedores.index')}}" :active="$nav_link['active']">
                 Tienda
             </x-jet-responsive-nav-link>
             

@@ -684,7 +684,7 @@
                 <span @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold cursor-pointer">Hola {{Auth()->user()->name}}</h1></span>
             @endif
 
-            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                 <article>
                     <figure>
                         <a href="{{route('socio.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/RIDERS-min.png')}}" alt=""></a>

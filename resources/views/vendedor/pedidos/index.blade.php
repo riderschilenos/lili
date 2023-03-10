@@ -10,22 +10,24 @@
                 </template>
             </ul>
             <div x-show="activeTab===0">
-                @livewire('vendedor.pedidos-index')
-            </div>
-            <div x-show="activeTab===1">
                 
                 @livewire('vendedor.public-show')
         
        
             </div>
+            <div x-show="activeTab===1">
+                @livewire('vendedor.pedidos-index')
+            </div>
+            
         </div>
             <script>
                     function setup() {
                     return {
                     activeTab: 0,
                     tabs: [
-                        "Vendedor",
-                        "Público"
+                        "Público",
+                        "Vendedor"
+                        
                     ]
                     };
                 };

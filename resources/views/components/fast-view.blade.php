@@ -679,9 +679,9 @@
         </section>
     
 
-        <section class="sm:mt-8">
+        <section x-data="{ open: false }" class="sm:mt-8">
             @if (auth()->user())
-                <span class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold">Hola {{Auth()->user()->name}}</h1></span>
+                <span @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold cursor-pointer">Hola {{Auth()->user()->name}}</h1></span>
             @endif
 
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">

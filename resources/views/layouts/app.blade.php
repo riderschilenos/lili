@@ -58,9 +58,9 @@
 
             <!-- Page Content -->
 
-            <div class="w-full text-white bg-main-color block sm:hidden">
+            <div class="w-full text-white bg-main-color block md:hidden">
                 <div x-data="{ open: false }"
-                    class="flex flex-col max-w-screen-xl pt-3 pb-4 sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                    class="flex flex-col max-w-screen-xl pt-3 pb-4 md:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                     <div class="flex flex-row items-center justify-center">
                         @livewire('search')
                     </div>

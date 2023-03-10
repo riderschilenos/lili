@@ -301,7 +301,7 @@
             </div>
         </div>
     </div>
-    <div class="fixed md:hidden bottom-0 bg-red-600 w-full md:relative md:bg-white sm:pt-3" style="z-index: 20;">
+    <div class="fixed sm:hidden bottom-0 bg-red-600 w-full md:relative md:bg-white sm:pt-3" style="z-index: 20;">
         <div class="container mb-0 sm:mb-6" >
             <div class="flex justify-between h-16">
                 <div class="hidden sm:flex">
@@ -720,7 +720,7 @@
     
     <h1 class="text-center text-xs font-bold my-1 hidden md:block">Obten tu suscripcion de RidersChilenos</h1>
   
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden">
         <div class="pt-16 pb-3 space-y-1">
 
             <x-jet-responsive-nav-link href="{{route('vendedores.index')}}" :active="$nav_link['active']">

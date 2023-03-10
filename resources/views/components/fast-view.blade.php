@@ -23,44 +23,44 @@
     }
 </style>
 
-@if (auth()->user())
-    @if (auth()->user()->socio)
+    @if (auth()->user())
+        @if (auth()->user()->socio)
 
-        @if (auth()->user()->vehiculos->count())
-            
+            @if (auth()->user()->vehiculos->count())
+                
+            @else
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 my-4 @routeIs('garage.vehiculo.create') hidden @endif">
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="success">
+                    <strong class="font-bold">Falta poco!</strong>
+                    <span class="block sm:inline">Ahora puedes registrar tu moto o bicicleta, esto te permitira registrar sus servicios y mantenciones, entre otras cosas.</span>
+                    <a href="{{route('garage.vehiculo.create')}}">
+                        <button class="bg-green-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-green-400 focus:outline-none focus:shadow-outline focus:bg-green-400 hover:shadow-xs p-3 my-4">Registrar</button>
+                    </a>                                                
+                </div>
+                </div>
+
+
+                
+            @endif
+
+
+
         @else
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 my-4 @routeIs('garage.vehiculo.create') hidden @endif">
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="success">
-                <strong class="font-bold">Falta poco!</strong>
-                <span class="block sm:inline">Ahora puedes registrar tu moto o bicicleta, esto te permitira registrar sus servicios y mantenciones, entre otras cosas.</span>
-                <a href="{{route('garage.vehiculo.create')}}">
-                    <button class="bg-green-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-green-400 focus:outline-none focus:shadow-outline focus:bg-green-400 hover:shadow-xs p-3 my-4">Registrar</button>
-                </a>                                                
-            </div>
-            </div>
-
-
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 my-4 @routeIs('socio.create') hidden @endif">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Bienvenido!</strong>
+            <span class="block sm:inline">Ahora puedes crear el perdil de Rider que te servira para registrar tu moto o bicicleta, registrar tus logros deportivos, contratar cursos o clases, entre otras cosas.</span>
+            <a href="{{route('socio.create')}}">
+                <button class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">CREAR PERFIL</button>
+            </a>                                                
+        </div>
+        </div>
             
         @endif
-
-
-
-    @else
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 my-4 @routeIs('socio.create') hidden @endif">
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-        <strong class="font-bold">Bienvenido!</strong>
-        <span class="block sm:inline">Ahora puedes crear el perdil de Rider que te servira para registrar tu moto o bicicleta, registrar tus logros deportivos, contratar cursos o clases, entre otras cosas.</span>
-        <a href="{{route('socio.create')}}">
-            <button class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">CREAR PERFIL</button>
-        </a>                                                
-      </div>
-    </div>
         
     @endif
-    
-@endif
 
     <div :class="{'block': user, 'hidden': ! user}" class="hidden">
         @if($socio2)
@@ -560,6 +560,8 @@
     
     <div :class="{'block': home, 'hidden': ! home}" class="hidden">
 
+      
+
                 {{--         <div id="default-carousel" class="hidden sm:block mx-auto relative max-w-7xl md:mt-16" data-carousel="static" style='z-index: 1 ; '>
                     <!-- Carousel wrapper -->
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -631,7 +633,8 @@
                 </div>
 
         </section>
-        <figure class="block sm:hidden pt-0 pb-4">
+        
+        <figure class="hidden pt-0 pb-4">
 
         
             
@@ -658,6 +661,7 @@
 
         
         </figure>
+
         
         <section class="bg-cover bg-center hidden sm:hidden" style="background-image: url({{asset('img/home/homefotomini.png')}})">
 
@@ -675,8 +679,10 @@
         </section>
     
 
-        <section class="sm:mt-16">
-            
+        <section class="sm:mt-8">
+            @if (auth()->user())
+                <span class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold">Hola {{Auth()->user()->name}}</h1></span>
+            @endif
 
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                 <article>

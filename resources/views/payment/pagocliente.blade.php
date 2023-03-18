@@ -7,7 +7,7 @@
        margin:0px auto;
     }
     </style>
- <div class="form-group mb-2 p-0">
+ <div class="mb-2 p-0">
     <video id="preview" class="form-control p-0"></video>
 </div>
 

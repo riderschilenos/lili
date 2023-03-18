@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script type="text/javascript" src="js/instascan.min.js"></script>
         {{-- 
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />

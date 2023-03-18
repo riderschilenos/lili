@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class PublicShow extends Component
 {   use WithPagination;
 
+
     public $search, $product;
 
     public function render()
@@ -19,6 +20,8 @@ class PublicShow extends Component
        
         return view('livewire.vendedor.public-show',compact('productos'));
     }
+
+    
 
     public function set_product($producto_id){
         $this->product=Producto::find($producto_id);

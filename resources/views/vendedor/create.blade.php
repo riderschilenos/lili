@@ -50,6 +50,30 @@
     @livewire('vendedor.catalogo-productos')
  --}}
  
+ <video id="preview" class="p-1 border" style="width: 100%;">
+
+ </video>
+ <script type="text/javascript">
+   var scanner = new Instascan.Scanner({ 
+    video: document.getElementById('preview')});
+   
+    
+   Instascan.Camera.getCameras().then(function (cameras) {
+     if (cameras.length > 0) {
+       scanner.start(cameras[0]);
+     } else {
+       console.error('No cameras found.');
+       alert('Camara no encontrada')
+     }
+   }).catch(function (e) {
+     console.error(e);
+     alert("ERROR:"+e);
+   });
+
+   scanner.addListener('scan', function (content) {
+     console.log(content);
+   });
+ </script>
 
     <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
 

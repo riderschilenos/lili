@@ -682,6 +682,18 @@
         <section x-data="{ open: false }" class="sm:mt-8">
             @if (auth()->user())
                 <span @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold cursor-pointer">Hola {{Auth()->user()->name}}</h1></span>
+            @else
+            <div class="flex justify-center mt-4 mb-6">
+
+                <a href="{{route('register')}}">
+                    <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mr-2 mt-2">REGISTRO</button>
+                </a>
+                <a href="{{route('login')}}">
+                    <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
+                </a>
+
+        </div>
+
             @endif
 
             <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">

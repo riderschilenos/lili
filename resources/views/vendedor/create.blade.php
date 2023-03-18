@@ -50,7 +50,7 @@
     @livewire('vendedor.catalogo-productos')
  --}}
  
- <video id="preview"></video>
+ <video id="preview" style="width: 100%;"></video>
  
 
     <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">

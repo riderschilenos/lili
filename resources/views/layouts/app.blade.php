@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         {{-- comment<script src="{{ asset('js/instascan.min.js')}}"></script>
  --}}
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         {{-- 

@@ -13,7 +13,7 @@
 
 
 
-    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
     <script type="text/javascript">
         var scanner = new Instascan.Scanner({
             video: document.getElementById('preview'),

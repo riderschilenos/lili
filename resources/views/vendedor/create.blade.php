@@ -51,7 +51,14 @@
  --}}
  
 
- <video id="preview" class="form-control p-0" style="width: 100%;"></video>
+ <style>
+    #preview{
+       width:500px;
+       height: 500px;
+       margin:0px auto;
+    }
+    </style>
+    <video id="preview"></video>
 
     <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
 

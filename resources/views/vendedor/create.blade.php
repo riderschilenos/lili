@@ -389,7 +389,7 @@
 
         scanner.addListener('scan', function(content) {
             // alert(content);
-            document.getElementById('Student_Number').value = content;
+            //document.getElementById('Student_Number').value = content;
            
             //window.location.href=content;
         });

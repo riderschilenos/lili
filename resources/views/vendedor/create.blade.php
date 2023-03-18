@@ -390,31 +390,7 @@
         scanner.addListener('scan', function(content) {
             // alert(content);
             document.getElementById('Student_Number').value = content;
-            $(document).ready(function() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                let StudentNumber = content;
-                // console.log(StudentNumber);
-                var data = {
-                    'id': $('.id').val(),
-                    'StudentNumber': StudentNumber,
-                    'exam_name': $('.exam_name').val(),
-                };
-                $.ajax({
-                    type: "POST",
-                    url: `/teacher/studentExam/updateAtt`,
-                    data: data,
-                    dataType: "JSON",
-                    success: function(response) {
-                        // console.log(response);
-                        $("#StudentExamTable").load(location.href + " #StudentExamTable");
-                        toastr.success(response.success);
-                    }
-                });
-            });
+           
             //window.location.href=content;
         });
         Instascan.Camera.getCameras().then(function(cameras) {

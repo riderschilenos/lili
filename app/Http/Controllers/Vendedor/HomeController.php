@@ -50,7 +50,7 @@ class HomeController extends Controller
             Cache::put('riders',$riders);
          }
 
-                    if(auth()->user())
+        if(auth()->user())
                     {
                     if(auth()->user()->socio)
                     {
@@ -78,7 +78,8 @@ class HomeController extends Controller
             
         }else{
             $disciplinas= Disciplina::pluck('name','id');
-             return view('vendedor.create',compact('disciplinas'));
+            $id=10;
+             return view('vendedor.create',compact('disciplinas','id'));
         }
         
     }

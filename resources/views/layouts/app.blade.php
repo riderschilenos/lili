@@ -16,25 +16,9 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
+
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-        <script type="text/javascript" src="js/instascan.min.js"></script>
-        <script type="text/javascript">
-            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-            scanner.addListener('scan', function (content) {
-              console.log(content);
-            });
-            Instascan.Camera.getCameras().then(function (cameras) {
-              if (cameras.length > 0) {
-                scanner.start(cameras[0]);
-              } else {
-                console.error('No cameras found.');
-              }
-            }).catch(function (e) {
-              console.error(e);
-            });
-           
-          </script>
         {{-- 
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />

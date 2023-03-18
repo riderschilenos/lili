@@ -2,8 +2,8 @@
 
  <style>
     #preview{
-       width:500px;
-       height: 500px;
+       width:100%;
+       height: 100%;
        margin:0px auto;
     }
     </style>

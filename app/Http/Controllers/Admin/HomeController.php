@@ -21,4 +21,9 @@ class HomeController extends Controller
 
       return view('admin.index',compact('gastos','retiros','pagos'));
    }
+
+   public function pagoqr(){
+
+      return view('payment.pagocliente');
+   }
 }

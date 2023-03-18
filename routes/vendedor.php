@@ -27,3 +27,5 @@ Route::get('/precios',[Homecontroller::class, 'precios'])->name('pedidos.precios
 
 
 
+
+

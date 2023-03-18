@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Organizador\TicketController;
@@ -54,4 +55,6 @@ Route::get('checkout/{evento}', [EventoController::class,'preticket'])->name('ch
 Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');
 
 Route::post('ticket/{ticket}/enrolled', [TicketController::class, 'enrolled'])->middleware('auth')->name('ticket.enrolled');
+
+Route::get('/pagoqr',[AdminHomeController::class, 'pagoqr'])->name('pagosqr.cliente');
 

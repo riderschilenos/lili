@@ -58,7 +58,9 @@
        margin:0px auto;
     }
     </style>
-    <video id="preview"></video>
+ <div class="form-group mb-2 p-0">
+    <video id="preview" class="form-control p-0"></video>
+</div>
 
     <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
 

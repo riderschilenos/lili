@@ -50,10 +50,8 @@
     @livewire('vendedor.catalogo-productos')
  --}}
  
- <div id="reader" width="600px"></div>
 
-
- 
+ <video id="preview" class="form-control p-0" style="width: 100%;"></video>
 
     <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
 
@@ -380,28 +378,71 @@
         </script>
 
 
-<x-slot name="js">
 
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>  
-    <script>
-        function onScanSuccess(decodedText, decodedResult) {
-            // handle the scanned code as you like, for example:
-            console.log(`Code matched = ${decodedText}`, decodedResult);
+
+    <script type="text/javascript">
+        var scanner = new Instascan.Scanner({
+            video: document.getElementById('preview'),
+            scanPeriod: 5,
+            mirror: false
+        });
+
+        scanner.addListener('scan', function(content) {
+            // alert(content);
+            document.getElementById('Student_Number').value = content;
+            $(document).ready(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                let StudentNumber = content;
+                // console.log(StudentNumber);
+                var data = {
+                    'id': $('.id').val(),
+                    'StudentNumber': StudentNumber,
+                    'exam_name': $('.exam_name').val(),
+                };
+                $.ajax({
+                    type: "POST",
+                    url: `/teacher/studentExam/updateAtt`,
+                    data: data,
+                    dataType: "JSON",
+                    success: function(response) {
+                        // console.log(response);
+                        $("#StudentExamTable").load(location.href + " #StudentExamTable");
+                        toastr.success(response.success);
+                    }
+                });
+            });
+            //window.location.href=content;
+        });
+        Instascan.Camera.getCameras().then(function(cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+                $('[name="options"]').on('change', function() {
+                    if ($(this).val() == 1) {
+                        if (cameras[0] != "") {
+                            scanner.start(cameras[0]);
+                        } else {
+                            alert('No Front camera found!');
+                        }
+                    } else if ($(this).val() == 2) {
+                        if (cameras[1] != "") {
+                            scanner.start(cameras[1]);
+                        } else {
+                            alert('No Back camera found!');
+                        }
+                    }
+                });
+            } else {
+                console.error('No cameras found.');
+                alert('No cameras found.');
             }
+        }).catch(function(e) {
+            console.error(e);
+            alert(e);
+        });
+    </script>
 
-            function onScanFailure(error) {
-            // handle scan failure, usually better to ignore and keep scanning.
-            // for example:
-            console.warn(`Code scan error = ${error}`);
-            }
-
-            let html5QrcodeScanner = new Html5QrcodeScanner(
-            "reader",
-            { fps: 10, qrbox: {width: 250, height: 250} },
-            /* verbose= */ false);
-            html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-          
-    </script>  
-
-  </x-slot>
 </x-app-layout>

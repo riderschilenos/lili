@@ -22,7 +22,7 @@ class PedidosOrdens extends Component
    
 
     public $pedido, $pedido_id, $file, $category_product, $selectedproduct, $selectedcategory, $producto_id, $products, $marcas, $selectedmarca, $modelos, $modelo_id;
-    public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal, $image;
+    public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal, $image, $category_id;
 
     public function mount(Pedido $pedido){
 
@@ -69,13 +69,43 @@ class PedidosOrdens extends Component
     
     }
 
+    public function select_product($id){
+        $this->producto_id=$id;
+        $producto_id=$id;
+        $this->selectedproduct =$id;
+
+        $category_product_id = Producto::find($producto_id)->category_product_id;
+
+        $this->category_product =$category_product_id;
+        $this->selectedcategory =$category_product_id;
+        $this->products = Producto::where('category_product_id',$this->category_product)->get();
+        
+        $this->category_id = $this->category_product;
+
+        
+       
+        $disciplina_id = Producto::find($producto_id)->disciplina_id;
+        
+        $this->producto_id = $producto_id;
+
+        $this->marcas = Marca::where('disciplina_id',$disciplina_id)->get();
+        
+        if($category_product_id == 1){
+            $this->smartphones = Smartphone::where('stock', '>=', 1)
+                                            ->orderby('marcasmartphone_id','ASC')
+                                            ->orderby('modelo','ASC')
+                                            ->get();
+        }
+    
+    }
+
     public function updatedselectedmarca($marca_id){
         
         $this->modelos = Modelo::where('marca_id',$marca_id)->get();
         
-        
-    
     }
+
+
 
     public function store(){
 
@@ -120,6 +150,10 @@ class PedidosOrdens extends Component
         $this->reset(['producto_id','modelo_id','talla','smartphone_id','name','numero','detalle','selectedmarca','selectedproduct','selectedcategory','products','smartphones','image']);
 
         $this->pedido = Pedido::find($this->pedido_id);
+
+    }
+
+    public function destroy(Orden $orden){
 
     }
 }

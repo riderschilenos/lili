@@ -43,8 +43,18 @@
 
         
         <article class="card mb-20" x-show="open">
+           
+      
             <div class="card-body bg-gray-100">
                 <h1 class="text-xl font bold">Agregando Productos</h1>
+
+                <div class="flex justify-center ">
+                            <button wire:click="select_product(1)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2">CARCASA MX</button>
+                            <button wire:click="select_product(2)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MTB</button>
+                            <button wire:click="select_product(7)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MULTIMARCA</button>
+                            <button wire:click="select_product(11)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">POLERON 29.990</button>
+                                                    
+                </div>
 
                 <div class="flex items-center mt-4">
          

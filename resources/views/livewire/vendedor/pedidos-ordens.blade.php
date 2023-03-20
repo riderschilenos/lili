@@ -361,6 +361,16 @@
                                         @endif
 
                                     </td>
+                                    @if($pedido->status==1)
+                                 
+                                        <td class="px-6 py-4 whitespace-nowrap">    
+            
+                                            <div tabindex="0" wire:click="destroy({{$orden}})" class="focus:outline-none text-green-600 text-xs w-full py-4 px-4 cursor-pointer hover:text-red-600">
+                                                <p>Eliminar</p>
+                                            </div>
+                                        </td>
+                                    @endif
+                                  
                                 </tr>
       
                         @endforeach

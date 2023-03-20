@@ -154,6 +154,7 @@ class PedidosOrdens extends Component
     }
 
     public function destroy(Orden $orden){
-
+        $orden->delete();
+        $this->pedido = Pedido::find($this->pedido_id);
     }
 }

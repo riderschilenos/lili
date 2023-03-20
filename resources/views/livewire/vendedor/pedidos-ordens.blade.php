@@ -365,7 +365,7 @@
                                  
                                         <td class="px-6 py-4 whitespace-nowrap">    
             
-                                            <div tabindex="0" wire:click="destroy({{$orden}})" class="focus:outline-none text-green-600 text-xs w-full py-4 px-4 cursor-pointer hover:text-red-600">
+                                            <div tabindex="0" wire:click="destroy({{$orden}})" class="focus:outline-none text-red-600 text-xs w-full py-4 px-4 cursor-pointer hover:text-red-700">
                                                 <p>Eliminar</p>
                                             </div>
                                         </td>

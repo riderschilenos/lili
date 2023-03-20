@@ -53,6 +53,7 @@
                             <button wire:click="select_product(2)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MTB</button>
                             <button wire:click="select_product(7)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MULTIMARCA</button>
                             <button wire:click="select_product(11)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">POLERON 29.990</button>
+                            <button wire:click="select_product(28)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">ROMPECABEZAS PERSONALIZADO</button>
                                                     
                 </div>
 

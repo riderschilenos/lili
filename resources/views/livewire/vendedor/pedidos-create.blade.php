@@ -263,7 +263,7 @@
                         <tbody class="bg-white divide-y divide-gray-200">
 
                             @foreach ($socios as $socio)
-                                @if ($socio->status==1)
+                              
                                     
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -304,7 +304,7 @@
                                         </td>
                                     </tr>
 
-                                @endif
+               
                             @endforeach
                             <!-- More people... -->
                         </tbody>

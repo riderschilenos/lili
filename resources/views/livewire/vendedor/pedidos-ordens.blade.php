@@ -48,7 +48,7 @@
             <div class="card-body bg-gray-100">
                 <h1 class="text-xl font bold">Agregando Productos</h1>
 
-                <div class="flex justify-center ">
+                <div class="grid grid-cols-3 md:grid-cols-5 justify-center ">
                             <button wire:click="select_product(1)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2">CARCASA MX</button>
                             <button wire:click="select_product(2)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MTB</button>
                             <button wire:click="select_product(7)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MULTIMARCA</button>

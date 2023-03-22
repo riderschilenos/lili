@@ -19,7 +19,7 @@ class PedidosDiseno extends Component
 
     public function render()
     {   $pedidos=Pedido::where('status',4)
-        ->paginate(100);
+        ->paginate(5);
 
         $users=User::all();
 

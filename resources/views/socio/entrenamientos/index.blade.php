@@ -1,7 +1,10 @@
 <x-app-layout>
     
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
-            @php
+           
+        <iframe width='100%' height='480' src='https://my.matterport.com/show/?m=cKjHiEQ22cu&brand=0' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe>
+
+           @php
                 $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
             @endphp
             <style>

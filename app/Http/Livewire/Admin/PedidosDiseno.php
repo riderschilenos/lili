@@ -9,9 +9,11 @@ use App\Models\Pedido;
 use App\Models\Socio;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class PedidosDiseno extends Component
 {   public $selected=[];
+    use WithPagination;
 
     public $selectedProduccion, $selectedDescartar,$produccion, $descartar;
 
@@ -26,10 +28,17 @@ class PedidosDiseno extends Component
 
         $gastos=Gasto::where('user_id',auth()->user()->id)
                                 ->orderby('id','DESC')
+                                ->where('gastotype_id',2)
                                 ->latest('id')
-                                ->get();
+                                ->paginate(5);
 
-        return view('livewire.admin.pedidos-diseno',compact('pedidos','users','invitados','socios','gastos'));
+        $gastosfull=Gasto::where('user_id',auth()->user()->id)
+                ->orderby('id','DESC')
+                ->where('gastotype_id',2)
+                ->latest('id')
+                ->get();                     
+
+        return view('livewire.admin.pedidos-diseno',compact('pedidos','users','invitados','socios','gastos','gastosfull'));
     }
 
     public function updateselectedproduccion(){

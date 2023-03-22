@@ -7,9 +7,11 @@ use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\Socio;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class PedidosPay extends Component
 {   public $selected=[];
+    use WithPagination;
 
     public $selectedTransfencia, $selectedMercadopago,$transferencia, $mercadopago;
 
@@ -25,7 +27,8 @@ class PedidosPay extends Component
         $pagos=Pago::where('user_id',auth()->user()->id)
                                 ->orderby('id','DESC')
                                 ->latest('id')
-                                ->get();
+                                ->paginate(5);
+                    
 
         $pago=Pago::where('user_id',auth()->user()->id)
                             ->where('estado',3)

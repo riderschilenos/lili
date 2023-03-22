@@ -28,6 +28,13 @@
 
 
     <div x-data="{open: false, referencia: false}">
+        <div class="grid grid-cols-3 md:grid-cols-5 justify-center ">
+                    <button wire:click="select_product(1)" x-on:click="open=true" class="btn btn-danger max-w-xs items-center justify-items-center mt-2">CARCASA MX</button>
+                    <button wire:click="select_product(2)" x-on:click="open=true" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MTB</button>
+                    <button wire:click="select_product(7)" x-on:click="open=true" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MULTIMARCA</button>
+                    <button wire:click="select_product(11)" x-on:click="open=true" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">POLERON 29.990</button>
+                    <button wire:click="select_product(28)" x-on:click="open=true" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">ROMPECABEZAS PERSONALIZADO</button>             
+        </div>
         <div class="flex">
             <h1 class="text-xl font-bold mt-6">Subtotal: ${{number_format($subtotal)}}-.</h1>
             @if($pedido->status==1)
@@ -48,14 +55,7 @@
             <div class="card-body bg-gray-100">
                 <h1 class="text-xl font bold">Agregando Productos</h1>
 
-                <div class="grid grid-cols-3 md:grid-cols-5 justify-center ">
-                            <button wire:click="select_product(1)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2">CARCASA MX</button>
-                            <button wire:click="select_product(2)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MTB</button>
-                            <button wire:click="select_product(7)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">CARCASA MULTIMARCA</button>
-                            <button wire:click="select_product(11)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">POLERON 29.990</button>
-                            <button wire:click="select_product(28)" class="btn btn-danger max-w-xs items-center justify-items-center mt-2 ml-2">ROMPECABEZAS PERSONALIZADO</button>
-                                                    
-                </div>
+              
 
                 <div class="flex items-center mt-4">
          

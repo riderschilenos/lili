@@ -8,9 +8,12 @@ use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\Socio;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class RetiroComisiones extends Component
 {   public $selected=[];
+
+    use WithPagination;
 
     public $selectedTransfencia, $selectedMercadopago,$transferencia, $mercadopago;
 
@@ -27,6 +30,13 @@ class RetiroComisiones extends Component
 
         $gastos=Gasto::where('user_id',auth()->user()->id)
                                 ->orderby('id','DESC')
+                                ->where('gastotype_id',1)
+                                ->latest('id')
+                                ->paginate(5);
+
+        $gastosfull=Gasto::where('user_id',auth()->user()->id)
+                                ->orderby('id','DESC')
+                                ->where('gastotype_id',1)
                                 ->latest('id')
                                 ->get();
 
@@ -34,7 +44,7 @@ class RetiroComisiones extends Component
                             ->where('estado',3)
                             ->first();
         
-        return view('livewire.vendedor.retiro-comisiones',compact('pedidos','invitados','socios','gastos','pago'));
+        return view('livewire.vendedor.retiro-comisiones',compact('pedidos','invitados','socios','gastos','gastosfull','pago'));
     }
 
     public function updateselectedtransferencia(Socio $socio){

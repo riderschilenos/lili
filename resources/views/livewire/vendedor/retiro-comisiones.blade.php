@@ -566,24 +566,24 @@
             $total=0;
             $pendientes=0;
         @endphp
-        @foreach ($gastos as $pago)
+        @foreach ($gastosfull as $pago)
         @if ($pago->estado==1)
-            @if ($pago->gastotype_id==1)
+            
                 
                 @php                                   
                     $pendientes=$pendientes+$pago->cantidad;
                 @endphp
                 
-            @endif
+            
         @endif
         @if ($pago->estado==2)
-            @if ($pago->gastotype_id==1)
+            
                 
                 @php                                   
                     $total=$total+$pago->cantidad;
                 @endphp
                 
-            @endif
+            
         @endif
                
         @endforeach
@@ -751,6 +751,10 @@
                         <!-- More people... -->
                         </tbody>
                     </table>
+                    <div class="card-footer">
+                        {{$gastos->links()}}
+                    </div>
+
                 @else
                     <div class="px-6 py-4">
                         No hay ningun retiro realizado

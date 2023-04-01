@@ -156,14 +156,15 @@ class PedidosProduccion extends Component
                 })
                 ->save($rutafoto);
             $img->orientate();
+            $pedido->image()->create([
+                'url'=>'pedidos/'.$foto
+            ]);
 
         }else{
             $foto='nn';
         }
 
-        $pedido->image()->create([
-                    'url'=>'pedidos/'.$foto
-                ]);
+        
 
         $pedido->status=7;
         $pedido->save();

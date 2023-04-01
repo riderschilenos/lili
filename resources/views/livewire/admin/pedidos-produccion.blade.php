@@ -561,9 +561,7 @@
                                         </div>
 
 
-                                        @foreach ($selected as $item)
-                                            <input type="hidden" name="selected[]" value="{{$item}}">
-                                        @endforeach
+                                        
 
                                         <div class="flex justify-center">
                                             <button class="btn btn-primary" wire:click="encaja"> Enviar</button>

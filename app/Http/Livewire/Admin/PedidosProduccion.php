@@ -144,9 +144,7 @@ class PedidosProduccion extends Component
     }
 
     public function despachado(Pedido $pedido)
-    {   $this->validate([
-        'file'=>'required'
-            ]);
+    {   
             
         if($this->file){
                 

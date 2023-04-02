@@ -378,9 +378,8 @@
                                         <div class="form-group">
                                     
                                                 <p class="px-12 pb-4">¿Que desea realizar?</p>
-                                                @foreach ($selected as $item)
-                                                {{$item}}
-                                                @endforeach
+                                                {{var_export($selected)}}
+                                                
                                                 <div class="form-group flex justify-center">
                                                     <div class="flex form-check">
                                                     <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" checked wire:click="updateselectedproduccion">

@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="flex justify-center"> 
-        <div id="qr-reader" style="width: 50%">
+        <div id="qr-reader" style="width: 100%">
         
         </div>
     </div>

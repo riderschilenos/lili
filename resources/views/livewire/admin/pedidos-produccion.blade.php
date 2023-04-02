@@ -351,7 +351,7 @@
                                                     <td class="text-center">
                                                         @if($orden->images)
                                                             <label>
-                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
+                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" id="{{$orden->id}}" class="mr-4 mt-2">
                                                             </label>
                                                             @foreach ($orden->images as $image)
                                                                 <div class="flex justify-center">
@@ -364,7 +364,7 @@
                                                         
                                                         @elseif($orden->status>=2)
                                                             <label>
-                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
+                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" id="{{$orden->id}}" class="mr-4 mt-2">
                                                             </label>
                                                         @endif
                                                     </td>

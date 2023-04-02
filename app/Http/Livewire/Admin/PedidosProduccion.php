@@ -40,6 +40,7 @@ class PedidosProduccion extends Component
         $socios= Socio::all();
         $lotes=Lote::where('estado',1)->latest('id')->paginate($this->paginate);
         $alllotes=Lote::where('estado',2)->latest('id')->paginate($this->paginate);
+        $ordens=Orden::all();
 
         $gastos=Gasto::where('user_id',auth()->user()->id)
                         ->orderby('id','DESC')
@@ -47,7 +48,7 @@ class PedidosProduccion extends Component
                         ->get();
         
 
-        return view('livewire.admin.pedidos-produccion',compact('pedidos','users','invitados','socios','lotes','alllotes','gastos'));
+        return view('livewire.admin.pedidos-produccion',compact('ordens','pedidos','users','invitados','socios','lotes','alllotes','gastos'));
     }
     public function updateselectedproduccion(){
 

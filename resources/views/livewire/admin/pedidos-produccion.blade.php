@@ -339,111 +339,114 @@
                                         
                                       
                                     </tr>
-                                @foreach ($pedido->ordens->reverse() as $orden)
-                                @php
-                                    $counter-=1
-                                @endphp
-
-                                    <tr>
-                                            <td class="text-center">
-                                                @if($orden->images)
-                                                    <label>
-                                                        <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
-                                                    </label>
-                                                    @foreach ($orden->images as $image)
-                                                        <div class="flex justify-center">
-                                                            <img class="h-18 w-20 object-contain" src=" {{Storage::url($image->url)}}" alt="">
-                                                            <span class="" wire:click="imagedestroy({{$image}})">
-                                                                <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Cancelar</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                                                            </span>
-                                                        </div>
-                                                    @endforeach()
-                                                   
-                                                @elseif($orden->status>=2)
-                                                    <label>
-                                                        <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
-                                                    </label>
-                                                @endif
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
-                                                <label class="mx-4">{{$orden->id}}</label>
-                                            </td>
+                                @foreach ($ordens->reverse() as $orden)
+                                    @if ($orden->pedido_id==$pedido->id)
                                         
-                                            @if($orden->smartphone)
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif ">
-                                              
-                                                {{$orden->producto->name." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
-                                                  
-                                              </td>
-                                            @else
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif ">
+                                    
+                                        @php
+                                            $counter-=1
+                                        @endphp
+
+                                            <tr>
+                                                    <td class="text-center">
+                                                        @if($orden->images)
+                                                            <label>
+                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
+                                                            </label>
+                                                            @foreach ($orden->images as $image)
+                                                                <div class="flex justify-center">
+                                                                    <img class="h-18 w-20 object-contain" src=" {{Storage::url($image->url)}}" alt="">
+                                                                    <span class="" wire:click="imagedestroy({{$image}})">
+                                                                        <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Cancelar</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                                                                    </span>
+                                                                </div>
+                                                            @endforeach()
+                                                        
+                                                        @elseif($orden->status>=2)
+                                                            <label>
+                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
+                                                            </label>
+                                                        @endif
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
+                                                        <label class="mx-4">{{$orden->id}}</label>
+                                                    </td>
                                                 
-                                                    {{$orden->producto->name}}
+                                                    @if($orden->smartphone)
+                                                    <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif ">
                                                     
-                                                </td>
-                                            @endif
-                                          
-              
-                                          
-                                            @if($orden->modelo)
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
-                                                    <div class="items-center">
-                                                        <label class="mx-4">{{$orden->modelo->marca->name}}</label>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
-                                                    <div class="items-center">
-                                                        <label class="mx-4">Mod: {{$orden->modelo->name}}</label>
-                                                    </div>
-                                                </td>
-                                            @else
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
-                                                    <div class="items-center">
-                                                        <label class="mx-4">Sin Marca</label>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
-                                                    <div class="items-center">
-                                                        <label class="mx-4">Sin Modelo</label>
-                                                    </div>
-                                                </td>
-                                            @endif
-        
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
-                                                <label class="mx-4">@if ($orden->name)
-                                                    {{$orden->name}}
+                                                        {{$orden->producto->name." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                                                        
+                                                    </td>
                                                     @else
-                                                        -
-                                                    @endif</label>
-                                            </td>
-        
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">    
-              
-                                                <label class="mx-4">
-                                                    @if ($orden->numero)
-                                                        {{$orden->numero}} 
+                                                    <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif ">
+                                                        
+                                                            {{$orden->producto->name}}
+                                                            
+                                                        </td>
+                                                    @endif
+                                                
+                    
+                                                
+                                                    @if($orden->modelo)
+                                                        <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
+                                                            <div class="items-center">
+                                                                <label class="mx-4">{{$orden->modelo->marca->name}}</label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
+                                                            <div class="items-center">
+                                                                <label class="mx-4">Mod: {{$orden->modelo->name}}</label>
+                                                            </div>
+                                                        </td>
                                                     @else
-                                                        S/N
-                                                    @endif</label>
+                                                        <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
+                                                            <div class="items-center">
+                                                                <label class="mx-4">Sin Marca</label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
+                                                            <div class="items-center">
+                                                                <label class="mx-4">Sin Modelo</label>
+                                                            </div>
+                                                        </td>
+                                                    @endif
+                
+                                                    <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
+                                                        <label class="mx-4">@if ($orden->name)
+                                                            {{$orden->name}}
+                                                            @else
+                                                                -
+                                                            @endif</label>
+                                                    </td>
+                
+                                                    <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">    
+                    
+                                                        <label class="mx-4">
+                                                            @if ($orden->numero)
+                                                                {{$orden->numero}} 
+                                                            @else
+                                                                S/N
+                                                            @endif</label>
+                                                            
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">    
+                    
+                                                        <label class="mx-4">
+                                                            @if ($orden->detalle)
+                                                                {{$orden->detalle}} 
+                                                            @else
+                                                                -
+                                                            @endif</label>
+                                                            
+                                                    </td>
+                                                
+                                                
+                    
                                                     
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">    
-              
-                                                <label class="mx-4">
-                                                    @if ($orden->detalle)
-                                                        {{$orden->detalle}} 
-                                                    @else
-                                                        -
-                                                    @endif</label>
-                                                    
-                                            </td>
-                                          
-                                         
-              
-                                            
-                                         
-                                        </tr>
-              
+                                                
+                                            </tr>
+                                    @endif
                                 @endforeach
                             <!-- More people... -->
                             

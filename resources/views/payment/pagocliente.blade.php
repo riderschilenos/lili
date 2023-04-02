@@ -15,19 +15,15 @@
          */
          const html5QrCode = new Html5Qrcode("reader");
 const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-    /* handle success */
+    // If you want to prefer back camera
+html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+
 };
 const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
-// If you want to prefer back camera
-html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
-        if (devices && devices.length) {
-            var cameraId = devices[0].id;
-            // .. use this to start scanning.
-        }
-        }).catch(err => {
-        // handle err
-        });
+
+
+       
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "qr-reader", { fps: 10, qrbox: 250 });
         html5QrcodeScanner.render(onScanSuccess);

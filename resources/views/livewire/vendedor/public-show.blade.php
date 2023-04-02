@@ -10,7 +10,7 @@
                                     
         
             <a href="{{route('pagosqr.cliente')}}">
-                <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mt-2"><i class="fa-solid fa-camera-web"></i> Pago QR</button>
+                <button class="hidden btn btn-danger w-full max-w-xs items-center justify-items-center mt-2"><i class="fa-solid fa-camera-web"></i> Pago QR</button>
             </a>
        
         

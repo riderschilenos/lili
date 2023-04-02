@@ -12,8 +12,12 @@
          * { id: "id", label: "label" }
          */
         if (devices && devices.length) {
-            var cameraId = devices[1].id;
-            //html5QrCode.start({ deviceId: { exact: cameraId} }, config, qrCodeSuccessCallback);
+            var cameraId = devices[0].id;
+            let html5QrcodeScanner = new Html5QrcodeScanner(
+        "qr-reader",
+        { fps: 10, qrbox: {width: 250, height: 250} },
+        verbose= false);
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
             html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
             // .. use this to start scanning.
         }

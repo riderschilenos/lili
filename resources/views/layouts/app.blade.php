@@ -20,7 +20,7 @@
 
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
         <!-- include the library -->
-            <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+            <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         {{-- 

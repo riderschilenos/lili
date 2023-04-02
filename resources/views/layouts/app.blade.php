@@ -17,8 +17,10 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         {{-- comment<script src="{{ asset('js/instascan.min.js')}}"></script>
- --}}
-        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
+        <!-- include the library -->
+            <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         {{-- 

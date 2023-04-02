@@ -13,11 +13,14 @@
          */
         if (devices && devices.length) {
             var cameraId = devices[0].id;
+              // If you want to prefer back camera
+            html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
             // .. use this to start scanning.
         }
         }).catch(err => {
         // handle err
         });
+
         function onScanSuccess(decodedText, decodedResult) {
         console.log(`Code scanned = ${decodedText}`, decodedResult);
         }
@@ -25,8 +28,7 @@
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "qr-reader", { fps: 10, qrbox: 250 });
         html5QrcodeScanner.render(onScanSuccess);
-        // If you want to prefer back camera
-        html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+      
     </script>
 
 </x-app-layout>

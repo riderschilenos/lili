@@ -479,7 +479,8 @@
                                         <div class="form-group">
                                     
                                                 <p class="px-12 pb-4">¿Que desea realizar?</p>
-                                              
+                                              {{var_export($selected)}}
+
                                                 <div class="form-group flex justify-center">
                                                     <div class="flex mr-4 form-check">
                                                         <input type="radio" name="type" id="propio" value="" class="mr-2 mt-4" wire:click="updateselecteddescartar">

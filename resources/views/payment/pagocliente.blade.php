@@ -12,7 +12,7 @@
          * { id: "id", label: "label" }
          */
         if (devices && devices.length) {
-            var cameraId = devices[0].id;
+            var cameraId = devices[1].id;
             html5QrCode.start({ deviceId: { exact: cameraId} }, config, qrCodeSuccessCallback);
             //html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
             // .. use this to start scanning.

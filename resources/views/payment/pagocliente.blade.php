@@ -13,7 +13,7 @@
          */
         if (devices && devices.length) {
             var cameraId = devices[0].id;
-            html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+            //html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
             // .. use this to start scanning.
         }
         }).catch(err => {
@@ -36,7 +36,9 @@
         { fps: 10, qrbox: {width: 250, height: 250} },
         verbose= false);
         html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-
+        
+        html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+                
                 
       
     </script>

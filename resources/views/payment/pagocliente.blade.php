@@ -20,11 +20,6 @@
         });
 
 
-
-
-
-
-
     function onScanSuccess(decodedText, decodedResult) {
   // Handle the scanned code as you like, for example:
   console.log(`Code matched = ${decodedText}`, decodedResult);

@@ -13,6 +13,14 @@
          * devices would be an array of objects of type:
          * { id: "id", label: "label" }
          */
+         const html5QrCode = new Html5Qrcode("reader");
+const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+    /* handle success */
+};
+const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+// If you want to prefer back camera
+html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
         if (devices && devices.length) {
             var cameraId = devices[0].id;
             // .. use this to start scanning.

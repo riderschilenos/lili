@@ -19,21 +19,37 @@
         // handle err
         });
 
-        function onScanSuccess(decodedText, decodedResult) {
-        // handle the scanned code as you like, for example:
-        console.log(`Code matched = ${decodedText}`, decodedResult);
-        }
 
-    let config = {
+
+
+
+
+
+    function onScanSuccess(decodedText, decodedResult) {
+  // Handle the scanned code as you like, for example:
+  console.log(`Code matched = ${decodedText}`, decodedResult);
+}
+
+
+const formatsToSupport = [
+  Html5QrcodeSupportedFormats.QR_CODE,
+  Html5QrcodeSupportedFormats.UPC_A,
+  Html5QrcodeSupportedFormats.UPC_E,
+  Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,
+];
+const html5QrcodeScanner = new Html5QrcodeScanner(
+  "qr-reader",
+  {
     fps: 10,
+    qrbox: { width: 250, height: 250 },
+    formatsToSupport: formatsToSupport,
     rememberLastUsedCamera: true,
         // Only support camera scan type.
-        supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
-        };
-
-    let html5QrcodeScanner = new Html5QrcodeScanner(
-    "qr-reader", config, /* verbose= */ false);
-    html5QrcodeScanner.render(onScanSuccess);
+    supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
+  },
+  /* verbose= */ false);
+html5QrcodeScanner.render(onScanSuccess);
+                
                 
       
     </script>

@@ -35,10 +35,9 @@
         "qr-reader",
         { fps: 10, qrbox: {width: 250, height: 250} },
         verbose= false);
-        html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
         html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 
-        
+                
       
     </script>
 

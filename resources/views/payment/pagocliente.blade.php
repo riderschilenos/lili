@@ -44,6 +44,7 @@ const html5QrcodeScanner = new Html5QrcodeScanner(
     qrbox: { width: 250, height: 350 },
     formatsToSupport: formatsToSupport,
     rememberLastUsedCamera: true,
+    showTorchButtonIfSupported: true,
         // Only support camera scan type.
     supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
   },

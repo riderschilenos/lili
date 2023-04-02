@@ -8,19 +8,6 @@
         function onScanSuccess(decodedText, decodedResult) {
         console.log(`Code scanned = ${decodedText}`, decodedResult);
         }
-        Html5Qrcode.getCameras().then(devices => {
-        /**
-         * devices would be an array of objects of type:
-         * { id: "id", label: "label" }
-         */
-         const html5QrCode = new Html5Qrcode("reader");
-const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-    // If you want to prefer back camera
-html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
-
-};
-const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-
 
 
        

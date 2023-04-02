@@ -21,20 +21,23 @@
         });
 
         function onScanSuccess(decodedText, decodedResult) {
-
-            console.log(`Code matched = ${decodedText}`, decodedResult);
-
+        // handle the scanned code as you like, for example:
+        console.log(`Code matched = ${decodedText}`, decodedResult);
         }
 
-        var html5QrcodeScanner = new Html5QrcodeScanner(
+        function onScanFailure(error) {
+        // handle scan failure, usually better to ignore and keep scanning.
+        // for example:
+        console.warn(`Code scan error = ${error}`);
+        }
 
-            "qr-reader", { fps: 10, qrbox: 250, facingMode: "environment" }
-            
-            );
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+        "qr-reader",
+        { fps: 10, qrbox: {width: 250, height: 250} },
+        verbose= false);
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 
-        html5QrcodeScanner.render(onScanSuccess);
-
-        
+                
       
     </script>
 

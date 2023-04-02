@@ -23,7 +23,9 @@
             <script src="{{asset('js/html5scan.js')}}" type="text/javascript"></script>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        {{-- 
+          {{-- 
+        <script src="{{ mix('js/app.js') }}" defer></script>
+      
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />         --}}

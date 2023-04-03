@@ -29,7 +29,7 @@
               console.log(`Code matched = ${decodedText}`, decodedResult);
               var audio = new Audio('https://freesound.org/data/previews/262/262453_4416883-lq.mp3');
               audio.play();
-              window.location.replace(decodedText);
+              //window.location.replace(decodedText);
             }
     
     

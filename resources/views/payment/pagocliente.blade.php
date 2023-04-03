@@ -27,8 +27,8 @@
           function onScanSuccess(decodedText, decodedResult) {
               // Handle the scanned code as you like, for example:
               console.log(`Code matched = ${decodedText}`, decodedResult);
-              //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/caja-registradora%20dinero.mp3');
-              var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/scanner-beep-checkout.mp3');
+              var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/caja-registradora%20dinero.mp3');
+              //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/scanner-beep-checkout.mp3');
           
               audio.play();
               //window.location.replace(decodedText);

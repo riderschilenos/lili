@@ -9,20 +9,49 @@
             </div>
         </div>
         <script>
-     
-
-            var html5QrcodeScanner = new Html5QrcodeScanner(
-              "qr-reader", { fps: 10, aspectRatio: 1.0, disableFlip: true , fileScanEnabled: false}
-            );
-
-            function onScanSuccess(qrCodeMessage) {
-              console.log(qrCodeMessage);
+          // This method will trigger user permissions
+          Html5Qrcode.getCameras().then(devices => {
+          /**
+           * devices would be an array of objects of type:
+           * { id: "id", label: "label" }
+           */
+          if (devices && devices.length) {
+              var cameraId = devices[0].id;
+              // .. use this to start scanning.
+          }
+          }).catch(err => {
+          // handle err
+          });
+    
+    
+          function onScanSuccess(decodedText, decodedResult) {
+              // Handle the scanned code as you like, for example:
+              console.log(`Code matched = ${decodedText}`, decodedResult);
+              window.location.replace(decodedText);
             }
+    
+    
+            const formatsToSupport = [
+              Html5QrcodeSupportedFormats.QR_CODE,
+              Html5QrcodeSupportedFormats.UPC_A,
+              Html5QrcodeSupportedFormats.UPC_E,
+              Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,
+            ];
+            const html5QrcodeScanner = new Html5QrcodeScanner(
+              "qr-reader",
+              {
+                fps: 10,
+                qrbox: { width: 250, height: 350 },
+                formatsToSupport: formatsToSupport,
+                rememberLastUsedCamera: true,
+                showTorchButtonIfSupported: true,
+                    // Only support camera scan type.
+                supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
+              },
+              /* verbose= */ false);
+       
 
-            function onScanError(errorMessage) {
-              console.log(errorMessage);
-            }
-
+           
             document.addEventListener("DOMContentLoaded", function () {
               // Configuración de la cámara trasera
               html5QrcodeScanner.start(
@@ -33,7 +62,7 @@
               );
             });
 
-            html5QrcodeScanner.render(onScanSuccess, onScanError);
+            html5QrcodeScanner.render(onScanSuccess);
                             
                             
         

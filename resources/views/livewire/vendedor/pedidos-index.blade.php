@@ -196,7 +196,7 @@
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Cliente
                   </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th scope="col" class="hidden px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Transportista
                 </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -269,7 +269,29 @@
 
 
                                                 </div>
+                                                
                                                 <div class="text-sm text-gray-500">
+
+                                                @switch($pedido->transportista->id)
+                                                    @case(1)
+                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                            {{$pedido->transportista->name}}
+                                                        </span>
+                                                        @break
+                                                    @case(2)
+                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                            {{$pedido->transportista->name}}
+                                                        </span>
+                                                        @break
+                                                        @case(3)
+                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                            {{$pedido->transportista->name}}
+                                                        </span>
+                                                        @break
+                                                    
+                                                    @default
+                                                        
+                                                @endswitch
                                                       
                                                             @if($pedido->pedidoable_type=='App\Models\Socio')
                                                                 
@@ -306,7 +328,7 @@
                                   </div>
                             </td>
 
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="hidden px-6 py-4 whitespace-nowrap">
                                 
                                 @switch($pedido->transportista->id)
                                       @case(1)

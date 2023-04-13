@@ -1,6 +1,6 @@
 <div>
     @if (is_null($selectedSocios) && is_null($invitados))
-        <div class="bg-gray-100 border-t-4 mb-6 border-gray-500 rounded-b text-gray-900 px-4 py-3 shadow-md" role="alert">
+        <div class="bg-gray-100 border-t-4 mb-6 mx-3 border-gray-500 rounded-b text-gray-900 px-4 py-3 shadow-md" role="alert">
             <div class="flex">
             <div>
         
@@ -278,7 +278,7 @@
                             @foreach ($socios as $socio)
                               
                                     
-                                    <tr>
+                                    <tr wire:click="updatesocio_id({{$socio->id}})" >
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
@@ -359,7 +359,10 @@
                         @foreach ($selectedSocios as $socio)
                             @if ($socio->id == $socio_id)
                                 <p class="font-bold">{{$socio->user->name.", ".$socio->rut}}</p>
-                                <p class="text-sm">{{$socio->direccion->comuna.", ".$socio->direccion->region}} </p>  
+                                @if ($socio->direccion)
+                                    <p class="text-sm">{{$socio->direccion->comuna.", ".$socio->direccion->region}} </p>  
+                                @endif
+                               
                             @endif
 
                         @endforeach

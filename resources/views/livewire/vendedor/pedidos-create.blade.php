@@ -4,7 +4,7 @@
             <div class="flex">
             <div>
         
-            <p class="text-sm">
+            <p class="text-base ">
                 Debe indicar si el pedido sera para un invitado o un rider registrado. En caso de ser este último, podrá acceder a la información ya registrada, de lo contrario, puede buscar si el invitado a comprado anteriormente o registrar al nuevo cliente como invitado.
             </p>
         </div>

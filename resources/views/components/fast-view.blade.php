@@ -680,7 +680,7 @@
 
         <section x-data="{ open: false }" class="sm:mt-8">
             @if (auth()->user())
-                <span @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold cursor-pointer">Hola {{Auth()->user()->name}}</h1></span>
+                <span  class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold cursor-pointer" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1></span>
             @else
             <div class="flex justify-center mt-4 mb-6">
 

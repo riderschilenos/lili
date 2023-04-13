@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AgregarPrivToSocios extends Migration
+class AgregarViewToVendedors extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AgregarPrivToSocios extends Migration
      */
     public function up()
     {
-        Schema::table('socios', function (Blueprint $table) {
-            //
+        Schema::table('vendedors', function (Blueprint $table) {
+            
+            $table->integer('view',0);
+            
         });
     }
 
@@ -25,7 +27,7 @@ class AgregarPrivToSocios extends Migration
      */
     public function down()
     {
-        Schema::table('socios', function (Blueprint $table) {
+        Schema::table('vendedors', function (Blueprint $table) {
             //
         });
     }

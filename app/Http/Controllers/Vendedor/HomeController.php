@@ -130,6 +130,19 @@ class HomeController extends Controller
         return view('vendedor.pedidos.prepay',compact('socio2','disciplinas','riders','series','autos'));
     }
 
+    public function view_update(Vendedor $vendedor)
+    {   
+        if($vendedor->view==1){
+            $vendedor->view=0;
+            $vendedor->save();
+        }else{
+            $vendedor->view=1;
+            $vendedor->save();
+        }
+            
+        return redirect()->route('vendedores.index');
+    }
+
     public function comisiones()
     {   if(Cache::has('autos')){
             $autos = Cache::get('autos');

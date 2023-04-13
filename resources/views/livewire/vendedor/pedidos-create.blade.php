@@ -1,4 +1,17 @@
 <div>
+    @if (is_null($selectedSocios) && is_null($invitados))
+        <div class="bg-gray-100 border-t-4 mb-6 border-gray-500 rounded-b text-gray-900 px-4 py-3 shadow-md" role="alert">
+            <div class="flex">
+            <div>
+        
+            <p class="text-sm">
+                Debe indicar si el pedido sera para un invitado o un rider registrado. En caso de ser este último, podrá acceder a la información ya registrada, de lo contrario, puede buscar si el invitado a comprado anteriormente o registrar al nuevo cliente como invitado.
+            </p>
+        </div>
+            </div>
+        </div>
+    @endif
+        
 
     <div class="flex my-auto items-center justify-center" >
         @if(is_null($selectedSocios))   

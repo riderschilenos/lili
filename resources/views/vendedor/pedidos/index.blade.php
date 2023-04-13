@@ -14,11 +14,22 @@
                     </template>
                 
                 </ul>
-              
-                <form action="{{route('vendedor.view.update', auth()->user()->vendedor)}}" method="POST">
-                    @csrf
-                    <button class="btn btn-danger max-w-xs items-center mt-5 justify-end ml-12"> <i style="font-size:15px" class="fa">&#xf06e;</i></button>
-                </form>
+                @if (auth()->user()->vendedor->view==0)
+                    <div x-show="activeTab===1">
+                        <form action="{{route('vendedor.view.update', auth()->user()->vendedor)}}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger max-w-xs items-center mt-5 justify-end ml-12"> <i style="font-size:15px" class="fa">&#xf06e;</i></button>
+                        </form>
+                    </div>
+                
+                @elseif (auth()->user()->vendedor->view==1)
+                    <div x-show="activeTab===0">
+                        <form action="{{route('vendedor.view.update', auth()->user()->vendedor)}}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger max-w-xs items-center mt-5 justify-end ml-12"> <i style="font-size:15px" class="fa">&#xf06e;</i></button>
+                        </form>
+                    </div>
+                @endif
                 
             </div>
             <div x-show="activeTab===0">

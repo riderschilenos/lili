@@ -102,7 +102,7 @@ class PedidosCreate extends Component
     }
 
     public function resetsocio(){
-        $this->reset(['socio_id']);
+        $this->reset(['socio_id','invitado_id']);
     }
 
     public function limpiar_page(){

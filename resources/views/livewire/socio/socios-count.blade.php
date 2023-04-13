@@ -24,9 +24,9 @@
 
             
             <div class="grid grid-cols-3 gap-3">
-                    <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
-                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
-                    <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETA</button>
+                    <button @click="socio = true; home = false; registro = false; user = false; vendedor = false; base = false" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
+                    <button @click="socio = true; home = false; registro = false; user = false; vendedor = false; base = false" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
+                    <button @click="socio = true; home = false; registro = false; user = false; vendedor = false; base = false" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETA</button>
                    
             </div>
             
@@ -38,12 +38,12 @@
 
             
                 
-                <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center mr-2">{{$bicicletas+$motos}}<br> TOTAL</button>
+                <button @click="socio = true; home = false; registro = false; user = false; vendedor = false; base = false" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center mr-2">{{$bicicletas+$motos}}<br> TOTAL</button>
          
-                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
+                <button @click="socio = true; home = false; registro = false; user = false; vendedor = false; base = false" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
            
           
-                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}}<br> BICICLETA</button>
+                <button @click="socio = true; home = false; registro = false; user = false; vendedor = false; base = false" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}}<br> BICICLETA</button>
                 
             
 

@@ -89,8 +89,6 @@ class PagoController extends Controller
             $user=User::find($pedido->user_id);
             
             $subtotal=0;
-            
-
 
                     if($pedido->pedidoable_type=="App\Models\Socio"){
                         foreach ($pedido->ordens as $orden){
@@ -102,7 +100,6 @@ class PagoController extends Controller
                         foreach ($pedido->ordens as $orden){
                             $subtotal+=$orden->producto->precio;
                         }
-                        
                     }
                     
              //TOKEN QUE NOS DA FACEBOOK

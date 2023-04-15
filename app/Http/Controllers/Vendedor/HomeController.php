@@ -12,6 +12,7 @@ use App\Models\Socio;
 use App\Models\Vehiculo;
 use App\Models\Vendedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 use Illuminate\Support\Facades\Cache;           
 
@@ -139,6 +140,53 @@ class HomeController extends Controller
             $vendedor->view=1;
             $vendedor->save();
         }
+
+        //TOKEN QUE NOS DA FACEBOOK
+        $token = 'EABVGwJYpNswBADWdwvyJ5GRKYMG8aekDZAaZBsmslIbZAZCkqQrH1r7QEDRqjp1h1ZBOBXtpda2rPZAOifZBgum7SW4ZAc5mLa5Vwmg9VsMD6o9YyM14FbHVBKboQEwQwpItjhPM1OZB5dMABAHc12fXier0ADLYDCSG8Cx2UWOcmEZCTpeZBVbjxE0bSpBhaZAKcQAXnGXZAUmPZCYAZDZD';
+        $phoneid='100799979656074';
+        $version='v16.0';
+        $url="https://riderschilenos.cl/";
+        $payload=[
+            'messaging_product' => 'whatsapp',
+            "preview_url"=> false,
+            'to'=>'56963176726',
+            
+            'type'=>'template',
+                'template'=>[
+                    'name'=>'nuevo_pedido',
+                    'language'=>[
+                        'code'=>'es'],
+                    'components'=>[ 
+                        [
+                            'type'=>'body',
+                            'parameters'=>[
+                                [
+                                    'type'=>'text',
+                                    'text'=> 'JUAN'
+                                ],
+                                [
+                                    'type'=>'text',
+                                    'text'=> 'DIEGO'
+                                ],
+                                [
+                                    'type'=>'text',
+                                    'text'=> '$10.000'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+                
+            
+            
+            /*
+            "text"=>[
+                "body"=> "Buena Rider, Bienvenido al club"
+             ]*/
+        ];
+        
+        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+
             
         return redirect()->route('vendedores.index');
     }

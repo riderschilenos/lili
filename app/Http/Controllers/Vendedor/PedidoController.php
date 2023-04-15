@@ -10,9 +10,10 @@ use App\Models\Platform;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Transportista;
+use App\Models\User;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 
 class PedidoController extends Controller
@@ -118,6 +119,7 @@ class PedidoController extends Controller
                     'transportista_id'=> $request->transportista_id,
                     'pedidoable_id'=> $request->pedidoable_id,
                     'pedidoable_type'=> 'App\Models\Invitado']);
+                 
                 return redirect()->route('vendedor.pedidos.edit',$pedido);
              } else {
                
@@ -132,6 +134,7 @@ class PedidoController extends Controller
                     'transportista_id'=> $request->transportista_id,
                     'pedidoable_id'=> $invitado->id,
                     'pedidoable_type'=> $request->pedidoable_type]);
+
                 return redirect()->route('vendedor.pedidos.edit',$pedido);
                 
             }
@@ -142,6 +145,7 @@ class PedidoController extends Controller
                 'transportista_id'=> $request->transportista_id,
                 'pedidoable_id'=> $request->pedidoable_id,
                 'pedidoable_type'=> $request->pedidoable_type]);
+
             return redirect()->route('vendedor.pedidos.edit',$pedido);
         }
 

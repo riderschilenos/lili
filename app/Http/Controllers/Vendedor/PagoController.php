@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Vendedor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Invitado;
 use App\Models\Pago;
 use App\Models\Pedido;
+use App\Models\Socio;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Http;
 
 class PagoController extends Controller
 {
@@ -62,7 +66,7 @@ class PagoController extends Controller
             }else{
                 $foto='';
             }
-        $pago=Pago::create([
+                $pago=Pago::create([
                 'user_id'=> $request->user_id,
                 'metodo'=> $request->metodo,
                 'estado'=> $request->estado,
@@ -75,6 +79,78 @@ class PagoController extends Controller
             $pedido = Pedido::find($item);
             $pedido->status = 3;
             $pedido->save();
+            
+            
+            if($pedido->pedidoable_type == 'App\Models\Invitado'){
+                $cliente=Invitado::find($pedido->pedidoable_id);
+            }else{
+                $cliente=Socio::find($pedido->pedidoable_id);
+            }
+            $user=User::find($pedido->user_id);
+            
+            $subtotal=0;
+            
+
+
+                    if($pedido->pedidoable_type=="App\Models\Socio"){
+                        foreach ($pedido->ordens as $orden){
+                            $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+                        }
+                    }
+                    
+                    if($pedido->pedidoable_type=="App\Models\Invitado"){
+                        foreach ($pedido->ordens as $orden){
+                            $subtotal+=$orden->producto->precio;
+                        }
+                        
+                    }
+                    
+             //TOKEN QUE NOS DA FACEBOOK
+        $token = 'EABVGwJYpNswBADWdwvyJ5GRKYMG8aekDZAaZBsmslIbZAZCkqQrH1r7QEDRqjp1h1ZBOBXtpda2rPZAOifZBgum7SW4ZAc5mLa5Vwmg9VsMD6o9YyM14FbHVBKboQEwQwpItjhPM1OZB5dMABAHc12fXier0ADLYDCSG8Cx2UWOcmEZCTpeZBVbjxE0bSpBhaZAKcQAXnGXZAUmPZCYAZDZD';
+        $phoneid='100799979656074';
+        $version='v16.0';
+        $url="https://riderschilenos.cl/";
+        $payload=[
+            'messaging_product' => 'whatsapp',
+            "preview_url"=> false,
+            'to'=>'56963176726',
+            
+            'type'=>'template',
+                'template'=>[
+                    'name'=>'nuevo_pedido',
+                    'language'=>[
+                        'code'=>'es'],
+                    'components'=>[ 
+                        [
+                            'type'=>'body',
+                            'parameters'=>[
+                                [   //cliente
+                                    'type'=>'text',
+                                    'text'=> $cliente->name
+                                ],
+                                [   //vendedor
+                                    'type'=>'text',
+                                    'text'=> $user->name
+                                ],
+                                [   //Cantidad
+                                    'type'=>'text',
+                                    'text'=> '$'.number_format($subtotal)
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+                
+            
+            
+            /*
+            "text"=>[
+                "body"=> "Buena Rider, Bienvenido al club"
+             ]*/
+        ];
+        
+        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+
         }
         
         return redirect()->route('vendedor.pedidos.prepay');

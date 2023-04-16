@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
-
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
@@ -142,7 +142,7 @@ class HomeController extends Controller
             ]);
     
             
-        Socio::create([
+       $socio=Socio::create([
                     'name'=> $request->name,
                     'second_name'=> $request->second_name,
                     'last_name'=> $request->last_name,
@@ -157,6 +157,40 @@ class HomeController extends Controller
             
     
         Cache::flush();
+
+         //TOKEN QUE NOS DA FACEBOOK
+         $token = 'EABVGwJYpNswBADWdwvyJ5GRKYMG8aekDZAaZBsmslIbZAZCkqQrH1r7QEDRqjp1h1ZBOBXtpda2rPZAOifZBgum7SW4ZAc5mLa5Vwmg9VsMD6o9YyM14FbHVBKboQEwQwpItjhPM1OZB5dMABAHc12fXier0ADLYDCSG8Cx2UWOcmEZCTpeZBVbjxE0bSpBhaZAKcQAXnGXZAUmPZCYAZDZD';
+         $phoneid='100799979656074';
+         $version='v16.0';
+         $url="https://riderschilenos.cl/";
+         $payload=[
+             'messaging_product' => 'whatsapp',
+             "preview_url"=> false,
+             'to'=>'569'.substr(str_replace(' ', '', $socio->fono), -8),
+             
+             'type'=>'template',
+                 'template'=>[
+                     'name'=>'welcome',
+                     'language'=>[
+                         'code'=>'es'],
+                     'components'=>[ 
+                         [
+                             'type'=>'body',
+                             'parameters'=>[
+                                 [   //Socio
+                                     'type'=>'text',
+                                     'text'=> $socio->name
+                                 ]
+                             ]
+                         ]
+                     ]
+                 ]
+                 
+             
+         ];
+         
+         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+ 
 
         if($request->evento_id=='suscripcion'){
 

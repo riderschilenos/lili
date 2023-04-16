@@ -325,6 +325,7 @@ class HomeController extends Controller
             'biografia'=>'-',
             'name'=>$request->name,
             'fono'=>$request->fono,
+            'view'=> 0,
             'disciplina_id'=>$request->disciplina_id,
             'localidad'=>$request->localidad,
 

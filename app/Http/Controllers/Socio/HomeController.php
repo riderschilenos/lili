@@ -157,7 +157,7 @@ class HomeController extends Controller
             
     
         Cache::flush();
-
+        $fono='569'.substr(str_replace(' ', '', $socio->fono), -8);
          //TOKEN QUE NOS DA FACEBOOK
          $token = 'EABVGwJYpNswBADWdwvyJ5GRKYMG8aekDZAaZBsmslIbZAZCkqQrH1r7QEDRqjp1h1ZBOBXtpda2rPZAOifZBgum7SW4ZAc5mLa5Vwmg9VsMD6o9YyM14FbHVBKboQEwQwpItjhPM1OZB5dMABAHc12fXier0ADLYDCSG8Cx2UWOcmEZCTpeZBVbjxE0bSpBhaZAKcQAXnGXZAUmPZCYAZDZD';
          $phoneid='100799979656074';
@@ -166,11 +166,11 @@ class HomeController extends Controller
          $payload=[
              'messaging_product' => 'whatsapp',
              "preview_url"=> false,
-             'to'=>'569'.substr(str_replace(' ', '', $socio->fono), -8),
+             'to'=>'56963176726',
              
              'type'=>'template',
                  'template'=>[
-                     'name'=>'welcome',
+                     'name'=>'rider_creado',
                      'language'=>[
                          'code'=>'es'],
                      'components'=>[ 

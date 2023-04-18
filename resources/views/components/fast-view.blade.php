@@ -682,6 +682,7 @@
             @if (auth()->user())
                 <span  class="text-2xl sm:text-2xl mx-4 leading-none font-bold text-gray-900"><h1 class="block md:hidden text-2xl mx-4 font-bold cursor-pointer" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1></span>
             @else
+
             <div class="flex justify-center mt-4 mb-6">
 
                 <a href="{{route('register')}}">
@@ -691,9 +692,15 @@
                     <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
                 </a>
 
-        </div>
+            </div>
 
             @endif
+            @can('Super admin')
+                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+                    @livewire('admin.pedidos-count')
+                </div>
+            @endcan
+            
 
             <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                 <article>

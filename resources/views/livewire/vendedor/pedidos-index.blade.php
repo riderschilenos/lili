@@ -343,7 +343,7 @@
                                                 </div>
                                             </a>
                                       </div>
-                                        <div class="ml-auto">
+                                        <div class="ml-auto whitespace-nowrap">
                                             <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                                 <div class="text-sm text-gray-900 ml-auto text-right mb-3">${{number_format($subtotal)}}</div>
                                                

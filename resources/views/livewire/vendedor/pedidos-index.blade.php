@@ -193,26 +193,24 @@
           <table class="min-w-full divide-y divide-gray-200 mb-14">
               <thead class="bg-gray-50">
               <tr>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500">
                   Cliente
                   </th>
-                  <th scope="col" class="hidden px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Transportista
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+               
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Subtotal                        
                   </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Productos
                   </th>
                   
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Estado
                   </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Fecha
                   </th>
-                  <th scope="col" class="relative px-6 py-3">
+                  <th class="relative px-6 py-3">
                   <span class="sr-only">Edit</span>
                   </th>
               </tr>
@@ -222,7 +220,7 @@
                   @foreach ($pedidos->reverse() as $pedido)
                   
                           <tr>
-                              <td class="px-6 py-4 whitespace-nowrap">
+                              <td class="px-6 py-4 content-center">
                                   <div class="flex items-center">
                                       
                                       {{$pedido->id}}
@@ -235,7 +233,7 @@
                                             @endisset
                                         </a>
                                       </div>
-                                      <div class="ml-4">
+                                      <div class="ml-4 whitespace-nowrap">
                                             <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                                 <div class="text-sm font-medium text-gray-900">
                                                     
@@ -272,26 +270,7 @@
                                                 
                                                 <div class="text-sm text-gray-500">
 
-                                                @switch($pedido->transportista->id)
-                                                    @case(1)
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                            {{$pedido->transportista->name}}
-                                                        </span>
-                                                        @break
-                                                    @case(2)
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                            {{$pedido->transportista->name}}
-                                                        </span>
-                                                        @break
-                                                        @case(3)
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                                            {{$pedido->transportista->name}}
-                                                        </span>
-                                                        @break
-                                                    
-                                                    @default
-                                                        
-                                                @endswitch
+                                               
                                                       
                                                             @if($pedido->pedidoable_type=='App\Models\Socio')
                                                                 
@@ -321,37 +300,34 @@
                                                                     
                                                                 @endforeach
                                                             @endif
-                                                     
+                                                        <br>
+                                                        @switch($pedido->transportista->id)
+                                                            @case(1)
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                    {{$pedido->transportista->name}}
+                                                                </span>
+                                                                @break
+                                                            @case(2)
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                                    {{$pedido->transportista->name}}
+                                                                </span>
+                                                                @break
+                                                                @case(3)
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                                    {{$pedido->transportista->name}}
+                                                                </span>
+                                                                @break
+                                                            
+                                                            @default
+                                                                
+                                                        @endswitch
                                                 </div>
                                             </a>
                                       </div>
                                   </div>
                             </td>
 
-                            <td class="hidden px-6 py-4 whitespace-nowrap">
-                                
-                                @switch($pedido->transportista->id)
-                                      @case(1)
-                                          <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            {{$pedido->transportista->name}}
-                                          </span>
-                                          @break
-                                      @case(2)
-                                          <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                            {{$pedido->transportista->name}}
-                                          </span>
-                                          @break
-                                        @case(3)
-                                          <span class="px-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                            {{$pedido->transportista->name}}
-                                          </span>
-                                          @break
-                                     
-                                      @default
-                                          
-                                @endswitch
-                                
-                            </td>
+                         
 
                             @php
                             $subtotal=0;

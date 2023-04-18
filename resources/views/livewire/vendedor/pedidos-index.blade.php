@@ -222,8 +222,7 @@
                           <tr>
                               <td class="px-6 py-4 content-center">
                                   <div class="flex items-center">
-                                      
-                                      {{$pedido->id}}
+                                     
                                       <div class="ml-2 flex-shrink-0 h-10 w-10">
                                         <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                             @isset($pedido->image)

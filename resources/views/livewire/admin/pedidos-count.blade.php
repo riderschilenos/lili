@@ -2,7 +2,7 @@
     <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-3 md:grid-cols-3 xl:grid-cols-3 gap-x-2 gap-y-2 items-center content-center">
   
 
-           <a href="{{rounte('admin.disenos.index')}}">
+           <a href="{{route('admin.disenos.index')}}">
               <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1">
                  <div class="flex items-center">
                     <div class="flex-shrink-0">
@@ -20,7 +20,7 @@
               </div>
            </a>
 
-           <a href="{{rounte('admin.disenos.produccion')}}">
+           <a href="{{route('admin.disenos.produccion')}}">
               <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1">
                  <div class="flex items-center">
                     <div class="flex-shrink-0">
@@ -38,7 +38,7 @@
               </div>
            </a>
 
-           <a href="{{rounte('admin.disenos.produccion')}}">
+           <a href="{{route('admin.disenos.produccion')}}">
               <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1">
                  <div class="flex items-center">
                     <div class="flex-shrink-0">

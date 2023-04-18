@@ -125,61 +125,61 @@
              
                 
             </div>
-            
-    <div class="justify-between mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="max-w-5xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">     
+            <div class="justify-between mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 
-        <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
-            <img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
-            <div class="text-center">
-              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total)}}</h1>
-              <span class="text-gray-500">Venta 
-                @if ($periodo=="mensual")
-                Activa
-                @else
-                Total
-                @endif</span>
+                <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                    <img class="" src="https://i.imgur.com/dJeEVcO.png" alt="" />
+                    <div class="text-center">
+                    <h1 class="text-3xl font-bold text-gray-800">${{number_format($total)}}</h1>
+                    <span class="text-gray-500">Venta 
+                        @if ($periodo=="mensual")
+                        Activa
+                        @else
+                        Total
+                        @endif</span>
+                    </div>
+                </div>
+
+                <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                    <img class="" src="https://i.imgur.com/Qnmqkil.png" alt="" />
+                    <div class="text-center">
+                    <h1 class="text-3xl font-bold text-gray-800">${{number_format($pendiente)}}</h1>
+                    <span class="text-gray-500">Pagos Pendientes</span>
+                    <a href="{{route('vendedor.pedidos.prepay')}}">
+                    <span class="text-blue-500 font-bold">PAGAR</span></a>
+                    </div>
+                </div>
+
+                
+
+                <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
+                    <img class="ml-6" src="https://i.imgur.com/dJeEVcO.png" alt="" />
+                    <div class="text-center">
+                    <h1 class="text-3xl font-bold text-gray-800">${{number_format($comisiones)}}</h1>
+                    <span class="text-gray-500">Comisiones</span>
+                    <a href="{{route('vendedor.pedidos.comisiones')}}">
+                    <span class="text-blue-500 font-bold">RETIRAR</span></a>
+                    </div>
+                </div>
+                <!-- 
+
+                <div class="bg-white w-1/3 rounded-xl shadow-lg flex items-center justify-around">
+                    
+                    <div class="text-center">
+                        <span class="text-gray-500">BONO</span>
+                        <h1 class="text-4xl font-bold text-gray-800">$500.000</h1>
+                        <span class="text-gray-500">En ventas</span>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://static.vecteezy.com/system/resources/previews/001/609/741/non_2x/padlock-security-symbol-isolated-cartoon-free-vector.jpg" class="h-20" alt="" />
+                        <span class="text-gray-500">MAS INFO</span>
+                    </div>       
+                </div>
+                -->
+                
             </div>
         </div>
-
-        <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
-            <img class="" src="https://i.imgur.com/Qnmqkil.png" alt="" />
-            <div class="text-center">
-              <h1 class="text-4xl font-bold text-gray-800">${{number_format($pendiente)}}</h1>
-              <span class="text-gray-500">Pagos Pendientes</span>
-              <a href="{{route('vendedor.pedidos.prepay')}}">
-              <span class="text-blue-500 font-bold">PAGAR</span></a>
-            </div>
-        </div>
-
-        
-
-        <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
-            <img class="ml-6" src="https://i.imgur.com/dJeEVcO.png" alt="" />
-            <div class="text-center">
-              <h1 class="text-4xl font-bold text-gray-800">${{number_format($comisiones)}}</h1>
-              <span class="text-gray-500">Comisiones</span>
-              <a href="{{route('vendedor.pedidos.comisiones')}}">
-              <span class="text-blue-500 font-bold">RETIRAR</span></a>
-            </div>
-        </div>
-        <!-- 
-
-        <div class="bg-white w-1/3 rounded-xl shadow-lg flex items-center justify-around">
-            
-            <div class="text-center">
-                <span class="text-gray-500">BONO</span>
-                <h1 class="text-4xl font-bold text-gray-800">$500.000</h1>
-                <span class="text-gray-500">En ventas</span>
-            </div>
-            <div class="text-center">
-                <img src="https://static.vecteezy.com/system/resources/previews/001/609/741/non_2x/padlock-security-symbol-isolated-cartoon-free-vector.jpg" class="h-20" alt="" />
-                <span class="text-gray-500">MAS INFO</span>
-            </div>       
-        </div>
-        -->
-        
-      </div>
-
    <x-table-responsive>
        {{-- comment 
        

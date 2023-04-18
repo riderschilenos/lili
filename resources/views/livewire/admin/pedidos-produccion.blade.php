@@ -4,24 +4,13 @@
     
     $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
 
-    $pproduccion=0;
-    $pdespacho=0;
-
-    foreach($pedidos as $pedido){
-        if($pedido->status==5){
-        $pproduccion+=1;
-    }
-        if($pedido->status==6)
-        $pdespacho+=1;
-        
-    }
-
     @endphp
 
 <div class="container py-8">
 
-    <h1 class="text-center text-3xl font-bold pt-6">{{$pproduccion}} Pedidos Pendientes de Producción</h1>
-    <h1 class="text-center text-3xl font-bold pb-6">{{$pdespacho}} Pedidos Pendientes de Despacho</h1>
+    <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+        @livewire('admin.pedidos-count')
+    </div>
 
     @if($paginate==4)
 

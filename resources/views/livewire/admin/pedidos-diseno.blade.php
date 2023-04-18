@@ -8,7 +8,9 @@
     @endphp
 
 <div class="container py-8">
-    <h1 class="text-center text-3xl font-bold pb-4 py-6">{{$pedidos->count()}} Pedidos Pendientes de Diseño</h1>
+    <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+        @livewire('admin.pedidos-count')
+    </div>
     <x-table-responsive>
        
   

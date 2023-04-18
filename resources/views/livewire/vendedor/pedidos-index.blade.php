@@ -193,20 +193,15 @@
           <table class="min-w-full divide-y divide-gray-200 mb-14">
               <thead class="bg-gray-50">
               <tr>
-                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500">
-                  Cliente
+                  <th class="px-6 py-3 text-center text-xs font-medium text-gray-500">
+                  Cliente / Subtotal
                   </th>
                
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Subtotal                        
-                  </th>
+                
                   <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Productos
                   </th>
-                  
-                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Estado
-                  </th>
+                 
                   <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Fecha
                   </th>
@@ -220,6 +215,31 @@
                   @foreach ($pedidos->reverse() as $pedido)
                   
                           <tr>
+                            @php
+                            $subtotal=0;
+                            @endphp
+
+                            @if($pedido->pedidoable_type=="App\Models\Socio")
+                                @foreach ($pedido->ordens as $orden)
+                                @php
+                                    
+                                    $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+
+                                @endphp    
+                                @endforeach
+
+                                @endif
+                                @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                @foreach ($pedido->ordens as $orden)
+                                @php
+                                    
+                                    $subtotal+=$orden->producto->precio;
+
+                                @endphp    
+                                @endforeach
+
+                            @endif
+
                               <td class="px-6 py-4 content-center">
                                   <div class="flex items-center">
                                      
@@ -323,41 +343,68 @@
                                                 </div>
                                             </a>
                                       </div>
+                                        <div class="ml-auto">
+                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                <div class="text-sm text-gray-900 ml-auto text-right mb-3">${{number_format($subtotal)}}</div>
+                                               
+                                            </a>
+                                            @switch($pedido->status)
+                                            @case(1)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                    Borrador
+                                                </span>
+                                                @break
+                                            @case(2)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                    Pendiente de Pago
+                                                </span>
+                                                @break
+                                            @case(3)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                    Procesando Pago
+                                                </span>
+                                                @break
+                                            @case(4)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                    Pendiente de diseño
+                                                </span>
+                                                @break
+                                                @case(5)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                    Pendiente de producción
+                                                </span>
+                                                @break
+                                                @case(6)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                    Pendiente de despacho
+                                                </span>
+                                                @break
+                                                @case(7)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                    Despachado
+                                                </span>
+                                                @break
+                                                @case(8)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                    Procesando Comisión
+                                                </span>
+                                                @break
+                                                @case(9)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                    Cerrado
+                                                </span>
+                                                @break
+                                            @default
+                                                
+                                            @endswitch
+                                        </div>
                                   </div>
                             </td>
 
                          
 
-                            @php
-                            $subtotal=0;
-                            @endphp
+                          
 
-                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                            @foreach ($pedido->ordens as $orden)
-                            @php
-                                
-                                $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
-
-                            @endphp    
-                            @endforeach
-
-                            @endif
-                            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                            @foreach ($pedido->ordens as $orden)
-                            @php
-                                
-                                $subtotal+=$orden->producto->precio;
-
-                            @endphp    
-                            @endforeach
-
-                            @endif
-
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
-                                    <div class="text-sm text-gray-900">${{number_format($subtotal)}}</div>
-                                </a>
-                            </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                   <div class="text-sm text-gray-900 ml-3">{{$pedido->Ordens->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>
                                   <div class="text-sm text-gray-500">Productos</div>
@@ -367,59 +414,7 @@
 
                               
 
-                              <td class=" py-4 whitespace-nowrap">    
-
-                                  @switch($pedido->status)
-                                      @case(1)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                              Borrador
-                                          </span>
-                                          @break
-                                      @case(2)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                              Pendiente de Pago
-                                          </span>
-                                          @break
-                                      @case(3)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                              Procesando Pago
-                                          </span>
-                                          @break
-                                      @case(4)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                              Pendiente de diseño
-                                          </span>
-                                          @break
-                                        @case(5)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                              Pendiente de producción
-                                          </span>
-                                          @break
-                                        @case(6)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                              Pendiente de despacho
-                                          </span>
-                                          @break
-                                        @case(7)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                              Despachado
-                                          </span>
-                                          @break
-                                        @case(8)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                              Procesando Comisión
-                                          </span>
-                                          @break
-                                        @case(9)
-                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                              Cerrado
-                                          </span>
-                                          @break
-                                      @default
-                                          
-                                    @endswitch
-                                      
-                              </td>
+                           
                             
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>

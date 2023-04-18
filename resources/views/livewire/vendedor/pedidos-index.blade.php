@@ -355,7 +355,7 @@
                             @endif
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 ml-3">${{number_format($subtotal)}}</div>
+                                    <div class="text-sm text-gray-900">${{number_format($subtotal)}}</div>
                                   
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
@@ -367,7 +367,7 @@
 
                               
 
-                              <td class="px-6 py-4 whitespace-nowrap">    
+                              <td class=" py-4 whitespace-nowrap">    
 
                                   @switch($pedido->status)
                                       @case(1)

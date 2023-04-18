@@ -354,8 +354,9 @@
                             @endif
 
                             <td class="px-6 py-4 whitespace-nowrap">
+                                <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                     <div class="text-sm text-gray-900">${{number_format($subtotal)}}</div>
-                                  
+                                </a>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                   <div class="text-sm text-gray-900 ml-3">{{$pedido->Ordens->count()}}<i class="fas fa-shopping-cart text-gray-400"></i></div>

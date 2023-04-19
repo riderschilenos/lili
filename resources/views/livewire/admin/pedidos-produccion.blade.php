@@ -776,6 +776,9 @@
 <!-- More people... -->
 </tbody>
 </table>
+<div class="card-footer">
+    {{$gastos->links()}}
+</div>
 @else
 <div class="px-6 py-4">
 No hay ningun retiro realizado

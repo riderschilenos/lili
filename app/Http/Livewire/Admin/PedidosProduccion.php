@@ -43,6 +43,7 @@ class PedidosProduccion extends Component
         $ordens=Orden::all();
 
         $gastos=Gasto::where('user_id',auth()->user()->id)
+                        ->where('gastotype_id',3)
                         ->orderby('id','DESC')
                         ->latest('id')
                         ->paginate(5);

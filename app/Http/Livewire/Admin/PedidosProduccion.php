@@ -47,9 +47,15 @@ class PedidosProduccion extends Component
                         ->orderby('id','DESC')
                         ->latest('id')
                         ->paginate(5);
+
+        $gastosfull=Gasto::where('user_id',auth()->user()->id)
+                        ->where('gastotype_id',3)
+                        ->orderby('id','DESC')
+                        ->latest('id')
+                        ->get();
         
 
-        return view('livewire.admin.pedidos-produccion',compact('ordens','pedidos','users','invitados','socios','lotes','alllotes','gastos'));
+        return view('livewire.admin.pedidos-produccion',compact('gastosfull','ordens','pedidos','users','invitados','socios','lotes','alllotes','gastos'));
     }
     public function updateselectedproduccion(){
 

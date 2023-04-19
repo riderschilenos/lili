@@ -589,24 +589,24 @@
         $total=0;
         $pendientes=0;
     @endphp
-    @foreach ($gastos as $pago)
+    @foreach ($gastosfull as $pago)
     @if ($pago->estado==1)
-        @if ($pago->gastotype_id==3)
+        
             
             @php                                   
                 $pendientes=$pendientes+$pago->cantidad;
             @endphp
             
-        @endif
+        
     @endif
     @if ($pago->estado==2)
-        @if ($pago->gastotype_id==3)
+        
             
             @php                                   
                 $total=$total+$pago->cantidad;
             @endphp
             
-        @endif
+        
     @endif
            
     @endforeach

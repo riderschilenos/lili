@@ -383,6 +383,6 @@ class HomeController extends Controller
 
     public function download_seguimiento(Pedido $pedido) {
 
-        return response()->download(storage_path($pedido->image));
+        return response()->download(storage_path($pedido->image->url));
     }
 }

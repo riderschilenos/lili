@@ -16,6 +16,7 @@ use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\WithFileUploads;
 use PDF;
+use Illuminate\Support\Facades\Http;
 
 class PedidosProduccion extends Component
 {   public $selected=[];
@@ -193,6 +194,46 @@ class PedidosProduccion extends Component
         foreach ($pedido->ordens as $orden){
             $gasto->ordens()->attach($orden);
             }
+
+        
+        //$fono='569'.substr(str_replace(' ', '', $telefono->numero), -8);
+        //TOKEN QUE NOS DA FACEBOOK
+        $token = env('WS_TOKEN');
+        $phoneid= env('WS_PHONEID');
+        $link= 'https://riderschilenos.cl/'.$pedido->id.'/seguimiento.jpg';
+        $version='v16.0';
+        $url="https://riderschilenos.cl/";
+        $payload=[
+            'messaging_product' => 'whatsapp',
+            "preview_url"=> false,
+            'to'=>'56963176726',
+            
+            'type'=>'template',
+                'template'=>[
+                    'name'=>'seguimiento',
+                    'language'=>[
+                        'code'=>'es'],
+                    'components'=>[ 
+                        [
+                            'type'=>'header',
+                            'parameters'=>[
+                                [
+                                    'type'=>'document',
+                                    'document'=> [
+                                        'link'=>$link,
+                                        'filename'=>'Boleta_de_seguimiento'
+                                        ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+                
+            
+        ];
+        
+        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+
         
         
         $this->reset(['file']);

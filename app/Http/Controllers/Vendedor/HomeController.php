@@ -380,4 +380,9 @@ class HomeController extends Controller
 
         return redirect()->route('vendedor.home.index');
     }
+
+    public function download_seguimiento(Pedido $pedido) {
+
+        return response()->download(storage_path('app/'.$pedido->image));
+    }
 }

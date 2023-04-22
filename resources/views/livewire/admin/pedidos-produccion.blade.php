@@ -204,6 +204,11 @@
                                         </div>
                                         </a>
                                     </div>
+                                    @if ($pedido->status==6)
+                                        <input wire:model="file" type="file" class="form-input bg-gray-200">
+                                        
+                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer"  wire:click="despachado({{$pedido}})">Despachado</p>
+                                    @endif
                               </td>
   
                               
@@ -286,11 +291,7 @@
                               </td>
   
                                 <td class="px-6 py-4 text-center text-sm font-medium">
-                                    @if ($pedido->status==6)
-                                        <input wire:model="file" type="file" class="form-input bg-gray-200">
-                                        
-                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer"  wire:click="despachado({{$pedido}})">Despachado</p>
-                                    @endif
+                                   
                                     
                                 </td>
 

@@ -192,7 +192,7 @@ class HomeController extends Controller
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
-        $link= 'https://riderschilenos.cl/vendedor/275/seguimiento.jpg';
+        $link= 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Moon.jpg';
         $version='v16.0';
         $url="https://riderschilenos.cl/";
         $payload=[

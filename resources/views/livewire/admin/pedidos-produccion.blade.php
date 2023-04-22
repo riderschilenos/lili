@@ -205,9 +205,9 @@
                                         </a>
                                     </div>
                                     @if ($pedido->status==6)
-                                        <input wire:model="file" type="file" class="form-input bg-gray-200">
+                                        <input wire:model="file" type="file" class="form-input bg-gray-200 mt-4">
                                         
-                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer"  wire:click="despachado({{$pedido}})">Despachado</p>
+                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer text-center"  wire:click="despachado({{$pedido}})">Despachado</p>
                                     @endif
                               </td>
   

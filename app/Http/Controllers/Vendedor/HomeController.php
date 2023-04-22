@@ -13,7 +13,7 @@ use App\Models\Vehiculo;
 use App\Models\Vendedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-
+use PDF;
 use Illuminate\Support\Facades\Cache;           
 
 class HomeController extends Controller
@@ -383,6 +383,13 @@ class HomeController extends Controller
 
     public function download_seguimiento(Pedido $pedido) {
 
-        return response()->download(storage_path('app/public/'.$pedido->image->url));
+        //return response()->download(storage_path('app/public/'.$pedido->image->url));
+
+
+        view()->share('vendedor.pedidos.pdfseguimiento',$pedido);
+ 
+         $pdf = PDF::loadView('vendedor.pedidos.pdfseguimiento', ['pedido' => $pedido]);
+ 
+         return $pdf->download('numero_seguimiento.pdf');
     }
 }

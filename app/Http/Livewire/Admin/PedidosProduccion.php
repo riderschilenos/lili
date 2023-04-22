@@ -218,9 +218,10 @@ class PedidosProduccion extends Component
                             'type'=>'header',
                             'parameters'=>[
                                 [
-                                    'type'=>'image',
-                                    'image'=> [
-                                        'link'=>$link
+                                    'type'=>'document',
+                                    'document'=> [
+                                        'link'=>$link,
+                                        'filename'=>'Boleta_de_seguimiento'
                                         ]
                                 ]
                             ]

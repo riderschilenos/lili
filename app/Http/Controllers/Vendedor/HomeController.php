@@ -140,7 +140,7 @@ class HomeController extends Controller
             $vendedor->view=1;
             $vendedor->save();
         }
-
+/*
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
@@ -182,12 +182,49 @@ class HomeController extends Controller
             /*
             "text"=>[
                 "body"=> "Buena Rider, Bienvenido al club"
-             ]*/
+             ]
+        ];
+        
+        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+*/
+        //$fono='569'.substr(str_replace(' ', '', $telefono->numero), -8);
+        
+        //TOKEN QUE NOS DA FACEBOOK
+        $token = env('WS_TOKEN');
+        $phoneid= env('WS_PHONEID');
+        $link= 'https://riderschilenos.cl/vendedor/275/seguimiento.jpg';
+        $version='v16.0';
+        $url="https://riderschilenos.cl/";
+        $payload=[
+            'messaging_product' => 'whatsapp',
+            "preview_url"=> false,
+            'to'=>'56963176726',
+            
+            'type'=>'template',
+                'template'=>[
+                    'name'=>'seguimiento',
+                    'language'=>[
+                        'code'=>'es'],
+                    'components'=>[ 
+                        [
+                            'type'=>'header',
+                            'parameters'=>[
+                                [
+                                    'type'=>'image',
+                                    'image'=> [
+                                        'link'=>$link
+                                        ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+                
+            
         ];
         
         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
 
-            
         return redirect()->route('vendedores.index');
     }
 

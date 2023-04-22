@@ -220,8 +220,7 @@ class PedidosProduccion extends Component
                                 [
                                     'type'=>'image',
                                     'image'=> [
-                                        'link'=>$link,
-                                        'filename'=>'Boleta_de_seguimiento'
+                                        'link'=>$link
                                         ]
                                 ]
                             ]

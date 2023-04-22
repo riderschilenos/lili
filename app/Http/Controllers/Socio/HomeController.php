@@ -160,10 +160,10 @@ class HomeController extends Controller
         $fono='569'.substr(str_replace(' ', '', $socio->fono), -8);
          //TOKEN QUE NOS DA FACEBOOK
          $token = env('WS_TOKEN');
-         $phoneid='100799979656074';
+         $phoneid= env('WS_PHONEID');
          $version='v16.0';
          $url="https://riderschilenos.cl/";
-         $payload=[
+         $wsload=[
              'messaging_product' => 'whatsapp',
              "preview_url"=> false,
              'to'=>'56963176726',
@@ -171,6 +171,39 @@ class HomeController extends Controller
              'type'=>'template',
                  'template'=>[
                      'name'=>'rider_creado',
+                     'language'=>[
+                         'code'=>'es'],
+                     'components'=>[ 
+                         [
+                             'type'=>'body',
+                             'parameters'=>[
+                                 [   //Socio
+                                     'type'=>'text',
+                                     'text'=> $socio->name
+                                 ]
+                             ]
+                         ]
+                     ]
+                 ]
+                 
+             
+         ];
+         
+         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+         
+         //TOKEN QUE NOS DA FACEBOOK
+         $token = env('WS_TOKEN');
+         $phoneid= env('WS_PHONEID');
+         $version='v16.0';
+         $url="https://riderschilenos.cl/";
+         $payload=[
+             'messaging_product' => 'whatsapp',
+             "preview_url"=> false,
+             'to'=>$fono,
+             
+             'type'=>'template',
+                 'template'=>[
+                     'name'=>'welcome',
                      'language'=>[
                          'code'=>'es'],
                      'components'=>[ 

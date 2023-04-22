@@ -57,7 +57,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": ["dompdf/dompdf"]
         }
     },
     "config": {

@@ -200,7 +200,7 @@ class PedidosProduccion extends Component
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
-        $link= 'https://riderschilenos.cl/vendedor/'.$pedido->id.'/seguimiento.jpg';
+        $link= 'https://riderschilenos.cl/vendedor/'.$pedido->id.'/seguimiento.pdf';
         $version='v16.0';
         $url="https://riderschilenos.cl/";
         $payload=[

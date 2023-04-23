@@ -140,7 +140,7 @@ class HomeController extends Controller
             $vendedor->view=1;
             $vendedor->save();
         }
-        /*
+        
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
@@ -153,10 +153,11 @@ class HomeController extends Controller
             
             'type'=>'template',
                 'template'=>[
-                    'name'=>'nuevo_pedido',
+                    'name'=>'invitacion_de_registro',
                     'language'=>[
                         'code'=>'es'],
-                    'components'=>[ 
+                 /*
+                   'components'=>[ 
                         [
                             'type'=>'body',
                             'parameters'=>[
@@ -174,7 +175,7 @@ class HomeController extends Controller
                                 ]
                             ]
                         ]
-                    ]
+                    ]*/
                 ]
                 
             
@@ -182,11 +183,11 @@ class HomeController extends Controller
             /*
             "text"=>[
                 "body"=> "Buena Rider, Bienvenido al club"
-             ]
+             ]*/
         ];
         
         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-        */
+        /*
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
@@ -223,7 +224,7 @@ class HomeController extends Controller
         ];
 
         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-
+*/
             
         return redirect()->route('vendedores.index');
     }

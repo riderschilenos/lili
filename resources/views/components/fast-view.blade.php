@@ -702,7 +702,7 @@
                 <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8" x-data="{open: true}">
                     <button class="btn btn-success ml-2 text-center text-xl" x-on:click="open=!open">WS Invitación</button>
                     <div x-show="!open">
-                        {!! Form::open(['route'=>'whatsapp.invitacion.store','files'=>true , 'autocomplete'=>'off']) !!}
+                        {!! Form::open(['route'=>'whatsapp.invitacion.store' , 'autocomplete'=>'off']) !!}
                     
                             {!! Form::label('phone', 'Nro. a Invitar:') !!}
                             <div class="flex justify-end">

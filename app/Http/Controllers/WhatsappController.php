@@ -9,7 +9,7 @@ class WhatsappController extends Controller
 {
     public function invitacion(Request $request){
 
-        $fono='569'.substr(str_replace(' ', '', $request->phone), -8);
+        //$fono='569'.substr(str_replace(' ', '', $request->phone), -8);
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');

@@ -20,7 +20,7 @@ class WhatsappController extends Controller
         $payload=[
             'messaging_product' => 'whatsapp',
             "preview_url"=> false,
-            'to'=>'56963176726',
+            'to'=>$fono,
             
             'type'=>'template',
                 'template'=>[

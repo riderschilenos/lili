@@ -28,9 +28,9 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
 </div>
 
 <style>
-  
-    
-        @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+
        @if ($pedido->status==9)
             <div class="min-w-screen min-h-screen bg-yellow-300 flex items-center lg:p-10 overflow-hidden relative">
               <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
@@ -47,26 +47,6 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                             
                           </div>
 
-                      
-                          
-
-                          
-                          <div class="w-full md:w-1/2 relative z-1 rounded overflow-hidden">
-                          
-                              
-                              <div class="flex justify-center mt-6 mb-6">
-                                <div class="max-w-7xl mx-auto pb-6 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
-                                  @foreach ($pedido->ordens as $orden)
-                                      @foreach ($orden->images as $image)
-                                          <img class="h-26 w-32 object-contain justify-center mx-auto" src=" {{Storage::url($image->url)}}" alt="">
-                                      @endforeach()
-                                  @endforeach
-
-                                  
-                              </div>
-                              </div>
-                          
-                          </div>
                       </div>
                   </div>
               </div>

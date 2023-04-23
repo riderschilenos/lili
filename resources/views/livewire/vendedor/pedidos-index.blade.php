@@ -122,7 +122,8 @@
                     <a class="btn btn-primary ml-2 text-center text-xl" href="{{ route('organizador.eventos.index') }}">Nuevo Evento</a>
                     <a class="btn btn-success ml-2 text-center text-xl" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
                 </div>
-             
+                
+                
                 
             </div>
         <div class="max-w-5xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">     

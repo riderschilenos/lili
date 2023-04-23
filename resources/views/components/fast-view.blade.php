@@ -699,6 +699,22 @@
                 <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
                     @livewire('admin.pedidos-count')
                 </div>
+                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8" x-data="{open: true}">
+                    <button class="btn btn-success ml-2 text-center text-xl" x-on:click="open=!open">WS Invitación</button>
+                    <div x-show="!open">
+                        {!! Form::open(['route'=>'whatsapp.invitacion.store','files'=>true , 'autocomplete'=>'off']) !!}
+                    
+                            {!! Form::label('phone', 'Nro. a Invitar:') !!}
+                            <div class="flex justify-end">
+                                {!! Form::text('phone', null , ['class' => 'form-input block w-full mt-1'.($errors->has('phone')?' border-red-600':'')]) !!}
+                                {!! Form::submit('+', ['class'=>'btn btn-success cursor-pointer ml-4']) !!}
+                            </div>
+        
+                        {!! Form::close() !!}
+
+                    </div>
+                </div>
+                
             @endcan
             
 

@@ -140,58 +140,11 @@ class HomeController extends Controller
             $vendedor->view=1;
             $vendedor->save();
         }
-        /*
-        //TOKEN QUE NOS DA FACEBOOK
-        $token = env('WS_TOKEN');
-        $phoneid= env('WS_PHONEID');
-        $version='v16.0';
-        $url="https://riderschilenos.cl/";
-        $payload=[
-            'messaging_product' => 'whatsapp',
-            "preview_url"=> false,
-            'to'=>'56963176726',
-            
-            'type'=>'template',
-                'template'=>[
-                    'name'=>'invitacion_de_registro',
-                    'language'=>[
-                        'code'=>'es'],
-                 
-                   'components'=>[ 
-                        [
-                            'type'=>'body',
-                            'parameters'=>[
-                                [
-                                    'type'=>'text',
-                                    'text'=> 'JUAN'
-                                ],
-                                [
-                                    'type'=>'text',
-                                    'text'=> 'DIEGO'
-                                ],
-                                [
-                                    'type'=>'text',
-                                    'text'=> '$10.000'
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-                
-            
-            
-            
-            "text"=>[
-                "body"=> "Buena Rider, Bienvenido al club"
-             ]
-        ];
         
-        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-        */
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
-        $link= 'https://www.sony.com/electronics/support/res/manuals/4124/41241131M.pdf';
+        $link= 'https://riderschilenos.cl/169/seguimiento.pdf';
         $version='v16.0';
         $url="https://riderschilenos.cl/";
         $payload=[

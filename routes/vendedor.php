@@ -27,7 +27,6 @@ Route::get('/comisiones',[Homecontroller::class, 'comisiones'])->name('pedidos.c
 
 Route::get('/precios',[Homecontroller::class, 'precios'])->name('pedidos.precios');
 
-Route::get('{pedido}/seguimiento.pdf', [HomeController::class,'download_seguimiento'])->name('foto_seguimiento');
 
 
 

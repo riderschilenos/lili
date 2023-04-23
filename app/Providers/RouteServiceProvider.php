@@ -76,6 +76,11 @@ class RouteServiceProvider extends ServiceProvider
                 //->namespace($this->namespace)
                 ->group(base_path('routes/ticket.php'));
             
+            Route::middleware('web')
+                ->name('whatsapp.')
+                //->namespace($this->namespace)
+                ->group(base_path('routes/whatsapp.php'));
+            
             Route::middleware('web','auth')
                 ->name('organizador.')
                 ->prefix('organizador')
@@ -92,9 +97,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('socio.')
                 //->namespace($this->namespace)
                 ->group(base_path('routes/socio.php'));
-
-           
-
+        
         });
     }
 

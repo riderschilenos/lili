@@ -222,7 +222,7 @@ class HomeController extends Controller
         ];
 
         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-*/
+
             
         return redirect()->route('vendedores.index');
     }

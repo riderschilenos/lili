@@ -191,7 +191,7 @@ class HomeController extends Controller
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
-        $link= 'https://riderschilenos.cl/169/seguimiento.pdf';
+        $link= 'https://www.sony.com/electronics/support/res/manuals/4124/41241131M.pdf';
         $version='v16.0';
         $url="https://riderschilenos.cl/";
         $payload=[

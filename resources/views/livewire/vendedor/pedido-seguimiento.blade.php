@@ -27,6 +27,53 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
     </div>
 </div>
 
+<style>
+  
+    
+        @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+       @if ($pedido->status==9)
+            <div class="min-w-screen min-h-screen bg-yellow-300 flex items-center lg:p-10 overflow-hidden relative">
+              <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+                  <div class="md:flex items-center -mx-10  p-4">
+                      <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                          <div class="relative">
+                              <img src="{{Storage::url($pedido->image->url)}}" class="h-48 relative z-10" alt="">
+                              <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
+                          </div>
+                      </div>
+                      <div class="w-full md:w-1/2 px-10">
+                          <div class="mb-10 ml-4">
+                              <h1 class="font-bold uppercase text-2xl mb-5 text-center">Pedido Nro: {{$pedido->id}}</h1>
+                            
+                          </div>
+
+                      
+                          
+
+                          
+                          <div class="w-full md:w-1/2 relative z-1 rounded overflow-hidden">
+                          
+                              
+                              <div class="flex justify-center mt-6 mb-6">
+                                <div class="max-w-7xl mx-auto pb-6 px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+                                  @foreach ($pedido->ordens as $orden)
+                                      @foreach ($orden->images as $image)
+                                          <img class="h-26 w-32 object-contain justify-center mx-auto" src=" {{Storage::url($image->url)}}" alt="">
+                                      @endforeach()
+                                  @endforeach
+
+                                  
+                              </div>
+                              </div>
+                          
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+       @endif
+      
+
 <h1 class="text-3xl text-center font-bold mb-6 mt-6">
   @switch($pedido->status)
                                     @case(1)
@@ -52,6 +99,10 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                                      
                                         @break
                                       @case(7)
+                                            Despachado
+                                        
+                                        @break
+                                      @case(8)
                                             Despachado
                                         
                                         @break

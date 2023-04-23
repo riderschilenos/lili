@@ -12,8 +12,8 @@
 	</style>
 </head>
 <body>
-	<!-- Aquí puedes agregar el contenido de tu informe -->
+	<!-- Aquí puedes agregar el contenido de tu informe
 	<h1>Título del informe</h1>
-	<p>Contenido del informe...</p>
+	<p>Contenido del informe...</p> -->
 </body>
 </html>

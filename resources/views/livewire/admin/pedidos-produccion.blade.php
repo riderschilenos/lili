@@ -207,10 +207,11 @@
                                     </div>
                                     @if ($pedido->status==6)
                                         <input wire:model="file" type="file" class="form-input bg-gray-200 mt-4">
-                                         <div class="text-white  text-md font-bold px-4" wire:loading wire:target="file">
+                                         
+                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer text-center mt-1"  wire:click="despachado({{$pedido}})">Despachado</p>
+                                        <div class="text-white  text-md font-bold px-4" wire:loading wire:target="file">
                                             <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                                         </div>
-                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer text-center mt-1"  wire:click="despachado({{$pedido}})">Despachado</p>
                                     @endif
                               </td>
   

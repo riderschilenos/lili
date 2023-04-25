@@ -31,7 +31,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
 
     @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
 
-       @if ($pedido->status==9)
+       @if ($pedido->status>=8)
             <div class="min-w-screen min-h-screen bg-yellow-300 flex items-center lg:p-10 overflow-hidden relative">
               <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
                   <div class="md:flex items-center -mx-10  p-4">
@@ -86,6 +86,10 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                                             Despachado
                                         
                                         @break
+                                      @case(9)
+                                        Cerrado
+                                    
+                                    @break
                                     @default
                                         
                                   @endswitch

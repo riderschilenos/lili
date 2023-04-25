@@ -168,6 +168,7 @@
         
         
                                             </div>
+
                                             <div class="text-sm text-gray-500">
         
                                                     @if($pedido->pedidoable_type=='App\Models\Socio')
@@ -206,8 +207,10 @@
                                     </div>
                                     @if ($pedido->status==6)
                                         <input wire:model="file" type="file" class="form-input bg-gray-200 mt-4">
-                                        
-                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer text-center"  wire:click="despachado({{$pedido}})">Despachado</p>
+                                         <div class="text-white  text-md font-bold px-4" wire:loading wire:target="file">
+                                            <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
+                                        </div>
+                                        <p class="text-indigo-600 hover:text-indigo-900 cursor-pointer text-center mt-1"  wire:click="despachado({{$pedido}})">Despachado</p>
                                     @endif
                               </td>
   

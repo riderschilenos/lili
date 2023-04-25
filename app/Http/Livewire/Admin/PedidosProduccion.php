@@ -195,8 +195,14 @@ class PedidosProduccion extends Component
             $gasto->ordens()->attach($orden);
             }
 
-        
-        //$fono='569'.substr(str_replace(' ', '', $telefono->numero), -8);
+        if($pedido->pedidoable_type == 'App\Models\Invitado'){
+            $cliente=Invitado::find($pedido->pedidoable_id);
+        }else{
+            $cliente=Socio::find($pedido->pedidoable_id);
+        }
+
+        $fono='569'.substr(str_replace(' ', '', $cliente->fono), -8);
+       
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
@@ -206,7 +212,7 @@ class PedidosProduccion extends Component
         $payload=[
             'messaging_product' => 'whatsapp',
             "preview_url"=> false,
-            'to'=>'56963176726',
+            'to'=>$fono,
             
             'type'=>'template',
                 'template'=>[
@@ -231,6 +237,40 @@ class PedidosProduccion extends Component
         
         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
 
+
+        
+         //TOKEN QUE NOS DA FACEBOOK
+         $token = env('WS_TOKEN');
+         $phoneid= env('WS_PHONEID');
+         $version='v16.0';
+         $url="https://riderschilenos.cl/";
+         $wsload=[
+             'messaging_product' => 'whatsapp',
+             "preview_url"=> false,
+             'to'=>'56963176726',
+             
+             'type'=>'template',
+                 'template'=>[
+                     'name'=>'nro_seguimiento',
+                     'language'=>[
+                         'code'=>'es'],
+                     'components'=>[ 
+                        [
+                            'type'=>'body',
+                            'parameters'=>[
+                                [   //Link
+                                    'type'=>'text',
+                                    'text'=> 'https://riderschilenos.cl/seguimiento/'.$pedido->id
+                                ]
+                            ]
+                        ]
+                     ]
+                 ]
+                 
+             
+         ];
+         
+         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
         
         
         $this->reset(['file']);

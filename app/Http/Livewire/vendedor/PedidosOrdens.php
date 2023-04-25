@@ -32,9 +32,6 @@ class PedidosOrdens extends Component
 
         $this->category_products = Category_product::all();
 
-
-
-        
     }
 
     public function render()

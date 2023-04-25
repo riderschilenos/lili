@@ -144,7 +144,6 @@ class HomeController extends Controller
         //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid= env('WS_PHONEID');
-        $link= 'https://riderschilenos.cl/169/seguimiento.pdf';
         $version='v16.0';
         $url="https://riderschilenos.cl/";
         $payload=[
@@ -154,19 +153,16 @@ class HomeController extends Controller
             
             'type'=>'template',
                 'template'=>[
-                    'name'=>'seguimiento',
+                    'name'=>'nro_seguimiento',
                     'language'=>[
                         'code'=>'es'],
                     'components'=>[ 
                         [
-                            'type'=>'header',
+                            'type'=>'body',
                             'parameters'=>[
-                                [
-                                    'type'=>'document',
-                                    'document'=> [
-                                        'link'=>$link,
-                                        'filename'=>'Boleta_de_seguimiento'
-                                        ]
+                                [   //Link
+                                    'type'=>'text',
+                                    'text'=> 'https://riderschilenos.cl/seguimiento/269'
                                 ]
                             ]
                         ]

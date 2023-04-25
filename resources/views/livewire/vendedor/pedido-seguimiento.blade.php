@@ -87,7 +87,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                                         
                                         @break
                                       @case(9)
-                                        Cerrado
+                                            Despachado
                                     
                                     @break
                                     @default

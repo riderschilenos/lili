@@ -81,7 +81,7 @@
                 <div class="col-span-5 sm:col-span-4 card">
                     
 
-                    <main class="card-body text-gray-600">
+                    <main class="px-6 py-2 text-gray-600">
         
                         {{$slot}}
                         

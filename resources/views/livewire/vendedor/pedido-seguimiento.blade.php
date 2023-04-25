@@ -32,7 +32,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
     @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
 
        @if ($pedido->status>=7)
-            <div class="min-w-screen min-h-screen bg-yellow-300 flex items-center lg:p-10 overflow-hidden relative">
+            <div class="min-w-screen min-h-screen bg-yellow-300 flex items-center py-2 lg:p-10 overflow-hidden relative">
               <div class="w-full max-w-6xl rounded bg-white shadow-xl px-10 py-4 lg:p-20 mx-auto text-gray-800 relative md:text-left">
                   <div class="md:flex items-center -mx-10  p-4">
                       <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">

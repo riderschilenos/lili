@@ -79,7 +79,7 @@ class EventoController extends Controller
 
     public function pistas()
     {       
-        return view('Pistas.index');
+        return view('pistas.index');
 
     }
 

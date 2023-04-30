@@ -126,12 +126,22 @@
                                 @if ($min == 0 && $max==0)
                                     <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion GRATIS</p>
                                 @elseif($min==$max)
-                                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                    @if ($evento->type=='pista')
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                                    @else
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                    @endif
+                                        
+
                                     <a href= "" class="btn bg-gray-100 my-2 btn-block">
                                         ${{number_format($min)}}
                                     </a>
                                 @else
-                                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                    @if ($evento->type=='pista')
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                                    @else
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                    @endif
                                     <a href= "" class="btn bg-gray-100 my-2 btn-block">
                                         ${{number_format($min)}} - ${{number_format($max)}}
                                     </a>

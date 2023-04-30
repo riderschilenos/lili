@@ -35,4 +35,5 @@
     @livewire('eventos-index')
 
 
+
 </x-app-layout>

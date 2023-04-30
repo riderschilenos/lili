@@ -2,7 +2,7 @@
 
     
 
-    <div class="flex justify-between">
+    <div class="@if($evento->type=='pista') hidden @else flex @endif  justify-between">
         <h1 class="text-2xl font-bold">INFORMACIÓN DEL EVENTO</h1>
         <h1 class="justify-end text-2xl font-bold text-red-600">
             @if ($evento->type=='carrera')

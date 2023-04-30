@@ -38,7 +38,17 @@
         
                     <ul class="text-sm text-gray-600 mt-2 mb-4">
                         <li class="leading-7 mb-1 border-l-4 @routeIs('organizador.eventos.edit',$evento) border-indigo-400 @else @endif pl-2">
-                            <a href="{{route('organizador.eventos.edit',$evento)}}">Información del evento</a>
+                            @if ($evento->type=='pista')
+                                <a href="{{route('organizador.eventos.edit',$evento)}}">
+                                    Información de la Pista
+                                </a>
+                            @else
+                                <a href="{{route('organizador.eventos.edit',$evento)}}">
+                                    Información del evento
+                                </a>
+                            @endif
+                           
+
                         </li>
                         <li class="leading-7 mb-1 border-l-4 @routeIs('organizador.eventos.terminos',$evento) border-indigo-400 @else @endif pl-2">
                             <a href="{{route('organizador.eventos.terminos',$evento)}}">Terminos y Condiciones</a>
@@ -46,8 +56,10 @@
                         <li class="leading-7 mb-1 border-l-4 @routeIs('organizador.eventos.fechas',$evento) border-indigo-400 @else @endif pl-2">
                             @if ($evento->type=='carrera')
                                 <a href="{{route('organizador.eventos.fechas',$evento)}}">Fecha y Categorias</a>
-                            @else
+                            @elseif($evento->type=='campeonato')
                                 <a href="{{route('organizador.eventos.fechas',$evento)}}">Fechas y Categorias</a>
+                            @else
+                                <a href="{{route('organizador.eventos.fechas',$evento)}}">Precios y Entrenamientos</a>
                             @endif
                             
                         </li>

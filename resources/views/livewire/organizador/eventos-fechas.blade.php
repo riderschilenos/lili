@@ -18,67 +18,67 @@
         
           
         <div x-show="open">
-            <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es la fecha?</h2>
+              <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es la fecha?</h2>
 
-            {!! Form::open(['route'=>'organizador.fechas.store','files'=>true , 'autocomplete'=>'off']) !!}
-                    
-                    {!! Form::hidden('evento_id',$evento->id) !!}
+              {!! Form::open(['route'=>'organizador.fechas.store','files'=>true , 'autocomplete'=>'off']) !!}
+                      
+                      {!! Form::hidden('evento_id',$evento->id) !!}
 
-                    {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
-                    
-                    <div class="my-4">
-                      {!! Form::label('name', 'Nombre de la Fecha') !!}
-                      {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+                      {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
+                      
+                      <div class="my-4">
+                        {!! Form::label('name', 'Nombre de la Fecha') !!}
+                        {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
 
-                      @error('name')
-                          <strong class="text-xs text-red-600">{{$message}}</strong>
-                      @enderror
-                    </div>
+                        @error('name')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                      </div>
 
-                    <div class="my-4">
-                      {!! Form::label('lugar', 'Lugar') !!}
-                      {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+                      <div class="my-4">
+                        {!! Form::label('lugar', 'Lugar') !!}
+                        {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
 
-                      @error('lugar')
-                          <strong class="text-xs text-red-600">{{$message}}</strong>
-                      @enderror
-                    </div>
+                        @error('lugar')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                      </div>
 
-                    <div class="my-4">
-                      {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
-                      <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
-                      {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+                      <div class="my-4">
+                        {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
+                        <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
+                        {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
 
-                      @error('inscripcion')
-                          <strong class="text-xs text-red-600">{{$message}}</strong>
-                      @enderror
-                    </div>
+                        @error('inscripcion')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                      </div>
 
-                    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
-                    <div class="grid grid-cols-2 gap-4">
-                        <figure>
-                            @isset($evento->image)
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
-                                @else
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
-                                
-                            
-                            @endisset
-                            </figure>
-                        <div>
-                            <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
-                            {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                            @error('file')
-                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                            @enderror
-                        </div>
-                    </div>
+                      <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
+                      <div class="grid grid-cols-2 gap-4">
+                          <figure>
+                              @isset($evento->image)
+                                  <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
+                                  @else
+                                  <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                  
+                              
+                              @endisset
+                              </figure>
+                          <div>
+                              <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
+                              {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                              @error('file')
+                                  <strong class="text-xs text-red-600">{{$message}}</strong>
+                              @enderror
+                          </div>
+                      </div>
 
-                    <div class="flex justify-center mt-2">
-                        <button href="" class="btn btn-danger mx-4" x-on:click="open=!open">Cancelar</button>
-                        {!! Form::submit('Agregar', ['class'=>'btn btn-primary']) !!}
-                    </div>
-            {!! Form::close() !!}
+                      <div class="flex justify-center mt-2">
+                          <button href="" class="btn btn-danger mx-4" x-on:click="open=!open">Cancelar</button>
+                          {!! Form::submit('Agregar', ['class'=>'btn btn-primary']) !!}
+                      </div>
+              {!! Form::close() !!}
 
         </div>
 

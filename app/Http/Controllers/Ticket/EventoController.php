@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Ticket;
 
 use App\Http\Controllers\Controller;
+use App\Models\Disciplina;
 use App\Models\Evento;
 use App\Models\Fecha;
+use App\Models\Precio;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
@@ -25,9 +27,11 @@ class EventoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function pista_create()
     {
-        //
+        $disciplinas= Disciplina::pluck('name','id');
+
+        return view('pistas.create',compact('disciplinas'));
     }
 
     /**
@@ -72,6 +76,13 @@ class EventoController extends Controller
         
         return view('Evento.show',compact('evento','fechas','similares','ticket'));
     }
+
+    public function pistas()
+    {       
+        return view('Pistas.index');
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.

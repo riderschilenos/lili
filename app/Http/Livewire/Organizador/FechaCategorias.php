@@ -30,8 +30,14 @@ class FechaCategorias extends Component
 
     public function render()
     {   
-        $categorias=Categoria::where('disciplina_id',$this->fecha->evento->disciplina_id)->get();
-
+        if($this->evento->type=='pista'){
+            $categorias=Categoria::where('disciplina_id',$this->fecha->evento->disciplina_id)
+                                    ->where('descripciopn','pista')->get();
+        }else{
+            $categorias=Categoria::where('disciplina_id',$this->fecha->evento->disciplina_id)
+                                    ->where('descripciopn','race')->get();
+        }
+        
         $items=Fecha_categoria::where('fecha_id',$this->fecha->id)->get();
 
         return view('livewire.organizador.fecha-categorias',compact('categorias','items'));

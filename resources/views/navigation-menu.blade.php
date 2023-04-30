@@ -15,6 +15,10 @@
         'name'=>'Eventos',
         'route'=>route('ticket.evento.index'),
         'active'=>request()->routeIs('ticket.evento.*')
+    ] ,[   
+        'name'=>'Pistas',
+        'route'=>route('ticket.pistas.index'),
+        'active'=>request()->routeIs('ticket.pistas*')
     ] /*
     ,[   
         'name'=>'División Usados',

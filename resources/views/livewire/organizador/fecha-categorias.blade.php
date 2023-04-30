@@ -46,6 +46,17 @@
                                                     <div>
                                                         {!! Form::text('name', null , ['class' => 'form-input w-full'.($errors->has('name')?' border-red-600':'')]) !!}
                                                     </div>
+                                                    @if ($evento->type=='pista')
+                                                        <div>
+                                                            {!! Form::hidden('descripciopn','pista') !!}
+                                                        </div>
+                                                    @else
+                                                        <div>
+                                                            {!! Form::hidden('descripciopn','race') !!}
+                                                        </div>
+                                                    @endif
+                                                  
+
                                                     <div>
                                                             {!! Form::submit('Agregar', ['class'=>'ml-2 btn btn-primary']) !!}
                                                     </div>

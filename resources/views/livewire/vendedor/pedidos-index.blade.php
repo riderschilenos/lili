@@ -118,7 +118,8 @@
         
                 
         
-                <div class="w-full rounded-xl flex items-center justify-center col-span-2 md:col-span-1 order-2 md:order-3">
+                <div class="w-full rounded-xl flex items-center justify-center col-span-3 md:col-span-1 order-2 md:order-3">
+                    <a class="btn btn-primary ml-2 text-center text-xl" href="{{ route('ticket.pistas.create') }}">Nueva Pista</a>
                     <a class="btn btn-primary ml-2 text-center text-xl" href="{{ route('organizador.eventos.index') }}">Nuevo Evento</a>
                     <a class="btn btn-success ml-2 text-center text-xl" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
                 </div>

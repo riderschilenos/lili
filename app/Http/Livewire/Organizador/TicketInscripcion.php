@@ -16,11 +16,12 @@ class TicketInscripcion extends Component
 
     public function mount(Ticket $ticket){
         
-    $this->evento =Evento::find($ticket->evento_id);
+        $this->evento =Evento::find($ticket->evento_id);
+        $this->ticket = $ticket;
+            
 
-    $this->ticket = $ticket;
+        }
 
-    }
     public function render()
     {   
         $fechas= Fecha::where('evento_id',$this->evento->id)->paginate();

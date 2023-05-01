@@ -20,7 +20,7 @@
                 
                 
                 @if ($categoria_id)  
-                    <div class="block">
+                    <div class="@if($ticket->evento->type=='pista') hidden @else block @endif">
                         <p class="text-base leading-none mx-auto text-center">Categoria:  </p>
                         <h1 style="font-size: 1rem;white-space: nowrap;" class="text-center">{{$fechacategoria->categoria->name}}</h1>
                     </div>

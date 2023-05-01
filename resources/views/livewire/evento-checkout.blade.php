@@ -325,7 +325,15 @@
                             </svg>
 
                             <div class="flex flex-col items-center mx-5 space-y-1">
-                                <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">3) Inscripciones por Fecha</h2>
+                                <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">
+                                    @if ($evento->type=='pista')
+                                        3) Entradas por Entrenamiento
+                                    @else
+                                        3) Inscripciones por Fecha
+                                    @endif
+                                    
+                                
+                                </h2>
                             
                             </div>
                             

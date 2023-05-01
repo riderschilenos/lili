@@ -178,7 +178,7 @@
                                 </div>
                             
                                 @if ($ticket)
-                                    <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Finalizar compra</a>
+                                    <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Finalizar Compra</a>
                                 @else
                                     <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>
                                 @endif

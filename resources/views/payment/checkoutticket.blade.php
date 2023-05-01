@@ -123,7 +123,11 @@
                                     <p class="text-gray-500 text-sm text-center">Niños</p> 
                                 </div>
                                 <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($ticket->evento->entrada)}}</p>
+                                        @if ($evento->entrada==0)
+                                            <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                        @else
+                                            <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                        @endif
                                     <p class="text-gray-500 text-sm text-center">Adultos</p> 
                                 </div>
                                 

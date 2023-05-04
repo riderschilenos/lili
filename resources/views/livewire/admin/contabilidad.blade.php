@@ -462,8 +462,24 @@
 
 
     @php
+        echo $mes_anterior=$now->format('n')-1;
+        $final=$now->format('d')+date('t', strtotime($now."- 1 month"));
+        $inicio=$now->format('d')+1;
+
+        echo date('t', strtotime($now."- 1 month"));
+    
         $dias =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
-            
+        $dias=[];
+
+        foreach (range($inicio,($final)) as $number) {
+              
+                if($number>date('t', strtotime($now."- 1 month"))){
+                   $nro=($number- date('t', strtotime($now."- 1 month")));
+                }else{
+                   $nro=$number;
+                }  
+               $dias[]=$nro;
+            }
         
 
         $ventas=[];
@@ -496,10 +512,9 @@
             $gastos[]=$totaldia;
             }
 
+
+
         //$ventas =[43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175];
-
-
-
        // $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
         
     @endphp
@@ -507,25 +522,26 @@
 
     <script>
         var ventas = <?php echo json_encode($ventas) ?>;
+        var dias = <?php echo json_encode($dias) ?>;
         var gastos = <?php echo json_encode($gastos) ?>;
         var now = <?php echo intval($pago->created_at->format('d'))?>;
 
-        Highcharts.chart('grafico', {title: {
-                                        text: 'Riders Chilenos'},
-                                    subtitle: {
-                                        text: 'Ventas-Gastos'
+        Highcharts.chart('grafico', {
+            
+            title: {
+                        text: 'Riders Chilenos'},
+                        subtitle: {
+                        text: 'Ventas-Gastos'
                                     },
-                                    yAxis: {
-                                        title: {
-                                            text: 'Pesos Chilenos'
-                                        }
+            yAxis: {
+                title: {
+                    text: 'Pesos Chilenos'
+                }
                                 },
 
 xAxis: {
-    accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
-    }
-},
+        categories: dias
+        },
 
 legend: {
     layout: 'vertical',
@@ -534,12 +550,7 @@ legend: {
 },
 
 plotOptions: {
-    series: {
-        label: {
-            connectorAllowed: false
-        },
-        pointStart: 1
-    }
+    
 },
 
 series: [{

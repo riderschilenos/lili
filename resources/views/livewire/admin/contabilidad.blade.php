@@ -216,11 +216,12 @@
     
     
 
-    <figure class="highcharts-figure">
+    <figure class="highcharts-figure" class="mt-4 bg-white shadow">
         <div id="grafico"></div>
     </figure>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
+
+    <figure class="highcharts-figure" class="mt-4 bg-white shadow">
+        <div id="container" class="mt-4"></div>
     </figure>
 
     @routeIs('admin.home')        

@@ -31,11 +31,13 @@ class Contabilidad extends Component
         $gastos=Gasto::all();
         $gastos7=Gasto::all()->where('created_at', '>=', now()->subDays(7));
         $gastos30=Gasto::all()->where('created_at', '>=', now()->subDays(30));
+        $gastos_anual=Gasto::all()->where('created_at', '>=', now()->subDays(365));
 
         
         $pagos=Pago::all();
         $pagos7=Pago::all()->where('created_at', '>=', now()->subDays(7));
         $pagos30=Pago::all()->where('created_at', '>=', now()->subDays(28));
+        $pagos_anual=Pago::all()->where('created_at', '>=', now()->subDays(365));
 
         $vendedors=Vendedor::all();
 
@@ -43,6 +45,6 @@ class Contabilidad extends Component
 
         
 
-        return view('livewire.admin.contabilidad',compact('suscripcion28','now','pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
+        return view('livewire.admin.contabilidad',compact('pagos_anual','gastos_anual','suscripcion28','now','pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
     }
 }

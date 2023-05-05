@@ -219,7 +219,9 @@
     <figure class="highcharts-figure">
         <div id="grafico"></div>
     </figure>
-    
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+    </figure>
                 
     <div class="container">
         <div class="card-header mb-4">
@@ -462,13 +464,55 @@
 
 
     @php
-        echo $mes_anterior=$now->format('n')-1;
+        $meses_letter=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agostro','Septiembre','Octubre','Noviembre','Diciembre'];
+        $final_anual=$now->format('n')+12;
+        $inicio_anual=$now->format('n')+1;
+
+        $meses=[];
+        $meses_serie=[];
+
+        foreach (range($inicio_anual,($final_anual)) as $number) {
+            
+                if($number>12){
+                $nro=($number- 12);
+                }else{
+                $nro=$number;
+                }  
+            $meses[]=$nro;
+            $meses_serie[]=$meses_letter[$nro-1];
+            }
+        
+        $ventas_anual=[];
+            foreach ($meses as $mes) {
+                $totalmes=0;
+                foreach ($pagos_anual as $pago) {
+                    
+                    if($pago->created_at->format('n')==$mes){
+                        $totalmes+=$pago->cantidad;
+                    }
+                        
+                    
+                }
+            $ventas_anual[]=$totalmes;
+            }
+
+        $gast_anual=[];
+        foreach ($meses as $mes) {
+                $totalmes=0;
+                foreach ($gastos_anual as $pago) {
+                    
+                    if($pago->created_at->format('n')==$mes){
+                        $totalmes+=$pago->cantidad;
+                    }
+                        
+                    
+                }
+            $gast_anual[]=$totalmes;
+            }
+
+
         $final=$now->format('d')+date('t', strtotime($now."- 1 month"));
         $inicio=$now->format('d')+1;
-
-        echo date('t', strtotime($now."- 1 month"));
-    
-        $dias =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
         $dias=[];
 
         foreach (range($inicio,($final)) as $number) {
@@ -522,8 +566,11 @@
 
     <script>
         var ventas = <?php echo json_encode($ventas) ?>;
+        var ventas_anual = <?php echo json_encode($ventas_anual) ?>;
         var dias = <?php echo json_encode($dias) ?>;
+        var meses = <?php echo json_encode($meses_serie) ?>;
         var gastos = <?php echo json_encode($gastos) ?>;
+        var gastos_anual = <?php echo json_encode($gast_anual) ?>;
         var now = <?php echo intval($pago->created_at->format('d'))?>;
 
         Highcharts.chart('grafico', {
@@ -539,44 +586,90 @@
                 }
                                 },
 
-xAxis: {
-        categories: dias
-        },
+            xAxis: {
+                    categories: dias
+                    },
 
-legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'middle'
-},
-
-plotOptions: {
-    
-},
-
-series: [{
-    name: 'Ventas',
-    data: ventas
-}, {
-    name: 'Gastos',
-    data: gastos
-} ],
-
-responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 500
-        },
-        chartOptions: {
             legend: {
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'bottom'
-            }
-        }
-    }]
-}
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
 
-});
-      
+            plotOptions: {
+                
+            },
+
+            series: [{
+                name: 'Ventas',
+                data: ventas
+            }, {
+                name: 'Gastos',
+                data: gastos
+            } ],
+
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+
+            });
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'area'
+                },
+                title: {
+                    text: 'Born persons, by boys\' name'
+                },
+                subtitle: {
+                    text: '* Missing data for Yasin in 2019',
+                    align: 'right',
+                    verticalAlign: 'bottom'
+                },
+                xAxis: {
+                    categories: meses
+                    },
+
+                legend: {
+                    layout: 'vertical',
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 150,
+                    y: 60,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor:
+                        Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Amount'
+                    }
+                },
+                plotOptions: {
+                 
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Ventas',
+                    data: ventas_anual
+                }, {
+                    name: 'Gastos',
+                    data: gastos_anual
+                }]
+            });
+                        
     </script>
 </div>

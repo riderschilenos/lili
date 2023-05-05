@@ -574,6 +574,9 @@
         var now = <?php echo intval($pago->created_at->format('d'))?>;
 
         Highcharts.chart('grafico', {
+            chart: {
+                    type: 'areaspline'
+                },
             
             title: {
                         text: 'Riders Chilenos'},
@@ -626,7 +629,7 @@
             });
             Highcharts.chart('container', {
                 chart: {
-                    type: 'area'
+                    type: 'areaspline'
                 },
                 title: {
                     text: 'Venta - Gastos Ultimos 12 Meses'

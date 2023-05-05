@@ -650,7 +650,7 @@
                 },
                 yAxis: {
                     title: {
-                        text: 'Amount'
+                        text: 'Pesos Chilenos'
                     }
                 },
                 plotOptions: {

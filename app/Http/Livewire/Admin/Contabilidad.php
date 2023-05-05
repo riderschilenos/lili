@@ -31,13 +31,13 @@ class Contabilidad extends Component
         $gastos=Gasto::all();
         $gastos7=Gasto::all()->where('created_at', '>=', now()->subDays(7));
         $gastos30=Gasto::all()->where('created_at', '>=', now()->subDays(30));
-        $gastos_anual=Gasto::all()->where('created_at', '>=', now()->subDays(365));
+        $gastos_anual=Gasto::all()->where('created_at', '>=', now()->subDays(330));
 
         
         $pagos=Pago::all();
         $pagos7=Pago::all()->where('created_at', '>=', now()->subDays(7));
         $pagos30=Pago::all()->where('created_at', '>=', now()->subDays(28));
-        $pagos_anual=Pago::all()->where('created_at', '>=', now()->subDays(365));
+        $pagos_anual=Pago::all()->where('created_at', '>=', now()->subDays(330));
 
         $vendedors=Vendedor::all();
 

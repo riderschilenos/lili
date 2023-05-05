@@ -579,10 +579,8 @@
                 },
             
             title: {
-                        text: 'Riders Chilenos'},
-                        subtitle: {
-                        text: 'Ventas-Gastos'
-                                    },
+                        text: 'Venta - Gastos Ultimos 30 Días'},
+                       
             yAxis: {
                 title: {
                     text: 'Pesos Chilenos'

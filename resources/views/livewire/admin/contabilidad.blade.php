@@ -222,238 +222,241 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
     </figure>
-                
-    <div class="container">
-        <div class="card-header mb-4">
-            <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales))}}</b></h1>
 
-            <h3 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($total7-($gast7))}}</b> <br >MES: <b>${{number_format($total30-($gast30))}}</b></h3>
-        
-        </div>
-        <div class="row justify-content-md-center">
-            <div class="col">
-                <h2 class="text-center"><b>${{number_format($total+$totalsuscrip)}}</b></h2>
-                <h5 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($total7)}}</b> <br >MES: <b>${{number_format($total30)}}</b></h5>
-                <h5 class="text-center">INGRESOS</h5>
-                <div class="row justify-content-md-center">
-                    <div class="mx-auto" min-width="80%">
-                        <div class="card text-white bg-success mb-3" style="min-width: 16rem;">
-                            <div class="card-header text-center"><b class="h1">${{number_format($total)}}</b></div>
-                        <div class="card-body">
-                            
-                                <h5 class="card-title text-center">Ventas en Productos</h5>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    <div class="mx-auto" min-width="80%">
-                        <div class="card text-white bg-success mb-3" style="min-width: 16rem;">
-                            <div class="card-header text-center"><b class="h1">${{number_format($totalsuscrip)}}</b></div>
-                        <div class="card-body">
-                            
-                                <h5 class="card-title text-center">Ventas en Suscripciones</h5>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    {{-- comment
-                    <div class="col">
-                        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><b class="h1">$253.000</b></div>
-                        <div class="card-body">
-                            
-                                <h5 class="card-title">Ticketera RCH</h5><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-            <div class="col">
-                <h2 class="text-center"><b>${{number_format($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales)}}</b></h2>
-                <h5 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($gast7)}}</b> <br >MES: <b>${{number_format($gast30)}}</b></h5>
-                <h5 class="text-center">GASTOS</h5>
-                <div class="row justify-content-md-center">
-                    <div class="col">
-                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionventas)}}</b></div>
-                            @if ($pendienteventas>0)
-                                <div class="card-header"><b class="h5">- ${{number_format($pendienteventas)}} (Pendientes)</b></div>
-                            @endif
-                            
-                        <div class="card-body">
-                            
-                                <h5 class="card-title">Comisiones en ventas</h5><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisiondiseño)}}</b></div>
-                            @if ($pendientediseño>0)
-                                <div class="card-header"><b class="h5">- ${{number_format($pendientediseño)}} (Pendientes)</b></div>
-                            @endif
-                        <div class="card-body">
-                            
-                                <h5 class="card-title">Comisiones en diseño</h5><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionproduccion)}}</b></div>
-                            @if ($pendienteproduccion>0)
-                                <div class="card-header"><b class="h5">- ${{number_format($pendienteproduccion)}} (Pendientes)</b></div>
-                            @endif
-                        <div class="card-body">
-                            
-                                <h5 class="card-title">Comisiones en producción</h5><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($compracarcasas)}}</b></div>
-                            <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
-                        <div class="card-body">
-                            
-                                <h5 class="card-title">Carcasas</h5><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                            <div class="card-title px-2 pt-2"><b class="h1">${{number_format($gastosgenerales)}}</b></div>
-                           <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
-                        <div class="card-body">
-                            
-                            <a href="{{route('admin.gastos.create')}}" class="text-white"><h5 class="card-title">Gastos generales</h5></a><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-        </div>
-        <div class="card-header mb-4">
-            <h3 class="text-center"><b>Ventas por Producto</b></h3>
-        </div>
-        <div class="row justify-content-md-center">
-            <div class="col">
+    @routeIs('admin.home')        
+        <div class="container">
+            <div class="card-header mb-4">
+                <h1 class="text-center"><b>${{number_format($total+$totalsuscrip-($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales))}}</b></h1>
 
-                <div class="row justify-content-md-center">
-                    
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$carcasas}}</b></div>
-                            <img src="" alt="">
+                <h3 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($total7-($gast7))}}</b> <br >MES: <b>${{number_format($total30-($gast30))}}</b></h3>
+            
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <h2 class="text-center"><b>${{number_format($total+$totalsuscrip)}}</b></h2>
+                    <h5 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($total7)}}</b> <br >MES: <b>${{number_format($total30)}}</b></h5>
+                    <h5 class="text-center">INGRESOS</h5>
+                    <div class="row justify-content-md-center">
+                        <div class="mx-auto" min-width="80%">
+                            <div class="card text-white bg-success mb-3" style="min-width: 16rem;">
+                                <div class="card-header text-center"><b class="h1">${{number_format($total)}}</b></div>
                             <div class="card-body">
                                 
-                                    <h5 class="card-title mx-auto">Carcasas</h5><br>
+                                    <h5 class="card-title text-center">Ventas en Productos</h5>
                                 
                             
                             </div>
+                            </div>
                         </div>
+                        <div class="mx-auto" min-width="80%">
+                            <div class="card text-white bg-success mb-3" style="min-width: 16rem;">
+                                <div class="card-header text-center"><b class="h1">${{number_format($totalsuscrip)}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title text-center">Ventas en Suscripciones</h5>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                        {{-- comment
+                        <div class="col">
+                            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                                <div class="card-header"><b class="h1">$253.000</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title">Ticketera RCH</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div> --}}
                     </div>
-                   
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$llaveros}}</b></div>
-                        <div class="card-body">
+                </div>
+                <div class="col">
+                    <h2 class="text-center"><b>${{number_format($comisionventas+$comisiondiseño+$comisionproduccion+$compracarcasas+$gastosgenerales)}}</b></h2>
+                    <h5 class="block sm:hidden text-center">SEM: <b class="mr-4">${{number_format($gast7)}}</b> <br >MES: <b>${{number_format($gast30)}}</b></h5>
+                    <h5 class="text-center">GASTOS</h5>
+                    <div class="row justify-content-md-center">
+                        <div class="col">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionventas)}}</b></div>
+                                @if ($pendienteventas>0)
+                                    <div class="card-header"><b class="h5">- ${{number_format($pendienteventas)}} (Pendientes)</b></div>
+                                @endif
+                                
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title">Comisiones en ventas</h5><br>
+                                
                             
-                                <h5 class="card-title mx-auto">Llaveros</h5><br>
-                            
-                        
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$collares}}</b></div>
-                        <div class="card-body">
+                        <div class="col">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisiondiseño)}}</b></div>
+                                @if ($pendientediseño>0)
+                                    <div class="card-header"><b class="h5">- ${{number_format($pendientediseño)}} (Pendientes)</b></div>
+                                @endif
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title">Comisiones en diseño</h5><br>
+                                
                             
-                                <h5 class="card-title mx-auto">Collares</h5><br>
-                            
-                        
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$colgantes}}</b></div>
-                        <div class="card-body">
+                        <div class="col">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-title px-2 pt-2"><b class="h1">${{number_format($comisionproduccion)}}</b></div>
+                                @if ($pendienteproduccion>0)
+                                    <div class="card-header"><b class="h5">- ${{number_format($pendienteproduccion)}} (Pendientes)</b></div>
+                                @endif
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title">Comisiones en producción</h5><br>
+                                
                             
-                                <h5 class="card-title mx-auto">Colgantes</h5><br>
-                            
-                        
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$poleras}}</b></div>
-                        <div class="card-body">
+                        <div class="col">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-title px-2 pt-2"><b class="h1">${{number_format($compracarcasas)}}</b></div>
+                                <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title">Carcasas</h5><br>
+                                
                             
-                                <h5 class="card-title mx-auto">Poleras</h5><br>
-                            
-                        
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$polerones}}</b></div>
-                        <div class="card-body">
+                        <div class="col">
+                            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-title px-2 pt-2"><b class="h1">${{number_format($gastosgenerales)}}</b></div>
+                            <div class="card-header"><b class="h5"> {{-- comment- $.000 (EXTRAS)--}}</b></div> 
+                            <div class="card-body">
+                                
+                                <a href="{{route('admin.gastos.create')}}" class="text-white"><h5 class="card-title">Gastos generales</h5></a><br>
+                                
                             
-                                <h5 class="card-title mx-auto">Polerones</h5><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$stickers}}</b></div>
-                        <div class="card-body">
-                            
-                                <h5 class="card-title mx-auto">Styckers</h5><br>
-                            
-                        
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header text-center"><b class="h1">{{$vendedors->count()}}</b></div>
-                        <div class="card-body">
-                            
-                                <a href="{{route('admin.vendedors.index')}}" class="text-white"><h5 class="card-title mx-auto">Vendedores</h5></a><br>
-                            
-                        
-                        </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+                
             </div>
-            
-            
-            
+            <div class="card-header mb-4">
+                <h3 class="text-center"><b>Ventas por Producto</b></h3>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col">
+
+                    <div class="row justify-content-md-center">
+                        
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$carcasas}}</b></div>
+                                <img src="" alt="">
+                                <div class="card-body">
+                                    
+                                        <h5 class="card-title mx-auto">Carcasas</h5><br>
+                                    
+                                
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$llaveros}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Llaveros</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$collares}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Collares</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$colgantes}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Colgantes</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$poleras}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Poleras</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$polerones}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Polerones</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$stickers}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Styckers</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$vendedors->count()}}</b></div>
+                            <div class="card-body">
+                                
+                                    <a href="{{route('admin.vendedors.index')}}" class="text-white"><h5 class="card-title mx-auto">Vendedores</h5></a><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
         </div>
-    </div>
+    @endif
+
     @foreach ($suscripcion28 as $suscripcion)
 
         {{$suscripcion->precio."el dia ".$suscripcion->created_at->format('d-m-Y')}} <br>

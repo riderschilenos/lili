@@ -58,4 +58,6 @@ Route::post('ticket/{ticket}/enrolled', [TicketController::class, 'enrolled'])->
 
 Route::get('/pagoqr',[AdminHomeController::class, 'pagoqr'])->name('pagosqr.cliente');
 
+Route::get('/contabilidad',[AdminHomeController::class, 'contabilidad'])->middleware('auth')->name('contabilidad');
+
 Route::get('{pedido}/seguimiento.pdf', [VendedorHomeController::class,'download_seguimiento'])->name('foto_seguimiento');

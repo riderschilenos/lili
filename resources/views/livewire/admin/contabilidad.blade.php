@@ -629,13 +629,9 @@
                     type: 'area'
                 },
                 title: {
-                    text: 'Born persons, by boys\' name'
+                    text: 'Venta - Gastos Ultimos 12 Meses'
                 },
-                subtitle: {
-                    text: '* Missing data for Yasin in 2019',
-                    align: 'right',
-                    verticalAlign: 'bottom'
-                },
+               
                 xAxis: {
                     categories: meses
                     },

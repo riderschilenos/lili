@@ -42,6 +42,11 @@
                                                 </span>
                                         </div>
                                         <p class="ml-auto mr-4"><b>Rut:  </b>{{$invitado->rut}}</p>
+                                        @if ($invitado->fono)
+                                            <p class="ml-auto mr-4"><b>Fono:  </b>{{$invitado->fono}}</p>
+                                        @endif
+                                            
+
                                         </div>
                                     </div>
                                 @endif
@@ -61,6 +66,11 @@
                                         </div>
                                         <div>
                                         <p class="mr-4"><b>Rut: </b>{{$socio->rut}}</p>
+                                        @if ($socio->fono)
+                                            <p class="mr-4"><b>Fono: </b>{{$socio->fono}}</p>
+                                        @endif
+                                            
+
                                         </div>
                                     </div>
                                     </div>

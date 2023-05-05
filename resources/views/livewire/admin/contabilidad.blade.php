@@ -586,7 +586,7 @@
                     text: 'Pesos Chilenos'
                 }
                                 },
-
+            colors: ['#cd2300','#01c600'],
             xAxis: {
                     categories: dias
                     },
@@ -632,7 +632,7 @@
                 title: {
                     text: 'Venta - Gastos Ultimos 12 Meses'
                 },
-               
+               colors: ['#cd2300','#01c600'],
                 xAxis: {
                     categories: meses
                     },

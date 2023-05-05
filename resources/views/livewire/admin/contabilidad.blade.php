@@ -639,10 +639,9 @@
 
                 legend: {
                     layout: 'vertical',
-                    align: 'left',
+                    align: 'right',
                     verticalAlign: 'top',
-                    x: 150,
-                    y: 60,
+                    y: 40,
                     floating: true,
                     borderWidth: 1,
                     backgroundColor:

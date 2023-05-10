@@ -348,7 +348,14 @@
                             <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
                                         
                             <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value="">--Categoria--</option>
+                                
+                                @if ($evento->type=='pista')
+                                    <option value="">--Cilindrada--</option>
+                                @else
+                                    <option value="">--Categoria--</option>
+                                @endif
+                                
+                                
                                 @foreach ($fecha->categorias as $item)
 
                                     <option value="{{$item->id}}">{{$item->categoria->name}}-${{number_format($item->inscripcion)}}</option>

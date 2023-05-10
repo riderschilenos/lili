@@ -1,6 +1,11 @@
 <div>
     <div class="flex">
-        <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
+        @if ($evento->type=='pista')
+            <p class="text-base leading-none my-auto mx-auto">En qué Cilindrada vas entrenar?</p>
+        @else
+            <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
+        @endif
+        
                     
         <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
             @if ($evento->type=='pista')

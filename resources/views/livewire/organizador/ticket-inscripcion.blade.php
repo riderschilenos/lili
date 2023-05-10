@@ -68,7 +68,11 @@
                     <div class="text-white  text-md font-bold px-4" wire:loading wire:target="selectedcategoria">
                         <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                     </div>
-                    <p class="bg-white text-gray-900 py-2 px-4 rounded-lg">Ingrese una categoria</p>
+                    @if ($evento->type=='pista')
+                        <p class="bg-white text-gray-900 py-2 px-4 rounded-lg">Ingrese una cilindrada</p>
+                    @else
+                        <p class="bg-white text-gray-900 py-2 px-4 rounded-lg">Ingrese una categoria</p>
+                    @endif
                 @endif        
             </div>
         @endforeach

@@ -707,7 +707,7 @@
                     <div class="flex justify-between">
                         <button class="btn btn-success ml-2 text-center text-xl" x-on:click="open=!open">WS Invitación</button>
                         <a href="{{route('contabilidad')}}">
-                            <button class="btn btn-danger ml-2 text-center text-xl">Estadisticas</button>
+                            <button class="btn btn-danger ml-2 text-center text-xl">Gráficos y Estadisticas</button>
                         </a>
                         <a href="{{route('vendedor.pedidos.create')}}">
                             <button class="btn btn-success ml-2 text-center text-xl">Nuevo Pedido</button>

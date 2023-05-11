@@ -16,7 +16,7 @@
         
                    @endisset
                    <span class="text-4xl sm:text-8xl leading-none text ml-4 font-bold text-gray-900">{{number_format($despacho->count())}}</span>
-                    <h3 class="sm:hidden text-base font-normal text-gray-500">Entradas Comp./Mes</h3>
+                    <h3 class="sm:hidden text-base font-normal text-gray-500">Entradas Compr.<br>/Mes</h3>
                     <h3 class="hidden sm:block text-base font-normal text-gray-500">Entradas Compradas/Mes</h3>
                 </div>
                 <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">

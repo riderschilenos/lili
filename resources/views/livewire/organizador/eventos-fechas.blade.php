@@ -2,11 +2,22 @@
     <div x-data="{open: false, categoria:false}">
 
         @if ($evento->type!='carrera')
+            @if ($evento->type=='pista')
+                    <h1 x-show="!open" class="text-center mb-4">Preciona el boton para iniciar el formulario de un nuevo entrenamiento </h1>
+            
+            @else
+                      <h1 x-show="!open" class="text-center mb-4">Preciona el boton para iniciar el formulario de una nueva fecha</h1>
+            
 
-            <h1 x-show="!open" class="text-center mb-4">Preciona el boton para iniciar el formulario de una nueva fecha</h1>
+            @endif
             <a x-show="!open" x-on:click="open=true" class="flex items-center cursor-pointer justify-center">
                 <i class="far fa-plus-square text-2xl text-red-500 mr-2"></i>
-                Agregar Fecha
+                @if ($evento->type=='pista')
+                  Agregar Entrenamiento
+                @else
+                  Agregar Fecha
+
+                @endif
             </a>
         @elseif($evento->fechas->count()==0)
           <h1 x-show="!open" class="text-center mb-4">Preciona el boton para iniciar el formulario de una nueva fecha</h1>

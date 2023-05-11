@@ -12,7 +12,7 @@
     <div x-show="activeTab===0">
         <x-table-responsive>
             <div class="px-6 py-4">
-                <input wire:model="search" class="flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg" placeholder="Ingrese el nombre de un usuario">
+                <input wire:model="search" class="flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg" placeholder="Buscar Rider...">
             </div>
 
             @if ($sponsors->count())
@@ -148,7 +148,7 @@
     <div x-show="activeTab===1">
         <x-table-responsive>
             <div class="px-6 py-4">
-                <input wire:model="search" class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre de un usuario">
+                <input wire:model="search" class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg " placeholder="Buscar Rider...">
             </div>
 
             @if ($inscripciones->count())

@@ -37,14 +37,33 @@
                         
                     
                         <p class="text-gray-700 text-base">{!!$evento->descripcion!!}</p>
-
-                        <h1 class="font-bold text-xl my-4 text-gray-800">La organización estipula {{$evento->fechas_count}} fechas para este campeonato.</h1>
+                        @if ($evento->type=='pista')
+                            <h1 class="font-bold text-xl my-4 text-gray-800">La Pista a Realizado {{$evento->fechas_count}} Entrenamientos.</h1>
+                        
+                        @else
+                            <h1 class="font-bold text-xl my-4 text-gray-800">La organización estipula {{$evento->fechas_count}} fechas para este campeonato.</h1>
+                        
+                        @endif
+                            
                         <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
                             @foreach ($fechas as $fecha)
                                 @if ($fecha->image)
-                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($fecha->image->url)}}" alt="">{{$fecha->name }} </li>
+                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($fecha->image->url)}}" alt="">
+                                    @if ($fecha->name=='keyname')
+                                        Entrenamiento {{$fecha->fecha}}
+                                    @else
+                                        {{$fecha->name }} 
+                                    @endif
+                            
+                                </li>
                                 @else
-                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($evento->image->url)}}" alt="">{{$fecha->name }} </li>
+                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($evento->image->url)}}" alt=""> 
+                                    @if ($fecha->name=='keyname')
+                                        Entrenamiento {{$fecha->fecha}}
+                                    @else
+                                        {{$fecha->name }} 
+                                    @endif
+                                </li>
                                 @endif
                                 
                                 
@@ -124,7 +143,14 @@
                         @endforeach
 
                                 @if ($min == 0 && $max==0)
-                                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion GRATIS</p>
+                                    @if ($evento->type=='pista')
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entrada GRATIS</p>
+                                    @else
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion GRATIS</p>
+                                    @endif
+                                    
+
+                                    
                                 @elseif($min==$max)
                                     @if ($evento->type=='pista')
                                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>

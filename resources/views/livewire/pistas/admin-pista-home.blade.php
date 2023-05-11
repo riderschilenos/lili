@@ -10,7 +10,7 @@
                 <div class="flex-shrink-0">
                    
                     @isset($pista->image)
-                        <img class="h-10 w-10 rounded-full mb-4" src=" {{Storage::url($pista->image->url)}}" alt="">
+                        <img class="h-11 w-11 rounded-full mb-4" src=" {{Storage::url($pista->image->url)}}" alt="">
                     @else
                         <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
         

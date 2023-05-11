@@ -20,7 +20,11 @@ Route::get('evento/{evento}/terminos',[EventoController::class, 'terminos'])->na
 
 Route::get('evento/{evento}/inscritos',[EventoController::class, 'inscritos'])->name('eventos.inscritos');
 
+Route::get('admin/evento/{evento}/inscritos',[EventoController::class, 'admin_inscritos'])->name('eventos.inscritos.fast');
+
 Route::get('evento/{evento}/retiro',[EventoController::class, 'retiros'])->name('eventos.retiros');
+
+Route::get('admin/evento/{evento}/retiro',[EventoController::class, 'admin_retiros'])->name('eventos.retiros.fast');
 
 Route::resource('fecha', FechaController::class)->names('fechas');
 

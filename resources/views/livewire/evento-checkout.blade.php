@@ -457,7 +457,13 @@
                                                                 
                                                                         <tr>
                                                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                                                <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+                                                                                @if ($inscripcion->fecha->name=='keyname')
+                                                                                    <label class="mx-4"> Entrenamiento {{$inscripcion->fecha->fecha}}</label>
+                                                                                @else
+                                                                                    <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+                                                                                @endif
+                                                                                
+
                                                                             </td>
                                                                         
                                                                                 <td class="px-6 py-4 whitespace-nowrap">

@@ -23,7 +23,12 @@
 
         @foreach ($ticket->evento->fechas as $fecha)
             <div class="flex items-center justify-between pb-5 px-8 bg-blue-900 text-white py-2 my-4">
-                <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                
+                @if ($fecha->name=='keyname')
+                    <label class="mx-4"> Entrenamiento {{$fecha->fecha}}</label>
+                @else
+                    <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                @endif
                                 
         
                 
@@ -37,16 +42,19 @@
                     <div class="text-white  text-md font-bold px-4" wire:loading wire:target="selectedcategoria">
                         <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                     </div>
-                    <div class="block">
-                        <p class="ml-4">Número de Moto: </p>
-                    
-                        <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
-                        <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
-                            <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
+                    @if ($evento->type=='pista')
+                     
+                    @else
+                        <div class="block">
+                            <p class="ml-4">Número de Moto: </p>
+                            <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
+                            
+                            <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
+                                <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
+                            </div>
+
                         </div>
-
-                    </div>
-
+                    @endif
                     <form action="{{route('ticket.inscripcions.store')}}" method="POST">
                         @csrf
                         

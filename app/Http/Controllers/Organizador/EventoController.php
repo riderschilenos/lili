@@ -171,9 +171,19 @@ class EventoController extends Controller
         return view('organizador.eventos.inscritos', compact('evento'));
     }
 
+    public function admin_inscritos(Evento $evento)
+    {  
+        return view('pistas.inscritos', compact('evento'));
+    }
+
     public function retiros(Evento $evento)
     {  
         return view('organizador.eventos.retiros', compact('evento'));
+    }
+
+    public function admin_retiros(Evento $evento)
+    {  
+        return view('pistas.retiro', compact('evento'));
     }
 
 

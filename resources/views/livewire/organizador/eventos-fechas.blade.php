@@ -26,33 +26,41 @@
 
                       {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
                       
-                      <div class="my-4">
-                        {!! Form::label('name', 'Nombre de la Fecha') !!}
-                        {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
 
-                        @error('name')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                      </div>
+                      @if ($evento->type=='pista')
+                          {!! Form::hidden('name','keyname') !!}
+                          {!! Form::hidden('lugar','keyname') !!}
+                      @else
+                          
+                     
+                              <div class="my-4">
+                                {!! Form::label('name', 'Nombre de la Fecha') !!}
+                                {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
 
-                      <div class="my-4">
-                        {!! Form::label('lugar', 'Lugar') !!}
-                        {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+                                @error('name')
+                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                @enderror
+                              </div>
 
-                        @error('lugar')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                      </div>
+                              <div class="my-4">
+                                {!! Form::label('lugar', 'Lugar') !!}
+                                {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
 
-                      <div class="my-4">
-                        {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
-                        <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
-                        {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+                                @error('lugar')
+                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                @enderror
+                              </div>
 
-                        @error('inscripcion')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                      </div>
+                              <div class="my-4">
+                                {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
+                                <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
+                                {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+
+                                @error('inscripcion')
+                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                @enderror
+                              </div>
+                      @endif
 
                       <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
                       <div class="grid grid-cols-2 gap-4">
@@ -157,7 +165,14 @@
 
                     <div class="bg-gray-100 p-6 mt-6" x-data="{open: false}">
                       <header class="flex justify-between item-center" x-on:click="open=!open" >
-                        <h1 class="cursor-pointer"><strong>Fecha:</strong> {{$fecha->name}}</h1>
+                          @if ($fecha->name=='keyname')
+                             
+                              <h1 class="cursor-pointer"> Entrenamiento {{$fecha->fecha}}</h1>
+                          @else
+                              <h1 class="cursor-pointer"><strong>Fecha:</strong> {{$fecha->name}}</h1>
+                          @endif
+                       
+
                         <div>
                             <i class="fas fa-eye cursor-pointer text-blue-500 mr-2" ></i>
                             <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar"></i>

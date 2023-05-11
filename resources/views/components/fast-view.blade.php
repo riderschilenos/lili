@@ -699,6 +699,10 @@
                 <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
                     @livewire('admin.pedidos-count')
                 </div>
+
+               
+
+
                 <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8" x-data="{open: true}">
                     <div class="flex justify-between">
                         <button class="btn btn-success ml-2 text-center text-xl" x-on:click="open=!open">WS Invitación</button>
@@ -724,7 +728,15 @@
                 </div>
                 
             @endcan
-            
+            @if (auth()->user())
+                @if (auth()->user()->eventosby->where('type','pista')->count())
+                    <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+                        @livewire('pistas.admin-pista-home')
+                    </div>
+                @endif
+                
+            @endif
+           
 
             <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                 <article>

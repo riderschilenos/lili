@@ -54,9 +54,11 @@
         </style>
 
 <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 py-12">
-        
-    <h1 class="text-gray-500 text-3xl font-bold mx-2 text-center mb-4">Proceso de Inscripción</h1>
-
+    @if ($evento->type=='pista')
+        <h1 class="text-gray-500 text-3xl font-bold mx-2 text-center mb-4">Compra Tus Entradas</h1>
+    @else
+        <h1 class="text-gray-500 text-3xl font-bold mx-2 text-center mb-4">Proceso de Inscripción</h1>
+    @endif
     <div class="mx-2 card text-gray-600">
         <div class="card-body">
             <article class="grid grid-cols-1 md:grid-cols-2 items-center">
@@ -90,7 +92,12 @@
                     @endforeach
                 @endforeach
                     <div class="mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
-                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                        @if ($evento->type=='pista')
+                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entrada a Pista</p>
+                        @else
+                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripción</p>
+                        @endif
+                       
                         
                             <div class="flex mx-auto mb-4 w-72   px-24">
                                 <div class="bg-gray-100 p-1 rounded-3xl w-full">
@@ -154,7 +161,7 @@
                     </svg>
 
                     <div class="flex flex-col items-center mx-5 space-y-1">
-                        <h2 class="px-2 text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
+                        <h2 class="px-2 text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">1) Datos del Rider</h2>
                         
                     </div>
 
@@ -357,10 +364,13 @@
                                             Categoria
                                         @endif   
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Número
-                                    </th>
-                                    
+                                        @if ($evento->type=='pista')
+                     
+                                        @else
+                                            <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Número
+                                            </th>
+                                        @endif
                                         <th  class="text-center mr-4 text-xs font-medium text-gray-500 uppercase tracking-wider justify-end ml-auto">
                                             Precio
                                         </th>
@@ -372,7 +382,13 @@
                                                                 
                                                                         <tr>
                                                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                                                <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+
+                                                                               @if ($inscripcion->fecha->name=='keyname')
+                                                                                    <label class="mx-4"> Entrenamiento {{$inscripcion->fecha->fecha}}</label>
+                                                                                @else
+                                                                                    <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+                                                                                @endif
+                                                                                
                                                                             </td>
                                                                         
                                                                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -382,13 +398,15 @@
                                                                                 </td>
                                                                     
                                                                         
-                                            
-                                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                                    <div class="items-center">
-                                                                                        <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
-                                                                                    </div>
-                                                                                </td>
-                                                                            
+                                                                                @if ($evento->type=='pista')
+                     
+                                                                                @else
+                                                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                                                        <div class="items-center">
+                                                                                            <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                @endif
                                                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                                                     <div class="items-center">
                                                                                         
@@ -446,7 +464,12 @@
         <section>
             <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                 <div class="flex items-center justify-between px-8">
-                <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
+                    @if ($evento->type=='pista')
+                    <p class="text-base leading-none text-gray-800 dark:text-white">Entradas</p>
+                    @else
+                        <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
+                    @endif
+                
                 <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
                 </div>
             </div>

@@ -22,8 +22,8 @@
 
         $preference->back_urls = array(
                 "success" => route('payment.ticketaprov',$ticket),
-                "failure" => "http://www.tu-sitio/failure",
-                "pending" => "http://www.tu-sitio/pending"
+                "failure" => route('payment.checkout.ticket',$ticket),
+                "pending" => route('payment.checkout.ticket',$ticket)
             );
             $preference->auto_return = "approved";
 

@@ -394,7 +394,7 @@ class HomeController extends Controller
                 $foto = Str::random(10).$request->file('foto')->getClientOriginalName();
                 $rutafoto = public_path().'/storage/socios/'.$foto;
                 $img=Image::make($request->file('foto'))->orientate()
-                    ->resize(1200, null , function($constraint){
+                    ->resize(600, null , function($constraint){
                     $constraint->aspectRatio();
                     })
                     ->save($rutafoto);
@@ -413,7 +413,7 @@ class HomeController extends Controller
                 $rutacarnet = public_path().'/storage/socios/'.$carnet;
       
                 $img=Image::make($request->file('carnet'))->orientate()
-                    ->resize(1200, null , function($constraint){
+                    ->resize(600, null , function($constraint){
                     $constraint->aspectRatio();
                     })
                     ->save($rutacarnet);

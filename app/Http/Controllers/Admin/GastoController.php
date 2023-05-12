@@ -69,7 +69,7 @@ class GastoController extends Controller
             $foto = Str::random(10).$request->file('file')->getClientOriginalName();
             $rutafoto = public_path().'/storage/comprobantes/'.$foto;
             $img=Image::make($request->file('file'))->orientate()
-                ->resize(600, null , function($constraint){
+                ->resize(400, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($rutafoto);
@@ -138,7 +138,7 @@ class GastoController extends Controller
                 $foto = Str::random(10).$request->file('comprobante')->getClientOriginalName();
                 $rutafoto = public_path().'/storage/comprobantes/'.$foto;
                 $img=Image::make($request->file('comprobante'))->orientate()
-                    ->resize(1200, null , function($constraint){
+                    ->resize(400, null , function($constraint){
                     $constraint->aspectRatio();
                     })
                     ->save($rutafoto);

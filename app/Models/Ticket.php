@@ -15,7 +15,8 @@ class Ticket extends Model
 
     const BORRADOR =1;
     const PAGADO =2;
-    const CERRADO =3;
+    const COBRADO =3;
+    const CERRADO =4;
 
     public function ticketable(){
         return $this->morphTo();

@@ -15,7 +15,7 @@
                     <img src="{{asset('img/ticket.png')}}" class="w-10 p-1">
                     
                     </span>
-                      <h2 class="text-xl mx-4">{{$evento->titulo}}</h2>
+                      <h2 class="text-xl mx-4">Entrada {{$evento->titulo}}</h2>
                     </div>
                    
                   </div>
@@ -30,7 +30,12 @@
                   </div>
                   <div class="border-b border-dashed border-b-2 my-5 pt-5">
                     <div class="absolute rounded-full w-5 h-5 bg-gray-800 -mt-2 -left-2"></div>
-                    <h1 class="text-xs text-center">Información de carrera</h1>
+                    @if ($evento->type=='pista')
+                      <h1 class="text-xs text-center">Información de pista</h1>
+                    @else
+                      <h1 class="text-xs text-center">Información de carrera</h1>
+                    @endif
+                    
                   
                   </div>
                   <div class="flex items-center mb-5 p-5 text-sm">

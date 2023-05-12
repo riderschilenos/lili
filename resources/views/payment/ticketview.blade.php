@@ -42,78 +42,87 @@
                     
                     </div>
                       @foreach ($ticket->inscripcions as $inscripcion)
-                        <div class="flex items-center mb-5 p-5 text-sm">
-                          <div class="flex flex-col">
-                            @if ($evento->type=='pista')
-                                <span class="text-center">Cilindrada</span>
-                            @else
-                                <span class="text-center">Categoria</span>
-                            @endif
-                            <div class="font-semibold">{{$inscripcion->fecha_categoria->categoria->name}}</div>
-          
-                          </div>
-                          <div class="flex flex-col ml-auto">
-                            @if ($evento->type=='pista')
-                                <span class="text-sm text-center">Fecha</span>
-                            @else
-                                <span class="text-sm text-center">Fecha</span>
-                            @endif
-                          
-                            <div class="font-semibold text-center">
-                              @if ($inscripcion->fecha->name=='keyname')
-                                  <label class="mx-4"> {{$inscripcion->fecha->fecha}}</label>
-                              @else
-                                  <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
-                              @endif
+                          <div class="bg-gray-100 shadow">
+                            <div class="flex items-center p-5 text-sm">
+                              <div class="flex flex-col">
+                                @if ($evento->type=='pista')
+                                    <span class="text-center">Cilindrada</span>
+                                @else
+                                    <span class="text-center">Categoria</span>
+                                @endif
+                                <div class="font-semibold">{{$inscripcion->fecha_categoria->categoria->name}}</div>
+              
+                              </div>
+                              <div class="flex flex-col ml-auto">
+                                @if ($evento->type=='pista')
+                                    <span class="text-sm text-center">Fecha</span>
+                                @else
+                                    <span class="text-sm text-center">Fecha</span>
+                                @endif
+                              
+                                <div class="font-semibold text-center">
+                                  @if ($inscripcion->fecha->name=='keyname')
+                                      <label class="mx-4"> {{$inscripcion->fecha->fecha}}</label>
+                                  @else
+                                      <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+                                  @endif
+                                </div>
+              
+                              </div>
+                              <div class="flex flex-col ml-auto">
+                              
+                              @switch($inscripcion->estado)
+                                    @case(1)
+                                            <div class="font-semibold text-center">
+                                                <a href="" class="btn bg-gray-200 h-4 my-auto">
+                                                SIN PAGAR
+                                                </a>
+                                            </div>
+                                        @break
+                                    @case(2)
+                                            <div class="font-semibold text-center">
+                                              <a href="" class="btn btn-success h-4 my-auto">
+                                              VIGENTE
+                                              </a>
+                                            </div>
+                                        @break
+                                    @case(3)
+                                            <div class="font-semibold text-center">
+                                              <a href="" class="btn btn-danger h-4 my-auto">
+                                              COBRADA
+                                              </a>
+                                            </div>
+                                        @break
+                                      @case(4)
+                                            <div class="font-semibold text-center">
+                                              <a href="" class="btn btn-danger h-4 my-auto">
+                                                COBRADA
+                                              </a>
+                                            </div>
+                                        @break
+                                      @case(5)
+                                            <div class="font-semibold text-center">
+                                              <a href="" class="btn btn-danger h-4 my-auto">
+                                                COBRADA
+                                              </a>
+                                            </div>
+                                        @break
+                                    
+                                @default
+                                    
+                              @endswitch
+                              
+              
+                              </div>
                             </div>
-          
+                            <div class="flex justify-center mb-5 px-5 pb-6 text-sm">
+                              <div class="font-semibold text-center">
+                                <a href="" class="btn btn-danger h-4 my-auto">
+                                COBRAR
+                                </a>
+                            </div>
+                            </div>
                           </div>
-                          <div class="flex flex-col ml-auto">
-                           
-                            @switch($inscripcion->estado)
-                                @case(1)
-                                        <div class="font-semibold text-center">
-                                            <a href="" class="btn bg-gray-200 h-4 my-auto">
-                                            SIN PAGAR
-                                            </a>
-                                        </div>
-                                    @break
-                                @case(2)
-                                        <div class="font-semibold text-center">
-                                          <a href="" class="btn btn-success h-4 my-auto">
-                                          VIGENTE
-                                          </a>
-                                        </div>
-                                    @break
-                                @case(3)
-                                        <div class="font-semibold text-center">
-                                          <a href="" class="btn btn-danger h-4 my-auto">
-                                          COBRADA
-                                          </a>
-                                        </div>
-                                    @break
-                                  @case(4)
-                                        <div class="font-semibold text-center">
-                                          <a href="" class="btn btn-danger h-4 my-auto">
-                                            COBRADA
-                                          </a>
-                                        </div>
-                                    @break
-                                  @case(5)
-                                        <div class="font-semibold text-center">
-                                          <a href="" class="btn btn-danger h-4 my-auto">
-                                            COBRADA
-                                          </a>
-                                        </div>
-                                    @break
-                                 
-                            @default
-                                
-                          @endswitch
-                           
-          
-                          </div>
-                        </div>
                       @endforeach
                     
                     <div class="border-b border-dashed border-b-2 my-5 pt-5">

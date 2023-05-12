@@ -41,12 +41,12 @@
 
                         <div class="flex-shrink-0">
                         
-                        <div class="flex justify-center">     
-                            <span class="text-4xl sm:text-8xl leading-none ml-6 font-bold text-gray-900 text-center">
+                       <div class="flex justify-center">
+                            <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900 text-center">
                                 {{number_format($inscripciones->count())}} / 0
                             </span>
                         </div>
-                            <h3 class="sm:hidden text-base font-normal text-gray-500">Vendidas/Cobradas<br>/Mes</h3>
+                            <h3 class="sm:hidden text-base font-normal text-gray-500">Vendidas/<br>Cobradas<br>/Mes</h3>
                             <h3 class="hidden sm:block text-base font-normal text-gray-500">Vendidas/Cobradas/Mes</h3>
                         </div>
                         <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
@@ -59,7 +59,8 @@
                     <div>
                        <div class="flex justify-center">
                             <a href="{{route('ticket.evento.show', $pista)}}">
-                                <button class="btn btn-danger ml-2 text-center text-xl mt-4 whitespace-nowrap">Link-Pista</button>
+                                <button class="sm:hidden btn btn-danger ml-2 text-center text-xl mt-4 whitespace-nowrap">Link</button>
+                                <button class="hidden sm:block btn btn-danger ml-2 text-center text-xl mt-4 whitespace-nowrap">Link-Pista</button>
                             </a>
                         </div>
                     </div>

@@ -8,9 +8,12 @@
 
     @foreach ($tickets as $ticket)
         @foreach ($ticket->inscripcions as $inscripcion) 
-            @php
-                $total+=$inscripcion->fecha_categoria->inscripcion;
-            @endphp
+            @if ($inscripcion->estado>=2)
+                @php
+                    $total+=$inscripcion->fecha_categoria->inscripcion;
+                @endphp
+            @endif
+          
                 
         @endforeach
            

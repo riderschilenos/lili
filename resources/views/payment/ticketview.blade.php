@@ -70,12 +70,47 @@
                           </div>
                           <div class="flex flex-col ml-auto">
                            
-                          
-                            <div class="font-semibold text-center">
-                              <a href="" class="btn btn-danger h-4 my-auto">
-                              COBRAR
-                              </a>
-                            </div>
+                            @switch($inscripcion->estado)
+                                @case(1)
+                                        <div class="font-semibold text-center">
+                                            <a href="" class="btn bg-gray-200 h-4 my-auto">
+                                            SIN PAGAR
+                                            </a>
+                                        </div>
+                                    @break
+                                @case(2)
+                                        <div class="font-semibold text-center">
+                                          <a href="" class="btn btn-danger h-4 my-auto">
+                                          VIGENTE
+                                          </a>
+                                        </div>
+                                    @break
+                                @case(3)
+                                        <div class="font-semibold text-center">
+                                          <a href="" class="btn btn-danger h-4 my-auto">
+                                          COBRADA
+                                          </a>
+                                        </div>
+                                    @break
+                                  @case(4)
+                                        <div class="font-semibold text-center">
+                                          <a href="" class="btn btn-danger h-4 my-auto">
+                                            COBRADA
+                                          </a>
+                                        </div>
+                                    @break
+                                  @case(5)
+                                        <div class="font-semibold text-center">
+                                          <a href="" class="btn btn-danger h-4 my-auto">
+                                            COBRADA
+                                          </a>
+                                        </div>
+                                    @break
+                                 
+                            @default
+                                
+                          @endswitch
+                           
           
                           </div>
                         </div>

@@ -7,7 +7,7 @@
     
         <div class="z-10 bg-blue-900 rounded-lg pb-20">
           <div class="flex mb-24">
-            <div class="bg-white w-full rounded-lg px-6 py-5 mx-2">
+            <div class="bg-white w-full rounded-lg px-6 py-5 mx-4">
   
               
                 <div class="w-full mx-12">

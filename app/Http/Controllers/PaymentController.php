@@ -82,6 +82,9 @@ class PaymentController extends Controller
                 $inscripcion->save();
             }  
             
+        $evento=Evento::find($ticket->evento_id);
+        $evento->inscritos()->attach(auth()->user()->id);
+
                  //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid='100799979656074';

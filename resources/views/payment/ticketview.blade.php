@@ -75,21 +75,21 @@
                                     @case(1)
                                             <div class="font-semibold text-center">
                                                 <a href="" class="btn bg-gray-200 h-4 my-auto">
-                                                SIN PAGAR
+                                                CERRADA
                                                 </a>
                                             </div>
                                         @break
                                     @case(2)
                                             <div class="font-semibold text-center">
-                                              <a href="" class="btn btn-success h-4 my-auto">
-                                              VIGENTE
+                                              <a href="" class="btn bg-gray-200 h-4 my-auto">
+                                              SIN PAGAR
                                               </a>
                                             </div>
                                         @break
                                     @case(3)
                                             <div class="font-semibold text-center">
                                               <a href="" class="btn btn-danger h-4 my-auto">
-                                              COBRADA
+                                              VIGENTE
                                               </a>
                                             </div>
                                         @break
@@ -117,13 +117,13 @@
                             </div>
                             @if (auth()->user())
                               @if (auth()->user()->id==$ticket->evento->user_id)
-                                @if ($inscripcion->estado<=2)
+                                @if ($inscripcion->estado==2 || $inscripcion->estado==3)
                                     <div class="flex justify-center px-5 pb-6 text-sm">
                                       <div class="font-semibold text-center">
-                                        {!! Form::open(['route'=>['ticket.inscripcions.update',$inscripcion], 'method'=> 'PUT' ]) !!}
-                                            @csrf
-                                        {!! Form::submit('COBRAR', ['class'=>'btn btn-danger my-auto cursor-pointer']) !!}
-                                        {!! Form::close() !!}
+                                          {!! Form::open(['route'=>['ticket.inscripcions.update',$inscripcion], 'method'=> 'PUT' ]) !!}
+                                              @csrf
+                                          {!! Form::submit('COBRAR', ['class'=>'btn btn-danger my-auto cursor-pointer']) !!}
+                                          {!! Form::close() !!}
                                       </div>
                                     </div>
                                     

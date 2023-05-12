@@ -75,13 +75,13 @@ class PaymentController extends Controller
         $status = $response->status;
 
         if($status == 'approved'){
-            $ticket->status=2;
+            $ticket->status=3;
             $ticket->save();
             foreach ($ticket->inscripcions as $inscripcion){
-                $inscripcion->estado=2;
+                $inscripcion->estado=3;
                 $inscripcion->save();
             }  
-            
+
         $evento=Evento::find($ticket->evento_id);
         $evento->inscritos()->attach(auth()->user()->id);
 

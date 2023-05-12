@@ -27,7 +27,7 @@ class RetiroDinero extends Component
     }
 
     public function render()
-    {   $tickets = $this->evento->tickets()->where('status','>=',2)->get();
+    {   $tickets = $this->evento->tickets()->where('status','>=',3)->get();
         $retiros = Retiro::where('evento_id',$this->evento->id)->get();
 
         return view('livewire.organizador.retiro-dinero',compact('tickets','retiros'));

@@ -69,12 +69,14 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <div class="text-sm text-gray-900 text-center">
                                             
-                                            @foreach ($sponsor->tickets as $ticket)
+                                            @foreach ($sponsor->tickets->where('status','>=',2) as $ticket)
                                                 @if ($ticket->evento->id==$evento->id)
                                                     @if ($ticket->status==2)
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
+                                                        @if ($ticket->status==2)
+                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
+                                                        @endif
                                                     @else
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">{{$ticket->id}}</a>
+                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}}</a>
                                                     @endif
                                                 
                                                 

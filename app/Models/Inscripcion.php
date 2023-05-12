@@ -11,11 +11,12 @@ class Inscripcion extends Model
 
     protected $guarded = ['id'];
     
-    const CERRADA =0;
-    const BORRADOR =1;
-    const PAGADA =2;
-    const ACTIVA =3;
-    const USADA =4;
+    
+    const CERRADA = 1;
+    const BORRADOR =2;
+    const PAGADA =3;
+    const ACTIVA =4;
+    const USADA =5;
 
 
     public function fecha_categoria(){

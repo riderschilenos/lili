@@ -235,9 +235,8 @@
                 No hay ningun registro
             </div>
         @endif 
-        <div class="px-6 py-4">
-            {{$tickets->links()}}
-        </div>
+
+
     </x-table-responsive>
 
     <x-table-responsive>
@@ -380,9 +379,7 @@
                 No hay ningun registro
             </div>
         @endif 
-        <div class="px-6 py-4">
-            {{$tickets->links()}}
-        </div>
+
     </x-table-responsive>
 
 

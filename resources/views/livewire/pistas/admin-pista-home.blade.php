@@ -31,7 +31,7 @@
                 <a href="{{route('organizador.eventos.inscritos.fast',$pista)}}" class="col-span-1">
                     <div class="flex justify-center">
                             @isset($pista->image)
-                                <img class="h-14 w-14 mb-4" src=" {{Storage::url($pista->image->url)}}" alt="">
+                                <img class="h-16 w-16 mb-4" src=" {{Storage::url($pista->image->url)}}" alt="">
                             @else
                                 <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
                 

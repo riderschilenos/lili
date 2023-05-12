@@ -17,7 +17,7 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
 
-            $table->enum('status',[Ticket::BORRADOR,Ticket::PAGADO])->default(Ticket::BORRADOR);
+            $table->enum('status',[Ticket::BORRADOR,Ticket::PAGADO,Ticket::CERRADO])->default(Ticket::BORRADOR);
 
             $table->string('qr')->nullable();
 

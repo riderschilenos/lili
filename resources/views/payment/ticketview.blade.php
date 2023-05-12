@@ -42,7 +42,7 @@
                     
                     </div>
                       @foreach ($ticket->inscripcions as $inscripcion)
-                          <div class="bg-gray-100 shadow">
+                          <div class="bg-gray-100 shadow mt-5">
                             <div class="flex items-center p-5 text-sm">
                               <div class="flex flex-col">
                                 @if ($evento->type=='pista')
@@ -115,13 +115,26 @@
               
                               </div>
                             </div>
-                            <div class="flex justify-center mb-5 px-5 pb-6 text-sm">
-                              <div class="font-semibold text-center">
-                                <a href="" class="btn btn-danger h-4 my-auto">
-                                COBRAR
-                                </a>
-                            </div>
-                            </div>
+                            @if (auth()->user())
+                              @if (auth()->user()->id==$ticket->evento->user_id)
+                                @if ($inscripcion->estado<=2)
+                                    <div class="flex justify-center px-5 pb-6 text-sm">
+                                      <div class="font-semibold text-center">
+                                        {!! Form::open(['route'=>['ticket.inscripcions.update',$inscripcion], 'method'=> 'PUT' ]) !!}
+                                            @csrf
+                                        {!! Form::submit('COBRAR', ['class'=>'btn btn-danger my-auto cursor-pointer']) !!}
+                                        {!! Form::close() !!}
+                                      </div>
+                                    </div>
+                                    
+                                @endif
+                               
+
+                              @endif
+                                
+                            @endif
+                            
+
                           </div>
                       @endforeach
                     

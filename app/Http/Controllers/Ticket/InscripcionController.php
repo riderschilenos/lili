@@ -75,9 +75,14 @@ class InscripcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, Inscripcion $inscripcion)
+    {   if($inscripcion->estado==1){
+            $inscripcion->estado=0;
+            $inscripcion->save();
+        }
+        $inscripcion->estado=3;
+        $inscripcion->save();
+        return redirect()->route('ticket.view',$inscripcion->ticket);
     }
 
     /**

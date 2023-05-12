@@ -10,7 +10,8 @@ class Inscripcion extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-
+    
+    const CERRADA =0;
     const BORRADOR =1;
     const PAGADA =2;
     const ACTIVA =3;

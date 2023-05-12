@@ -18,7 +18,7 @@ class AdminPistaHome extends Component
                     ->where('estado','>=',2)
                     ->orderby('categoria_id','DESC')
                     ->paginate(50);
-        $tickets = $pista->tickets()->where('status',2)->paginate(50);
+        $tickets = $pista->tickets()->where('status','>=',3)->get();
         $retiros = Retiro::where('evento_id',$pista->id)->get();
 
         return view('livewire.pistas.admin-pista-home',compact('tickets','retiros','pista','inscripciones'));

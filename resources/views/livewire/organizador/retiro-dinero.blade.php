@@ -12,9 +12,7 @@
                 @php
                     $total+=$inscripcion->fecha_categoria->inscripcion;
                 @endphp
-            @endif
-          
-                
+            @endif   
         @endforeach
            
     @endforeach

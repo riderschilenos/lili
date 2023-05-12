@@ -1,5 +1,5 @@
 <div>
-    @php
+@php
     $total=0;
     $pendientes=1000;
     $retiroacumulado=0;
@@ -8,10 +8,11 @@
 
     @foreach ($tickets as $ticket)
         @foreach ($ticket->inscripcions as $inscripcion) 
-            @php
-                $total+=$inscripcion->fecha_categoria->inscripcion;
-            @endphp
-                
+            @if ($inscripcion->estado>=2)
+                @php
+                    $total+=$inscripcion->fecha_categoria->inscripcion;
+                @endphp
+            @endif
         @endforeach
            
     @endforeach
@@ -43,7 +44,7 @@
                         
                        <div class="flex justify-center">
                             <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900 text-center">
-                                {{number_format($inscripciones->count())}} / 0
+                                {{number_format($inscripciones->count())}} / {{number_format($inscripciones->where('estado','>=',3)->count())}}
                             </span>
                         </div>
                             <h3 class="sm:hidden text-base font-normal text-gray-500">Vendidas/<br>Cobradas<br>/Mes</h3>

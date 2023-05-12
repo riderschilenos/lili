@@ -36,7 +36,7 @@ class CreateInscripcionsTable extends Migration
             
             $table->string('resultado')->nullable();
 
-            $table->enum('estado',[Inscripcion::BORRADOR,Inscripcion::PAGADA,Inscripcion::ACTIVA,Inscripcion::USADA])->default(Inscripcion::BORRADOR);
+            $table->enum('estado',[Inscripcion::CERRADA,Inscripcion::BORRADOR,Inscripcion::PAGADA,Inscripcion::ACTIVA,Inscripcion::USADA])->default(Inscripcion::BORRADOR);
 
             $table->timestamps();
         });

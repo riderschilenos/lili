@@ -71,8 +71,8 @@
                                             
                                             @foreach ($sponsor->tickets->where('status','>=',2) as $ticket)
                                                 @if ($ticket->evento->id==$evento->id)
-                                                    @if ($ticket->status==2)
-                                                        @if ($ticket->status==2)
+                                                    @if ($ticket->status<=2)
+                                                        @if ($ticket->status<=2)
                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
                                                         @endif
                                                     @else
@@ -220,11 +220,13 @@
                                             
                                             @foreach ($inscripcion->ticket->user->tickets as $ticket)
                                                 @if ($ticket->evento->id==$evento->id)
-                                                    @if ($ticket->status==2)
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
-                                                    @else
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">{{$ticket->id}}</a>
+                                                @if ($ticket->status<=2)
+                                                    @if ($ticket->status<=2)
+                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
                                                     @endif
+                                                @else
+                                                    <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}}</a>
+                                                @endif
                                                 
                                                 
                                                     

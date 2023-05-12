@@ -44,7 +44,7 @@
                         
                        <div class="flex justify-center">
                             <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900 text-center">
-                                {{number_format($inscripciones->count())}} / {{number_format($inscripciones->where('estado','>=',3)->count())}}
+                                {{number_format($inscripciones->count())}} / {{number_format($inscripciones->where('estado','>=',4)->count())}}
                             </span>
                         </div>
                             <h3 class="sm:hidden text-base font-normal text-gray-500">Vendidas/<br>Cobradas<br>/Mes</h3>

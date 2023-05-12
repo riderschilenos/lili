@@ -93,6 +93,9 @@
                                       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                           Categoria             
                                       </th>
+                                      <th>
+                                        Delete
+                                      </th>
                                     
                                   </tr>
                                 </thead>
@@ -110,12 +113,15 @@
                                                            
                                                                 @php
                                                                     $check=FALSE;
+                                                                    $fecha_cat=Null;
                                                                 @endphp
                                                             @foreach ($items as $item)
-
+                                                                
                                                                   @php
+                                                                 
                                                                       if($categoria->id==$item->categoria_id){
                                                                         $check=TRUE;
+                                                                        $fecha_cat=$item->id;
                                                                       }
                                                                   @endphp
                                                                 
@@ -157,6 +163,21 @@
                                                       
                                                       
                                                   </td>
+                                                  @if ($fecha_cat)
+                                                        
+                                                        <td>
+                                                                <button wire:click='categoria_destroy({{$fecha_cat}})' class="btn btn-danger my-auto">
+                                                                DELETE
+                                                                </button>
+
+                                                        </td>
+
+                                                    @else
+                                                        <td>
+                                                            
+                                                        </td>        
+                                                    @endif
+                                                 
                                                   
                                               
                                               </tr>

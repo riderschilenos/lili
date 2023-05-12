@@ -64,4 +64,8 @@ class FechaCategorias extends Component
         
     }
 
+    public function categoria_destroy(Fecha_categoria $fecha_categoria){
+        $fecha_categoria->delete();
+    }
+
 }

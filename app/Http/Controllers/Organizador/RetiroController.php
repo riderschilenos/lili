@@ -55,7 +55,7 @@ class RetiroController extends Controller
 
             $evento = Evento::find($request->evento_id);
 
-            return redirect(route('organizador.eventos.retiros',$evento));
+            return redirect()->back();
     }
 
     /**

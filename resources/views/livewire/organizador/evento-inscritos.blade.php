@@ -72,9 +72,9 @@
                                             @foreach ($sponsor->tickets as $ticket)
                                                 @if ($ticket->evento->id==$evento->id)
                                                     @if ($ticket->status==2)
-                                                        <a href="" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
+                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
                                                     @else
-                                                        <a href="" class="btn btn-danger h-10 my-auto">{{$ticket->id}}</a>
+                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">{{$ticket->id}}</a>
                                                     @endif
                                                 
                                                 
@@ -212,15 +212,16 @@
                                         <div class="text-sm text-gray-900 text">{{$inscripcion->ticket->user->socio->rut}}</div>
                                         
                                     </td>
-                                    {{-- comment
+                                
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <div class="text-sm text-gray-900 text-center">
-                                            @foreach ($sponsor->tickets as $ticket)
+                                            
+                                            @foreach ($inscripcion->ticket->user->tickets as $ticket)
                                                 @if ($ticket->evento->id==$evento->id)
                                                     @if ($ticket->status==2)
-                                                        <a href="" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
+                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
                                                     @else
-                                                        <a href="" class="btn btn-danger h-10 my-auto">{{$ticket->id}}</a>
+                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">{{$ticket->id}}</a>
                                                     @endif
                                                 
                                                 
@@ -233,43 +234,6 @@
                                         </div>
                                         
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">
-                                        <div class="text-sm text-gray-900 text-center">
-                                        
-                                                        
-                                                        @foreach ($ticket->inscripcions as $inscripcion)
-                                                                        
-                                                                            <div class="flex">
-                                                                                
-                                                                                        <div class="px-6 py-4 whitespace-nowrap">
-                                                                                    
-                                                                                    {{$fecha->name}}  {{$inscripcion->fecha_categoria->categoria->name}}
-                                                                                        
-                                                                                        </div>
-                                                                            
-                                                                                
-                                                    
-                                                                                        <div class="px-6 py-4 whitespace-nowrap">
-                                                                                            <div class="items-center">
-                                                                                                <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    
-                                                                                </div> 
-                                                                                    
-                                                
-                                    
-        
-                                                        @endforeach
-                                                
-                                            
-                                        
-                                        </div>
-                                        
-                                    </td>
-
-                                    --}}
-                                    
 
                                     
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

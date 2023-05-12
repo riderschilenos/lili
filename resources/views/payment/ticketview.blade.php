@@ -41,35 +41,46 @@
                       
                     
                     </div>
-                    <div class="flex items-center mb-5 p-5 text-sm">
-                      <div class="flex flex-col">
-                        <span class="text-sm">Categoria</span>
-                        <div class="font-semibold">Elite</div>
-      
-                      </div>
-                      <div class="flex flex-col ml-auto">
-                        <span class="text-sm">Inscritos</span>
-                        <div class="font-semibold text-center">26</div>
-      
-                      </div>
-                    </div>
-                    <div class="flex items-center mb-4 px-5 gap-x-6">
-                      <div class="flex flex-col text-sm">
-                        <span class="">Entrenamientos</span>
-                        <div class="font-semibold">11:50AM</div>
-      
-                      </div>
-                      <div class="flex flex-col mx-auto text-sm">
-                        <span class="">Clasificación</span>
-                        <div class="font-semibold">11:30Am</div>
-      
-                      </div>
-                      <div class="flex flex-col text-sm">
-                        <span class="">Final</span>
-                        <div class="font-semibold">2:00PM</div>
-      
-                      </div>
-                    </div>
+                      @foreach ($ticket->inscripcions as $inscripcion)
+                        <div class="flex items-center mb-5 p-5 text-sm">
+                          <div class="flex flex-col">
+                            @if ($evento->type=='pista')
+                                <span class="text-center">Cilindrada</span>
+                            @else
+                                <span class="text-center">Categoria</span>
+                            @endif
+                            <div class="font-semibold">{{$inscripcion->fecha_categoria->categoria->name}}</div>
+          
+                          </div>
+                          <div class="flex flex-col ml-auto">
+                            @if ($evento->type=='pista')
+                                <span class="text-sm text-center">Fecha</span>
+                            @else
+                                <span class="text-sm text-center">Fecha</span>
+                            @endif
+                          
+                            <div class="font-semibold text-center">
+                              @if ($inscripcion->fecha->name=='keyname')
+                                  <label class="mx-4"> {{$inscripcion->fecha->fecha}}</label>
+                              @else
+                                  <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+                              @endif
+                            </div>
+          
+                          </div>
+                          <div class="flex flex-col ml-auto">
+                           
+                          
+                            <div class="font-semibold text-center">
+                              <a href="" class="btn btn-danger h-4 my-auto">
+                              COBRAR
+                              </a>
+                            </div>
+          
+                          </div>
+                        </div>
+                      @endforeach
+                    
                     <div class="border-b border-dashed border-b-2 my-5 pt-5">
                       <div class="absolute rounded-full w-5 h-5 bg-gray-800 -mt-2 -left-2"></div>
                       <h1 class="text-xs text-center">Información del Rider</h1>
@@ -77,23 +88,23 @@
                     </div>
                     <div class="flex items-center px-5 pt-3 text-sm">
                       <div class="flex flex-col">
-                        <span class="">Rider</span>
-                        <div class="font-semibold">Ajimon</div>
+                        <span class="">Nombre</span>
+                        <div class="font-semibold">{{$ticket->user->name}}</div>
       
                       </div>
-                      <div class="flex flex-col mx-auto">
-                        <span class="">Class</span>
-                        <div class="font-semibold">Economic</div>
-      
-                      </div>
-                      <div class="flex flex-col">
-                        <span class="">Seat</span>
-                        <div class="font-semibold">12 E</div>
-      
-                      </div>
+                     
+                     
+                     
+                      @if($ticket->user->socio->direccion)
+                          <div class="flex flex-col ml-6">
+                            <span class="">Localidad</span>
+                            <div class="font-semibold">{{Str::limit($ticket->user->socio->direccion->comuna.', '.$ticket->user->socio->direccion->region,20)}}</div>
+          
+                          </div>
+                      @endif
                     </div>
                     <div class="flex flex-col py-5  justify-center text-sm ">
-                      <h6 class="font-bold text-center">Boarding Pass</h6>
+                      <h6 class="font-bold text-center">TICKET DE INGRESO</h6>
       
            
                     </div>

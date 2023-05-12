@@ -115,9 +115,12 @@
                             </div>
                         </div>
                         @can('enrolled', $evento)
-
-                            <a class="btn btn-danger btn-block mt-4" href="{{route('evento.view',$evento)}}">Ver mis tickets</a>
-
+                            @if($evento->type=='pista')
+                                <a class="btn btn-danger btn-block mt-4" href="{{route('ticket.view',auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->first())}}">Ver mi Entrada</a>
+                            @else
+                                <a class="btn btn-danger btn-block mt-4" href="{{route('ticket.view',auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->first())}}">Ver Tickets</a>
+                            @endif
+                            
                         @else 
 
                         @php

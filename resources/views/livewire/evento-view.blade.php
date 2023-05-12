@@ -11,7 +11,9 @@
                 <div class="flex items-center justify-between">
                   <div class="flex items-center justify-between  my-1">
                     <span class="mr-3 rounded-full bg-white">
+
                     <img src="{{asset('img/ticket.png')}}" class="w-10 p-1">
+                    
                     </span>
                       <h2 class="text-xl mx-4">{{$evento->titulo}}</h2>
                     </div>
@@ -21,7 +23,7 @@
                   <div class="flex items-center">
                    
                     <div class="flex flex-col mx-auto">
-                    <img src="{{Storage::url($evento->image->url)}}" class="w-20 p-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png" class="w-full p-1">
     
                     </div>
                    

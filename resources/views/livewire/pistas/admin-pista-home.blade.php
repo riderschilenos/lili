@@ -52,7 +52,7 @@
                     <div>
                        <div class="flex justify-center">
                             <a href="{{route('ticket.evento.show', $pista)}}">
-                                <button class="btn btn-danger ml-2 text-center text-xl mt-4">Links Pista</button>
+                                <button class="btn btn-danger ml-2 text-center text-xl mt-4">Link-Pista</button>
                             </a>
                         </div>
                     </div>

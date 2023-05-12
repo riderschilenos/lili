@@ -80,7 +80,7 @@
                                     @break
                                 @case(2)
                                         <div class="font-semibold text-center">
-                                          <a href="" class="btn btn-danger h-4 my-auto">
+                                          <a href="" class="btn btn-success h-4 my-auto">
                                           VIGENTE
                                           </a>
                                         </div>

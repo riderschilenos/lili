@@ -21,7 +21,7 @@ class CreateTicketsTable extends Migration
 
             $table->string('qr')->nullable();
 
-            $table->integer('inscripcion')->Nullable();
+            $table->integer('inscripcion')->nullable();
                         
             $table->foreignId('user_id')
                     ->nullable()

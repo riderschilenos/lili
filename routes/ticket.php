@@ -16,3 +16,6 @@ Route::get('ticket/create/{evento}',[EventoController::class,'preticket'])->name
 Route::resource('inscripcion', InscripcionController::class)->names('inscripcions');
 
 Route::get('pistas/create',[EventoController::class, 'pista_create'])->name('pistas.create');
+
+Route::get('ticket/view/{ticket}',[EventoController::class, 'ticket_view'])->name('view');
+

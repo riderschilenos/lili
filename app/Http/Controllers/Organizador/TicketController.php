@@ -7,6 +7,7 @@ use App\Models\Evento;
 use App\Models\Invitado;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TicketController extends Controller
 {
@@ -67,11 +68,20 @@ class TicketController extends Controller
                     return redirect()->back();
                 }
             else{
+                
+                
+
                 $ticket = Ticket::create([
                     'user_id'=> $request->user_id,
                     'evento_id'=> $request->evento_id,
                     'ticketable_id'=> $request->pedidoable_id,
                     'ticketable_type'=> $request->pedidoable_type]);
+                
+                
+                QrCode::format('svg')->size('300')->generate('https://riderschilenos.cl/ticket/view/'.$ticket->id, '../public/storage/qrcodes/cod'.$ticket->id.'.svg');
+                
+                $ticket->update(['qr'=>'qrcodes/cod'.$ticket->id.'.svg']);
+                $ticket->save();
                 
                 $evento=Evento::find($request->evento_id);
 

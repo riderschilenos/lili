@@ -18,6 +18,10 @@ class CreateTicketsTable extends Migration
             $table->id();
 
             $table->enum('status',[Ticket::BORRADOR,Ticket::PAGADO])->default(Ticket::BORRADOR);
+
+            $table->string('qr')->nullable();
+
+            $table->integer('inscripcion')->Nullable();
                         
             $table->foreignId('user_id')
                     ->nullable()

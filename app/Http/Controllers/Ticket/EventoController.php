@@ -34,6 +34,13 @@ class EventoController extends Controller
         return view('pistas.create',compact('disciplinas'));
     }
 
+    public function ticket_view(Ticket $ticket)
+    {
+        $disciplinas= Disciplina::pluck('name','id');
+        $evento=Evento::find($ticket->evento_id);
+        return view('payment.ticketview',compact('evento','disciplinas','ticket'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

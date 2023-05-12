@@ -17,18 +17,18 @@ class CreateInscripcionsTable extends Migration
         Schema::create('inscripcions', function (Blueprint $table) {
             $table->id();
             
-            $table  ->foreignId('ticket_id')
+            $table->foreignId('ticket_id')
                     ->constrained()
                     ->onDelete('cascade');
 
-            $table  ->foreignId('categoria_id')
+            $table->foreignId('categoria_id')
                     ->constrained()
                     ->onDelete('cascade');
-            $table  ->foreignId('fecha_categoria_id')
+            $table->foreignId('fecha_categoria_id')
                     ->constrained()
                     ->onDelete('cascade');
             
-            $table  ->foreignId('fecha_id')
+            $table->foreignId('fecha_id')
                     ->constrained()
                     ->onDelete('cascade');
 

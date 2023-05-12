@@ -15,6 +15,7 @@ class QrregisterFactory extends Factory
      */
     public function definition()
     {   $slug=Str::random(10);
+        
         QrCode::format('svg')->size('300')->generate('https://riderschilenos.cl/garage/'.$slug, '../public/storage/qrcodes/'.$slug.'.svg');
 
         return [  

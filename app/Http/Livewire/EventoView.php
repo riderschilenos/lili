@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Evento;
+use App\Models\Ticket;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
@@ -15,10 +16,12 @@ class EventoView extends Component
         
         $this->evento =$evento;
         
+
+        
     }
 
     public function render()
-    {
-        return view('livewire.evento-view');
+    {   $tickets=Ticket::where('user_id',auth()->user()->id)->get();
+        return view('livewire.evento-view',compact('tickets'));
     }
 }

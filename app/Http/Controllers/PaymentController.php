@@ -78,7 +78,7 @@ class PaymentController extends Controller
             $ticket->status=2;
             $ticket->save();
             foreach ($ticket->inscripcions as $inscripcion){
-                $inscripcion->status=2;
+                $inscripcion->estado=2;
                 $inscripcion->save();
             }  
             

@@ -8,6 +8,7 @@ use App\Models\Evento;
 use App\Models\Fecha;
 use App\Models\Precio;
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EventoController extends Controller
@@ -41,6 +42,13 @@ class EventoController extends Controller
         return view('payment.ticketview',compact('evento','disciplinas','ticket'));
     }
 
+    public function ticket_historial(User $user)
+    {
+        $disciplinas= Disciplina::pluck('name','id');
+
+        return view('payment.tickethistorial',compact('disciplinas', 'user'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -71,7 +79,7 @@ class EventoController extends Controller
         if(auth()->user())
         {   
             if(Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)){    
-                    $ticket = Ticket::where('evento_id',$evento->id)->where('user_id',auth()->user()->id)->first();
+                    $ticket = Ticket::where('evento_id',$evento->id)->where('status',1)->where('user_id',auth()->user()->id)->first();
                 }else{
                     $ticket =null;
                 }             
@@ -136,13 +144,13 @@ class EventoController extends Controller
         $ticket=Ticket::where('user_id', auth()->user()->id)->where('evento_id',$evento->id)->first();
 
         if ($ticket){
-            if ($ticket->status==2) {
-                return redirect()->route('evento.view',$ticket->evento);
+            if ($ticket->status==1) {
+                return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
             }else{
                 if($ticket->evento->inscritos->contains(auth()->user()->id)){
-                    return redirect()->route('evento.view',$ticket->evento);
+                    return redirect()->route('ticket.view',$ticket);
                 }else{
-                    return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+                    return view('Evento.preticket',compact('evento'));
                 }
             }
            

@@ -46,7 +46,9 @@ Route::post('evento/{evento}/enrolled', [EventoController::class, 'enrolled'])->
 
 Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->middleware('auth');
 
-Route::get('evento-view/{evento}', EventoView::class)->name('evento.view')->middleware('auth');
+Route::get('evento-view/{user}', EventoView::class)->name('user.view')->middleware('auth');
+
+Route::get('historial/ticket/{user}', [EventoController::class,'ticket_historial'])->name('ticket.historial.view')->middleware('auth');
 
 Route::post('webhooks', WebhooksController::class);
 

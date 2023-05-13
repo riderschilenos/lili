@@ -76,15 +76,59 @@ class InscripcionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Inscripcion $inscripcion)
-    {   if($inscripcion->estado==2){
+    {   $ticket=Ticket::find($inscripcion->ticket_id);
+
+        if($inscripcion->estado==2){
             $inscripcion->estado=1;
             $inscripcion->save();
+
+            foreach($ticket->inscripcions as $inscripcion){
+                if($inscripcion->estado==1){
+                    $ticket->status=2;
+                    $ticket->save();
+                    $evento=Evento::find($ticket->evento_id);
+                    $evento->inscritos()->detach($ticket->user->id);
+
+                }else{
+                    $ticket->status=1;
+                    $ticket->save();
+                    $evento=Evento::find($ticket->evento_id);
+                    $evento->inscritos()->attach($ticket->user->id);
+                    break;
+                }
+            }
         }else{
             $inscripcion->estado=4;
             $inscripcion->save();
+
+            foreach($ticket->inscripcions as $inscripcion){
+                if($inscripcion->estado==4){
+                    $ticket->status=4;
+                    $ticket->save();
+                    $evento=Evento::find($ticket->evento_id);
+                    $evento->inscritos()->detach($ticket->user->id);
+
+                }else{
+                    $ticket->status=3;
+                    $ticket->save();
+
+                    $evento=Evento::find($ticket->evento_id);
+                    $evento->inscritos()->attach($ticket->user->id);
+                   
+                    break;
+                }
+            }
         }
+
+        
+        if($ticket->status==2 || $ticket->status==4){
+            return redirect()->route('ticket.historial.view',$inscripcion->ticket->user);
+        }else{
+            return redirect()->route('ticket.view',$inscripcion->ticket);
+        }
+        
        
-        return redirect()->route('ticket.view',$inscripcion->ticket);
+       
     }
 
     /**

@@ -15,7 +15,7 @@ class AdminPistaHome extends Component
         $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
                     ->select('inscripcions.*','tickets.evento_id')
                     ->where('evento_id',$pista->id)
-                    ->where('estado','>=',2)
+                    ->where('estado','>=',3)
                     ->orderby('categoria_id','DESC')
                     ->paginate(50);
         $tickets = $pista->tickets()->where('status','>=',3)->get();

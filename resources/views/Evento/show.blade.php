@@ -116,34 +116,44 @@
                         </div>
                         @can('enrolled', $evento)
                             @if($evento->type=='pista')
-                                <a class="btn btn-danger btn-block mt-4" href="{{route('ticket.view',auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->first())}}">Ver mi Entrada</a>
+                                <a class="btn btn-danger btn-block mt-4" href="{{route('ticket.view',auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->where('status',1)->first())}}">Ver mi Entrada</a>
                             @else
-                                <a class="btn btn-danger btn-block mt-4" href="{{route('ticket.view',auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->first())}}">Ver Tickets</a>
+                                <a class="btn btn-danger btn-block mt-4" href="{{route('ticket.view',auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->where('status',1)->first())}}">Ver Tickets</a>
                             @endif
+
+                                @if (auth()->user()->tickets)
+                                    <a href="{{route('ticket.historial.view',auth()->user())}}" class="btn btn-danger btn-block mt-2">
+                                        @if ($evento->type=='pista')
+                                            Historial Compra
+                                        @else
+                                            Historial Compra
+                                        @endif
+                                    </a>
+                                @endif
                             
                         @else 
 
-                        @php
-                            $min=0;
-                            $max=0;
-                        @endphp
-                        @foreach ($fechas as $fecha)
-                            @foreach($fecha->categorias as $categoria)
                                 @php
-                                    if ($min==0) {
-                                        $min=$categoria->inscripcion;
-                                        $max=$categoria->inscripcion;
-                                    }else{
-                                        if ($categoria->inscripcion<$min) {
-                                            $min=$categoria->inscripcion;
-                                        }elseif($categoria->inscripcion>$max){
-                                            $max=$categoria->inscripcion;
-                                        }
-                                    }
-                                
-                                @endphp    
-                            @endforeach
-                        @endforeach
+                                    $min=0;
+                                    $max=0;
+                                @endphp
+                                @foreach ($fechas as $fecha)
+                                    @foreach($fecha->categorias as $categoria)
+                                        @php
+                                            if ($min==0) {
+                                                $min=$categoria->inscripcion;
+                                                $max=$categoria->inscripcion;
+                                            }else{
+                                                if ($categoria->inscripcion<$min) {
+                                                    $min=$categoria->inscripcion;
+                                                }elseif($categoria->inscripcion>$max){
+                                                    $max=$categoria->inscripcion;
+                                                }
+                                            }
+                                        
+                                        @endphp    
+                                    @endforeach
+                                @endforeach
 
                                 @if ($min == 0 && $max==0)
                                     @if ($evento->type=='pista')
@@ -191,8 +201,19 @@
                                             Inscribirme
                                         @endif
                                     </a>
+
                                 @endif
                                
+                                @if (auth()->user()->tickets)
+                                    <a href="{{route('ticket.historial.view',auth()->user())}}" class="btn btn-danger btn-block mt-2">
+                                        @if ($evento->type=='pista')
+                                            Historial Compra
+                                        @else
+                                            Historial Compra
+                                        @endif
+                                    </a>
+                                @endif
+
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 <div class="flex justify-between mb-4">
                                     <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">

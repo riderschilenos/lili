@@ -12,11 +12,12 @@ class Ticket extends Model
     protected $guarded = ['id','status'];
     
     protected $withCount = ['inscripcions'];
-
+    
     const BORRADOR =1;
-    const PAGADO =2;
-    const COBRADO =3;
-    const CERRADO =4;
+    const CERRADO =2;
+    const PAGADO =3;
+    const COBRADO =4;
+    
 
     public function ticketable(){
         return $this->morphTo();

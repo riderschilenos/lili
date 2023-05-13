@@ -28,10 +28,11 @@ class EventoInscritos extends Component
     }
 
     public function render()
-    {   $sponsors = $this->evento->inscritos()->where('name','LIKE','%'. $this->search .'%')->paginate(5);
+    {   $sponsors = $this->evento->inscritos()->where('name','LIKE','%'. $this->search .'%')->paginate(50);
         $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
                             ->select('inscripcions.*','tickets.evento_id')
                             ->where('evento_id',$this->evento->id)
+                            ->where('estado','>=2')
                             ->orderby('categoria_id','DESC')
                             ->paginate(50);
 

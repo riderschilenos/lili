@@ -7,14 +7,11 @@
 @endphp
 
     @foreach ($tickets as $ticket)
-        @foreach ($ticket->inscripcions as $inscripcion) 
-            @if ($inscripcion->estado>=2)
-                @php
-                    $total+=$inscripcion->fecha_categoria->inscripcion;
-                @endphp
-            @endif
-        @endforeach
-           
+        @if($ticket->status>=3)
+            @php
+                $total+=$ticket->inscripcion;
+            @endphp
+        @endif   
     @endforeach
 
     @foreach ($retiros as $retiro)

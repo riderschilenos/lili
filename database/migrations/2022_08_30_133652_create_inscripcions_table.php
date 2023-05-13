@@ -25,8 +25,9 @@ class CreateInscripcionsTable extends Migration
                     ->constrained()
                     ->onDelete('cascade');
             $table->foreignId('fecha_categoria_id')
+                    ->nullable()
                     ->constrained()
-                    ->onDelete('cascade');
+                    ->onDelete('set null');
             
             $table->foreignId('fecha_id')
                     ->constrained()

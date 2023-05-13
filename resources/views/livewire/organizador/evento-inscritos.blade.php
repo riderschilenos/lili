@@ -52,12 +52,13 @@
                                                 
                                             </div>
                                             <div class="ml-4">
+                                            <a href="{{route('ticket.historial.view',$sponsor)}}">
                                                 <div class="text-sm font-medium text-gray-900">
                                                     {{$sponsor->name}}<br>
                                                     {{$sponsor->email}}<br>
                                                     {{$sponsor->socio->fono}}
                                                 </div>
-                                                
+                                             </a>
                                             </div>
                                         </div>
                                     </td>
@@ -216,12 +217,13 @@
                                                     
                                                 </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        {{$inscripcion->ticket->user->name}}<br>
-                                                        {{$inscripcion->ticket->user->email}}<br>
-                                                        {{$inscripcion->ticket->user->socio->fono}}
-                                                    </div>
-                                                    
+                                                    <a href="{{route('ticket.historial.view',$inscripcion->ticket->user)}}">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            {{$inscripcion->ticket->user->name}}<br>
+                                                            {{$inscripcion->ticket->user->email}}<br>
+                                                            {{$inscripcion->ticket->user->socio->fono}}
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>

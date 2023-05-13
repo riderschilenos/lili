@@ -197,7 +197,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                        @foreach ($inscripciones as $inscripcion)
+                        @foreach ($inscripciones->reverse() as $inscripcion)
                             @if ($evento->inscritos->contains($inscripcion->ticket->evento->user->id))
                                 @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status==3)
                                     <tr>

@@ -249,8 +249,14 @@
                                                             @endif
                                                         @else
                                                             @if ($inscripcion->ticket->status==3)
+                                                                @if ($inscripcion->estado==4)
+                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                
+                                                                @else
+                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                
+                                                                @endif
 
-                                                                <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
                                                                 
                                                             @else
                                                                 @break

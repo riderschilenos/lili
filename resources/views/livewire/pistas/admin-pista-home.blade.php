@@ -97,7 +97,7 @@
                 </div>
             </a>
             <div class="flex justify-center"> 
-                <a href="{{route('organizador.eventos.fechas',$pista)}}">
+                <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                     <button class="btn btn-danger ml-2 text-center text-xl mt-4">Entrenamientos</button>
                 </a>
             </div>

@@ -24,7 +24,7 @@ class CreateInscripcionsTable extends Migration
             $table->foreignId('categoria_id')
                     ->constrained()
                     ->onDelete('cascade');
-                    
+
             $table->foreignId('fecha_categoria_id')
                     ->nullable()
                     ->constrained()
@@ -33,6 +33,8 @@ class CreateInscripcionsTable extends Migration
             $table->foreignId('fecha_id')
                     ->constrained()
                     ->onDelete('cascade');
+
+            $table->string('cantidad')->nullable();
 
             $table->string('nro')->nullable();
             

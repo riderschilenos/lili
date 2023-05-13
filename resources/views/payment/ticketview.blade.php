@@ -26,8 +26,9 @@
                     <div class="flex items-center">
                      
                       <div class="flex flex-col mx-auto">
-                        <img src="{{Storage::url($ticket->qr)}}" width="150px" class=" p-1">
-      
+                        <a href="{{route('ticket.historial.view',$ticket->user)}}">
+                          <img src="{{Storage::url($ticket->qr)}}" width="150px" class=" p-1">
+                        </a>
                       </div>
                      
                     </div>

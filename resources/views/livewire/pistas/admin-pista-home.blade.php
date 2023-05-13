@@ -22,7 +22,7 @@
 
     <div class="bg-white shadow pt-2 sm:mt-4 mb-4 w-full px-4">
 
-        <div class="bg-gray-100 mt-4 sm:mt-4 w-full p-10">
+        <div class="bg-gray-100 rounded-xl mt-4 sm:mt-4 w-full p-10">
             <div class="grid grid-cols-3 mb-4">
                 <div class="flex justify-center">
                     @isset($pista->image)
@@ -33,7 +33,7 @@
                     @endisset
                 </div>
             <div class="col-span-2 content-center items-center my-auto">
-                <h1 class="text-center text-2xl my-auto mt-6 mr-4"> Administracion Pista <b>{{$pista->titulo}}</b></h1>
+                <h1 class="text-center text-2xl my-3 mr-4"> Administracion Pista <b>{{$pista->titulo}}</b></h1>
             </div>
             </div>
         </div>
@@ -85,12 +85,12 @@
 
                         <div class="grid grid-cols-2 w-full ">
                             <div class="mr-2">
-                                <span class="text-4xl sm:text-8xl text-center leading-none font-bold text-gray-900">${{number_format($total-$total*0.072-$retiroacumulado)}}</span>
+                                <span class="text-2xl sm:text-8xl text-center leading-none font-bold text-gray-900">${{number_format($total-$total*0.072-$retiroacumulado)}}</span>
                                 <h3 class="sm:hidden text-base font-normal text-gray-500">Pend. Cobrar</h3>
                                 <h3 class="hidden sm:block text-base font-normal text-gray-500">Pendiente Cobrar</h3>
                             </div>
                             <div  class="ml-2">
-                                <span class="text-4xl sm:text-8xl text-center leading-none font-bold text-gray-900">${{number_format($retiroacumulado)}}</span>
+                                <span class="text-2xl sm:text-8xl text-center leading-none font-bold text-gray-900">${{number_format($retiroacumulado)}}</span>
                                 <h3 class="sm:hidden text-base font-normal text-gray-500">Cobradas</h3>
                                 <h3 class="hidden sm:block text-base font-normal text-gray-500">Cobradas</h3>
                             </div>

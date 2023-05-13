@@ -164,7 +164,7 @@ class TicketController extends Controller
 
                  //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
-        $phoneid='100799979656074';
+        $phoneid= env('WS_PHONEID');
         $version='v16.0';
         $url="https://riderschilenos.cl/";
         $payload=[

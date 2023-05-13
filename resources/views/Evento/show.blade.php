@@ -128,6 +128,7 @@
                                         <a class="btn btn-danger btn-block mt-4" href="{{route('ticket.view',auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->where('status',3)->first())}}">Ver Tickets</a>
                                     @endif
                                 @endif
+                                
                                 @if (auth()->user()->tickets)
                                     <a href="{{route('ticket.historial.view',auth()->user())}}" class="btn btn-danger btn-block mt-2">
                                         @if ($evento->type=='pista')
@@ -234,7 +235,7 @@
                                    
                                 </div>
                             
-                                @if ($ticket)
+                                @isset($ticket)
                                     <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Finalizar Compra</a>
                                 @else
                                     <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">Obtener Entradas</a>

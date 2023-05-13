@@ -133,10 +133,13 @@
                     
                     <h1 class="text-xl pb-4 text-center">Datos Médicos</h1>
 
+                    @php
+                        $prev=['Fonasa'=>'Fonasa','Isapre'=>'Isapre'];
+                    @endphp
                     <div class="mb-4">
                         {!! Form::label('prevision', 'Prevision de Salud (Fonasa o Isapre? En caso de ser isapre, indicar cual)') !!}
-                        {!! Form::text('prevision', null , ['class' => 'form-input block w-full mt-1'.($errors->has('subtitulo')?' border-red-600':'')]) !!}
-
+                        {!! Form::select('prevision', $prev, null , ['class'=>'form-input block w-full mt-1']) !!}
+                    
                         @error('prevision')
                             <strong class="text-xs text-red-600">{{$message}}</strong>
                         @enderror

@@ -1,4 +1,4 @@
-<div class="w-full bg-blue-900 p-20 flex justify-center h-screen">
+<div class="w-full bg-blue-900 p-20 flex justify-center h-min-screen">
   <div class="max-w-4xl my-12"> 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2 mx-2 md:mx-4"> 
           @foreach ($tickets->reverse() as $ticket)

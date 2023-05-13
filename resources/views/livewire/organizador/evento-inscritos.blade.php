@@ -201,9 +201,9 @@
                                 <tr>
                                   
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        @if ($inscripcion->fecha_categoria->categoria)
-                                                <div class="text-sm text-gray-900 text-center">{{$inscripcion->fecha_categoria->categoria->name}}</div>
-                                        |@else
+                                        @if ($inscripcion->categoria)
+                                                <div class="text-sm text-gray-900 text-center">{{$inscripcion->categoria->name}}</div>
+                                        @else
                                                -
                                         @endif
                                     </td>

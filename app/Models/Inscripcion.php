@@ -23,6 +23,10 @@ class Inscripcion extends Model
         return $this->belongsTo('App\Models\Fecha_categoria');
     }
 
+    public function categoria(){
+        return $this->belongsTo('App\Models\Categoria');
+    }
+
     public function fecha(){
         return $this->belongsTo('App\Models\Fecha');
     }

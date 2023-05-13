@@ -56,7 +56,7 @@
                     </div>
                     <div>
                        <div class="flex justify-center">
-                            <a href="{{route('ticket.evento.show', $pista)}}">
+                            <a href="{{route('ticket.pista.show', $pista)}}">
                                 <button class="sm:hidden btn btn-danger ml-2 text-center text-xl mt-4 whitespace-nowrap">Link</button>
                                 <button class="hidden sm:block btn btn-danger ml-2 text-center text-xl mt-4 whitespace-nowrap">Link-Pista</button>
                             </a>

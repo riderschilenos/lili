@@ -2,14 +2,24 @@
 
 <article class="card flex flex-col">
                 @isset($evento->image)
-                    <a href="{{route('ticket.evento.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                        @if ($evento->type=='pista')
+                            <a href="{{route('ticket.pista.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                            <a href="{{route('ticket.pista.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                        @else
+                             <a href="{{route('ticket.evento.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                             <a href="{{route('ticket.evento.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                        @endif
                 @else
                     <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
 
                @endisset
 
                <div class="card-body flex flex-1 flex-col">
-                   <a href="{{route('ticket.evento.show', $evento)}}"><h1 class="card-tittle">{{Str::limit($evento->titulo,40)}}</h1>
+                @if ($evento->type=='pista')
+                    <a href="{{route('ticket.pista.show', $evento)}}"><h1 class="card-tittle">{{Str::limit($evento->titulo,40)}}</h1>
+                @else
+                    <a href="{{route('ticket.evento.show', $evento)}}"><h1 class="card-tittle">{{Str::limit($evento->titulo,40)}}</h1>
+                @endif
                    <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$evento->disciplina->name}}</p> 
                    <p class="text-gray-500 text-sm mb-2">Organizador: {{$evento->organizador->first()->name}}</p>
                    <p class="text-gray-500 text-sm mb-2 "><b>{{$evento->fechas_count}}</b> Fechas </p> 
@@ -38,26 +48,54 @@
                     @endphp    
                 @endforeach
             @endforeach
-
+                
+                @if ($evento->type=='pista')
+                    
+                
                     @if ($min == 0 && $max==0)
                       
-                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                        <a href= "{{route('ticket.pista.show', $evento)}}" class="btn bg-gray-300 btn-block">
                             Inscripcion GRATIS
                             </a>
+                            
                     @elseif($min==$max)
                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                         
-                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                        <a href= "{{route('ticket.pista.show', $evento)}}" class="btn bg-gray-300 btn-block">
                             ${{number_format($min)}}
                         </a>
+
                     @else
                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                         
-                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                        <a href= "{{route('ticket.pista.show', $evento)}}" class="btn bg-gray-300 btn-block">
                             ${{number_format($min)}} - ${{number_format($max)}}
                         </a>
+
+                    @endif
+                @else
+                         @if ($min == 0 && $max==0)
+                                
+                            <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                                Inscripcion GRATIS
+                                </a>
+                                
+                        @elseif($min==$max)
+                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                            
+                            <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                                ${{number_format($min)}}
+                            </a>
+
+                        @else
+                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                            
+                            <a href= "{{route('ticket.evento.show', $evento)}}" class="btn bg-gray-300 btn-block">
+                                ${{number_format($min)}} - ${{number_format($max)}}
+                            </a>
+
+                        @endif                                  
                 @endif
-                
 
                     <div class="flex mt-2">
                         <p class="text-gray-500 text-md mb-2">INSCRITOS</p>
@@ -68,10 +106,16 @@
                     </div>
 
                     @can('enrolled', $evento)
-
-                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn btn-success btn-block mt-10">
-                            Ver evento
-                        </a>
+                        @if ($evento->type=='pista')
+                            <a href= "{{route('ticket.pista.show', $evento)}}" class="btn btn-success btn-block mt-10">
+                                Ver evento
+                            </a>
+                        @else
+                            <a href= "{{route('ticket.evento.show', $evento)}}" class="btn btn-success btn-block mt-10">
+                                Ver evento
+                            </a>
+                        @endif
+                       
 
                     @else 
                        {{-- comment @if ($evento->entrada == 0)
@@ -89,10 +133,17 @@
                                 </div>
                             </div>
                         @endif --}}
-
-                        <a href= "{{route('ticket.evento.show', $evento)}}" class="btn btn-danger btn-block">
-                            Obtener
-                        </a>
+                        @if ($evento->type=='pista')
+                            <a href= "{{route('ticket.pista.show', $evento)}}" class="btn btn-danger btn-block">
+                                Obtener
+                            </a>
+                        @else
+                            <a href= "{{route('ticket.evento.show', $evento)}}" class="btn btn-danger btn-block">
+                                Obtener
+                            </a>
+                            
+                        @endif
+                       
 
                     @endcan
 

@@ -9,6 +9,8 @@ Route::get('eventos', [EventoController::class,'index'])->name('evento.index');
 
 Route::get('eventos/{evento}',[EventoController::class,'show'])->name('evento.show');
 
+Route::get('pista/{evento}',[EventoController::class, 'show'])->name('pista.show');
+
 Route::get('pistas',[EventoController::class,'pistas'])->name('pistas.index');
 
 Route::get('ticket/create/{evento}',[EventoController::class,'preticket'])->name('evento.preticket')->middleware('auth');

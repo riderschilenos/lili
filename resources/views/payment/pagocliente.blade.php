@@ -26,6 +26,11 @@
     
           function onScanSuccess(decodedText, decodedResult) {
               // Handle the scanned code as you like, for example:
+              html5QrCode.stop().then((ignore) => {
+                      // QR Code scanning is stopped.
+                    }).catch((err) => {
+                      // Stop failed, handle it.
+                    });
               console.log(`Code matched = ${decodedText}`, decodedResult);
               //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/caja-registradora%20dinero.mp3');
               //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/scanner-beep-checkout.mp3');

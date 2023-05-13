@@ -159,6 +159,8 @@ class HomeController extends Controller
         Cache::flush();
         $fono='569'.substr(str_replace(' ', '', $socio->fono), -8);
          //TOKEN QUE NOS DA FACEBOOK
+
+    
          $token = env('WS_TOKEN');
          $phoneid= env('WS_PHONEID');
          $version='v16.0';
@@ -179,7 +181,7 @@ class HomeController extends Controller
                              'parameters'=>[
                                  [   //Socio
                                      'type'=>'text',
-                                     'text'=> $socio->name
+                                     'text'=> $socio->user->name
                                  ]
                              ]
                          ]

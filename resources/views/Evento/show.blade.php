@@ -212,16 +212,17 @@
 
                                 @endif
                                
-                                @if (auth()->user()->tickets)
-                                    <a href="{{route('ticket.historial.view',auth()->user())}}" class="btn btn-danger btn-block mt-2">
-                                        @if ($evento->type=='pista')
-                                            Historial Compra
-                                        @else
-                                            Historial Compra
-                                        @endif
-                                    </a>
+                                @if (auth()->user())
+                                    @if (auth()->user()->tickets)
+                                        <a href="{{route('ticket.historial.view',auth()->user())}}" class="btn btn-danger btn-block mt-2">
+                                            @if ($evento->type=='pista')
+                                                Historial Compra
+                                            @else
+                                                Historial Compra
+                                            @endif
+                                        </a>
+                                    @endif
                                 @endif
-
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 <div class="flex justify-between mb-4">
                                     <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">

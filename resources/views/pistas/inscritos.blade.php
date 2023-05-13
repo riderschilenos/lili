@@ -22,7 +22,7 @@
             
     <div class="max-w-7xl w-full rounded-lg my-2 mx-4">
 
-        <h1 class="text-2xl font-bold"> 
+        <h1 class="text-2xl font-bold text-center"> 
             Riders con Entrada para: {{$evento->titulo}}
         </h1>
         <hr class="mt-2 mb-6">

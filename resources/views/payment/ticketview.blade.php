@@ -88,7 +88,7 @@
                                         @break
                                     @case(3)
                                             <div class="font-semibold text-center">
-                                              <a href="" class="btn btn-danger h-4 my-auto">
+                                              <a href="" class="btn btn-success h-4 my-auto">
                                               VIGENTE
                                               </a>
                                             </div>
@@ -115,6 +115,7 @@
               
                               </div>
                             </div>
+                            
                             @if (auth()->user())
                               @if (auth()->user()->id==$ticket->evento->user_id)
                                 @if ($inscripcion->estado==2 || $inscripcion->estado==3)

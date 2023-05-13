@@ -17,12 +17,54 @@
                                     </div>
                                 </div>
                               
-                                              <div class="flex justify-center mx-auto">
+                                              <div class="flex justify-center mx-auto mb-5">
                                                 <a href="{{route('ticket.view',$ticket)}}">
                                                   <img class="object-center" width="150px" src="{{Storage::url($ticket->qr)}}" class="p-1">
                                                 </a>
                                               </div>
-                                            </div>
+                                            
+
+                                          @switch($ticket->status)
+                                                @case(1)
+                                                        <div class="font-semibold text-center">
+                                                            <a href="" class="btn bg-gray-200 h-4 my-auto">
+                                                            CERRADO (SIN PAGAR)
+                                                            </a>
+                                                        </div>
+                                                    @break
+                                                @case(2)
+                                                        <div class="font-semibold text-center">
+                                                          <a href="" class="btn bg-gray-200 h-4 my-auto">
+                                                          SIN PAGAR
+                                                          </a>
+                                                        </div>
+                                                    @break
+                                                @case(3)
+                                                        <div class="font-semibold text-center">
+                                                          <a href="" class="btn btn-success h-4 my-auto">
+                                                          VIGENTE
+                                                          </a>
+                                                        </div>
+                                                    @break
+                                                  @case(4)
+                                                        <div class="font-semibold text-center">
+                                                          <a href="" class="btn btn-danger h-4 my-auto">
+                                                            CERRADO
+                                                          </a>
+                                                        </div>
+                                                    @break
+                                                  @case(5)
+                                                        <div class="font-semibold text-center">
+                                                          <a href="" class="btn btn-danger h-4 my-auto">
+                                                            COBRADA
+                                                          </a>
+                                                        </div>
+                                                    @break
+                                                
+                                            @default
+                                                
+                                          @endswitch  
+                                  </div>
             @endforeach
       </div>
     </div>

@@ -7,6 +7,7 @@ use App\Models\Evento;
 use App\Models\Invitado;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TicketController extends Controller
@@ -142,6 +143,71 @@ class TicketController extends Controller
         $evento->inscritos()->attach(auth()->user()->id);
         
         return redirect()->route('ticket.view',$ticket);
+    }
+
+    public function semipago(Ticket $ticket){
+        
+        $ticket->status=3;
+        $ticket->save();
+        foreach ($ticket->inscripcions as $inscripcion){
+            $inscripcion->estado=3;
+            $inscripcion->save();
+        }  
+
+        $evento=Evento::find($ticket->evento_id);
+        $evento->inscritos()->attach(auth()->user()->id);
+
+                 //TOKEN QUE NOS DA FACEBOOK
+        $token = env('WS_TOKEN');
+        $phoneid='100799979656074';
+        $version='v16.0';
+        $url="https://riderschilenos.cl/";
+        $payload=[
+            'messaging_product' => 'whatsapp',
+            "preview_url"=> false,
+            'to'=>'56963176726',
+            
+            'type'=>'template',
+                'template'=>[
+                    'name'=>'nuevo_pedido',
+                    'language'=>[
+                        'code'=>'es'],
+                    'components'=>[ 
+                        [
+                            'type'=>'body',
+                            'parameters'=>[
+                                [   //cliente
+                                    'type'=>'text',
+                                    'text'=> $ticket->user->name
+                                ],
+                                [   //vendedor
+                                    'type'=>'text',
+                                    'text'=> 'Pista MARIOCROSS'
+                                ],
+                                [   //Cantidad
+                                    'type'=>'text',
+                                    'text'=> '$'.number_format($ticket->inscripcion)
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+                
+            
+            
+            /*
+            "text"=>[
+                "body"=> "Buena Rider, Bienvenido al club"
+             ]*/
+        ];
+        
+        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+
+            
+        return redirect()->route('ticket.view',$ticket);
+       
+        
+       
     }
 
 

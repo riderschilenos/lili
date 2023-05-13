@@ -488,7 +488,14 @@
             <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
                 @csrf
              
-                <button class="btn btn-primary" >Agregar </button>
+                <button class="btn btn-primary mt-4" >Agregar Gratis</button>
+                
+            </form>
+
+            <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
+                @csrf
+             
+                <button class="btn btn-danger mt-4" >Agregar Simulación Pago</button>
                 
             </form>
         </div>

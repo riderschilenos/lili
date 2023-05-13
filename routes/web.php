@@ -58,6 +58,8 @@ Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasa
 
 Route::post('ticket/{ticket}/enrolled', [TicketController::class, 'enrolled'])->middleware('auth')->name('ticket.enrolled');
 
+Route::post('ticket/{ticket}/semipago', [TicketController::class, 'semipago'])->middleware('auth')->name('ticket.semipago');
+
 Route::get('/pagoqr',[AdminHomeController::class, 'pagoqr'])->name('pagosqr.cliente');
 
 Route::get('/contabilidad',[AdminHomeController::class, 'contabilidad'])->middleware('auth')->name('contabilidad');

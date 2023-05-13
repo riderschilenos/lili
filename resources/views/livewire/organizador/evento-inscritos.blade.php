@@ -69,19 +69,29 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <div class="text-sm text-gray-900 text-center">
                                             
-                                            @foreach ($sponsor->tickets->where('status','>=',2) as $ticket)
+                                            @foreach ($sponsor->tickets->reverse() as $ticket)
                                                 @if ($ticket->evento->id==$evento->id)
+
                                                     @if ($ticket->status<=2)
                                                         @if ($ticket->status==2)
 
                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
-
+                                                            @break
                                                         @else
                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
-
+                                                            @break
                                                         @endif
                                                     @else
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}}</a>
+                                                        @if ($ticket->status==3)
+
+                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}}</a>
+                                                            @break
+                                                        @else
+                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}}</a>
+                                                            @break
+                                                        @endif
+
+                                                        @break
                                                     @endif
                                                 
                                                 
@@ -187,7 +197,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
 
                         @foreach ($inscripciones as $inscripcion)
-                        
+                            @if ($evento->inscritos->contains($inscripcion->ticket->evento->user->id))
                                 <tr>
                                   
                                     <td class="px-6 py-4 whitespace-nowrap">
@@ -223,25 +233,25 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <div class="text-sm text-gray-900 text-center">
                                             
-                                            @foreach ($inscripcion->ticket->user->tickets as $ticket)
+                                            @foreach ($inscripcion->ticket->user->tickets->reverse() as $ticket)
                                                 @if ($ticket->evento->id==$evento->id)
                                                 @if ($ticket->status<=2)
                                                     @if ($ticket->status==2)
 
                                                         <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
-
+                                                        @break
                                                     @else
                                                         <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
-
+                                                        @break
                                                     @endif
                                                 @else
                                                     @if ($ticket->status==3)
 
                                                         <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}}</a>
-
+                                                        @break
                                                     @else
                                                         <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}}</a>
-
+                                                        @break
                                                     @endif
 
                                                    
@@ -265,7 +275,7 @@
                                     
                                     </td>
                                 </tr>
-                    
+                            @endif
                         @endforeach
                 
                     </tbody>

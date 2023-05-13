@@ -279,19 +279,9 @@
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-center">
                                     <div class="text-sm text-gray-900 text-center">
-                                        @foreach ($ticket->user->tickets as $tick)
-                                            @if ($tick->evento->id==$evento->id)
-                                                @if ($ticket->status==2)
-                                                    <a href="" class="btn btn-success h-10 my-auto">{{$tick->id}}</a>
-                                                @else
-                                                    <a href="" class="btn btn-danger h-10 my-auto">{{$tick->id}}</a>
-                                                @endif
-                                               
-                                               
-                                                
-                                            @endif
-                                            
-                                        @endforeach
+                                       
+                                                    <a href="" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
+                                                  
                                         
                                     
                                     </div>

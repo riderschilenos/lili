@@ -129,7 +129,7 @@
                                       
                                                             @if ($check )
                                                   
-                                                            Esta categoria a sido agregada
+                                                            Agregada
                                                                             
                                                             @else
 

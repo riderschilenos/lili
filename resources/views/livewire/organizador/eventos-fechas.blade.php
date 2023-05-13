@@ -201,7 +201,40 @@
 
 <div class="flex justify-center items-center h-screen">
 	<!--actual component start-->
-	<div x-data="setup()">
+  <div>
+    <div class="flex" x-on:click="categoria=!categoria">
+      <div class="max-w-lg mx-auto">
+
+       
+          <div class="text-center mt-12">
+            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
+            <div class="flex">
+              <div class="max-w-2xl mx-auto">
+                <div class="text-center mt-2">
+                  <div class="flex justify-center" >
+                    <a href="{{route('organizador.eventos.categorias',$fecha)}}">
+                      <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2" >Agregar Categoria</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
+          </div>
+          <div class="btn btn-primary">
+            <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
+        </div>
+          
+      </div>
+      
+  </div>
+  
+</div>
+
+	<div x-data="setup()" class="hidden">
 
 		<ul class="flex justify-center items-center my-4">
 			<template x-for="(tab, index) in tabs" :key="index">
@@ -210,7 +243,7 @@
 					x-text="tab"></li>
 			</template>
 		</ul>
-    <div x-show="activeTab===0">
+                <div x-show="activeTab===0">
                         <div class="flex" x-on:click="categoria=!categoria">
                           <div class="max-w-lg mx-auto">
 
@@ -245,7 +278,7 @@
 		<div class="w-full bg-white p-16 h-72 text-center mx-auto mt-4">
       <div x-show="activeTab===0">
            
-        </div>
+      </div>
 			<div x-show="activeTab===1">     
         
         <x-table-responsive>

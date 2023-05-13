@@ -87,12 +87,13 @@
                             <table class="min-w-full divide-y divide-gray-200 mt-4">
                                 <thead class="bg-gray-50">
                                   <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Categoria             
+                                    </th>
                                       <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                           Agregar 
                                       </th>
-                                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                          Categoria             
-                                      </th>
+                                      
                                       <th>
                                         Delete
                                       </th>
@@ -105,7 +106,23 @@
 
                                       
 
-                                              <tr>
+                                              <tr> 
+                                                
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex h-10 w-10">
+                                                        
+                                                    
+                                                            
+                                                            <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                        
+                                                            <div class="text-sm text-gray-900 ml-3">{{$categoria->name}}</div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                            </td>
                                                   <td class="px-6 py-4 whitespace-nowrap">
                                                       <div class="flex items-center">
                                                           <div class="flex h-10 w-10">
@@ -148,21 +165,7 @@
 
                                           
 
-                                                  <td class="px-6 py-4 whitespace-nowrap">
-                                                      <div class="flex items-center">
-                                                          <div class="flex h-10 w-10">
-                                                              
-                                                          
-                                                                  
-                                                                  <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
-                                                              
-                                                                  <div class="text-sm text-gray-900 ml-3">{{$categoria->name}}</div>
-                                                              
-                                                          </div>
-                                                      </div>
-                                                      
-                                                      
-                                                  </td>
+                                                 
                                                   @if ($fecha_cat)
                                                         
                                                         <td>

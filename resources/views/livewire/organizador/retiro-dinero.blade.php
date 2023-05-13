@@ -354,7 +354,7 @@
 
                                 
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="" class="text-gray-900 font-bold hover:text-indigo-900">${{number_format($tot)}}</a>
+                                    <a href="" class="text-gray-900 font-bold hover:text-indigo-900">${{number_format($ticket->inscripcion)}}</a>
                                   
                                 </td>
                             </tr>

@@ -138,7 +138,12 @@ class TicketController extends Controller
     }
 
     public function enrolled(Ticket $ticket){
-        
+        $ticket->inscripcion=0;
+        $ticket->save();
+        foreach($ticket->inscripcions() as $inscripcion){
+            $inscripcion->cantidad=0;
+            $inscripcion->save();
+        }
         $evento=Evento::find($ticket->evento_id);
         $evento->inscritos()->attach(auth()->user()->id);
         

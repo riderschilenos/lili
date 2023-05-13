@@ -17,7 +17,7 @@
                     <h1 class="text-4xl">{{$evento->titulo}}</h1>
                     <h2 class="text xl mb-3">{{$evento->subtitulo}}</h2>
                         @if ($evento->type=='pista')
-                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>
+                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Entrenamientos</p>
                         @else
                             <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>
                         @endif

@@ -301,15 +301,31 @@
         </x-table-responsive>
     </div>
 </div>
-    <script>
-        function setup() {
-        return {
-          activeTab: 0,
-          tabs: [
-              "Por Usuario",
-              "Por Categoria"
-          ]
+    @if ($evento->type=='pista')
+        <script>
+            function setup() {
+            return {
+            activeTab: 0,
+            tabs: [
+                "Por Usuario",
+                "Por Entrada"
+            ]
+            };
         };
-      };
-    </script>
+        </script>
+    @else
+        <script>
+            function setup() {
+            return {
+            activeTab: 0,
+            tabs: [
+                "Por Usuario",
+                "Por Categoria"
+            ]
+            };
+        };
+        </script>
+    @endif
+    
+
 </div>

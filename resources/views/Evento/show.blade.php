@@ -16,7 +16,12 @@
                 <div class="text-gray-100 items-center my-auto bg-gray-700 p-4 rounded-2xl  ">
                     <h1 class="text-4xl">{{$evento->titulo}}</h1>
                     <h2 class="text xl mb-3">{{$evento->subtitulo}}</h2>
-                    <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>
+                        @if ($evento->type=='pista')
+                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>
+                        @else
+                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>
+                        @endif
+                        
                     <p class="mb-2"><i class="fas fa-biking"></i> Disciplina: {{$evento->disciplina->name}}</p>
                     <p class="mb-2"><i class="fas fa-user"></i> Organizador: {{$evento->user->name}}</p>
                     @if ($evento->type!='pista')

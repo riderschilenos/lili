@@ -20,12 +20,13 @@
         @endphp
     @endforeach
 
-    <div class="bg-white shadow mt-2 sm:mt-4 mb-4 w-full ">
-        <div class="bg-white mt-2 sm:mt-4 mb-4 w-full p-10">
-            <div class="grid grid-cols-3">
+    <div class="bg-white shadow pt-2 sm:mt-4 mb-4 w-full px-4">
+
+        <div class="bg-gray-100 mt-4 sm:mt-4 w-full p-10">
+            <div class="grid grid-cols-3 mb-4">
                 <div class="flex justify-center">
                     @isset($pista->image)
-                        <img class="h-16 w-16 mt-6" src=" {{Storage::url($pista->image->url)}}" alt="">
+                        <img class="h-16 w-16 my-3" src=" {{Storage::url($pista->image->url)}}" alt="">
                     @else
                         <img loading="lazy" class="h-80 w-full object-cover m-8" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
         
@@ -36,11 +37,12 @@
             </div>
             </div>
         </div>
-        <div class="grid grid-cols-3 md:grid-cols-3 xl:grid-cols-3 gap-x-2 gap-y-2 items-center content-center">
+
+        <div class="grid grid-cols-3 md:grid-cols-3 xl:grid-cols-3 gap-x-2 items-center content-center">
         
 
         
-                <div class="max-w-xl  bg-gray-100 shadow rounded-lg p-4 sm:p-6 xl:p-8 my-4 mx-4">
+                <div class="max-w-xl  bg-gray-200 shadow rounded-lg px-4 py-2 sm:p-6 xl:p-8 mb-4">
                     <a href="{{route('organizador.eventos.inscritos.fast',$pista)}}" class="col-span-1">
                            
                         <div class="flex items-center">

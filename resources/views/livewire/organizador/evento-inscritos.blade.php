@@ -233,36 +233,33 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                         <div class="text-sm text-gray-900 text-center">
                                             
-                                            @foreach ($inscripcion->ticket->user->tickets->reverse() as $ticket)
-                                                @if ($ticket->evento->id==$evento->id)
-                                                @if ($ticket->status<=2)
-                                                    @if ($ticket->status==2)
+                                            
+                                                    @if ($inscripcion->ticket->status<=2)
+                                                        @if ($inscripcion->ticket->status==2)
 
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
-                                                        @break
+                                                            <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (CERRADO)</a>
+                                                            @break
+                                                        @else
+                                                            <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
+                                                            @break
+                                                        @endif
                                                     @else
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
-                                                        @break
-                                                    @endif
-                                                @else
-                                                    @if ($ticket->status==3)
+                                                        @if ($inscripcion->ticket->status==3)
 
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}}</a>
-                                                        @break
-                                                    @else
-                                                        <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}}</a>
-                                                        @break
-                                                    @endif
+                                                            <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                            @break
+                                                        @else
+                                                            <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                            @break
+                                                        @endif
 
-                                                   
-
-                                                @endif
-                                                
-                                                
                                                     
-                                                @endif
-                                                
-                                            @endforeach
+
+                                                    @endif
+                                                    
+                                                    
+                                                        
+                                               
                                             
                                         
                                         </div>

@@ -28,7 +28,7 @@
                                                 @case(1)
                                                         <div class="font-semibold text-center">
                                                             <a href="" class="btn bg-gray-200 h-4 my-auto">
-                                                            CERRADO (SIN PAGAR)
+                                                            ACTIVO
                                                             </a>
                                                         </div>
                                                     @break
@@ -49,14 +49,14 @@
                                                   @case(4)
                                                         <div class="font-semibold text-center">
                                                           <a href="" class="btn btn-danger h-4 my-auto">
-                                                            CERRADO
+                                                            COBRADO
                                                           </a>
                                                         </div>
                                                     @break
                                                   @case(5)
                                                         <div class="font-semibold text-center">
                                                           <a href="" class="btn btn-danger h-4 my-auto">
-                                                            COBRADA
+                                                            COBRADO
                                                           </a>
                                                         </div>
                                                     @break

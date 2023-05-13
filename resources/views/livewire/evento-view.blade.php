@@ -6,7 +6,7 @@
     
     <div class="max-w-4xl"> 
       <h1 class="text-center font-bold text-2xl text-white my-4 md:my-12">Historial {{$user->name}}</h1>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2 mx-2 md:mx-4"> 
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2 mx-2 md:mx-4 mb-12"> 
             @foreach ($tickets->reverse() as $ticket)
 
                             <div class="bg-white shadow-lg rounded-xl p-4">

@@ -703,7 +703,7 @@
                
 
 
-                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8" x-data="{open: true}">
+                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 pb-4" x-data="{open: true}">
                     <div class="flex justify-between">
                         <button class="btn btn-success ml-2 text-center text-xl" x-on:click="open=!open">WS Invitación</button>
                         <a href="{{route('contabilidad')}}">

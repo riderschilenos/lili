@@ -736,9 +736,17 @@
                 @endif
                 
             @endif
+        </section>
            
-
-            <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+            <div class="w-full text-white bg-main-color block md:hidden">
+                <div x-data="{ open: false }"
+                    class="flex flex-col max-w-screen-xl pt-3 pb-4 md:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                    <div class="flex flex-row items-center justify-center">
+                        @livewire('search')
+                    </div>
+                </div>
+            
+            <div class="pb-4 bg-main-color max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                 <article>
                     <figure>
                         <a href="{{route('socio.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/RIDERS-min.png')}}" alt=""></a>
@@ -767,9 +775,9 @@
             
             </div>
 
-        </section>
+        </div>
         
-        <section class="mt-4 bg-rider-color pt-8 pb-12">
+        <section class="bg-rider-color pt-12 pb-12">
             <h1 class="text-center text-white text-3xl mb-4">Registro Nacional de Riders</h1>
             @livewire('socio.socios-count')
 

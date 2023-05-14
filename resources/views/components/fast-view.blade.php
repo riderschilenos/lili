@@ -684,7 +684,7 @@
                     <h1 class="md:hidden text-2xl mx-4 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                     
                     <a href="{{route('ticket.historial.view',auth()->user())}}">
-                        <button class="btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>
+                        <button class="md:hidden btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>
                     </a>
                 </div>
 

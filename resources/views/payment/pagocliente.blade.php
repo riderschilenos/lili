@@ -33,11 +33,7 @@
           
               //audio.play();
               window.location.replace(decodedText);
-              html5QrCode.stop().then((ignore) => {
-                      // QR Code scanning is stopped.
-                    }).catch((err) => {
-                      // Stop failed, handle it.
-                    });
+              html5QrcodeScanner.pause(shouldPauseVideo, showPausedBanner);
             }
     
     

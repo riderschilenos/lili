@@ -85,7 +85,8 @@ class PaymentController extends Controller
         $evento=Evento::find($ticket->evento_id);
         $evento->inscritos()->attach(auth()->user()->id);
 
-                 //TOKEN QUE NOS DA FACEBOOK
+        try {
+                     //TOKEN QUE NOS DA FACEBOOK
         $token = env('WS_TOKEN');
         $phoneid='100799979656074';
         $version='v16.0';
@@ -133,6 +134,11 @@ class PaymentController extends Controller
 
             
             return redirect()->route('ticket.view',$ticket);
+        } catch (\Throwable $th) {
+             
+            return redirect()->route('ticket.view',$ticket);
+        }
+        
          }
         else{
            

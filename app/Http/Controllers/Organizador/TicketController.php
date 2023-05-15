@@ -162,12 +162,13 @@ class TicketController extends Controller
         $evento=Evento::find($ticket->evento_id);
         $evento->inscritos()->attach(auth()->user()->id);
 
-                 //TOKEN QUE NOS DA FACEBOOK
-        $token = env('WS_TOKEN');
-        $phoneid= env('WS_PHONEID');
-        $version='v16.0';
-        $url="https://riderschilenos.cl/";
-        $payload=[
+        try {
+            //TOKEN QUE NOS DA FACEBOOK
+            $token = env('WS_TOKEN');
+            $phoneid='100799979656074';
+            $version='v16.0';
+            $url="https://riderschilenos.cl/";
+            $payload=[
             'messaging_product' => 'whatsapp',
             "preview_url"=> false,
             'to'=>'56963176726',
@@ -203,14 +204,17 @@ class TicketController extends Controller
             /*
             "text"=>[
                 "body"=> "Buena Rider, Bienvenido al club"
-             ]*/
-        ];
-        
-        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                ]*/
+            ];
+
+            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
 
             
-        return redirect()->route('ticket.view',$ticket);
-       
+            return redirect()->route('ticket.view',$ticket);
+            } catch (\Throwable $th) {
+                
+            return redirect()->route('ticket.view',$ticket);
+            }
         
        
     }

@@ -594,7 +594,6 @@
             xAxis: {
                     categories: dias
                     },
-
             legend: {
                 layout: 'vertical',
                 align: 'right',

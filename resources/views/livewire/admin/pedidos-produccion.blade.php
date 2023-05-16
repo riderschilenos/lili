@@ -210,7 +210,7 @@
                                          <br>
                                          <div class="flex justify-center mt-2">
                                             <a class="btn btn-danger text-indigo-600 hover:text-indigo-900 cursor-pointer text-center mt-1"  wire:click="despachado({{$pedido}})">Despachado</a>
-                                            <a class="ml-2 btn btn-danger text-indigo-600 hover:text-indigo-900 cursor-pointer text-center mt-1"  wire:click="despachado({{$pedido}})">Retirado</a>
+                                            <a class="ml-2 btn btn-danger text-indigo-600 hover:text-indigo-900 cursor-pointer text-center mt-1"  wire:click="retirado({{$pedido}})">Retirado</a>
                                          </div>
                                         <div class="text-white  text-md font-bold px-4" wire:loading wire:target="file">
                                             <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">

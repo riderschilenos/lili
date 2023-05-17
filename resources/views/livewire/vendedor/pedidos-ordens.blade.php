@@ -27,7 +27,7 @@
 
 
 
-    <div x-data="{open: false, referencia: false}">
+    <div x-data="{open: false, referencia: false}" class="pb-12">
         @if($pedido->status==1)
             <div class="grid grid-cols-3 md:grid-cols-5 justify-center ">
                         <button wire:click="select_product(1)" x-on:click="open=true" class="btn btn-danger max-w-xs items-center justify-items-center mt-2">CARCASA MX</button>

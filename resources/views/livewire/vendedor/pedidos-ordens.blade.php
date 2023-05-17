@@ -371,10 +371,11 @@
                                     @if($pedido->status==1)
                                  
                                         <td class="px-6 py-4 whitespace-nowrap">    
-            
-                                            <div tabindex="0" wire:click="destroy({{$orden}})" class="focus:outline-none text-red-600 text-xs w-full py-4 px-4 cursor-pointer hover:text-red-700">
-                                                <p>Eliminar</p>
-                                            </div>
+                                            @if (auth()->user())
+                                                <div tabindex="0" wire:click="destroy({{$orden}})" class="focus:outline-none text-red-600 text-xs w-full py-4 px-4 cursor-pointer hover:text-red-700">
+                                                    <p>Eliminar</p>
+                                                </div>
+                                            @endif
                                         </td>
                                     @endif
                                   

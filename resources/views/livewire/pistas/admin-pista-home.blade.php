@@ -78,7 +78,7 @@
 
         
             
-            <div class="col-span-2 rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1" class="col-span-2">
+            <div class="col-span-2 rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1" class="col-span-2" x-data="{open: false}" >
                
                 <a href="{{route('organizador.eventos.retiros.fast',$pista)}}" >
                     <div class="flex items-center">
@@ -110,6 +110,19 @@
                     <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                         <button class="btn btn-danger ml-2 text-center text-xl mt-4">Entrenamientos</button>
                     </a>
+                   
+                        <button class="btn btn-danger ml-2 text-center text-xl mt-4"  x-on:click="open=!open">STAFF</button>
+                  
+                </div>
+                <div x-show="open">
+                    <div class="px-6 pt-4">
+                        <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del usuario">
+                    </div>
+                </div>
+                <div x-show="open">
+                    @foreach ($socios as $socio)
+                        <a class="btn btn-success block my-2 text-center" wire:click="add({{$socio->id}})" >{{$socio->name}}</a>
+                    @endforeach
                 </div>
             </div>
             

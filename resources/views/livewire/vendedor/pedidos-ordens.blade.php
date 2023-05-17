@@ -389,12 +389,12 @@
       </x-table-responsive>
         @if($pedido->ordens->count()>0)
             @if($pedido->status==1)
-                <div class="flex justify-center">
+                <div class="flex justify-center pb-8">
                                     
                     <form action="{{route('vendedor.pedido.close',$pedido)}}" method="POST">
                         @csrf
 
-                        <button class="btn btn-success justify-center mt-4" type="submit">Finalizar->Pagar</button>
+                        <button class="btn btn-success justify-center my-4" type="submit">Finalizar->Pagar</button>
                     </form>
 
                 </div>

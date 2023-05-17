@@ -784,8 +784,8 @@
 
         </div>
         
-        <section class="bg-rider-color pt-12 pb-12">
-            <h1 class="text-center text-white text-3xl mb-4">Registro Nacional de Riders</h1>
+        <section class="bg-rider-color pb-12 pt-2">
+            <h1 class="text-center text-white text-3xl my-4">Registro Nacional de Riders</h1>
             @livewire('socio.socios-count')
 
             <p class="text-center text-white pt-4">Unete a la comunidad rider más grande del país</p>

@@ -12,7 +12,7 @@ use Livewire\Component;
 
 class TicketInscripcion extends Component
 {   
-    public $evento, $selectedcategoria, $categoria_id, $ticket, $nro,$fechacategoria;
+    public $evento, $selectedcategoria, $categoria_id, $ticket, $nro=1,$fechacategoria;
 
     public function mount(Ticket $ticket){
         

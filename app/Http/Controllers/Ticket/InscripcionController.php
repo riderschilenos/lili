@@ -38,8 +38,19 @@ class InscripcionController extends Controller
      */
     public function store(Request $request)
     {
-          
-        $inscripcion = Inscripcion::create($request->all());
+
+        
+        foreach(range(1,$request->nro) as $item){
+        $inscripcion = Inscripcion::create([
+                'ticket_id'=>$request->ticket_id,
+                'categoria_id'=>$request->categoria_id,
+                'fecha_categoria_id'=>$request->fecha_categoria_id,
+                'cantidad'=>$request->cantidad,
+                'fecha_id'=>$request->fecha_id
+                        ]);
+        }
+
+                                
         $ticket= Ticket::find($request->ticket_id);
 
         return redirect(route('payment.checkout.ticket',$ticket).'/#pago');

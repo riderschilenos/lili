@@ -13,9 +13,9 @@
                </div>
                <div class="flex flex-col leading-tight">
                   <div class="text-2xl mt-1 flex items-center">
-                     <span class="text-gray-700 mr-3">Anderson Vanhron</span>
+                     <span class="text-gray-700 mr-3">{{$cliente->name}}</span>
                   </div>
-                  <span class="text-lg text-gray-600">Junior Developer</span>
+                  <span class="text-lg text-gray-600">{{$cliente->fono}}</span>
                </div>
             </div>
             <div class="flex items-center space-x-2">

@@ -65,10 +65,10 @@ class WhatsappController extends Controller
         //CONVERTIMOS EL JSON EN ARRAY DE PHP
         $respuesta = json_decode($respuesta, true);
         //EXTRAEMOS EL TELEFONO DEL ARRAY
-        $mensaje="Telefono:".$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from']."\n";
-        //EXTRAEMOS EL MENSAJE DEL ARRAY
-        $mensaje.="Mensaje:".$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
         //GUARDAMOS EL MENSAJE Y LA RESPUESTA EN EL ARCHIVO text.txt
-        file_put_contents("text.txt", $mensaje);
+        WhatsappMensaje::create(['numero'=> $respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from'],
+                'mensaje'=>$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']]);
       }
+    
+    
 }

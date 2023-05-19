@@ -16,7 +16,7 @@
                      <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
                   </div>
                </div>
-               <div class="flex flex-col">
+               <div class="flex flex-col ml-2">
                   <div class="text-md mt-1 flex items-center">
                      <span class="text-gray-700 mr-3">
                         @if($diseño->pedidoable_type=='App\Models\Socio')

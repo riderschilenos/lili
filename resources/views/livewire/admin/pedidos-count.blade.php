@@ -169,7 +169,7 @@
                         @endif
                      </span>
                   </div>
-                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
+                  <span class="text-base text-gray-600">Pendiente de Producción</span>
                </div>
             </div>
          </div>
@@ -205,7 +205,7 @@
                         @endif
                      </span>
                   </div>
-                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
+                  <span class="text-base text-gray-600">Pendiente de Despacho</span>
                </div>
             </div>
          </div>

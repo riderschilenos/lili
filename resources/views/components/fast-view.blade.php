@@ -636,9 +636,7 @@
         <figure class=" sm:hidden pt-0 pb-4">
 
         
-            <a href="https://riderschilenos.cl/eventos/mariocross">
-             <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross.png')}}" alt="">
-            </a>
+           
                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                     
                     <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
@@ -689,7 +687,15 @@
                     </a>
                 </div>
 
+                <a href="https://riderschilenos.cl/eventos/mariocross">
+                    <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross.png')}}" alt="">
+                   </a>
+
             @else
+
+            <a href="https://riderschilenos.cl/eventos/mariocross">
+                <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross.png')}}" alt="">
+               </a>
 
             <div class="flex justify-center mt-4 mb-6">
 

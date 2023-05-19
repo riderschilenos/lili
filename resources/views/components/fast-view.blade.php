@@ -721,15 +721,8 @@
                         </a>
                     </div>
                     <div x-show="!open">
-                        {!! Form::open(['route'=>'whatsapp.invitacion.store' , 'autocomplete'=>'off']) !!}
-                    
-                            {!! Form::label('phone', 'Nro. a Invitar:') !!}
-                            <div class="flex justify-end">
-                                {!! Form::text('phone', null , ['class' => 'form-input block w-full mt-1'.($errors->has('phone')?' border-red-600':'')]) !!}
-                                {!! Form::submit('+', ['class'=>'btn btn-success cursor-pointer ml-4']) !!}
-                            </div>
-        
-                        {!! Form::close() !!}
+
+                       @livewire('admin.whatsapp-sender-cliente')
 
                     </div>
                 </div>

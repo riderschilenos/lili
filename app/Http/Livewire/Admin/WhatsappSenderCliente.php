@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\WhatsappMensaje;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -41,10 +42,21 @@ class WhatsappSenderCliente extends Component
             
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
             
-            return redirect()->back();
+            WhatsappMensaje::create(['numero'=> $fono,
+            'mensaje'=>"Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
+            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
+            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
+            https://riderschilenos.cl/register",
+            'type'=>'enviado']);
+
 
         } catch (\Throwable $th) {
-             return redirect()->back();
+            WhatsappMensaje::create(['numero'=> $fono,
+            'mensaje'=>"ERROR al enviar Mentaje => Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
+            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
+            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
+            https://riderschilenos.cl/register",
+            'type'=>'enviado']);
         }
     }
 

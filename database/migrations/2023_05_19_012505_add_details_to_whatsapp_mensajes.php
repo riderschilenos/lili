@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTypeToWhatsappMensajes extends Migration
+class AddDetailsToWhatsappMensajes extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class AddTypeToWhatsappMensajes extends Migration
         Schema::table('whatsapp_mensajes', function (Blueprint $table) {
             
             $table->string('type')->default('recibido');
-
+            
         });
     }
 

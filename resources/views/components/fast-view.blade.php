@@ -687,13 +687,13 @@
                     </a>
                 </div>
 
-                <a href="https://riderschilenos.cl/eventos/mariocross">
+                <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
                     <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
                    </a>
 
             @else
 
-            <a href="https://riderschilenos.cl/eventos/mariocross">
+            <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
                 <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
                </a>
 

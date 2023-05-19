@@ -39,7 +39,12 @@ class WhatsappController extends Controller
     }
 
     public function webhook(Request $request){
+        $expectedToken = 'ASDFadsfasADsDdassAd';
+        $receivedToken = $request->header('Authorization');
 
+        if ($receivedToken !== $expectedToken) {
+            return response('Unauthorized', 401);
+        }
         $requestBody = $request->getContent();
 
         // Convierte el cuerpo de la solicitud de JSON a un objeto PHP

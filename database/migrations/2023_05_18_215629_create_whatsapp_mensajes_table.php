@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePistaStaffsTable extends Migration
+class CreateWhatsappMensajesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,11 @@ class CreatePistaStaffsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pista_staffs', function (Blueprint $table) {
+        Schema::create('whatsapp_mensajes', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')
-            ->constrained()
-            ->onDelete('cascade');
-
-            $table  ->foreignId('evento_id')
-            ->constrained()
-            ->onDelete('cascade');
-
-            $table->string('rol');
+            $table->string('numero');
+            $table->string('mensaje');
 
             $table->timestamps();
         });
@@ -37,6 +30,6 @@ class CreatePistaStaffsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pista_staffs');
+        Schema::dropIfExists('whatsapp_mensajes');
     }
 }

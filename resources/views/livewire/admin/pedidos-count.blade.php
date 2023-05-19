@@ -161,7 +161,7 @@
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
             <div class="relative flex items-center">
-               <div class="relative">
+               <div class="relative w-12 mx-2">
                   <span class="absolute text-green-500 right-0 bottom-0">
                      <svg width="20" height="20">
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>

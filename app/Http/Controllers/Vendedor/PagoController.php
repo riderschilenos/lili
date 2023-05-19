@@ -8,6 +8,7 @@ use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\Socio;
 use App\Models\User;
+use App\Models\WhatsappMensaje;
 use Illuminate\Http\Request;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
@@ -229,43 +230,53 @@ class PagoController extends Controller
                     $cliente=Socio::find($pedido->pedidoable_id);
                 }
 
-                $fono='569'.substr(str_replace(' ', '', $cliente->fono), -8);
-                //TOKEN QUE NOS DA FACEBOOK
-                $token = env('WS_TOKEN');
-                $phoneid='100799979656074';
-                $version='v16.0';
-                $url="https://riderschilenos.cl/";
-                $payload=[
-                    'messaging_product' => 'whatsapp',
-                    "preview_url"=> false,
-                    'to'=>$fono,
-                    'type'=>'template',
-                        'template'=>[
-                            'name'=>'diseno_pendiente',
-                            'language'=>[
-                                'code'=>'es'],
-                            'components'=>[ 
-                                [
-                                    'type'=>'body',
-                                    'parameters'=>[
-                                        [   //Socio
-                                            'type'=>'text',
-                                            'text'=> $cliente->name
-                                        ],
-                                        [   //Socio
-                                            'type'=>'text',
-                                            'text'=> 'https://riderschilenos.cl/seguimiento/'.$pedido->id
+                try {
+                    $fono='569'.substr(str_replace(' ', '', $cliente->fono), -8);
+                    //TOKEN QUE NOS DA FACEBOOK
+                    $token = env('WS_TOKEN');
+                    $phoneid='100799979656074';
+                    $version='v16.0';
+                    $url="https://riderschilenos.cl/";
+                    $payload=[
+                        'messaging_product' => 'whatsapp',
+                        "preview_url"=> false,
+                        'to'=>$fono,
+                        'type'=>'template',
+                            'template'=>[
+                                'name'=>'diseno_pendiente',
+                                'language'=>[
+                                    'code'=>'es'],
+                                'components'=>[ 
+                                    [
+                                        'type'=>'body',
+                                        'parameters'=>[
+                                            [   //Socio
+                                                'type'=>'text',
+                                                'text'=> $cliente->name
+                                            ],
+                                            [   //Socio
+                                                'type'=>'text',
+                                                'text'=> 'https://riderschilenos.cl/seguimiento/'.$pedido->id
+                                            ]
                                         ]
                                     ]
                                 ]
                             ]
-                        ]
+                            
                         
+                    ];
                     
-                ];
+                    Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                    
+                    WhatsappMensaje::create(['numero'=> $fono,
+                                'mensaje'=>'Hola '.$cliente->name.' Su pedido a sido ingresado a nuestro sistema, pronto recibirá el diseño para su aprobación antes de ser enviado al area de producción, en el siguiente link podra hacer seguimiento de su pedido https://riderschilenos.cl/seguimiento/'.$pedido->id.' Recuerde que cualquier duda que tenga solo debe contáctanos al whatsapp +56963176726',
+                                'type'=>'enviado']);
+                } catch (\Throwable $th) {
+                    WhatsappMensaje::create(['numero'=> $fono,
+                                'mensaje'=>'ERROR al enviar Mentaje => Hola '.$cliente->name.' Su pedido a sido ingresado a nuestro sistema, pronto recibirá el diseño para su aprobación antes de ser enviado al area de producción, en el siguiente link podra hacer seguimiento de su pedido https://riderschilenos.cl/seguimiento/'.$pedido->id.' Recuerde que cualquier duda que tenga solo debe contáctanos al whatsapp +56963176726',
+                                'type'=>'enviado']);
+                }
                 
-                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-        
 
             }
 

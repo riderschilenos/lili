@@ -1,122 +1,4 @@
-<div>
-
-   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-2 items-center content-center">
-  
-      @foreach ($diseños as $diseño)
-
-         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative flex items-center">
-               <div class="relative">
-                  <span class="absolute text-green-500 right-0 bottom-0">
-                     <svg width="20" height="20">
-                        <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
-                     </svg>
-                  </span>
-                  <div class="flex justify-center">
-                     <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
-                  </div>
-               </div>
-               <div class="flex flex-col ml-2">
-                  <div class="text-md mt-1 flex items-center">
-                     <span class="text-gray-700 mr-3">
-                        @if($diseño->pedidoable_type=='App\Models\Socio')
-                              @foreach ($socios as $socio)
-                                    @if($socio->id == $diseño->pedidoable_id)
-                                             {{$socio->user->name}}
-                                    @endif
-                              @endforeach
-                        @endif
-                        @if($diseño->pedidoable_type=='App\Models\Invitado')
-                              @foreach ($invitados as $invitado)
-                                    @if($invitado->id == $diseño->pedidoable_id)
-                                          {{$invitado->name}} 
-                                    @endif
-                              @endforeach
-                        @endif
-                     </span>
-                  </div>
-                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
-               </div>
-            </div>
-         </div>
-      @endforeach
-      @foreach ($produccion as $diseño)
-
-         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative flex items-center space-x-4">
-               <div class="relative">
-                  <span class="absolute text-green-500 right-0 bottom-0">
-                     <svg width="20" height="20">
-                        <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
-                     </svg>
-                  </span>
-               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
-               </div>
-               <div class="flex flex-col leading-tight">
-                  <div class="text-md mt-1 flex items-center">
-                     <span class="text-gray-700 mr-3">
-                        @if($diseño->pedidoable_type=='App\Models\Socio')
-                              @foreach ($socios as $socio)
-                                    @if($socio->id == $diseño->pedidoable_id)
-                                             {{$socio->user->name}}
-                                    @endif
-                              @endforeach
-                        @endif
-                        @if($diseño->pedidoable_type=='App\Models\Invitado')
-                              @foreach ($invitados as $invitado)
-                                    @if($invitado->id == $diseño->pedidoable_id)
-                                          {{$invitado->name}} 
-                                    @endif
-                              @endforeach
-                        @endif
-                     </span>
-                  </div>
-                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
-               </div>
-            </div>
-         </div>
-      @endforeach
-      @foreach ($despacho as $diseño)
-
-         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative flex items-center space-x-4">
-               <div class="relative">
-                  <span class="absolute text-green-500 right-0 bottom-0">
-                     <svg width="20" height="20">
-                        <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
-                     </svg>
-                  </span>
-               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
-               </div>
-               <div class="flex flex-col leading-tight">
-                  <div class="text-md mt-1 flex items-center">
-                     <span class="text-gray-700 mr-3">
-                        @if($diseño->pedidoable_type=='App\Models\Socio')
-                              @foreach ($socios as $socio)
-                                    @if($socio->id == $diseño->pedidoable_id)
-                                             {{$socio->user->name}}
-                                    @endif
-                              @endforeach
-                        @endif
-                        @if($diseño->pedidoable_type=='App\Models\Invitado')
-                              @foreach ($invitados as $invitado)
-                                    @if($invitado->id == $diseño->pedidoable_id)
-                                          {{$invitado->name}} 
-                                    @endif
-                              @endforeach
-                        @endif
-                     </span>
-                  </div>
-                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
-               </div>
-            </div>
-         </div>
-      @endforeach
-        
-     
-
-
-</div>
+<div>|
    @if ($cliente)
       <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
             <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
@@ -272,6 +154,121 @@
          </div>
       </div>
    @endif
+
+   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-2 items-center content-center">
+  
+      @foreach ($diseños as $diseño)
+
+         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+            <div class="relative flex items-center">
+               <div class="relative">
+                  <span class="absolute text-green-500 right-0 bottom-0">
+                     <svg width="20" height="20">
+                        <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
+                     </svg>
+                  </span>
+                  <div class="flex justify-center">
+                     <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+                  </div>
+               </div>
+               <div class="flex flex-col ml-2">
+                  <div class="text-md mt-1 flex items-center">
+                     <span class="text-gray-700 mr-3">
+                        @if($diseño->pedidoable_type=='App\Models\Socio')
+                              @foreach ($socios as $socio)
+                                    @if($socio->id == $diseño->pedidoable_id)
+                                             {{$socio->user->name}}
+                                    @endif
+                              @endforeach
+                        @endif
+                        @if($diseño->pedidoable_type=='App\Models\Invitado')
+                              @foreach ($invitados as $invitado)
+                                    @if($invitado->id == $diseño->pedidoable_id)
+                                          {{$invitado->name}} 
+                                    @endif
+                              @endforeach
+                        @endif
+                     </span>
+                  </div>
+                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
+               </div>
+            </div>
+         </div>
+      @endforeach
+      @foreach ($produccion as $diseño)
+
+         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+            <div class="relative flex items-center space-x-4">
+               <div class="relative">
+                  <span class="absolute text-green-500 right-0 bottom-0">
+                     <svg width="20" height="20">
+                        <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
+                     </svg>
+                  </span>
+               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+               </div>
+               <div class="flex flex-col leading-tight">
+                  <div class="text-md mt-1 flex items-center">
+                     <span class="text-gray-700 mr-3">
+                        @if($diseño->pedidoable_type=='App\Models\Socio')
+                              @foreach ($socios as $socio)
+                                    @if($socio->id == $diseño->pedidoable_id)
+                                             {{$socio->user->name}}
+                                    @endif
+                              @endforeach
+                        @endif
+                        @if($diseño->pedidoable_type=='App\Models\Invitado')
+                              @foreach ($invitados as $invitado)
+                                    @if($invitado->id == $diseño->pedidoable_id)
+                                          {{$invitado->name}} 
+                                    @endif
+                              @endforeach
+                        @endif
+                     </span>
+                  </div>
+                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
+               </div>
+            </div>
+         </div>
+      @endforeach
+      @foreach ($despacho as $diseño)
+
+         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+            <div class="relative flex items-center space-x-4">
+               <div class="relative">
+                  <span class="absolute text-green-500 right-0 bottom-0">
+                     <svg width="20" height="20">
+                        <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
+                     </svg>
+                  </span>
+               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+               </div>
+               <div class="flex flex-col leading-tight">
+                  <div class="text-md mt-1 flex items-center">
+                     <span class="text-gray-700 mr-3">
+                        @if($diseño->pedidoable_type=='App\Models\Socio')
+                              @foreach ($socios as $socio)
+                                    @if($socio->id == $diseño->pedidoable_id)
+                                             {{$socio->user->name}}
+                                    @endif
+                              @endforeach
+                        @endif
+                        @if($diseño->pedidoable_type=='App\Models\Invitado')
+                              @foreach ($invitados as $invitado)
+                                    @if($invitado->id == $diseño->pedidoable_id)
+                                          {{$invitado->name}} 
+                                    @endif
+                              @endforeach
+                        @endif
+                     </span>
+                  </div>
+                  <span class="text-base text-gray-600">Pendiente de Diseño</span>
+               </div>
+            </div>
+         </div>
+      @endforeach
+   </div>
+
   
    
    <style>

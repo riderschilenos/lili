@@ -82,9 +82,17 @@
                                 <div class="flex">
                                     <div class="content-center items-center">
                                         <div class="image overflow-hidden">
-                                            <img class="h-auto w-44 mx-auto object-cover"
+                                            @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
+                                                <img class="h-auto w-44 mx-auto object-cover"
+                                                src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
+                                                alt="">
+                                            @else
+                                                <img class="h-auto w-44 mx-auto object-cover"
                                                 src="{{ $socio->user->profile_photo_url }}"
                                                 alt="">
+                
+                                            @endif
+                                           
                                         </div>
                                         @can('perfil_propio', $socio)
                                             <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>

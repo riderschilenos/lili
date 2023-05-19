@@ -9,7 +9,7 @@
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+               <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                </div>
                <div class="flex flex-col leading-tight">
                   <div class="text-2xl mt-1 flex items-center">
@@ -42,7 +42,7 @@
                   <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">Can be verified on any platform using docker</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-1">
+                  <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="My profile" class="w-6 h-6 rounded-full order-1">
                </div>
             </div>
             <div class="chat-message">
@@ -50,7 +50,7 @@
                   <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-300 text-gray-600 ">Your error message says permission denied, npm global installs must be given root privileges.</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-2">
+                  <img src="https://riderschilenos.cl/img/logo.png" alt="My profile" class="w-6 h-6 rounded-full order-2">
                </div>
             </div>
             <div class="chat-message">
@@ -66,7 +66,7 @@
                         </span>
                      </div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-1">
+                  <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="My profile" class="w-6 h-6 rounded-full order-1">
                </div>
             </div>
             <div class="chat-message">
@@ -74,7 +74,7 @@
                   <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-300 text-gray-600 ">Any updates on this issue? I'm getting the same error when trying to install devtools. Thanks</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-2">
+                  <img src="https://riderschilenos.cl/img/logo.png" alt="My profile" class="w-6 h-6 rounded-full order-2">
                </div>
             </div>
             <div class="chat-message">
@@ -82,7 +82,7 @@
                   <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">Thanks for your message David. I thought I'm alone with this issue. Please, ? the issue to support it :)</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-1">
+                  <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="My profile" class="w-6 h-6 rounded-full order-1">
                </div>
             </div>
             <div class="chat-message">
@@ -91,7 +91,7 @@
                      <div><span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600 ">Are you using sudo?</span></div>
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-300 text-gray-600 ">Run this command sudo chown -R `whoami` /Users/Gonzalo Peñaloza/.npm-global/ then install the package globally without using sudo</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-2">
+                  <img src="https://riderschilenos.cl/img/logo.png" alt="My profile" class="w-6 h-6 rounded-full order-2">
                </div>
             </div>
             <div class="chat-message">
@@ -100,7 +100,7 @@
                      <div><span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">It seems like you are from Mac OS world. There is no /Users/ folder on linux ?</span></div>
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">I have no issue with any other packages installed with root permission globally.</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-1">
+                  <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="My profile" class="w-6 h-6 rounded-full order-1">
                </div>
             </div>
             <div class="chat-message">
@@ -108,7 +108,7 @@
                   <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-300 text-gray-600 ">yes, I have a mac. I never had issues with root permission as well, but this helped me to solve the problem</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-2">
+                  <img src="https://riderschilenos.cl/img/logo.png" alt="My profile" class="w-6 h-6 rounded-full order-2">
                </div>
             </div>
             <div class="chat-message">
@@ -118,7 +118,7 @@
                      <div><span class="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">I also have this issue, Here is what I was doing until now: #1076</span></div>
                      <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">even i am facing</span></div>
                   </div>
-                  <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="My profile" class="w-6 h-6 rounded-full order-1">
+                  <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="My profile" class="w-6 h-6 rounded-full order-1">
                </div>
             </div>
          </div>
@@ -168,7 +168,7 @@
                      </svg>
                   </span>
                   <div class="flex justify-center">
-                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                   </div>
                </div>
                <div class="flex flex-col ml-2">
@@ -205,7 +205,7 @@
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+               <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                </div>
                <div class="flex flex-col leading-tight">
                   <div class="text-md mt-1 flex items-center">
@@ -241,7 +241,7 @@
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+               <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                </div>
                <div class="flex flex-col leading-tight">
                   <div class="text-md mt-1 flex items-center">

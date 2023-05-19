@@ -134,7 +134,7 @@
                      </span>
                   </div>
                   <span class="whitespace-nowrap px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                     Pend. de diseño
+                     Pendiente de diseño
                  </span>
                </div>
             </div>
@@ -172,7 +172,7 @@
                      </span>
                   </div>
                   <span class="whitespace-nowrap px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                     Pend. de producción
+                     Pendiente de producción
                  </span>
                </div>
             </div>
@@ -210,7 +210,7 @@
                      </span>
                   </div>
                   <span class="whitespace-nowrap px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                     Pend. de despacho
+                     Pendiente de despacho
                  </span>
                </div>
             </div>

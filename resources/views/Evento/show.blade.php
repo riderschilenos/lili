@@ -115,7 +115,7 @@
                 <section class="card mb-4">
                     <div class="card-body">
                         <div class="flex items-center">
-                            @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
+                            @if (str_contains($evento->organizador->profile_photo_url,'https://ui-'))
                                 <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="21/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{ $evento->organizador->name }}"  />
                             
                             @else

@@ -633,7 +633,7 @@
 
         </section>
         
-        <figure class=" sm:hidden pt-0 pb-4">
+        <figure class="hidden pt-0 pb-4">
 
         
            

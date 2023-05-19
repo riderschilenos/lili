@@ -87,19 +87,17 @@ class WhatsappSenderCliente extends Component
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
             
             WhatsappMensaje::create(['numero'=> $fono,
-            'mensaje'=>"Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
-            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
-            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
-            https://riderschilenos.cl/register",
+            'mensaje'=>"En el siguiente link encontrarás nuestro catálogo de carcasas con categorias de Motocross, MTB y Full Riders relacionadas. Escoge el diseño que más te guste y llena la plantilla que esta al inicio de cada catálogo. 
+
+            https://riderschilenos.cl/catalogocarcasas",
             'type'=>'enviado']);
 
 
         } catch (\Throwable $th) {
             WhatsappMensaje::create(['numero'=> $fono,
-            'mensaje'=>"ERROR al enviar Mentaje => Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
-            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
-            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
-            https://riderschilenos.cl/register",
+            'mensaje'=>"ERROR al enviar Mentaje => En el siguiente link encontrarás nuestro catálogo de carcasas con categorias de Motocross, MTB y Full Riders relacionadas. Escoge el diseño que más te guste y llena la plantilla que esta al inicio de cada catálogo. 
+
+            https://riderschilenos.cl/catalogocarcasas",
             'type'=>'enviado']);
         }
         
@@ -132,19 +130,31 @@ class WhatsappSenderCliente extends Component
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
             
             WhatsappMensaje::create(['numero'=> $fono,
-            'mensaje'=>"Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
-            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
-            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
-            https://riderschilenos.cl/register",
+            'mensaje'=>"Te dejamos el catálogo de accesorios en el siguiente link:
+
+            https://clubriderschilenos.cl/catalogoportanumero.pdf
+            Aquí te facilitamos una plantilla para escoger el diseño. Copiala, pegala y llena los siguientes datos:
+            
+            MARCA DISEÑO:
+            N° DISEÑO:
+            TU NOMBRE:
+            TU NÚMERO:
+            ACCESORIO: collar, llavero, colgante, stiker (elige uno)",
             'type'=>'enviado']);
 
 
         } catch (\Throwable $th) {
             WhatsappMensaje::create(['numero'=> $fono,
-            'mensaje'=>"ERROR al enviar Mentaje => Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
-            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
-            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
-            https://riderschilenos.cl/register",
+            'mensaje'=>"ERROR al enviar Mentaje => Te dejamos el catálogo de accesorios en el siguiente link:
+
+            https://clubriderschilenos.cl/catalogoportanumero.pdf
+            Aquí te facilitamos una plantilla para escoger el diseño. Copiala, pegala y llena los siguientes datos:
+            
+            MARCA DISEÑO:
+            N° DISEÑO:
+            TU NOMBRE:
+            TU NÚMERO:
+            ACCESORIO: collar, llavero, colgante, stiker (elige uno)",
             'type'=>'enviado']);
         }
     }

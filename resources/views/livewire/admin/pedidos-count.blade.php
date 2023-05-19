@@ -1,11 +1,11 @@
 <div>
 
-   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-2 items-center content-center">
+   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-2 items-center content-center">
   
       @foreach ($diseños as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative md:flex items-center">
+            <div class="relative sm:flex items-center">
                <div class="relative">
                   <span class="absolute text-green-500 right-0 bottom-0">
                      <svg width="20" height="20">

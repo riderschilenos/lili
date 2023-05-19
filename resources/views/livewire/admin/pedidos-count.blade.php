@@ -5,16 +5,18 @@
       @foreach ($diseños as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative flex items-center space-x-4">
+            <div class="relative md:flex items-center">
                <div class="relative">
                   <span class="absolute text-green-500 right-0 bottom-0">
                      <svg width="20" height="20">
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-               <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+                  <div class="flex justify-center">
+                     <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+                  </div>
                </div>
-               <div class="flex flex-col leading-tight">
+               <div class="flex flex-col">
                   <div class="text-md mt-1 flex items-center">
                      <span class="text-gray-700 mr-3">
                         @if($diseño->pedidoable_type=='App\Models\Socio')

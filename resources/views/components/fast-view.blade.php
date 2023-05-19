@@ -633,15 +633,15 @@
 
         </section>
         
-        <figure class="hidden pt-0 pb-4">
+        <figure class=" sm:hidden pt-0 pb-4">
 
         
             
                 {{-- comment <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">--}}
                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                     
-                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
-                        <a href="catalogos/polerones.pdf"><img class="" src="{{asset('img/mobileslider/polerones-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
+                    <li class="shrink-0 snap-center w-full snap-mandatory">       
+                        <a href="https://riderschilenos.cl/eventos/mariocross"><img class="" src="{{asset('img/home/mariocross.png')}}" alt="" style="scroll-snap-align: center;"></a>
                     </li>
                     <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
                         <a href="{{route('catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>

@@ -40,27 +40,27 @@ class WhatsappController extends Controller
 
     public function webhook(Request $request){
 
-        $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
-        //RETO QUE RECIBIREMOS DE FACEBOOK
-        $palabraReto = $_GET['hub_challenge'];
-        //TOQUEN DE VERIFICACION QUE RECIBIREMOS DE FACEBOOK
-        $tokenVerificacion = $_GET['hub_verify_token'];
-        //SI EL TOKEN QUE GENERAMOS ES EL MISMO QUE NOS ENVIA FACEBOOK RETORNAMOS EL RETO PARA VALIDAR QUE SOMOS NOSOTROS
-        if ($token === $tokenVerificacion) {
-            echo $palabraReto;
-            exit;
-        }
-        /*
-        * RECEPCION DE MENSAJES
-        */
-        //LEEMOS LOS DATOS ENVIADOS POR WHATSAPP
-        $respuesta = file_get_contents("php://input");
-        //CONVERTIMOS EL JSON EN ARRAY DE PHP
-        $respuesta = json_decode($respuesta, true);
-        //GUARDAMOS EL MENSAJE Y LA RESPUESTA EN EL ARCHIVO text.txt
-        WhatsappMensaje::create(['numero'=>$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from'],
-                                'mensaje'=>$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
-                                    ]);
-        
+        $requestBody = $request->getContent();
+
+        // Convierte el cuerpo de la solicitud de JSON a un objeto PHP
+        $requestData = json_decode($requestBody);
+    
+        // Verifica si se recibió un mensaje
+        if (isset($requestData->messages)) {
+            foreach ($requestData->messages as $message) {
+                // Aquí puedes procesar el mensaje según tus necesidades
+                $text = $message->body->text;
+    
+                // Realiza las acciones que desees con el mensaje recibido
+                // Por ejemplo, puedes enviar una respuesta automática
+                WhatsappMensaje::create(['numero'=> $message->from,
+                'mensaje'=>$message->body->text
+                    ]);
+
+                }
+            }
+    
+
+       
     }
 }

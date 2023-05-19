@@ -9,7 +9,7 @@
      
 
         <div class="flex justify-center mb-4">                 
-            <button class="btn btn-success mx-2" wire:click="registro">Invitación Registro</button>
+            <button class="btn btn-success mx-2" wire:click="invitacion">Invitación Registro</button>
             <button class="btn btn-success mx-2" wire:click="carcasas">Catálogo Carcasas</button>
             <button class="btn btn-success mx-2" wire:click="accesorios">Catálogo Accesorios</button>
         </div>

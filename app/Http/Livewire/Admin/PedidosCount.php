@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Invitado;
 use App\Models\Pedido;
 use App\Models\Socio;
+use App\Models\WhatsappMensaje;
 use Livewire\Component;
 
 class PedidosCount extends Component
@@ -16,8 +17,9 @@ class PedidosCount extends Component
         $despacho=Pedido::where('status',6)->get();
         $socios=Socio::all();
         $invitados=Invitado::all();
+        $mensajes=WhatsappMensaje::all();
 
-        return view('livewire.admin.pedidos-count',compact('socios','invitados','diseños','produccion','despacho'));
+        return view('livewire.admin.pedidos-count',compact('mensajes','socios','invitados','diseños','produccion','despacho'));
     }
 
     public function set_cliente(Pedido $pedido){

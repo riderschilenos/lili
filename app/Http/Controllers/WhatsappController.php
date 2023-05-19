@@ -38,34 +38,37 @@ class WhatsappController extends Controller
         return redirect()->back();
     }
 
-    public function webhook(Request $request){
-        $expectedToken = 'ASDFadsfasADsDdassAd';
-        $receivedToken = $request->header('Authorization');
-
-        if ($receivedToken !== $expectedToken) {
-            return response('Unauthorized', 401);
+    public function webhook(){
+        //TOQUEN QUE QUERRAMOS PONER 
+        $token = '#$23dfsD%6erter5sgSDF';
+        //RETO QUE RECIBIREMOS DE FACEBOOK
+        $hub_challenge = isset($_GET['hub_challenge']) ? $_GET['hub_challenge'] : '';
+        //TOQUEN DE VERIFICACION QUE RECIBIREMOS DE FACEBOOK
+        $hub_verify_token = isset($_GET['hub_verify_token']) ? $_GET['hub_verify_token'] : '';
+        //SI EL TOKEN QUE GENERAMOS ES EL MISMO QUE NOS ENVIA FACEBOOK RETORNAMOS EL RETO PARA VALIDAR QUE SOMOS NOSOTROS
+        if ($token === $hub_verify_token) {
+            echo $hub_challenge;
+            exit;
         }
-        $requestBody = $request->getContent();
-
-        // Convierte el cuerpo de la solicitud de JSON a un objeto PHP
-        $requestData = json_decode($requestBody);
-    
-        // Verifica si se recibió un mensaje
-        if (isset($requestData->messages)) {
-            foreach ($requestData->messages as $message) {
-                // Aquí puedes procesar el mensaje según tus necesidades
-                $text = $message->body->text;
-    
-                // Realiza las acciones que desees con el mensaje recibido
-                // Por ejemplo, puedes enviar una respuesta automática
-                WhatsappMensaje::create(['numero'=> $message->from,
-                'mensaje'=>$message->body->text
-                    ]);
-
-                }
-            }
-    
-
-       
-    }
+      }
+      /*
+      * RECEPCION DE MENSAJES
+      */
+      public function recibe(){
+        //LEEMOS LOS DATOS ENVIADOS POR WHATSAPP
+        $respuesta = file_get_contents("php://input");
+        //echo file_put_contents("text.txt", "Hola");
+        //SI NO HAY DATOS NOS SALIMOS
+        if($respuesta==null){
+          exit;
+        }
+        //CONVERTIMOS EL JSON EN ARRAY DE PHP
+        $respuesta = json_decode($respuesta, true);
+        //EXTRAEMOS EL TELEFONO DEL ARRAY
+        $mensaje="Telefono:".$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from']."\n";
+        //EXTRAEMOS EL MENSAJE DEL ARRAY
+        $mensaje.="Mensaje:".$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
+        //GUARDAMOS EL MENSAJE Y LA RESPUESTA EN EL ARCHIVO text.txt
+        file_put_contents("text.txt", $mensaje);
+      }
 }

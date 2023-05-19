@@ -11,6 +11,7 @@ use App\Http\Controllers\UsadoController;
 use App\Http\Controllers\Vendedor\HomeController as VendedorHomeController;
 use App\Http\Controllers\Vendedor\PedidoController;
 use App\Http\Controllers\WebhooksController;
+use App\Http\Controllers\WhatsappController;
 use App\Http\Livewire\EventoView;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,6 +52,10 @@ Route::get('evento-view/{user}', EventoView::class)->name('user.view')->middlewa
 Route::get('historial/ticket/{user}', [EventoController::class,'ticket_historial'])->name('ticket.historial.view')->middleware('auth');
 
 Route::post('webhooks', WebhooksController::class);
+
+Route::get('/webhook', [WhatsappController::class,'webhook']);
+
+Route::post('/webhook', [WhatsappController::class,'recibe']);
 
 Route::get('checkout/{evento}', [EventoController::class,'preticket'])->name('checkout.evento')->middleware('auth');
 

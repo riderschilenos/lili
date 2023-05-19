@@ -5,7 +5,7 @@
       @foreach ($diseños as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative sm:flex items-center">
+            <div class="relative flex items-center">
                <div class="relative">
                   <span class="absolute text-green-500 right-0 bottom-0">
                      <svg width="20" height="20">

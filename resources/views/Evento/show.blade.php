@@ -3,7 +3,7 @@
 
     
        
-        <section class="bg-white py-6 mb-8 ">
+        <section class="bg-white py-4 mb-8 ">
             <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="flex justify-center">
                     @isset($evento->image)
@@ -39,8 +39,12 @@
             <div class="order-2 lg:col-span-2 lg:order-1 mb-24 pb-24">
                 <section class="card">
                     <div class="card-body">
-                        <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
 
+                        @if ($evento->type=='pista')
+                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
+                        @else
+                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
+                        @endif
                         
                     
                         <p class="text-gray-700 text-base">{!!$evento->descripcion!!}</p>

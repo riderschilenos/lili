@@ -252,7 +252,7 @@
       el.scrollTop = el.scrollHeight
    </script>
 
-   <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+   <div class="max-w-4xl mx-auto sm:px-6 mt-2 lg:px-8">
       <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-3 md:grid-cols-3 xl:grid-cols-3 gap-x-2 gap-y-2 items-center content-center">
    
 

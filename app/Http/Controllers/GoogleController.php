@@ -30,6 +30,7 @@ class GoogleController extends Controller
                 'external_auth'=>'google'
             ]);
             Auth::login($userNew);
+            return redirect()->route('dashboard');
         }
         // $user->token
     }

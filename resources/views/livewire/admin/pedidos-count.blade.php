@@ -143,16 +143,18 @@
       @foreach ($produccion as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative flex items-center space-x-4">
-               <div class="relative">
+            <div class="grid grid-cols-4 items-center">
+               <div class="relative w-12">
                   <span class="absolute text-green-500 right-0 bottom-0">
                      <svg width="20" height="20">
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-               <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
+                  <div class="flex">
+                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
+                  </div>
                </div>
-               <div class="flex flex-col leading-tight">
+               <div class="flex flex-col ml-2 col-span-3">
                   <div class="text-md mt-1 flex items-center">
                      <span class="text-gray-700 mr-3">
                         @if($diseño->pedidoable_type=='App\Models\Socio')
@@ -181,16 +183,18 @@
       @foreach ($despacho as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative flex items-center space-x-4">
+            <div class="grid grid-cols-4 items-center">
                <div class="relative w-12">
                   <span class="absolute text-green-500 right-0 bottom-0">
                      <svg width="20" height="20">
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-                  <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
+                  <div class="flex">
+                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
+                  </div>
                </div>
-               <div class="flex flex-col leading-tight">
+               <div class="flex flex-col ml-2 col-span-3">
                   <div class="text-md mt-1 flex items-center">
                      <span class="text-gray-700 mr-3">
                         @if($diseño->pedidoable_type=='App\Models\Socio')

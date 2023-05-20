@@ -103,7 +103,7 @@
       @foreach ($diseños as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="relative flex items-center">
+            <div class="grid grid-cols-4 items-center">
                <div class="relative w-12">
                   <span class="absolute text-green-500 right-0 bottom-0">
                      <svg width="20" height="20">
@@ -114,7 +114,7 @@
                      <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                   </div>
                </div>
-               <div class="flex flex-col ml-2">
+               <div class="flex flex-col ml-2 col-span-3">
                   <div class="text-md mt-1 flex items-center">
                      <span class="text-gray-700 mr-3">
                         @if($diseño->pedidoable_type=='App\Models\Socio')

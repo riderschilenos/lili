@@ -21,6 +21,7 @@ class GoogleController extends Controller
 
         if($userExists){
             Auth::login($userExists);
+            return redirect()->route('dashboard');
         }else{
             $userNew=User::create([
                 'name'=>$user->name,

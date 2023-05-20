@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Pistas;
 use App\Models\Evento;
 use App\Models\Inscripcion;
 use App\Models\Pedido;
+use App\Models\Pista_staff;
 use App\Models\Retiro;
 use App\Models\Socio;
 use App\Models\User;
@@ -42,7 +43,11 @@ class AdminPistaHome extends Component
     public function add(Socio $socio){
         $user=User::find($socio->user->id);
 
-        $user->organizadors()->attach($this->pista->id);
+        Pista_staff::create([
+                        'user_id'=>$user->id,
+                        'evento_id'=>$this->pista->id
+        ])
+        //$user->organizadors()->attach($this->pista->id);
 
         //$this->pista->organizadors()->attach($user->id);
     }

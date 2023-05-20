@@ -70,3 +70,7 @@ Route::get('/pagoqr',[AdminHomeController::class, 'pagoqr'])->name('pagosqr.clie
 Route::get('/contabilidad',[AdminHomeController::class, 'contabilidad'])->middleware('auth')->name('contabilidad');
 
 Route::get('{pedido}/seguimiento.pdf', [VendedorHomeController::class,'download_seguimiento'])->name('foto_seguimiento');
+
+Route::get('/politica-de-privacidad',[AdminHomeController::class,'privacidad'])->name('politica.privacidad');
+
+Route::get('/terminos-y-condiciones',[AdminHomeController::class,'terminos'])->name('terminos.condiciones');

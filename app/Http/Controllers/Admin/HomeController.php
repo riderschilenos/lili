@@ -29,6 +29,16 @@ class HomeController extends Controller
       return view('admin.index',compact('gastos','retiros','pagos'));
    }
 
+   public function terminos(){
+      
+      return view('admin.terminos');
+   }
+  
+   public function privacidad(){
+
+      return view('admin.privacidad');
+   }
+
    public function pagoqr(){
             if(Cache::has('autos')){
                $autos = Cache::get('autos');

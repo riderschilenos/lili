@@ -142,7 +142,7 @@
       @endforeach
       @foreach ($produccion as $diseño)
 
-         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
             <div class="grid grid-cols-4 items-center">
                <div class="relative w-12">
                   <span class="absolute text-green-500 right-0 bottom-0">
@@ -156,7 +156,7 @@
                </div>
                <div class="flex flex-col ml-2 col-span-3">
                   <div class="text-md mt-1 flex items-center">
-                     <span class="text-gray-700 mr-3">
+                     <span class="text-gray-700 ml-2">
                         @if($diseño->pedidoable_type=='App\Models\Socio')
                               @foreach ($socios as $socio)
                                     @if($socio->id == $diseño->pedidoable_id)
@@ -182,7 +182,7 @@
       @endforeach
       @foreach ($despacho as $diseño)
 
-         <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
             <div class="grid grid-cols-4 items-center">
                <div class="relative w-12">
                   <span class="absolute text-green-500 right-0 bottom-0">
@@ -196,7 +196,7 @@
                </div>
                <div class="flex flex-col ml-2 col-span-3">
                   <div class="text-md mt-1 flex items-center">
-                     <span class="text-gray-700 mr-3">
+                     <span class="text-gray-700 ml-2">
                         @if($diseño->pedidoable_type=='App\Models\Socio')
                               @foreach ($socios as $socio)
                                     @if($socio->id == $diseño->pedidoable_id)

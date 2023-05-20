@@ -3,7 +3,7 @@
 
     
        
-        <section class="bg-white py-12 mb-8 ">
+        <section class="bg-white py-6 mb-8 ">
             <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="flex justify-center">
                     @isset($evento->image)

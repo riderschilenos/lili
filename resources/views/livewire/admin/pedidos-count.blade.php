@@ -115,8 +115,8 @@
                   </div>
                </div>
                <div class="flex flex-col ml-2 col-span-3">
-                  <div class="text-md mt-1 flex items-center">
-                     <span class="text-gray-700 mr-3">
+                  <div class="text-md mt-1 flex items-center text-center">
+                     <span class="text-gray-700 text-center">
                         @if($diseño->pedidoable_type=='App\Models\Socio')
                               @foreach ($socios as $socio)
                                     @if($socio->id == $diseño->pedidoable_id)

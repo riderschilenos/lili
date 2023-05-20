@@ -17,7 +17,7 @@ class GoogleController extends Controller
 
         $user = Socialite::driver('google')->user();
     
-        $userExists = User::where('external_id',$user->id)->where('external_auth','google')->first();
+        $userExists = User::where('email',$user->email)->first();
 
         if($userExists){
             Auth::login($userExists);

@@ -46,6 +46,9 @@ public function sendPasswordResetNotification($token)
         'name',
         'email',
         'password',
+        'avatar',
+        'external_id',
+        'external_auth',
     ];
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Organizador\TicketController;
@@ -14,9 +15,11 @@ use App\Http\Controllers\WebhooksController;
 use App\Http\Controllers\WhatsappController;
 use App\Http\Livewire\EventoView;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Socialite\Facades\Socialite;
+
 
 use App\Http\Livewire\SerieStatus;
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,12 +80,6 @@ Route::get('/politica-de-privacidad',[AdminHomeController::class,'privacidad'])-
 Route::get('/terminos-y-condiciones',[AdminHomeController::class,'terminos'])->name('terminos.condiciones');
 
  
-Route::get('/login-google', function () {
-    return Socialite::driver('google')->redirect();
-});
+Route::get('/login-google', [GoogleController::class,'login']);
  
-Route::get('/google-callback', function () {
-    $user = Socialite::driver('google')->user();
-    dd($user); 
-    // $user->token
-});
+Route::get('/google-callback', [GoogleController::class,'callback']);

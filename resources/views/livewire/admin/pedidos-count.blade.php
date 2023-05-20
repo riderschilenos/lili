@@ -110,7 +110,7 @@
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-                  <div class="flex justify-center">
+                  <div class="flex">
                      <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                   </div>
                </div>

@@ -111,7 +111,7 @@
                      </svg>
                   </span>
                   <div class="flex">
-                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
+                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full object-contain">
                   </div>
                </div>
                <div class="flex flex-col ml-2">

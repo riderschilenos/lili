@@ -689,28 +689,29 @@
 
                 <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
                     <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
-                   </a>
+                </a>
 
             @else
 
-            <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
-                <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
-               </a>
-
-            <div class="flex justify-center mt-4 mb-6">
-
-                <a href="{{route('register')}}">
-                    <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mr-2 mt-2">REGISTRO</button>
-                </a>
-                <a href="{{route('login')}}">
-                    <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
+                <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
+                    <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
                 </a>
 
-            </div>
+                <div class="flex justify-center mt-4 mb-6">
+
+                    <a href="{{route('register')}}">
+                        <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mr-2 mt-2">REGISTRO</button>
+                    </a>
+                    <a href="{{route('login')}}">
+                        <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
+                    </a>
+
+                </div>
 
             @endif
+            
             @can('Super admin')
-            <div class="bg-gray-700">
+            <div class="bg-gray-700 pt-4">
                 <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
                     @livewire('admin.pedidos-count')
                 </div>

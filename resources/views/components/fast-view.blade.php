@@ -679,8 +679,8 @@
 
         <section x-data="{ open: false }" class="sm:mt-8">
             @if (auth()->user())
-                <div  class="text-2xl my-4 sm:text-2xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
-                    <h1 class="md:hidden text-2xl mx-4 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
+                <div  class="text-2xl my-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                    <h1 class="md:hidden text-xl mx-4 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                     
                     <a href="{{route('ticket.historial.view',auth()->user())}}">
                         <button class="md:hidden btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>

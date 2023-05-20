@@ -257,7 +257,7 @@
    
 
             <a href="{{route('admin.disenos.index')}}">
-               <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2">
+               <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
                         <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($diseños->count())}}</span>
@@ -275,7 +275,7 @@
             </a>
 
             <a href="{{route('admin.disenos.produccion')}}">
-               <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2">
+               <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
                         <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($produccion->count())}}</span>
@@ -293,7 +293,7 @@
             </a>
 
             <a href="{{route('admin.disenos.produccion')}}">
-               <div class="max-w-xl  bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-2">
+               <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
                         <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($despacho->count())}}</span>

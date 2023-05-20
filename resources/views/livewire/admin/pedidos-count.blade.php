@@ -116,7 +116,7 @@
                </div>
                <div class="flex flex-col ml-2 col-span-3">
                   <div class="text-md mt-1 flex items-center text-center">
-                     <span class="text-gray-700 text-center">
+                     <p class="text-gray-700 text-center">
                         @if($diseño->pedidoable_type=='App\Models\Socio')
                               @foreach ($socios as $socio)
                                     @if($socio->id == $diseño->pedidoable_id)
@@ -131,7 +131,7 @@
                                     @endif
                               @endforeach
                         @endif
-                     </span>
+                     </p>
                   </div>
                   <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                      Pend. de diseño

@@ -41,7 +41,7 @@
                     <div class="card-body">
 
                         @if ($evento->type=='pista')
-                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
+                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en esta pista?</h1>
                         @else
                             <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
                         @endif

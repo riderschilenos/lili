@@ -14,6 +14,7 @@ use App\Http\Controllers\WebhooksController;
 use App\Http\Controllers\WhatsappController;
 use App\Http\Livewire\EventoView;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 use App\Http\Livewire\SerieStatus;
 /*
@@ -74,3 +75,14 @@ Route::get('{pedido}/seguimiento.pdf', [VendedorHomeController::class,'download_
 Route::get('/politica-de-privacidad',[AdminHomeController::class,'privacidad'])->name('politica.privacidad');
 
 Route::get('/terminos-y-condiciones',[AdminHomeController::class,'terminos'])->name('terminos.condiciones');
+
+ 
+Route::get('/login-google', function () {
+    return Socialite::driver('google')->redirect();
+});
+ 
+Route::get('/google-callback', function () {
+    $user = Socialite::driver('google')->user();
+    
+    // $user->token
+});

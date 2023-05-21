@@ -1,11 +1,11 @@
 <div class="my-6">
-    <div class="max-w-7xl mx-auto px-4 pt-10 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:hidden gap-y-4">
+    <div class="max-w-7xl mx-auto px-2 pt-10 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:hidden gap-y-4">
 
         @foreach ($pistas as $pista)
 
             <article class="card grid grid-cols-6">
 
-                <div class="col-span-2 items-center content-center my-auto">
+                <div class="col-span-2 items-center content-center my-auto px-2">
                         @isset($pista->image)
                                 @if ($pista->type=='pista')
                                     <a href="{{route('ticket.pista.show', $pista)}}"><img class="h-44 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>

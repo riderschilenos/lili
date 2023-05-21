@@ -703,12 +703,12 @@
                     </a>
 
                 @else
-                    @livewire('pistas-home')
+                   
                     <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
                         <img class="h-full w-full object-cover object-center mt-4" src="{{asset('img/home/mariocross2.png')}}" alt="">
                     </a>
                     <div class="flex justify-center">
-                        <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-4 shadow-lg rounded-xl">
+                        <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-6 shadow-lg rounded-xl">
 
                             <div class="flex justify-center mt-4 ">
 
@@ -729,6 +729,9 @@
                             </div>
                         </div>
                     </div>
+
+                    @livewire('pistas-home')
+
                 @endif
             </div>
             @can('Super admin')

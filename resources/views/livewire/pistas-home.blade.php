@@ -1,5 +1,5 @@
-<div class="my-6">
-    <div class="max-w-7xl mx-auto px-2 pt-10 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:hidden gap-y-4">
+<div class="mt-2 mb-6">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:hidden gap-y-4">
 
         @foreach ($pistas as $pista)
 

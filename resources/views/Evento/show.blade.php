@@ -127,7 +127,7 @@
 
             <div class="order-1 lg:order-2">
                 @if ($ticket)
-                    <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">
+                    <a href="{{route('payment.checkout.ticket', $ticket)}}">
                         <section class="card mb-6">
                             <div class="card-body">
     
@@ -186,7 +186,7 @@
                         </section>
                     </a>
                 @else
-                    <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">
+                    <a href="{{route('checkout.evento',$evento)}}">
                         <section class="card mb-6">
                             <div class="card-body">
     

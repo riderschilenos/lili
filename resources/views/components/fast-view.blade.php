@@ -795,7 +795,7 @@
             
             </div>
 
-        </div>
+       
         
         <section class="bg-rider-color pb-12 pt-2">
             <h1 class="text-center text-white text-3xl my-4">Registro Nacional de Riders</h1>

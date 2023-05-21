@@ -90,7 +90,12 @@
                     
 
                     <header class="border border-gray-200 px-4 py-2 cursor bg-gray-200 mt-6">
-                        <h1 class="font-bold text-lg text-gray-800">Inscritos</h1>
+                        @if ($evento->type=='pista')
+                             <h1 class="font-bold text-lg text-gray-800">Riders Con Entrada</h1>
+                        @else
+                             <h1 class="font-bold text-lg text-gray-800">Inscritos</h1>
+                        @endif
+                        
                     </header>
 
                     <div class="bg-white py-2 px-4">

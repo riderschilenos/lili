@@ -7,7 +7,7 @@
 
                 <div class="col-span-2 items-center content-center my-auto px-2">
                     @if ($pista->type=='pista')
-                        <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittl font-bolde">{{Str::limit($pista->titulo,40)}}</h1>
+                        <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittle py-2 font-bold text-center">{{Str::limit($pista->titulo,40)}}</h1>
                     @else
                         <a href="{{route('ticket.evento.show', $pista)}}"><h1 class="card-tittle font-bold">{{Str::limit($pista->titulo,40)}}</h1>
                     @endif

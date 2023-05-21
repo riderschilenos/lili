@@ -241,7 +241,7 @@
                                                         
                                 <!-- End of profile card -->
                                 <div class="my-4"></div>
-                                <!-- Friends card -->
+                                <!-- Friends card 
                                 
                                 <!-- End of friends card -->
                             </div>
@@ -763,7 +763,7 @@
                 </div>
             </div>
 
-        </section>
+       
            
               
             
@@ -796,7 +796,7 @@
             
             </div>
 
-       
+        </section>
         
         <section class="bg-rider-color pb-12 pt-2">
             <h1 class="text-center text-white text-3xl my-4">Registro Nacional de Riders</h1>

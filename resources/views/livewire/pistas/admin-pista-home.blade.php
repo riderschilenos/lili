@@ -42,21 +42,23 @@
         
 
         
-                <div class="max-w-xl  bg-gray-200 shadow rounded-lg px-2 py-2 sm:p-6 xl:p-8 mb-4">
+                <div class="max-w-xl  bg-gray-200 shadow rounded-lg px-4 py-2 sm:p-6 xl:p-8 mb-4">
                     <a href="{{route('organizador.eventos.inscritos.fast',$pista)}}" class="col-span-1">
                            
-                        <div class="flex items-center">
+                        <div class="block md:flex">
 
-                            <div class="flex-shrink-0">
+                            <div class="">
                             
-                        <div class="flex justify-center">
-                                <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900 text-center">
-                                    {{number_format($inscripciones->count())}} / {{number_format($inscripciones->where('estado','>=',4)->count())}}
-                                </span>
+                                <div class="flex justify-center">
+                                    <div class="text-4xl sm:text-8xl leading-none font-bold text-gray-900 text-center">
+                                        {{number_format($inscripciones->count())}} / {{number_format($inscripciones->where('estado','>=',4)->count())}}
+                                    </div>
+                                </div>
+                                <h3 class="sm:hidden text-base font-normal text-center text-gray-500">Vendidas/<br>Cobradas<br>/Mes</h3>
+                                <h3 class="hidden sm:block text-base font-normal text-center text-gray-500">Vendidas/Cobradas/Mes</h3>
                             </div>
-                                <h3 class="sm:hidden text-base font-normal text-gray-500">Vendidas/<br>Cobradas<br>/Mes</h3>
-                                <h3 class="hidden sm:block text-base font-normal text-gray-500">Vendidas/Cobradas/Mes</h3>
-                            </div>
+
+
                             <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
                                 
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

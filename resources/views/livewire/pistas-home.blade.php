@@ -101,7 +101,7 @@
                                     @endif
 
                                         <div class="flex mt-2">
-                                            <p class="text-gray-500 text-md mb-2">Riders c/ Entrada Activa</p>
+                                            <p class="text-gray-500 text-md mb-2">Riders c/ Entrada</p>
                                             <p class="text-sm text-gray-500 ml-auto"> 
                                                 <i class="fas fa-users"></i>
                                                 ({{$pista->inscritos_count}})

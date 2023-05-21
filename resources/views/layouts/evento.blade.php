@@ -53,7 +53,7 @@
 
     
             
-            <main style="z-index: 10;"> 
+            <main style="z-index: 10;" class="pt-10 mt-8"> 
                 {{ $slot }}
             </main>
             

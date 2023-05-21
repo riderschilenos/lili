@@ -696,6 +696,8 @@
                         </a>
                     </div>
 
+                    @livewire('pistas-home')
+
                     <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
                         <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
                     </a>

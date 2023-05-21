@@ -761,7 +761,7 @@
                 <div>
                     @livewire('search')
                 </div>
-            </div>
+          
 
        
            
@@ -796,6 +796,7 @@
             
             </div>
 
+        </div>
         </section>
         
         <section class="bg-rider-color pb-12 pt-2">

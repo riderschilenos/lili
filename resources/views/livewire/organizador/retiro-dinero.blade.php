@@ -36,13 +36,13 @@
         <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
             <img class="" src="https://i.imgur.com/Qnmqkil.png" alt="" />
             <div class="text-center">
-              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total*0.072)}}</h1>
+              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total*0.10)}}</h1>
               <span class="text-gray-500">Comision</span>
             </div>
         </div>
 
         
-        @if ($total-$total*0.072-$retiroacumulado==0)
+        @if ($total-$total*0.10-$retiroacumulado==0)
             <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
                 <img class="ml-6" src="https://i.imgur.com/dJeEVcO.png" alt="" />
                 <div class="text-center">
@@ -54,7 +54,7 @@
             <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
                 <img class="ml-6" src="https://i.imgur.com/dJeEVcO.png" alt="" />
                 <div class="text-center">
-                <h1 class="text-4xl font-bold text-gray-800">${{number_format($total-$total*0.072-$retiroacumulado)}}</h1>
+                <h1 class="text-4xl font-bold text-gray-800">${{number_format($total-$total*0.10-$retiroacumulado)}}</h1>
                 <span class="text-gray-500">Pendiente de </span>
          
                 <span class="text-blue-500 font-bold">RETIRAR</span>
@@ -84,7 +84,7 @@
       </div>
       {!! Form::open(['route'=>'organizador.retiros.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
       @csrf
-      @if ($total-$total*0.072-$retiroacumulado>0)
+      @if ($total-$total*0.10-$retiroacumulado>0)
           <div class="h-32 mt-6">
               <h1 class="text-xl text-center"><b>Nombre:</b> {{auth()->user()->vendedor->user->name}}</h1>
               <h1 class="text-xl text-center"><b>Rut:</b> {{auth()->user()->vendedor->rut}}</h1>
@@ -92,7 +92,7 @@
               <h1 class="text-xl text-center"><b>Cuenta:</b> {{auth()->user()->vendedor->tipo_cuenta}}</h1>
               <h1 class="text-xl text-center"><b>Nro Cuenta:</b> {{auth()->user()->vendedor->nro_cuenta}}</h1>
 
-              <h1 class="text-xl font-bold text-center py-2 mt-4">Monto: ${{number_format($total-$total*0.072-$retiroacumulado)}}</h1>
+              <h1 class="text-xl font-bold text-center py-2 mt-4">Monto: ${{number_format($total-$total*0.10-$retiroacumulado)}}</h1>
               <hr class="w-full mb-4">
               
               {{-- comment{!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
@@ -110,7 +110,7 @@
           {!! Form::hidden('evento_id', $evento->id ) !!}
 
 
-          {!! Form::hidden('cantidad', $total-$total*0.072-$retiroacumulado ) !!}
+          {!! Form::hidden('cantidad', $total-$total*0.1-$retiroacumulado ) !!}
 
          
 

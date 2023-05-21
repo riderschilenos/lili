@@ -25,7 +25,7 @@
                                     @endif
                                     <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$pista->disciplina->name}}</p> 
                                     <p class="text-gray-500 text-sm mb-2">Organizador: {{$pista->organizador->first()->name}}</p>
-                                    <p class="text-gray-500 text-sm mb-2 "><b>{{$pista->fechas_count}}</b> Fechas </p> 
+                                    <p class="text-gray-500 text-sm mb-2 "><b>{{$pista->fechas_count}}</b> Entrenamientos </p> 
                                     
 
                                     </a>

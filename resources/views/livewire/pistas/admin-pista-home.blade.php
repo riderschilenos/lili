@@ -110,9 +110,9 @@
                     <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                         <button class="btn btn-danger ml-2 text-center text-xl mt-4">Entrenamientos</button>
                     </a>
-                   
+                    @can('Super admin')
                         <button class="btn btn-danger ml-2 text-center text-xl mt-4"  x-on:click="open=!open">STAFF</button>
-                  
+                    @endcan
                 </div>
                 <div x-show="open">
                     <div class="px-6 pt-4">

@@ -3,7 +3,7 @@
                                 
         <div class="mb-4">
             
-            <h1 class="text-center font-bold mt-6 mb-2">Nro de Whatsapp:</h1>
+            <h1 class="text-center font-bold mt-6 mb-2 text-white">Nro de Whatsapp:</h1>
             <input wire:model="nro" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
         </div>
      

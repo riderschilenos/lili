@@ -85,7 +85,7 @@
 
                         <div class="grid grid-cols-2 w-full ">
                             <div class="mr-2">
-                                <span class="text-2xl sm:text-8xl text-center leading-none font-bold text-gray-900 justify-center">${{number_format($total-$total*0.072-$retiroacumulado)}}</span>
+                                <span class="text-2xl sm:text-8xl text-center leading-none font-bold text-gray-900 justify-center">${{number_format($total-$total*0.1-$retiroacumulado)}}</span>
                                 <h3 class="sm:hidden text-base font-normal text-gray-500">Pend. Cobrar</h3>
                                 <h3 class="hidden sm:block text-base font-normal text-gray-500">Pendiente Cobrar</h3>
                             </div>

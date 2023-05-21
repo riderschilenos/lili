@@ -62,7 +62,7 @@
             @livewire('navigation-menu')
 
             <!-- Page Content -->
-            <div class="h-16 text-white md:hiden">
+            <div class="h-16 text-white md:hidden">
                 Riderschilenos
             </div>
        

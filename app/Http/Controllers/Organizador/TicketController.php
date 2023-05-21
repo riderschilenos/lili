@@ -184,6 +184,8 @@ class TicketController extends Controller
                 }
 
         try {
+            $cell='569'.substr(str_replace(' ', '', $ticket->evento->user->vendedor->fono), -8);
+            
             //TOKEN QUE NOS DA FACEBOOK
             $token = env('WS_TOKEN');
             $phoneid= env('WS_PHONEID');
@@ -192,7 +194,7 @@ class TicketController extends Controller
             $payload=[
             'messaging_product' => 'whatsapp',
             "preview_url"=> false,
-            'to'=>'56963176726',
+            'to'=>$cell,
             
             'type'=>'template',
                 'template'=>[

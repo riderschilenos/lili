@@ -677,10 +677,10 @@
         </section>
     
 
-        <section class="pt-10 mt-2 sm:mt-8">
+        <section class="sm:mt-8">
             <div class="md:hidden">
                 @if (auth()->user())
-                    <div  class="mt-10 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                    <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                         <h1 class="md:hidden text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                         
                         <a href="{{route('ticket.historial.view',auth()->user())}}">

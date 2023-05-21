@@ -136,14 +136,9 @@
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Nombre
+                            Usuario
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Email
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Rut
-                            </th>
+                          
                         
                             <th scope="col" class="relative px-6 py-3">
                             <span class="sr-only">Edit</span>
@@ -169,21 +164,13 @@
                                                     <div class="text-sm text-gray-900">
                                                         {{$socio->name}}
                                                     </div>
-                                                    
+                                                    <div class="text-sm text-gray-900">{{$socio->email}}</div>
+                                                    <div class="text-sm text-gray-900">{{$socio->rut}}</div>
                                                 </div>
                                             </div>
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{$socio->email}}</div>
-                                            
-                                        </td>
-
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{$socio->rut}}</div>
-                                            
-                                        </td>
-
+                                    
                                         
                                         
 

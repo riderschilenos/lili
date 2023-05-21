@@ -20,7 +20,7 @@
         @endphp
     @endforeach
 
-    <div class="bg-white shadow pt-2 sm:mt-4 mb-4 w-full px-4">
+    <div class="bg-white shadow pt-2 sm:mt-4 mb-4 w-full px-4" x-data="{open: false}">
 
         <div class="bg-gray-100 rounded-xl mt-4 sm:mt-4 w-full p-10">
             <div class="grid grid-cols-3 mb-4">
@@ -78,7 +78,7 @@
 
         
             
-            <div class="col-span-2 rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1" class="col-span-2" x-data="{open: false}" >
+            <div class="col-span-2 rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1" class="col-span-2"  >
                
                 <a href="{{route('organizador.eventos.retiros.fast',$pista)}}" >
                     <div class="flex items-center">
@@ -119,100 +119,101 @@
                         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del usuario">
                     </div>
                 </div>
-                <div x-show="open">
-                    <x-table-responsive>
-                     
-        
-                        @if ($socios->count())
-        
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Nombre
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Email
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Rut
-                                    </th>
-                                
-                                    <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span>
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-        
-                                    @foreach ($socios as $socio)
-                                      
-                                            
-                                            <tr >
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                                
-                                                                <img class="h-11 w-11 object-cover object-center rounded-full" src="{{ $socio->user->profile_photo_url }}" alt=""  />
-                                                            
-                                                                
-                                                            
-                                                        </div>
-                                                        <div class="ml-4">
-                                                            <div class="text-sm text-gray-900">
-                                                                {{$socio->name}}
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">{{$socio->email}}</div>
-                                                    
-                                                </td>
-        
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">{{$socio->rut}}</div>
-                                                    
-                                                </td>
-        
-                                                
-                                                
-        
-                                                
-                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a wire:click="add({{$socio->id}})" class="text-indigo-600 hover:text-indigo-900 cursor-pointer">COBRAR</a>
-                                                
-                                                </td>
-                                            </tr>
-        
-                       
-                                    @endforeach
-                                    <!-- More people... -->
-                                </tbody>
-                            </table>
-                            
-                        @else
-                            <div class="px-6 py-4">
-                                No hay ningun registro
-                            </div>
-                        @endif 
-        
-                        <div class="px-6 py-4">
-                            {{$socios->links()}}
-                        </div>
-                    </x-table-responsive>
-
-                        @foreach ($socios as $socio)
-
-                            <a class="btn btn-success block my-2 text-center" wire:click="add({{$socio->id}})" >{{$socio->name}}</a>
-                        @endforeach
-
-
-                </div>
+               
             </div>
             
+
+        </div>
+        <div x-show="open">
+            <x-table-responsive>
+             
+
+                @if ($socios->count())
+
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Nombre
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Email
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Rut
+                            </th>
+                        
+                            <th scope="col" class="relative px-6 py-3">
+                            <span class="sr-only">Edit</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+
+                            @foreach ($socios as $socio)
+                              
+                                    
+                                    <tr >
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                        
+                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="{{ $socio->user->profile_photo_url }}" alt=""  />
+                                                    
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm text-gray-900">
+                                                        {{$socio->name}}
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">{{$socio->email}}</div>
+                                            
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">{{$socio->rut}}</div>
+                                            
+                                        </td>
+
+                                        
+                                        
+
+                                        
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a class="btn btn-success block my-2 text-center" wire:click="add({{$socio->id}})" >COBRAR</a>
+                                        
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a class="btn btn-danger block my-2 text-center" wire:click="add({{$socio->id}})" >ADMINISTRAR</a>
+                                        
+                                        </td>
+                                    </tr>
+
+               
+                            @endforeach
+                            <!-- More people... -->
+                        </tbody>
+                    </table>
+                    
+                @else
+                    <div class="px-6 py-4">
+                        No hay ningun registro
+                    </div>
+                @endif 
+
+                <div class="px-6 py-4">
+                    {{$socios->links()}}
+                </div>
+            </x-table-responsive>
+
+
 
         </div>
     </div>

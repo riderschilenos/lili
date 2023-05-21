@@ -679,7 +679,7 @@
 
         <section x-data="{ open: false }" class="sm:mt-8">
             @if (auth()->user())
-                <div  class="text-2xl my-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                <div  class="mt-2 text-2xl my-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <h1 class="md:hidden text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                     
                     <a href="{{route('ticket.historial.view',auth()->user())}}">
@@ -694,7 +694,7 @@
             @else
 
                 <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
-                    <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
+                    <img class="h-full w-full object-cover object-center mt-2" src="{{asset('img/home/mariocross2.png')}}" alt="">
                 </a>
                 <div class="flex justify-center">
                     <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-4 shadow-lg rounded-xl">
@@ -755,17 +755,18 @@
                 @endif
                 
             @endif
+
+            <div class="bg-main-color flex justify-center py-4 z-10"> 
+                <div>
+                    @livewire('search')
+                </div>
+            </div>
+            
         </section>
            
-            <div class="w-full text-white bg-main-color block md:hidden">
-                <div x-data="{ open: false }"
-                    class="flex flex-col max-w-screen-xl pt-3 pb-4 md:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-                    <div class="flex flex-row items-center justify-center">
-                        @livewire('search')
-                    </div>
-                </div>
+              
             
-            <div class="pb-4 bg-main-color max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+            <div class="pb-4 bg-main-color max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                 <article>
                     <figure>
                         <a href="{{route('socio.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/RIDERS-min.png')}}" alt=""></a>

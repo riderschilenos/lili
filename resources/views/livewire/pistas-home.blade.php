@@ -19,9 +19,9 @@
                 </div>
                     <div class="px-2 py-2 col-span-4">
                                     @if ($pista->type=='pista')
-                                        <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittle">{{Str::limit($pista->titulo,40)}}</h1>
+                                        <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittl font-bolde">{{Str::limit($pista->titulo,40)}}</h1>
                                     @else
-                                        <a href="{{route('ticket.evento.show', $pista)}}"><h1 class="card-tittle">{{Str::limit($pista->titulo,40)}}</h1>
+                                        <a href="{{route('ticket.evento.show', $pista)}}"><h1 class="card-tittle font-bold">{{Str::limit($pista->titulo,40)}}</h1>
                                     @endif
                                     <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$pista->disciplina->name}}</p> 
                                     <p class="text-gray-500 text-sm mb-2">Organizador: {{$pista->organizador->first()->name}}</p>

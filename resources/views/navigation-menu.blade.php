@@ -651,7 +651,7 @@
     <h1 class="text-center text-xs font-bold my-1 hidden md:block">Obten tu suscripcion de RidersChilenos</h1>
     <div class="flex justify-end mb-14">
         <div :class="{'fixed': open, 'hidden': ! open}" class="hidden md:hidden">
-            <div class="pt-16 mt-4 pb-3 space-y-1 bg-white">
+            <div class="pt-16 pb-3 space-y-1 bg-white">
 
                 <x-jet-responsive-nav-link href="{{route('vendedores.index')}}" :active="$nav_link['active']">
                     Tienda

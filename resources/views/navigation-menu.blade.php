@@ -661,16 +661,19 @@
 
                     @if ($nav_link['name']=='Diseño')
                         @can('Diseño')
+                           {{-- comment
                             <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                                 {{ $nav_link['name'] }}
                             </x-jet-responsive-nav-link>
+                             --}}
                         @endcan
 
                     @elseif($nav_link['name']=='Producción')
                         @can('Diseño')
+                        {{-- comment
                             <x-jet-responsive-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                                 {{ $nav_link['name'] }}
-                            </x-jet-responsive-nav-link>
+                            </x-jet-responsive-nav-link> --}}
                         @endcan
 
                     @elseif($nav_link['name']=='Eventos')

@@ -96,11 +96,11 @@
       </div>
    @endif
 
-   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-2 items-center content-center">
+   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-1 items-center content-center">
   
       @foreach ($diseños as $diseño)
 
-         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-1 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
             <div class="grid grid-cols-4 items-center">
                <div class="w-12">
                 
@@ -136,7 +136,7 @@
       @endforeach
       @foreach ($produccion as $diseño)
 
-         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-1 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
             <div class="grid grid-cols-4 items-center">
                <div class="w-12">
                 
@@ -172,7 +172,7 @@
       @endforeach
       @foreach ($despacho as $diseño)
 
-         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-2 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
+         <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-1 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
             <div class="grid grid-cols-4 items-center">
                <div class="w-12">
                

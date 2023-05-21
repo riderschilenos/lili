@@ -52,7 +52,9 @@
             @livewire('navigation-menu')
 
        
-           
+            <div class="h-20 text-white">
+                Riderschilenos
+            </div>
             
             <main style="z-index: 10;"> 
                 {{ $slot }}

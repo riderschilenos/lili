@@ -29,4 +29,8 @@ class PedidosCount extends Component
             $this->cliente=Socio::find($pedido->pedidoable_id);
         }
     }
+
+    public function cliente_clean(){
+        $this->reset(['cliente']);
+    }
 }

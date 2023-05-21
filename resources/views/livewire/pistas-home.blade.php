@@ -1,5 +1,5 @@
 <div class="my-6">
-    <div class="max-w-7xl mx-auto px-4 pt-10 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:hidden gap-x-4 gap-y-4">
+    <div class="max-w-7xl mx-auto px-4 pt-10 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:hidden gap-y-4">
 
         @foreach ($pistas as $pista)
 
@@ -17,7 +17,7 @@
 
                     @endisset
                 </div>
-                    <div class="card-body col-span-4">
+                    <div class="px-2 py-4 col-span-4">
                                     @if ($pista->type=='pista')
                                         <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittle">{{Str::limit($pista->titulo,40)}}</h1>
                                     @else

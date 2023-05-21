@@ -6,6 +6,11 @@
             <article class="card grid grid-cols-6 shadow-lg rounded-xl">
 
                 <div class="col-span-2 items-center content-center my-auto px-2">
+                    @if ($pista->type=='pista')
+                        <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittl font-bolde">{{Str::limit($pista->titulo,40)}}</h1>
+                    @else
+                        <a href="{{route('ticket.evento.show', $pista)}}"><h1 class="card-tittle font-bold">{{Str::limit($pista->titulo,40)}}</h1>
+                    @endif
                         @isset($pista->image)
                                 @if ($pista->type=='pista')
                                     <a href="{{route('ticket.pista.show', $pista)}}"><img class="h-44 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
@@ -18,11 +23,7 @@
                     @endisset
                 </div>
                     <div class="px-2 py-2 col-span-4">
-                                    @if ($pista->type=='pista')
-                                        <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittl font-bolde">{{Str::limit($pista->titulo,40)}}</h1>
-                                    @else
-                                        <a href="{{route('ticket.evento.show', $pista)}}"><h1 class="card-tittle font-bold">{{Str::limit($pista->titulo,40)}}</h1>
-                                    @endif
+                                   
                                     <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$pista->disciplina->name}}</p> 
                                     <p class="text-gray-500 text-sm mb-2">Organizador: {{$pista->organizador->first()->name}}</p>
                                     <p class="text-gray-500 text-sm mb-2 "><b>{{$pista->fechas_count}}</b> Entrenamientos </p> 

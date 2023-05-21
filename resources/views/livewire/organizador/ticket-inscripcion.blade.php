@@ -45,8 +45,9 @@
                         <div class="text-white  text-md font-bold px-4" wire:loading wire:target="selectedcategoria">
                             <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                         </div>
+                        <div class="block">
                         @if ($evento->type=='pista')
-                            <div class="block">
+                            
                                 <p class="ml-4">Cuantas Motos? </p>
                                 <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
                                 
@@ -54,18 +55,20 @@
                                     <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
                                 </div>
 
-                            </div>
+                            
                         @else
-                            <div class="block">
-                                <p class="ml-4">Número de Moto: </p>
-                                <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
+                           
+                                <p class="">Número de Moto: </p>
+                                <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 rounded-lg">
                                 
                                 <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
                                     <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
                                 </div>
 
-                            </div>
+                           
                         @endif
+
+                   
                         <form action="{{route('ticket.inscripcions.store')}}" method="POST">
                             @csrf
                             
@@ -77,9 +80,10 @@
                             <input name="cantidad" type="hidden" value="{{$fechacategoria->inscripcion}}">
                             <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
 
-                            <button class="btn btn-primary" type="submit">Agregar</button>
+                            <button class="btn btn-primary mt-2 ml-4" type="submit">Agregar</button>
                         </form>   
 
+                    </div>
                         <p wire:click="add({{$fecha}})" class="hidden btn btn-primary">Agregar</p>
 
 

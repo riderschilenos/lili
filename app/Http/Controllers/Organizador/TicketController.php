@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Organizador;
 use App\Http\Controllers\Controller;
 use App\Models\Evento;
 use App\Models\Invitado;
+use App\Models\Retiro;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -162,6 +163,26 @@ class TicketController extends Controller
         $evento=Evento::find($ticket->evento_id);
         $evento->inscritos()->attach(auth()->user()->id);
 
+        $tickets=$ticket->evento->tickets()->where('status','>=',3)->get();
+        $retiros = Retiro::where('evento_id',$ticket->evento->id)->get();
+
+        $total=0;
+        $retiroacumulado=0;
+
+        foreach ($retiros as $retiro){
+                $retiroacumulado+=$retiro->cantidad;
+        }
+            
+
+    
+
+            foreach ($tickets as $ticket){
+                    if($ticket->status>=3){
+                            $total+=$ticket->inscripcion;
+                    }
+                
+                }
+
         try {
             //TOKEN QUE NOS DA FACEBOOK
             $token = env('WS_TOKEN');
@@ -192,7 +213,7 @@ class TicketController extends Controller
                                 ],
                                 [   //saldo
                                     'type'=>'text',
-                                    'text'=> '$'.number_format($ticket->inscripcion)
+                                    'text'=> '$'.number_format($total-$retiroacumulado)
                                 ],
                                
                             ]

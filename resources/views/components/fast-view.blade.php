@@ -761,9 +761,9 @@
                 <div>
                     @livewire('search')
                 </div>
-          
+            </div>
 
-       
+            <div class="bg-main-color flex justify-center py-4 z-10"> 
            
               
             

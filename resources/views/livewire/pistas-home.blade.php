@@ -26,7 +26,7 @@
                         <a href="{{route('ticket.pista.show', $pista)}}">
                                     <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$pista->disciplina->name}}</p> 
                                     <p class="text-gray-500 text-sm mb-2">Organizador: {{$pista->organizador->first()->name}}</p>
-                                    <p class="text-gray-500 text-sm mb-2 "><b>{{$pista->fechas_count}}</b> Entrenamientos </p> 
+                                    <p class="text-gray-500 text-sm mb-2 "><b>+{{$pista->fechas_count}}</b> Entrenamiento Realizado </p> 
                                     
 
                                     </a>

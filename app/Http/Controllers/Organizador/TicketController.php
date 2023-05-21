@@ -213,7 +213,7 @@ class TicketController extends Controller
                                 ],
                                 [   //saldo
                                     'type'=>'text',
-                                    'text'=> '$'.number_format(($total-$retiroacumulado*0.9))
+                                    'text'=> '$'.number_format($total*0.9-$retiroacumulado)
                                 ],
                                
                             ]

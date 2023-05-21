@@ -67,7 +67,7 @@
             </div>
        
 
-            <main style="z-index: 10;" > 
+            <main style="z-index: 10;" class="pt-2"> 
                 {{ $slot }}
             </main>
             

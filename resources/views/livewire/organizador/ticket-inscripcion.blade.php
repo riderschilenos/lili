@@ -1,24 +1,26 @@
 <div>
-    <div class="flex">
-        @if ($evento->type=='pista')
-            <p class="text-base leading-none my-auto mx-auto">En qué Cilindrada vas entrenar?</p>
-        @else
-            <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
-        @endif
-        
-                    
-        <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="flex justify-center">
             @if ($evento->type=='pista')
-                <option value="">--Cilindrada--</option>
+                <p class="text-base leading-none my-auto mx-auto">En qué Cilindrada vas entrenar?</p>
             @else
-                <option value="">--Categoria--</option>
+                <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
             @endif
-            @foreach ($fecha->categorias as $item)
+        </div>    
+        <div class="flex justify-center">      
+            <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                @if ($evento->type=='pista')
+                    <option value="">--Cilindrada--</option>
+                @else
+                    <option value="">--Categoria--</option>
+                @endif
+                @foreach ($fecha->categorias as $item)
 
-                <option value="{{$item->id}}">{{$item->categoria->name}}-${{number_format($item->inscripcion)}}</option>
-                
-            @endforeach
-        </select>
+                    <option value="{{$item->id}}">{{$item->categoria->name}}-${{number_format($item->inscripcion)}}</option>
+                    
+                @endforeach
+            </select>
+        </div>
     </div>
 
         @foreach ($ticket->evento->fechas as $fecha)

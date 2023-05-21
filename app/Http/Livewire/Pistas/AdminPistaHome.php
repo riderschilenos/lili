@@ -46,7 +46,7 @@ class AdminPistaHome extends Component
         Pista_staff::create([
                         'user_id'=>$user->id,
                         'evento_id'=>$this->pista->id
-        ])
+        ]);
         //$user->organizadors()->attach($this->pista->id);
 
         //$this->pista->organizadors()->attach($user->id);

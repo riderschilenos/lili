@@ -105,6 +105,7 @@
     <div class="hidden md:block top-0 bg-red-600 w-full md:relative md:bg-white sm:pt-3" style="z-index: 20;">
         <div class="container mb-0 sm:mb-6" >
             <div class="flex justify-between h-16">
+                
                 <div class="hidden sm:flex">
                     <!-- Logo -->
                     <div class="flex">
@@ -153,7 +154,7 @@
                 
                 
 
-                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div class="hidden sm:flex sm:items-center sm:ml-6 bg-white">
                     
                     @auth
                     
@@ -208,12 +209,12 @@
                         @endif
 
                         <!-- Settings Dropdown -->
-                        <div class="ml-3 relative">
+                        <div class="ml-3 relative  bg-white">
 
                         
                                 
                             
-                            <x-jet-dropdown align="right" width="48">
+                            <x-jet-dropdown align="right" width="48" class="bg-white">
                                 <x-slot name="trigger">
                                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                         <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
@@ -233,10 +234,10 @@
                                     @endif
                                 </x-slot>
 
-                                <x-slot name="content">
+                                <x-slot name="content" class="bg-white">
                                     <!-- Account Management -->
                                     @if(auth()->user()->socio)
-                                        <x-jet-dropdown-link href="{{ route('socio.show', auth()->user()->socio) }}">
+                                        <x-jet-dropdown-link href="{{ route('socio.show', auth()->user()->socio) }}" class="bg-white">
                                             {{ __('Mi Perfil') }}
                                         </x-jet-dropdown-link>
                                     @endif
@@ -697,7 +698,7 @@
             
             @auth        
             
-                <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="pt-4 pb-1 border-t border-gray-200 bg-white">
                     <div class="flex items-center px-4">
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <div class="flex-shrink-0 mr-3">
@@ -711,7 +712,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-3 space-y-1">
+                    <div class="mt-3 space-y-1  bg-white">
                         <!-- Account Management --> 
                         @if(auth()->user()->socio)
                             <x-jet-responsive-nav-link href="{{ route('socio.show', auth()->user()->socio) }}" :active="request()->routeIs('socio.show')">

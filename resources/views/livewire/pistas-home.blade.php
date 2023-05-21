@@ -99,14 +99,15 @@
 
                                             @endif                                  
                                     @endif
-
-                                        <div class="flex mt-2">
-                                            <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
-                                            <p class="text-sm text-gray-500 ml-auto"> 
-                                                <i class="fas fa-users"></i>
-                                                ({{$pista->inscritos_count}})
-                                            </p>
-                                        </div>
+                                        <a href="{{route('ticket.evento.show', $pista)}}">
+                                            <div class="flex mt-2">
+                                                <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
+                                                <p class="text-sm text-gray-500 ml-auto"> 
+                                                    <i class="fas fa-users"></i>
+                                                    ({{$pista->inscritos_count}})
+                                                </p>
+                                            </div>
+                                        </a>
 
                                        
 

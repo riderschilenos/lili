@@ -42,7 +42,7 @@
         
 
         
-                <div class="max-w-xl  bg-gray-200 shadow rounded-lg px-4 py-2 sm:p-6 xl:p-8 mb-4">
+                <div class="max-w-xl  bg-gray-200 shadow rounded-lg px-2 py-2 sm:p-6 xl:p-8 mb-4">
                     <a href="{{route('organizador.eventos.inscritos.fast',$pista)}}" class="col-span-1">
                            
                         <div class="flex items-center">
@@ -78,7 +78,7 @@
 
         
             
-            <div class="col-span-2 rounded-lg p-4 sm:p-6 xl:p-8 my-2 mx-1" class="col-span-2"  >
+            <div class="col-span-2 rounded-lg p-2 sm:p-6 xl:p-8 my-2 mx-1" class="col-span-2"  >
                
                 <a href="{{route('organizador.eventos.retiros.fast',$pista)}}" >
                     <div class="flex items-center">

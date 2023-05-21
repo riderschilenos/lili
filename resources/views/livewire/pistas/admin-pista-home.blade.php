@@ -20,7 +20,7 @@
         @endphp
     @endforeach
 
-    <div class="bg-white shadow pt-2 sm:mt-4 mb-4 w-full px-4" x-data="{open: false}">
+    <div class="bg-white shadow pt-2 sm:mt-4 mb-4 w-full px-2" x-data="{open: false}">
 
         <div class="bg-gray-100 rounded-xl mt-4 sm:mt-4 w-full p-10">
             <div class="grid grid-cols-3 mb-4">

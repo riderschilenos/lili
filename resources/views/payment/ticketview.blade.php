@@ -63,7 +63,7 @@
                               
                                 <div class="font-semibold text-center">
                                   @if ($inscripcion->fecha->name=='keyname')
-                                      <label class="mx-4"> {{$inscripcion->fecha->fecha}}</label>
+                                      <label class="mx-4"> {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}</label>
                                   @else
                                       <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
                                   @endif

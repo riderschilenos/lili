@@ -28,7 +28,8 @@
                 <div class="flex items-center justify-between pb-5 px-8 bg-blue-900 text-white py-2 my-4">
                     
                     @if ($fecha->name=='keyname')
-                        <label class="mx-4"> Entrenamiento {{$fecha->fecha}}</label>
+                        <label class="mx-4"> Entrenamiento {{date('d/m/Y', strtotime($fecha->fecha))}}
+                        </label>
                     @else
                         <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
                     @endif

@@ -677,7 +677,7 @@
         </section>
     
 
-        <section x-data="{ open: false }" class="sm:mt-8">
+        <section class="sm:mt-8">
             @if (auth()->user())
                 <div  class="mt-2 text-2xl my-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <h1 class="md:hidden text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
@@ -694,7 +694,7 @@
             @else
 
                 <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
-                    <img class="h-full w-full object-cover object-center mt-2" src="{{asset('img/home/mariocross2.png')}}" alt="">
+                    <img class="h-full w-full object-cover object-center mt-4" src="{{asset('img/home/mariocross2.png')}}" alt="">
                 </a>
                 <div class="flex justify-center">
                     <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-4 shadow-lg rounded-xl">
@@ -729,9 +729,9 @@
                
 
 
-                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 pb-4" x-data="{open: true}">
+                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 pb-4" x-data="{whatsap: true}">
                     <div class="flex justify-between">
-                        <button class="btn btn-success ml-2 text-center text-xl" x-on:click="open=!open">WS Invitación</button>
+                        <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">WS Invitación</button>
                         <a href="{{route('contabilidad')}}">
                             <button class="btn btn-danger ml-2 text-center text-xl">Gráficos y Estadisticas</button>
                         </a>
@@ -739,7 +739,7 @@
                             <button class="btn btn-success ml-2 text-center text-xl">Nuevo Pedido</button>
                         </a>
                     </div>
-                    <div x-show="!open">
+                    <div x-show="!whatsap">
 
                        @livewire('admin.whatsapp-sender-cliente')
 
@@ -761,7 +761,7 @@
                     @livewire('search')
                 </div>
             </div>
-            
+
         </section>
            
               

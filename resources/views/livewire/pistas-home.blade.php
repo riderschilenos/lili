@@ -62,14 +62,14 @@
                                                 </a>
                                                 
                                         @elseif($min==$max)
-                                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                             
                                             <a href= "{{route('ticket.pista.show', $pista)}}" class="btn bg-gray-300 btn-block">
                                                 ${{number_format($min)}}
                                             </a>
 
                                         @else
-                                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                             
                                             <a href= "{{route('ticket.pista.show', $pista)}}" class="btn bg-gray-300 btn-block">
                                                 ${{number_format($min)}} - ${{number_format($max)}}

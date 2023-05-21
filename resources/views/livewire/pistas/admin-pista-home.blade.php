@@ -69,8 +69,8 @@
                         <div>
                         <div class="flex justify-center">
                                 <a href="{{route('ticket.pista.show', $pista)}}">
-                                    <button class="sm:hidden btn btn-danger ml-2 text-center text-xl mt-4 whitespace-nowrap">Link</button>
-                                    <button class="hidden sm:block btn btn-danger ml-2 text-center text-xl mt-4 whitespace-nowrap">Link-Pista</button>
+                                    <button class="sm:hidden btn btn-danger ml-2 text-center text-md mt-4 whitespace-nowrap">Link</button>
+                                    <button class="hidden sm:block btn btn-danger ml-2 text-center text-md mt-4 whitespace-nowrap">Link-Pista</button>
                                 </a>
                             </div>
                         </div>
@@ -110,10 +110,10 @@
                 </a>
                 <div class="flex justify-center"> 
                     <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
-                        <button class="btn btn-danger ml-2 text-center text-xl mt-4">Entrenamientos</button>
+                        <button class="btn btn-danger ml-2 text-center text-lg mt-4">Entrenamientos</button>
                     </a>
                     @can('Super admin')
-                        <button class="btn btn-danger ml-2 text-center text-xl mt-4"  x-on:click="open=!open">STAFF</button>
+                        <button class="btn btn-danger ml-2 text-center text-lg mt-4"  x-on:click="open=!open">STAFF</button>
                     @endcan
                 </div>
                 <div x-show="open">

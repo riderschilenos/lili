@@ -3,7 +3,7 @@
 
         @foreach ($pistas as $pista)
 
-            <article class="card grid grid-cols-6">
+            <article class="card grid grid-cols-6 shadow-lg rounded-xl">
 
                 <div class="col-span-2 items-center content-center my-auto px-2">
                         @isset($pista->image)

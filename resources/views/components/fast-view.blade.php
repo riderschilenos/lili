@@ -697,8 +697,8 @@
                     <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
                 </a>
                 <div class="flex justify-center">
-                    <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-2 rounded-xl">
-                        
+                    <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-4 shadow-lg rounded-xl">
+
                         <div class="flex justify-center mt-4 ">
 
                             <a href="https://riderschilenos.cl/login-google">

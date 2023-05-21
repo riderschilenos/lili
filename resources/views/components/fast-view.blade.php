@@ -1,5 +1,5 @@
 @props(['series','riders','autos','socio2','disciplinas'])
-<div class="pt-10 mt-8">
+<div>
     <style>
     :root {
         --main-color: #4a76a8;

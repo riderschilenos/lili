@@ -65,7 +65,7 @@
 
        
 
-            <main style="z-index: 10;" > 
+            <main style="z-index: 10;"> 
                 {{ $slot }}
             </main>
             

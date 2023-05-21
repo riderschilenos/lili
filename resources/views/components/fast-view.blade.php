@@ -1,5 +1,5 @@
 @props(['series','riders','autos','socio2','disciplinas'])
-<div>  
+<div class="pt-10 mt-8">
     <style>
     :root {
         --main-color: #4a76a8;
@@ -21,7 +21,7 @@
     .border-main-color {
         border-color: var(--main-color);
     }
-</style>
+    </style>
 
     @if (auth()->user())
         @if (auth()->user()->socio)

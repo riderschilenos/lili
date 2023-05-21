@@ -110,7 +110,7 @@
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-                  <div class="flex">
+                  <div>
                      <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                   </div>
                </div>
@@ -150,7 +150,7 @@
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-                  <div class="flex">
+                  <div>
                      <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
                   </div>
                </div>
@@ -190,8 +190,8 @@
                         <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
                      </svg>
                   </span>
-                  <div class="flex">
-                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full">
+                  <div >
+                     <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="" class="w-12 h-12 rounded-full z-1">
                   </div>
                </div>
                <div class="flex flex-col ml-2 col-span-3">

@@ -677,49 +677,50 @@
         </section>
     
 
-        <section class="sm:mt-8">
-            @if (auth()->user())
-                <div  class="mt-10 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
-                    <h1 class="md:hidden text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
-                    
-                    <a href="{{route('ticket.historial.view',auth()->user())}}">
-                        <button class="md:hidden btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>
-                    </a>
-                </div>
-
-                <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
-                    <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
-                </a>
-
-            @else
-
-                <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
-                    <img class="h-full w-full object-cover object-center mt-4" src="{{asset('img/home/mariocross2.png')}}" alt="">
-                </a>
-                <div class="flex justify-center">
-                    <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-4 shadow-lg rounded-xl">
-
-                        <div class="flex justify-center mt-4 ">
-
-                            <a href="https://riderschilenos.cl/login-google">
-                                <button class="btn bg-blue-500 text-white w-full max-w-xs items-center justify-items-center mr-2 mt-2"><svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>Ingresar Con Google<div></div></button>
-                            </a>
+        <section class="pt-10 mt-2 sm:mt-8">
+            <div class="md:hidden">
+                @if (auth()->user())
+                    <div  class="mt-10 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                        <h1 class="md:hidden text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                         
-                        </div>
-                        <div class="flex justify-center mt-2 mb-6">
+                        <a href="{{route('ticket.historial.view',auth()->user())}}">
+                            <button class="md:hidden btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>
+                        </a>
+                    </div>
 
-                            <a href="{{route('register')}}">
-                                <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mr-2 mt-2">REGISTRO</button>
-                            </a>
-                            <a href="{{route('login')}}">
-                                <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
-                            </a>
+                    <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
+                        <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
+                    </a>
 
+                @else
+
+                    <a class="sm:hidden" href="https://riderschilenos.cl/eventos/mariocross">
+                        <img class="h-full w-full object-cover object-center mt-4" src="{{asset('img/home/mariocross2.png')}}" alt="">
+                    </a>
+                    <div class="flex justify-center">
+                        <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-4 shadow-lg rounded-xl">
+
+                            <div class="flex justify-center mt-4 ">
+
+                                <a href="https://riderschilenos.cl/login-google">
+                                    <button class="btn bg-blue-500 text-white w-full max-w-xs items-center justify-items-center mr-2 mt-2"><svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>Ingresar Con Google<div></div></button>
+                                </a>
+                            
+                            </div>
+                            <div class="flex justify-center mt-2 mb-6">
+
+                                <a href="{{route('register')}}">
+                                    <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mr-2 mt-2">REGISTRO</button>
+                                </a>
+                                <a href="{{route('login')}}">
+                                    <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
+                                </a>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endif
-            
+                @endif
+            </div>
             @can('Super admin')
             <div class="bg-gray-700 pt-4">
                 <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">

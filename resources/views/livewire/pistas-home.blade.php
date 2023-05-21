@@ -108,47 +108,7 @@
                                             </p>
                                         </div>
 
-                                        @can('enrolled', $pista)
-                                            @if ($pista->type=='pista')
-                                                <a href= "{{route('ticket.pista.show', $pista)}}" class="btn btn-success btn-block mt-10">
-                                                    Ver evento
-                                                </a>
-                                            @else
-                                                <a href= "{{route('ticket.evento.show', $pista)}}" class="btn btn-success btn-block mt-10">
-                                                    Ver evento
-                                                </a>
-                                            @endif
-                                        
-
-                                        @else 
-                                        {{-- comment @if ($pista->entrada == 0)
-                                            <p class="my-2 text-green-800 font-bold">GRATIS</p>
-                                            @else
-                                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
-                                                <div class="flex justify-between mb-4">
-                                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($pista->entrada)}}</p>
-                                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
-                                                    </div>
-                                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($pista->entrada_niño)}}</p>
-                                                        <p class="text-gray-500 text-sm text-center">Niños</p> 
-                                                    </div>
-                                                </div>
-                                            @endif --}}
-                                            @if ($pista->type=='pista')
-                                                <a href= "{{route('ticket.pista.show', $pista)}}" class="btn btn-danger btn-block">
-                                                    Obtener
-                                                </a>
-                                            @else
-                                                <a href= "{{route('ticket.evento.show', $pista)}}" class="btn btn-danger btn-block">
-                                                    Obtener
-                                                </a>
-                                                
-                                            @endif
-                                        
-
-                                        @endcan
+                                       
 
 
 

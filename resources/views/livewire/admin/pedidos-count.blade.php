@@ -96,7 +96,7 @@
       </div>
    @endif
 
-   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-1 items-center content-center">
+   <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-1 gap-y-1 items-center content-center">
   
       @foreach ($diseños as $diseño)
 

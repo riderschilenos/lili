@@ -17,7 +17,7 @@
 
                     @endisset
                 </div>
-                    <div class="px-2 py-4 col-span-4">
+                    <div class="px-2 py-2 col-span-4">
                                     @if ($pista->type=='pista')
                                         <a href="{{route('ticket.pista.show', $pista)}}"><h1 class="card-tittle">{{Str::limit($pista->titulo,40)}}</h1>
                                     @else
@@ -101,7 +101,7 @@
                                     @endif
 
                                         <div class="flex mt-2">
-                                            <p class="text-gray-500 text-md mb-2">Riders c/ Entrada</p>
+                                            <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
                                             <p class="text-sm text-gray-500 ml-auto"> 
                                                 <i class="fas fa-users"></i>
                                                 ({{$pista->inscritos_count}})

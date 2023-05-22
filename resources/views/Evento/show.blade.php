@@ -382,7 +382,7 @@
                                         </div>
                                         
                                     </div>
-                                    <a href= "" class="btn bg-gray-100 my-2 btn-block">
+                                    <a href= "" class="hidden btn bg-gray-100 my-2 btn-block">
                                         ${{number_format($min)}} - ${{number_format($max)}}
                                     </a>
 

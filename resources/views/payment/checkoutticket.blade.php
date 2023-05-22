@@ -356,16 +356,17 @@
                                     <thead class="bg-gray-50">
                                     <tr>
                                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Fecha
+                                            Detalles
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         
-                                        @if ($evento->type=='pista')
-                                            Cilindrada
-                                        @else
-                                            Categoria
-                                        @endif   
-                                        </th>
+                                            @if ($evento->type=='pista')
+                                                 
+                                            @else
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Categoria
+                                                </th>
+                                            @endif   
+                                      
                                         @if ($evento->type=='pista')
                      
                                         @else
@@ -390,15 +391,18 @@
                                                                                 @else
                                                                                     <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
                                                                                 @endif
-                                                                                
+                                                                                <br>
+                                                                                {{$inscripcion->fecha_categoria->categoria->name}}
                                                                             </td>
-                                                                        
+                                                                            @if ($evento->type=='pista')
+                     
+                                                                            @else
                                                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                                             
-                                                                                    {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                  
                                                                                 
                                                                                 </td>
-                                                                    
+                                                                            @endif
                                                                         
                                                                                 @if ($evento->type=='pista')
                      

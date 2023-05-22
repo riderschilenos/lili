@@ -7,15 +7,15 @@
                 <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
             @endif
         </div>    
-    <div class="flex justify-center">
+    <div class="grid grid-cols-1 justify-center">
         @if (IS_NULL($categoria_id))
             @foreach ($fecha->categorias as $item)
-                <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-xs my-4">
+                <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2">
                     {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
                 </button>
             @endforeach
         @else
-            <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-xs my-4">
+            <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4">
                 {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}}
             </button>
         @endif

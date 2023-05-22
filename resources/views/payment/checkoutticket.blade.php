@@ -97,27 +97,29 @@
                         @else
                             <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripción</p>
                         @endif
-                       
-                        
-                            <div class="flex mx-auto mb-4 w-72   px-24">
-                                <div class="bg-gray-100 p-1 rounded-3xl w-full">
-                                    @if ($min==0)
+                        <div class="flex mx-auto mb-4 w-full  px-24">
+                            @foreach ($fech->categorias as $item)
+                                <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
+                                    @if ($item->inscripcion==0)
                                         <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
                                     @else
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($min)}}</p>
+                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
                                     @endif
-                                    <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                    <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
                                 </div>
-                                <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                    @if ($max==0)
-                                        <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
-                                    @else
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($max)}}</p>
-                                    @endif
-                                    <p class="text-gray-500 text-sm text-center">Adultos</p> 
-                                </div>
-                                
+                            @endforeach
+
+                            <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                @if ($max==0)
+                                    <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                @else
+                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($max)}}</p>
+                                @endif
+                               
+                                <p class="text-gray-500 text-sm text-center">Adultos</p> 
                             </div>
+                            
+                        </div>
                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                         
                             <div class="flex mx-auto mb-4 w-72   px-24">

@@ -59,8 +59,8 @@ class PaymentController extends Controller
             
             $ticket->inscripcion=$alfa;
             $ticket->save();
-
-        return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento'));
+        $fech = Fecha::where('evento_id',$evento->id)->first();
+        return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento','fech'));
     }
 
     public function ticket(Ticket $ticket, Request $request){

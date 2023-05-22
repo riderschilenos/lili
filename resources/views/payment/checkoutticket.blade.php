@@ -490,22 +490,23 @@
             <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
         </div>
 
-        <div>
-            <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
-                @csrf
-             
-                <button class="btn btn-primary mt-4" >Agregar Gratis</button>
+        @can('Super admin')
+            <div>
+                <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
+                    @csrf
                 
-            </form>
+                    <button class="btn btn-primary mt-4" >Agregar Gratis</button>
+                    
+                </form>
 
-            <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
-                @csrf
-             
-                <button class="btn btn-danger mt-4" >Agregar Simulación Pago</button>
+                <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
+                    @csrf
                 
-            </form>
-        </div>
-  
+                    <button class="btn btn-danger mt-4" >Agregar Simulación Pago</button>
+                    
+                </form>
+            </div>
+        @endcan
       
 
 

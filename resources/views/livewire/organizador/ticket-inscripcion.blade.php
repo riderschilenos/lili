@@ -7,7 +7,23 @@
                 <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
             @endif
         </div>    
-        <div class="flex justify-center">      
+    <div class="flex justify-center">
+        @if (IS_NULL($categoria_id))
+            @foreach ($fecha->categorias as $item)
+                <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-xs my-4">
+                    {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
+                </button>
+            @endforeach
+        @else
+            <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-xs my-4">
+                {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}}
+            </button>
+        @endif
+      
+ 
+</div>
+
+        <div class="hidden flex justify-center">      
             <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 @if ($evento->type=='pista')
                     <option value="">--Cilindrada--</option>

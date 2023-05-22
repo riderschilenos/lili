@@ -329,19 +329,63 @@
                                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                                     @endif
                                         
+                                    <div class="flex mx-auto mb-4 w-full  px-24">
+                                        @foreach ($fech->categorias as $item)
+                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
+                                                @if ($item->inscripcion==0)
+                                                    <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                                @else
+                                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
+                                                @endif
+                                                <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
+                                            </div>
+                                        @endforeach
 
-                                    <a href= "" class="btn bg-gray-100 my-2 btn-block">
-                                        ${{number_format($min)}}
-                                    </a>
+                                        <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                            @if ($max==0)
+                                                <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                            @else
+                                                <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($max)}}</p>
+                                            @endif
+                                           
+                                            <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                        </div>
+                                        
+                                    </div>
+
                                 @else
                                     @if ($evento->type=='pista')
                                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                     @else
                                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                                     @endif
+                                    <div class="flex mx-auto mb-4 w-full  px-24">
+                                        @foreach ($fech->categorias as $item)
+                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
+                                                @if ($item->inscripcion==0)
+                                                    <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                                @else
+                                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
+                                                @endif
+                                                <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
+                                            </div>
+                                        @endforeach
+
+                                        <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                            @if ($max==0)
+                                                <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                            @else
+                                                <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($max)}}</p>
+                                            @endif
+                                           
+                                            <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                        </div>
+                                        
+                                    </div>
                                     <a href= "" class="btn bg-gray-100 my-2 btn-block">
                                         ${{number_format($min)}} - ${{number_format($max)}}
                                     </a>
+
                                 @endif
                                 @if ($ticket)
                                     <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">

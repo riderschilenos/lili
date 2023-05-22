@@ -45,5 +45,17 @@ class TicketInscripcion extends Component
         
     }
 
+    public function set_categoria($id){
+        $this->fechacategoria=Fecha_categoria::find($id);
+
+        $this->categoria_id = $this->fechacategoria->categoria_id;
+    }
+
+    public function categoria_clean(){
+
+        $this->reset(['categoria_id']);
+        
+    }
+
 
 }

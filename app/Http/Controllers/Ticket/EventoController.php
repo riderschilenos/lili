@@ -88,8 +88,8 @@ class EventoController extends Controller
             $ticket =null;
         }        
           
-        
-        return view('Evento.show',compact('evento','fechas','similares','ticket'));
+        $fech = Fecha::where('evento_id',$evento->id)->first();
+        return view('Evento.show',compact('evento','fechas','similares','ticket','fech'));
     }
 
     public function pistas()

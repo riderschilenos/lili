@@ -40,9 +40,9 @@ class EventoCheckout extends Component
             $ticket =null;
         }
 
-       
+        $fech = Fecha::where('evento_id',$this->evento->id)->first();
 
-        return view('livewire.evento-checkout',compact('fechas','disciplinas','socio','ticket'));
+        return view('livewire.evento-checkout',compact('fechas','disciplinas','socio','ticket','fech'));
     }
 
     public function updatedselectedcategoria($category_product){

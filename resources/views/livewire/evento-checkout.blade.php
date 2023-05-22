@@ -95,18 +95,21 @@
                             @endforeach
                         @endforeach
                             <div class="mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
-                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 
-                                    <div class="flex mx-auto mb-4 w-72   px-24">
-                                        <div class="bg-gray-100 p-1 rounded-3xl w-full">
-                                            @if ($min==0)
-                                                <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
-                                            @else
-                                                <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($min)}}</p>
-                                            @endif
-                                            <p class="text-gray-500 text-sm text-center">Niños</p> 
-                                        </div>
-                                        <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                    <div class="flex mx-auto mb-4 w-full  px-24">
+                                        @foreach ($fech->categorias as $item)
+                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
+                                                @if ($item->inscripcion==0)
+                                                    <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                                @else
+                                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
+                                                @endif
+                                                <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
+                                            </div>
+                                        @endforeach
+
+                                        <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1">
                                             @if ($max==0)
                                                 <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
                                             @else

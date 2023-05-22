@@ -31,6 +31,10 @@ class Retiro extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function evento(){
+        return $this->belongsTo('App\Models\Evento');
+    }
+
     public function gastotype(){
         return $this->belongsTo('App\Models\Gastotype');
     }

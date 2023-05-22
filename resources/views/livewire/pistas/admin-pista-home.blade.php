@@ -1,24 +1,30 @@
 <div>
-@php
-    $total=0;
-    $pendientes=1000;
-    $retiroacumulado=0;
-    
-@endphp
 
-    @foreach ($tickets as $ticket)
-        @if($ticket->status>=3)
+    @foreach ($pistas as $pista)
+        
+   
+
+    @php
+        $total=0;
+        $pendientes=1000;
+        $retiroacumulado=0;
+        
+    @endphp
+
+        @foreach ($pista->tickets()->where('status','>=',3) as $ticket)
+            @if($ticket->status>=3)
+                @php
+                    $total+=$ticket->inscripcion;
+                @endphp
+            @endif   
+        @endforeach
+    @if ($pista->retiros())
+        @foreach ($pista->retiros->where('evento_id',$pista->id) as $retiro)
             @php
-                $total+=$ticket->inscripcion;
+                $retiroacumulado+=$retiro->cantidad;
             @endphp
-        @endif   
-    @endforeach
-
-    @foreach ($retiros as $retiro)
-        @php
-            $retiroacumulado+=$retiro->cantidad;
-        @endphp
-    @endforeach
+        @endforeach
+    @endif
 
     <div class="bg-white shadow pt-2 sm:mt-4 mb-4 w-full px-2" x-data="{open: false}">
 
@@ -51,7 +57,7 @@
                             
                                 <div class="flex justify-center">
                                     <div class="text-4xl sm:text-8xl leading-none font-bold text-gray-900 text-center">
-                                        {{number_format($inscripciones->count())}} / {{number_format($inscripciones->where('estado','>=',4)->count())}}
+                                        {{number_format($inscripciones->where('evento_id',$pista->id)->count())}} / {{number_format($inscripciones->where('evento_id',$pista->id)->where('estado','>=',4)->count())}}
                                     </div>
                                 </div>
                                 <h3 class="sm:hidden text-base font-normal text-center text-gray-500">Vendidas/<br>Cobradas<br>/Mes</h3>
@@ -210,5 +216,6 @@
         </div>
     </div>
 
+    @endforeach
     
 </div>

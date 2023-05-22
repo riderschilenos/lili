@@ -15,18 +15,18 @@ use Livewire\WithPagination;
 class AdminPistaHome extends Component
 {   use WithPagination;
 
-    public $search, $user_id, $pista;
+    public $search, $user_id, $pistas ,$pista;
 
     public function render()
-    {   $this->pista=Evento::where('type','pista')->where('user_id',auth()->user()->id)->first();
+    {   $this->pistas=Evento::where('type','pista')->where('user_id',auth()->user()->id)->get();
+       // $this->pista=Evento::where('type','pista')->where('user_id',auth()->user()->id)->first();
         $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
                     ->select('inscripcions.*','tickets.evento_id')
-                    ->where('evento_id',$this->pista->id)
                     ->where('estado','>=',3)
                     ->orderby('categoria_id','DESC')
-                    ->paginate(50);
-        $tickets = $this->pista->tickets()->where('status','>=',3)->get();
-        $retiros = Retiro::where('evento_id',$this->pista->id)->get();
+                   ->paginate(50);
+        //$tickets = $this->pista->tickets()->where('status','>=',3)->get();
+        //$retiros = Retiro::where('evento_id',$this->pista->id)->get();
         $socios=Socio::join('users','socios.user_id','=','users.id')
                     ->select('socios.*','users.name','users.email')
                     ->where('rut','LIKE','%'. $this->search .'%')
@@ -37,7 +37,7 @@ class AdminPistaHome extends Component
                     ->latest('id')
                     ->paginate(3);
 
-        return view('livewire.pistas.admin-pista-home',compact('tickets','retiros','inscripciones','socios'));
+        return view('livewire.pistas.admin-pista-home',compact('socios','inscripciones'));
     }
 
     public function add(Socio $socio){

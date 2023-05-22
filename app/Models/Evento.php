@@ -58,6 +58,10 @@ class Evento extends Model
     public function tickets(){
         return $this->hasMany('App\Models\Ticket');
     }
+
+    public function retiros(){
+        return $this->hasMany('App\Models\Retiro');
+    }
     
     
     public function disciplina(){

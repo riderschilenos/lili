@@ -387,9 +387,9 @@
                                                                             <td class="px-6 py-4 whitespace-nowrap">
 
                                                                                @if ($inscripcion->fecha->name=='keyname')
-                                                                                    <label class="mx-4"> Entrenamiento {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}</label>
+                                                                                    <label class=""> Entrenamiento {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}</label>
                                                                                 @else
-                                                                                    <label class="mx-4"> {{$inscripcion->fecha->name}}</label>
+                                                                                    <label class=""> {{$inscripcion->fecha->name}}</label>
                                                                                 @endif
                                                                                 <br>
                                                                                 {{$inscripcion->fecha_categoria->categoria->name}}

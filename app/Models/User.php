@@ -150,6 +150,10 @@ public function sendPasswordResetNotification($token)
         return $this->hasMany('App\Models\Pago');
     }
 
+    public function pista_staffs(){
+        return $this->hasMany('App\Models\Pista_staff');
+    }
+
     public function vehiculos(){
         return $this->hasMany('App\Models\Vehiculo');
     }

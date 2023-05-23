@@ -118,9 +118,9 @@
                     <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                         <button class="btn btn-danger ml-2 text-center text-lg mt-4">Entrenamientos</button>
                     </a>
-                    @can('Super admin')
-                        <button class="btn btn-danger ml-2 text-center text-lg mt-4"  x-on:click="open=!open">STAFF</button>
-                    @endcan
+                   
+                    <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>
+                  
                 </div>
                 <div x-show="open">
                     <div class="px-6 pt-4">
@@ -185,11 +185,11 @@
 
                                         
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a class="btn btn-success block my-2 text-center" wire:click="add({{$socio->id}})" >COBRAR</a>
+                                            <button class="btn btn-success block my-2 text-center" wire:click="cobrar({{$socio->user->id}})" >COBRAR</button>
                                         
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a class="btn btn-danger block my-2 text-center" wire:click="add({{$socio->id}})" >ADMINISTRAR</a>
+                                            <button class="btn btn-danger block my-2 text-center" wire:click="admin({{$socio->user->id}})" >ADMINISTRAR</button>
                                         
                                         </td>
                                     </tr>

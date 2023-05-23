@@ -40,16 +40,27 @@ class AdminPistaHome extends Component
         return view('livewire.pistas.admin-pista-home',compact('socios','inscripciones'));
     }
 
-    public function add(Socio $socio){
-        $user=User::find($socio->user->id);
+    public function admin(User $user){
+        
 
         Pista_staff::create([
                         'user_id'=>$user->id,
-                        'evento_id'=>$this->pista->id
+                        'evento_id'=>$this->pista->id,
+                        'rol'=>'admin'
         ]);
-        //$user->organizadors()->attach($this->pista->id);
-
-        //$this->pista->organizadors()->attach($user->id);
+       
+    }
+    public function cobrar(User $user){
+     
+        Pista_staff::create([
+                        'user_id'=>$user->id,
+                        'evento_id'=>$this->pista->id,
+                        'rol'=>'cobrar'
+        ]);
+       
+    }
+    public function set_pista($id){
+        $this->pista=Evento::find($id);
     }
 
     public function limpiar_page(){

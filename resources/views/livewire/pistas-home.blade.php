@@ -13,9 +13,9 @@
                     @endif
                         @isset($pista->image)
                                 @if ($pista->type=='pista')
-                                    <a href="{{route('ticket.pista.show', $pista)}}"><img class="w-full h-44 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
+                                    <a href="{{route('ticket.pista.show', $pista)}}"><img class="w-full h-32 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
                                 @else
-                                    <a href="{{route('ticket.evento.show', $pista)}}"><img class="w-full h-44 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
+                                    <a href="{{route('ticket.evento.show', $pista)}}"><img class="w-full h-32 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
                                 @endif
                         @else
                             <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">

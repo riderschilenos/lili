@@ -1,5 +1,5 @@
-<div class="mt-2 mb-6">
-    <div class="max-w-7xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:hidden gap-y-4 mx-4">
+<div class="mt-2 mb-6 flex justify-center">
+    <div class="max-w-7xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 mx-4">
 
         @foreach ($pistas as $pista)
 
@@ -13,9 +13,9 @@
                     @endif
                         @isset($pista->image)
                                 @if ($pista->type=='pista')
-                                    <a href="{{route('ticket.pista.show', $pista)}}"><img class="w-full object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
+                                    <a href="{{route('ticket.pista.show', $pista)}}"><img class="w-full h-44 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
                                 @else
-                                    <a href="{{route('ticket.evento.show', $pista)}}"><img class="w-full object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
+                                    <a href="{{route('ticket.evento.show', $pista)}}"><img class="w-full h-44 object-contain my-auto content-center items-center" src=" {{Storage::url($pista->image->url)}}" alt=""></a>
                                 @endif
                         @else
                             <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">

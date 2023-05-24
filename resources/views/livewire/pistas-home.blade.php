@@ -1,5 +1,5 @@
 <div class="mt-2 mb-6 flex justify-center">
-    <div class="max-w-7xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 mx-4">
+    <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 mx-4">
 
         @foreach ($pistas as $pista)
 

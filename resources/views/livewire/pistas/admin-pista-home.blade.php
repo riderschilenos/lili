@@ -9,8 +9,8 @@
         $retiroacumulado=0;
         
     @endphp
-
-        @foreach ($pista->tickets() as $ticket)
+        
+        @foreach ($pista->tickets as $ticket)
             @if($ticket->status>=3)
                 @php
                     $total+=$ticket->inscripcion;

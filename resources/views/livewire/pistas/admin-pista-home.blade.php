@@ -6,12 +6,11 @@
 
     @php
         $total=0;
-        $pendientes=1000;
         $retiroacumulado=0;
         
     @endphp
 
-        @foreach ($pista->tickets()->where('status','>=',3) as $ticket)
+        @foreach ($pista->tickets() as $ticket)
             @if($ticket->status>=3)
                 @php
                     $total+=$ticket->inscripcion;

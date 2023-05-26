@@ -118,14 +118,19 @@
                                             
                                             @if ($fecha->fecha>=now()->subDays(1))
                                                 <li class="text-center">
-                                                    <div class="flex items-center justify-center pb-5 bg-red-600 text-white py-2">
+                                                    <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
                                                         @php
                                                             $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                         @endphp
                                                          <a href="{{route('ticket.evento.show', $pista)}}">
                                                             @if ($fecha->name=='keyname')
-                                                                <label class="mx-auto text-center">¿Cuando? {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
-                                                                </label>
+                                                            <div class="flex mt-2">
+                                                                <p class="text-wwhite mx-4 text-md ">¿Cuando?</p>
+                                                                <p class="text-sm text-white ml-auto mr-4"> 
+                                                                    {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                                                </p>
+                                                            </div>
+                                                          
                                                             @else
                                                                 <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
                                                             @endif
@@ -140,7 +145,7 @@
                                         @endforeach
                                                 @if ($n==0)
                                                     <div class="text-center">
-                                                        <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2">
+                                                        <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2 rounded-lg">
                                                             @php
                                                                 $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                             @endphp

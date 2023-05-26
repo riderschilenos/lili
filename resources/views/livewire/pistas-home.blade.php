@@ -122,13 +122,14 @@
                                                         @php
                                                             $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                         @endphp
-                                                        @if ($fecha->name=='keyname')
-                                                            <label class="mx-auto text-center">¿Cuando? {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
-                                                            </label>
-                                                        @else
-                                                            <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
-                                                        @endif
-                                                            
+                                                         <a href="{{route('ticket.evento.show', $pista)}}">
+                                                            @if ($fecha->name=='keyname')
+                                                                <label class="mx-auto text-center">¿Cuando? {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                                                </label>
+                                                            @else
+                                                                <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                                            @endif
+                                                        </a>
                                                     </div>
                                                 </li>
                                             

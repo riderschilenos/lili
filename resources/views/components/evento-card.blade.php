@@ -2,18 +2,18 @@
 
 <article class="card flex flex-col">
 
-                <div class="flex justify-center">
-                    @isset($evento->image)
-                            @if ($evento->type=='pista')
-                                <a href="{{route('ticket.pista.show', $evento)}}"><img class="h-80 w-full object-cover mx-auto" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
-                            @else
-                                <a href="{{route('ticket.evento.show', $evento)}}"><img class="h-80 w-full object-cover mx-auto" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
-                            @endif
-                    @else
-                        <img loading="lazy" class="h-80 w-full object-cover mx-auto" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+    
+                @isset($evento->image)
+                        @if ($evento->type=='pista')
+                            <a href="{{route('ticket.pista.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                        @else
+                             <a href="{{route('ticket.evento.show', $evento)}}"><img class="h-80 w-full object-cover" src=" {{Storage::url($evento->image->url)}}" alt=""></a>
+                        @endif
+                @else
+                    <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
 
-                @endisset
-                </div>
+               @endisset
+
                <div class="card-body flex flex-1 flex-col">
                             @if ($evento->type=='pista')
                                 <a href="{{route('ticket.pista.show', $evento)}}"><h1 class="card-tittle">{{Str::limit($evento->titulo,40)}}</h1>

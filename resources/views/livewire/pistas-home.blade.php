@@ -110,7 +110,50 @@
                                             </div>
                                         </a>
 
-                                       
+                                        <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
+                                            @php
+                                                $n=0;
+                                            @endphp
+                                        @foreach ($pista->fechas as $fecha)
+                                            
+                                            @if ($fecha->fecha>=now()->subDays(1))
+                                                <li class="text-center">
+                                                    <div class="flex items-center justify-center pb-5 bg-blue-900 text-white py-2">
+                                                        @php
+                                                            $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+                                                        @endphp
+                                                        @if ($fecha->name=='keyname')
+                                                            <label class="mx-auto text-center"> {{$dias[date('N', strtotime($fecha->fecha))-1]}} <br> {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                                            </label>
+                                                        @else
+                                                            <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                                        @endif
+                                                            
+                                                    </div>
+                                                </li>
+                                            
+                                                @php
+                                                    $n+=1;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                                @if ($n==0)
+                                                    <div class="text-center">
+                                                        <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2">
+                                                            @php
+                                                                $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+                                                            @endphp
+                                                            @if ($fecha->name=='keyname')
+                                                                <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                                                </label>
+                                                            @else
+                                                                <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                                            @endif
+                                                                
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                    </ul>
 
 
 

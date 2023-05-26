@@ -118,12 +118,12 @@
                                             
                                             @if ($fecha->fecha>=now()->subDays(1))
                                                 <li class="text-center">
-                                                    <div class="flex items-center justify-center pb-5 bg-blue-900 text-white py-2">
+                                                    <div class="flex items-center justify-center pb-5 bg-red-600 text-white py-2">
                                                         @php
                                                             $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                         @endphp
                                                         @if ($fecha->name=='keyname')
-                                                            <label class="mx-auto text-center"> {{$dias[date('N', strtotime($fecha->fecha))-1]}} <br> {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                                            <label class="mx-auto text-center">¿Cuando? {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
                                                             </label>
                                                         @else
                                                             <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>

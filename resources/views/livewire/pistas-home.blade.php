@@ -124,9 +124,9 @@
                                                         @endphp
                                                          <a href="{{route('ticket.evento.show', $pista)}}">
                                                             @if ($fecha->name=='keyname')
-                                                            <div class="flex mt-2">
-                                                                <p class="text-wwhite mx-4 text-md ">¿Cuando?</p>
-                                                                <p class="text-sm text-white ml-auto mr-4"> 
+                                                            <div class="flex">
+                                                                <p class="font-bold text-white mx-4 ">¿Cuando?</p>
+                                                                <p class="font-bold text-white ml-auto mr-4"> 
                                                                     {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
                                                                 </p>
                                                             </div>

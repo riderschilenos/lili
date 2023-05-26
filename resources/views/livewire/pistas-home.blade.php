@@ -125,8 +125,11 @@
                                                          <a href="{{route('ticket.evento.show', $pista)}}">
                                                             @if ($fecha->name=='keyname')
                                                             <div class="flex">
-                                                                <p class="font-bold text-white mx-4 ">¿Cuando?</p>
-                                                                <p class="font-bold text-white ml-auto mr-4"> 
+                                                                <p class="font-bold text-white mx-4 my-auto items-center">¿Cuando?</p>
+                                                                <p class="sm:hidden font-bold text-white ml-auto mr-4"> 
+                                                                   {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                                                </p>
+                                                                <p class="hidden sm:block font-bold text-white ml-auto mr-4"> 
                                                                     {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
                                                                 </p>
                                                             </div>

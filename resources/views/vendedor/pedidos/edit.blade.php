@@ -129,7 +129,7 @@
                                 @else
 
                                     <div name="formulariodireccioninvitados">
-                                        <h1 class="text-xl font-bold text-red-500 text-center mb-6"> Debes ingresar una direccion de despacho antes de agregar los productos al pedido</h1>
+                                        <h1 class="text-xl font-bold text-red-500 text-center mb-6"> Debes ingresar una dirección de despacho antes de agregar los productos al pedido</h1>
                         
                                         
                                         {!! Form::open(['route' => 'vendedor.direccions.store']) !!}

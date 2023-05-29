@@ -193,7 +193,7 @@
                                     <div>
                                         <div class="flex">
                                             
-                                            <h1 class="text-lg ml-4">1 Año Suscripcion <i class="fas fa-calendar-check text-white-800"></i></h1>
+                                            <h1 class="text-lg ml-4">1 Año Suscripción <i class="fas fa-calendar-check text-white-800"></i></h1>
                                         </div>
                                         <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now.'+ 1 year'))}}</p>
                                     </div>
@@ -210,7 +210,7 @@
                 
                                 <hr>
                 
-                                <p class="text-sm mt-4">El pago de la suscripcion anual activara tu perfil y te permitira hacer uso de las distintas secciones de el, donde se destaca la posibilidad de poder INSCRIBIR tu vehiculo rider y llevar registro de mantenciones y sercicios relacionados, la asignacion es automatica y una vez sea activado tu perfil nosotros realizaremos tu credencial de socio, la cual lleva un codigo QR que enlaza con el perfil que puedes ver a un costado de esta página. <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
+                                <p class="text-sm mt-4">El pago de la suscripción anual activara tu perfil y te permitira hacer uso de las distintas secciones de el, donde se destaca la posibilidad de poder INSCRIBIR tu vehiculo rider y llevar registro de mantenciones y sercicios relacionados, la asignacion es automatica y una vez sea activado tu perfil nosotros realizaremos tu credencial de socio, la cual lleva un codigo QR que enlaza con el perfil que puedes ver a un costado de esta página. <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
                             
                             </div>
                         

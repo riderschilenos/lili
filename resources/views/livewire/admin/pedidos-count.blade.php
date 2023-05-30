@@ -2,7 +2,7 @@
    @if ($cliente)
       <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
             <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
-            <div wire:click="cliente_clean" class="grid grid-cols-4 items-center space-x-4">
+            <div wire:click="cliente_clean" class="flex items-center space-x-4">
                <div class="w-12">
                 
                   <div>
@@ -16,7 +16,7 @@
                   <span class="text-lg text-gray-300">{{$cliente->fono}}</span>
                </div>
             </div>
-            <div class="flex items-center space-x-2 col-span-3">
+            <div class="flex items-center space-x-2">
                <button type="button" class="inline-flex items-center justify-center rounded-lg border h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>

@@ -1394,7 +1394,7 @@
                 
                                                     <h1 class="text-xl pb-4 text-center">Datos Bancarios</h1>
                 
-                                                    <p class="text-center">Indique en que cuenta desea recibir sus comisiones por productos vendidos</p>
+                                                    <p class="text-center">Indique en qué cuenta desea recibir sus comisiones por productos vendidos</p>
                 
                                                     <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8">
                                                         <div class="md: col-span-2 lg:col-span-2 ">

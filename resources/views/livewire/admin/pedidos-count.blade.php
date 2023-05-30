@@ -38,7 +38,7 @@
             @foreach ($mensajes as $mensaje)
                
                @if (substr(str_replace(' ', '', $cliente->fono), -8)==substr(str_replace(' ', '', $mensaje->numero), -8))
-                  @if ($mensaje->type='enviado')
+                  @if ($mensaje->type=='enviado')
                         <div class="chat-message">
                            <div class="flex items-end justify-end">
                               <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
@@ -48,7 +48,7 @@
                            </div>
                         </div>
                         
-                        @else
+                  @else
                         <div class="chat-message">
                            <div class="flex items-end">
                               <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">

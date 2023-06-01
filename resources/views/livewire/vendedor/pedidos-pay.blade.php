@@ -158,6 +158,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex h-10 w-10">
+                                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                                     @isset($pedido->image)
                                                         <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                                     @else
@@ -169,33 +170,33 @@
                                                         
                                                         <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
                                                     @endisset
-                                                    
+                                                    </a>
                                                 </div>
                                                 <div class="ml-11">
                                                 <div class="text-sm font-medium text-gray-900">
-                                                    
-                                                    @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                        @foreach ($socios as $socio)
-                                                                
-                                                                @if($socio->id == $pedido->pedidoable_id)
-                                                                    {{$socio->user->name}}
-                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                        Socio
-                                                                    </span>
-                                                                @endif
-                                                        @endforeach
-                                                    @endif
-                                                    @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                                        @foreach ($invitados as $invitado)
-                                                                
-                                                                @if($invitado->id == $pedido->pedidoable_id)
-                                                                    {{$invitado->name}} <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                                        Invitado
-                                                                    </span>
-                                                                @endif
-                                                        @endforeach
-                                                    @endif
-        
+                                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                        @if($pedido->pedidoable_type=='App\Models\Socio')
+                                                            @foreach ($socios as $socio)
+                                                                    
+                                                                    @if($socio->id == $pedido->pedidoable_id)
+                                                                        {{$socio->user->name}}
+                                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                            Socio
+                                                                        </span>
+                                                                    @endif
+                                                            @endforeach
+                                                        @endif
+                                                        @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                                            @foreach ($invitados as $invitado)
+                                                                    
+                                                                    @if($invitado->id == $pedido->pedidoable_id)
+                                                                        {{$invitado->name}} <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                                            Invitado
+                                                                        </span>
+                                                                    @endif
+                                                            @endforeach
+                                                        @endif
+                                                    </a>
         
                                                 </div>
                                                 

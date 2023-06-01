@@ -199,12 +199,12 @@
                                                     </a>
         
                                                 </div>
-                                                
-                                                @if ($pedido->status==3)
-                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                        Procesando Pago
-                                                    </span>
-                                                @else
+                                                <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                    @if ($pedido->status==3)
+                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                            Procesando Pago
+                                                        </span>
+                                                    @else
                                                         <div class="text-sm text-gray-500">
                 
                                                             @if($pedido->pedidoable_type=='App\Models\Socio')
@@ -237,8 +237,9 @@
                                                             @endif
 
                                                         </div>
-                                                @endif
-                                                
+                                                   
+                                                    @endif
+                                            </a>
 
                                                 </div>
                                             </div>

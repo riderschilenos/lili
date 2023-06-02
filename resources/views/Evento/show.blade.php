@@ -264,6 +264,11 @@
                                 <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show',$evento->user->socio)}}">{{'@'.Str::slug($evento->user->socio->slug,'')}}</a>
                             </div>
                         </div>
+
+                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->socio->fono), -8)}}&text=Hola%20que%20tal" target="_blank" class="btn btn-success mt-4 btn-block">
+                           Contactar al Whatsapp
+                        </a>
+
                         @can('enrolled', $evento)
                                 @if (auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->where('status',1)->first())
                                     @if($evento->type=='pista')

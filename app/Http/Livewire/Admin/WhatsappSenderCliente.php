@@ -158,4 +158,46 @@ class WhatsappSenderCliente extends Component
             'type'=>'enviado']);
         }
     }
+
+    public function polerones(){
+        $fono='569'.substr(str_replace(' ', '', $this->nro), -8);
+        //TOKEN QUE NOS DA FACEBOOK
+
+        try {
+            $token = env('WS_TOKEN');
+            $phoneid= env('WS_PHONEID');
+            $version='v16.0';
+            $url="https://riderschilenos.cl/";
+            $payload=[
+                'messaging_product' => 'whatsapp',
+                "preview_url"=> false,
+                'to'=>$fono,
+                
+                'type'=>'template',
+                    'template'=>[
+                        'name'=>'catalogo_polerones',
+                        'language'=>[
+                            'code'=>'es'],
+                    
+                    ]
+                
+            ];
+            
+            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+            
+            WhatsappMensaje::create(['numero'=> $fono,
+            'mensaje'=>"En el siguiente link encontrarás nuestro catálogo de polerones. Escoge el diseño que más te guste y personalizalo a tu gusto, puedes cambiar nombre, numero y logotipos con la plantilla que esta al inicio del catálogo.
+
+            https://riderschilenos.cl/catalogos/polerones.pdf",
+            'type'=>'enviado']);
+
+
+        } catch (\Throwable $th) {
+            WhatsappMensaje::create(['numero'=> $fono,
+            'mensaje'=>"ERROR al enviar Mentaje => En el siguiente link encontrarás nuestro catálogo de polerones. Escoge el diseño que más te guste y personalizalo a tu gusto, puedes cambiar nombre, numero y logotipos con la plantilla que esta al inicio del catálogo.
+
+            https://riderschilenos.cl/catalogos/polerones.pdf",
+            'type'=>'enviado']);
+        }
+    }
 }

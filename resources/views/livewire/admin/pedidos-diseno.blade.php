@@ -139,9 +139,10 @@
                                         @foreach ($socios as $socio)
                                                 
                                                 @if($socio->id == $pedido->pedidoable_id)
-                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
-                                                    {{str_replace(' ', '', $socio->fono)}}<br>Cliente
+                                                <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
+                                                    {{str_replace(' ', '', $socio->fono)}}
                                                 </a>
+                                                <br><br>Cliente
                                                 @endif
                                         @endforeach
                                     @endif
@@ -149,9 +150,10 @@
                                         @foreach ($invitados as $invitado)
                                                 
                                                 @if($invitado->id == $pedido->pedidoable_id)
-                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
-                                                    {{str_replace(' ', '', $invitado->fono)}} <br>Cliente
+                                                <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
+                                                    {{str_replace(' ', '', $invitado->fono)}} 
                                                 </a> 
+                                                <br><br>Cliente
                                                 @endif
                                         @endforeach
                                     @endif

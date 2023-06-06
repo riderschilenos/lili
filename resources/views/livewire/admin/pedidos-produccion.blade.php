@@ -227,9 +227,10 @@
                                         @foreach ($socios as $socio)
                                                 
                                                 @if($socio->id == $pedido->pedidoable_id)
-                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=hola%20que%20tal%2C%20soy%20el%20encargado%20de%20despacho%20de%20riders%20chilenos%20y%20me%20comunico%20con%20usted%20para%20enviarle%20su%20numero%20de%20seguimiento" target="_blank">
-                                                    {{$socio->fono}}<br>Cliente
+                                                <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=hola%20que%20tal%2C%20soy%20el%20encargado%20de%20despacho%20de%20riders%20chilenos%20y%20me%20comunico%20con%20usted%20para%20enviarle%20su%20numero%20de%20seguimiento" target="_blank">
+                                                    {{$socio->fono}}
                                                 </a>
+                                                <br><br>Cliente
                                                 @endif
                                         @endforeach
                                     @endif
@@ -237,9 +238,10 @@
                                         @foreach ($invitados as $invitado)
                                                 
                                                 @if($invitado->id == $pedido->pedidoable_id)
-                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=hola%20que%20tal%2C%20soy%20el%20encargado%20de%20despacho%20de%20riders%20chilenos%20y%20me%20comunico%20con%20usted%20para%20enviarle%20su%20numero%20de%20seguimiento" target="_blank">
-                                                    {{$invitado->fono}} <br>Cliente
+                                                <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=hola%20que%20tal%2C%20soy%20el%20encargado%20de%20despacho%20de%20riders%20chilenos%20y%20me%20comunico%20con%20usted%20para%20enviarle%20su%20numero%20de%20seguimiento" target="_blank">
+                                                    {{$invitado->fono}} 
                                                 </a> 
+                                                <br><br>Cliente
                                                 @endif
                                         @endforeach
                                     @endif

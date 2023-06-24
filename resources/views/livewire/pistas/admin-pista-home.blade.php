@@ -636,6 +636,7 @@
                         </div>
                             
                 @endcan 
+                
             @endif
         @endforeach
     

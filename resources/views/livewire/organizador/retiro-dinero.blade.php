@@ -86,11 +86,11 @@
       @csrf
       @if ($total-$total*0.10-$retiroacumulado>0)
           <div class="h-32 mt-6">
-              <h1 class="text-xl text-center"><b>Nombre:</b> {{auth()->user()->vendedor->user->name}}</h1>
-              <h1 class="text-xl text-center"><b>Rut:</b> {{auth()->user()->vendedor->rut}}</h1>
-              <h1 class="text-xl text-center"><b>Banco:</b> {{auth()->user()->vendedor->banco}}</h1>
-              <h1 class="text-xl text-center"><b>Cuenta:</b> {{auth()->user()->vendedor->tipo_cuenta}}</h1>
-              <h1 class="text-xl text-center"><b>Nro Cuenta:</b> {{auth()->user()->vendedor->nro_cuenta}}</h1>
+              <h1 class="text-xl text-center"><b>Nombre:</b> {{$evento->user->vendedor->user->name}}</h1>
+              <h1 class="text-xl text-center"><b>Rut:</b> {{$evento->user->vendedor->rut}}</h1>
+              <h1 class="text-xl text-center"><b>Banco:</b> {{$evento->user->vendedor->banco}}</h1>
+              <h1 class="text-xl text-center"><b>Cuenta:</b> {{$evento->user->vendedor->tipo_cuenta}}</h1>
+              <h1 class="text-xl text-center"><b>Nro Cuenta:</b> {{$evento->user->vendedor->nro_cuenta}}</h1>
 
               <h1 class="text-xl font-bold text-center py-2 mt-4">Monto: ${{number_format($total-$total*0.10-$retiroacumulado)}}</h1>
               <hr class="w-full mb-4">

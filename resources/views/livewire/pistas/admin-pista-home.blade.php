@@ -429,7 +429,7 @@
                         </div>
                             
                 @endcan 
-                
+
                 @can('cobrar', $pista)
                         @php
                             $total=0;
@@ -465,7 +465,7 @@
                                         @endisset
                                     </div>
                                 <div class="col-span-2 content-center items-center my-auto">
-                                    <h1 class="text-center text-2xl my-3 mr-4"> Administracion Pista <b>{{$pista->titulo}}</b></h1>
+                                    <h1 class="text-center text-2xl my-3 mr-4"> Cobro Pista <b>{{$pista->titulo}}</b></h1>
                                 </div>
                                 </div>
                             </div>
@@ -540,14 +540,7 @@
                                     
                                         </div>
                                     </a>
-                                    <div class="flex justify-center"> 
-                                        <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
-                                            <button class="btn btn-danger ml-2 text-center text-lg mt-4">Entrenamientos</button>
-                                        </a>
-                                    
-                                        <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>
-                                    
-                                    </div>
+                                  
                                     <div x-show="open">
                                         <div class="px-6 pt-4">
                                             <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del usuario">

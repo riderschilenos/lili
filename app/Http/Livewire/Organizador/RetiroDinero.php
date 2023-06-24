@@ -14,7 +14,7 @@ class RetiroDinero extends Component
 
     use AuthorizesRequests;
 
-    public $evento,$search;
+    public $evento, $search;
 
     public function mount(Evento $evento){
 

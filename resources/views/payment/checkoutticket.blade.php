@@ -343,103 +343,133 @@
             
             </div>
             @if (!IS_NULL($ticket))
-                <div class="max-w-4xl px-10 py-2">
-                        
-                        @livewire('organizador.ticket-inscripcion', ['ticket' => $ticket], key($ticket->id))
 
-                        <x-table-responsive>
-
-    
-
+                    @php
+                        $n=0;
+                    @endphp
+                @foreach ($evento->fechas as $fecha)
                     
-                                <table class="min-w-full divide-y divide-gray-200 mb-20 pb-20">
-                                    <thead class="bg-gray-50">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Detalles
-                                        </th>
-                                        
-                                            @if ($evento->type=='pista')
-                                                 
-                                            @else
-                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Categoria
-                                                </th>
-                                            @endif   
-                                      
-                                        @if ($evento->type=='pista')
-                     
-                                        @else
-                                            <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Número
-                                            </th>
-                                        @endif
-                                        <th  class="text-center mr-4 text-xs font-medium text-gray-500 uppercase tracking-wider justify-end ml-auto">
-                                            Precio
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                        
-                                        @foreach($ticket->inscripcions as $inscripcion)
-                                                                
-                                                                        <tr>
-                                                                            <td class="px-6 py-4 whitespace-nowrap">
+                    @if ($fecha->fecha>=now()->subDays(1))
+                        @php
+                            $n+=1;
+                        @endphp
+                    @endif
+                @endforeach
+                    @if ($n==0)
+                        <div class="text-center">
+                            <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2 mt-4">
+                                @php
+                                    $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+                                @endphp
+                                @if ($fecha->name=='keyname')
+                                    <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                    </label>
+                                @else
+                                    <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                @endif
+                                    
+                            </div>
+                        </div>
+                    @else
 
-                                                                               @if ($inscripcion->fecha->name=='keyname')
-                                                                                    <label class=""> Entrenamiento {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}</label>
-                                                                                @else
-                                                                                    <label class=""> {{$inscripcion->fecha->name}}</label>
-                                                                                @endif
-                                                                                <br>
-                                                                                {{$inscripcion->fecha_categoria->categoria->name}}
-                                                                            </td>
-                                                                            @if ($evento->type=='pista')
-                     
-                                                                            @else
-                                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                            
-                                                                                  
-                                                                                
-                                                                                </td>
-                                                                            @endif
-                                                                        
-                                                                                @if ($evento->type=='pista')
-                     
-                                                                                @else
-                                                                                    <td class="px-6 py-4 whitespace-nowrap">
-                                                                                        <div class="items-center">
-                                                                                            <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                @endif
-                                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                                    <div class="items-center">
-                                                                                        
+                        <div class="max-w-4xl px-10 py-2">
                                 
-                                                                                            <form action="{{route('ticket.inscripcions.destroy',$inscripcion)}}" method="POST">
-                                                                                                @csrf
-                                                                                                @method('delete')
-                                                                                                <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                                                                                                <p class="mx-4 text-center" > ${{number_format($inscripcion->fecha_categoria->inscripcion)}} 
-                                                                                                <button class="" ><i class="fas fa-trash cursor-pointer text-red-500 ml-6" type="submit" alt="Eliminar"></i> </button>
-                                                                                                
-                                                                                            </form>
-                                                                                               </p>
-                                                                                    </div>
-                                                                                </td>
-                                                                            
-                                        
+                                @livewire('organizador.ticket-inscripcion', ['ticket' => $ticket], key($ticket->id))
+
+                                <x-table-responsive>
+
+            
+
                             
-                                                                        </tr>
-                                                                @endforeach
-                                    </tbody>
-                                </table>
+                                        <table class="min-w-full divide-y divide-gray-200 mb-20 pb-20">
+                                            <thead class="bg-gray-50">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Detalles
+                                                </th>
+                                                
+                                                    @if ($evento->type=='pista')
+                                                        
+                                                    @else
+                                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Categoria
+                                                        </th>
+                                                    @endif   
+                                            
+                                                @if ($evento->type=='pista')
+                            
+                                                @else
+                                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Número
+                                                    </th>
+                                                @endif
+                                                <th  class="text-center mr-4 text-xs font-medium text-gray-500 uppercase tracking-wider justify-end ml-auto">
+                                                    Precio
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                
+                                                @foreach($ticket->inscripcions as $inscripcion)
+                                                                        
+                                                                                <tr>
+                                                                                    <td class="px-6 py-4 whitespace-nowrap">
+
+                                                                                    @if ($inscripcion->fecha->name=='keyname')
+                                                                                            <label class=""> Entrenamiento {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}</label>
+                                                                                        @else
+                                                                                            <label class=""> {{$inscripcion->fecha->name}}</label>
+                                                                                        @endif
+                                                                                        <br>
+                                                                                        {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                    </td>
+                                                                                    @if ($evento->type=='pista')
+                            
+                                                                                    @else
+                                                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                                                    
+                                                                                        
+                                                                                        
+                                                                                        </td>
+                                                                                    @endif
+                                                                                
+                                                                                        @if ($evento->type=='pista')
+                            
+                                                                                        @else
+                                                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                                                <div class="items-center">
+                                                                                                    <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        @endif
+                                                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                                                            <div class="items-center">
+                                                                                                
+                                        
+                                                                                                    <form action="{{route('ticket.inscripcions.destroy',$inscripcion)}}" method="POST">
+                                                                                                        @csrf
+                                                                                                        @method('delete')
+                                                                                                        <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
+                                                                                                        <p class="mx-4 text-center" > ${{number_format($inscripcion->fecha_categoria->inscripcion)}} 
+                                                                                                        <button class="" ><i class="fas fa-trash cursor-pointer text-red-500 ml-6" type="submit" alt="Eliminar"></i> </button>
+                                                                                                        
+                                                                                                    </form>
+                                                                                                    </p>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    
+                                                
+                                    
+                                                                                </tr>
+                                                                        @endforeach
+                                            </tbody>
+                                        </table>
+                            
+                                </x-table-responsive>
+
+                        </div>
                     
-                    </x-table-responsive>
-
-                </div>
-
+                    @endif
 
             @endif
 

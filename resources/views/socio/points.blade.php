@@ -473,8 +473,8 @@
                                            </tbody>
                                        </table>
                                    @else
-                                       <div class="px-6 py-4">
-                                           No hay ningun registro coincidente
+                                       <div class="px-6 py-4 text-center flex justify-center my-10">
+                                           No hay registro de compra con acumulación de puntos
                                        </div>
                                    @endif 
                                    

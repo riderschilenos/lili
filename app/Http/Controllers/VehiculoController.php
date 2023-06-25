@@ -357,8 +357,7 @@ class VehiculoController extends Controller
             $request->validate([
                 'marca_id'=>'required',
                 'modelo'=>'required',
-                'año'=>'required',
-                'nro_serie'=>'required'
+                'año'=>'required'
                 
                // 'slug'=>'required|unique:vehiculos',
     

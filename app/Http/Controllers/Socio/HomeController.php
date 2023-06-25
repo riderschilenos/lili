@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Socio;
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
 use App\Models\Evento;
+use App\Models\Invitado;
+use App\Models\Pedido;
 use App\Models\Producto;
 use App\Models\Serie;
 use App\Models\Socio;
@@ -350,6 +352,57 @@ class HomeController extends Controller
        $productos = Producto::all();
 
         return view('vendedor.store',compact('socio','socio2','disciplinas','riders','series','autos','productos'));
+    }
+
+    public function points(Socio $socio)
+    {   
+        $pedidos=Pedido::where('user_id',$socio->user->id)->where('status','>',3)->get();
+        if(Cache::has('autos')){
+            $autos = Cache::get('autos');
+        }else{
+            $autos = Vehiculo::where('status',4)
+                            ->orwhere('status',5)
+                            ->orwhere('status',7)
+                            ->latest('id')->get()->take(3);
+            Cache::put('autos',$autos);
+         }
+
+        if(Cache::has('series')){
+            $series = Cache::get('series');
+        }else{
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            Cache::put('series',$series);
+         }
+
+
+        if(Cache::has('riders')){
+            $riders = Cache::get('riders');
+        }else{
+            $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
+            Cache::put('riders',$riders);
+         }
+        
+        if(auth()->user())
+        {
+            if(auth()->user()->socio)
+            {
+                $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+            }else{
+                $socio2=null;
+            }
+            
+        }
+        else{
+            $socio2=null;
+        }
+
+       $disciplinas= Disciplina::pluck('name','id');
+
+       $productos = Producto::all();
+       $socios = Socio::all();
+       $invitados = Invitado::all();
+        
+        return view('socio.points',compact('socio','socio2','disciplinas','riders','series','autos','productos','pedidos','socios','invitados'));
     }
 
     /**

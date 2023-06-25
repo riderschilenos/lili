@@ -113,6 +113,13 @@
                             
                                 </div>
                             </a>
+                            <div class="flex justify-center">
+                                <div>
+                                    @foreach ($pista->staffs as $item)
+                                    <div><p>  {{$item->user->name}} / {{$item->rol}}</p></div>
+                                    @endforeach
+                                </div>
+                            </div>
                             <div class="flex justify-center"> 
                                 <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                                     <button class="btn btn-danger ml-2 text-center text-lg mt-4">Entrenamientos</button>
@@ -636,7 +643,7 @@
                         </div>
                             
                 @endcan 
-                
+
             @endif
         @endforeach
     

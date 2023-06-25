@@ -439,6 +439,6 @@
           </div>
       @endif 
       
-</x-table-responsive>
+    </x-table-responsive>
 
 </div>

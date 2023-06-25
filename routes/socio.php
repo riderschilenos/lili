@@ -18,6 +18,8 @@ Route::get('{socio}/entrenamiento', [HomeController::class,'entrenamiento'])->na
 
 Route::get('{socio}/tienda',[Homecontroller::class, 'showstore'])->name('store.show');
 
+Route::get('{socio}/points',[Homecontroller::class, 'points'])->name('points');
+
 Route::get('socio/{socio}/edit', [HomeController::class,'edit'])->name('edit');
 
 Route::put('socio/{socio}/update', [HomeController::class,'update'])->name('update');

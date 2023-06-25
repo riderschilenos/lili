@@ -693,9 +693,20 @@
                         <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                             <div>
                                 <h1 class="text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
-                                <span class="px-2 inline-flex text-base leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                   TIENES 100 PUNTOS
-                                </span>
+                                @if (auth()->user()->socio)
+                                    <a href="{{route('socio.points',auth()->user()->socio)}}">
+                                        <span class="px-2 inline-flex text-base leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                            TIENES 100 PUNTOS
+                                        </span>
+                                    </a>
+                                @else
+                                    <a href="{{route('socio.create')}}">
+                                        <span class="px-2 inline-flex text-base leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                            REGISTRATE Y GANA 100 PUNTOS
+                                        </span>
+                                    </a>
+                                @endif
+                                
                             </div>
                             <a href="{{route('ticket.historial.view',auth()->user())}}">
                                 <button class=" btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>

@@ -12,7 +12,7 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Suscripción:';
                 $item->quantity = 1;
-                $item->unit_price = 100;
+                $item->unit_price = 19990;
 
                 //...
                 if($socio){
@@ -188,16 +188,17 @@
 
                                 <article class="flex items-center grid-cols-6">
 
-                                    
+
 
                                     <div>
+                                        <h1 class="text-center">POLERA + GORRO + CREDENCIAL FÍSICA</h1>
                                         <div class="flex">
                                             
                                             <h1 class="text-lg ml-4">1 Año Suscripción <i class="fas fa-calendar-check text-white-800"></i></h1>
                                         </div>
                                         <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now.'+ 1 year'))}}</p>
                                     </div>
-                                <p class="text-xl font-bold ml-auto">$25.000</p>
+                                <p class="text-xl font-bold ml-auto">$19.990</p>
                                 </article>
                                 
                                 <div class="cho-container flex justify-center mt-2 mb-4">

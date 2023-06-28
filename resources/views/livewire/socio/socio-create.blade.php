@@ -194,7 +194,7 @@
                                         <h1 class="text-center">Recibe POLERA + GORRO + CREDENCIAL FÍSICA</h1>
                                         <div class="flex">
                                             
-                                            <h1 class="text-lg ml-4">Activa tu perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
+                                            <h1 class="text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
                                         </div>
                                        
                                     </div>

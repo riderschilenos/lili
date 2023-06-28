@@ -18,8 +18,8 @@
                 if($socio){
                 $preference->back_urls = array(
                     "success" => route('payment.socio', $socio),
-                    "failure" => "http://www.tu-sitio/failure",
-                    "pending" => "http://www.tu-sitio/pending"
+                    "failure" => route('socio.create'),
+                    "pending" => route('socio.create')
                 );
                 $preference->auto_return = "approved";
 
@@ -191,12 +191,12 @@
 
 
                                     <div>
-                                        <h1 class="text-center">POLERA + GORRO + CREDENCIAL FÍSICA</h1>
+                                        <h1 class="text-center">Recibe POLERA + GORRO + CREDENCIAL FÍSICA</h1>
                                         <div class="flex">
                                             
-                                            <h1 class="text-lg ml-4">1 Año Suscripción <i class="fas fa-calendar-check text-white-800"></i></h1>
+                                            <h1 class="text-lg ml-4">Activa tu perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
                                         </div>
-                                        <p class="pt-2 ml-3">Fecha de Vencimiento: {{date('d-m-Y', strtotime($now.'+ 1 year'))}}</p>
+                                       
                                     </div>
                                 <p class="text-xl font-bold ml-auto">$19.990</p>
                                 </article>

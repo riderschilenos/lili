@@ -726,8 +726,8 @@
                                     <div class="my-6">
                                        
                                         <div class="flex justify-between">
-                                          <div class="mt-[14px] cursor-pointer truncate rounded-[4px] border border-green-700 p-3 text-[#191D23]">$100.00</div>
-                                          <div class="mt-[14px] cursor-pointer truncate rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$200.00</div>
+                                          <div class="mt-[14px] cursor-pointer bg-white truncate rounded-[4px] border border-green-700 p-3 text-[#191D23]">$100.00</div>
+                                          <div class="mt-[14px] cursor-pointer bg-white truncate rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$200.00</div>
                                         </div>
                                       </div>
                                     <div class="flex justify-between">

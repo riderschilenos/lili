@@ -260,4 +260,11 @@ class PedidoController extends Controller
 
         return redirect()->route('vendedor.pedidos.prepay');
     }
+
+    public function editing(Pedido $pedido){
+        $pedido->status = 1;
+        $pedido->save();
+
+        return redirect()->route('vendedor.pedidos.edit',$pedido);
+    }
 }

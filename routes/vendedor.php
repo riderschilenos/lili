@@ -17,6 +17,8 @@ Route::resource('direccion', DireccionController::class)->names('direccions');
 
 Route::post('{pedido}/close',[PedidoController::class, 'close'])->name('pedido.close');
 
+Route::post('{pedido}/close',[PedidoController::class, 'editing'])->name('pedido.editing');
+
 Route::post('{vendedor}/view',[Homecontroller::class, 'view_update'])->name('view.update');
 
 Route::get('/prepay',[Homecontroller::class, 'prepay'])->name('pedidos.prepay');

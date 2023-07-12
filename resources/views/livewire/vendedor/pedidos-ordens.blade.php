@@ -395,6 +395,7 @@
         @if($pedido->ordens->count()>0)
             @if($pedido->status==1)
                 <div class="flex justify-center pb-8">
+                    
                     @if(auth()->user())           
                         <form action="{{route('vendedor.pedido.close',$pedido)}}" method="POST">
                             @csrf
@@ -407,6 +408,15 @@
             @elseif($pedido->status==2)
                
                     <div class="flex justify-center mb-14">
+                        @if(auth()->user())    
+
+                            <form action="{{route('vendedor.pedido.editing',$pedido)}}" method="POST">
+                                @csrf
+
+                                <button class="btn justify-center my-4" type="submit">Editar</button>
+                            </form>
+
+                        @endif                  
                           @if(auth()->user())                   
                             <form action="{{route('vendedor.pedidos.prepay')}}">
                             

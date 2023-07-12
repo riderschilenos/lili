@@ -457,6 +457,112 @@
             </div>
         </div>
     @endif
+    @routeIs('contabilidad')
+    <div class="mb-4">
+        <h3 class="text-center"><b>Ventas por Producto</b></h3>
+    </div>
+    <div class="">
+        <div class="col">
+
+            <div class="grid grid-cols-3 md:grid-cols-6">
+                
+                <div class="col">
+                    <div class="mb-3" style="max-width: 18rem;">
+                        <div class="text-center"><b class="h1">{{$carcasas}}</b></div>
+                        <img src="" alt="">
+                        <div class="">
+                            
+                                <h5 class="card-title mx-auto">Carcasas</h5><br>
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col">
+                    <div class=" mb-3" style="max-width: 18rem;">
+                        <div class=" text-center"><b class="h1">{{$llaveros}}</b></div>
+                    <div class="">
+                        
+                            <h5 class="card-title mx-auto">Llaveros</h5><br>
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" mb-3" style="max-width: 18rem;">
+                        <div class=" text-center"><b class="h1">{{$collares}}</b></div>
+                    <div class="">
+                        
+                            <h5 class="card-title mx-auto">Collares</h5><br>
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" mb-3" style="max-width: 18rem;">
+                        <div class=" text-center"><b class="h1">{{$colgantes}}</b></div>
+                    <div class="">
+                        
+                            <h5 class="card-title mx-auto">Colgantes</h5><br>
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" mb-3" style="max-width: 18rem;">
+                        <div class=" text-center"><b class="h1">{{$poleras}}</b></div>
+                    <div class="">
+                        
+                            <h5 class="card-title mx-auto">Poleras</h5><br>
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" mb-3" style="max-width: 18rem;">
+                        <div class=" text-center"><b class="h1">{{$polerones}}</b></div>
+                    <div class="">
+                        
+                            <h5 class="card-title mx-auto">Polerones</h5><br>
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" mb-3" style="max-width: 18rem;">
+                        <div class=" text-center"><b class="h1">{{$stickers}}</b></div>
+                    <div class="">
+                        
+                            <h5 class="card-title mx-auto">Styckers</h5><br>
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" mb-3" style="max-width: 18rem;">
+                        <div class=" text-center"><b class="h1">{{$vendedors->count()}}</b></div>
+                    <div class="">
+                        
+                            <a href="{{route('admin.vendedors.index')}}" ><h5 class="card-title mx-auto">Vendedores</h5></a><br>
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    @endif
 
     @foreach ($suscripcion28 as $suscripcion)
 

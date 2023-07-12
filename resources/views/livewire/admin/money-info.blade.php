@@ -309,10 +309,10 @@
     <div class="mb-6">
         <div class="flex justify-center">
             <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-green-700 px-3 text-[#191D23]">
-                <h1 class="text-center text-sm">Hoy</h1>${{$totaldiapago}}
+                <h1 class="text-center text-sm">Hoy</h1>${{number_format($totaldiapago)}}
             </div>
             <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
-                <h1 class="text-center text-sm">Julio</h1>${{$totalmespago}}
+                <h1 class="text-center text-sm">Julio</h1>${{number_format($totalmespago)}}
             </div>
         </div>
     </div>

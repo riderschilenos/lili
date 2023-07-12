@@ -723,7 +723,7 @@
             
             
                                 <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 pb-4" x-data="{whatsap: true}">
-                                    <div class="mt-6">
+                                    <div class="my-6">
                                        
                                         <div class="flex justify-between">
                                           <div class="mt-[14px] cursor-pointer truncate rounded-[4px] border border-green-700 p-3 text-[#191D23]">$100.00</div>

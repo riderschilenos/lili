@@ -461,106 +461,135 @@
     <div class="mb-4">
         <h3 class="text-center"><b>Ventas por Producto</b></h3>
     </div>
-    <div class="">
-        <div class="col">
 
-            <div class="grid grid-cols-3 md:grid-cols-6">
-                
-                <div class="col">
-                    <div class="mb-3" style="max-width: 18rem;">
-                        <div class="text-center"><b class="h1">{{$carcasas}}</b></div>
-                        <img src="" alt="">
-                        <div class="">
-                            
-                                <h5 class="card-title mx-auto">Carcasas</h5><br>
-                            
-                        
-                        </div>
+    <div class="max-w-5xl mx-auto sm:px-6 mt-2 lg:px-8">
+        <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-3 md:grid-cols-5 xl:grid-cols-5 gap-x-2 gap-y-2 items-center content-center">
+     
+  
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($carcasas)}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Carcasas</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Carcasas</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
-                </div>
-            
-                <div class="col">
-                    <div class=" mb-3" style="max-width: 18rem;">
-                        <div class=" text-center"><b class="h1">{{$llaveros}}</b></div>
-                    <div class="">
-                        
-                            <h5 class="card-title mx-auto">Llaveros</h5><br>
-                        
-                    
+                 </div>
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($llaveros)}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Llaveros</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Llaveros</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
+                 </div>
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($collares)}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Collares</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Collares</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class=" mb-3" style="max-width: 18rem;">
-                        <div class=" text-center"><b class="h1">{{$collares}}</b></div>
-                    <div class="">
-                        
-                            <h5 class="card-title mx-auto">Collares</h5><br>
-                        
-                    
+                 </div>
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($colgantes)}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Colgantes</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Colgantes</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
+                 </div>
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($poleras)}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Poleras</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Poleras</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class=" mb-3" style="max-width: 18rem;">
-                        <div class=" text-center"><b class="h1">{{$colgantes}}</b></div>
-                    <div class="">
-                        
-                            <h5 class="card-title mx-auto">Colgantes</h5><br>
-                        
-                    
+                 </div>
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($polerones)}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Polerones</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Polerones</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
+                 </div>
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($stickers)}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Stickers</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Stickers</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class=" mb-3" style="max-width: 18rem;">
-                        <div class=" text-center"><b class="h1">{{$poleras}}</b></div>
-                    <div class="">
-                        
-                            <h5 class="card-title mx-auto">Poleras</h5><br>
-                        
-                    
+                 </div>
+                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+                    <div class="flex items-center">
+                       <div class="flex-shrink-0">
+                          <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($vendedors->count())}}</span>
+                          <h3 class="sm:hidden text-base font-normal text-gray-500">Vendedores</h3>
+                          <h3 class="hidden sm:block text-base font-normal text-gray-500">Vendedores</h3>
+                       </div>
+                       <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
+                          
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                       </div>
                     </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class=" mb-3" style="max-width: 18rem;">
-                        <div class=" text-center"><b class="h1">{{$polerones}}</b></div>
-                    <div class="">
-                        
-                            <h5 class="card-title mx-auto">Polerones</h5><br>
-                        
-                    
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class=" mb-3" style="max-width: 18rem;">
-                        <div class=" text-center"><b class="h1">{{$stickers}}</b></div>
-                    <div class="">
-                        
-                            <h5 class="card-title mx-auto">Styckers</h5><br>
-                        
-                    
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class=" mb-3" style="max-width: 18rem;">
-                        <div class=" text-center"><b class="h1">{{$vendedors->count()}}</b></div>
-                    <div class="">
-                        
-                            <a href="{{route('admin.vendedors.index')}}" ><h5 class="card-title mx-auto">Vendedores</h5></a><br>
-                        
-                    
-                    </div>
-                    </div>
-                </div>
-            </div>
+                 </div>
+                 
+              
         </div>
-        
-        
-        
+
     </div>
     @endif
 

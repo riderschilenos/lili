@@ -128,7 +128,7 @@
                      </span>
                   </div>
                   <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                     Diseño
+                     Pend. de diseño
                  </span>
                </div>
             </div>
@@ -164,7 +164,7 @@
                      </span>
                   </div>
                   <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                     Producción
+                     Pend. de producción
                  </span>
                </div>
             </div>
@@ -200,7 +200,7 @@
                      </span>
                   </div>
                   <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                     Despacho
+                     Pend. de despacho
                  </span>
                </div>
             </div>
@@ -247,8 +247,8 @@
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
                         <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($diseños->count())}}</span>
-                        <h3 class="sm:hidden text-base font-normal text-gray-500">Diseños Pend.</h3>
-                        <h3 class="hidden sm:block text-base font-normal text-gray-500">Diseños Pendiente</h3>
+                        <h3 class="sm:hidden text-base font-normal text-gray-500">Diseño</h3>
+                        <h3 class="hidden sm:block text-base font-normal text-gray-500">Diseño</h3>
                      </div>
                      <div class="hidden sm:flex w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
                         
@@ -265,8 +265,8 @@
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
                         <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($produccion->count())}}</span>
-                        <h3 class="sm:hidden text-base font-normal text-gray-500">Producción Pend.</h3>
-                        <h3 class="hidden sm:block text-base font-normal text-gray-500">Producción Pendiente</h3>
+                        <h3 class="sm:hidden text-base font-normal text-gray-500">Producción</h3>
+                        <h3 class="hidden sm:block text-base font-normal text-gray-500">Producción</h3>
                      </div>
                      <div class="hidden sm:flex ml-5 w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
                         
@@ -283,8 +283,8 @@
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
                         <span class="text-4xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($despacho->count())}}</span>
-                        <h3 class="sm:hidden text-base font-normal text-gray-500">Despacho Pend.</h3>
-                        <h3 class="hidden sm:block text-base font-normal text-gray-500">Despacho Pendiente</h3>
+                        <h3 class="sm:hidden text-base font-normal text-gray-500">Despacho</h3>
+                        <h3 class="hidden sm:block text-base font-normal text-gray-500">Despacho</h3>
                      </div>
                      <div class="hidden sm:flex ml-5 w-10 items-center justify-end flex-1 text-red-500 text-base font-bold cursor-pointer">
                         

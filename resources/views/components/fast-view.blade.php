@@ -713,6 +713,33 @@
                             </a>
                         </div>
                     </div>
+                    @can('Super admin')
+                            <div class="bg-gray-700 pt-4">
+                                <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+                                    @livewire('admin.pedidos-count')
+                                </div>
+            
+                            
+            
+            
+                                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 pb-4" x-data="{whatsap: true}">
+                                    <div class="flex justify-between">
+                                        <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">Whatsapp RCH</button>
+                                        <a href="{{route('contabilidad')}}">
+                                            <button class="btn btn-danger ml-2 text-center text-xl">Gráficos y Estadisticas</button>
+                                        </a>
+                                        <a href="{{route('vendedor.pedidos.create')}}">
+                                            <button class="btn btn-success ml-2 text-center text-xl">Nuevo Pedido</button>
+                                        </a>
+                                    </div>
+                                    <div x-show="!whatsap">
+            
+                                    @livewire('admin.whatsapp-sender-cliente')
+            
+                                    </div>
+                                </div>
+                            </div>
+                        @endcan                                         
                     @livewire('pistas-home')
 
                     <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
@@ -751,33 +778,7 @@
 
                 @endif
             </div>
-            @can('Super admin')
-                <div class="bg-gray-700 pt-4">
-                    <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
-                        @livewire('admin.pedidos-count')
-                    </div>
-
-                
-
-
-                    <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 pb-4" x-data="{whatsap: true}">
-                        <div class="flex justify-between">
-                            <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">Whatsapp RCH</button>
-                            <a href="{{route('contabilidad')}}">
-                                <button class="btn btn-danger ml-2 text-center text-xl">Gráficos y Estadisticas</button>
-                            </a>
-                            <a href="{{route('vendedor.pedidos.create')}}">
-                                <button class="btn btn-success ml-2 text-center text-xl">Nuevo Pedido</button>
-                            </a>
-                        </div>
-                        <div x-show="!whatsap">
-
-                        @livewire('admin.whatsapp-sender-cliente')
-
-                        </div>
-                    </div>
-                </div>
-            @endcan
+           
           
 
             @if (auth()->user())

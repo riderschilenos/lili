@@ -464,11 +464,11 @@
         </div>
     @endif
     @routeIs('contabilidad')
-    <div class="mb-4">
+    <div class="mt-4">
         <h3 class="text-center"><b>Ventas por Producto</b></h3>
     </div>
 
-    <div class="max-w-5xl mx-auto sm:px-6 mt-2 lg:px-8">
+    <div class="max-w-5xl mx-auto sm:px-6 lg:px-8 mb-12">
         <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-3 md:grid-cols-5 xl:grid-cols-5 gap-x-2 gap-y-2 items-center content-center">
      
   

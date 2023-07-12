@@ -239,6 +239,7 @@
    </script>
 
    <div class="max-w-4xl mx-auto sm:px-6 mt-2 lg:px-8">
+      <h1 class="text-center text-xs text-white "><b>{{number_format($diseños->count()+$produccion->count()+$despacho->count())}}</b> Pedidos</h1>
       <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-3 md:grid-cols-3 xl:grid-cols-3 gap-x-2 gap-y-2 items-center content-center">
    
 

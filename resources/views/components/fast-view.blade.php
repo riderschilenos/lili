@@ -724,8 +724,7 @@
             
                                 <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8 pb-4" x-data="{whatsap: true}">
                                     <div class="mt-6">
-                                        <div class="font-semibold">How much would you like to send?</div>
-                                        <div><input class="mt-1 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="100.00" type="text" placeholder="100.00" /></div>
+                                       
                                         <div class="flex justify-between">
                                           <div class="mt-[14px] cursor-pointer truncate rounded-[4px] border border-green-700 p-3 text-[#191D23]">$100.00</div>
                                           <div class="mt-[14px] cursor-pointer truncate rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$200.00</div>

@@ -407,7 +407,7 @@
 
             @elseif($pedido->status==2)
                
-                    <div class="flex justify-center mb-14">
+                    <div class="flex justify-center mb-4">
                         @if(auth()->user())    
 
                             <form action="{{route('vendedor.pedido.editing',$pedido)}}" method="POST">
@@ -424,8 +424,9 @@
                                 <button class="btn btn-success justify-center mt-4" type="submit">Pagar</button>
                             </form>
                         @endif
+                    </div>    
                         <h1 class="text-center mb-14 mt-6">Es necesario pagar el pedido para avanzar a su proceso productivo.</h1>
-                    </div>
+                    
                 
             @endif
         @endif

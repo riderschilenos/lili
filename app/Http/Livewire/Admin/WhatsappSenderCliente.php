@@ -19,6 +19,7 @@ class WhatsappSenderCliente extends Component
         ->where('rut','LIKE','%'. $this->search .'%')
         ->orwhere('email','LIKE','%'. $this->search .'%')
         ->orwhere('socios.name','LIKE','%'. $this->search .'%')
+        ->orwhere('socio.fono','LIKE','%'. $this->search .'%')
         ->latest('id')
         ->paginate(7);
         $socios_all=Socio::all();

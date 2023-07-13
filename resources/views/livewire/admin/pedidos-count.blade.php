@@ -52,7 +52,7 @@
                         <div class="chat-message">
                            <div class="flex items-end">
                               <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                                 <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">{{$mensaje->mensaje}}</span></div>
+                                 <div><span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">{{$mensaje->mensaje}}-{{$mensaje->created_at->format('h:i')}}</span></div>
                               </div>
                               <img src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="My profile" class="w-6 h-6 rounded-full order-1">
                            </div>

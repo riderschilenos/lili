@@ -14,9 +14,9 @@
             <button class="btn btn-success mx-2" wire:click="accesorios">Catálogo Accesorios</button>
             <button class="btn btn-success mx-2" wire:click="polerones">Catálogo Polerones</button>
         </div>
-    <div class="bg-white">
+    <div class="bg-white ">
         <x-table-responsive>
-            <div class="px-6 py-4 flex justify-center">
+            <div class="px-6 py-4 flex justify-center max-w-3xl">
                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                     <div class="flex items-center">
                        <div class="flex-shrink-0">
@@ -63,9 +63,7 @@
                             Fono
                         </th>
                     
-                        <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Edit</span>
-                        </th>
+                      
                     </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -105,11 +103,7 @@
                                     
                                     
     
-                                    
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a wire:click="updateinvitado_id({{$invitado->id}})" class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Seleccionar</a>
-                                    
-                                    </td>
+                                 
                                 </tr>
     
                         
@@ -144,9 +138,6 @@
                             Fono
                         </th>
                     
-                        <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Edit</span>
-                        </th>
                     </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -186,11 +177,7 @@
                                     
                                     
 
-                                    
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a wire:click="updatesocio_id({{$socio->id}})" class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Seleccionar</a>
-                                    
-                                    </td>
+                                  
                                 </tr>
 
            

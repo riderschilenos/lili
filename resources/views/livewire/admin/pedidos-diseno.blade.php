@@ -7,8 +7,8 @@
     
     @endphp
 
-<div class="container py-8">     
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 bg-gray-700 pt-4 lg:px-8">
+<div class="container pb-8">     
+    <div class="mx-auto px-2 sm:px-6 bg-gray-700 py-4 lg:px-8">
         @livewire('admin.pedidos-count')
     </div>
     <x-table-responsive>

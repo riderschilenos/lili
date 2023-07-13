@@ -217,8 +217,9 @@ class PagoController extends Controller
         return view('admin.pagos.index',compact('pagos','pagosok'));
     }
     
-    public function pagoaprov(Pago $pago){
+    public function pagoaprov(Request $request,Pago $pago){
             $pago->estado=2;
+            $pago->cantidad=$request->cantidad;
             $pago->save();
             foreach ($pago->pedidos as $pedido){
                 $pedido->status=4;

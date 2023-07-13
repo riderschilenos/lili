@@ -230,6 +230,10 @@
         <div id="container" class="mt-4"></div>
     </figure>
 
+    <figure class="highcharts-figure" class="mt-4 bg-white shadow">
+        <div id="balance" class="mt-4"></div>
+    </figure>
+
     @routeIs('admin.home')        
         <div class="container">
             <div class="card-header mb-4">
@@ -609,7 +613,7 @@
 
 
     @php
-        $meses_letter=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agostro','Septiembre','Octubre','Noviembre','Diciembre'];
+        $meses_letter=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agostro','Septiembre','Octubre','Noviembre','Diciembre','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agostro','Septiembre','Octubre','Noviembre','Diciembre'];
         $final_anual=$now->format('n')+12;
         $inicio_anual=$now->format('n')+1;
 
@@ -626,10 +630,38 @@
             $meses[]=$nro;
             $meses_serie[]=$meses_letter[$nro-1];
             }
+        $mesesbi=[];
+        $mesesbi_serie=[];
+
+        foreach (range($inicio_anual,($final_anual+12)) as $number) {
+            
+                if($number>12){
+                $nro=($number- 12);
+                }else{
+                $nro=$number;
+                }  
+            $mesesbi[]=$nro;
+            $mesesbi_serie[]=$meses_letter[$nro-1];
+            }
         
         $ventas_anual=[];
+        $ventas_anteanual=[];
             foreach ($meses as $mes) {
                 $totalmes=0;
+               
+                foreach ($pagos_anteanual as $pago) {
+                    
+                    if($pago->created_at->format('n')==$mes){
+                        $totalmes+=$pago->cantidad;
+                    }
+                        
+                    
+                }
+            $ventas_anteanual[]=$totalmes;
+            }
+            foreach ($meses as $mes) {
+                $totalmes=0;
+               
                 foreach ($pagos_anual as $pago) {
                     
                     if($pago->created_at->format('n')==$mes){
@@ -638,6 +670,7 @@
                         
                     
                 }
+            $ventas_anteanual[]=$totalmes;
             $ventas_anual[]=$totalmes;
             }
 
@@ -712,8 +745,10 @@
     <script>
         var ventas = <?php echo json_encode($ventas) ?>;
         var ventas_anual = <?php echo json_encode($ventas_anual) ?>;
+        var ventas_anteanual = <?php echo json_encode($ventas_anteanual) ?>;
         var dias = <?php echo json_encode($dias) ?>;
         var meses = <?php echo json_encode($meses_serie) ?>;
+        var mesesbi = <?php echo json_encode($mesesbi_serie) ?>;
         var gastos = <?php echo json_encode($gastos) ?>;
         var gastos_anual = <?php echo json_encode($gast_anual) ?>;
         var now = <?php echo intval($pago->created_at->format('d'))?>;
@@ -808,6 +843,45 @@
                 }, {
                     name: 'Gastos',
                     data: gastos_anual
+                }]
+            });
+
+            Highcharts.chart('balance', {
+                chart: {
+                    type: 'areaspline'
+                },
+                title: {
+                    text: 'Venta - Gastos Ultimos 24 Meses'
+                },
+                colors: ['#01c600','#cd2300'],
+                xAxis: {
+                    categories: mesesbi
+                    },
+
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    y: 40,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor:
+                        Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Pesos Chilenos'
+                    }
+                },
+                plotOptions: {
+                 
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Ventas',
+                    data: ventas_anteanual
                 }]
             });
                         

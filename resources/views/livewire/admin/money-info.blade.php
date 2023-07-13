@@ -327,7 +327,7 @@
     @endphp
     <div class="mb-6">
         <a href="{{route('contabilidad')}}">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-4">
                 <div>
                     
                 </div>

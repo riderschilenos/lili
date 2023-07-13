@@ -75,25 +75,29 @@
                                     
                                 </td>
                                 <td>{{$pago->metodo}}</td>
-                                <td>{{$pago->cantidad}}</td>
+                                {!! Form::model($pago,['route'=>['admin.pago.approved',$pago], 'method'=>'post']) !!}
+                           
+                                
+                        
+                            
+                                <td>{!! Form::text('cantidad',null, ['class'=>'form-control','placeholder'=>'Verifique el monto']) !!}
+                                </td>
                                 <td>
                                     <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
                                 
                                 </td>
                                 <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
                                 <td>
-                                    <form action="{{route('admin.pagos.destroy',$pago)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
+                                
+                                    {!! Form::submit('Aprobar', ['class'=>'btn btn-primary']) !!}
+                                {!! Form::close() !!} 
+                                <form action="{{route('admin.pagos.destroy',$pago)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
 
-                                        <button class="btn btn-danger btn-sm" type="submit"> RECHAZAR </button>
-                                    </form>
-                                    <form action="{{route('admin.pago.approved',$pago)}}" method="POST">
-                                        @csrf
-                
-                                        <button class="btn btn-primary" type="submit">Aprobar</button>
-                                    </form>   
-                                </td>
+                                    <button class="btn btn-danger btn-sm" type="submit"> RECHAZAR </button>
+                                </form>
+                            </td>
                                 
                             </tr>
                             

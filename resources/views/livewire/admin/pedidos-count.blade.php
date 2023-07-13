@@ -42,7 +42,7 @@
                         <div class="chat-message">
                            <div class="flex items-end justify-end">
                               <div class="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-                                 <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-300 text-gray-600 ">{{$mensaje->mensaje}}</span></div>
+                                 <div><span class="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-300 text-gray-600 ">{{$mensaje->mensaje}}-{{$mensaje->created_at->format('d-m-Y')}}</span></div>
                               </div>
                               <img src="https://riderschilenos.cl/img/logo.png" alt="My profile" class="w-6 h-6 rounded-full order-2">
                            </div>
@@ -95,7 +95,7 @@
          </div>
       </div>
    @endif
-   
+
    <h1 class="text-center text-xs text-white "><b>{{number_format($diseños->count()+$produccion->count()+$despacho->count())}}</b> Pedidos</h1>
       
    <div class="mt-2 sm:mt-4 mb-4 w-full grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-1 gap-y-1 items-center content-center">

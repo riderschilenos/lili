@@ -31,7 +31,7 @@
                    </div>
                 </div>
              </div>
-             <input wire:keydown="limpiar_page" wire:model="search"  class="form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
+             <input wire:keydown="limpiar_page" wire:model="search"  class="hidden md:flex form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
              <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                 <div class="flex items-center">
                    <div class="flex-shrink-0">
@@ -47,6 +47,9 @@
                    </div>
                 </div>
              </div>
+        </div>
+        <div class="flex justify-center">
+            <input wire:keydown="limpiar_page" wire:model="search"  class="flex md:hidden form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
         </div>
         <x-table-responsive>
           

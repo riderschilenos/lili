@@ -4,7 +4,7 @@
         <div class="mb-4">
             
             <h1 class="text-center font-bold  mb-2 text-white">Nro de Whatsapp:</h1>
-            <input wire:model="nro" class="form-input border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
+            <input wire:model="nro" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
         </div>
      
 
@@ -16,7 +16,7 @@
         </div>
     <div class="bg-white">
         <x-table-responsive>
-            <div class="px-6 py-4 flex">
+            <div class="px-6 py-4 flex justify-center">
                 <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                     <div class="flex items-center">
                        <div class="flex-shrink-0">
@@ -32,7 +32,7 @@
                        </div>
                     </div>
                  </div>
-                 <input wire:keydown="limpiar_page" wire:model="search"  class="form-input my-auto items-center mx-4 flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
+                 <input wire:keydown="limpiar_page" wire:model="search"  class="form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
                  <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                     <div class="flex items-center">
                        <div class="flex-shrink-0">

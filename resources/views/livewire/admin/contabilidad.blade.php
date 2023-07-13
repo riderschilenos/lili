@@ -56,7 +56,7 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                 elseif($orden->producto->id==10){
                     $collares+=1; 
                 }
-                elseif($orden->producto->id==8){
+                elseif($orden->producto->id==8 || $orden->producto->id==36 || $orden->producto->id==15){
                     $colgantes+=1; 
                 }
                 elseif($orden->producto->id==5 || $orden->producto->id==6){

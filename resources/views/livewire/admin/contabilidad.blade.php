@@ -43,8 +43,13 @@
             @php
 
 
-                if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3 || $orden->producto->id==7  || $orden->producto->id==21){
-                $carcasas+=1;   }
+if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7  || $orden->producto->id==21 || $orden->producto->id==35 || $orden->producto->id==36 || $orden->producto->id==38 || $orden->producto->id==39 || $orden->producto->id==40){
+                if($orden->producto->id==35 ||$orden->producto->id==39){
+                    $carcasas+=2;   
+                }else{
+                    $carcasas+=1;   
+                }
+               }
                 elseif($orden->producto->id==4){
                     $llaveros+=1; 
                 }
@@ -75,7 +80,7 @@
             @php
 
 
-                if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7  || $orden->producto->id==21 || $orden->producto->id==35 || $orden->producto->id==36 || $orden->producto->id==38 || $orden->producto->id==39){
+                if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7  || $orden->producto->id==21 || $orden->producto->id==35 || $orden->producto->id==36 || $orden->producto->id==38 || $orden->producto->id==39 || $orden->producto->id==40){
                 if($orden->producto->id==35 ||$orden->producto->id==39){
                     $carcasas+=2;   
                 }else{

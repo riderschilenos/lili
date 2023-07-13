@@ -2,16 +2,38 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Invitado;
+use App\Models\Socio;
 use App\Models\WhatsappMensaje;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class WhatsappSenderCliente extends Component
-{   public $nro;
+{   public $search, $nro;
+    use WithPagination;
 
     public function render()
-    {
-        return view('livewire.admin.whatsapp-sender-cliente');
+    {   $socios = Socio::join('users','socios.user_id','=','users.id')
+        ->select('socios.*','users.name','users.email')
+        ->where('rut','LIKE','%'. $this->search .'%')
+        ->orwhere('email','LIKE','%'. $this->search .'%')
+        ->orwhere('socios.name','LIKE','%'. $this->search .'%')
+        ->latest('id')
+        ->paginate(7);
+        $socios_all=Socio::all();
+
+        $guess = Invitado::where('rut','LIKE','%'. $this->search .'%')
+                ->orwhere('email','LIKE','%'. $this->search .'%')
+                ->orwhere('name','LIKE','%'. $this->search .'%')
+                ->orwhere('fono','LIKE','%'. $this->search .'%')
+                ->latest('id')
+                ->paginate(7);
+        $guess_all=Invitado::all();
+
+
+        return view('livewire.admin.whatsapp-sender-cliente',compact('socios','guess','socios_all','guess_all'));
+       
     }
 
     public function invitacion(){
@@ -199,5 +221,14 @@ class WhatsappSenderCliente extends Component
             https://riderschilenos.cl/catalogos/polerones.pdf",
             'type'=>'enviado']);
         }
+    }
+
+    public function updateinvitado_id($invitado_id){
+        $invitado=Invitado::find($invitado_id);
+        $this->nro = $invitado->fono;
+    }
+
+    public function limpiar_page(){
+        $this->resetPage();
     }
 }

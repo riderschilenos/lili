@@ -116,14 +116,14 @@
                         @if($diseño->pedidoable_type=='App\Models\Socio')
                               @foreach ($socios as $socio)
                                     @if($socio->id == $diseño->pedidoable_id)
-                                             {{Str::limit($socio->user->name,16)}}
+                                             {{Str::limit($socio->user->name,12)}}
                                     @endif
                               @endforeach
                         @endif
                         @if($diseño->pedidoable_type=='App\Models\Invitado')
                               @foreach ($invitados as $invitado)
                                     @if($invitado->id == $diseño->pedidoable_id)
-                                          {{Str::limit($invitado->name,16)}} 
+                                          {{Str::limit($invitado->name,12)}} 
                                     @endif
                               @endforeach
                         @endif
@@ -152,14 +152,14 @@
                         @if($diseño->pedidoable_type=='App\Models\Socio')
                               @foreach ($socios as $socio)
                                     @if($socio->id == $diseño->pedidoable_id)
-                                             {{Str::limit($socio->user->name,16)}}
+                                             {{Str::limit($socio->user->name,12)}}
                                     @endif
                               @endforeach
                         @endif
                         @if($diseño->pedidoable_type=='App\Models\Invitado')
                               @foreach ($invitados as $invitado)
                                     @if($invitado->id == $diseño->pedidoable_id)
-                                          {{Str::limit($invitado->name,16)}} 
+                                          {{Str::limit($invitado->name,12)}} 
                                     @endif
                               @endforeach
                         @endif
@@ -188,14 +188,14 @@
                         @if($diseño->pedidoable_type=='App\Models\Socio')
                               @foreach ($socios as $socio)
                                     @if($socio->id == $diseño->pedidoable_id)
-                                             {{Str::limit($socio->user->name,16)}}
+                                             {{Str::limit($socio->user->name,12)}}
                                     @endif
                               @endforeach
                         @endif
                         @if($diseño->pedidoable_type=='App\Models\Invitado')
                               @foreach ($invitados as $invitado)
                                     @if($invitado->id == $diseño->pedidoable_id)
-                                          {{Str::limit($invitado->name,16)}} 
+                                          {{Str::limit($invitado->name,12)}} 
                                     @endif
                               @endforeach
                         @endif

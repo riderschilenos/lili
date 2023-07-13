@@ -74,7 +74,7 @@
                                 <tr wire:click="updateinvitado_id({{$invitado->id}})">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="hidden md:flex-shrink-0 h-10 w-10">
+                                            <div class="hidden md:flex flex-shrink-0 h-10 w-10">
                                                     
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt=""  />
                                                 
@@ -148,7 +148,7 @@
                                 <tr wire:click="updatesocio_id({{$socio->id}})" >
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div class="hidden md:flex-shrink-0 h-10 w-10">
+                                            <div class="hidden md:flex flex-shrink-0 h-10 w-10">
                                                     
                                                     <img class="h-11 w-11 object-cover object-center rounded-full" src="{{ $socio->user->profile_photo_url }}" alt=""  />
                                                 

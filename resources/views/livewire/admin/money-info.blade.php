@@ -280,6 +280,15 @@
                             
                         
                     }
+        $ventas23=0;
+                    foreach ($pagos_23anual as $pago) {
+                        
+                        
+                            $ventas23+=$pago->cantidad;
+                     
+                            
+                        
+                    }
 
         foreach ($dias as $day) {
             $totaldiapago=0;
@@ -318,17 +327,24 @@
     @endphp
     <div class="mb-6">
         <a href="{{route('contabilidad')}}">
-            <div class="flex justify-center">
-                <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-green-700 px-3 text-[#191D23]">
-                    <h1 class="text-center text-sm">Hoy</h1>${{number_format($totaldiapago)}}
+            <div class="grid grid-cols-3">
+                <div>
+                    
                 </div>
-                <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
-                    <h1 class="text-center text-sm">Julio</h1>${{number_format($totalmespago)}}
+                <div class="flex justify-center">
+                    <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-green-700 px-3 text-[#191D23]">
+                        <h1 class="text-center text-sm">Hoy</h1>${{number_format($totaldiapago)}}
+                    </div>
+                    <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                        <h1 class="text-center text-sm">Julio</h1>${{number_format($totalmespago)}}
+                    </div>
+                    <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                        <h1 class="text-center text-sm">2023</h1>${{number_format($ventas23)}}
+                    </div>
                 </div>
-                
-            </div>
-            <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
-                <h1 class="text-center text-sm">2022</h1>${{number_format($ventas22)}}
+                <div class="mt-[14px] ml-auto mr-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                    <h1 class="text-center text-sm">2022</h1>${{number_format($ventas22)}}
+                </div>
             </div>
         </a>
     </div>

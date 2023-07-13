@@ -126,7 +126,12 @@
                 </div>
             @endif 
     
-         
+            <div class="px-6 py-4">
+                {{$guess->links()}}
+            </div>
+        </x-table-responsive>
+        <x-table-responsive>
+           
 
             @if ($socios->count())
 
@@ -168,7 +173,7 @@
                                                     {{$socio->name}}
                                                 </div>
                                                 <div class="text-sm text-gray-900">{{$socio->rut}}</div>
-                                                <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                                     Socio
                                                 </span>
                                             </div>
@@ -203,12 +208,9 @@
                     No hay ningun registro
                 </div>
             @endif 
+
             <div class="px-6 py-4">
-                Invitados {{$guess->links()}}
-            </div>
-      
-            <div class="px-6 py-4">
-                Socios {{$socios->links()}}
+                {{$socios->links()}}
             </div>
         </x-table-responsive>
     </div>

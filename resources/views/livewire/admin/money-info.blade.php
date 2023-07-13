@@ -332,14 +332,17 @@
                     
                 </div>
                 <div class="flex justify-center">
-                    <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-green-700 px-3 text-[#191D23]">
-                        <h1 class="text-center text-sm">Hoy</h1>${{number_format($totaldiapago)}}
+                    <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-green-700 px-3 text-[#191D23]">
+                        <h1 class="text-center text-sm">Hoy</h1>
+                        <h1 class="mx-1">${{number_format($totaldiapago)}}</h1>
                     </div>
-                    <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
-                        <h1 class="text-center text-sm">Julio</h1>${{number_format($totalmespago)}}
+                    <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                        <h1 class="text-center text-sm">Julio</h1>
+                        <h1 class="mx-1">${{number_format($totalmespago)}}</h1>
                     </div>
-                    <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
-                        <h1 class="text-center text-sm">2023</h1>${{number_format($ventas23)}}
+                    <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                        <h1 class="text-center text-sm">2023</h1>
+                        <h1 class="mx-1">${{number_format($ventas23)}}</h1>
                     </div>
                 </div>
                 <div class="mt-[14px] ml-auto mr-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">

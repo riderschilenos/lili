@@ -271,6 +271,16 @@
         
 
         $ventas=[];
+        $ventas22=0;
+                    foreach ($pagos_22anual as $pago) {
+                        
+                        if($pago->created_at->format('n')==$mes){
+                            $ventas22+=$pago->cantidad;
+                        }
+                            
+                        
+                    }
+
         foreach ($dias as $day) {
             $totaldiapago=0;
             foreach ($pagos30 as $pago) {
@@ -314,6 +324,9 @@
                 </div>
                 <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
                     <h1 class="text-center text-sm">Julio</h1>${{number_format($totalmespago)}}
+                </div>
+                <div class="mt-[14px] mx-2 cursor-pointer bg-white truncate rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                    <h1 class="text-center text-sm">2022</h1>${{number_format($ventas22)}}
                 </div>
             </div>
         </a>

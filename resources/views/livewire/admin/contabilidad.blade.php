@@ -651,6 +651,10 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
         
         $ventas_anual=[];
         $ventas_anteanual=[];
+           
+                    
+       
+               
             foreach ($meses as $mes) {
                 $totalmes=0;
                

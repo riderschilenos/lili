@@ -41,6 +41,7 @@ class Contabilidad extends Component
         $pagos_anual=Pago::all()->where('created_at', '>=', now()->subDays(330));
         $pagos_anteanual=Pago::all()->where('created_at', '>=', now()->subDays(730))->where('created_at', '<=', now()->subDays(330));
 
+
         $vendedors=Vendedor::all();
 
         $now=now();

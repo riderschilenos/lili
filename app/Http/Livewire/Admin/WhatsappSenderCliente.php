@@ -226,10 +226,12 @@ class WhatsappSenderCliente extends Component
     public function updateinvitado_id($invitado_id){
         $invitado=Invitado::find($invitado_id);
         $this->nro = $invitado->fono;
+        $this->search = $invitado->fono;
     }
     public function updatesocio_id($invitado_id){
         $invitado=Socio::find($invitado_id);
         $this->nro = $invitado->fono;
+        $this->search = $invitado->fono;
     }
 
     public function limpiar_page(){

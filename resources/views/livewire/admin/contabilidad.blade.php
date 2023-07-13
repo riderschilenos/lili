@@ -50,10 +50,10 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                     $carcasas+=1;   
                 }
                }
-                elseif($orden->producto->id==4){
+                elseif($orden->producto->id==4 || $orden->producto->id==36 || $orden->producto->id==15){
                     $llaveros+=1; 
                 }
-                elseif($orden->producto->id==10){
+                elseif($orden->producto->id==10|| $orden->producto->id==36 || $orden->producto->id==15){
                     $collares+=1; 
                 }
                 elseif($orden->producto->id==8 || $orden->producto->id==36 || $orden->producto->id==15){

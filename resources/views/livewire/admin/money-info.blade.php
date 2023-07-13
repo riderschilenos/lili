@@ -274,9 +274,9 @@
         $ventas22=0;
                     foreach ($pagos_22anual as $pago) {
                         
-                        if($pago->created_at->format('n')==$mes){
+                        
                             $ventas22+=$pago->cantidad;
-                        }
+                     
                             
                         
                     }

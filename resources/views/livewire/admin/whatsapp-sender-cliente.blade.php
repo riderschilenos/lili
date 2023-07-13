@@ -1,22 +1,7 @@
 <div>
     <div class="block bg-gray-800 p-3 mt-4 rounded-lg">
-                                
-        <div class="mb-4">
-            
-            <h1 class="text-center font-bold  mb-2 text-white">Nro de Whatsapp:</h1>
-            <input wire:model="nro" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
-        </div>
-     
-
-        <div class="grid grid-cols-3 gap-y-2 justify-center mb-4">                 
-            <button class="btn btn-success mx-2" wire:click="invitacion">Invitación Registro</button>
-            <button class="btn btn-success mx-2" wire:click="carcasas">Catálogo Carcasas</button>
-            <button class="btn btn-success mx-2" wire:click="accesorios">Catálogo Accesorios</button>
-            <button class="btn btn-success mx-2" wire:click="polerones">Catálogo Polerones</button>
-        </div>
-    <div class="bg-white ">
         <div class="px-6 py-4 flex justify-center max-w-3xl mx-6">
-            <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+            <div class="max-w-xl mx-4 bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                 <div class="flex items-center">
                    <div class="flex-shrink-0">
                       <span class="text-2xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($guess_all->count())}}</span>
@@ -31,8 +16,8 @@
                    </div>
                 </div>
              </div>
-             <input wire:keydown="limpiar_page" wire:model="search"  class="hidden md:flex form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
-             <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
+             <input wire:keydown="limpiar_page" wire:model="nro"  class="hidden md:flex form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
+             <div class="max-w-xl mx-4 bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                 <div class="flex items-center">
                    <div class="flex-shrink-0">
                       <span class="text-2xl sm:text-8xl leading-none font-bold text-gray-900">{{number_format($socios_all->count())}}</span>
@@ -48,8 +33,22 @@
                 </div>
              </div>
         </div>
+        <div class="mb-4">
+            
+            <h1 class="text-center font-bold  mb-2 text-white">Nro de Whatsapp:</h1>
+        </div>
+     
+
+        <div class="grid grid-cols-3 gap-y-2 justify-center mb-4">                 
+            <button class="btn btn-success mx-2" wire:click="invitacion">Invitación Registro</button>
+            <button class="btn btn-success mx-2" wire:click="carcasas">Catálogo Carcasas</button>
+            <button class="btn btn-success mx-2" wire:click="accesorios">Catálogo Accesorios</button>
+            <button class="btn btn-success mx-2" wire:click="polerones">Catálogo Polerones</button>
+        </div>
+    <div class="bg-white ">
+        
         <div class="flex justify-center">
-            <input wire:keydown="limpiar_page" wire:model="search"  class="flex md:hidden form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
+            <input wire:keydown="limpiar_page" wire:model="nro"  class="flex mt-4 md:hidden form-input my-auto items-center mx-4 shadow-sm justify-center text-center border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
         </div>
         <x-table-responsive>
           

@@ -16,18 +16,18 @@ class WhatsappSenderCliente extends Component
     public function render()
     {   $socios = Socio::join('users','socios.user_id','=','users.id')
         ->select('socios.*','users.name','users.email')
-        ->where('rut','LIKE','%'. $this->search .'%')
-        ->orwhere('email','LIKE','%'. $this->search .'%')
-        ->orwhere('socios.name','LIKE','%'. $this->search .'%')
-        ->orwhere('socios.fono','LIKE','%'. $this->search .'%')
+        ->where('rut','LIKE','%'. $this->nro .'%')
+        ->orwhere('email','LIKE','%'. $this->nro .'%')
+        ->orwhere('socios.name','LIKE','%'. $this->nro .'%')
+        ->orwhere('socios.fono','LIKE','%'. $this->nro .'%')
         ->latest('id')
         ->paginate(7);
         $socios_all=Socio::all();
 
-        $guess = Invitado::where('rut','LIKE','%'. $this->search .'%')
-                ->orwhere('email','LIKE','%'. $this->search .'%')
-                ->orwhere('name','LIKE','%'. $this->search .'%')
-                ->orwhere('fono','LIKE','%'. $this->search .'%')
+        $guess = Invitado::where('rut','LIKE','%'. $this->nro .'%')
+                ->orwhere('email','LIKE','%'. $this->nro .'%')
+                ->orwhere('name','LIKE','%'. $this->nro .'%')
+                ->orwhere('fono','LIKE','%'. $this->nro .'%')
                 ->latest('id')
                 ->paginate(7);
         $guess_all=Invitado::all();

@@ -6,12 +6,14 @@
 
     @endphp
 
-<div class="container pb-8">
 
-    <div class="mx-auto px-2 sm:px-6 bg-gray-700 py-4 lg:px-8">
-        @livewire('admin.pedidos-count')
+
+    <div class="mx-auto px-2 bg-gray-700 py-4 ">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+            @livewire('admin.pedidos-count')
+        </div>
     </div>
-
+<div class="container pb-8">
     @if($paginate==4)
 
         <h1 class="text-right pb-2 cursor-pointer" wire:click="updatepaginate">(Ver todos)</h1>

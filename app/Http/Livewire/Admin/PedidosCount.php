@@ -17,7 +17,7 @@ class PedidosCount extends Component
         $despacho=Pedido::where('status',6)->get();
         $socios=Socio::all();
         $invitados=Invitado::all();
-        $mensajes=WhatsappMensaje::all()->orderby('id','ASC')->get();
+        $mensajes=WhatsappMensaje::all()->orderby('id')->get();
 
         return view('livewire.admin.pedidos-count',compact('mensajes','socios','invitados','diseños','produccion','despacho'));
     }

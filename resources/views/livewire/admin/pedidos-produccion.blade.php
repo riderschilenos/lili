@@ -6,9 +6,9 @@
 
     @endphp
 
-<div class="container bg-gray-700 pb-4">
+<div class="container pb-8">
 
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 bg-gray-700 pt-4 lg:px-8">
         @livewire('admin.pedidos-count')
     </div>
 

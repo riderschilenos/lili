@@ -675,6 +675,20 @@
             }
 
         $gast_anual=[];
+        $gast_anteanual=[];
+        foreach ($meses as $mes) {
+                $totalmes=0;
+                foreach ($gastos_anteanual as $pago) {
+                    
+                    if($pago->created_at->format('n')==$mes){
+                        $totalmes+=$pago->cantidad;
+                    }
+                        
+                    
+                }
+
+            $gast_anteanual[]=$totalmes;
+            }
         foreach ($meses as $mes) {
                 $totalmes=0;
                 foreach ($gastos_anual as $pago) {
@@ -686,6 +700,7 @@
                     
                 }
             $gast_anual[]=$totalmes;
+            $gast_anteanual[]=$totalmes;
             }
 
 
@@ -751,6 +766,7 @@
         var mesesbi = <?php echo json_encode($mesesbi_serie) ?>;
         var gastos = <?php echo json_encode($gastos) ?>;
         var gastos_anual = <?php echo json_encode($gast_anual) ?>;
+        var gastos_anteanual = <?php echo json_encode($gast_anteanual) ?>;
         var now = <?php echo intval($pago->created_at->format('d'))?>;
 
         Highcharts.chart('grafico', {
@@ -882,6 +898,9 @@
                 series: [{
                     name: 'Ventas',
                     data: ventas_anteanual
+                }, {
+                    name: 'Gastos',
+                    data: gastos_anteanual
                 }]
             });
                         

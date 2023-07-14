@@ -1,5 +1,5 @@
-<div>
-    <div id="seccionDestino" class="block bg-gray-800 p-3 mt-4 rounded-lg">
+<div id="seccionDestino">
+    <div  class="block bg-gray-800 p-3 mt-4 rounded-lg">
         <div class="px-6 py-4 flex justify-center max-w-3xl mx-6">
             <div class="max-w-xl mx-4 bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                 <div class="flex items-center">

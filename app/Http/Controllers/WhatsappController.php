@@ -78,6 +78,9 @@ class WhatsappController extends Controller
            
                                 
             $num=$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from'];
+            
+        try {
+            //code...
         
             $fono='569'.substr(str_replace(' ', '', $num), -8);
                                 //TOKEN QUE NOS DA FACEBOOK
@@ -122,7 +125,10 @@ class WhatsappController extends Controller
                 ];
             
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-            
+        
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
       }
     
     

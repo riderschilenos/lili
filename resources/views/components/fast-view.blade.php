@@ -748,7 +748,14 @@
                                 </div>
                             </div>
                         @endcan    
-                                                             
+                
+                
+                        <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+                            @livewire('pistas.admin-pista-home')
+                        </div>
+           
+                    
+                                                  
                     @livewire('pistas-home')
 
                     <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
@@ -790,14 +797,7 @@
            
           
 
-            @if (auth()->user())
-                
-                    <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
-                        @livewire('pistas.admin-pista-home')
-                    </div>
-       
-                
-            @endif
+           
 
             <div class="bg-main-color flex justify-center py-4 z-10"> 
                 <div>

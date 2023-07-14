@@ -228,11 +228,13 @@ class WhatsappSenderCliente extends Component
         $invitado=Invitado::find($invitado_id);
         $this->nro = $invitado->fono;
         $this->search = $invitado->fono;
+        return redirect()->to('#seccionDestino');
     }
     public function updatesocio_id($invitado_id){
         $invitado=Socio::find($invitado_id);
         $this->nro = $invitado->fono;
         $this->search = $invitado->fono;
+        return redirect()->to('#seccionDestino');
     }
 
     public function limpiar_page(){

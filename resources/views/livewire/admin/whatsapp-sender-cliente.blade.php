@@ -1,5 +1,5 @@
 <div>
-    <div class="block bg-gray-800 p-3 mt-4 rounded-lg">
+    <div id="seccionDestino" class="block bg-gray-800 p-3 mt-4 rounded-lg">
         <div class="px-6 py-4 flex justify-center max-w-3xl mx-6">
             <div class="max-w-xl mx-4 bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                 <div class="flex items-center">
@@ -87,42 +87,42 @@
     
                         @foreach ($guess as $invitado)
          
-                                
-                                <tr wire:click="updateinvitado_id({{$invitado->id}})">
-                                    <td class="px-6 py-4 ">
-                                        <div class="flex items-center">
-                                            <div class="hidden md:flex flex-shrink-0 h-10 w-10">
+                                <a href="#whatsapp">
+                                    <tr wire:click="updateinvitado_id({{$invitado->id}})">
+                                        <td class="px-6 py-4 ">
+                                            <div class="flex items-center">
+                                                <div class="hidden md:flex flex-shrink-0 h-10 w-10">
+                                                        
+                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt=""  />
                                                     
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt=""  />
-                                                
+                                                        
                                                     
-                                                
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm text-gray-900">
-                                                    {{$invitado->name}}
                                                 </div>
-                                                <div class="text-sm text-gray-900">{{$invitado->rut}}</div>
-                                                <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                    Invitado
-                                                </span>
+                                                <div class="ml-4">
+                                                    <div class="text-sm text-gray-900">
+                                                        {{$invitado->name}}
+                                                    </div>
+                                                    <div class="text-sm text-gray-900">{{$invitado->rut}}</div>
+                                                    <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                        Invitado
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-    
-                                   
-    
-                                    <td class="px-6 py-4 ">
-                                        <div class="text-sm text-gray-900">{{$invitado->fono}}</div>
+                                        </td>
+        
+                                    
+        
+                                        <td class="px-6 py-4 ">
+                                            <div class="text-sm text-gray-900">{{$invitado->fono}}</div>
+                                            
+                                        </td>
+        
                                         
-                                    </td>
-    
+                                        
+        
                                     
-                                    
-    
-                                 
-                                </tr>
-    
+                                    </tr>
+                                </a>
                         
                         @endforeach
                         <!-- More people... -->

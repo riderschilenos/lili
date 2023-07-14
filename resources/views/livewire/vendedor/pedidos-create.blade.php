@@ -250,7 +250,7 @@
         
             <x-table-responsive>
                 <div class="px-6 py-4">
-                    <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre de un usuario">
+                    <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg" placeholder="Ingrese el nombre de un usuario">
                 </div>
 
                 @if ($socios->count())
@@ -386,7 +386,7 @@
 
                     <div class="flex items-center mt-4">
                         <Label class="w-80">Despacho:</Label>
-                        <select wire:model="selecteddespacho" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <select wire:model="selecteddespacho" class="block appearance-none w-full border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500">
                             <option value="">--Despacho--</option>
 
                                 <option value="1">Domicilio</option>

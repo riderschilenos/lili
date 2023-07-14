@@ -18,9 +18,9 @@
     </style>
 
 <div class="flex justify-center">
-    <div class="mb-2 mt-6 max-w-7xl sm:px-6 lg:px-8 bg-white rounded-xl shadow-lg py-10 px-6 mx-4">
+    <div class="mb-2 mt-6 max-w-7xl sm:px-6 lg:px-8 bg-white rounded-xl shadow-lg py-10 px-6 mx-2">
                 
-        <div class="max-w-7xl w-full rounded-lg my-2 mx-4 ">
+        <div class="max-w-7xl w-full rounded-lg my-2 ">
 
             <h1 class="text-2xl font-bold text-center"> 
                 @if ($evento->type=='pista')

@@ -176,7 +176,7 @@
 
                     <div class="bg-gray-100 p-6 mt-6" x-data="{open: false}">
                       <header class="flex justify-between item-center"  >
-                        <div x-on:click="open=!open" class="flex item-center">
+                        <div x-on:click="open=!open" class="">
                           @if ($fecha->name=='keyname')
                              
                               <h1 class="cursor-pointer"> Entrenamiento {{$fecha->fecha}}</h1>

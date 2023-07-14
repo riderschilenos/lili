@@ -101,7 +101,7 @@
 
         </div>
 
-        @foreach ($evento->fechas as $fecha)
+        @foreach ($evento->fechas->reverse() as $fecha)
 
             <div>
 
@@ -175,18 +175,27 @@
                 @elseif($fecha->fecha)
 
                     <div class="bg-gray-100 p-6 mt-6" x-data="{open: false}">
-                      <header class="flex justify-between item-center" x-on:click="open=!open" >
+                      <header class="flex justify-between item-center"  >
+                        <div x-on:click="open=!open" class="flex item-center">
                           @if ($fecha->name=='keyname')
                              
                               <h1 class="cursor-pointer"> Entrenamiento {{$fecha->fecha}}</h1>
                           @else
                               <h1 class="cursor-pointer"><strong>Fecha:</strong> {{$fecha->name}}</h1>
                           @endif
-                       
-
+                          @if ($fecha->fecha>=now()->subDays(1))
+                            <span class="ml-10 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                               Activo
+                            </span>
+                          @else
+                               <span class="ml-10 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                  Pasado
+                              </span>
+                          @endif
+                        </div>
                         <div>
-                            <i class="fas fa-eye cursor-pointer text-blue-500 mr-2" ></i>
-                            <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar"></i>
+                            <i class="fas fa-eye cursor-pointer text-blue-500 mr-2" x-on:click="open=!open" ></i>
+                            <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar" wire:click="destroy({{$fecha}})"></i>
                         </div>
                       </header>
                       

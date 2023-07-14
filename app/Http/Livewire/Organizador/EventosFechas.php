@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Organizador;
 
 use App\Models\Categoria;
 use App\Models\Evento;
+use App\Models\Fecha;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -24,8 +25,8 @@ class EventosFechas extends Component
 
     public function render()
     {   $categorias=Categoria::where('disciplina_id',$this->evento->disciplina_id)->get();
-
-        return view('livewire.organizador.eventos-fechas',compact('categorias'));
+        $now=now();
+        return view('livewire.organizador.eventos-fechas',compact('now','categorias'));
     }
 
     public function selectedcategoria($categoria){
@@ -33,5 +34,7 @@ class EventosFechas extends Component
         $this->selectedcategoria=[$this->selectedcategoria,$categoria];
     }
 
-    
+    public function destroy(Fecha $fecha){
+        $fecha->delete();
+    }
 }

@@ -92,7 +92,7 @@ class WhatsappController extends Controller
                 
                 'type'=>'template',
                     'template'=>[
-                        'name'=>'entrada_vendida',
+                        'name'=>'notificacion_mensaje',
                         'language'=>[
                             'code'=>'es'],
                         'components'=>[ 

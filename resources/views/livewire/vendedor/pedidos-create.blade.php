@@ -101,7 +101,7 @@
     @else
     <x-table-responsive>
         <div class="px-6 py-4">
-            <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
+            <input wire:keydown="limpiar_page" wire:model="search"  class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del invitado para saber si a comprado antes">
         </div>
 
         @if ($guess->count())
@@ -250,7 +250,7 @@
         
             <x-table-responsive>
                 <div class="px-6 py-4">
-                    <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg" placeholder="Ingrese el nombre de un usuario">
+                    <input wire:keydown="limpiar_page" wire:model="search"  class="flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg" placeholder="Ingrese el nombre de un usuario">
                 </div>
 
                 @if ($socios->count())

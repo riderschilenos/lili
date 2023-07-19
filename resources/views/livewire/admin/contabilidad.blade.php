@@ -844,10 +844,8 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                 legend: {
                     layout: 'vertical',
                     align: 'right',
-                    verticalAlign: 'top',
-                    y: 40,
-                    floating: true,
-                    borderWidth: 1,
+                    verticalAlign: 'middle',
+                  
                     backgroundColor:
                         Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
                 },
@@ -882,14 +880,11 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                 xAxis: {
                     categories: mesesbi
                     },
-
                 legend: {
                     layout: 'vertical',
                     align: 'right',
-                    verticalAlign: 'top',
-                    y: 40,
-                    floating: true,
-                    borderWidth: 1,
+                    verticalAlign: 'middle',
+                  
                     backgroundColor:
                         Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
                 },

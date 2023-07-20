@@ -866,7 +866,22 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                 }, {
                     name: 'Gastos',
                     data: gastos_anual
+                }],
+
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
                 }]
+            }
             });
 
             Highcharts.chart('balance', {
@@ -905,7 +920,21 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                 }, {
                     name: 'Gastos',
                     data: gastos_anteanual
-                }]
+                }],
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
             });
                         
     </script>

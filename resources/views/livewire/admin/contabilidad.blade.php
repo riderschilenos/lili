@@ -93,8 +93,13 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                 }
 
                 }
-                elseif($orden->producto->id==4  || $orden->producto->id==36 || $orden->producto->id==15 || $orden->producto->id==38 || $orden->producto->id==40){
-                    $llaveros+=1; 
+                elseif($orden->producto->id==4  || $orden->producto->id==36 || $orden->producto->id==15 || $orden->producto->id==38 || $orden->producto->id==40|| $orden->producto->id==44){
+                    if($orden->producto->id==44){
+                    $llaveros+=2;  
+                }else{
+                    $llaveros+=1;   
+                }
+           
                 }
                 elseif($orden->producto->id==10|| $orden->producto->id==36 || $orden->producto->id==15 || $orden->producto->id==42){
                     $collares+=1; 

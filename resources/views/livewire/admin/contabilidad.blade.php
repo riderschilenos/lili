@@ -66,8 +66,13 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                     
                     $polerones+=1; 
                 }
-                elseif($orden->producto->id==9){
-                    $stickers+=1; 
+                elseif($orden->producto->id==9 || $orden->producto->id==44){
+                    if($orden->producto->id==9){
+                        $stickers+=2;   
+                    }else{
+                        $stickers+=1;   
+                    }
+                   
                 }
 
 

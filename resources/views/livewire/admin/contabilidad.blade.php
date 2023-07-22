@@ -386,7 +386,17 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                                 </div>
                             </div>
                         </div>
-                    
+                        <div class="col">
+                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header text-center"><b class="h1">{{$polerones}}</b></div>
+                            <div class="card-body">
+                                
+                                    <h5 class="card-title mx-auto">Polerones</h5><br>
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
                         <div class="col">
                             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                                 <div class="card-header text-center"><b class="h1">{{$llaveros}}</b></div>
@@ -431,17 +441,7 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                             </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                                <div class="card-header text-center"><b class="h1">{{$polerones}}</b></div>
-                            <div class="card-body">
-                                
-                                    <h5 class="card-title mx-auto">Polerones</h5><br>
-                                
-                            
-                            </div>
-                            </div>
-                        </div>
+                       
                         <div class="col">
                             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                                 <div class="card-header text-center"><b class="h1">{{$stickers}}</b></div>

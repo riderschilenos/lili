@@ -48,10 +48,10 @@
                         <div class="flex justify-center">
                             @switch($socio->status)
                                 @case(1)
-                                    <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
+                                    <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span></span>
                                     @break
                                 @case(2)
-                                    <span class="mx-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
+                                    <span class="mx-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span></span>
                                     @break
                                 @default
                                 

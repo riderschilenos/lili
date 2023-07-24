@@ -709,7 +709,7 @@
                                 
                             </div>
                             <a href="{{route('ticket.historial.view',auth()->user())}}">
-                                <button class=" btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>
+                                <button class=" btn bg-white flex items-center">  Historial</button>
                             </a>
                         </div>
                     </div>

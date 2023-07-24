@@ -53,7 +53,7 @@
             <strong class="font-bold">¡Bienvenido!</strong>
             <span class="block sm:inline">Ahora puedes crear el perfil de Rider que te servira para registrar tu moto o bicicleta, registrar tus logros deportivos, contratar cursos o clases, entre otras cosas.</span>
             <a href="{{route('socio.create')}}">
-                <button class="bg-green-700 block w-full text-white text-sm font-semibold rounded-lg hover:bg-green-500 focus:outline-none focus:shadow-outline focus:bg-gray-700 hover:shadow-xs p-3 my-4">CREAR PERFIL</button>
+                <button class="bg-green-800 block w-full text-white text-sm font-semibold rounded-lg hover:bg-green-900 focus:outline-none focus:shadow-outline focus:bg-gray-800 hover:shadow-xs p-3 my-4">CREAR PERFIL</button>
             </a>                                                
         </div>
         </div>

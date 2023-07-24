@@ -103,7 +103,7 @@
       @foreach ($diseños as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-1 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="grid grid-cols-4 items-center">
+            <div class="grid grid-cols-4 items-center border-b-2 pb-2 mb-2">
                <div class="w-12">
                 
                   <div>
@@ -134,12 +134,28 @@
                  </span>
                </div>
             </div>
+            @foreach ($diseño->ordens->reverse() as $orden)
+               <div class="flex justify-center">
+                  @if($orden->smartphone)
+                     <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                        {{$orden->producto->name." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                        
+                     </span>
+                     
+                  @else
+                     <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                        {{$orden->producto->name}}
+                     </span>
+                     
+                  @endif
+               </div>
+            @endforeach
          </div>
       @endforeach
       @foreach ($produccion as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-1 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="grid grid-cols-4 items-center">
+            <div class="grid grid-cols-4 items-center border-b-2 pb-2 mb-2">
                <div class="w-12">
                 
                   <div>
@@ -170,12 +186,28 @@
                  </span>
                </div>
             </div>
+            @foreach ($diseño->ordens->reverse() as $orden)
+               <div class="flex justify-center">
+                  @if($orden->smartphone)
+                     <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                        {{$orden->producto->name." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                        
+                     </span>
+                     
+                  @else
+                     <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                        {{$orden->producto->name}}
+                     </span>
+                     
+                  @endif
+               </div>
+            @endforeach
          </div>
       @endforeach
       @foreach ($despacho as $diseño)
 
          <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-2 xl:p-8 my-1 mx-1  cursor-pointer" wire:click="set_cliente({{$diseño->id}})">
-            <div class="grid grid-cols-4 items-center">
+            <div class="grid grid-cols-4 items-center border-b-2 pb-2 mb-2">
                <div class="w-12">
                
                   <div >
@@ -206,6 +238,22 @@
                  </span>
                </div>
             </div>
+            @foreach ($diseño->ordens->reverse() as $orden)
+               <div class="flex justify-center">
+                  @if($orden->smartphone)
+                     <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                        {{$orden->producto->name." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                        
+                     </span>
+                     
+                  @else
+                     <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                        {{$orden->producto->name}}
+                     </span>
+                     
+                  @endif
+               </div>
+            @endforeach
          </div>
       @endforeach
    </div>

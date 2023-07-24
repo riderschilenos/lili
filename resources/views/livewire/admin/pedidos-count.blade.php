@@ -138,7 +138,7 @@
                <div class="flex justify-center">
                   @if($orden->smartphone)
                      <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                        {{Str::limit($orden->producto->name,12)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                        {{Str::limit($orden->producto->name,10)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
                         
                      </span>
                      
@@ -190,7 +190,7 @@
                <div class="flex justify-center">
                   @if($orden->smartphone)
                      <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                        {{Str::limit($orden->producto->name,12)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                        {{Str::limit($orden->producto->name,10)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
                         
                      </span>
                      
@@ -242,7 +242,7 @@
                <div class="flex justify-center">
                   @if($orden->smartphone)
                      <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                        {{Str::limit($orden->producto->name,12)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                        {{Str::limit($orden->producto->name,10)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
                         
                      </span>
                      

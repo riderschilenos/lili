@@ -48,14 +48,14 @@
 
         @else
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 my-4 @routeIs('socio.create') hidden @endif">
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold">¡Bienvenido!</strong>
-            <span class="block sm:inline">Ahora puedes crear el perfil de Rider que te servira para registrar tu moto o bicicleta, registrar tus logros deportivos, contratar cursos o clases, entre otras cosas.</span>
-            <a href="{{route('socio.create')}}">
-                <button class="bg-green-500 block w-full text-white text-sm font-semibold rounded-lg hover:bg-green-700 focus:outline-none focus:shadow-outline focus:bg-gray-500 hover:shadow-xs p-3 my-4">CREAR PERFIL</button>
-            </a>                                                
-        </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 my-4 @routeIs('socio.create') hidden @endif">
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">¡Bienvenido!</strong>
+                <span class="block sm:inline">Ahora puedes crear el perfil de Rider que te servira para registrar tu moto o bicicleta, registrar tus logros deportivos, contratar cursos o clases, entre otras cosas.</span>
+                <a href="{{route('socio.create')}}">
+                    <button class="bg-green-500 block w-full text-white text-sm font-semibold rounded-lg hover:bg-green-700 focus:outline-none focus:shadow-outline focus:bg-gray-500 hover:shadow-xs p-3 my-4">CREAR PERFIL</button>
+                </a>                                                
+            </div>
         </div>
             
         @endif
@@ -709,7 +709,7 @@
                                 
                             </div>
                             <a href="{{route('ticket.historial.view',auth()->user())}}">
-                                <button class=" btn bg-white flex items-center">  Historial</button>
+                                <button class=" btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-10 p-1"> Tickets</button>
                             </a>
                         </div>
                     </div>

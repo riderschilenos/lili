@@ -204,7 +204,7 @@
                                         </figure>
                                     </article>
                                 @else
-                                    <div class="flex h-screen bg-gray-800 cursor-pointer" wire:click="producto({{$product->id}})">
+                                    <div class="flex h-screen bg-gray-800 cursor-pointer col-span-3" wire:click="producto({{$product->id}})">
                                         <div class="m-auto p-1">
                                             <h3 class="text-center text-white my-4 font-bold">{{$product->name}}</h3>
                                         </div>

@@ -218,13 +218,63 @@
         
                 <h1 class="text-center mb-12"> Fotos </h1>
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
-                    @foreach ($ordens as $product)    
-                            @if ($product->image)
-                                <article class="cursor-pointer" wire:click="producto({{$product->id}})">
-                                    <figure>
-                                            <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{Storage::url($product->image)}}" alt="">
-                                    </figure>
-                                </article>
+                    @foreach ($ordens as $orden)    
+                            @if ($orden->images)
+                                @foreach ($orden->images as $image)
+
+                                   
+                                    <div class="flex items-center w-full justify-center">
+
+                                                <article class="flex flex-col">
+                                                    <div class="bg-white shadow-xl rounded-lg">
+                                    
+                                                        <div class="photo-wrapper flex justify-center">
+                                                           
+                                                                
+                                                                    <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="{{Storage::url($image->url)}}" alt="">
+                                    
+                                                            
+                                                      
+                                                        </div>
+                                    
+                                    
+                                                        <div class="px-2 flex flex-1 flex-col">
+                                                            <a href= "">
+
+                                                                @if($orden->smartphone)
+                                                                
+                                                                    <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($orden->producto->name,16)}}</h3>
+                                                          
+                                                                @else
+                                                                     <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($orden->producto->name,16)}}</h3>
+                                                          
+                                                                    
+                                                                @endif
+                                                             </a>
+                                                            
+                                                            {{-- <div class="text-center text-gray-400 text-xs font-semibold ">
+                                                                <p>Socio RidersChilenos</p>
+                                                            </div> --}}
+                                                          
+                                                            
+                                                            <div class="flex justify-center">
+                                                               
+                                                                        <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Ver</span></span>
+                                                                
+                                                            </div>
+                                    
+                                                            <div class="text-center my-3">
+                                                                <a href= "" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Ver Perfil</a>
+                                                            </div>
+                                                
+                                                        </div>
+                                    
+                                                    </div>
+                                                </article>
+                                        
+                                    </div>
+
+                                @endforeach
                             @else
                             {{-- comment
                                 <div class="flex h-screen bg-gray-800 cursor-pointer col-span-3" wire:click="producto({{$product->id}})">

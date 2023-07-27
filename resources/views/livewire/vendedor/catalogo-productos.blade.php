@@ -195,7 +195,7 @@
 
                 @elseif(!is_null($selectedcategory))
                 <h1 class="text-center mb-12"> Seleccione un producto </h1>
-                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-8">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                         @foreach ($products as $product)    
                                 @if ($product->image)
                                     <article class="cursor-pointer" wire:click="producto({{$product->id}})">

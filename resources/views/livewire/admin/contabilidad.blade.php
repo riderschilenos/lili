@@ -1,4 +1,4 @@
-<div>
+<div x-data="setup()">
     @php
     $total=0;
     $total7=0;
@@ -248,20 +248,40 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <ul class="flex justify-center items-center my-4">
+        <template x-for="(tab, index) in tabs" :key="index">
+            <li class="cursor-pointer py-3 px-4 rounded transition"
+                :class="activeTab===index ? 'bg-red-500 text-white' : ' text-gray-500'" @click="activeTab = index"
+                x-text="tab"></li>
+        </template>
+    
+    </ul>
+  
+    <div x-show="activeTab===0">
+                            
+        <figure class="highcharts-figure" class="mt-4 bg-white shadow">
+            <div id="grafico"></div>
+        </figure>
+    
+        <figure class="highcharts-figure" class="mt-4 bg-white shadow">
+            <div id="container" class="mt-4"></div>
+        </figure>
+    
+        <figure class="highcharts-figure" class="mt-4 bg-white shadow">
+            <div id="balance" class="mt-4"></div>
+        </figure>
+
+
+    </div>
+    <div x-show="activeTab===1">
+       Gastos Listado
+    </div>
+ 
     
     
 
-    <figure class="highcharts-figure" class="mt-4 bg-white shadow">
-        <div id="grafico"></div>
-    </figure>
-
-    <figure class="highcharts-figure" class="mt-4 bg-white shadow">
-        <div id="container" class="mt-4"></div>
-    </figure>
-
-    <figure class="highcharts-figure" class="mt-4 bg-white shadow">
-        <div id="balance" class="mt-4"></div>
-    </figure>
+    
 
     @routeIs('admin.home')        
         <div class="container">
@@ -790,7 +810,17 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
         
     @endphp
 
-
+    <script>
+        function setup() {
+        return {
+        activeTab: 0,
+        tabs: [
+            "Venta",
+            "Gastos"
+        ]
+        };
+    };
+    </script>
     <script>
         var ventas = <?php echo json_encode($ventas) ?>;
         var ventas_anual = <?php echo json_encode($ventas_anual) ?>;

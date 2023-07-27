@@ -815,8 +815,8 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
         return {
         activeTab: 0,
         tabs: [
-            "Venta",
-            "Gastos"
+            "Ventas/Gastos",
+            "Porcentaje Gastos"
         ]
         };
     };

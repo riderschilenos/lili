@@ -258,7 +258,7 @@
                                                             </div> --}}
                                                           
                                                             
-                                                            <div class="flex justify-center">
+                                                            <div class="flex justify-center mb-3">
                                                                
                                                                         <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Ver</span></span>
                                                                 

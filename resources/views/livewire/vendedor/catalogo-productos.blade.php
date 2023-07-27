@@ -263,11 +263,11 @@
                                                                         <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Ver</span></span>
                                                                 
                                                             </div>
-                                    
-                                                            <div class="text-center my-3">
-                                                                <a href= "" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Ver Perfil</a>
-                                                            </div>
-                                                
+                                                            @can('Super admin')
+                                                                <div class="text-center my-3">
+                                                                    <a href= "" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Eliminar</a>
+                                                                </div>
+                                                            @endcan
                                                         </div>
                                     
                                                     </div>

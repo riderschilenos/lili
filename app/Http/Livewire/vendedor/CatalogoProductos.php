@@ -9,6 +9,10 @@ use App\Models\Producto;
 use App\Models\Smartphone;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Intervention\Image\Facades\Image;
+use Livewire\WithFileUploads;
+use App\Models\Image as ModelsImage;
+use Illuminate\Support\Facades\Storage;
 
 class CatalogoProductos extends Component
 {   use WithPagination;
@@ -20,6 +24,13 @@ class CatalogoProductos extends Component
     public function render()
     {   $ordens=Orden::where('id','>',0)->where('status','>',2)->orderby('id','DESC')->paginate(6);
         return view('livewire.vendedor.catalogo-productos',compact('ordens'));
+    }
+
+    public function imagedestroy(ModelsImage $image){
+
+        Storage::delete($image->url);
+        $image->delete();
+       
     }
 
     public function limpiar_page(){

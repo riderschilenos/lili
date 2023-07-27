@@ -265,7 +265,7 @@
                                                             </div>
                                                             @can('Super admin')
                                                                 <div class="text-center my-3">
-                                                                    <a href= "" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Eliminar</a>
+                                                                    <a href= "" wire:click="imagedestroy({{$image}})" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Eliminar<br>(id:{{$image->id}})</a>
                                                                 </div>
                                                             @endcan
                                                         </div>

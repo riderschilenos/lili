@@ -22,7 +22,7 @@ class CatalogoProductos extends Component
    
 
     public function render()
-    {   $ordens=Orden::where('id','>',0)->where('status','>',2)->orderby('id','DESC')->paginate(6);
+    {   $ordens=Orden::where('id','>',0)->where('status','>',2)->has('images')->orderby('id','DESC')->paginate(6);
         return view('livewire.vendedor.catalogo-productos',compact('ordens'));
     }
 

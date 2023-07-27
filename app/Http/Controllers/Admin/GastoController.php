@@ -35,7 +35,7 @@ class GastoController extends Controller
      */
     public function create()
     {   $gastos = Gasto::where('estado',1)->paginate(80);
-        $gastosok = Gasto::where('estado',2)->orderby('id','DESC')->paginate(80);
+        $gastosok = Gasto::where('estado',2)->where('gastotype_id','>',3)->orderby('id','DESC')->paginate(80);
         $vendedors= Vendedor::all();
         $gastotypes=Gastotype::pluck('name','id');
 

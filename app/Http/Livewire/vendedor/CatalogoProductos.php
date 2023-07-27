@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Vendedor;
 
 use App\Models\Category_product;
 use App\Models\Marca;
+use App\Models\Orden;
 use App\Models\Producto;
 use App\Models\Smartphone;
 use Livewire\Component;
@@ -13,8 +14,8 @@ class CatalogoProductos extends Component
     public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal;
 
     public function render()
-    {
-        return view('livewire.vendedor.catalogo-productos');
+    {   $ordens=Orden::all();
+        return view('livewire.vendedor.catalogo-productos',compact('ordens'));
     }
 
     public function category($suscripcion){

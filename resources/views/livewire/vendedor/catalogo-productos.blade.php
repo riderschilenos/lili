@@ -215,6 +215,28 @@
                     </div>
                 @endif
 
+        
+                <h1 class="text-center mb-12"> Fotos </h1>
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+                    @foreach ($ordens as $product)    
+                            @if ($product->image)
+                                <article class="cursor-pointer" wire:click="producto({{$product->id}})">
+                                    <figure>
+                                            <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{Storage::url($product->image)}}" alt="">
+                                    </figure>
+                                </article>
+                            @else
+                            {{-- comment
+                                <div class="flex h-screen bg-gray-800 cursor-pointer col-span-3" wire:click="producto({{$product->id}})">
+                                    <div class="m-auto p-1">
+                                        <h3 class="text-center text-white my-4 font-bold">{{$product->name}}</h3>
+                                    </div>
+                                </div> --}}
+                            @endif
+                    @endforeach
+
+                </div>
+
                 
         </div>
 

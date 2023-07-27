@@ -14,7 +14,7 @@ class CatalogoProductos extends Component
     public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal;
 
     public function render()
-    {   $ordens=Orden::all();
+    {   $ordens=Orden::all()->paginate(20);
         return view('livewire.vendedor.catalogo-productos',compact('ordens'));
     }
 

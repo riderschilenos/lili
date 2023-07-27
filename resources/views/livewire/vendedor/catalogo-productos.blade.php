@@ -244,10 +244,10 @@
 
                                                                 @if($orden->smartphone)
                                                                 
-                                                                    <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($orden->producto->name,16)}}</h3>
+                                                                    <h3 class="text-center cursor-pointer text-base font-bold text-gray-900 leading-8">{{Str::limit($orden->producto->name,16)}}</h3>
                                                           
                                                                 @else
-                                                                     <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($orden->producto->name,16)}}</h3>
+                                                                     <h3 class="text-center cursor-pointer text-base font-bold text-gray-900 leading-8">{{Str::limit($orden->producto->name,16)}}</h3>
                                                           
                                                                     
                                                                 @endif

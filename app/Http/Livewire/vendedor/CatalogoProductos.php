@@ -16,7 +16,7 @@ class CatalogoProductos extends Component
     use WithPagination;
 
     public function render()
-    {   $ordens=Orden::where('id','>',0)->paginate(20);
+    {   $ordens=Orden::where('id','>',0)->paginate(18);
         return view('livewire.vendedor.catalogo-productos',compact('ordens'));
     }
 

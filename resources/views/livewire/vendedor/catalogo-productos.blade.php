@@ -215,7 +215,8 @@
                     </div>
                 @endif
 
-        
+                
+            @routeIs('home')
                 <h1 class="text-center my-4">Fotos </h1>
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                     @foreach ($ordens as $orden)    
@@ -289,7 +290,8 @@
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
                     {{ $ordens->links() }}
                 </div>
-                
+            @endif
+
         </div>
 
     </div>

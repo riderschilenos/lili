@@ -756,7 +756,7 @@
                             @livewire('pistas.admin-pista-home')
                         </div>
            
-                    
+                    @livewire('vendedor.catalogo-productos')
                                                   
                     @livewire('pistas-home')
 
@@ -798,6 +798,8 @@
                             </div>
                         </div>
                     </div>
+
+                    @livewire('vendedor.catalogo-productos')
 
                     @livewire('pistas-home')
 

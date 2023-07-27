@@ -8,13 +8,15 @@ use App\Models\Orden;
 use App\Models\Producto;
 use App\Models\Smartphone;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class CatalogoProductos extends Component
 {   public $pedido, $pedido_id, $file, $category_product, $selectedproduct, $selectedcategory, $producto_id, $producto, $products, $marcas, $selectedmarca, $modelos, $modelo_id;
     public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal;
+    use WithPagination;
 
     public function render()
-    {   $ordens=Orden::all()->paginate(20);
+    {   $ordens=Orden::where('id','>',0)->paginate(20);
         return view('livewire.vendedor.catalogo-productos',compact('ordens'));
     }
 

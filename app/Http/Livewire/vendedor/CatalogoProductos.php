@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 
 class CatalogoProductos extends Component
 {   use WithPagination;
-    
+
     public $pedido, $pedido_id, $file, $category_product, $selectedproduct, $selectedcategory, $producto_id, $producto, $products, $marcas, $selectedmarca, $modelos, $modelo_id;
     public $smartphones, $talla, $smartphone_id, $name, $numero, $detalle, $subtotal;
    
@@ -20,6 +20,10 @@ class CatalogoProductos extends Component
     public function render()
     {   $ordens=Orden::where('id','>',0)->paginate(18);
         return view('livewire.vendedor.catalogo-productos',compact('ordens'));
+    }
+
+    public function limpiar_page(){
+        $this->resetPage();
     }
 
     public function category($suscripcion){

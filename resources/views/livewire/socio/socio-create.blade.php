@@ -12,7 +12,7 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Suscripción:';
                 $item->quantity = 1;
-                $item->unit_price = 19990;
+                $item->unit_price = 4990;
 
                 //...
                 if($socio){
@@ -188,17 +188,17 @@
 
                                 <article class="flex items-center grid-cols-6">
 
-
+                                    <img class="h-24 w-24 object-cover mr-2" src="{{asset('img/socio/promo.jpeg')}}" alt="">
 
                                     <div>
-                                        <h1 class="text-center">Recibe POLERA + GORRO + CREDENCIAL FÍSICA</h1>
+                                        <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
                                         <div class="flex">
                                             
                                             <h1 class="text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
                                         </div>
                                        
                                     </div>
-                                <p class="text-xl font-bold ml-auto">$19.990</p>
+                                <p class="text-xl font-bold ml-auto">$4.990</p>
                                 </article>
                                 
                                 <div class="cho-container flex justify-center mt-2 mb-4">

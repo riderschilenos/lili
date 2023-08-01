@@ -45,7 +45,7 @@
         
         
         @endforeach
-        @if ($paginate==100)
+        @if ($paginate==250)
             @foreach ($alllotes as $lote)
             
                 <label class="w-full flex flex-col px-4 pb-6 pt-2 mb-3 bg-white text-blue rounded-lg shadow-lg  uppercase border border-blue hover:bg-blue ">

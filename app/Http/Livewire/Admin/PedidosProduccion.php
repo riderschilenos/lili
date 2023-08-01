@@ -17,6 +17,7 @@ use Intervention\Image\Facades\Image;
 use Livewire\WithFileUploads;
 use PDF;
 use Illuminate\Support\Facades\Http;
+use Livewire\WithPagination;
 
 class PedidosProduccion extends Component
 {   public $selected=[];
@@ -26,6 +27,8 @@ class PedidosProduccion extends Component
     public $paginate=4;
 
     use WithFileUploads;
+
+    use WithPagination;
 
     public $selectedProduccion, $selectedDescartar,$produccion, $descartar, $file, $etiquetas;
 

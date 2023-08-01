@@ -263,7 +263,7 @@
                                           
                                             @if($orden->modelo)
                                                 <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
-                                                    <div class="items-center">
+                                                    <div class="items-center text-center">
                                                         <label class="mx-4">{{$orden->modelo->marca->name}}</label>
                                               <br>
                                                         <label class="mx-4">Mod: {{$orden->modelo->name}}</label>
@@ -271,7 +271,7 @@
                                                 </td>
                                             @else
                                                 <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
-                                                    <div class="items-center">
+                                                    <div class="items-center text-center">
                                                         <label class="mx-4">Sin Marca</label>
                                                         <br>
                                                         <label class="mx-4">Sin Modelo</label>

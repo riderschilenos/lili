@@ -28,7 +28,7 @@
                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Fono
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Fecha
                     </th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider" >
@@ -168,7 +168,7 @@
                              
                                 
                           
-                              <td class="px-6 py-4 whitespace-nowrap">
+                              <td class="px-6 py-4 whitespace-nowrap text-center">
                                   <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
                                   <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
                               </td>

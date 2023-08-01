@@ -50,8 +50,8 @@
                         <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
                             <a href="{{route('vendedor.pedidos.edit',$pedido)}}">Información del pedido</a>
                         </li>
-                        <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedidos.edit',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
-                            <a href="">Diseño</a>
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('vendedor.pedido.diseno',$pedido) border-indigo-400 @else border-transparent @endif pl-2">
+                            <a href="{{route('vendedor.pedido.diseno',$pedido)}}">Diseño</a>
                         </li>
                    
                         <li class="leading-7 mb-1 border-l-4 @routeIs('pedido.seguimiento',$pedido) border-indigo-400 @else border-transparent @endif pl-2">

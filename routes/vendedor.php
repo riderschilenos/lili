@@ -19,6 +19,8 @@ Route::post('{pedido}/close',[PedidoController::class, 'close'])->name('pedido.c
 
 Route::post('{pedido}/editing',[PedidoController::class, 'editing'])->name('pedido.editing');
 
+Route::get('{pedido}/diseno',[PedidoController::class, 'diseno'])->name('pedido.diseno');
+
 Route::post('{vendedor}/view',[Homecontroller::class, 'view_update'])->name('view.update');
 
 Route::get('/prepay',[Homecontroller::class, 'prepay'])->name('pedidos.prepay');

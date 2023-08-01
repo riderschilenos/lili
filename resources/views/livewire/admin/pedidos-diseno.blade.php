@@ -28,6 +28,9 @@
                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Fono
                     </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Fecha
+                    </th>
                     <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider" >
                         Vendedor
                     </th>
@@ -35,21 +38,17 @@
                     
                   
                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Fono
-                        
+                      
                     </th>
                     
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Email
-                        
+                    
                     </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     
                     </th>
                     
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Fecha
-                    </th>
+                   
                     <th scope="col" class="relative px-6 py-3">
                     <span class="sr-only">Edit</span>
                     </th>
@@ -166,60 +165,37 @@
 
                                   </div>
                               </td>
-                              <td class="text-center text-sm">{{$pedido->vendedor->name}}</td>
-                                
-                                <td class="text-center text-sm">+56966996699 <br>Vendedor</td>
-                                
-                            
-                              <td class="text-center">
-                                <div class="text-sm font-medium text-gray-900">
-                                          
-                                    @if($pedido->pedidoable_type=='App\Models\Socio')
-                                        @foreach ($socios as $socio)
-                                                
-                                                @if($socio->id == $pedido->pedidoable_id)
-                                                <a href="mailto:{{$socio->user->email}}" target="_blank">
-                                                    {{$socio->user->email}}
-                                                </a>
-                                                @endif
-                                        @endforeach
-                                    @endif
-                                    @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                        @foreach ($invitados as $invitado)
-                                                
-                                                @if($invitado->id == $pedido->pedidoable_id)
-                                                <a href="mailto:{{$invitado->email}} " target="_blank">
-                                                    {{$invitado->email}} 
-                                                </a> 
-                                                @endif
-                                        @endforeach
-                                    @endif
-
-
-                                  </div>
-
-                              </td>
                              
-
-                              <td class="px-6 py-4 whitespace-nowrap">
-                                  
-                              </td>
-  
                                 
-  
-                                
-  
-                        
-                              
+                          
                               <td class="px-6 py-4 whitespace-nowrap">
                                   <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
                                   <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
                               </td>
+
+                              <td class="text-center text-sm">{{$pedido->vendedor->name}}<br>
+                                +56966996699 <br>Vendedor
+                            
+                            </td>
+                         
   
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="{{route('vendedor.pedidos.edit',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalle</a>
                                   
                                 </td>
+
+                                <td class="text-center text-sm">
+
+
+                                </td>
+                                
+                   
+                             
+  
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                  
+                              </td>
+  
                             </tr>
                             
                                 @php

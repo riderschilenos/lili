@@ -81,7 +81,7 @@ class PedidosProduccion extends Component
     public function updatepaginate(){
 
         if ($this->paginate==4){
-            $this->paginate=200;
+            $this->paginate=250;
         }else{
             $this->paginate=4;
      }

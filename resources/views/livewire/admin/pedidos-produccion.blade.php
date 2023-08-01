@@ -371,7 +371,18 @@
                                                         @endif
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">
-                                                        <label class="mx-4">{{$orden->id}}</label>
+                                                        <label class="mx-4">
+                                                            @if ($orden->lotes)
+                                                                @foreach ($orden->lotes as $lote)
+
+                                                                     <img wire:click="download({{$lote}})" class="h-8 object-contain mx-2 cursor-pointer" src="{{asset('img/pdf_icon2.png')}}" title="Descargar" alt="">
+                                            
+                                                                @endforeach
+                                                            @else
+                                                                {{$orden->id}}
+                                                            @endif
+                                                            
+                                                        </label>
                                                     </td>
                                                 
                                                     @if($orden->smartphone)

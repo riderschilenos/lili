@@ -363,7 +363,9 @@ class PedidosProduccion extends Component
     }
 
     public function download(Lote $lote){
-        return response()->download(storage_path('app/public/'.$lote->resource->url));
+
+        return response()->download(storage_path('app/public/'.$lote->resource->url,'Diseño'));
+
     }
 
     public function close(Lote $lote){

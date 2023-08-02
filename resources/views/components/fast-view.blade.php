@@ -211,7 +211,7 @@
                                                           
                                                             @livewire('socio.socio-auspiciadores',['socio' => $socio2], key('socio-auspiciadores.'.$socio2->slug))
                                                             <ul
-                                                                class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                                                class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm hidden">
                                                                 <li class="flex items-center py-3">
                                                                     <span>Suscripción</span>
                                                                         @switch($socio2->status)

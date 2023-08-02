@@ -40,7 +40,7 @@
                             </a>
                         </div>
                         @endif
-                        <a href="{{route('socio.show', $socio)}}">
+                        <a href="{{route('socio.show', $socio)}}" class="flex justify-center">
                             <table class="text-xs mt-auto">
                                 <tbody>
 

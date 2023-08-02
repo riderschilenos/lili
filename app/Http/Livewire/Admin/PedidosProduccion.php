@@ -363,8 +363,13 @@ class PedidosProduccion extends Component
     }
 
     public function download(Lote $lote){
-
-        return response()->download(storage_path('app/public/'.$lote->resource->url,'Diseño'));
+        $pedido=$lote->ordens->first()->pedido;
+        if($pedido->pedidoable_type == 'App\Models\Invitado'){
+            $cliente=Invitado::find($pedido->pedidoable_id);
+        }else{
+            $cliente=Socio::find($pedido->pedidoable_id);
+        }
+        return response()->download(storage_path('app/public/'.$lote->resource->url),'Diseño '.$cliente->name);
 
     }
 

@@ -254,7 +254,7 @@
                                                     @if($vehiculo->status==5 || $vehiculo->status==6)
                                                     <div class="text-center my-2">
                                                         <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
-                                                            <img class="h-28 mx-auto " src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                                            <img class="h-24 mx-auto " src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                                             <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                                                 <h1 class="text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                                                             </a>

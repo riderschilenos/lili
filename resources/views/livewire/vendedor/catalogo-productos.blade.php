@@ -108,29 +108,30 @@
 
                 @if(is_null($selectedcategory))
                     <h1 class="text-center mb-4"> ¿Qué Tipo de producto buscas?</h1>
-                    <div class="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-2 gap-y-2">
-                      
-                        <article class="cursor-pointer" wire:click="category(1)">
-                            <figure>
-                                    <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{asset('img/home/carcasas.jpg')}}" alt="">
-                            </figure>
-                        </article>
+                    <div class="flex justify-center mx-4">
+                        <div class="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-4 gap-y-2">
+                        
+                            <article class="cursor-pointer" wire:click="category(1)">
+                                <figure>
+                                        <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{asset('img/home/carcasas.jpg')}}" alt="">
+                                </figure>
+                            </article>
 
-                        <article class="cursor-pointer" wire:click="category(2)">
-                            <figure>
-                                    <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{asset('img/home/accesorios.jpg')}}" alt="">
-                            </figure>
-                        </article>
+                            <article class="cursor-pointer" wire:click="category(2)">
+                                <figure>
+                                        <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{asset('img/home/accesorios.jpg')}}" alt="">
+                                </figure>
+                            </article>
 
-                        <article class="cursor-pointer" wire:click="category(3)">
-                            <figure>
-                                    <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{asset('img/home/poleras.jpeg')}}" alt="">
-                            </figure>               
-                        </article>
+                            <article class="cursor-pointer" wire:click="category(3)">
+                                <figure>
+                                        <img class="rounded-xl h-38 mx-auto w-44 object-contain" src="{{asset('img/home/poleras.jpeg')}}" alt="">
+                                </figure>               
+                            </article>
 
 
+                        </div>
                     </div>
-                
 
                 @endif
                 
@@ -218,7 +219,7 @@
                 
        
                 <h1 class="text-center my-4 font-bold">Nuestros Trabajos Anteriores </h1>
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-2">
+                <div class="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-2">
                     @foreach ($ordens->reverse() as $orden)    
                             @if ($orden->images)
                                 @foreach ($orden->images as $image)

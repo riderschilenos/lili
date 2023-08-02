@@ -29,10 +29,13 @@
                         </div> --}}
                         @if(!is_null($socio->direccion))
                         <div class="flex  text-sm justify-between px-2">
-                            <a href="{{route('socio.show', $socio)}}">
+                            
                                 <div class="px-2 py-2 text-red-500 font-semibold">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <a href="{{route('socio.show', $socio)}}">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </a>
                                 </div>
+                            <a href="{{route('socio.show', $socio)}}">
                                 <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
                             </a>
                         </div>
@@ -49,7 +52,7 @@
                             </tbody></table>
                         </a>
                         <a href="{{route('socio.show', $socio)}}">
-                            <div class="flex justify-center mb-2">
+                            <div class="flex justify-center mb-3">
                                 @switch($socio->status)
                                     @case(1)
                                         <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span></span>

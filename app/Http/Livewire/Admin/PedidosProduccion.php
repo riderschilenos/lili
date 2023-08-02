@@ -369,7 +369,7 @@ class PedidosProduccion extends Component
         }else{
             $cliente=Socio::find($pedido->pedidoable_id);
         }
-        return response()->download(storage_path('app/public/'.$lote->resource->url),'Diseño '.$cliente->name);
+        return response()->download(storage_path('app/public/'.$lote->resource->url),'Diseño '.$cliente->name.'.pdf');
 
     }
 

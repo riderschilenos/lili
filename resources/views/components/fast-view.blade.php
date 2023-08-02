@@ -812,7 +812,7 @@
 
            
 
-            <div class="bg-main-color flex justify-center py-4 z-10"> 
+            <div class="bg-main-color flex justify-center pb-4 pt-6 z-10"> 
                 <div>
                     @livewire('search')
                 </div>
@@ -821,37 +821,37 @@
             <div class="bg-main-color flex justify-center py-4 z-10"> 
            
               
-            
-            <div class="pb-4 bg-main-color max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
-                <article>
-                    <figure>
-                        <a href="{{route('socio.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/RIDERS-min.png')}}" alt=""></a>
-                    </figure>
+                
+                <div class="pb-4 bg-main-color max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+                    <article>
+                        <figure>
+                            <a href="{{route('socio.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/RIDERS-min.png')}}" alt=""></a>
+                        </figure>
 
-                
-                </article>
-                <article>
-                    <figure>
-                        <a href="{{route('garage.vehiculos.registerindex')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/REGISTRO2-min.png')}}" alt=""></a>
-                    </figure>
-                
-                </article>
-                <article>
-                    <figure>
-                        <a href="{{route('garage.usados')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/USADOS2-min.png')}}" alt=""></a>
-                    </figure>
-                
-                </article>
-                <article>
-                    <figure>
-                        <a href="{{route('series.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/VIDEO-min.png')}}" alt=""></a>
-                    </figure>
                     
-                </article>
-            
-            </div>
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="{{route('garage.vehiculos.registerindex')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/REGISTRO2-min.png')}}" alt=""></a>
+                        </figure>
+                    
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="{{route('garage.usados')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/USADOS2-min.png')}}" alt=""></a>
+                        </figure>
+                    
+                    </article>
+                    <article>
+                        <figure>
+                            <a href="{{route('series.index')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/VIDEO-min.png')}}" alt=""></a>
+                        </figure>
+                        
+                    </article>
+                
+                </div>
 
-        </div>
+            </div>
         </section>
         
         <section class="bg-rider-color pb-12 pt-2">

@@ -1,6 +1,6 @@
-<div class="mb-12">
+<div class="mt-12">
     <div class="bg-white">
-        <div class="pt-4 pb-6 sm:py-4 lg:max-w-7xl lg:mx-auto lg:px-8">
+        <div class="pt-4 pb-2 sm:py-4 lg:max-w-7xl lg:mx-auto lg:px-8">
 
            
 

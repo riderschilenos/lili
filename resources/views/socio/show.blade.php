@@ -252,11 +252,11 @@
                                             
                                                 @foreach ($socio->user->vehiculos as $vehiculo)
                                                     @if($vehiculo->status==5 || $vehiculo->status==6)
-                                                    <div class="text-center my-2">
+                                                    <div class="text-center p-2 my-2 bg-red-700 rounded-xl">
                                                         <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
                                                             <img class="h-24 mx-auto " src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                                             <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                                                                <h1 class="text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                                                                <h1 class="text-white mt-2 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                                                             </a>
                                                         </a>
                                                     </div>

@@ -279,16 +279,15 @@
                                                 
                                                     @foreach ($socio2->user->vehiculos as $car)
                                                         @if($car->status==5 || $car->status==6)
-                                                        <div class="text-center my-2">
-                                                            <a href="{{route('garage.vehiculo.show', $car)}}" class="text-main-color">
-                                                                <img class="h-28 w-40 mx-auto"
-                                                                src="{{Storage::url($car->image->first()->url)}}"
-                                                                alt="">
-                                                                <a href="{{route('garage.vehiculo.show', $car)}}">
-                                                                    <h1 class="text-md">{{$car->marca->name.' '.strtoupper($car->modelo).$car->cilindrada.' '.$car->año}}</h1>
+                                                        
+                                                            <div class="text-center p-2 m-2 bg-main-color rounded-xl">
+                                                                <a href="{{route('garage.vehiculo.show', $car)}}" class="text-main-color">
+                                                                    <img class="h-24 mx-auto" src="{{Storage::url($car->image->first()->url)}}" alt="">
+                                                                    <a href="{{route('garage.vehiculo.show', $car)}}">
+                                                                        <h1 class="text-white mt-1 font-bold text-md">{{$car->marca->name}}<br>{{strtoupper($car->modelo).$car->cilindrada.' '.$car->año}}</h1>
+                                                                    </a>
                                                                 </a>
-                                                            </a>
-                                                        </div>
+                                                            </div>
                                                         @endif
                                                     @endforeach
             

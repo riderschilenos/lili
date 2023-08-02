@@ -226,22 +226,26 @@
                             <!-- garage and movie -->
                             <div class="bg-white shadow-sm rounded-sm">
 
-                                <div class="grid grid-cols-1 sm:grid-cols-2">
+                                <div class="grid grid-cols-1 sm:grid-cols-1">
                                     <div class="bg-white p-3 hover:shadow">
-                                        <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                            <span class="text-red-500">
-                                                <i class="fas fa-car text-white-800"></i>
-                                            </span>
-                                            <span>Garage</span>
+                                        <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8">
                                             
+                                            <div>
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-car text-white-800"></i>
+                                                </span>
+                                                <span>Garage</span>
+                                            </div>
+
+                                            <div>
                                                             @can('perfil_propio', $socio)
-                                                            <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Inscribir Vehiculo)</span></a>
+                                                            <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Inscribir Vehiculo)</span></a>
                                                             @endcan
-                                                        
+                                            </div>
                                             
                                         </div>
                                         
-                                        <div class="grid grid-cols-2">
+                                        <div class="grid grid-cols-2  md:grid-cols-4"> 
 
                                             @if ($socio->user->vehiculos)
                                                 
@@ -285,16 +289,71 @@
                                             --}}
                                         </div>
                                     </div>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2">
                                     <div class="bg-white p-3 hover:shadow">
-                                        <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                            <span class="text-red-500">
-                                                <i class="fas fa-film text-white-800"></i>
-                                            </span>
-                                            <span>Mis Cursos</span>
-                                            
-                                           <span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Pronto)</span>
-                                                        
+                                        <div class="flex justify-between mb-2 items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                            <div>
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-film text-white-800"></i>
+                                                </span>
+                                                <span>Curriculum Deportivo</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-blue-600 font-bold text-sm align-middle"> (Pronto)</span>
+                                            </div>   
                                         </div>
+
+                                        <!-- This is an example component -->
+                                        <div class="max-w-5xl mx-auto">
+
+
+                                            <ol class="relative border-l border-gray-200 dark:border-gray-700">
+                                                <li class="mb-10 ml-4">
+                                                    <div
+                                                        class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                    </div>
+                                                    <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</time>
+                                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Application UI code in Tailwind CSS</h3>
+                                                    <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Get access to over 20+ pages
+                                                        including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce &amp; Marketing
+                                                        pages.</p>
+                                                  
+                                                </li>
+                                                <li class="mb-10 ml-4">
+                                                    <div
+                                                        class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                    </div>
+                                                    <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">March 2022</time>
+                                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Marketing UI design in Figma</h3>
+                                                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">All of the pages and components are first
+                                                        designed in Figma and we keep a parity between the two versions even as we update the project.</p>
+                                                </li>
+                                                <li class="ml-4">
+                                                    <div
+                                                        class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                                                    </div>
+                                                    <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">April 2022</time>
+                                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">E-Commerce UI code in Tailwind CSS</h3>
+                                                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">Get started with dozens of web components
+                                                        and interactive elements built on top of Tailwind CSS.</p>
+                                                    
+                                                </li>
+                                               
+                                            </ol>
+                                            <div class="flex justify-end"> 
+                                                <a href="#"
+                                                class="inline-flex justify-end ml-auto items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Learn
+                                                more <svg class="w-3 h-3 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></a>
+                                            </div>
+                                        
+                                        </div>
+                                        
                                         <div class="grid grid-cols-4 gap-4 hidden">
                                         
                                             @if ($socio->user->serie_enrolled)
@@ -314,7 +373,68 @@
                                                                    
                                         </div>
                                     </div>
-                                    <div class="bg-white p-3 hover:shadow hidden">
+                                    <div class="bg-white p-3 hover:shadow">
+                                        <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                            <span class="text-red-500">
+                                                <i class="fas fa-film text-white-800"></i>
+                                            </span>
+                                            <span>MovieCollection</span>
+                                            
+                                            <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
+                                                        
+                                        </div>
+                                        <div class="grid grid-cols-4 gap-4">
+                                        
+                                            @if ($socio->user->serie_enrolled)
+                                                
+                                            
+                                                @foreach ($socio->user->serie_enrolled as $serie)
+                                                    <div class="text-center my-2">
+                                                        <a href="{{route('series.show', $serie)}}" class="text-main-color">
+                                                            <img class="h-16 w-20 mx-auto"
+                                                            src="{{Storage::url($serie->image->url)}}"
+                                                            alt="">
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+
+                                            @endif
+                                                {{-- 
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">James</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Natie</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Casey</a>
+                                                    </div>
+                                                --}}
+                                                
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>
+                                <!-- End of Experience and education grid -->
+                            </div>
+
+                            <div class="my-4">
+                            
+                            <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
+
+                                <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
+                                
+                                    <div class="bg-white p-3 hover:shadow">
                                         <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
                                             <span class="text-red-500">
                                                 <i class="fas fa-dumbbell text-white-800"></i>
@@ -374,66 +494,6 @@
                                             </li>
                                         </ul>
                                     
-                                    </div>
-
-                                </div>
-                                <!-- End of Experience and education grid -->
-                            </div>
-
-                            <div class="my-4">
-                            
-                            <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
-
-                                <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
-                                
-                                    <div class="bg-white p-3 hover:shadow">
-                                        <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                            <span class="text-red-500">
-                                                <i class="fas fa-film text-white-800"></i>
-                                            </span>
-                                            <span>MovieCollection</span>
-                                            
-                                            <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
-                                                        
-                                        </div>
-                                        <div class="grid grid-cols-4 gap-4">
-                                        
-                                            @if ($socio->user->serie_enrolled)
-                                                
-                                            
-                                                @foreach ($socio->user->serie_enrolled as $serie)
-                                                    <div class="text-center my-2">
-                                                        <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                            <img class="h-16 w-20 mx-auto"
-                                                            src="{{Storage::url($serie->image->url)}}"
-                                                            alt="">
-                                                        </a>
-                                                    </div>
-                                                @endforeach
-
-                                            @endif
-                                                {{-- 
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">James</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Natie</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Casey</a>
-                                                    </div>
-                                                --}}
-                                                
-                                        </div>
                                     </div>
 
 

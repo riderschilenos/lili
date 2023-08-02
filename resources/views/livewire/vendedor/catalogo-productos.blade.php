@@ -239,7 +239,7 @@
                                                         </div>
                                     
                                     
-                                                        <div class="px-2 flex flex-1 flex-col">
+                                                        <div class="px-2 flex flex-1 flex-col mb-3">
                                                             <a href= "">
 
                                                                 @if($orden->smartphone)
@@ -258,7 +258,7 @@
                                                             </div> --}}
                                                           
                                                             
-                                                            <div class="flex justify-center mb-3">
+                                                            <div class="flex justify-center mb-3 hidden">
                                                                
                                                                         <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Ver</span></span>
                                                                 

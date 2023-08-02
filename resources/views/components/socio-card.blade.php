@@ -49,7 +49,7 @@
                             </tbody></table>
                         </a>
                         <a href="{{route('socio.show', $socio)}}">
-                            <div class="flex justify-center">
+                            <div class="flex justify-center mb-2">
                                 @switch($socio->status)
                                     @case(1)
                                         <span class="mx-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span></span>

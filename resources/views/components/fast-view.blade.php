@@ -760,7 +760,7 @@
            
                    
                                                   
-                    @livewire('pistas-home')
+                  
 
                     <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
                         <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
@@ -803,7 +803,7 @@
 
                     @livewire('vendedor.catalogo-productos')
 
-                    @livewire('pistas-home')
+                  
 
                 @endif
             </div>
@@ -883,6 +883,11 @@
             </div>
         
         </section>
+
+        <h1 class="text-center text-3xl  pt-8">¿Buscas Panoramas?</h1>
+        <p class="text-center  text-sm pb-4">Lo tenemos para ti</p>
+
+        @livewire('pistas-home')
 
         <section class="mt-4 bg-rider-color pt-12 pb-50">
             <h1 class="text-center text-3xl text-white pt-16">Ultimos Videos y Carreras</h1>

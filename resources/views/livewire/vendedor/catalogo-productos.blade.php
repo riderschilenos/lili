@@ -218,7 +218,7 @@
                 
        
                 <h1 class="text-center my-4 font-bold">Nuestros Trabajos Anteriores </h1>
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-2">
                     @foreach ($ordens->reverse() as $orden)    
                             @if ($orden->images)
                                 @foreach ($orden->images as $image)

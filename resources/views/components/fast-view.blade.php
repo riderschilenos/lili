@@ -709,9 +709,18 @@
                                 @endif
                                 
                             </div>
-                            <a href="{{route('ticket.historial.view',auth()->user())}}">
-                                <button class=" btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-8 py-1"> Tickets</button>
-                            </a>
+                            <div>
+                                <a href="{{route('ticket.historial.view',auth()->user())}}">
+                                    <button class=" btn bg-white flex items-center">  <img src="{{asset('img/ticket.png')}}" class="w-8 py-1"> Tickets</button>
+                                </a>
+                                @if(auth()->user()->vendedor) 
+                                    @if(auth()->user()->vendedor->estado==2)
+                                        <a href="{{route('vendedor.pedidos.create')}}">
+                                            <button class="btn btn-success mt-2 text-center text-xl">Nuevo Pedido</button>
+                                        </a>
+                                    @endif
+                                @endif
+                            </div>
                         </div>
                     </div>
                     @can('Super admin')
@@ -732,9 +741,7 @@
                                             <button class="btn btn-danger ml-2 text-center text-xl">Gráficos y Estadisticas</button>
                                         </a>
 
-                                        <a href="{{route('vendedor.pedidos.create')}}">
-                                            <button class="btn btn-success ml-2 text-center text-xl">Nuevo Pedido</button>
-                                        </a>
+                                        
 
                                     </div>
 

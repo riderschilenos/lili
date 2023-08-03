@@ -1,6 +1,31 @@
-<div class="mt-12">
-    <div class="bg-white">
-        <div class="pt-4 pb-2 sm:py-4 lg:max-w-7xl lg:mx-auto lg:px-8">
+<div class="">
+    <div class="bg-white" x-data="{ catalogo: false }">
+
+        <div class="w-full relative pt-4" x-on:click="catalogo=!catalogo" x-show="!catalogo">
+            <div class="bg-white  px-5 py-3.5 rounded-lg shadow hover:shadow-xl max-w-sm mx-auto transform hover:-translate-y-[0.125rem] transition duration-100 ease-linear">
+                <div class="w-full flex items-center justify-center">
+                    <span class="font-medium text-sm text-slate-400 text-center" >Catálogos de Productos</span>
+                    <button class="-mr-1 bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-600 h-5 w-5 rounded-full flex justify-center items-center hidden">
+                        <svg class="h-2 w-2 fill-current items-center" viewBox="0 0 20 20"><path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/></svg>
+                    </button>
+                </div>
+                <div class="flex items-center mt-2 rounded-lg px-1 py-1 cursor-pointer">
+                    <div class="relative flex flex-shrink-0 items-end">
+                        <img class="h-16 w-16 rounded-full" src="{{asset('img/mobileslider/carcasas-min.png')}}">    
+                        <span class="absolute h-4 w-4 bg-green-400 rounded-full bottom-0 right-0 border-2 border-white"></span>
+                    </div>
+                    <div class="ml-3">
+                        <span class="font-semibold tracking-tight text-xs">Haz Click</span>
+                        <span class="text-xs leading-none opacity-50">para ver más.</span>
+                        <p class="text-xs leading-4 pt-2 italic opacity-70">"Carcasas, Polerones, Llaveros y mucho más"</p>
+                        <span class="text-[10px] text-blue-500 font-medium leading-4 opacity-75">Solo Pedidos Por Whatsapp e Instagram</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: Social Network notification:light -->
+
+        <div class="pt-4 pb-2 sm:py-4 lg:max-w-7xl lg:mx-auto lg:px-8"  x-show="catalogo">
 
            
 
@@ -291,8 +316,9 @@
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
                     {{ $ordens->links() }}
                 </div>
-           
-
+                <div class="flex justify-center">
+                    <button class="btn btn-danger" x-on:click="catalogo=!catalogo">Cerrar Catalogo</button>
+                </div>
         </div>
 
     </div>

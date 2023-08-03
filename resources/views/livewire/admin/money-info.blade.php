@@ -237,6 +237,14 @@
                         
                     
                 }
+                foreach ($suscripcions_anual as $suscripcion) {
+                    
+                    if($pago->created_at->format('n')==$mes){
+                        $totalmespago+=$suscripcion->precio;
+                    }
+                        
+                    
+                }
             $ventas_anual[]=$totalmespago;
             }
 
@@ -273,21 +281,18 @@
         $ventas=[];
         $ventas22=0;
                     foreach ($pagos_22anual as $pago) {
-                        
-                        
                             $ventas22+=$pago->cantidad;
-                     
-                            
-                        
                     }
+                    foreach ($suscripcions_22anual as $suscripcion) {
+                            $ventas22+=$suscripcion->precio;
+                    }
+                    
         $ventas23=0;
                     foreach ($pagos_23anual as $pago) {
-                        
-                        
-                            $ventas23+=$pago->cantidad;
-                     
-                            
-                        
+                        $ventas23+=$pago->cantidad;
+                    }
+                    foreach ($suscripcions_23anual as $suscripcion) {
+                            $ventas23+=$suscripcion->precio;
                     }
 
         foreach ($dias as $day) {
@@ -297,7 +302,7 @@
                     $totaldiapago+=$pago->cantidad;
                 }
             }
-            foreach ($suscripcion28 as $suscripcion){
+            foreach ($suscripcions30 as $suscripcion){
                 if (intval($suscripcion->created_at->format('d')) == $day) {
                     $totaldiapago+=$suscripcion->precio;
                 }

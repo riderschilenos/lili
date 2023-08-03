@@ -43,7 +43,7 @@
             @php
 
 
-if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7  || $orden->producto->id==21 || $orden->producto->id==35 || $orden->producto->id==36 || $orden->producto->id==38 || $orden->producto->id==39 || $orden->producto->id==40 || $orden->producto->id==41 || $orden->producto->id==42){
+        if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3|| $orden->producto->id==7  || $orden->producto->id==21 || $orden->producto->id==35 || $orden->producto->id==36 || $orden->producto->id==38 || $orden->producto->id==39 || $orden->producto->id==40 || $orden->producto->id==41 || $orden->producto->id==42){
                 if($orden->producto->id==35 ||$orden->producto->id==39){
                     $carcasas+=2;   
                 }else{
@@ -178,8 +178,6 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
         @php
             $totalsuscrip+=$suscripcion->precio;
         @endphp
-       
-        
     @endforeach
 
     @foreach ($pagos as $pago)
@@ -653,11 +651,7 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
     </div>
     @endif
 
-    @foreach ($suscripcion28 as $suscripcion)
 
-        {{$suscripcion->precio."el dia ".$suscripcion->created_at->format('d-m-Y')}} <br>
-        
-    @endforeach
  
 
 
@@ -708,9 +702,14 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                     if($pago->created_at->format('n')==$mes){
                         $totalmes+=$pago->cantidad;
                     }
-                        
-                    
                 }
+                foreach ($suscripcions_anteanual as $suscripcion) {
+                    
+                    if($suscripcion->created_at->format('n')==$mes){
+                        $totalmes+=$suscripcion->precio;
+                    }
+                }
+
             $ventas_anteanual[]=$totalmes;
             }
             foreach ($meses as $mes) {
@@ -720,6 +719,14 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                     
                     if($pago->created_at->format('n')==$mes){
                         $totalmes+=$pago->cantidad;
+                    }
+                        
+                    
+                }
+                foreach ($suscripcions_anual as $suscripcion) {
+                    
+                    if($suscripcion->created_at->format('n')==$mes){
+                        $totalmes+=$suscripcion->precio;
                     }
                         
                     
@@ -781,12 +788,10 @@ if($orden->producto->id==1 || $orden->producto->id==2 || $orden->producto->id==3
                     $totaldia+=$pago->cantidad;
                 }
             }
-            foreach ($suscripcion28 as $suscripcion){
+            foreach ($suscripcions30 as $suscripcion){
                 if (intval($suscripcion->created_at->format('d')) == $day) {
                     $totaldia+=$suscripcion->precio;
                 }
-                
-
             }
        
             $ventas[]=$totaldia;

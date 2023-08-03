@@ -24,7 +24,7 @@ class Contabilidad extends Component
         ->get();
 
 
-        $suscripcions=Suscripcion::all();
+        
         $suscripcion28=Suscripcion::all()->where('created_at', '>=', now()->subDays(28));
 
 
@@ -32,14 +32,20 @@ class Contabilidad extends Component
         $gastos7=Gasto::all()->where('created_at', '>=', now()->subDays(7));
         $gastos30=Gasto::all()->where('created_at', '>=', now()->subDays(29));
         $gastos_anual=Gasto::all()->where('created_at', '>=', now()->subDays(330));
-        $gastos_anteanual=Gasto::all()->where('created_at', '>=', now()->subDays(730))->where('created_at', '<=', now()->subDays(330));
+        $gastos_anteanual=Gasto::all()->where('created_at', '>=', now()->subDays(730))->where('created_at', '<', now()->subDays(330));
 
         
         $pagos=Pago::all();
         $pagos7=Pago::all()->where('created_at', '>=', now()->subDays(7));
         $pagos30=Pago::all()->where('created_at', '>=', now()->subDays(29));
         $pagos_anual=Pago::all()->where('created_at', '>=', now()->subDays(330));
-        $pagos_anteanual=Pago::all()->where('created_at', '>=', now()->subDays(730))->where('created_at', '<=', now()->subDays(330));
+        $pagos_anteanual=Pago::all()->where('created_at', '>=', now()->subDays(730))->where('created_at', '<', now()->subDays(330));
+
+        $suscripcions=Suscripcion::all();
+        $suscripcions7=Suscripcion::all()->where('created_at', '>=', now()->subDays(7));
+        $suscripcions30=Suscripcion::all()->where('created_at', '>=', now()->subDays(29));
+        $suscripcions_anual=Suscripcion::all()->where('created_at', '>=', now()->subDays(330));
+        $suscripcions_anteanual=Suscripcion::all()->where('created_at', '>=', now()->subDays(730))->where('created_at', '<', now()->subDays(330));
 
 
         $vendedors=Vendedor::all();
@@ -48,6 +54,6 @@ class Contabilidad extends Component
 
         
 
-        return view('livewire.admin.contabilidad',compact('pagos_anual','pagos_anteanual','gastos_anual','gastos_anteanual','suscripcion28','now','pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
+        return view('livewire.admin.contabilidad',compact('suscripcions_anteanual','suscripcions_anual','suscripcions30','suscripcions7','pagos_anual','pagos_anteanual','gastos_anual','gastos_anteanual','suscripcion28','now','pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
     }
 }

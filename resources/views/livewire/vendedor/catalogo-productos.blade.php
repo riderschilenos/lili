@@ -1,7 +1,7 @@
 <div class="">
     <div class="" x-data="{ catalogo: false }">
 
-        <div class="w-full relative pt-4" x-on:click="catalogo=!catalogo" x-show="!catalogo">
+        <div class="w-full relative pt-4 mb-4" x-on:click="catalogo=!catalogo" x-show="!catalogo">
             <div class="bg-white  px-5 py-3.5 rounded-lg shadow hover:shadow-xl max-w-sm mx-auto transform hover:-translate-y-[0.125rem] transition duration-100 ease-linear">
                 <div class="w-full flex items-center justify-center">
                     <span class="font-medium text-sm text-slate-400 text-center" >Catálogos de Productos</span>

@@ -97,7 +97,7 @@
 
     @livewire('vendedor.catalogo-productos')
 
-
+        <div x-data="{whatsap: true}">
 
             <div class="justify-center mt-4 grid grid-cols-2 lg:grid-cols-3 gap-4">
 
@@ -123,12 +123,21 @@
                         <a class="btn btn-primary ml-2 text-center text-xl" href="{{ route('ticket.pistas.create') }}">Nueva Pista</a>
                         <a class="btn btn-primary ml-2 text-center text-xl" href="{{ route('organizador.eventos.index') }}">Nuevo Evento</a>
                     @endcan 
+                    <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">Whatsapp RCH</button>
                     <a class="btn btn-success ml-2 text-center text-xl" href="{{route('vendedor.pedidos.create')}}">Nuevo Pedido</a>
+                  
                 </div>
                 
                 
                 
             </div>
+
+            <div x-show="!whatsap">
+            
+                @livewire('admin.whatsapp-sender-cliente')
+
+            </div>
+        </div>
         <div class="max-w-5xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">     
             <div class="justify-between mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 

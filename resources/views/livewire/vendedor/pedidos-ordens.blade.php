@@ -76,8 +76,8 @@
                 </div>
                 @if(!is_null($products))
 
-                    <div class="flex items-center mt-4">
-                        <Label class="w-32">PRODUCTO:</Label>
+                    <div class="items-center mt-4">
+                        <Label class="flex justify-center">PRODUCTO:</Label>
                         <select wire:model="selectedproduct" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                             <option value="">--PRODUCTOS--</option>
                                     
@@ -112,8 +112,8 @@
                     @if(!is_null($marcas))
 
                         @if ($marcas->count())
-                            <div class="flex items-center mt-4">
-                                <Label class="w-32">MARCA de Diseño:</Label>
+                            <div class="items-center mt-4">
+                                <Label class="flex justify-center">MARCA de Diseño:</Label>
                                 <select wire:model="selectedmarca" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option value="">--MARCA--</option>
                                     @foreach ($marcas as $marca)
@@ -127,8 +127,8 @@
 
                         @if(!is_null($modelos))
 
-                            <div class="flex items-center mt-4">
-                                <Label class="w-32">MODELO:</Label>
+                            <div class="items-center mt-4">
+                                <Label class="flex justify-center">MODELO:</Label>
                                 <select wire:model="modelo_id" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option value="">--MODELO--</option>
                                     @foreach ($modelos as $modelo)
@@ -149,8 +149,8 @@
 
                         @if(!is_null($smartphones))
 
-                            <div class="flex items-center mt-4">
-                                <Label class="w-32">SMARTPHONE:</Label>
+                            <div class="items-center mt-4">
+                                <Label class="flex justify-center">SMARTPHONE:</Label>
                                 <select wire:model="smartphone_id" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option value="">-smartphone-</option>
                                     @foreach ($smartphones as $smartphone)
@@ -165,19 +165,19 @@
                             </div>
                         @endif
                          
-                        <div class="flex items-center mt-4">
-                            <label class="w-32">Nombre:</label>
+                        <div class="items-center mt-4">
+                            <label class="flex justify-center">Nombre:</label>
                             <input wire:model="name" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
                         </div>
 
-                        <div class="flex items-center mt-4">
-                            <label class="w-32">Nro:</label>
+                        <div class="items-center mt-4">
+                            <label class="flex justify-center">Nro:</label>
                             <input wire:model="numero" type="number" id="numero" name="numero" class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm">
                             
                         </div>
 
-                        <div class="flex items-center mt-4">
-                            <label class="w-32">Detalles:</label>
+                        <div class="items-center mt-4">
+                            <label class="flex justify-center">Detalles:</label>
                             <input wire:model="detalle" class="form-input w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none">
                         </div>
                         <div class="flex items-center mt-4">

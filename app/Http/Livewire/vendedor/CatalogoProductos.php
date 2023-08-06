@@ -40,7 +40,7 @@ class CatalogoProductos extends Component
                         }
             }
                 else{
-                    $ordens=Orden::where('ordens.status','>',2)
+                    $ordens=Orden::where('ordens.status','>',3)
                     ->has('images')->orderby('ordens.id','DESC')->paginate(6);
                 }
 

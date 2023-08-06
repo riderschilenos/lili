@@ -16,7 +16,7 @@
                     </div>
                     <div class="ml-3">
                         <span class="font-semibold tracking-tight text-xs">Catalogo de Productos</span>
-                        <span class="text-xs leading-none opacity-50">al hacer Click.</span>
+                        <span class="text-xs leading-none opacity-50">a un Click.</span>
                         <p class="text-xs leading-4 pt-2 italic opacity-70">"Carcasas, Polerones, Llaveros y mucho más"</p>
                         <span class="text-[10px] text-blue-500 font-medium leading-4 opacity-75">Solo Pedidos Por Whatsapp e Instagram</span>
                     </div>

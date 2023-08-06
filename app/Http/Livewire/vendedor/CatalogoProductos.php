@@ -25,7 +25,7 @@ class CatalogoProductos extends Component
     {   if($this->selectedcategory){
         $ordens=Orden::join('productos','ordens.producto_id','=','productos.id')
                             ->select('ordens.*','productos.name','productos.category_product_id')
-                            ->orwhere('status','>',2)
+                            ->orwhere('ordens.status','>',2)
                             ->orwhere('category_product_id',$this->selectedcategory->id)
                             ->has('images')->orderby('ordens.id','DESC')->paginate(6);
                             
@@ -33,7 +33,7 @@ class CatalogoProductos extends Component
             if($this->producto_id){
                     $ordens=Orden::join('productos','ordens.producto_id','=','productos.id')
                             ->select('ordens.*','productos.name','productos.category_product_id')
-                            ->orwhere('status','>',2)
+                            ->orwhere('ordens.status','>',2)
                             ->orwhere('productos.id',$this->producto_id)
                             ->has('images')->orderby('ordens.id','DESC')->paginate(6);
                             

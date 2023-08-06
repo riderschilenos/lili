@@ -881,6 +881,8 @@
 
             </div>
            
+          @if (IS_NULL(auth()->user()))
+              
           
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
                 <article>
@@ -893,7 +895,7 @@
 
             
             </div>
-           
+        @endif
 
             <div class="bg-main-color flex justify-center pb-4 pt-6 z-10"> 
                 <div>

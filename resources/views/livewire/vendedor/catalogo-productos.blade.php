@@ -266,7 +266,7 @@
                                     
                                     
                                                         <div class="px-2 flex flex-1 flex-col mb-3">
-                                                            <a href= "">
+                                                            
 
                                                                 @if($orden->smartphone)
                                                                 
@@ -277,7 +277,7 @@
                                                           
                                                                     
                                                                 @endif
-                                                             </a>
+                                                            
                                                             
                                                             {{-- <div class="text-center text-gray-400 text-xs font-semibold ">
                                                                 <p>Socio RidersChilenos</p>

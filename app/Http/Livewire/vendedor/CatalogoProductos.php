@@ -22,7 +22,26 @@ class CatalogoProductos extends Component
    
 
     public function render()
-    {   $ordens=Orden::where('id','>',0)->where('status','>',2)->has('images')->orderby('id','DESC')->paginate(6);
+    {   if($this->selectedcategory){
+        $ordens=Orden::join('productos','ordens.producto_id','=','productos.id')
+                ->select('ordens.*','productos.name','productos.category_product_id')
+                ->where('ordens.status','>',2)
+                ->orwhere('productos.category_product_id',$this->selectedcategory)
+                ->has('images')->orderby('ordens.id','DESC')->paginate(6);
+            if($this->producto_id){
+                    $ordens=Orden::join('productos','ordens.producto_id','=','productos.id')
+                            ->select('ordens.*','productos.name','productos.category_product_id')
+                            ->where('ordens.status','>',2)
+                            ->orwhere('productos.id',$this->producto_id)
+                            ->has('images')->orderby('ordens.id','DESC')->paginate(6);
+                            
+                        }
+            }
+                else{
+                    $ordens=Orden::where('ordens.status','>',2)
+                    ->has('images')->orderby('ordens.id','DESC')->paginate(6);
+                }
+
         return view('livewire.vendedor.catalogo-productos',compact('ordens'));
     }
 
@@ -42,6 +61,8 @@ class CatalogoProductos extends Component
         $this->selectedcategory = Category_product::find($suscripcion);
 
         $this->products = Producto::where('category_product_id',$this->selectedcategory->id)->get();
+
+       
     }
 
     public function producto($producto_id){

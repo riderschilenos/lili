@@ -223,7 +223,7 @@
                                         Número
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Detalle
+                                            Resource
                                         </th>
                                         
                                       
@@ -256,7 +256,8 @@
                                             @else
                                                 <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif ">
                                                 
-                                                    {{$orden->producto->name}}
+                                                    {{$orden->producto->name}}<br>
+                                                    {{$orden->detalle}} 
                                                     
                                                 </td>
                                             @endif
@@ -304,15 +305,15 @@
                                                 <label class="mx-4">
                                                     <p>
                                                     @if ($orden->detalle)
-                                                    @if ($orden->referencia)
-                                                        <i wire:click="download({{$orden->id}})" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>
-                                                    @endif
-                                                        {{$orden->detalle}} 
+                                                        @if ($orden->referencia)
+                                                            <i wire:click="download({{$orden->id}})" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>
+                                                        @endif
+                                                       
                                                     @else
-                                                    @if ($orden->referencia)
-                                                    <i wire:click="download({{$orden->id}})" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>
-                                                    @endif 
-                                                    -
+                                                        @if ($orden->referencia)
+                                                        <i wire:click="download({{$orden->id}})" class="fas fa-download text-gray-500 mr-2 cursor-pointer"></i>
+                                                        @endif 
+                                                    
                                                     @endif
                                                     </p>
                                                 </label>

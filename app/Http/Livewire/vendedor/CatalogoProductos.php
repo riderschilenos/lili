@@ -26,7 +26,7 @@ class CatalogoProductos extends Component
         $ordens=Orden::join('productos','ordens.producto_id','=','productos.id')
                             ->select('ordens.*','productos.name','productos.category_product_id')
                             ->where('ordens.status','>',2)
-                            ->orwhere('productos.category_product_id',$this->selectedcategory)
+                            ->where('productos.category_product_id',$this->selectedcategory)
                             ->has('images')->orderby('ordens.id','DESC')->paginate(6);
                             
                         
@@ -34,8 +34,8 @@ class CatalogoProductos extends Component
                     $ordens=Orden::join('productos','ordens.producto_id','=','productos.id')
                             ->select('ordens.*','productos.name','productos.category_product_id')
                             ->where('ordens.status','>',2)
-                            ->orwhere('productos.category_product_id',$this->selectedcategory)
-                            ->orwhere('productos.id',$this->producto_id)
+                            ->where('productos.category_product_id',$this->selectedcategory)
+                            ->where('productos.id',$this->producto_id)
                             ->has('images')->orderby('ordens.id','DESC')->paginate(6);
                             
                         }

@@ -330,11 +330,11 @@
                                                                              <div class="text-sm font-medium text-gray-900">
                                                                                  
                                                                                      @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                                                         @foreach ($socios as $socio)
+                                                                                         @foreach ($socios as $item)
                                                                                                  
-                                                                                                 @if($socio->id == $pedido->pedidoable_id)
+                                                                                                 @if($item->id == $pedido->pedidoable_id)
                                                                                                      <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
-                                                                                                         {{$socio->user->name}}
+                                                                                                         {{$item->user->name}}
                                                                                                      
                                                                                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                                                                              Socio
@@ -366,10 +366,10 @@
                                                                                    
                                                                                          @if($pedido->pedidoable_type=='App\Models\Socio')
                                                                                              
-                                                                                             @foreach ($socios as $socio)
-                                                                                                 @if(!is_null($socio->direccion))
-                                                                                                     @if($socio->id == $pedido->pedidoable_id)
-                                                                                                         {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
+                                                                                             @foreach ($socios as $item)
+                                                                                                 @if(!is_null($item->direccion))
+                                                                                                     @if($item->id == $pedido->pedidoable_id)
+                                                                                                         {{$item->direccion->comuna.", ".$item->direccion->region}} 
                                                                                                      @endif
                                                                                                  @endif
                                                                                              @endforeach
@@ -541,11 +541,11 @@
                                                                                     <div class="text-sm font-medium text-gray-900">
                                                                                         
                                                                                             @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                                                                @foreach ($socios as $socio)
+                                                                                                @foreach ($socios as $item)
                                                                                                         
-                                                                                                        @if($socio->id == $pedido->pedidoable_id)
+                                                                                                        @if($item->id == $pedido->pedidoable_id)
                                                                                                             <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
-                                                                                                                {{$socio->user->name}}
+                                                                                                                {{$item->user->name}}
                                                                                                             
                                                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                                                                                     Socio
@@ -577,10 +577,10 @@
                                                                                         
                                                                                                 @if($pedido->pedidoable_type=='App\Models\Socio')
                                                                                                     
-                                                                                                    @foreach ($socios as $socio)
-                                                                                                        @if(!is_null($socio->direccion))
-                                                                                                            @if($socio->id == $pedido->pedidoable_id)
-                                                                                                                {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
+                                                                                                    @foreach ($socios as $item)
+                                                                                                        @if(!is_null($item->direccion))
+                                                                                                            @if($item->id == $pedido->pedidoable_id)
+                                                                                                                {{$item->direccion->comuna.", ".$item->direccion->region}} 
                                                                                                             @endif
                                                                                                         @endif
                                                                                                     @endforeach

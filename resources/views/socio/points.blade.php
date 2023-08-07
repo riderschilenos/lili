@@ -8,7 +8,7 @@
     @endphp
      @foreach ($socio->pedidos->reverse() as $pedido)
                                                
-        @if ($pedido->status>=7)
+        @if ($pedido->status>=4)
             
         
             @php
@@ -44,7 +44,7 @@
     
         @foreach ($invitado->pedidos->reverse() as $pedido)
          
-            @if ($pedido->status>=7)
+            @if ($pedido->status>=4)
         
                 @php
                 $subtotal=0;
@@ -289,7 +289,7 @@
                                            <tbody class="bg-white divide-y divide-gray-200">
                                                
                                                @foreach ($socio->pedidos->reverse() as $pedido)
-                                                    @if ($pedido->status>=7)
+                                                    @if ($pedido->status>=4)
                                                        <tr>
                                                          @php
                                                          $subtotal=0;
@@ -507,7 +507,7 @@
                                                @endforeach
                                                 @foreach ($invitados as $invitado)
                                                     @foreach ($invitado->pedidos as $pedido)
-                                                        @if ($pedido->status>=7)
+                                                        @if ($pedido->status>=4)
                                                             <tr>
                                                                 @php
                                                                 $subtotal=0;

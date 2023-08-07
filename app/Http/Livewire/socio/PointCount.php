@@ -12,7 +12,7 @@ class PointCount extends Component
         $this->socio=$socio;
     }
     public function render()
-    {    $invitados = Invitado::where('rut',$this->socio->rut)->where('fono',$this->socio->fono)->get();
+    {    $invitados = Invitado::where('rut',$this->socio->rut)->orwhere('fono',$this->socio->fono)->get();
         return view('livewire.socio.point-count',compact('invitados'));
     }
 }

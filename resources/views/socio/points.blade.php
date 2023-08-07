@@ -6,7 +6,7 @@
     @php
     $total=0;
     @endphp
-    @foreach ($socio->pedidos->reverse() as $pedido)
+    @foreach ($socio->pedidos->where('status','>',8)->reverse() as $pedido)
 
        
         @php
@@ -32,7 +32,7 @@
 
       @endforeach
       @foreach ($invitados as $invitado)
-        @foreach ($invitado->pedidos as $pedido)
+        @foreach ($invitado->pedidos->where('status','>',8) as $pedido)
             
         
        
@@ -414,7 +414,7 @@
                                                                    </div>
                                                                      <div class="ml-auto whitespace-nowrap">
                                                                          <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
-                                                                             <div class="text-sm text-gray-900 ml-auto text-center mb-3">${{number_format($subtotal*0.01)}}</div>
+                                                                             <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}}</div>
                                                                             
                                                                          </a>
                                                                          @switch($pedido->status)

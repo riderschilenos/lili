@@ -495,7 +495,7 @@
                                                     @endif
                                                @endforeach
                                                 @foreach ($invitados as $invitado)
-                                                    @foreach ($invitado->pedidos as $pedido)
+                                                    @foreach ($invitado->pedidos->reverse() as $pedido)
                                                         @if ($pedido->status>=4)
                                                             <tr>
                                                                 @php

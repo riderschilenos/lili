@@ -761,9 +761,7 @@
                                 <h1 class="text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                                 @if (auth()->user()->socio)
                                     <a href="{{route('socio.points',auth()->user()->socio)}}">
-                                        <span class="px-2 inline-flex text-base leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                            TIENES 100 PUNTOS
-                                        </span>
+                                      @livewire('socio.point-count', ['socio' => auth()->user()->socio])
                                     </a>
                                 @else
                                     <a href="{{route('socio.create')}}">
@@ -872,7 +870,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     @if (IS_NULL(auth()->user()))
               
           

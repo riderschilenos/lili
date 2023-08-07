@@ -812,75 +812,7 @@
                                 <!-- End of Experience and education grid -->
                             </div>
 
-                            <div class="my-4">
-                            
-                            <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
-
-                                <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
-                                
-                                    <div class="bg-white p-3 hover:shadow">
-                                        <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                            <span class="text-red-500">
-                                                <i class="fas fa-film text-white-800"></i>
-                                            </span>
-                                            <span>MovieCollection</span>
-                                            
-                                            <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
-                                                        
-                                        </div>
-                                        <div class="grid grid-cols-4 gap-4">
-                                        
-                                            @if ($socio->user->serie_enrolled)
-                                                
-                                            
-                                                @foreach ($socio->user->serie_enrolled as $serie)
-                                                    <div class="text-center my-2">
-                                                        <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                            <img class="h-16 w-20 mx-auto"
-                                                            src="{{Storage::url($serie->image->url)}}"
-                                                            alt="">
-                                                        </a>
-                                                    </div>
-                                                @endforeach
-
-                                            @endif
-                                  
-                                                
-                                        </div>
-                                    </div>
-
-
-                                    {{-- commen
-                                            <div>
-                                                <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                                                    <span clas="text-green-500">
-                                                        <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                            stroke="currentColor">
-                                                            <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
-                                                            <path fill="#fff"
-                                                                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                                                        </svg>
-                                                    </span>
-                                                    <span class="tracking-wide">Education</span>
-                                                </div>
-                                                <ul class="list-inside space-y-2">
-                                                    <li>
-                                                        <div class="text-teal-600">Masters Degree in Oxford</div>
-                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                    </li>
-                                                </ul>
-                                    </div>t --}}
-                                </div>
-                                
-                            </div> 
-
-                            </div>
+                          
                             
                         </div>
                     </div>

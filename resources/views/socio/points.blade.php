@@ -737,9 +737,9 @@
                 
                                                                
                                                                       
-                                                                          
+                                                                            @if ($socio->direccion)
                                                                                             {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
-                                                                                       
+                                                                            @endif   
                 
                                                                          
                                                                         <br>

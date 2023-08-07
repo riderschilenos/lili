@@ -30,9 +30,9 @@
                 $total+=$subtotal;
         @endphp
 
-      @endforeach
-      @foreach ($invitados as $invitado)
-        @foreach ($invitado->pedidos->where('status','>',8) as $pedido)
+    @endforeach
+    @foreach ($invitados as $invitado)
+        @foreach ($invitado->pedidos->where('status','>',8)->reverse() as $pedido)
             
         
        
@@ -55,7 +55,7 @@
                     $total+=$subtotal;
             @endphp
         @endforeach
-      @endforeach
+    @endforeach
 
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
@@ -280,7 +280,7 @@
                                            </thead>
                                            <tbody class="bg-white divide-y divide-gray-200">
                                                
-                                               @foreach ($socio->pedidos->reverse() as $pedido)
+                                               @foreach ($socio->pedidos->where('status','>',8)->reverse() as $pedido)
                                                
                                                        <tr>
                                                          @php

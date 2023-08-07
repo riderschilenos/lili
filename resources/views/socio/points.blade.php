@@ -284,7 +284,7 @@
                                            </thead>
                                            <tbody class="bg-white divide-y divide-gray-200">
                                                
-                                               @foreach ($socio->pedidos as $pedido)
+                                               @foreach ($socio->pedidos->reverse() as $pedido)
                                                     @if ($pedido->status>=4)
                                                        <tr>
                                                          @php

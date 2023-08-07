@@ -400,7 +400,7 @@ class HomeController extends Controller
 
        $productos = Producto::all();
        $socios = Socio::all();
-       $invitados = Invitado::all();
+       $invitados = Invitado::where('rut',$socio->rut)->where('fono',$socio->fono)->get();
        $now=now();
 
         

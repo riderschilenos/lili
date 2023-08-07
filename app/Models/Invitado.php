@@ -15,5 +15,11 @@ class Invitado extends Model
     public function direccion(){
         return $this->MorphOne('App\Models\Direccion','direccionable');
     }
+
+       //relacion uno a uno polimorfica
+
+       public function pedidos(){
+        return $this->MorphMany('App\Models\Pedido','pedidoable');
+    }
     
 }

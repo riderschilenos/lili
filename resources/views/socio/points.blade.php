@@ -6,54 +6,57 @@
     @php
     $total=0;
     @endphp
-    @foreach ($socio->pedidos->where('status','>',8)->reverse() as $pedido)
-
-       
-        @php
-        $subtotal=0;
-        @endphp
-
-        @if($pedido->pedidoable_type=="App\Models\Socio")
-            @foreach ($pedido->ordens as $orden)
-            @php
+    @foreach ($socio->pedidos->reverse() as $pedido)
+        @if ($pedido->status==9)
                 
-                $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+            
+            
+                @php
+                $subtotal=0;
+                @endphp
 
-            @endphp    
-            @endforeach
+                @if($pedido->pedidoable_type=="App\Models\Socio")
+                    @foreach ($pedido->ordens as $orden)
+                    @php
+                        
+                        $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
 
-           
-          
+                    @endphp    
+                    @endforeach
 
+                
+                
+
+                @endif
+                @php
+                        $total+=$subtotal;
+                @endphp
         @endif
-        @php
-                $total+=$subtotal;
-        @endphp
-
     @endforeach
     @foreach ($invitados as $invitado)
-        @foreach ($invitado->pedidos->where('status','>',8)->reverse() as $pedido)
+        @foreach ($invitado->pedidos->reverse() as $pedido)
+            @if ($pedido->status==9)
             
         
-       
-            @php
-            $subtotal=0;
-            @endphp
-
-        
-            @if($pedido->pedidoable_type=="App\Models\Invitado")
-                @foreach ($pedido->ordens as $orden)
                 @php
-                    
-                    $subtotal+=$orden->producto->precio;
+                $subtotal=0;
+                @endphp
 
-                @endphp    
-                @endforeach
+            
+                @if($pedido->pedidoable_type=="App\Models\Invitado")
+                    @foreach ($pedido->ordens as $orden)
+                    @php
+                        
+                        $subtotal+=$orden->producto->precio;
 
-            @endif
-            @php
-                    $total+=$subtotal;
-            @endphp
+                    @endphp    
+                    @endforeach
+
+                @endif
+                @php
+                        $total+=$subtotal;
+                @endphp
+          @endif
         @endforeach
     @endforeach
 
@@ -192,7 +195,7 @@
                                         <h3 class="text-gray-600 text-sm text-semibold text-center">Recuento al {{$now->format('d-m-Y')}}</h3>
                                         <div class="flex justify-center mt-2">
                                             <h1 class="text-center font-bold text-4xl">
-                                                {{$total*0.01}}
+                                                {{$total*0.01+100}}
                                             </h1>
                                             <h1 class="text-sm items-center my-auto ml-2">
                                                 Ptos
@@ -280,7 +283,7 @@
                                            </thead>
                                            <tbody class="bg-white divide-y divide-gray-200">
                                                
-                                               @foreach ($socio->pedidos->where('status','>',8)->reverse() as $pedido)
+                                               @foreach ($socio->pedidos->reverse() as $pedido)
                                                
                                                        <tr>
                                                          @php
@@ -497,7 +500,7 @@
                                                        </tr>
                              
                                                @endforeach
-                                               @foreach ($invitados as $invitado)
+                                                @foreach ($invitados as $invitado)
                                                     @foreach ($invitado->pedidos as $pedido)
                                                         <tr>
                                                             @php
@@ -715,32 +718,8 @@
                                                     @endforeach
                                                 @endforeach
                                            <!-- More people... -->
-                                           <tr>
-                                            @php
-                                            $subtotal=0;
-                                            @endphp
-                
-                                            @if($pedido->pedidoable_type=="App\Models\Socio")
-                                                @foreach ($pedido->ordens as $orden)
-                                                @php
-                                                    
-                                                    $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
-                
-                                                @endphp    
-                                                @endforeach
-                
-                                                @endif
-                                                @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                                @foreach ($pedido->ordens as $orden)
-                                                @php
-                                                    
-                                                    $subtotal+=$orden->producto->precio;
-                
-                                                @endphp    
-                                                @endforeach
-                
-                                            @endif
-                                           
+                                        <tr>
+                                         
                 
                                               <td class="px-6 py-4 content-center">
                                                   <div class="flex items-center">
@@ -796,7 +775,7 @@
                                          
                 
                                           
-                <td></td>
+                                            <td></td>
                 
                                               
                 
@@ -813,7 +792,7 @@
                                                   <a href="" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
                                                 
                                               </td>
-                                          </tr>
+                                        </tr>
                                            </tbody>
                                        </table>
                                    @else

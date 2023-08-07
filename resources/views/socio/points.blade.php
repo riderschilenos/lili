@@ -414,7 +414,7 @@
                                                                    </div>
                                                                      <div class="ml-auto whitespace-nowrap">
                                                                          <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
-                                                                             <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}}</div>
+                                                                             <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
                                                                             
                                                                          </a>
                                                                          @switch($pedido->status)
@@ -781,7 +781,7 @@
                                                           
                                                       </div>
                                                         <div class="ml-auto whitespace-nowrap">
-                                                                <div class="text-sm text-gray-900 ml-auto text-center mb-3">100Pts</div>
+                                                                <div class="text-sm text-gray-900 ml-auto text-center mb-3">100 Pts</div>
                                                                
                                                           
                                                         

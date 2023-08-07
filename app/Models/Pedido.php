@@ -18,6 +18,11 @@ class Pedido extends Model
 
     protected $withCount = ['ordens'];
 
+    
+    public function pedidoable(){
+        return $this->morphTo();
+    }
+
     public function getRouteKeyName()
     {
         return 'id';
@@ -59,6 +64,8 @@ class Pedido extends Model
     public function image(){
         return $this->MorphOne('App\Models\Image','imageable');
     }
+
+    
 
     
 

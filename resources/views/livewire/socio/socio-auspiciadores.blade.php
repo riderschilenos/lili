@@ -44,6 +44,7 @@
                 
                 </ul>
             @endif
+            
             @can('perfil_propio', $socio)
                 @if (!$formulario)
                     <div class="rounded text-center m-auto py-auto cursor-pointer items-center bg-white">
@@ -148,4 +149,5 @@
             
         </article>
     @endif 
+
 </div>

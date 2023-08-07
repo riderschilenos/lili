@@ -3,7 +3,41 @@
     @php
         $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     @endphp
+    @php
+    $total=0;
+    @endphp
+    @foreach ($socio->pedidos->reverse() as $pedido)
 
+       
+        @php
+        $subtotal=0;
+        @endphp
+
+        @if($pedido->pedidoable_type=="App\Models\Socio")
+            @foreach ($pedido->ordens as $orden)
+            @php
+                
+                $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+
+            @endphp    
+            @endforeach
+
+            @endif
+            @if($pedido->pedidoable_type=="App\Models\Invitado")
+            @foreach ($pedido->ordens as $orden)
+            @php
+                
+                $subtotal+=$orden->producto->precio;
+
+            @endphp    
+            @endforeach
+
+        @endif
+        @php
+                $total+=$subtotal;
+        @endphp
+
+      @endforeach
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
                     
                 
@@ -133,8 +167,19 @@
 
                                    
                                 
-                            
-                                    @livewire('socio.socio-auspiciadores',['socio' => $socio], key('socio-auspiciadores.'.$socio->slug))
+                                <div class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                                    
+                                        <h3 class="text-gray-600 text-sm text-semibold text-center">Recuento al {{$now->format('d-m-Y')}}</h3>
+                                        <div class="flex justify-center mt-2">
+                                            <h1 class="text-center font-bold text-4xl">
+                                                {{$total*0.01}}
+                                            </h1>
+                                            <h1 class="text-sm items-center my-auto ml-2">
+                                                Ptos
+                                            </h1>
+                                        </div>
+                                    
+                                </div>                            
                                     <ul class="hidden bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                         <li class="flex items-center py-3">
                                             <span>Suscripción</span>
@@ -191,7 +236,7 @@
                                        
                                    </div>--}}
                              
-                                   @if ($pedidos->count())
+                                   @if ($socio->pedidos)
                              
                                        <table class="min-w-full divide-y divide-gray-200 mb-14">
                                            <thead class="bg-gray-50">
@@ -214,8 +259,8 @@
                                            </tr>
                                            </thead>
                                            <tbody class="bg-white divide-y divide-gray-200">
-                             
-                                               @foreach ($pedidos->reverse() as $pedido)
+                                               
+                                               @foreach ($socio->pedidos->reverse() as $pedido)
                                                
                                                        <tr>
                                                          @php
@@ -242,6 +287,7 @@
                                                              @endforeach
                              
                                                          @endif
+                                                        
                              
                                                            <td class="px-6 py-4 content-center">
                                                                <div class="flex items-center">
@@ -476,26 +522,7 @@
                                                 @endforeach
 
                                             @endif
-                                                {{-- 
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">James</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Natie</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Casey</a>
-                                                    </div>
-                                                --}}
+                                  
                                                 
                                         </div>
                                     </div>

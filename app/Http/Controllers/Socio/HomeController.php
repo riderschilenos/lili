@@ -401,8 +401,10 @@ class HomeController extends Controller
        $productos = Producto::all();
        $socios = Socio::all();
        $invitados = Invitado::all();
+       $now=now();
+
         
-        return view('socio.points',compact('socio','socio2','disciplinas','riders','series','autos','productos','pedidos','socios','invitados'));
+        return view('socio.points',compact('now','socio','socio2','disciplinas','riders','series','autos','productos','pedidos','socios','invitados'));
     }
 
     /**

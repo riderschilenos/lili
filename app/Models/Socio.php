@@ -47,6 +47,12 @@ class Socio extends Model
     public function suscripcions(){
         return $this->morphMany('App\Models\Suscripcion','suscripcionable');
     }
+
+        //relacion uno a uno polimorfica
+
+        public function pedidos(){
+            return $this->MorphMany('App\Models\Pedido','pedidoable');
+        }
     
 
 

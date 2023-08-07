@@ -317,7 +317,7 @@
                                                                <div class="flex items-center">
                                                                   
                                                                    <div class="ml-2 flex-shrink-0 h-10 w-10">
-                                                                     <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                     <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                          @isset($pedido->image)
                                                                                  <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                                                          @else
@@ -326,14 +326,14 @@
                                                                      </a>
                                                                    </div>
                                                                    <div class="ml-4 whitespace-nowrap">
-                                                                         <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                         <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                              <div class="text-sm font-medium text-gray-900">
                                                                                  
                                                                                      @if($pedido->pedidoable_type=='App\Models\Socio')
                                                                                          @foreach ($socios as $item)
                                                                                                  
                                                                                                  @if($item->id == $pedido->pedidoable_id)
-                                                                                                     <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                                                     <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                                          {{$item->user->name}}
                                                                                                      
                                                                                                          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -417,7 +417,7 @@
                                                                          </a>
                                                                    </div>
                                                                      <div class="ml-auto whitespace-nowrap">
-                                                                         <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                         <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                              <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
                                                                             
                                                                          </a>
@@ -488,7 +488,7 @@
                                                          </td>
                              
                                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                               <a href="{{route('vendedor.pedidos.edit',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
+                                                               <a href="{{route('pedido.seguimiento',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
                                                              
                                                            </td>
                                                        </tr>
@@ -528,7 +528,7 @@
                                                                     <div class="flex items-center">
                                                                         
                                                                         <div class="ml-2 flex-shrink-0 h-10 w-10">
-                                                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                            <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                 @isset($pedido->image)
                                                                                         <img class="h-11 w-11 object-cover object-center rounded-full" src="{{Storage::url($pedido->image->url)}}" alt="">
                                                                                 @else
@@ -537,14 +537,14 @@
                                                                             </a>
                                                                         </div>
                                                                         <div class="ml-4 whitespace-nowrap">
-                                                                                <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                                <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                     <div class="text-sm font-medium text-gray-900">
                                                                                         
                                                                                             @if($pedido->pedidoable_type=='App\Models\Socio')
                                                                                                 @foreach ($socios as $item)
                                                                                                         
                                                                                                         @if($item->id == $pedido->pedidoable_id)
-                                                                                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                                                            <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                                                 {{$item->user->name}}
                                                                                                             
                                                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -628,7 +628,7 @@
                                                                                 </a>
                                                                         </div>
                                                                             <div class="ml-auto whitespace-nowrap">
-                                                                                <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                                <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                     <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
                                                                                 
                                                                                 </a>
@@ -698,7 +698,7 @@
                                                                 </td>
                                     
                                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                                    <a href="{{route('vendedor.pedidos.edit',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
+                                                                    <a href="{{route('pedido.seguimiento',$pedido)}}" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
                                                                     
                                                                 </td>
                                                             </tr>

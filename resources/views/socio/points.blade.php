@@ -200,7 +200,7 @@
                                         <h3 class="text-gray-600 text-sm text-semibold text-center">Recuento al {{$now->format('d-m-Y')}}</h3>
                                         <div class="flex justify-center mt-2">
                                             <h1 class="text-center font-bold text-4xl">
-                                                {{$total*0.01+100}}
+                                                {{number_format($total*0.01+100,0)}}
                                             </h1>
                                             <h1 class="text-sm items-center my-auto ml-2">
                                                 Ptos

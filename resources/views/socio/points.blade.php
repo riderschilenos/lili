@@ -631,7 +631,7 @@
                                                                     </div>
                                                                         <div class="ml-auto whitespace-nowrap">
                                                                             <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
-                                                                                <div class="text-sm text-gray-900 ml-auto text-center mb-3">${{number_format($subtotal)}}</div>
+                                                                                <div class="text-sm text-gray-900 ml-auto text-center mb-3">${{number_format($subtotal*0.01)}}</div>
                                                                             
                                                                             </a>
                                                                             @switch($pedido->status)
@@ -715,6 +715,105 @@
                                                     @endforeach
                                                 @endforeach
                                            <!-- More people... -->
+                                           <tr>
+                                            @php
+                                            $subtotal=0;
+                                            @endphp
+                
+                                            @if($pedido->pedidoable_type=="App\Models\Socio")
+                                                @foreach ($pedido->ordens as $orden)
+                                                @php
+                                                    
+                                                    $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+                
+                                                @endphp    
+                                                @endforeach
+                
+                                                @endif
+                                                @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                                @foreach ($pedido->ordens as $orden)
+                                                @php
+                                                    
+                                                    $subtotal+=$orden->producto->precio;
+                
+                                                @endphp    
+                                                @endforeach
+                
+                                            @endif
+                                           
+                
+                                              <td class="px-6 py-4 content-center">
+                                                  <div class="flex items-center">
+                                                     
+                                                      <div class="ml-2 flex-shrink-0 h-10 w-10">
+                                                        
+                                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
+                                                        
+                                                      </div>
+                                                      <div class="ml-4 whitespace-nowrap">
+                                                          
+                                                                <div class="text-sm font-medium text-gray-900">
+                                                                    
+                                                                       
+                                                                                            {{$socio->user->name}}
+                                                                                        
+                                                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                                                Socio
+                                                                                            </span>
+                                                                                  
+                                                                      
+                
+                
+                                                                </div>
+                                                                
+                                                                <div class="text-sm text-gray-500">
+                
+                                                               
+                                                                      
+                                                                          
+                                                                                            {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
+                                                                                       
+                
+                                                                         
+                                                                        <br>
+                                                                        
+                                                                </div>
+                                                          
+                                                      </div>
+                                                        <div class="ml-auto whitespace-nowrap">
+                                                                <div class="text-sm text-gray-900 ml-auto text-center mb-3">100Pts</div>
+                                                               
+                                                          
+                                                        
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                                    Registro
+                                                                </span>
+                                                          
+                                                        </div>
+                                                  </div>
+                                            </td>
+                
+                                         
+                
+                                          
+                <td></td>
+                
+                                              
+                
+                                              
+                
+                                           
+                                            
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($socio->created_at))-1]}}</div>
+                                                <div class="text-sm text-gray-900">{{$socio->created_at->format('d-m-Y')}}</div>    
+                                            </td>
+                
+                                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                  <a href="" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
+                                                
+                                              </td>
+                                          </tr>
                                            </tbody>
                                        </table>
                                    @else

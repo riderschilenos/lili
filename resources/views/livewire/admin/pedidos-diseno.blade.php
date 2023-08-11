@@ -22,7 +22,7 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    <th scope="col" class="px-2 py-3 text-center text-xs font-medium text-gray-500 uppercase">
                     Cliente
                     </th>
                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
@@ -48,7 +48,7 @@
                     @foreach ($pedidos as $pedido)
                     
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-center">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @isset($pedido->image)
@@ -219,7 +219,7 @@
                                                     </label>
                                                 @endif
                                                 <br>
-                                                <label class="mx-4 text-red-500">
+                                                <label class=" text-red-500">
                                                    (id: {{$orden->id}})
                                                 </label>
                                             </td>

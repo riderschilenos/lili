@@ -67,7 +67,8 @@
                                                         @foreach ($socios as $socio)
                                                                 
                                                                 @if($socio->id == $pedido->pedidoable_id)
-                                                                    {{$socio->user->name}}
+                                                                
+                                                                    {{Str::limit($socio->user->name, 12)}}
                                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                                         Socio
                                                                     </span>
@@ -78,7 +79,9 @@
                                                         @foreach ($invitados as $invitado)
                                                                 
                                                                 @if($invitado->id == $pedido->pedidoable_id)
-                                                                    {{$invitado->name}} <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                                  
+                                                                    {{Str::limit($invitado->name, 12)}}
+                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                                                         Invitado
                                                                     </span>
                                                                 @endif

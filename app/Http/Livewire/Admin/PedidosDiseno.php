@@ -65,7 +65,7 @@ class PedidosDiseno extends Component
             $cliente=Socio::find($pedido->pedidoable_id);
         }
 
-        return response()->download(storage_path('app/public/'.$orden->referencia->url),'Recursos '.$cliente->name.'.pdf');
+        return response()->download(storage_path('app/public/'.$orden->referencia->url),'Recursos '.$cliente->name.'.jpg');
     }
 
     public function descartar()

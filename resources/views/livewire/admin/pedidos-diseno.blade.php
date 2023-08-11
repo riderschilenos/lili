@@ -216,12 +216,10 @@
                                         Marca/Modelo                        
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Nombre
+                                        Nombre/Numero
                                         </th>
                                         
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Número
-                                        </th>
+                                      
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Detalle
                                         </th>
@@ -288,18 +286,16 @@
                                                     @else
                                                         -
                                                     @endif</label>
+
+                                                    <label class="mx-4">
+                                                        @if ($orden->numero)
+                                                            {{$orden->numero}} 
+                                                        @else
+                                                            S/N
+                                                        @endif</label>
                                             </td>
         
-                                            <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">    
-              
-                                                <label class="mx-4">
-                                                    @if ($orden->numero)
-                                                        {{$orden->numero}} 
-                                                    @else
-                                                        S/N
-                                                    @endif</label>
-                                                    
-                                            </td>
+                                   
                                             <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">    
               
                                                 <label class="mx-4">

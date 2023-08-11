@@ -273,7 +273,16 @@
 
     </div>
     <div x-show="activeTab===1">
+        <div>
+            <figure class="highcharts-figure mx-1 mt-4" wire:ignore>
+               <div id="gastotreinta" wire:ignore>
+                  
+               </div>
+            </figure>
+         </div>
+
        Gastos Listado
+
     </div>
  
     
@@ -826,6 +835,59 @@
         };
     };
     </script>
+         <script>
+          
+            Highcharts.chart('gastotreinta', {
+                chart: {
+                   plotBackgroundColor: null,
+                   plotBorderWidth: null,
+                   plotShadow: false,
+                   type: 'pie'
+                },
+                title: {
+                   text: 'Gastos Por Categoría - Ultimos 30 Días',
+                   align: 'left'
+                },
+                tooltip: {
+                   pointFormat: '<b><b>{point.y}</b>({point.percentage:.0f}%)<br/>',
+                },
+                accessibility: {
+                   point: {
+                         valueSuffix: '%'
+                   }
+                },
+                plotOptions: {
+                   pie: {
+                         allowPointSelect: true,
+                         cursor: 'pointer',
+                         dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                         },
+                         showInLegend: true
+                   }
+                },
+                series: [{
+                   name: 'Brands',
+                   colorByPoint: true,
+                   data: [{
+                         name: 'Exportacion',
+                         y: 25      
+                   },  {
+                         name: 'Comercial',
+                         y: 25
+                   },  {
+                         name: 'Desecho',
+                         y: 25
+                   }, {
+                         name: 'Merma',
+                         y: 25
+                   }]
+                }]
+             });
+            
+        </script>
+
     <script>
         var ventas = <?php echo json_encode($ventas) ?>;
         var ventas_anual = <?php echo json_encode($ventas_anual) ?>;

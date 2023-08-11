@@ -281,18 +281,20 @@
                                             @endif
         
                                             <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
-                                                <label class="mx-4">@if ($orden->name)
-                                                    {{$orden->name}}
-                                                    @else
-                                                        -
-                                                    @endif</label>
-
-                                                    <label class="mx-4">
-                                                        @if ($orden->numero)
-                                                            {{$orden->numero}} 
+                                                <div class="items-center text-center">
+                                                    <label class="mx-4">@if ($orden->name)
+                                                        {{$orden->name}}
                                                         @else
-                                                            S/N
+                                                            -
                                                         @endif</label>
+                                                        <br>
+                                                        <label class="mx-4">
+                                                            @if ($orden->numero)
+                                                                {{$orden->numero}} 
+                                                            @else
+                                                                S/N
+                                                            @endif</label>
+                                                </div>
                                             </td>
         
                                    

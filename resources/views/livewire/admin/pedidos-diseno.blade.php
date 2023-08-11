@@ -36,18 +36,7 @@
                     </th>
                     
                     
-                  
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      
-                    </th>
-                    
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    
-                    </th>
-                    
+                 
                    
                     <th scope="col" class="relative px-6 py-3">
                     <span class="sr-only">Edit</span>
@@ -184,17 +173,10 @@
                                   
                                 </td>
 
-                                <td class="text-center text-sm">
-
-
-                                </td>
-                                
                    
                              
   
-                              <td class="px-6 py-4 whitespace-nowrap">
-                                  
-                              </td>
+                           
   
                             </tr>
                             
@@ -206,9 +188,7 @@
                                         <th >
                                             ORDENES
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Nro
-                                        </th>
+                                      
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Producto
                                         </th>
@@ -238,12 +218,12 @@
                                                         <input type="checkbox" wire:model="selected" value="{{$orden->id}}" class="mr-4 mt-2">
                                                     </label>
                                                 @endif
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif">
-                                                <label class="mx-4">
-                                                    {{$orden->id}}
+                                                <br>
+                                                <label class="mx-4 text-red-500">
+                                                   (id: {{$orden->id}})
                                                 </label>
                                             </td>
+                                         
                                             
                                             @if($orden->smartphone)
                                                 <td class="px-6 py-4 whitespace-nowrap @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif ">

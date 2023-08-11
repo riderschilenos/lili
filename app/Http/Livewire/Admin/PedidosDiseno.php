@@ -57,8 +57,15 @@ class PedidosDiseno extends Component
     public function download($orden_id){
 
         $orden=Orden::find($orden_id);
+        $pedido=$orden->pedido;
 
-        return response()->download(storage_path('app/public/'.$orden->referencia->url));
+        if($pedido->pedidoable_type == 'App\Models\Invitado'){
+            $cliente=Invitado::find($pedido->pedidoable_id);
+        }else{
+            $cliente=Socio::find($pedido->pedidoable_id);
+        }
+
+        return response()->download(storage_path('app/public/'.$orden->referencia->url),'Recursos '.$cliente->name.'.pdf');
     }
 
     public function descartar()

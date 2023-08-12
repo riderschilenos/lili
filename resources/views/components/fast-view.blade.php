@@ -1034,7 +1034,7 @@
                 <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-danger ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >RIDERS</button>
+                        <button class="btn btn-success ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >RIDERS</button>
                                
                     </div>
                     <div class="flex justify-center">
@@ -1066,7 +1066,7 @@
             <div class="flex justify-center">
               
                         
-                            <button class="btn btn-danger mr-6 text-center text-base" @click="user = false; home = false; socio = false; registro = true; vendedor = false; base = false" >BIKES</button>
+                            <button class="btn btn-success mr-6 text-center text-base" @click="user = false; home = false; socio = false; registro = true; vendedor = false; base = false" >BIKES</button>
                        
             </div>
         </div>

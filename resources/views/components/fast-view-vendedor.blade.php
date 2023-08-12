@@ -583,10 +583,7 @@
                         <div>
     
                         </div>
-                        <div>
-                            <h1 class="text-2xl font-bold pb-4 text-center">CLUB RIDERS CHILENOS</h1>
-                            
-                        </div>
+                       
                         <div class="hidden sm:block">
                             <div class="flex justify-end mr-4 ">
     

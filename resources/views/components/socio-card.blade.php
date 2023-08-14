@@ -70,7 +70,7 @@
                             
                         
                             <div class="flex justify-center mb-3">
-                                <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">
+                                <span class="bg-green-500 py-1 px-2 rounded text-white text-sm text-center flex">
                                     @livewire('socio.point-count', ['socio' => $socio]) Pts
                                 </span>
                             </div>

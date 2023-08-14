@@ -44,7 +44,8 @@
                     
                     </div>
 
-                    
+         
+
                     @livewire('socio.socio-create')
 
                     

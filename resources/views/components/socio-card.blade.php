@@ -66,6 +66,15 @@
                             </div>
                             
                         </a>
+                        @can('Super admin')
+                            
+                        
+                            <div class="flex justify-center mb-3">
+                                <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">
+                                    @livewire('socio.point-count', ['socio' => $socio]) Pts
+                                </span>
+                            </div>
+                        @endcan
                         <div class="text-center my-3 hidden">
                             <a href= "{{route('socio.show', $socio)}}" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Ver Perfil</a>
                         </div>

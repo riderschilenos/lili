@@ -1,4 +1,4 @@
-<div>
+<div class="mx-1">
     @php
     $total=0;
     @endphp
@@ -61,8 +61,6 @@
         @endforeach
     @endforeach
 
-    <span class="px-2 inline-flex text-base leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-        TIENES {{$total*0.01+100}} PUNTOS
-    </span>
+        {{number_format($total*0.01+100,0)}}
 
 </div>

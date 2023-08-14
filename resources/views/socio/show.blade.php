@@ -206,7 +206,7 @@
                                                 <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$20.000</div>
                                                 
                                                 </div>
-                                                <div><input class="mt-2 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="1.000" type="text" placeholder="1.000" /></div>
+                                                <div><input class="mt-2 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="$1.000" type="text" placeholder="$1.000" /></div>
                                                
                                             </div>
                                         

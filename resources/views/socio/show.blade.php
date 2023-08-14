@@ -303,7 +303,10 @@
                                         </div>
 
                                         <!-- This is an example component -->
-                                        <div class="max-w-5xl mx-auto hidden">
+                                        @can('Super admin')
+                                            
+                                       
+                                        <div class="max-w-5xl mx-auto">
 
 
                                             <ol class="relative border-l border-gray-200 dark:border-gray-700">
@@ -356,7 +359,7 @@
                                             </div>
                                         
                                         </div>
-                                        
+                                        @endcan
                                         <div class="grid grid-cols-4 gap-4 hidden">
                                         
                                             @if ($socio->user->serie_enrolled)

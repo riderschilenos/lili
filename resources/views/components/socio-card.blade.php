@@ -64,9 +64,7 @@
                                     
                                 @endswitch
                             </div>
-                            <div class="flex justify-center mb-3">
-                                <span class="mx-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">@livewire('socio.point-count', ['socio' => auth()->user()->socio]) Pts</span></span>
-                            </div>   
+                            
                         </a>
                         <div class="text-center my-3 hidden">
                             <a href= "{{route('socio.show', $socio)}}" class="text-sm text-red-500 italic hover:underline hover:text-red-600 font-medium" href="#">Ver Perfil</a>

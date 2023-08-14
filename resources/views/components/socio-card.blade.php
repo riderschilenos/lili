@@ -70,9 +70,11 @@
                             
                         
                             <div class="flex justify-center mb-3">
-                                <span class="bg-green-500 py-1 px-2 rounded text-white text-sm text-center flex">
-                                    @livewire('socio.point-count', ['socio' => $socio]) Pts
-                                </span>
+                                <a href="{{route('socio.points', $socio)}}">
+                                    <span class="bg-green-500 py-1 px-2 rounded text-white text-sm text-center flex">
+                                        @livewire('socio.point-count', ['socio' => $socio]) Pts
+                                    </span>
+                                </a>
                             </div>
                         @endcan
                         <div class="text-center my-3 hidden">

@@ -225,7 +225,7 @@
                                             </div>
                                         
                                             <div class="mt-2">
-                                                <div class="w-full cursor-pointer rounded-[4px] bg-blue-800 px-3 py-4 text-center font-semibold text-white">AUSPICIAR A {{Str::limit(strtoupper($socio->name),10)}}</div>
+                                                <div class="w-full cursor-pointer rounded-[4px] bg-blue-800 px-3 py-2 text-center font-semibold text-white">AUSPICIAR A {{Str::limit(strtoupper($socio->name),10)}}</div>
                                             </div>
                                         </div>
 

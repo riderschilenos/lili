@@ -27,7 +27,7 @@
 
     ]*/
     ,[   
-        'name'=>'Servicios',
+        'name'=>'Riders',
         'route'=>route('socio.index'),
         'active'=>request()->routeIs('socios.*')
 

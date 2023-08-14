@@ -190,6 +190,41 @@
                                 
                             
                                     @livewire('socio.socio-auspiciadores',['socio' => $socio], key('socio-auspiciadores.'.$socio->slug))
+
+                                 
+                                          <div class="mt-6">
+                                            <div class="font-semibold">Con cuanto de gustaria auspiciar?</div>
+                                            <div><input class="mt-1 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="100.00" type="text" placeholder="1.000" /></div>
+                                            <div class="flex justify-between text-sm">
+                                              <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>
+                                              <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-green-700 p-3 text-[#191D23]">$5.000</div>
+                                              <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$10.000</div>
+                                              <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$20.000</div>
+                                            
+                                            </div>
+                                          
+                                          </div>
+                                      
+                                         
+                                          <div class="mt-6">
+                                            <div class="flex justify-between">
+                                              <span class="font-semibold text-[#191D23]">Receiving</span>
+                                              <div class="flex cursor-pointer items-center gap-x-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <div class="font-semibold text-green-700">Add recipient</div>
+                                              </div>
+                                            </div>
+                                      
+                                            
+                                          </div>
+                                      
+                                          <div class="mt-6">
+                                            <div class="w-full cursor-pointer rounded-[4px] bg-green-700 px-3 py-[6px] text-center font-semibold text-white">Send $100.00</div>
+                                          </div>
+                                       
+
                                     <ul
                                         class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm hidden">
                                         <li class="flex items-center py-3">
@@ -206,7 +241,7 @@
                                                 @endswitch
                                                 
                                         </li>
-                                    {{-- comment
+                                        {{-- comment
                                         @if($socio->suscripcions)
                                             @if($socio->suscripcions->count())
                                             

@@ -73,7 +73,20 @@
 
                                         
                                             <a href="{{route('socio.edit',$socio)}}" class="ml-2"><h5 class="text-blue-600 font-bold text-sm cursor-pointer ml-4">(Editar)</h5></a>
-                                        
+                                        @else
+
+                                            @can('Super admin')
+                                
+                            
+                                                <div class="flex justify-center mb-3">
+                                                    <a href="{{route('socio.points', $socio)}}">
+                                                        <span class="bg-green-500 py-1 px-2 rounded text-white text-sm text-center flex">
+                                                            @livewire('socio.point-count', ['socio' => $socio]) Pts
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            @endcan
+
                                         @endcan
                                         
                                    

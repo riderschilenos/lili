@@ -214,7 +214,7 @@
                             <!-- End of friends card -->
                         </div>
                         <!-- Right Side -->
-                        <div class="w-full md:w-9/12 mx-0 sm:mx-2 h-64">
+                        <div class="w-full md:w-9/12 mx-0 sm:mx-2">
                             <!-- Profile tab -->
                             <!-- About Section -->
                           

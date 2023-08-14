@@ -80,7 +80,7 @@
                             
                                                 <div class="flex justify-center mb-3">
                                                     <a href="{{route('socio.points', $socio)}}">
-                                                        <span class="bg-green-500 py-1 px-2 rounded text-white text-sm text-center flex">
+                                                        <span class="bg-red-500 py-1 px-2 rounded text-white text-sm text-center flex">
                                                             @livewire('socio.point-count', ['socio' => $socio]) Pts
                                                         </span>
                                                     </a>

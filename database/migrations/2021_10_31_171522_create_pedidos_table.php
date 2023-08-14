@@ -18,7 +18,7 @@ class CreatePedidosTable extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
 
-            $table->enum('status',[Pedido::BORRADOR,Pedido::REVISION,Pedido::PUBLICADO])->default(Pedido::BORRADOR);
+            $table->enum('status',[Pedido::BORRADOR,Pedido::REVISION,Pedido::PUBLICADO]);
             
             
             $table  ->foreignId('user_id')

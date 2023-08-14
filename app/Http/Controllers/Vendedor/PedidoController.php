@@ -118,6 +118,7 @@ class PedidoController extends Controller
                     'user_id'=> $request->user_id,
                     'transportista_id'=> $request->transportista_id,
                     'pedidoable_id'=> $request->pedidoable_id,
+                    'status'=>1,
                     'pedidoable_type'=> 'App\Models\Invitado']);
                  
                 return redirect()->route('vendedor.pedidos.edit',$pedido);
@@ -133,6 +134,7 @@ class PedidoController extends Controller
                     'user_id'=> $request->user_id,
                     'transportista_id'=> $request->transportista_id,
                     'pedidoable_id'=> $invitado->id,
+                    'status'=>1,
                     'pedidoable_type'=> $request->pedidoable_type]);
 
                 return redirect()->route('vendedor.pedidos.edit',$pedido);
@@ -144,6 +146,7 @@ class PedidoController extends Controller
                 'user_id'=> $request->user_id,
                 'transportista_id'=> $request->transportista_id,
                 'pedidoable_id'=> $request->pedidoable_id,
+                'status'=>1,
                 'pedidoable_type'=> $request->pedidoable_type]);
 
             return redirect()->route('vendedor.pedidos.edit',$pedido);

@@ -197,7 +197,7 @@
                                         <div>
                                             <div class="mt-6">
                                                 <div class="font-semibold text-center">¿Cuanto deseas auspiciar?</div>
-                                                <div><input class="mt-1 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="1.000" type="text" placeholder="1.000" /></div>
+                                                <div><input class="hidden mt-1 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="1.000" type="text" placeholder="1.000" /></div>
                                                 <div class="flex justify-between text-sm">
                                                 <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>
                                                 <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-green-700 p-3 text-[#191D23]">$5.000</div>
@@ -227,7 +227,7 @@
                                                 <div class="w-full cursor-pointer rounded-[4px] bg-green-700 px-3 py-[6px] text-center font-semibold text-white">Send $100.00</div>
                                             </div>
                                         </div>
-                                        
+
                                     @endcan
                                     <ul
                                         class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm hidden">

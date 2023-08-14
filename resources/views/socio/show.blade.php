@@ -197,9 +197,9 @@
                                         <div>
                                             <div class="mt-6">
                                                 <div class="font-semibold text-center text-sm mb-2">AUSPICIA A {{Str::limit(strtoupper($socio->name),10)}} AHORA!!</div>
-                                                <p class="text-center text-xs mb-2">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
+                                                <p class="text-center text-xs mb-1">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
                                          
-                                                <div><input class="hidden mt-1 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="1.000" type="text" placeholder="1.000" /></div>
+                                                <div><input class="mb-2 w-full rounded-[4px] border border-[#A0ABBB] p-2" value="1.000" type="text" placeholder="1.000" /></div>
                                                 <div class="flex justify-between text-sm">
                                                 <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>
                                                 <div class="mt-[14px] whitespace-nowrap cursor-pointer rounded-[4px] border border-green-700 p-3 text-[#191D23]">$5.000</div>

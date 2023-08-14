@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Disciplina;
 use App\Models\Evento;
 use App\Models\Fecha;
+use App\Models\Orden;
 use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\Qrregister;
@@ -173,6 +174,13 @@ class PaymentController extends Controller
                 'pedidoable_id'=> $socio->id,
                 'status'=>4,
                 'pedidoable_type'=> 'App\Models\Socio']);
+            
+            $orden= Orden::create([
+                    'producto_id'=> 37,
+                    'name'=>$socio->name,
+                    'numero'=>$socio->nro,
+                    'pedido_id'=>$pedido->id
+                ]);
 
             return redirect()->route('socio.create');
         }

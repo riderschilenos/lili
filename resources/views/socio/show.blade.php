@@ -199,9 +199,9 @@
                                     @can('Super admin')
                                         
                                     
-                                        <div>
-                                            <div class="mt-6">
-                                                <div class="font-semibold text-center text-sm mb-2">AUSPICIA A {{Str::limit(strtoupper($socio->name),10)}} AHORA!!</div>
+                                        <div class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded-lg shadow-sm ">
+                                            <div class="mt-2">
+                                                <div class="font-semibold text-center text-sm mb-2">¡¡ AUSPICIA A {{Str::limit(strtoupper($socio->name),10)}} AHORA !!</div>
                                                 <p class="text-center text-xs mb-2">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
                                          
                                                  <div class="flex justify-between text-sm">

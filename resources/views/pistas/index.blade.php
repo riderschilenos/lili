@@ -1,4 +1,10 @@
 <x-app-layout>
+    <x-slot name="tl">
+            
+        <title>Registro de Pistas RidersChilenos</title>
+        
+        
+    </x-slot>
     <style>
         :root {
             --main-color: #4a76a8;

@@ -1,4 +1,10 @@
 <x-app-layout>
+    <x-slot name="tl">
+            
+        <title>Eventos RidersChilenos</title>
+        
+        
+    </x-slot>
     <style>
         :root {
             --main-color: #4a76a8;

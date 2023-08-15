@@ -1,11 +1,11 @@
 @php
  $nav_links =[
-     [
+     /* [
         'name'=>'Home',
         'route'=>route('home'),
         'active'=>request()->routeIs('home')
     ]
-    /*,[   
+   ,[   
         'name'=>'RCH-TV',
         'route'=>route('series.index'),
         'active'=>request()->routeIs('series.*')

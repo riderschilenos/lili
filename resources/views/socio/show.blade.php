@@ -1,5 +1,10 @@
 <x-app-layout>
-
+    <x-slot name="tl">
+            
+        <title>{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}</title>
+        
+        
+    </x-slot>
     
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">

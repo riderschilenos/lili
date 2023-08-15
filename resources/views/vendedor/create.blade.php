@@ -1,5 +1,11 @@
 <x-app-layout>
-
+    <x-slot name="tl">
+            
+        <title>Tienda RidersChilenos</title>
+        
+        
+    </x-slot>
+    
     @php
     // SDK de Mercado Pago
     require base_path('/vendor/autoload.php');

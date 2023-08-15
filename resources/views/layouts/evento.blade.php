@@ -12,7 +12,14 @@
 
         <meta name="description" content="Te invitamos a visualizar el contenido del portal rider más importante del Pais, haz click y revisa lo que hay detras de este link.">
        
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        @isset($tl)
+
+            {{$tl}}
+            
+        @else
+            <title>{{ config('app.name', 'Laravel') }}</title>
+
+        @endisset
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

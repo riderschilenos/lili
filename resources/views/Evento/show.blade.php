@@ -1,5 +1,11 @@
 <x-evento-layout :evento="$evento">
     
+    <x-slot name="tl">
+            
+        <title>{{$evento->titulo}}</title>
+        
+        
+    </x-slot>
 
     
        

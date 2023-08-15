@@ -1,5 +1,10 @@
 <x-app-layout>
-
+    <x-slot name="tl">
+            
+        <title>{{$serie->titulo}}</title>
+        
+        
+    </x-slot>
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
        
         <section class="bg-gray-700 py-12 mb-8 ">

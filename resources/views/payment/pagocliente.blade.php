@@ -10,12 +10,7 @@
         </div>
         <script>
           // This method will trigger user permissions
-          Html5Qrcode.getCameras().then(devices => {
-          /**
-           * devices would be an array of objects of type:
-           * { id: "id", label: "label" }
-           */
-       
+         
     
     
           function onScanSuccess(decodedText, decodedResult) {

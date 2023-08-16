@@ -1,10 +1,10 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Browser Sessions') }}
+        {{ __('Sesiones Abiertas') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+        {{ __('Administra y Cierra las sesiones en tus distintos dispositivos.') }}
     </x-slot>
 
     <x-slot name="content">
@@ -53,18 +53,18 @@
 
         <div class="flex items-center mt-5">
             <x-jet-button wire:click="confirmLogout" wire:loading.attr="disabled">
-                {{ __('Log Out Other Browser Sessions') }}
+                {{ __('Cerras todas las Sesiones') }}
             </x-jet-button>
 
             <x-jet-action-message class="ml-3" on="loggedOut">
-                {{ __('Done.') }}
+                {{ __('Hecho.') }}
             </x-jet-action-message>
         </div>
 
         <!-- Log Out Other Devices Confirmation Modal -->
         <x-jet-dialog-modal wire:model="confirmingLogout">
             <x-slot name="title">
-                {{ __('Log Out Other Browser Sessions') }}
+                {{ __('Cerras todas las Sesiones') }}
             </x-slot>
 
             <x-slot name="content">
@@ -83,13 +83,13 @@
 
             <x-slot name="footer">
                 <x-jet-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
-                    {{ __('Cancel') }}
+                    {{ __('Cancelar') }}
                 </x-jet-secondary-button>
 
                 <x-jet-button class="ml-2"
                             wire:click="logoutOtherBrowserSessions"
                             wire:loading.attr="disabled">
-                    {{ __('Log Out Other Browser Sessions') }}
+                    {{ __('Cerras todas las Sesiones') }}
                 </x-jet-button>
             </x-slot>
         </x-jet-dialog-modal>

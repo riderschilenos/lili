@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
+use Intervention\Image\Facades\Image;
+use Illuminate\support\Str;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
@@ -21,12 +23,29 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'photo' => ['nullable', 'image'],
         ])->validateWithBag('updateProfileInformation');
 
+        $nombre = Str::random(10).$input['photo']->getClientOriginalName();
+        $ruta = public_path().'/storage/profile-photos/'.$nombre;
+        Image::make($input['photo'])->orientate()
+                ->resize(600, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($ruta);
+                
+    
+        $user->forceFill([
+            'profile_photo_path'=>'profile-photos/'.$nombre
+                ])->save();
+
+                /*
         if (isset($input['photo'])) {
+
             $user->updateProfilePhoto($input['photo']);
-        }
+
+        }*/
+
 
         if ($input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {

@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 use Intervention\Image\Facades\Image;
 use Illuminate\support\Str;
+use Illuminate\Support\Facades\Cache;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
@@ -38,7 +39,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'profile_photo_path'=>'profile-photos/'.$nombre
                 ])->save();
-
+        Cache::flush();
                 /*
         if (isset($input['photo'])) {
 

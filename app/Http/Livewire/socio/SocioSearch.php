@@ -20,15 +20,15 @@ class SocioSearch extends Component
         $sociosfull = Socio::all();
 
         $socios = Socio::join('users','socios.user_id','=','users.id')
-                    ->select('socios.*','users.name','users.email','users.profile_photo_path')
+                    ->select('socios.*','users.*')
                     ->where('rut','LIKE','%'. $this->search .'%')
                     ->orwhere('email','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->orwhere('users.name','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
+                    ->orderBy('users.updated_at','ASC')
                     ->orderBy('users.profile_photo_path','DESC')
-                    ->orderByRaw("CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, users.profile_photo_path DESC")
-                    ->orderByDesc('socios.updated_at')
+                   
                     ->paginate(50);
 
         

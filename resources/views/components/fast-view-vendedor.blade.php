@@ -600,12 +600,12 @@
                                             </div>
                                         @else
                                             <a href="{{route('socio.create')}}">
-                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
                                             </a>
                                         @endif
                                     @else
                                         <a href="{{route('socio.create')}}">
-                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
                                         </a>
                                     @endif    
                                 
@@ -626,12 +626,12 @@
                                             </a>
                                         @else
                                             <a href="{{route('socio.create')}}">
-                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                                <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
                                             </a>
                                         @endif
                                     @else
                                         <a href="{{route('socio.create')}}">
-                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Obtener Suscripción</button>
+                                            <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
                                         </a>
                                     @endif    
                                 

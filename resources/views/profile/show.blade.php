@@ -1,4 +1,10 @@
 <x-app-layout>
+    <x-slot name="tl">
+            
+        <title>Información del Perfil</title>
+        
+        
+    </x-slot>
     <style>
         :root {
             --main-color: #4a76a8;

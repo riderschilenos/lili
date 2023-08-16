@@ -172,7 +172,7 @@ class PaymentController extends Controller
                 'user_id'=> $socio->user_id,
                 'transportista_id'=> 1,
                 'pedidoable_id'=> $socio->id,
-                'status'=> 5,
+                'status'=> 4,
                 'pedidoable_type'=> 'App\Models\Socio']);
             
             $orden= Orden::create([

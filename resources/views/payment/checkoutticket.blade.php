@@ -1,4 +1,10 @@
 <x-app-layout>  
+    <x-slot name="tl">
+            
+        <title>Checkout {{$evento->titulo}}</title>
+        
+        
+    </x-slot>
     @php
 
         // SDK de Mercado Pago

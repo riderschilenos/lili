@@ -26,10 +26,8 @@ class SocioSearch extends Component
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->orwhere('users.name','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
-                    ->orderByRaw("CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
-                    CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
-                    users.profile_photo_path DESC")
-                      ->orderByDesc('socios.updated_at')
+                    ->orderBy('users.profile_photo_path','DESC')
+                    ->inRandomOrder()
                     ->paginate(50);
 
         

@@ -26,6 +26,7 @@ class SocioSearch extends Component
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->orwhere('users.name','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
+                    ->orderBy('users.updated_at','ASC')
                     ->latest('socios.id')
                     ->paginate(50);
 

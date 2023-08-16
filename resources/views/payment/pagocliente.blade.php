@@ -15,9 +15,10 @@
            * devices would be an array of objects of type:
            * { id: "id", label: "label" }
            */
+           var isScanningActive = true;
+           
           if (devices && devices.length) {
               var cameraId = devices[0].id;
-              var isScanningActive = true;
               // .. use this to start scanning.
           }
           }).catch(err => {
@@ -35,12 +36,7 @@
                   // Redireccionar después de un escaneo exitoso
                   window.location.replace(decodedText);
               }
-              console.log(`Code matched = ${decodedText}`, decodedResult);
-              //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/caja-registradora%20dinero.mp3');
-              //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/scanner-beep-checkout.mp3');
-          
-              //audio.play();
-              window.location.replace(decodedText);
+             
               
             }
     

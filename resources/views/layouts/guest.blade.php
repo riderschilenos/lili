@@ -6,7 +6,14 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="facebook-domain-verification" content="et4ybouboiv1kxdkkqknc1zjtsz9qw" />
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        @isset($tl)
+
+            {{$tl}}
+            
+        @else
+            <title>{{ config('app.name', 'Laravel') }}</title>
+
+        @endisset
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

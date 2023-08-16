@@ -1,4 +1,10 @@
 <x-app-layout>
+    <x-slot name="tl">
+            
+        <title>Seguimiento Pedido N°{{$pedido->id}} </title>
+        
+        
+    </x-slot>
 
     <x-slot name="pedido">
         {{$pedido->id}}

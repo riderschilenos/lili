@@ -20,12 +20,13 @@ class SocioSearch extends Component
         $sociosfull = Socio::all();
 
         $socios = Socio::join('users','socios.user_id','=','users.id')
-                    ->select('socios.*','users.name','users.email')
+                    ->select('socios.*','users.name','users.email','users.profile_photo_path')
                     ->where('rut','LIKE','%'. $this->search .'%')
                     ->orwhere('email','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.name','LIKE','%'. $this->search .'%')
                     ->orwhere('users.name','LIKE','%'. $this->search .'%')
                     ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
+                    ->orderby('users.profile_photo_path','DESC')
                     ->latest('id')
                     ->paginate(50);
 

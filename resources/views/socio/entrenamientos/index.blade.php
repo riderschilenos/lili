@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="tl">
             
-        <title>{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}</title>
+        <title>Entrenamientos {{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}</title>
         
         
     </x-slot>

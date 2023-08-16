@@ -1,4 +1,4 @@
-<div>
+<div class="mb-8">
     @php
 
     $bicicletas=0;

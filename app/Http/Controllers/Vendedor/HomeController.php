@@ -47,7 +47,13 @@ class HomeController extends Controller
                     if(Cache::has('riders')){
             $riders = Cache::get('riders');
         }else{
-            $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
+           $riders = Socio::join('users','socios.user_id','=','users.id')
+            ->select('socios.*','users.name','users.email','users.updated_at')->where('status',1)
+            ->orwhere('status',2)
+            ->orderByRaw("CASE WHEN users.profile_photo_path IS NOT NULL THEN 0 ELSE 1 END, 
+            CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
+            CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
+            id DESC")->get()->take(4);
             Cache::put('riders',$riders);
          }
 
@@ -107,7 +113,13 @@ class HomeController extends Controller
         if(Cache::has('riders')){
             $riders = Cache::get('riders');
         }else{
-            $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
+           $riders = Socio::join('users','socios.user_id','=','users.id')
+            ->select('socios.*','users.name','users.email','users.updated_at')->where('status',1)
+            ->orwhere('status',2)
+            ->orderByRaw("CASE WHEN users.profile_photo_path IS NOT NULL THEN 0 ELSE 1 END, 
+            CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
+            CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
+            id DESC")->get()->take(4);
             Cache::put('riders',$riders);
          }
 
@@ -202,7 +214,13 @@ class HomeController extends Controller
         if(Cache::has('riders')){
             $riders = Cache::get('riders');
         }else{
-            $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
+           $riders = Socio::join('users','socios.user_id','=','users.id')
+            ->select('socios.*','users.name','users.email','users.updated_at')->where('status',1)
+            ->orwhere('status',2)
+            ->orderByRaw("CASE WHEN users.profile_photo_path IS NOT NULL THEN 0 ELSE 1 END, 
+            CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
+            CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
+            id DESC")->get()->take(4);
             Cache::put('riders',$riders);
          }
 
@@ -253,7 +271,13 @@ class HomeController extends Controller
         if(Cache::has('riders')){
             $riders = Cache::get('riders');
         }else{
-            $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
+           $riders = Socio::join('users','socios.user_id','=','users.id')
+            ->select('socios.*','users.name','users.email','users.updated_at')->where('status',1)
+            ->orwhere('status',2)
+            ->orderByRaw("CASE WHEN users.profile_photo_path IS NOT NULL THEN 0 ELSE 1 END, 
+            CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
+            CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
+            id DESC")->get()->take(4);
             Cache::put('riders',$riders);
          }
 

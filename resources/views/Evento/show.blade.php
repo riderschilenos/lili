@@ -8,6 +8,8 @@
     </x-slot>
 
     
+    <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
+   
        
         <section class="bg-white py-4 mb-8 ">
             <div class="container grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -480,5 +482,6 @@
 
         <h1 class="text-center text-xs text-gray-400 py-12">Todos Los derechos Reservados</h1>
         
-
+    </x-fast-view>
+    
 </x-evento-layout>

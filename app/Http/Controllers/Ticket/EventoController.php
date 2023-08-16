@@ -112,7 +112,48 @@ class EventoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Evento $evento)
-    {   $fechas= Fecha::where('evento_id',$evento->id)->paginate();
+    {   if(Cache::has('autos')){
+        $autos = Cache::get('autos');
+    }else{
+        $autos = Vehiculo::where('status',4)
+                        ->orwhere('status',5)
+                        ->orwhere('status',7)
+                        ->latest('id')->get()->take(3);
+        Cache::put('autos',$autos);
+    }
+
+    if(Cache::has('series')){
+        $series = Cache::get('series');
+    }else{
+        $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+        Cache::put('series',$series);
+    }
+
+
+    if(Cache::has('riders')){
+        $riders = Cache::get('riders');
+    }else{
+        $riders = Socio::where('status',1)->orwhere('status',2)->latest('id')->get()->take(4);
+        Cache::put('riders',$riders);
+    }
+
+    if(auth()->user())
+    {
+    if(auth()->user()->socio)
+    {
+    $socio2 = Socio::where('user_id',auth()->user()->id)->first();
+    }else{
+    $socio2=null;
+    }
+
+    }
+    else{
+    $socio2=null;
+    }
+
+    $disciplinas= Disciplina::pluck('name','id');
+    
+    $fechas= Fecha::where('evento_id',$evento->id)->paginate();
         
         $similares = Evento::where('disciplina_id',$evento->disciplina_id)
                             ->where('id','!=',$evento->id)
@@ -134,7 +175,7 @@ class EventoController extends Controller
         }        
           
         $fech = Fecha::where('evento_id',$evento->id)->first();
-        return view('Evento.show',compact('evento','fechas','similares','ticket','fech'));
+        return view('Evento.show',compact('evento','fechas','similares','ticket','fech','series','riders','autos','socio2','disciplinas'));
     }
 
     public function pistas()

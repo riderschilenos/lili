@@ -67,7 +67,7 @@
                 </div>
                
                 <div class="hidden sm:block">
-                    <div class="flex justify-end mr-4 ">
+                    <div class="flex justify-center mr-4 ">
 
                         
                             @if(auth()->user())

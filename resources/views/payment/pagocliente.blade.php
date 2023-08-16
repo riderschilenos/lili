@@ -10,19 +10,26 @@
         </div>
         <script>
           // This method will trigger user permissions
-         
+          Html5Qrcode.getCameras().then(devices => {
+          /**
+           * devices would be an array of objects of type:
+           * { id: "id", label: "label" }
+           */
+          if (devices && devices.length) {
+              var cameraId = devices[0].id;
+              // .. use this to start scanning.
+          }
+          }).catch(err => {
+          // handle err
+          });
     
     
           function onScanSuccess(decodedText, decodedResult) {
-              // Handle the scanned code as you like, for example:
-              html5QrcodeScanner.pause(shouldPauseVideo, showPausedBanner);
-              console.log(`Code matched = ${decodedText}`, decodedResult);
-              //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/caja-registradora%20dinero.mp3');
-              //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/scanner-beep-checkout.mp3');
-          
-              //audio.play();
-              window.location.replace(decodedText);
-              
+            if (isValidURL(decodedText)) {
+                window.location.href = decodedText;
+            } else {
+                console.log("El código QR no contiene un enlace válido:", decodedText);
+            }
             }
     
     

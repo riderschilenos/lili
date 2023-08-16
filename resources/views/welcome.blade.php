@@ -4,7 +4,6 @@
             
         <title>Portal Riders Chilenos</title>
         
-        
     </x-slot>
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">

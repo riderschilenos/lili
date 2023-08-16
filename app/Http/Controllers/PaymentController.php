@@ -161,7 +161,7 @@ class PaymentController extends Controller
             $sus = Suscripcion::create([
                 'suscripcionable_type'=>'App\Models\Socio',
                 'suscripcionable_id'=>$socio->id,
-                'precio'=>19990,
+                'precio'=>9990,
                 'end_date'=>date('Y-m-d', strtotime(Carbon::now()."+ 1 year"))
             ]);
 

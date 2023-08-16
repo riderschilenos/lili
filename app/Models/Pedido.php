@@ -9,7 +9,7 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id','status'];
+    protected $guarded = ['id'];
 
     const BORRADOR =1;
     const REVISION =2;

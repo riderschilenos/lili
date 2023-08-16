@@ -17,6 +17,7 @@
            */
           if (devices && devices.length) {
               var cameraId = devices[0].id;
+              var isScanningActive = true;
               // .. use this to start scanning.
           }
           }).catch(err => {
@@ -26,7 +27,14 @@
     
           function onScanSuccess(decodedText, decodedResult) {
               // Handle the scanned code as you like, for example:
-              html5QrcodeScanner.pause(shouldPauseVideo, showPausedBanner);
+              if (isScanningActive) {
+                  isScanningActive = false;  // Pausar la lectura
+
+                  // ... Tu código de manejo de escaneo ...
+
+                  // Redireccionar después de un escaneo exitoso
+                  window.location.replace(decodedText);
+              }
               console.log(`Code matched = ${decodedText}`, decodedResult);
               //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/caja-registradora%20dinero.mp3');
               //var audio = new Audio('http://www.sonidosmp3gratis.com/sounds/scanner-beep-checkout.mp3');

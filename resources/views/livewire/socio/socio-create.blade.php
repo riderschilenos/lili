@@ -12,7 +12,7 @@
                 $item = new MercadoPago\Item();
                 $item->title = 'Suscripción:';
                 $item->quantity = 1;
-                $item->unit_price = 4990;
+                $item->unit_price = 9990;
 
                 //...
                 if($socio){
@@ -198,7 +198,7 @@
                                         </div>
                                        
                                     </div>
-                                <p class="text-xl font-bold ml-auto">$4.990</p>
+                                <p class="text-xl font-bold ml-auto">$9.990</p>
                                 </article>
                                 
                                 <div class="cho-container flex justify-center mt-2 mb-4">

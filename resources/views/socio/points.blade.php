@@ -1,5 +1,12 @@
 <x-app-layout>
 
+    <x-slot name="tl">
+            
+        <title>Puntos {{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}</title>
+        
+        
+    </x-slot>
+
     @php
         $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     @endphp

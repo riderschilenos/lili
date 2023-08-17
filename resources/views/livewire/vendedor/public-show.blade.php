@@ -86,10 +86,10 @@
 
                             </div>
                             <div class="grid grid-cols-1 gap-y-2 align-bottom mr-4 md:mr-8">
-                                <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido%20de%20RidersChilenos;%20me%20podrias%20enviar%20el%20catalogo%20de%20{{str_replace(' ', '%20', $product->name)}}">
+                                <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido;%20me%20podrias%20enviar%20el%20catalogo%20de%20{{str_replace(' ', '%20', $product->name)}}">
                                     <button class="bg-red-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> COMPRAR</button>
                                 </a>
-                                <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido%20de%20RidersChilenos;%20me%20podrias%20enviar%20el%20catalogo%20de%20{{str_replace(' ', '%20', $product->name)}}">
+                                <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido;%20me%20podrias%20enviar%20el%20catalogo%20de%20{{str_replace(' ', '%20', $product->name)}}">
                                     <button class="bg-blue-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> Agregar al Carro</button>
                                 </a>
                             </div>

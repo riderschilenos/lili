@@ -18,7 +18,7 @@
 
     @endphp
 <div>
-    <h1 class="text-center font-bold text-2xl">¿Cuantas Motos y Bicicletas hay registradas en Chile?</h1>
+    <h1 class="text-center font-bold text-2xl">¿Cuantas Motos y Bicicletas Hay Registradas en Chile?</h1>
 </div>
 <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-x-4">
                 
@@ -57,8 +57,8 @@
         </div>
     </div>
 </div>
-<div class="max-w-7xl mx-auto sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 mt-8">
-    <article class="">
+<div class="hidden max-w-7xl mx-auto sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 mt-8">
+    <article class="hidden">
         <figure class="hidden sm:flex justify-center">
             <a href="{{route('socio.index')}}"><img class="md:mr-8 ml-8 object-contain object-center" width="460" src="{{asset('img/home/qrpubli2.png')}}" alt=""></a>
         </figure>
@@ -68,7 +68,7 @@
 
     
     </article>
-    <article>
+    <article class="hidden">
             <div>
 
                 <div>
@@ -144,7 +144,7 @@
    
 
 </div>
-<a class="flex justify-center sm:hidden" href="{{route('garage.vehiculo.create')}}">
+<a class="flex justify-center sm:hidden mt-4" href="{{route('garage.vehiculo.create')}}">
                     
     <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mr-4 mb-2" wire:click="resetFilters">
     
@@ -155,7 +155,7 @@
 
 
 <hr class="mt-2 mb-4">
-    <div class="px-6 py-2 mt-6">
+    <div class="px-6 mt-2">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre del dueño" autocomplete="off">
     </div>
     @if($vehiculos->count())

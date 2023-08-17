@@ -10,7 +10,7 @@ use App\Models\Vendedor;
 use Livewire\Component;
 
 class MoneyInfo extends Component
-{
+{   
     public function render()
     {   $pedidos=Pedido::where('status',4)
         ->orwhere('status',5)

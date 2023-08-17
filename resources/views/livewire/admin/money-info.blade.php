@@ -330,6 +330,9 @@
        // $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
         
     @endphp
+     @php
+        $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    @endphp
     <div class="mb-6">
         <a href="{{route('contabilidad')}}">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-y-4">
@@ -342,7 +345,7 @@
                         <h1 class="mx-1">${{number_format($totaldiapago)}}</h1>
                     </div>
                     <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
-                        <h1 class="text-center text-sm">Julio</h1>
+                        <h1 class="text-center text-sm">{{$meses[date('m', strtotime($now))-1]}}</h1>
                         <h1 class="mx-1">${{number_format($totalmespago)}}</h1>
                     </div>
                     <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">

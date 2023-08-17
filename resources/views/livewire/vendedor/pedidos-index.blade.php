@@ -140,7 +140,7 @@
         </div>
         <div class="grid grid-cols-3 gap-x-2 justify-center my-4 items-center">
             <div class="items-center mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-green-700 px-3 text-[#191D23]">
-                <h1 class="text-center text-sm">Venta 
+                <h1 class="text-center text-sm">Venta <br>
                     @if ($periodo=="mensual")
                     Activa
                     @else

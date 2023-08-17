@@ -138,7 +138,7 @@
 
             </div>
         </div>
-        <div class="grid grid-cols-3 gap-x-2 justify-center my-4 items-center">
+        <div class="md:hidden grid grid-cols-3 gap-x-2 justify-center my-4 items-center">
             <div class="items-center mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-green-700 px-3 text-[#191D23]">
                 <h1 class="text-center text-sm">Venta <br>
                     @if ($periodo=="mensual")
@@ -161,7 +161,7 @@
                 </div>
             </a>
         </div>
-        <div class="hidden max-w-5xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">     
+        <div class="hidden md:block max-w-5xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">     
             <div class="justify-between mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 
                 <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">

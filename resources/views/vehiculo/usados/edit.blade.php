@@ -1,5 +1,10 @@
 <x-app-layout>
-
+    <x-slot name="tl">
+                
+        <title>Vende tu Juguete Rider</title>
+        
+        
+    </x-slot>
     <div class="container py-8 ">
         
         <div class="card">

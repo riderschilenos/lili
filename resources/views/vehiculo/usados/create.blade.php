@@ -1,5 +1,10 @@
 <x-app-layout>
-
+    <x-slot name="tl">
+            
+        <title>Vende tu Juguete Rider</title>
+        
+        
+    </x-slot>
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
        
         <div class="container pb-8 pt-12 my-12">  

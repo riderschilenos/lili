@@ -163,14 +163,19 @@
                 @if(!is_null($marcas))
 
                 @if($selectedmarca)
-                <h1 class="text-center py-10 font-bold">CATALOGO DE LA MARCA {{$selectedmarca->name}}</h1>      
+                <h1 class="text-center py-10 font-bold">CATALOGO DE LA MARCA {{$selectedmarca->name}}</h1>
+                <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido;%20me%20podrias%20enviar%20el%20catalogo%20de%20Carcasas">
+                                     
                     @if ($selectedcategory->id==1)             
                         <img class="w-full object-cover object-center rounded-lg" src="{{Storage::url($selectedmarca->catalogocarcasas)}}" alt="">    
                     @endif
+                </a>
+                <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido;%20me%20podrias%20enviar%20el%20catalogo%20de">
+               
                     @if ($selectedcategory->id==2)             
                     <img class="w-full object-cover object-center rounded-lg" src="{{Storage::url($selectedmarca->catalogoaccesorios)}}" alt="">    
-                @endif
-
+                    @endif
+                </a>
 
                 @else
                     <h1 class="text-center mb-12"> Seleccione una marca </h1>

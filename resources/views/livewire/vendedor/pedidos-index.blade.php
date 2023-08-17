@@ -138,8 +138,8 @@
 
             </div>
         </div>
-        <div class="grid grid-cols-3 gap-x-2 justify-center my-4">
-            <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-green-700 px-3 text-[#191D23]">
+        <div class="grid grid-cols-3 gap-x-2 justify-center my-4 items-center">
+            <div class="items-center mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-green-700 px-3 text-[#191D23]">
                 <h1 class="text-center text-sm">Venta 
                     @if ($periodo=="mensual")
                     Activa
@@ -149,13 +149,13 @@
                 <h1 class="text-center mx-1">${{number_format($total)}}</h1>
             </div>
             <a href="{{route('vendedor.pedidos.prepay')}}">
-                <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                <div class="items-center mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
                     <h1 class="text-center text-sm">Pagar Pendientes</h1>
                     <h1 class="text-center mx-1">${{number_format($pendiente)}}</h1>
                 </div>
             </a>
             <a href="{{route('vendedor.pedidos.comisiones')}}">
-                <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
+                <div class="items-center mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
                     <h1 class="text-center text-sm">Retirar Comisiones</h1>
                     <h1 class="text-center mx-1">${{number_format($comisiones)}}</h1>
                 </div>

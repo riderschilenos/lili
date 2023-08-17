@@ -211,7 +211,7 @@
                                                 <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$20.000</div>
                                                 
                                                 </div>
-                                                <div><input class="mt-2 w-full rounded-lg border border-[#A0ABBB] p-2" value="$1.000" type="text" placeholder="$1.000" /></div>
+                                                <div><input class="mt-2 w-full rounded-lg border border-[#A0ABBB] p-2 hidden" value="$1.000" type="text" placeholder="$1.000" /></div>
                                                
                                             </div>
                                         
@@ -230,7 +230,7 @@
                                             </div>
                                         
                                             <div class="mt-2">
-                                                <div class="w-full cursor-pointer rounded-xl bg-blue-800 px-3 py-3 text-center font-semibold text-white">AUSPICIAR A {{Str::limit(strtoupper($socio->name),10)}}</div>
+                                                <div class="w-full cursor-pointer rounded-xl bg-blue-800 px-3 py-3 text-center font-semibold text-white hidden">AUSPICIAR A {{Str::limit(strtoupper($socio->name),10)}}</div>
                                             </div>
                                         </div>
 

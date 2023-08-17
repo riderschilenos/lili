@@ -229,7 +229,7 @@
                                                 
                                             </div>
                                         
-                                            <div class="mt-2">
+                                            <div class="mt-2 hidden">
                                                 <div class="w-full cursor-pointer rounded-xl bg-blue-800 px-3 py-3 text-center font-semibold text-white hidden">AUSPICIAR A {{Str::limit(strtoupper($socio->name),10)}}</div>
                                             </div>
                                         </div>

@@ -28,7 +28,7 @@
                             <p>Socio RidersChilenos</p>
                         </div> --}}
                         @if(!is_null($socio->direccion))
-                        <div class="flex  text-sm justify-between px-2">
+                        <div class="hidden flex  text-sm justify-between px-2">
                             
                                 <div class="px-2 py-2 text-red-500 font-semibold">
                                     <a href="{{route('socio.show', $socio)}}">

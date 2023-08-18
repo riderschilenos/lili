@@ -21,7 +21,7 @@
 
                     <div class="px-2 flex flex-1 flex-col">
                         <a href= "{{route('socio.show', $socio)}}">
-                        <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($socio->name,16)}}</h3>
+                        <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($socio->name,10)}}</h3>
                         </a>
                         
                         {{-- <div class="text-center text-gray-400 text-xs font-semibold ">

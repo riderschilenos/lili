@@ -75,7 +75,7 @@
                                                     <div class="flex">
                                                         <div class="">
                                                             <div class="image overflow-hidden">
-                                                                <img class="h-auto w-44 mx-auto object-cover"
+                                                                <img class="h-44 w-42 object-cover"
                                                                     src="{{ $socio2->user->profile_photo_url }}"
                                                                     alt="">
                                                             </div>
@@ -218,7 +218,7 @@
                                                         @if($car->status==5 || $car->status==6)
                                                         <div class="text-center my-2">
                                                             <a href="{{route('garage.vehiculo.show', $car)}}" class="text-main-color">
-                                                                <img class="h-28 w-40 mx-auto"
+                                                                <img class="h-44 w-42 object-cover"
                                                                 src="{{Storage::url($car->image->first()->url)}}"
                                                                 alt="">
                                                                 <a href="{{route('garage.vehiculo.show', $car)}}">

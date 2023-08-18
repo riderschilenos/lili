@@ -690,7 +690,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 pt-64 pb-8">
                 
                     <h1 class="text-white font-fold text-4xl text-center">RidersChilenos</h1>
-                    <p class="text-white text-lg mt-2 mb-4 text-center">Bienvenido al Portal Rider Más Grande del País </p>
+                    <p class="text-white text-lg mt-2 mb-4 text-center">Bienvenidos al Portal Rider Más Grande del País </p>
                         <!-- component -->
                         <!-- This is an example component -->
                 
@@ -802,7 +802,7 @@
                                      <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="">
                             </div>
                             <h1 class="text-center my-2 font-bold">¡Hola!</h1>
-                            <h1 class="text-center my-2 font-bold">Bienvenido a Riders Chilenos</h1>
+                            <h1 class="text-center my-2 font-bold">Bienvenidos a Riders Chilenos</h1>
                             <h1 class="text-center my-2 text-md">Ingresa a tu Perfil Online</h1>
 
                             <div class="flex justify-center mt-2 ">

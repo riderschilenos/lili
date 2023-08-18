@@ -89,10 +89,11 @@
     
                     <div class="text-white">
                         <h1 class="text-4xl">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
-                        @if($vehiculo->ubicacion)
-                            <h2 class="text xl mb-3">Ubicación: {{$vehiculo->ubicacion}}</h2>
-                        @endif
-                       
+                        @can('Super admin')
+                            @if($vehiculo->ubicacion)
+                                <h2 class="text xl mb-3">Ubicación: {{$vehiculo->ubicacion}}</h2>
+                            @endif
+                        @endcan
                         {{-- comment
                         
                         <p class="mb-2"><i class="fas fa-wrench"></i> <b>3</b> Mantenciones registradas</p>
@@ -262,19 +263,21 @@
                             <div class="text-gray-700">
                                 <div class="grid md:grid-cols-1 text-sm">
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Ubicación:</div>
-                                            @if($vehiculo->user->socio)
-                                                @if ($vehiculo->user->socio->direccion)
-                                                <div class="px-4 py-2">{{$vehiculo->user->socio->direccion->comuna}}, {{$vehiculo->user->socio->direccion->region}}</div>
+                                        @can('Super admin')
+                                            <div class="px-4 py-2 font-semibold">Ubicación:</div>
+                                                @if($vehiculo->user->socio)
+                                                    @if ($vehiculo->user->socio->direccion)
+                                                    <div class="px-4 py-2">{{$vehiculo->user->socio->direccion->comuna}}, {{$vehiculo->user->socio->direccion->region}}</div>
+                                                    @else
+                                                    <div class="px-4 py-2">{{ $vehiculo->ubicacion }}</div>
+                                                    @endif
+                                                    
                                                 @else
-                                                <div class="px-4 py-2">{{ $vehiculo->ubicacion }}</div>
+                                                    <div class="px-4 py-2">{{ $vehiculo->ubicacion }}</div>
                                                 @endif
-                                                
-                                            @else
-                                                <div class="px-4 py-2">{{ $vehiculo->ubicacion }}</div>
-                                            @endif
-                                        
-                                    </div>
+                                            
+                                            </div>
+                                        @endcan
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Fono:</div>
                                             @if($vehiculo->user->socio)

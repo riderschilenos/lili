@@ -495,7 +495,7 @@
 
         </section>
         
-        <section class="mt-16 bg-gray-700 py-12">
+        <section class="mt-16 bg-gray-700 py-6">
            
             <h1 class="text-center text-white text-3xl">Ultimos Riders Registrados</h1>
             <p class="text-center text-white pb-4">Unete a la comunidad rider más grande del país</p>

@@ -99,13 +99,12 @@
                         </div>
                     </div>
                     <!-- End of Navbar -->
-            
                     <div class="max-w-7xl mx-auto mb-5">
-                        <div class="md:flex no-wrap md:-mx-2 ">
+                        <div class="md:flex no-wrap md:-mx-2">
                             <!-- Left Side -->
                             <div class="w-full md:w-3/12 md:mx-2"  x-data="{open: true}">
                                 <!-- Profile Card -->
-                                            @switch($socio2->status)
+                                    @switch($socio2->status)
                                                             @case(1)
                                                             <div class="bg-white p-3 border-t-4 border-green-500">
                                                                 @break
@@ -114,150 +113,236 @@
                                                                 @break
                                                             @default
                                                                 
-                                            @endswitch
-                                            <div class="flex items-center space-x-2 mb-2 font-semibold text-gray-900 leading-8 justify-between">
-                                                    <div class="flex items-center">
-                                                        <span clas="text-green-500">
-                                                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                                stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                                            </svg>
-                                                        </span>
-                                                            <p class="ml-2 tracking-wide">{{ $socio2->name." ".$socio2->second_name }} {{ $socio2->last_name }} </p>
-                                                            
+                                    @endswitch
+                                <div class="flex items-center space-x-2 mb-2 font-semibold text-gray-900 leading-8 justify-between">
+                                        <div class="flex items-center">
+                                            <span clas="text-green-500">
+                                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                </svg>
+                                            </span>
+                                            <div class="flex"> 
+                                            <p class="ml-2 tracking-wide">{{ $socio2->name." ".$socio2->second_name }} {{ $socio2->last_name }} </p>
+                                                @if ($socio2->status==1) 
+                                                    <div class="star-icon z-10 my-auto ml-2"> <!-- Contenedor de la estrella con z-index -->
+                                                        <i class="fa fa-star text-yellow-400 text-xl my-auto items-center"></i> <!-- Estrella usando Font Awesome (ajusta el tamaño y el color según necesites) -->
                                                     </div>
-                                                        @can('perfil_propio', $socio2)
-                
-                                                        
-                                                            <a href="{{route('socio.edit',$socio2)}}" class="ml-2"><h5 class="text-blue-600 font-bold text-sm cursor-pointer ml-4">(Editar)</h5></a>
-                                                        
-                                                        @endcan
-                                                        
-                                                   
+                                                @endif
                                             </div>
-                                
-                                                    <div class="flex">
-                                                        <div class="">
-                                                            <div class="image overflow-hidden">
-                                                                <img class="h-auto w-44 mx-auto object-cover"
-                                                                    src="{{ $socio2->user->profile_photo_url }}"
-                                                                    alt="">
-                                                            </div>
-                                                            @can('perfil_propio', $socio2)
-                                                                <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
-                                                            @endcan
-                                                        </div>
-                                                        <div class="col-spam-3 px-4 w-full">
-                                                            <a href="{{route('socio.show', $socio2)}}">
-                                                                <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1">{{ '@'.$socio2->slug }}</h1>
-                                                            </a>  
-                                                            <div class="flex content-center">
-                                                                <div class="px-2 py-2 text-red-500 font-semibold content-center">
-                                                                    <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>
-                                                                </div>
-                                                                <div class="px-2 py-2 text-sm">{{date('d-m-Y', strtotime($socio2->born_date))}}</div>
-                                                            </div>
-                                                          
-                                                                <div class="flex">
-                                                                    @if($socio2->direccion)
-                                                                        <div class="px-2 py-2 text-red-500 font-semibold">
-                                                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                                        </div>                  
-                                                                        
-                                                                        <div class="px-2 py-2">{{Str::limit($socio2->direccion->comuna.', '.$socio2->direccion->region,20)}}</div>
-                                                                    @endif
-                                                                </div>
-                                                                <div class="text-gray-700">
-                                           
-                                        
-                                                                    <button x-on:click="open=false" x-show="open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Información de Contácto</button>
-                                                                    <button x-on:click="open=true" x-show="!open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Resume</button>
-                                                               </div>
-                                                                @if($socio2->user->vendedor) 
-                                                                    @if($socio2->user->vendedor->estado==2) 
-                                                                        @if($socio2->fono) 
-                                                                            <div >
-                                                                                <a href="{{route('socio.store.show', $socio2)}}">
-                                                                                    <button class="bg-red-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:shadow-outline focus:bg-red-500 hover:shadow-xs p-3 my-4">TIENDA ONLINE</button>
-                                                                                </a>
-                                                                            </div>
-                                                                        @endif
-                                                                    @endif
-                                                                @endif
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="grid md:grid-cols-2 text-sm">
                                             
-                                                
-                                                        <div x-show="!open">
-                                                            @if($socio2->fono)
-                                                                <div class="grid grid-cols-2">
-                                                                    <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
-                                                                    <div class="px-4 py-2">{{ $socio2->fono }}</div>
-                                                                </div>
-                                                            @endif
-                                                            
-                                                            <div class="grid grid-cols-2">
-                                                                <div class="px-4 py-2 font-semibold">Email.</div>
-                                                                <div class="px-4 py-2">
-                                                                    <a class="text-blue-800" href="mailto:jane@example.com">{{$socio2->user->email}}</a>
-                                                                </div>
-                                                            </div>
+                                        </div>
+                                            @can('perfil_propio', $socio2)
+
+                                            
+                                                <a href="{{route('socio.edit',$socio2)}}" class="ml-2"><h5 class="text-blue-600 font-bold text-sm cursor-pointer ml-4">(Editar)</h5></a>
+                                            @else
+
+                                                @can('Super admin')
+                                    
+                                
+                                                    <div class="flex justify-center mb-3">
+                                                        <a href="{{route('socio.points', $socio2)}}">
+                                                            <span class="bg-red-500 py-1 px-2 rounded text-white text-sm text-center flex">
+                                                                @livewire('socio.point-count', ['socio' => $socio2]) Pts
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                @endcan
+
+                                            @endcan
+                                            
+                                    
+                                </div>
+
+                                    <div class="flex">
+                                        <div class="content-center items-center">
+                                            <div class="image overflow-hidden">
+                                                @if (str_contains($socio2->user->profile_photo_url,'https://ui-'))
+                                                    <img class="h-44 w-40 mx-auto object-cover"
+                                                    src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
+                                                    alt="">
+                                                @else
+                                                    <img class="h-44 w-42 object-cover"
+                                                    src="{{ $socio2->user->profile_photo_url }}"
+                                                    alt="">
                     
+                                                @endif
+                                            
+                                            </div>
+                                            @can('perfil_propio', $socio2)
+                                                <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
+                                            @endcan
+                                        </div>
+                                        <div class="col-spam-3 px-4 w-full">
+                                            <a href="{{route('socio.show', $socio2)}}">
+                                                <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1">{{ '@'.$socio2->slug }}</h1>
+                                            </a>  
+                                            <div class="flex content-center">
+                                                <div class="px-2 py-2 text-red-500 font-semibold content-center">
+                                                    <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="px-2 py-2 text-sm">{{date('d-m-Y', strtotime($socio2->born_date))}}</div>
+                                            </div>
+                                        
+                                            <div class="flex items-center content-center">
+                                                        @if($socio2->direccion)
+                                                            <div class="px-2 py-2 text-red-500 font-semibold content-center">
+                                                            <i class="fa fa-map-marker my-auto py-auto" aria-hidden="true"></i>
                                                         </div>
-                                                    </div>
-                                                          
-                                                            @livewire('socio.socio-auspiciadores',['socio' => $socio2], key('socio-auspiciadores.'.$socio2->slug))
-                                                            <ul
-                                                                class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm hidden">
-                                                                <li class="flex items-center py-3">
-                                                                    <span>Suscripción</span>
-                                                                        @switch($socio2->status)
-                                                                                @case(1)
-                                                                                    <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
-                                                                                    @break
-                                                                                @case(2)
-                                                                                    <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
-                                                                                    @break
-                                                                                @default
-                                                                                    
-                                                                        @endswitch
-                                                                        
-                                                                </li>
-                                                                {{-- comment
-                                                                @if($socio->suscripcions)
-                                                                    @if($socio->suscripcions->count())
-                                                                    
-                                                                        <li class="flex items-center py-3">
-                                                                            <span>Fecha Vencimiento</span>
-                                                                            <span class="ml-auto">{{date('d', strtotime($socio->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
-                                                                        </li>
-                                                                    @endif
-                                                                @endif --}}
-                                                            </ul>
-                                                    </div>
                                                         
+                                                            <div class="px-2 py-2">{{Str::limit($socio2->direccion->comuna.', '.$socio2->direccion->region,20)}}</div>
+                                                        @endif
+                                            </div>
+
+                                            <div class="text-gray-700">
+                                            
+                                            
+                                                <button x-on:click="open=false" x-show="open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Información de Contácto</button>
+                                                <button x-on:click="open=true" x-show="!open" class="bg-gray-100 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Resume</button>
+                                            </div>
+
+                                                @if($socio2->user->vendedor) 
+                                                    @if($socio2->user->vendedor->estado==2) 
+                                                        @if($socio2->fono) 
+                                                            <div >
+                                                                <a href="{{route('socio.store.show', $socio2)}}">
+                                                                    <button class="bg-red-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:shadow-outline focus:bg-red-500 hover:shadow-xs p-3 my-4">TIENDA ONLINE</button>
+                                                                </a>
+                                                            </div>
+                                                        @endif
+                                                    @endif
+                                                @endif
+                                        
+
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="grid md:grid-cols-2 text-sm">
+                                                
+                                                    
+                                        <div x-show="!open">
+                                            @if($socio2->fono)
+                                                <div class="grid grid-cols-2">
+                                                    <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
+                                                    
+                                                    @can('Ver dashboard')
+                                                        <a  href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio2->fono), -8)}}&text=Hola" target="_blank">
+                                                            <div class="px-4 py-2">{{ $socio2->fono }}</div>
+                                                        </a> 
+                                                    @endcan
+                                                    
+
+                                                </div>
+                                            @endif
+                                            
+                                            <div class="grid grid-cols-2">
+                                                <div class="px-4 py-2 font-semibold">Email.</div>
+                                                <div class="px-4 py-2">
+                                                    <a class="text-blue-800" href="mailto:jane@example.com">{{$socio2->user->email}}</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    
+                                    
+                                
+                                        @livewire('socio.socio-auspiciadores',['socio' => $socio2], key('socio-auspiciadores.'.$socio2->slug))
+
+                                        @can('Super admin')
+                                            
+                                        
+                                            <div class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded-lg shadow-sm ">
+                                                <div class="mt-2">
+                                                    <div class="font-semibold text-center text-sm mb-2">¡¡ AUSPICIA A {{Str::limit(strtoupper($socio2->name),10)}} AHORA !!</div>
+                                                    <p class="text-center text-xs mb-2">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
+                                            
+                                                    <div class="flex justify-between text-sm">
+                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>
+                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-green-700 p-3 text-[#191D23]">$5.000</div>
+                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$10.000</div>
+                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$20.000</div>
+                                                    
+                                                    </div>
+                                                    <div><input class="mt-2 w-full rounded-lg border border-[#A0ABBB] p-2 hidden" value="$1.000" type="text" placeholder="$1.000" /></div>
+                                                
+                                                </div>
+                                            
+                                                <div class="mt-6 hidden">
+                                                    <div class="flex justify-between">
+                                                    <span class="font-semibold text-[#191D23]">Receiving</span>
+                                                    <div class="flex cursor-pointer items-center gap-x-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                        </svg>
+                                                        <div class="font-semibold text-green-700">Add recipient</div>
+                                                    </div>
+                                                    </div>
+                                            
+                                                    
+                                                </div>
+                                            
+                                                <div class="mt-2 hidden">
+                                                    <div class="w-full cursor-pointer rounded-xl bg-blue-800 px-3 py-3 text-center font-semibold text-white hidden">AUSPICIAR A {{Str::limit(strtoupper($socio2->name),10)}}</div>
+                                                </div>
+                                            </div>
+
+                                        @endcan
+                                        <ul
+                                            class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm hidden">
+                                            <li class="flex items-center py-3">
+                                                <span>Suscripción</span>
+                                                    @switch($socio2->status)
+                                                            @case(1)
+                                                                <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Vigente</span></span>
+                                                                @break
+                                                            @case(2)
+                                                                <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">INACTIVO</span></span>
+                                                                @break
+                                                            @default
+                                                                
+                                                    @endswitch
+                                                    
+                                            </li>
+                                            {{-- comment
+                                            @if($socio->suscripcions)
+                                                @if($socio->suscripcions->count())
+                                                
+                                                    <li class="flex items-center py-3">
+                                                        <span>Fecha Vencimiento</span>
+                                                        <span class="ml-auto">{{date('d', strtotime($socio->suscripcions->first()->end_date)).' de '.$meses[date('n', strtotime($socio->suscripcions->first()->end_date))-1].' del '.date('Y', strtotime($socio->suscripcions->first()->end_date))}}</span>
+                                                    </li>
+                                                @endif
+                                            @endif --}}
+                                        </ul>
+                                
+                                    
+                            </div>
                                 <!-- End of profile card -->
                                 <div class="my-4"></div>
-                            
+                                <!-- Friends card -->
                                 
                                 <!-- End of friends card -->
                             </div>
                             <!-- Right Side -->
-                            <div class="w-full md:w-9/12 mx-0 sm:mx-2 h-64">
+                            <div class="w-full md:w-9/12 mx-0 sm:mx-2">
                                 <!-- Profile tab -->
                                 <!-- About Section -->
-                              
-    
+                            
+
                                 <!-- End of about section -->
-    
-                               
-    
+
+                            
+
                                 <!-- garage and movie -->
                                 <div class="bg-white shadow-sm rounded-sm">
-    
+
                                     <div class="grid grid-cols-1 sm:grid-cols-1">
                                         <div class="bg-white p-3 hover:shadow">
                                             <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8">
@@ -268,7 +353,7 @@
                                                     </span>
                                                     <span>Garage</span>
                                                 </div>
-    
+
                                                 <div>
                                                                 @can('perfil_propio', $socio2)
                                                                 <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Inscribir Vehiculo)</span></a>
@@ -278,7 +363,7 @@
                                             </div>
                                             
                                             <div class="grid grid-cols-2  md:grid-cols-4 gap-1 mt-4 "> 
-    
+
                                                 @if ($socio2->user->vehiculos)
                                                     
                                                 
@@ -286,7 +371,7 @@
                                                         @if($vehiculo->status==5 || $vehiculo->status==6)
                                                             <div class="text-center p-2 m-2 bg-main-color rounded-xl">
                                                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
-                                                                    <img class="h-24 mx-auto" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                                                    <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                                                     <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                                                         <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name}}<br>{{strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
                                                                     </a>
@@ -294,7 +379,7 @@
                                                             </div>
                                                         @endif
                                                     @endforeach
-    
+
                                                 @endif
                                                 {{-- comment 
                                                 
@@ -333,12 +418,14 @@
                                                     <span class="text-blue-600 font-bold text-sm align-middle"> (Pronto)</span>
                                                 </div>   
                                             </div>
+
+                                            <!-- This is an example component -->
                                             @can('Super admin')
-                                                <!-- This is an example component -->
-                                                @livewire('socio.curriculum-deportivo',['socio' => $socio2], key('curriculum-deportivo'.$socio2->slug))
+                                                
+                                            @livewire('socio.curriculum-deportivo',['socio' => $socio2], key('curriculum-deportivo'.$socio2->slug))
 
+                                    
                                             @endcan
-
                                             <div class="grid grid-cols-4 gap-4 hidden">
                                             
                                                 @if ($socio2->user->serie_enrolled)
@@ -353,9 +440,9 @@
                                                             </a>
                                                         </div>
                                                     @endforeach
-    
+
                                                 @endif
-                                                                       
+                                                                    
                                             </div>
                                         </div>
                                         <div class="bg-white p-3 hover:shadow">
@@ -382,7 +469,7 @@
                                                             </a>
                                                         </div>
                                                     @endforeach
-    
+
                                                 @endif
                                                     {{-- 
                                                         <div class="text-center my-2">
@@ -408,15 +495,15 @@
                                             </div>
                                         </div>
                                         
-    
+
                                     </div>
                                     <!-- End of Experience and education grid -->
                                 </div>
-    
+
                                 <div class="my-4">
                                 
                                 <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
-    
+
                                     <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
                                     
                                         <div class="bg-white p-3 hover:shadow">
@@ -480,8 +567,8 @@
                                             </ul>
                                         
                                         </div>
-    
-    
+
+
                                         {{-- commen
                                                 <div>
                                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
@@ -511,10 +598,11 @@
                                     </div>
                                     
                                 </div> 
-    
+
                                 </div>
                                 
                             </div>
+                            
                         </div>
                     </div>
                 </div>

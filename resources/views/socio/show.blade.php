@@ -112,7 +112,7 @@
                                                 src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
                                                 alt="">
                                             @else
-                                                <img class="h-44 w-42 object-cover"
+                                                <img class="h-44 w-42 object-contain"
                                                 src="{{ $socio->user->profile_photo_url }}"
                                                 alt="">
                 

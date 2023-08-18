@@ -108,11 +108,11 @@
                                     <div class="content-center items-center">
                                         <div class="image overflow-hidden">
                                             @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
-                                                <img class="h-auto w-44 mx-auto object-cover"
+                                                <img class="h-44 w-40 mx-auto object-cover"
                                                 src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
                                                 alt="">
                                             @else
-                                                <img class="h-auto w-44 mx-auto object-cover"
+                                                <img class="h-44 w-42 object-cover"
                                                 src="{{ $socio->user->profile_photo_url }}"
                                                 alt="">
                 

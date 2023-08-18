@@ -7,11 +7,7 @@
 
                     <div class="photo-wrapper flex justify-center">
                         <a href= "{{route('socio.show', $socio)}}">
-                            @if ($socio->status==1)
-                                <div class="star-icon flex justify-end z-10"> <!-- Contenedor de la estrella con z-index -->
-                                    <i class="fa absolute mt-1 mr-1 p-1 fa-star text-yellow-400 text-xl"></i> <!-- Estrella usando Font Awesome (ajusta el tamaño y el color según necesites) -->
-                                </div>
-                            @endif
+                            
                             @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
                                 <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{$socio->name}}">
                                 
@@ -26,7 +22,23 @@
 
                     <div class="px-2 flex flex-1 flex-col">
                         <a href= "{{route('socio.show', $socio)}}">
-                        <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($socio->name,13)}}</h3>
+                            @if ($socio->status==1) 
+                                <div class="flex justify-between mx-2">
+                                    <div>
+                                        <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($socio->name,13)}}  </h3>
+                                    </div>
+                                    
+                                    <div class="star-icon z-10 my-auto"> <!-- Contenedor de la estrella con z-index -->
+                                        <i class="fa fa-star text-yellow-400 text-xl my-auto items-center"></i> <!-- Estrella usando Font Awesome (ajusta el tamaño y el color según necesites) -->
+                                    </div>
+                                    
+                                </div>
+
+                            @else
+                                <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($socio->name,13)}}  </h3>
+                                    
+                            @endif
+                   
                         </a>
                         
                         {{-- <div class="text-center text-gray-400 text-xs font-semibold ">
@@ -58,9 +70,10 @@
                         </a>
                         <a href="{{route('socio.show', $socio)}}">
                             <div class="flex justify-center mb-3">
+                               
                                 @switch($socio->status)
                                     @case(1)
-                                        <span class="mx-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span></span>
+                                        <span class="mx-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}} </span></span>
                                         @break
                                     @case(2)
                                         <span class="mx-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span></span>

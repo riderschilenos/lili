@@ -18,7 +18,7 @@
 
     @endphp
 <div>
-    <h1 class="text-center font-bold text-2xl">¿Cuantas Motos y Bicicletas Hay Registradas en Chile?</h1>
+    <h1 class="text-center font-bold text-2xl">¿Cuántas Motos y Bicicletas Hay Registradas en Chile?</h1>
 </div>
 <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-x-4">
                 

@@ -71,7 +71,14 @@
                                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                             </svg>
                                         </span>
+                                        <div class="flex"> 
                                         <p class="ml-2 tracking-wide">{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }} </p>
+                                            @if ($socio->status==1) 
+                                                <div class="star-icon z-10 my-auto ml-2"> <!-- Contenedor de la estrella con z-index -->
+                                                    <i class="fa fa-star text-yellow-400 text-xl my-auto items-center"></i> <!-- Estrella usando Font Awesome (ajusta el tamaño y el color según necesites) -->
+                                                </div>
+                                            @endif
+                                        </div>
                                         
                                     </div>
                                         @can('perfil_propio', $socio)

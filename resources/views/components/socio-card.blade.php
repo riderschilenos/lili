@@ -29,7 +29,7 @@
                             @if ($socio->status==1) 
                                 <div class="flex justify-between mx-2">
                                     <div>
-                                        <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($socio->name,13)}}  </h3>
+                                        <h3 class="text-center cursor-pointer text-md font-bold text-gray-900 leading-8">{{strtoupper(Str::limit($socio->name,13))}}  </h3>
                                     </div>
                                     
                                     <div class="star-icon z-10 my-auto"> <!-- Contenedor de la estrella con z-index -->
@@ -39,7 +39,7 @@
                                 </div>
 
                             @else
-                                <h3 class="text-center cursor-pointer text-lg font-bold text-gray-900 leading-8">{{Str::limit($socio->name,13)}}  </h3>
+                                <h3 class="text-center cursor-pointer text-md font-bold text-gray-900 leading-8">{{strtoupper(Str::limit($socio->name,13))}}  </h3>
                                     
                             @endif
                    

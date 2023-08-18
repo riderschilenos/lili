@@ -7,12 +7,11 @@
 
                     <div class="photo-wrapper flex justify-center">
                         <a href= "{{route('socio.show', $socio)}}">
-                            @if ($socio->status==1)
+                           
                                 <div class="flex justify-end z-10"> <!-- Contenedor de la estrella con z-index -->
            
                                     <span class="bg-red-500 absolute mt-1 p-1 rounded text-white text-xs">{{$socio->disciplina->name}}</span> <!-- Estrella usando Font Awesome (ajusta el tamaño y el color según necesites) -->
                                 </div>
-                            @endif
                             @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
                                 <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{$socio->name}}">
                                 

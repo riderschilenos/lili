@@ -44,7 +44,7 @@ Route::get('database', [VehiculoController::class,'registerindex'])->name('vehic
 
 Route::get('{vehiculo}', [VehiculoController::class,'show'])->name('vehiculo.show');
 
-Route::get('link/to/{qrregister}', [VehiculoController::class,'show'])->name('vehiculo.show');
+Route::get('link/to/{qrregister}', [VehiculoController::class,'show'])->name('qr.show');
 
 
 Route::post('vehiculo/store', [VehiculoController::class,'store'])->name('vehiculo.store');

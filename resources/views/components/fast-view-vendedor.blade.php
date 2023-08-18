@@ -495,7 +495,7 @@
 
         </section>
         
-        <section class="mt-16 bg-gray-700 py-6">
+        <section class="mt-16 bg-gray-700 pt-6">
            
             <h1 class="text-center text-white text-3xl">Ultimos Riders Registrados</h1>
             <p class="text-center text-white pb-4">Unete a la comunidad rider más grande del país</p>
@@ -511,7 +511,7 @@
 
             </div>
 
-            <div class="flex justify-center mt-2 pt-4">
+            <div class="flex justify-center mt-2">
                 <a href="{{route('socio.create')}}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
                     REGISTRARME AHORA
                 </a>

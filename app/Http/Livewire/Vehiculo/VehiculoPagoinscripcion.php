@@ -19,7 +19,7 @@ class VehiculoPagoinscripcion extends Component
     }
 
     public function render()
-    {   $qr=Qrregister::where('slug', $this->vehiculo->slug)->first();
+    {   $qr=Qrregister::where('vehiculo_slug', $this->vehiculo->slug)->first();
 
         return view('livewire.vehiculo.vehiculo-pagoinscripcion',compact('qr'));
     }

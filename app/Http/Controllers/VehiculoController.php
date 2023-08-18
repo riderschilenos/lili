@@ -373,7 +373,7 @@ class VehiculoController extends Controller
 
        $disciplinas= Disciplina::pluck('name','id');
 
-        $qr=Qrregister::where('slug', $vehiculo->slug)->first();
+        $qr=Qrregister::where('vehiculo_slug', $vehiculo->slug)->first();
 
         return view('vehiculo.garage.show',compact('vehiculo','qr','socio2','disciplinas','riders','series','autos'));
     }
@@ -603,7 +603,7 @@ class VehiculoController extends Controller
                     return redirect()->route('garage.inscripcion',$vehiculo)->with('info','El codigo QR ya esta en uso.');
                 }
                 $vehiculo->status=6;
-                $vehiculo->slug=$qr->slug;
+                $qr->vehiculo_slug=$vehiculo->slug;
                 if($qr->value==5000){
                     $vehiculo->insc=2;
                 }else{
@@ -611,6 +611,7 @@ class VehiculoController extends Controller
                 }
 
                 $vehiculo->save();
+                $qr->save();
                 Cache::flush();
 
                 return redirect()->route('garage.inscripcion',$vehiculo);

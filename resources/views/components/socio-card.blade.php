@@ -7,7 +7,7 @@
 
                     <div class="photo-wrapper flex justify-center">
                         <a href= "{{route('socio.show', $socio)}}">
-                            @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
+                            @if ($socio->user->profile_photo_path)
                                 <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{$socio->name}}">
                                 
                             @else

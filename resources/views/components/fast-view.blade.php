@@ -911,7 +911,7 @@
 
             <div class="flex justify-center mt-4 pt-4">
                 <a href="{{route('socio.create')}}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
-                    REGISTRARME AHORA
+                    Crear Perfil
                 </a>
             </div>
             <div class="flex justify-center mt-2 pt-2">

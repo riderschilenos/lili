@@ -42,9 +42,9 @@ Route::get('misvehiculos', [VehiculoController::class,'personalindex'])->middlew
 Route::get('database', [VehiculoController::class,'registerindex'])->name('vehiculos.registerindex');
 
 
-Route::get('{vehiculo}/show', [VehiculoController::class,'show'])->name('vehiculo.show');
+Route::get('{vehiculo}', [VehiculoController::class,'show'])->name('vehiculo.show');
 
-Route::get('{slug}', [VehiculoController::class,'qrlink'])->name('qr.show');
+Route::get('{qrregister}', [VehiculoController::class,'qrlink'])->name('qr.show');
 
 Route::post('vehiculo/store', [VehiculoController::class,'store'])->name('vehiculo.store');
 

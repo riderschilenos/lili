@@ -379,9 +379,10 @@ class VehiculoController extends Controller
     }
 
     public function qrlink(Qrregister $qr){
+
         $vehiculo=Vehiculo::where('slug',$qr->vehiculo_slug)->first();
-        
         return redirect()->route('garage.vehiculo.show',$vehiculo);
+        
      }
 
     public function store(Request $request)

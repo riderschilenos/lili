@@ -9,6 +9,8 @@ class Qrregister extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     const BORRADOR =1;
     const DISEÑADO =2;
     const IMPRESO =3;

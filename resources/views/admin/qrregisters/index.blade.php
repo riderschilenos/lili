@@ -57,10 +57,10 @@
                             </td>
                             <td>
                                  @if($qrregister->active_date==NULL)
-                                 {{'https://riderschilenos.cl/link/to/'.$qrregister->slug}}
+                                    {{'https://riderschilenos.cl/garage/'.$qrregister->slug}}
                                 @else
                             
-                                    <a href="{{'https://riderschilenos.cl/link/to/'.$qrregister->slug}}" target="_blank">{{'https://riderschilenos.cl/garage/'.$qrregister->slug}}</a>
+                                    <a href="{{'https://riderschilenos.cl/garage/'.$qrregister->slug}}" target="_blank">{{'https://riderschilenos.cl/garage/'.$qrregister->slug.'/show'}}</a>
                                 @endif
                                 
                             </td>

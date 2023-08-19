@@ -15,6 +15,9 @@ class Qrregister extends Model
     const CONSIGNACION =4;
     const VENDIDO =5;
     
-
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     
 }

@@ -17,7 +17,7 @@ class Qrregister extends Model
     
     public function getRouteKeyName()
     {
-        return 'slug';
+        return 'vehiculo_slug';
     }
     
 }

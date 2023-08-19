@@ -65,7 +65,7 @@
                                 
                             </td>
                             <td>
-                                @livewire('admin.qrregister-proceso', ['qrregister' => $qrregister], key($qrregister->id))
+                                @livewire('admin.qrregister-proceso', ['qrregister' => $qrregister], key($qrregister->slug))
                             </td>
                             <td>
                                 ${{number_format($qrregister->value)}}

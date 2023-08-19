@@ -4,8 +4,6 @@ use App\Http\Controllers\Vehiculo\MantencionController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('{qrregister}', [VehiculoController::class,'qrlink'])->name('qr.show');
-
 Route::resource('mantencions', MantencionController::class )->names('mantencion');
 
 Route::post('{vehiculo}/publicar', [VehiculoController::class,'publicar'])->middleware('auth')->name('publicar');
@@ -46,8 +44,7 @@ Route::get('database', [VehiculoController::class,'registerindex'])->name('vehic
 
 Route::get('{vehiculo}/show', [VehiculoController::class,'show'])->name('vehiculo.show');
 
-
-
+Route::get('{qrregister}', [VehiculoController::class,'qrlink'])->name('qr.show');
 
 Route::post('vehiculo/store', [VehiculoController::class,'store'])->name('vehiculo.store');
 

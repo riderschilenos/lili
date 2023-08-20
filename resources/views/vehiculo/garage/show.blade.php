@@ -277,7 +277,8 @@
                                                 @endif
                                             
                                             </div>
-                                        @endcan
+                                        
+
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Fono:</div>
                                             @if($vehiculo->user->socio)
@@ -288,7 +289,7 @@
                                             @endif
                                         
                                     </div>
-                                    
+                                    @endcan
                                     <div class="grid grid-cols-2">
                                             @if($vehiculo->status==5)
     

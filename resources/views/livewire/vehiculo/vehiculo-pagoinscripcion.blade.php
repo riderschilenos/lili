@@ -79,7 +79,7 @@
                         </svg>
                         </div>
                         <h1 class="text-4xl text-center font-bold">GRATIS</h1>
-                        <p class="px-4 text-center text-sm ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+                        <p class="px-4 text-center text-sm ">La Moto o Bicicleta es publicada de manera Gratuita</p>
                         <ul class="text-center">
                             <li><a href="#" class="font-semibold">Ingreso Base de datos</a></li>
                     
@@ -99,10 +99,10 @@
                             </svg>
                         </div>
                         <h1 class="text-4xl text-center font-bold">$5.000</h1>
-                        <p class="px-4 text-center text-sm ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+                        <p class="px-4 text-center text-sm ">Al pagar tu QR SILVER recibiras 4 sticker que te permitiran leer el respectivo codigo qr y este sera enlazado a la ficha online de tu vehiculo.</p>
                         <ul class="text-center">
                             <li><a href="#" class="font-semibold">Ingreso Base de datos</a></li>
-                            <li><a href="#" class="font-semibold">QR Respaldo Identidad</a></li>
+                            <li><a href="#" class="font-semibold">Sticker Codigo QR</a></li>
                             
                         </ul>
                         <div class="text-center bg-gray-200 ">
@@ -116,11 +116,11 @@
                             <h4 class="text-xl font-bold text-gray-800">QR Gold</h1>
                         </div>
                             <h1 class="text-4xl text-center font-bold">$10.000</h1>
-                            <p class="px-4 text-center text-sm ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+                            <p class="px-4 text-center text-sm ">Al pagar tu QR GOLD recibiras 4 sticker que te permitiran leer el respectivo codigo qr, ademas de incorporar la tecnologia NFC para su lectura</p>
                             <ul class="text-center">
                                 <li><a href="#" class="font-semibold">Ingreso Base de datos</a></li>
-                                <li><a href="#" class="font-semibold">QR Respaldo Identidad</a></li>
-                                <li><a href="#" class="font-semibold">Ficha Online</a></li>
+                                <li><a href="#" class="font-semibold">Sticker Codigo QR</a></li>
+                                <li><a href="#" class="font-semibold">Lectura NFC</a></li>
                             </ul>
                             
                             <div class="text-center bg-red-600 ">

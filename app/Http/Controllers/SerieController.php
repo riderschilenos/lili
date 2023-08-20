@@ -28,7 +28,7 @@ class SerieController extends Controller
         if(Cache::has('series')){
             $series = Cache::get('series');
         }else{
-            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(4);
             Cache::put('series',$series);
          }
 
@@ -86,7 +86,7 @@ class SerieController extends Controller
         if(Cache::has('series')){
             $series = Cache::get('series');
         }else{
-            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(8);
+            $series = Serie::where('status',3)->where('content','serie')->latest('id')->get()->take(4);
             Cache::put('series',$series);
          }
 

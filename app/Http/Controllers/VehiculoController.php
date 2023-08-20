@@ -389,7 +389,7 @@ class VehiculoController extends Controller
             if ($vehiculo) {
                 return redirect()->route('garage.vehiculo.show',$vehiculo);
             } else {
-                return view('errors.qr',compact('qr'))
+                return view('errors.qr',compact('qr'));
             }
             
            

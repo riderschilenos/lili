@@ -27,9 +27,7 @@ class EventoController extends Controller
     {    if(Cache::has('autos')){
             $autos = Cache::get('autos');
         }else{
-            $autos = Vehiculo::where('status',4)
-                            ->orwhere('status',5)
-                            ->orwhere('status',7)
+            $autos = Vehiculo::where('status',6)
                             ->latest('id')->get()->take(3);
             Cache::put('autos',$autos);
         }

@@ -384,7 +384,7 @@ class VehiculoController extends Controller
         if ($vehiculo) {
             return redirect()->route('garage.vehiculo.show',$vehiculo);
         } else {
-            $qr=Qrregister::where('slud',$id)->first();
+            $qr=Qrregister::where('slug',$id)->first();
             $vehiculo=Vehiculo::where('slug',$qr->vehiculo_slug)->first();
             return redirect()->route('garage.vehiculo.show',$vehiculo);
         }

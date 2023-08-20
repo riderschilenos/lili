@@ -18,7 +18,8 @@ class HomeController extends Controller
     public function __invoke()
     {   
        if(Cache::has('autos')){
-            $autos = Cache::get('autos');
+            $autos = Vehiculo::where('status',6)
+            ->latest('id')->get()->take(3);
         }else{
             $autos = Vehiculo::where('status',6)
                             ->latest('id')->get()->take(3);

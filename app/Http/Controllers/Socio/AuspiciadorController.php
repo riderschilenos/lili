@@ -53,7 +53,7 @@ class AuspiciadorController extends Controller
     $logo = Str::random(10).$request->file('logo')->getClientOriginalName();
     $rutalogo = public_path().'/storage/auspiciadores/'.$logo;
     $img=Image::make($request->file('logo'))->orientate()
-            ->resize(1200, null , function($constraint){
+            ->resize(400, null , function($constraint){
             $constraint->aspectRatio();
             })
             ->save($rutalogo);

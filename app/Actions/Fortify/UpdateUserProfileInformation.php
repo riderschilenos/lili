@@ -30,7 +30,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $nombre = Str::random(10).$input['photo']->getClientOriginalName();
         $ruta = public_path().'/storage/profile-photos/'.$nombre;
         Image::make($input['photo'])->orientate()
-                ->resize(600, null , function($constraint){
+                ->resize(400, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($ruta);

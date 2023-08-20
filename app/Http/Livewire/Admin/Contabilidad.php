@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Gasto;
+use App\Models\Gastotype;
 use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\Suscripcion;
@@ -52,8 +53,10 @@ class Contabilidad extends Component
 
         $now=now();
 
+        $gastotypes=Gastotype::all();
+
         
 
-        return view('livewire.admin.contabilidad',compact('suscripcions_anteanual','suscripcions_anual','suscripcions30','suscripcions7','pagos_anual','pagos_anteanual','gastos_anual','gastos_anteanual','suscripcion28','now','pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
+        return view('livewire.admin.contabilidad',compact('gastotypes','suscripcions_anteanual','suscripcions_anual','suscripcions30','suscripcions7','pagos_anual','pagos_anteanual','gastos_anual','gastos_anteanual','suscripcion28','now','pedidos','suscripcions','gastos','pagos','gastos7','pagos7','gastos30','pagos30','vendedors'));
     }
 }

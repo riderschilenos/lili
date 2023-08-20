@@ -280,6 +280,20 @@
                </div>
             </figure>
          </div>
+         <div>
+            <figure class="highcharts-figure mx-1 mt-4" wire:ignore>
+               <div id="gastouno" wire:ignore>
+                  
+               </div>
+            </figure>
+         </div>
+         <div>
+            <figure class="highcharts-figure mx-1 mt-4" wire:ignore>
+               <div id="gastodos" wire:ignore>
+                  
+               </div>
+            </figure>
+         </div>
 
        Gastos Listado
 
@@ -746,6 +760,70 @@
 
         $gast_anual=[];
         $gast_anteanual=[];
+        $seriegastos30=[];
+        foreach($gastotypes as $gastotype){
+            
+            $gasto30_circular=0;
+            $gasto30_cir=[];
+                
+                    
+                    foreach ($gastos30 as $pago) {
+                        if ($pago->gastotype_id==$gastotype->id) {
+                            $gasto30_circular+=$pago->cantidad;
+                        }
+             
+                    }
+                   
+                        if ($gasto30_circular>0) {
+                            $gasto30_cir[]=$gasto30_circular;
+                            $seriegastos30[]=['name' =>$gastotype->name,
+                                                    'y'=> $gasto30_circular];
+                                }
+                    }
+
+        foreach($gastotypes as $gastotype){
+                    $gastoanteanual_circular=0;
+                    $gastoanteanual_cir=[];
+
+                        foreach ($gastos_anteanual as $pago) {
+                            
+                            if($pago->gastotype_id==$gastotype->id){
+                                $gastoanteanual_circular+=$pago->cantidad;
+                            }
+
+                        }
+                        foreach ($gastos_anual as $pago) {
+                                if($pago->created_at->format('n')==$mes){
+                                    $gastoanteanual_circular+=$pago->cantidad;
+                                }
+                            
+                        
+                    }
+                    if ($gastoanteanual_circular>0) {
+                           
+                        $seriegastosanteanual[]=['name' =>$gastotype->name,
+                                                'y'=> $gastoanteanual_circular];  
+
+                    }
+                }
+
+        foreach($gastotypes as $gastotype){
+           
+                    $gastoanual_circular=0;
+
+                        foreach ($gastos_anual as $pago) {
+                            
+                            if($pago->created_at->format('n')==$mes){
+                                $gastoanual_circular+=$pago->cantidad;
+                            }
+                        
+                    }
+                    if ($gastoanual_circular>0) {
+                        $seriegastosanual[]=['name' =>$gastotype->name,
+                                        'y'=> $gastoanual_circular];  
+                                                }
+        }
+
         foreach ($meses as $mes) {
                 $totalmes=0;
                 foreach ($gastos_anteanual as $pago) {
@@ -836,7 +914,10 @@
     };
     </script>
          <script>
-          
+          var seriegastos30 = <?php echo json_encode($seriegastos30) ?>;
+          var seriegastosanual = <?php echo json_encode($seriegastosanual) ?>;
+          var seriegastosanteanual = <?php echo json_encode($seriegastosanteanual) ?>;
+
             Highcharts.chart('gastotreinta', {
                 chart: {
                    plotBackgroundColor: null,
@@ -846,6 +927,43 @@
                 },
                 title: {
                    text: 'Gastos Por Categoría - Ultimos 30 Días',
+                   align: 'left'
+                },
+                tooltip: {
+                   pointFormat: '<b><b>${point.y}</b>({point.percentage:.0f}%)<br/>',
+                },
+                accessibility: {
+                   point: {
+                         valueSuffix: '%'
+                   }
+                },
+                plotOptions: {
+                   pie: {
+                         allowPointSelect: true,
+                         cursor: 'pointer',
+                         dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                         },
+                         showInLegend: true
+                   }
+                },
+                series: [{
+                   name: 'Brands',
+                   colorByPoint: true,
+                   data: seriegastos30
+                }]
+             });
+             
+             Highcharts.chart('gastodos', {
+                chart: {
+                   plotBackgroundColor: null,
+                   plotBorderWidth: null,
+                   plotShadow: false,
+                   type: 'pie'
+                },
+                title: {
+                   text: 'Gastos Por Categoría - Ultimos 2 años',
                    align: 'left'
                 },
                 tooltip: {
@@ -870,21 +988,47 @@
                 series: [{
                    name: 'Brands',
                    colorByPoint: true,
-                   data: [{
-                         name: 'Exportacion',
-                         y: 25      
-                   },  {
-                         name: 'Comercial',
-                         y: 25
-                   },  {
-                         name: 'Desecho',
-                         y: 25
-                   }, {
-                         name: 'Merma',
-                         y: 25
-                   }]
+                   data: seriegastosanteanual
                 }]
              });
+             
+             Highcharts.chart('gastouno', {
+                chart: {
+                   plotBackgroundColor: null,
+                   plotBorderWidth: null,
+                   plotShadow: false,
+                   type: 'pie'
+                },
+                title: {
+                   text: 'Gastos Por Categoría - Ultimos 365 Días',
+                   align: 'left'
+                },
+                tooltip: {
+                   pointFormat: '<b><b>{point.y}</b>({point.percentage:.0f}%)<br/>',
+                },
+                accessibility: {
+                   point: {
+                         valueSuffix: '%'
+                   }
+                },
+                plotOptions: {
+                   pie: {
+                         allowPointSelect: true,
+                         cursor: 'pointer',
+                         dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                         },
+                         showInLegend: true
+                   }
+                },
+                series: [{
+                   name: 'Brands',
+                   colorByPoint: true,
+                   data: seriegastosanual
+                }]
+             });
+             
             
         </script>
 

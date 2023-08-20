@@ -242,11 +242,14 @@
                                                 Vendedor: 
                                             @endif
                                                 
-                                            
+                                            @if($vehiculo->user->socio)
+                                                {{ $vehiculo->user->socio->name." ".$vehiculo->user->socio->second_name }} {{ $vehiculo->user->socio->last_name }}</h1>
+                                            @else
                                                 {{ $vehiculo->user->name }}</h1>
-                                    
+                                            @endif
     
                                         @if($vehiculo->user->socio)
+
                                             <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $vehiculo->user->socio)}}">{{'@'.$vehiculo->user->socio->slug}}</a>
     
                                         @endif

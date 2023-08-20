@@ -102,7 +102,7 @@
                         <p class="px-4 text-center text-sm ">Al pagar tu QR SILVER recibiras 4 sticker que te permitiran leer el respectivo codigo qr y este sera enlazado a la ficha online de tu vehiculo.</p>
                         <ul class="text-center">
                             <li><a href="#" class="font-semibold">Ingreso Base de datos</a></li>
-                            <li><a href="#" class="font-semibold">Sticker Codigo QR</a></li>
+                            <li><a href="#" class="font-semibold">Lectura por Codigo QR</a></li>
                             
                         </ul>
                         <div class="text-center bg-gray-200 ">
@@ -119,7 +119,7 @@
                             <p class="px-4 text-center text-sm ">Al pagar tu QR GOLD recibiras 4 sticker que te permitiran leer el respectivo codigo qr, ademas de incorporar la tecnologia NFC para su lectura</p>
                             <ul class="text-center">
                                 <li><a href="#" class="font-semibold">Ingreso Base de datos</a></li>
-                                <li><a href="#" class="font-semibold">Sticker Codigo QR</a></li>
+                                <li><a href="#" class="font-semibold">Lectura por Codigo QR</a></li>
                                 <li><a href="#" class="font-semibold">Lectura NFC</a></li>
                             </ul>
                             

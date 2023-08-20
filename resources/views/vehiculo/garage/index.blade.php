@@ -1,6 +1,12 @@
 <x-app-layout>
 
-
+    <x-slot name="tl">
+            
+        <title>Mis Vehiculos</title>
+        
+        
+    </x-slot>
+    
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
        
         <div class="container py-8 mb-10">

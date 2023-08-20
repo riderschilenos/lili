@@ -926,7 +926,7 @@
                    type: 'pie'
                 },
                 title: {
-                   text: 'Gastos Por Categoría - Ultimos 30 Días',
+                   text: 'Ultimos 30 Días',
                    align: 'left'
                 },
                 tooltip: {
@@ -963,7 +963,7 @@
                    type: 'pie'
                 },
                 title: {
-                   text: 'Gastos Por Categoría - Ultimos 2 años',
+                   text: 'Ultimos 2 años',
                    align: 'left'
                 },
                 tooltip: {
@@ -1000,7 +1000,7 @@
                    type: 'pie'
                 },
                 title: {
-                   text: 'Gastos Por Categoría - Ultimos 365 Días',
+                   text: 'Ultimos 365 Días',
                    align: 'left'
                 },
                 tooltip: {

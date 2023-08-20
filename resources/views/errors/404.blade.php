@@ -43,7 +43,7 @@
                 <p class="text-3xl md:text-8xl lg:text-3xl font-bold tracking-wider text-white my-4">¡ERROR 404!</p>
                 <p class="text-2xl md:text-3xl lg:text-5xl font-bold tracking-wider text-white my-4">Página no encontrada</p>
             
-            <h1 class="text-2xl font-medium">El Contenido a sido trasladado a otro lugar</h1>
+            <h1 class="text-2xl font-medium">El Contenido a sido destruido o trasladado a otro lugar</h1>
             <p class="text-2xl pb-8 px-12 font-medium">Utiliza nuestro buscador para buscar nuevamente lo que tenias en mente.</p>
             
                 <div class="mx-4 mb-4">

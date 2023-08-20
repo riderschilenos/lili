@@ -987,7 +987,7 @@
             <p class="text-center text-white pt-4 px-4 font-bold">¡Disfruta del Portal Rider Más Completo de Chile!</p>
             
 
-            <div class="max-w-7xl mx-auto px-4 pt-10 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4">
+            <div class="max-w-7xl mx-auto px-4 pt-10 sm:px-6 mb-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4">
 
                 @foreach ($riders as $rider)
 
@@ -997,12 +997,12 @@
 
             </div>
 
-            <div class="flex justify-center mt-4 pt-4">
+            <div class="flex justify-center mt-4 pt-4 hidden">
                 <a href="{{route('socio.create')}}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
                     Crear Perfil Rider
                 </a>
             </div>
-            <div class="flex justify-center mt-2 pt-2">
+            <div class="flex justify-center mt-2 pt-2 hidden">
                 <a href="{{route('socio.index')}}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ">
                     Ver Todos
                 </a>

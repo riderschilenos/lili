@@ -38,13 +38,13 @@
         'active'=>request()->routeIs('garage.vehiculos.registerindex')
 
     ],
-    [   
+    /*[   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedores.index'),
         'active'=>request()->routeIs('vendedor.*')
 
-    ]
-    ,[   
+    ],*/
+    [   
         'name'=>'Diseño',
         'route'=>route('admin.disenos.index'),
         'can'=>'Diseño',

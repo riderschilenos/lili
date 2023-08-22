@@ -455,7 +455,7 @@ class VehiculoController extends Controller
                     
                     'type'=>'template',
                         'template'=>[
-                            'name'=>'rider_creado',
+                            'name'=>'nuevo_vehiculo_registrado',
                             'language'=>[
                                 'code'=>'es'],
                             'components'=>[ 

@@ -1,4 +1,11 @@
 <x-app-layout>
+
+    <x-slot name="tl">
+            
+        <title>Lista de Precios</title>
+        
+        
+    </x-slot>
     
     <div class="container py-6 mt-12 mb-10">
         

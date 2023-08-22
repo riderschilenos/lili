@@ -1,5 +1,12 @@
 <x-app-layout>
 
+    <x-slot name="tl">
+            
+        <title>Crear Nuevo Pedido</title>
+        
+        
+    </x-slot>
+
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
 
         <div class="container py-8 my-12 sm:my-2">

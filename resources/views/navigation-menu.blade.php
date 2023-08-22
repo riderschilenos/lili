@@ -32,12 +32,12 @@
         'active'=>request()->routeIs('socios.*')
 
     ],
-    /*
-    [   'name'=>'DATABASE',
+    
+    [   'name'=>'Motos Y Bicicletas',
         'route'=>route('garage.vehiculos.registerindex'),
         'active'=>request()->routeIs('garage.vehiculos.registerindex')
 
-    ],*/
+    ],
     [   
         'name'=>'Portal Vendedores',
         'route'=>route('vendedores.index'),

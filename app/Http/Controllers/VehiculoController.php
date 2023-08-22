@@ -18,6 +18,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\support\Str;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 
 class VehiculoController extends Controller
 {   
@@ -442,7 +443,52 @@ class VehiculoController extends Controller
    
             Cache::flush();
 
-            return redirect()->route('garage.image',$vehiculo);
+            try {
+                $token = env('WS_TOKEN');
+                $phoneid= env('WS_PHONEID');
+                $version='v16.0';
+                $url="https://riderschilenos.cl/";
+                $wsload=[
+                    'messaging_product' => 'whatsapp',
+                    "preview_url"=> false,
+                    'to'=>'56963176726',
+                    
+                    'type'=>'template',
+                        'template'=>[
+                            'name'=>'rider_creado',
+                            'language'=>[
+                                'code'=>'es'],
+                            'components'=>[ 
+                                [
+                                    'type'=>'body',
+                                    'parameters'=>[
+                                        [   //vehiculo
+                                            'type'=>'text',
+                                            'text'=> $vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año
+                                        ],
+                                        [   //dueño
+                                            'type'=>'text',
+                                            'text'=> $vehiculo->user->name
+                                        ],
+                                    ]
+                                ]
+                            ]
+                        ]
+                        
+                    
+                ];
+                
+                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                
+                return redirect()->route('garage.image',$vehiculo);
+    
+            } catch (\Throwable $th) {
+    
+                return redirect()->route('garage.image',$vehiculo);
+                
+            }
+
+           
 
     }
 
@@ -583,7 +629,12 @@ class VehiculoController extends Controller
 
         Cache::flush();
 
+       
         return redirect()->route('garage.vehiculo.show',$vehiculo);
+            
+        
+
+       
     }
 
     public function inscribir(Vehiculo $vehiculo)

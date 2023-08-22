@@ -35,7 +35,7 @@
   <body>
   <div class="bg-gradient-to-r from-purple-300 to-blue-200">
   <div class="w-9/12 m-auto py-8 flex items-center justify-center">
-    <div class="bg-main-color flex justify-center pb-4 pt-6 z-10 my-6 rounded-lg mx-4"> 
+    <div class="bg-main-color flex justify-center pb-4 pt-6 z-10 my-6 rounded-lg mx-2"> 
         <div class="text-white text-center shadow overflow-hidden sm:rounded-lg pb-8">
   
  

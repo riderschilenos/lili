@@ -1,7 +1,7 @@
 <x-vendedor-layout>
     <x-slot name="tl">
             
-        <title>Diseños pedido Nro: {{$pedido->id}}</title>
+        <title>Diseños Pedido Nro: {{$pedido->id}}</title>
         
         
     </x-slot>

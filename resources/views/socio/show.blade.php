@@ -472,6 +472,9 @@
                                                 
                                         
                                                 <div class="bg-green-50 p-6 rounded shadow-md items-center ">
+                                                    <div class="mt-2 flex justify-end">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-6">
+                                                    </div>
                                                     <div class="flex items-center justify-between">
                                                         <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>

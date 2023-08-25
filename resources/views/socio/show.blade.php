@@ -478,7 +478,7 @@
                                                         </svg>
                                                         <div>
                                                             <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
-                                                            <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para acceder a tus actividades!</p>
+                                                            <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que RidersChilenos acceda a tus actividades!</p>
                                                         </div>
                                                     </div>
                                                     <div class="flex justify-end">

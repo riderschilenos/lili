@@ -468,7 +468,7 @@
                                             
                                         </div>
                                         @can('perfil_propio', $socio)
-                                            @if (IS_NULL(auth()->user()->strava))
+                                            @if (auth()->user()->strava)
                                                 
                                         
                                                 <div class="bg-green-50 p-6 rounded shadow-md items-center ">

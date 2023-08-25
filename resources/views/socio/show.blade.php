@@ -455,16 +455,19 @@
                                 <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
                                 
                                     <div class="bg-white p-3 hover:shadow">
-                                        <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
-                                            <span class="text-red-500">
-                                                <i class="fas fa-dumbbell text-white-800"></i>
-                                            </span>
-                                            <span>Entrenamientos</span>
-                                            
+                                        <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
+                                            <div>
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-dumbbell text-white-800"></i>
+                                                </span>
+                                                <span>Entrenamientos</span>
+                                            </div>
+                                                                    
+                                        <div>
                                                             
-                                                            <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
+                                                            <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
                                                         
-                                                        
+                                                        </div> 
                                             
                                         </div>
                                         @can('perfil_propio', $socio)

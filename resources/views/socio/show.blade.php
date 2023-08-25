@@ -467,6 +467,48 @@
                                                         
                                             
                                         </div>
+                                        @can('perfil_propio', $socio)
+                                            @if (IS_NULL(auth()->user()->strava))
+                                                
+                                        
+                                                <div class="bg-green-50 p-6 rounded shadow-md items-center ">
+                                                    <div class="flex items-center justify-between">
+                                                        <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                                        </svg>
+                                                        <div>
+                                                            <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
+                                                            <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para acceder a tus actividades!</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex justify-end">
+                                                        <a href="#" class="text-blue-500 hover:underline hover:text-blue-600 transition duration-300 justify-end ml-auto">
+                                                            Desconectar Perfil
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                
+                                                
+
+                                                <div class="bg-white p-6 rounded shadow-md">
+                                                    <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
+                                                    <div class="my-2">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
+                                                    </div>
+                                                    <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
+                                                    <div class="flex justify-center">
+                                                        <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                                            Enlazar con Strava
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <p class="mt-4 text-sm text-gray-500">
+                                                        Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
+                                                    </p>
+                                                </div>
+                                            @endif
+                                        @endcan
                                         <ul class="list-inside space-y-2 ml-2 hidden">
                                             <li>
                                                 <div class="flex items-center">

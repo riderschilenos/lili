@@ -102,6 +102,10 @@ public function sendPasswordResetNotification($token)
         return $this->hasOne('App\Models\Socio');
     }
 
+    public function Atleta_strava(){
+        return $this->hasOne('App\Models\Atleta_strava');
+    }
+
     public function lote(){
         return $this->hasOne('App\Models\Lote');
     }

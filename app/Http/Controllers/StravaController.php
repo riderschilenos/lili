@@ -28,7 +28,7 @@ class StravaController extends Controller
 
         $atletaId = $data['athlete']['id'];
         $athleteName = $data['athlete']['username'];
-        $atletaStrava = new AtletaStrava([
+        AtletaStrava::create([
             'user_id' => auth()->user()->id, // Reemplaza con el ID del atleta
             'atleta_id' => $atletaId, // Reemplaza con el ID del atleta
             'access_token' => $data['access_token'],

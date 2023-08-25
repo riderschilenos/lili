@@ -15,8 +15,8 @@ class StravaController extends Controller
         $client = new Client();
         $response = $client->post('https://www.strava.com/oauth/token', [
             'form_params' => [
-                'client_id' => '112140',
-                'client_secret' => '98c53de9ac1f72b3e0343b6130ff7442ac0b3f6f',
+                'client_id' => env('ST_CLIENT_ID'),
+                'client_secret' => env('ST_CLIENT_SECRET'),
                 'code' => $code,
                 'grant_type' => 'authorization_code',
             ],

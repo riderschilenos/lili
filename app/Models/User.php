@@ -102,7 +102,7 @@ public function sendPasswordResetNotification($token)
         return $this->hasOne('App\Models\Socio');
     }
 
-    public function Atleta_strava(){
+    public function atleta_strava(){
         return $this->hasOne('App\Models\Atleta_strava');
     }
 

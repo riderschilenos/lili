@@ -394,14 +394,17 @@
                                         </div>
                                     </div>
                                     <div class="bg-white p-3 hover:shadow">
-                                        <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                            <span class="text-red-500">
-                                                <i class="fas fa-film text-white-800"></i>
-                                            </span>
-                                            <span>MovieCollection</span>
-                                            
-                                            <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
-                                                        
+                                        <div class="flex justify-between items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                           
+                                           <div>
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-film text-white-800"></i>
+                                                </span>
+                                                <span>MovieCollection</span>
+                                            </div> 
+                                            <div>
+                                                <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
+                                            </div>        
                                         </div>
                                         <div class="grid grid-cols-4 gap-4">
                                         

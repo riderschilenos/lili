@@ -459,8 +459,6 @@
                 );
             </script>comment --}}
 
-    </x-fast-view>
-      
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script>
     // Coordenadas de latitud y longitud de inicio y final de la actividad
@@ -487,4 +485,8 @@
     // Añadir una línea que conecte el inicio y el final de la actividad
     L.polyline([startLatLng, endLatLng], { color: 'blue' }).addTo(map);
 </script>
+
+</x-fast-view>
+      
+   
 </x-app-layout>

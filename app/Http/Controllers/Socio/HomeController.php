@@ -596,6 +596,7 @@ class HomeController extends Controller
 
             $activities = json_decode($response, true);
 
+
         }else{
             $activities=null;
         }

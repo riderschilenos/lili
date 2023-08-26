@@ -90,6 +90,12 @@
                                     @endcan
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
+                                    
+                                  @php
+                                       foreach ($activities as $activity) {
+                                         $activity;
+                                        }
+                                  @endphp   
                                     <ul class="list-inside space-y-2">
                                         <li>
                                             <div class="flex items-center">

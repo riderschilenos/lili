@@ -591,10 +591,7 @@ class HomeController extends Controller
         $response = $client->get("https://www.strava.com/api/v3/athletes/{$athleteId}/activities", [
             'headers' => [
                 'Authorization' => 'Bearer ' . $accessToken,
-            ],
-            'query' => [
-                'per_page' => 10, // Cantidad de actividades por página (puedes ajustarla)
-            ],
+            ]
         ]);
 
             $activities = json_decode($response->getBody(), true);

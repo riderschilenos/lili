@@ -92,7 +92,10 @@
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
                                     
                                   @php
+                                    $n=1;
                                        foreach ($activities as $activity) {
+                                        $n;
+                                        $n+=1;
                                          $activity;
                                         }
                                   @endphp   

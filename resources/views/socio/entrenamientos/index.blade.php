@@ -220,8 +220,8 @@
                                 <!-- garage and movie -->
                                 <div class="bg-white p-3 shadow-sm rounded-sm mb-14">
                                     <h1 class="text-center font-bold py-2">GEOLOCALIZACIÓN PARA ENTRENAMIENTOS</h1>
-                                  <!--    <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
-
+                                 <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
+  <!--   
                
                                     <div class="grid grid-cols-1 sm:grid-cols-2">
                                         <div class="bg-white p-3 hover:shadow">

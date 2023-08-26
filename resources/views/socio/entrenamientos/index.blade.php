@@ -103,7 +103,7 @@
                                                     @endif
                                                     <p class="text-sm text-gray-600">Fecha: {{ $activity['start_date_local'] }}</p>
                                                     <p class="text-sm text-gray-600">Duración: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
-                                                    <p class="text-sm text-gray-600">Distancia: {{ number_format($activity['distance'], 0, '.', '.') }} metros</p>
+                                                    <p class="text-sm text-gray-600">Distancia: {{ number_format(($activity['distance']/1000), 2, '.', '.') }} kms</p>
                                                     <p class="text-sm text-gray-600">Elevation Gain: {{ number_format($activity['total_elevation_gain'], 2, '.', ',') }} metros</p>
                                                     <p class="text-sm text-gray-600">Velocidad Promedio: {{ number_format($activity['average_speed'], 2) }} m/s</p>
                                                     <p class="text-sm text-gray-600">Velocidad Máxima: {{ number_format($activity['max_speed'], 2) }} m/s</p>

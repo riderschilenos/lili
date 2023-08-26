@@ -98,9 +98,17 @@
                                                 <div class="bg-white p-4 rounded shadow">
                                                     <p class="text-lg font-semibold">{{ $activity['name'] }}</p>
                                                     <p class="text-sm text-gray-600">{{ $activity['type'] }}</p>
-                                                    <p class="text-sm text-gray-600">Distancia: {{ number_format($activity['distance'], 0, '.','.') }} Metros</p>
+                                                    <p class="text-sm text-gray-600">Fecha: {{ $activity['start_date_local'] }}</p>
                                                     <p class="text-sm text-gray-600">Duración: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
-                                                    <!-- Puedes agregar más detalles aquí -->
+                                                    <p class="text-sm text-gray-600">Distancia: {{ number_format($activity['distance'], 2, '.', ',') }} metros</p>
+                                                    <p class="text-sm text-gray-600">Elevation Gain: {{ number_format($activity['total_elevation_gain'], 2, '.', ',') }} metros</p>
+                                                    <p class="text-sm text-gray-600">Average Speed: {{ number_format($activity['average_speed'], 2) }} m/s</p>
+                                                    <p class="text-sm text-gray-600">Max Speed: {{ number_format($activity['max_speed'], 2) }} m/s</p>
+                                                    <p class="text-sm text-gray-600">Calories Burned: {{ $activity['calories'] }}</p>
+                                                    <p class="text-sm text-gray-600">Commute: {{ $activity['commute'] ? 'Yes' : 'No' }}</p>
+                                                    <p class="text-sm text-gray-600">Private: {{ $activity['private'] ? 'Yes' : 'No' }}</p>
+                                                    <p class="text-sm text-gray-600">Achievements: {{ $activity['achievement_count'] }}</p>
+                                                   
                                                 </div>
                                             @endforeach
                                         </div>

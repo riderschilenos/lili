@@ -424,7 +424,7 @@
                                                         </svg>
                                                         <div>
                                                             <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
-                                                            <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes de los eventos virtuales!</p>
+                                                            <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes de eventos virtuales!</p>
                                                         </div>
                                                     </div>
                                                     <div class="mt-4 flex justify-between">

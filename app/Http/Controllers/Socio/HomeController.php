@@ -591,8 +591,7 @@ class HomeController extends Controller
             ],
         ]);
 
-        $accessToken = json_decode($response->getBody())->access_token;
-
+        $data = json_decode($response->getBody(), true);
 
         // ID del atleta para el que deseas obtener las actividades
         $athleteId = $atleta->atleta_id;
@@ -600,11 +599,9 @@ class HomeController extends Controller
         // Realizar una solicitud GET a la API de Strava para obtener las actividades del atleta
             $response = $client->get('https://www.strava.com/api/v3/athlete/activities', [
                 'headers' => [
-                    'Authorization' => 'Bearer ' . $accessToken,
+                    'Authorization' => 'Bearer ' . $data['access_token'],
                 ],
             ]);
-
-
             $activities = json_decode($response->getBody(), true);
         }else{
             $activities=null;

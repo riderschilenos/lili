@@ -215,22 +215,219 @@
                                 </div>
                                 <!-- End of about section -->
 
-                                <div class="my-4">
-
-                                </div>
+                                <div class="my-4"></div>
 
                                 <!-- garage and movie -->
                                 <div class="bg-white p-3 shadow-sm rounded-sm mb-14">
                                     <h1 class="text-center font-bold py-2">GEOLOCALIZACIÓN PARA ENTRENAMIENTOS</h1>
-                                    <div id='map'  style='width: 100%; height: 600px; z-index: 1 ;'></div>
-  
+                                  <!--    <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
+
+               
+                                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                                        <div class="bg-white p-3 hover:shadow">
+                                            <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-car text-white-800"></i>
+                                                </span>
+                                                <span>Mi Garage</span>
+                                                
+                                                                @can('perfil_propio', $socio)
+                                                                <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Inscribir Vehiculo)</span></a>
+                                                                @endcan
+                                                            
+                                                
+                                            </div>
+                                            
+                                            <div class="grid grid-cols-2">
+
+                                                @if ($socio->user->vehiculos)
+                                                    
+                                                
+                                                    @foreach ($socio->user->vehiculos as $vehiculo)
+                                                        @if($vehiculo->status==5 || $vehiculo->status==6)
+                                                        <div class="text-center my-2">
+                                                            <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
+                                                                <img class="h-24 w-34 mx-auto"
+                                                                src="{{Storage::url($vehiculo->image->first()->url)}}"
+                                                                alt="">
+                                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
+                                                                    <h1 class="text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).$vehiculo->cilindrada.' '.$vehiculo->año}}</h1>
+                                                                </a>
+                                                            </a>
+                                                        </div>
+                                                        @endif
+                                                    @endforeach
+
+                                                @endif
+                                                {{-- comment 
+                                                
+                                                    <div class="text-center my-2">
+                                                        <img class="h-24 w-34 mx-auto"
+                                                            src="https://www.canyon.com/on/demandware.static/-/Sites-canyon-master/default/dwb5b29ea2/images/full/full_2021_/2021/full_2021_sender-cfr_2251_tm_P5.png"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Kojstantin</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-26 w-36 mx-auto"
+                                                            src="https://www.motofichas.com/images/phocagallery/Honda/crf250r-2022/02-honda-crf250r-2022-estudio.jpg"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">James</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-26 w-36 mx-auto"
+                                                            src="https://i.ytimg.com/vi/qmfxU0KMBBg/maxresdefault.jpg"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Natie</a>
+                                                    </div>
+                                                --}}
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-white p-3 hover:shadow">
+                                            <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-film text-white-800"></i>
+                                                </span>
+                                                <span>MovieCollection</span>
+                                            </div>
+                                            <div class="grid grid-cols-4 gap-4">
+                                            
+                                                @if ($socio->user->serie_enrolled)
+                                                    
+                                                
+                                                    @foreach ($socio->user->serie_enrolled as $serie)
+                                                        <div class="text-center my-2">
+                                                            <a href="{{route('series.show', $serie)}}" class="text-main-color">
+                                                                <img class="h-16 w-20 mx-auto"
+                                                                src="{{Storage::url($serie->image->url)}}"
+                                                                alt="">
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
+
+                                                @endif
+                                                    {{-- 
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">James</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Natie</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Casey</a>
+                                                    </div>
+                                                    --}}
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                End of Experience and education grid -->
                                 </div>
 
                                 <div class="my-4">
                                 
-                                    <div class="bg-white p-3 shadow-sm rounded-sm">
-                                    
-                                    </div> 
+                                <div class="bg-white p-3 shadow-sm rounded-sm">
+                {{-- comment 
+                                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                                        <div>
+                                            <div class="items-center flex space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-car text-white-800"></i>
+                                                </span>
+                                                <span>Mi Entrenamiento</span>
+                                                
+                                                                @can('perfil_propio', $socio)
+                                                                <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
+                                                                @endcan
+                                                            
+                                                
+                                            </div>
+                                            <ul class="list-inside space-y-2">
+                                                <li>
+                                                    <div class="flex items-center">
+                                                        <span class="text-yellow-600">
+                                                            <i class="fas fa-dumbbell text-white-800"></i>
+                                                        </span>
+                                                        <div class="ml-4">
+                                                            <div class="text-teal-600">50 Min Pesas.</div>
+                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="flex items-center">
+                                                        <span class="text-yellow-600">
+                                                            <i class="fas fa-bicycle text-white-800"></i>
+                                                        </span>
+                                                        <div class="ml-4">
+                                                            <div class="text-teal-600">70km Bicicleta</div>
+                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="flex items-center">
+                                                        <span class="text-yellow-600">
+                                                            <i class="fas fa-running"></i>
+                                                        </span>
+                                                        <div class="ml-4">
+                                                            <div class="text-teal-600">10k running</div>
+                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="flex items-center">
+                                                        <span class="text-yellow-600">
+                                                            <i class="fas fa-bicycle text-white-800"></i>
+                                                        </span>
+                                                        <div class="ml-4">
+                                                            <div class="text-teal-600">70km Bicicleta</div>
+                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        
+                                        </div>
+                                        {{-- commen
+                                        <div>
+                                            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                                <span clas="text-green-500">
+                                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        stroke="currentColor">
+                                                        <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
+                                                        <path fill="#fff"
+                                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                                                    </svg>
+                                                </span>
+                                                <span class="tracking-wide">Education</span>
+                                            </div>
+                                            <ul class="list-inside space-y-2">
+                                                <li>
+                                                    <div class="text-teal-600">Masters Degree in Oxford</div>
+                                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                </li>
+                                                <li>
+                                                    <div class="text-teal-600">Bachelors Degreen in LPU</div>
+                                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    --}}
+                                </div> 
 
                                 </div>
                                 
@@ -238,44 +435,28 @@
                         </div>
                     </div>
             </div>
-         <script>
-                mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsbHJuZWVyazBvNTkzbXE1dmF2ejJiMDIifQ.4Cgun30r3ehBCcvqKUFOLA';
-                // Obtén una referencia al contenedor del mapa
-
-                var startLatLng = [{{ $activity['start_latlng'][1] }}, {{ $activity['start_latlng'][0] }}];
-                var endLatLng = [{{ $activity['end_latlng'][1] }}, {{ $activity['end_latlng'][0] }}];
-
+          {{--   <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsM2NwYXdsYjAwcW4zanBoZ3IzZHdya2kifQ.PfJs-vZuxkQRGavx9Czz8Q';
                 var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v11',
-                    center: startLatLng,
-                    zoom: 15
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11'
                 });
 
-                new mapboxgl.Marker()
-                    .setLngLat(startLatLng)
-                    .setPopup(new mapboxgl.Popup().setHTML('INICIO'))
-                    .addTo(map);
-
-                new mapboxgl.Marker()
-                    .setLngLat(endLatLng)
-                    .setPopup(new mapboxgl.Popup().setHTML('META'))
-                    .addTo(map);
-
-                new mapboxgl.NavigationControl().addTo(map);
-
-                var mapContainer = document.getElementById('map');
-
-                // Función para redimensionar el mapa cuando cambia el tamaño de la ventana
-                function resizeMap() {
-                    map.resize();
-                }
-
-                // Agregar un manejador de eventos de redimensionamiento
-                window.addEventListener('resize', resizeMap);
                 
-            </script>
-        
+                // Add geolocate control to the map.
+                map.addControl(
+                new mapboxgl.GeolocateControl({
+                positionOptions: {
+                enableHighAccuracy: true
+                },
+                // When active the map will receive updates to the device's location as it changes.
+                trackUserLocation: true,
+                // Draw an arrow next to the location dot to indicate which direction the device is heading.
+                showUserHeading: true
+                })
+                );
+            </script>comment --}}
+
     </x-fast-view>
       
     

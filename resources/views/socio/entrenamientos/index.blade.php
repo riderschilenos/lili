@@ -98,6 +98,9 @@
                                                 <div class="bg-white p-4 rounded shadow">
                                                     <p class="text-lg font-semibold">{{ $activity['name'] }}</p>
                                                     <p class="text-sm text-gray-600">{{ $activity['type'] }}</p>
+                                                    @if (isset($activity['photos']) && count($activity['photos']) > 0)
+                                                        <img src="{{ $activity['photos'][0]['urls']['100'] }}" alt="Activity Photo" class="mt-2 w-full h-auto">
+                                                    @endif
                                                     <p class="text-sm text-gray-600">Fecha: {{ $activity['start_date_local'] }}</p>
                                                     <p class="text-sm text-gray-600">Duración: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
                                                     <p class="text-sm text-gray-600">Distancia: {{ number_format($activity['distance'], 0, '.', '.') }} metros</p>

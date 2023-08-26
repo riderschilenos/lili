@@ -247,7 +247,7 @@
                     container: 'map',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: startLatLng,
-                    zoom: 10
+                    zoom: 15
                 });
 
                 new mapboxgl.Marker()
@@ -262,12 +262,11 @@
 
                 new mapboxgl.NavigationControl().addTo(map);
 
-                 // Función para redimensionar el mapa cuando la ventana cambie de tamaño
-                // Llamar a initMapWithDelay después de un retraso de 1 segundo
-                  setTimeout(initMapWithDelay, 1000);
-                
+                 
             </script>
-
+            <script>
+                initMap();
+            </script>
     </x-fast-view>
       
     

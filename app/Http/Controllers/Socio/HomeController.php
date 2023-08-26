@@ -576,6 +576,11 @@ class HomeController extends Controller
         $atleta = AtletaStrava::where('user_id', auth()->user()->id)->first();
         $client = new Client();
         
+       
+
+       
+        if ($atleta) {
+             // Crear una instancia del cliente Guzzle
         // Token de acceso obtenido después de la autorización
         $response = $client->post('https://www.strava.com/oauth/token', [
             'form_params' => [
@@ -591,11 +596,6 @@ class HomeController extends Controller
 
         // ID del atleta para el que deseas obtener las actividades
         $athleteId = $atleta->atleta_id;
-
-       
-        if ($atleta) {
-             // Crear una instancia del cliente Guzzle
-       
 
         // Realizar una solicitud GET a la API de Strava para obtener las actividades del atleta
             $response = $client->get('https://www.strava.com/api/v3/athlete/activities', [

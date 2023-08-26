@@ -73,8 +73,10 @@
                                 </div>
 
                             
+                        @elseif($evento->type=='desafio')
+                                
                         @else
-                           
+                          
                                 <p class="">Número de Moto: </p>
                                 <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 rounded-lg">
                                 

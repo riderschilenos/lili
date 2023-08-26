@@ -580,13 +580,14 @@ class HomeController extends Controller
 
             // Realiza una solicitud a la API de Strava para obtener las actividades
             $client = new Client();
-            $response = $client->get('https://www.strava.com/api/v3/athlete/activities', [
+            $activitiesResponse = $client->get('https://www.strava.com/api/v3/athlete/activities', [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $accessToken,
                 ],
             ]);
-
-            $activities = json_decode($response->getBody(), true);
+    
+            $activities = json_decode($activitiesResponse->getBody());
+            
         }else{
             $activities=null;
         }

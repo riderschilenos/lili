@@ -10,8 +10,9 @@ class PistasHome extends Component
     public function render()
     {   $pistas=Evento::where('status',1)
         ->where('type','pista')
+        ->orwhere('type','desafio')
         ->latest('id')
-        ->paginate(8);
+        ->paginate(3);
         return view('livewire.pistas-home',compact('pistas'));
     }
 }

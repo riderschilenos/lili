@@ -578,16 +578,21 @@ class HomeController extends Controller
         if ($atletaStrava) {
             $accessToken = $atletaStrava->access_token;
 
-            // Realiza una solicitud a la API de Strava para obtener las actividades
             $client = new Client();
-            $activitiesResponse = $client->get('https://www.strava.com/api/v3/athlete/activities', [
+
+            $response = $client->get('https://www.strava.com/api/v3/athlete/activities', [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $accessToken,
                 ],
+                'query' => [
+                    'before' => 56,
+                    'after' => 56,
+                    'page' => 56,
+                    'per_page' => 56,
+                ],
             ]);
     
-            $activities = json_decode($activitiesResponse->getBody());
-            
+            $activities = json_decode($response->getBody());
         }else{
             $activities=null;
         }

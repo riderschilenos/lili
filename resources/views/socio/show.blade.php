@@ -447,7 +447,7 @@
                                             <div class="container mx-auto text-center">
                                                 <h1 class="text-white text-4xl font-semibold mb-4">¡Desafío Strava! 15 y 30Km Online!</h1>
                                                 <p class="text-white text-lg mb-8">Demuestra tu constancia montando a la bicicleta y participa de este desafio virtual.</p>
-                                                <a href="https://riderschilenos.cl/eventos/desaf-o-la-serena-473km-ft-strava" class="bg-white text-blue-500 hover:bg-blue-100 text-lg font-semibold py-2 px-6 rounded-full">Regístrate ahora</a>
+                                                <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" class="bg-white text-blue-500 hover:bg-blue-100 text-lg font-semibold py-2 px-6 rounded-full">Regístrate ahora</a>
                                             </div>
                                         </div>
                                         <ul class="list-inside space-y-2 ml-2 hidden">

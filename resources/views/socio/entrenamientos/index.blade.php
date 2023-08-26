@@ -437,24 +437,27 @@
             </div>
          <script>
                 mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsM2NwYXdsYjAwcW4zanBoZ3IzZHdya2kifQ.PfJs-vZuxkQRGavx9Czz8Q';
+                var startLatLng = [{{ $activity['start_latlng'][1] }}, {{ $activity['start_latlng'][0] }}];
+                var endLatLng = [{{ $activity['end_latlng'][1] }}, {{ $activity['end_latlng'][0] }}];
+
                 var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11'
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: startLatLng,
+                    zoom: 15
                 });
 
-                
-                // Add geolocate control to the map.
-                map.addControl(
-                new mapboxgl.GeolocateControl({
-                positionOptions: {
-                enableHighAccuracy: true
-                },
-                // When active the map will receive updates to the device's location as it changes.
-                trackUserLocation: true,
-                // Draw an arrow next to the location dot to indicate which direction the device is heading.
-                showUserHeading: true
-                })
-                );
+                new mapboxgl.Marker()
+                    .setLngLat(startLatLng)
+                    .setPopup(new mapboxgl.Popup().setHTML('Start of Activity'))
+                    .addTo(map);
+
+                new mapboxgl.Marker()
+                    .setLngLat(endLatLng)
+                    .setPopup(new mapboxgl.Popup().setHTML('End of Activity'))
+                    .addTo(map);
+
+                new mapboxgl.NavigationControl().addTo(map);
             </script>
 
     </x-fast-view>

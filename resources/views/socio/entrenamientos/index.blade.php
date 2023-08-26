@@ -222,7 +222,7 @@
                                 <!-- garage and movie -->
                                 <div class="bg-white p-3 shadow-sm rounded-sm mb-14">
                                     <h1 class="text-center font-bold py-2">GEOLOCALIZACIÓN PARA ENTRENAMIENTOS</h1>
-                                    <div id='map'  style='width: 100%; height: 300px; z-index: 1 ;'></div>
+                                    <div id='map'  style='width: 100%; height: 600px; z-index: 1 ;'></div>
   
                                 </div>
 
@@ -247,7 +247,7 @@
                     container: 'map',
                     style: 'mapbox://styles/mapbox/streets-v11',
                     center: startLatLng,
-                    zoom: 15
+                    zoom: 10
                 });
 
                 new mapboxgl.Marker()
@@ -261,6 +261,10 @@
                     .addTo(map);
 
                 new mapboxgl.NavigationControl().addTo(map);
+
+                 // Función para redimensionar el mapa cuando la ventana cambie de tamaño
+                // Llamar a initMapWithDelay después de un retraso de 1 segundo
+                  setTimeout(initMapWithDelay, 1000);
                 
             </script>
 

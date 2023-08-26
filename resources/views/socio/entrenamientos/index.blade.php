@@ -435,7 +435,7 @@
                         </div>
                     </div>
             </div>
-          {{--   <script>
+         <script>
                 mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsM2NwYXdsYjAwcW4zanBoZ3IzZHdya2kifQ.PfJs-vZuxkQRGavx9Czz8Q';
                 var map = new mapboxgl.Map({
                 container: 'map',
@@ -455,7 +455,7 @@
                 showUserHeading: true
                 })
                 );
-            </script>comment --}}
+            </script>
 
     </x-fast-view>
       

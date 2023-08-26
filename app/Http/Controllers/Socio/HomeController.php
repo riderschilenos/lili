@@ -592,6 +592,9 @@ class HomeController extends Controller
             'headers' => [
                 'Authorization' => 'Bearer ' . $accessToken,
             ],
+            'query' => [
+                'per_page' => 10, // Cantidad de actividades por página (puedes ajustarla)
+            ],
         ]);
 
             $activities = json_decode($response->getBody(), true);

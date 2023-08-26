@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Socio;
 
 use App\Http\Controllers\Controller;
+use App\Models\AtletaStrava;
 use App\Models\Disciplina;
 use App\Models\Evento;
 use App\Models\Invitado;
@@ -11,6 +12,7 @@ use App\Models\Producto;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Vehiculo;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\support\Str;
@@ -568,10 +570,30 @@ class HomeController extends Controller
         else{
         $socio2=null;
         }
+        
+       
+
+        $atletaStrava = AtletaStrava::where('user_id', auth()->user()->id)->first();
+
+        if ($atletaStrava) {
+            $accessToken = $atletaStrava->access_token;
+
+            // Realiza una solicitud a la API de Strava para obtener las actividades
+            $client = new Client();
+            $response = $client->get('https://www.strava.com/api/v3/athlete/activities', [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $accessToken,
+                ],
+            ]);
+
+            $activities = json_decode($response->getBody(), true);
+        }else{
+            $activities=null;
+        }
 
         $disciplinas= Disciplina::pluck('name','id');
 
-        return view('socio.entrenamientos.index',compact('socio','socio2','disciplinas','riders','series','autos'));
+        return view('socio.entrenamientos.index',compact('socio','activities','socio2','disciplinas','riders','series','autos'));
 
     }
 }

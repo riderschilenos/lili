@@ -48,7 +48,7 @@
                             <!-- Left Side -->
                             <div class="w-full md:w-3/12 md:mx-2">
                                 <!-- Profile Card -->
-                                @switch($socio->status)
+                                                    @switch($socio->status)
                                                             @case(1)
                                                             <div class="bg-white p-3 border-t-4 border-green-500">
                                                                 @break
@@ -59,7 +59,30 @@
                                                                 
                                                     @endswitch
                                 
-                                
+                                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                                                        <span clas="text-green-500">
+                                                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                                stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                            </svg>
+                                                        </span>
+                                                        <p class="tracking-wide">{{ $socio->name." ".$socio->second_name }}
+                
+                                                            @can('perfil_propio', $socio)
+                
+                                                            
+                                                                <a href="{{route('socio.edit',$socio)}}"><h5 class="text-blue-600 font-bold text-sm cursor-pointer">(Editar)</h5></a>
+                                                            
+                                                            @endcan
+                                                            
+                                                            </p>
+                                                    </div>
+                                                    <div class="image overflow-hidden mt-4">
+                                                        <img class="h-40 w-30 mx-auto object-cover rounded-lg"
+                                                            src="{{ $socio->user->profile_photo_url }}"
+                                                            alt="">
+                                                    </div>
                                     <div class="flex">
                                     <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Ficha Deportiva</h1>
                                     @can('perfil_propio', $socio)
@@ -67,7 +90,7 @@
                                     @endcan
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
-                                    <ul class="list-inside space-y-2 hidden">
+                                    <ul class="list-inside space-y-2">
                                         <li>
                                             <div class="flex items-center">
                                                 <span class="text-yellow-600">
@@ -126,41 +149,18 @@
                                 <!-- Profile tab -->
                                 <!-- About Section -->
                                 <div class="bg-white p-3 shadow-sm rounded-sm">
-                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-                                        <span clas="text-green-500">
-                                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                            </svg>
-                                        </span>
-                                        <p class="tracking-wide">{{ $socio->name." ".$socio->second_name }}
-
-                                            @can('perfil_propio', $socio)
-
-                                            
-                                                <a href="{{route('socio.edit',$socio)}}"><h5 class="text-blue-600 font-bold text-sm cursor-pointer">(Editar)</h5></a>
-                                            
-                                            @endcan
-                                            
-                                            </p>
-                                    </div>
+                                   
                                     <div class="text-gray-700">
                                         <div class="grid grid-cols-2 md:grid-cols-4 text-sm">
-                                            <div class="image overflow-hidden mt-4">
-                                                <img class="h-40 w-30 mx-auto object-cover"
-                                                    src="{{ $socio->user->profile_photo_url }}"
-                                                    alt="">
-                                            </div>
-                                            <div class="grid grid-cols-2">
+                                            
+                                            <div class="grid grid-cols-2 col-span-2">
                                                 <div class="px-4 py-2 font-semibold">IMC</div>
                                                 <div class="px-4 py-2">22.9</div>
                                                 <div class="px-4 py-2 font-semibold">Peso</div>
                                                 <div class="px-4 py-2">--</div>
                                                 <div class="px-4 py-2 font-semibold">Talla</div>
                                                     <div class="px-4 py-2">--</div>
-                                                    <button
-                                        class="col-span-2 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">+ Registro</button>
+                                                    <button class="col-span-2 block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">+ Registro</button>
                                             </div>
                                             <div class="grid grid-cols-2 col-span-2 mt-6 sm:mt-4">
                                                 <div class="">

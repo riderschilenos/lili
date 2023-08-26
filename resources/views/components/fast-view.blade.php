@@ -938,13 +938,13 @@
             </div>
            
        
-            <div class="bg-main-color flex justify-center pb-4 pt-6 z-10"> 
-                <div>
+            <div class="bg-main-color flex justify-center pb-4 pt-6 z-10 hidden"> 
+                <div class="">
                     @livewire('search')
                 </div>
             </div>
 
-            <div class="bg-main-color flex justify-center py-4 z-10"> 
+            <div class="bg-main-color flex justify-center pb-4 pt-6 z-10"> 
            
               
                 

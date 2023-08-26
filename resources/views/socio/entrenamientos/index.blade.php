@@ -114,6 +114,8 @@
                                                 </div>
                                             @endforeach
                                         </div>
+
+                                        <div id="map" class="w-full h-96"></div>
         
                                     </div>
                                     <ul class="list-inside space-y-2">
@@ -459,5 +461,30 @@
 
     </x-fast-view>
       
-    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    // Coordenadas de latitud y longitud de inicio y final de la actividad
+    var startLatLng = [{{ $activity['start_latlng'][0] }}, {{ $activity['start_latlng'][1] }}];
+    var endLatLng = [{{ $activity['end_latlng'][0] }}, {{ $activity['end_latlng'][1] }}];
+
+    // Crear el mapa y centrarlo en el punto de inicio de la actividad
+    var map = L.map('map').setView(startLatLng, 15);
+
+    // Añadir una capa de mapa base de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Añadir marcadores para el inicio y final de la actividad
+    L.marker(startLatLng).addTo(map)
+        .bindPopup('Start of Activity')
+        .openPopup();
+
+    L.marker(endLatLng).addTo(map)
+        .bindPopup('End of Activity')
+        .openPopup();
+
+    // Añadir una línea que conecte el inicio y el final de la actividad
+    L.polyline([startLatLng, endLatLng], { color: 'blue' }).addTo(map);
+</script>
 </x-app-layout>

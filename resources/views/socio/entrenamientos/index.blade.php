@@ -98,8 +98,8 @@
                                                 <div class="bg-white p-4 rounded shadow">
                                                     <p class="text-lg font-semibold">{{ $activity['name'] }}</p>
                                                     <p class="text-sm text-gray-600">{{ $activity['type'] }}</p>
-                                                    <p class="text-sm text-gray-600">Distance: {{ $activity['distance'] }} meters</p>
-                                                    <p class="text-sm text-gray-600">Moving Time: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
+                                                    <p class="text-sm text-gray-600">Distancia: {{ $activity['distance'] }} meters</p>
+                                                    <p class="text-sm text-gray-600">Duración: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
                                                     <!-- Puedes agregar más detalles aquí -->
                                                 </div>
                                             @endforeach

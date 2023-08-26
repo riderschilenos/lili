@@ -578,21 +578,22 @@ class HomeController extends Controller
         if ($atletaStrava) {
             $accessToken = $atletaStrava->access_token;
 
-            $client = new Client();
+            // ID del atleta para el que deseas obtener las actividades
+            $athleteId = $atletaStrava->atleta_id;
 
-            $response = $client->get('https://www.strava.com/api/v3/athlete/activities', [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $accessToken,
-                ],
-                'query' => [
-                    'before' => 56,
-                    'after' => 56,
-                    'page' => 56,
-                    'per_page' => 56,
-                ],
+            // URL de la API de Strava
+            $url = "https://www.strava.com/api/v3/athletes/{$athleteId}/activities";
+
+            // Configuración de la solicitud cURL
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $accessToken,
             ]);
-    
-            $activities = json_decode($response->getBody());
+
+            // Realizar la solicitud cURL
+            $response = curl_exec($ch);
+
         }else{
             $activities=null;
         }

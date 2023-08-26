@@ -434,6 +434,8 @@
                                                                                         {{$inscripcion->fecha_categoria->categoria->name}}
                                                                                     </td>
                                                                                     @if ($evento->type=='pista')
+
+                                                                                    @elseif ($evento->type=='desafio')
                             
                                                                                     @else
                                                                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -444,6 +446,8 @@
                                                                                     @endif
                                                                                 
                                                                                         @if ($evento->type=='pista')
+
+                                                                                        @elseif ($evento->type=='desafio')
                             
                                                                                         @else
                                                                                             <td class="px-6 py-4 whitespace-nowrap">

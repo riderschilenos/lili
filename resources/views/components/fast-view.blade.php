@@ -1080,6 +1080,11 @@
                                
                     </div>
                     <div class="flex justify-center">
+                       
+                        <button class="btn btn-danger ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >EVENTOS</button>
+                               
+                    </div>
+                    <div class="flex justify-center">
                       
                                 
                                     <button class="btn btn-danger mr-6 text-center text-base" @click="user = false; home = false; socio = false; registro = true; vendedor = false; base = false" >BIKES</button>
@@ -1107,6 +1112,11 @@
                     <div class="flex justify-center">
                        
                         <button class="btn btn-danger ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >RIDERS</button>
+                               
+                    </div>
+                    <div class="flex justify-center">
+                       
+                        <button class="btn btn-danger ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >EVENTOS</button>
                                
                     </div>
                     <div class="flex justify-center">

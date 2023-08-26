@@ -93,13 +93,15 @@
                                     
                                     <div class="container mx-auto p-4">
                                         <h1 class="text-2xl font-bold mb-4">Activities from Strava</h1>
+                                        <?php var_dump($activities); // Agrega esto para imprimir los datos de $activities ?>
+        
                                         <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                                             <?php foreach ($activities as $activity): ?>
                                                 <div class="bg-white p-4 rounded shadow">
-                                                    <p class="text-lg font-semibold">@php
-                                                        $activity['name']
-                                                    @endphp </p>
-                                                  
+                                                    <p class="text-lg font-semibold"><?= $activity['name'] ?></p>
+                                                    <p class="text-sm text-gray-600"><?= $activity['type'] ?></p>
+                                                    <p class="text-sm text-gray-600">Distance: <?= $activity['distance'] ?> meters</p>
+                                                    <p class="text-sm text-gray-600">Duration: <?= gmdate("H:i:s", $activity['moving_time']) ?></p>
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>

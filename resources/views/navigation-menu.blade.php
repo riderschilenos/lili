@@ -43,7 +43,7 @@
         'route'=>route('vendedores.index'),
         'active'=>request()->routeIs('vendedor.*')
 
-    ],*/
+    ],
     [   
         'name'=>'Diseño',
         'route'=>route('admin.disenos.index'),
@@ -57,7 +57,7 @@
         'can'=>'Diseño',
         'active'=>request()->routeIs('admin.disenos.produccion')
 
-    ]
+    ]*/
    
     /*
     ,[   

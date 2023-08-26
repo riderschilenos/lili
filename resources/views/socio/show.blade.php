@@ -446,7 +446,7 @@
                                                     </div>
                                                     <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
                                                     <div class="flex justify-center">
-                                                        <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                                        <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
                                                             Enlazar con Strava
                                                         </a>
                                                     </div>

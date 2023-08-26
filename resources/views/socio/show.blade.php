@@ -393,70 +393,9 @@
                                                                    
                                         </div>
                                     </div>
-                                    <div class="bg-white p-3 hover:shadow">
-                                        <div class="flex justify-between items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                           
-                                           <div>
-                                                <span class="text-red-500">
-                                                    <i class="fas fa-film text-white-800"></i>
-                                                </span>
-                                                <span>MovieCollection</span>
-                                            </div> 
-                                            <div>
-                                                <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
-                                            </div>        
-                                        </div>
-                                        <div class="grid grid-cols-4 gap-4">
-                                        
-                                            @if ($socio->user->serie_enrolled)
-                                                
-                                            
-                                                @foreach ($socio->user->serie_enrolled as $serie)
-                                                    <div class="text-center my-2">
-                                                        <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                            <img class="h-16 w-20 mx-auto"
-                                                            src="{{Storage::url($serie->image->url)}}"
-                                                            alt="">
-                                                        </a>
-                                                    </div>
-                                                @endforeach
-
-                                            @endif
-                                                {{-- 
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">James</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Natie</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Casey</a>
-                                                    </div>
-                                                --}}
-                                                
-                                        </div>
-                                    </div>
                                     
-
-                                </div>
-                                <!-- End of Experience and education grid -->
-                            </div>
-
-                            <div class="my-4">
-                            
-                            <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
-
-                                <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
-                                
+                                  
+                                    
                                     <div class="bg-white p-3 hover:shadow">
                                         <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
                                             <div>
@@ -567,6 +506,68 @@
                                     
                                     </div>
 
+                                </div>
+                                <!-- End of Experience and education grid -->
+                            </div>
+
+                            <div class="my-4">
+                            
+                            <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
+
+                                <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
+                                
+                                    <div class="bg-white p-3 hover:shadow">
+                                        <div class="flex justify-between items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                           
+                                           <div>
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-film text-white-800"></i>
+                                                </span>
+                                                <span>MovieCollection</span>
+                                            </div> 
+                                            <div>
+                                                <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
+                                            </div>        
+                                        </div>
+                                        <div class="grid grid-cols-4 gap-4">
+                                        
+                                            @if ($socio->user->serie_enrolled)
+                                                
+                                            
+                                                @foreach ($socio->user->serie_enrolled as $serie)
+                                                    <div class="text-center my-2">
+                                                        <a href="{{route('series.show', $serie)}}" class="text-main-color">
+                                                            <img class="h-16 w-20 mx-auto"
+                                                            src="{{Storage::url($serie->image->url)}}"
+                                                            alt="">
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+
+                                            @endif
+                                                {{-- 
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">James</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Natie</a>
+                                                    </div>
+                                                    <div class="text-center my-2">
+                                                        <img class="h-16 w-16 rounded-full mx-auto"
+                                                            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
+                                                            alt="">
+                                                        <a href="#" class="text-main-color">Casey</a>
+                                                    </div>
+                                                --}}
+                                                
+                                        </div>
+                                    </div>
 
                                     {{-- commen
                                             <div>

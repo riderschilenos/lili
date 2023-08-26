@@ -12,7 +12,7 @@ class PistasHome extends Component
         ->where('type','pista')
         ->orwhere('type','desafio')
         ->latest('id')
-        ->paginate(3);
+        ->paginate(4);
         return view('livewire.pistas-home',compact('pistas'));
     }
 }

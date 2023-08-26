@@ -92,10 +92,18 @@
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
                                     
                                     <div class="container mx-auto p-4">
-                                        <h1 class="text-2xl font-bold mb-4">Activities from Strava</h1>
-                                        @php
-                                            var_dump($activities)
-                                        @endphp 
+                                        <h1 class="text-2xl font-bold mb-4">Actividad de Strava</h1>
+                                        <div class="grid gap-4 grid-cols-1">
+                                            @foreach ($activities as $activity)
+                                                <div class="bg-white p-4 rounded shadow">
+                                                    <p class="text-lg font-semibold">{{ $activity['name'] }}</p>
+                                                    <p class="text-sm text-gray-600">{{ $activity['type'] }}</p>
+                                                    <p class="text-sm text-gray-600">Distance: {{ $activity['distance'] }} meters</p>
+                                                    <p class="text-sm text-gray-600">Moving Time: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
+                                                    <!-- Puedes agregar más detalles aquí -->
+                                                </div>
+                                            @endforeach
+                                        </div>
         
                                     </div>
                                     <ul class="list-inside space-y-2">

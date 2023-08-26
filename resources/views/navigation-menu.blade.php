@@ -12,6 +12,12 @@
 
     ]*/
     ,[   
+        'name'=>'Riders',
+        'route'=>route('socio.index'),
+        'active'=>request()->routeIs('socios.*')
+
+    ]
+    ,[   
         'name'=>'Eventos',
         'route'=>route('ticket.evento.index'),
         'active'=>request()->routeIs('ticket.evento.*')
@@ -26,12 +32,7 @@
         'active'=>request()->routeIs('usados.*')
 
     ]*/
-    ,[   
-        'name'=>'Riders',
-        'route'=>route('socio.index'),
-        'active'=>request()->routeIs('socios.*')
-
-    ],
+    ,
     
     [   'name'=>'Motos Y Bicicletas',
         'route'=>route('garage.vehiculos.registerindex'),

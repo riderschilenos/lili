@@ -594,6 +594,8 @@ class HomeController extends Controller
             // Realizar la solicitud cURL
             $response = curl_exec($ch);
 
+            $activities = json_decode($response, true);
+
         }else{
             $activities=null;
         }

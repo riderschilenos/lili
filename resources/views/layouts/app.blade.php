@@ -38,8 +38,7 @@
 
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
         <!-- include the library -->
-            <script src="{{asset('js/html5scan5.js')}}" type="text/javascript"></script>
-        <!-- Scripts -->
+          
         <script src="{{ mix('js/app.js') }}" defer></script>
         
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>

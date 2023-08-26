@@ -239,7 +239,8 @@
                     </div>
             </div>
          <script>
-                mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsM2NwYXdsYjAwcW4zanBoZ3IzZHdya2kifQ.PfJs-vZuxkQRGavx9Czz8Q';
+                mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsbHJuZWVyazBvNTkzbXE1dmF2ejJiMDIifQ.4Cgun30r3ehBCcvqKUFOLA';
+                
                 var startLatLng = [{{ $activity['start_latlng'][1] }}, {{ $activity['start_latlng'][0] }}];
                 var endLatLng = [{{ $activity['end_latlng'][1] }}, {{ $activity['end_latlng'][0] }}];
 
@@ -264,9 +265,7 @@
 
                  
             </script>
-            <script>
-                initMap();
-            </script>
+        
     </x-fast-view>
       
     

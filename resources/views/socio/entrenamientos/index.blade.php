@@ -449,12 +449,12 @@
 
                 new mapboxgl.Marker()
                     .setLngLat(startLatLng)
-                    .setPopup(new mapboxgl.Popup().setHTML('Start of Activity'))
+                    .setPopup(new mapboxgl.Popup().setHTML('INICIO'))
                     .addTo(map);
 
                 new mapboxgl.Marker()
                     .setLngLat(endLatLng)
-                    .setPopup(new mapboxgl.Popup().setHTML('End of Activity'))
+                    .setPopup(new mapboxgl.Popup().setHTML('META'))
                     .addTo(map);
 
                 new mapboxgl.NavigationControl().addTo(map);

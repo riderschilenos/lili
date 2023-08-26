@@ -1031,9 +1031,9 @@
             <h1 class="text-center text-xs text-white py-12">Todos Los derechos Reservados</h1>
         </section>
 
-        <section class="my-4  py-12">
-            <h1 class="text-center text-3xl text-gray-600 font-bold">Registro Riders Chilenos</h1>
-            <p class="text-center text-gray-500 text-sm mb-6 pb-10">Bicicletas, Motos y Otros.</p>
+        <section class="my-4  pb-12">
+            <h1 class="text-center text-3xl text-gray-600 font-bold mt-2">Registro Riders Chilenos</h1>
+            <p class="text-center text-gray-500 text-sm mb-6">Bicicletas, Motos y Otros.</p>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
 

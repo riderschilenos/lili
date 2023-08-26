@@ -240,7 +240,8 @@
             </div>
          <script>
                 mapboxgl.accessToken = 'pk.eyJ1IjoiZ29uemFwdjIzIiwiYSI6ImNsbHJuZWVyazBvNTkzbXE1dmF2ejJiMDIifQ.4Cgun30r3ehBCcvqKUFOLA';
-                
+                // Obtén una referencia al contenedor del mapa
+
                 var startLatLng = [{{ $activity['start_latlng'][1] }}, {{ $activity['start_latlng'][0] }}];
                 var endLatLng = [{{ $activity['end_latlng'][1] }}, {{ $activity['end_latlng'][0] }}];
 
@@ -263,7 +264,16 @@
 
                 new mapboxgl.NavigationControl().addTo(map);
 
-                 
+                var mapContainer = document.getElementById('map');
+
+                // Función para redimensionar el mapa cuando cambia el tamaño de la ventana
+                function resizeMap() {
+                    map.resize();
+                }
+
+                // Agregar un manejador de eventos de redimensionamiento
+                window.addEventListener('resize', resizeMap);
+                
             </script>
         
     </x-fast-view>

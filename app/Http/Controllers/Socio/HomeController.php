@@ -573,10 +573,10 @@ class HomeController extends Controller
         
        
 
-        $atletaStrava = AtletaStrava::where('user_id', auth()->user()->id)->first();
+        $atleta = AtletaStrava::where('user_id', auth()->user()->id)->first();
 
-        if ($atletaStrava) {
-            $accessToken = $atletaStrava->access_token;
+        if ($atleta) {
+            $accessToken = $atleta->access_token;
 
             // Realiza una solicitud a la API de Strava para obtener las actividades
             $client = new Client();

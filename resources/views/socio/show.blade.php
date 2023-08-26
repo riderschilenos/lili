@@ -397,21 +397,7 @@
                                   
                                     
                                     <div class="bg-white p-3 hover:shadow">
-                                        <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
-                                            <div>
-                                                <span class="text-red-500">
-                                                    <i class="fas fa-dumbbell text-white-800"></i>
-                                                </span>
-                                                <span>Entrenamientos</span>
-                                            </div>
-                                                                    
-                                        <div>
-                                                            
-                                                            <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
-                                                        
-                                                        </div> 
-                                            
-                                        </div>
+                                      
                                         @can('perfil_propio', $socio)
                                             @if (auth()->user()->strava)
                                                 
@@ -575,7 +561,24 @@
                                                 
                                         </div>
                                     </div>
-
+                                    <div class="bg-white p-3 hover:shadow">
+                                        <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
+                                            <div>
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-dumbbell text-white-800"></i>
+                                                </span>
+                                                <span>Entrenamientos</span>
+                                            </div>
+                                                                    
+                                        <div>
+                                                            
+                                                            <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
+                                                        
+                                                        </div> 
+                                            
+                                        </div>
+                                    </div>
+                                        
                                     {{-- commen
                                             <div>
                                                 <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">

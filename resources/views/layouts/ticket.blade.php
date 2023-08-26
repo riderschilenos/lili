@@ -66,8 +66,10 @@
                                 <a href="{{route('organizador.eventos.fechas',$evento)}}">Fecha y Categorias</a>
                             @elseif($evento->type=='campeonato')
                                 <a href="{{route('organizador.eventos.fechas',$evento)}}">Fechas y Categorias</a>
-                            @else
+                            @elseif($evento->type=='pista')
                                 <a href="{{route('organizador.eventos.fechas',$evento)}}">Precios y Entrenamientos</a>
+                            @else
+                                <a href="{{route('organizador.eventos.fechas',$evento)}}">Fechas y Categorias</a>
                             @endif
                             
                         </li>

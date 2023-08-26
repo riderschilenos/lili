@@ -26,6 +26,12 @@
                                     Campeonato
                               </label>
                             </div>
+                            <div class="form-check ml-2">
+                                <input type="radio" name="type" id="type" value="desafio">
+                                <label class="text-2xl mr-4" for="type">
+                                      Desafio
+                                </label>
+                              </div>
                         </div>
 
 

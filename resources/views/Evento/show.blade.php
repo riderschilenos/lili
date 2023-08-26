@@ -428,19 +428,21 @@
                                         </a>
                                     @endif
                                 @endif
-                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
-                                <div class="flex justify-between mb-4">
-                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
-                                        <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                @if ($evento->entrada || $evento->entrada_niño)
+                                  <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+
+                                    <div class="flex justify-between mb-4">
+                                        <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                            <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada_niño)}}</p>
+                                            <p class="text-gray-500 text-sm text-center">Niños</p> 
+                                        </div>
+                                        <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                            <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
+                                            <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                        </div>
+                                    
                                     </div>
-                                    <div class="bg-gray-100 p-1 rounded-3xl w-full mx-1">
-                                        <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($evento->entrada)}}</p>
-                                        <p class="text-gray-500 text-sm text-center">Adultos</p> 
-                                    </div>
-                                   
-                                </div>
-                            
+                                @endif
                                 @isset($ticket)
                                     <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">Finalizar Compra</a>
                                 @else

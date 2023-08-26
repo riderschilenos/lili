@@ -23,6 +23,7 @@ class EventosIndex extends Component
         $eventos = Evento::where('status',1)
                         ->where('type','carrera')
                         ->orwhere('type','campeonato')
+                        ->orwhere('type','desafio')
                         ->Disciplina($this->disciplina_id)
                         ->Organizador($this->filmmaker_id)
                         ->latest('id')

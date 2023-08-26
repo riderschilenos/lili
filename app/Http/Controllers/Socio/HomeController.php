@@ -573,7 +573,7 @@ class HomeController extends Controller
         
        
 
-        $atletaStrava = AtletaStrava::where('user_id', auth()->user()->id)->first();
+        $atletaStrava = AtletaStrava::where('user_id', $socio->user->id)->first();
 
         if ($atletaStrava) {
             $accessToken = $atletaStrava->access_token;

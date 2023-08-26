@@ -126,7 +126,8 @@
                             </div>
                             
                         </div>
-                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                        @if ($evento->entrada || $evento->entrada_niño)
+                            <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                         
                             <div class="flex mx-auto mb-4 w-72   px-24">
                                 <div class="bg-gray-100 p-1 rounded-3xl w-full">
@@ -147,6 +148,7 @@
                                 </div>
                                 
                             </div>
+                        @endif
                     </div>
                 </div>
             </article>

@@ -35,7 +35,7 @@ class StravaController extends Controller
             'access_token' => $data['access_token'],
             'refresh_token' => $data['refresh_token'], // Si aplica
             'token_expires_at' => now()->addSeconds($data['expires_in']), // Calcula la fecha de vencimiento
-            //'scope' => $data['scope'],
+            'scope' => $code,
             'athlete_name' => $athleteName, // Reemplaza con el nombre del atleta
         ]);
 

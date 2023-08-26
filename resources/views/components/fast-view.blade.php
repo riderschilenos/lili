@@ -796,7 +796,7 @@
                     <div class="max-w-6xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
                         <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                             <div>
-                                <h1 class="text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
+                                <h1 class="text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; home = false; socio = false; evento = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                                 @if (auth()->user()->socio)
                                     <a href="{{route('socio.points',auth()->user()->socio)}}">
                                         <span class="px-2 inline-flex text-base leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
@@ -1081,13 +1081,13 @@
                     </div>
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-danger ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >EVENTOS</button>
+                        <button class="btn btn-danger ml-6 text-center text-base" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >EVENTOS</button>
                                
                     </div>
                     <div class="flex justify-center">
                       
                                 
-                                    <button class="btn btn-danger mr-6 text-center text-base" @click="user = false; home = false; socio = false; registro = true; vendedor = false; base = false" >BIKES</button>
+                                    <button class="btn btn-danger mr-6 text-center text-base" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >BIKES</button>
                                
                     </div>
                 </div>
@@ -1095,6 +1095,47 @@
             
     
                     @livewire('socio.socio-search')
+                    
+                
+            </div>
+    
+        </div>  
+
+    </div>
+    <div :class="{'block': evento, 'hidden': ! evento}" class="hidden">
+        
+        <div class="max-w-7xl mx-auto pb-8">
+
+            <div class="card">
+                
+                    
+    
+                   
+
+                <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                    <div class="flex justify-center">
+                       
+                        <button class="btn btn-danger ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >RIDERS</button>
+                               
+                    </div>
+                    <div class="flex justify-center">
+                       
+                        <button class="btn btn-success ml-6 text-center text-base" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >EVENTOS</button>
+                               
+                    </div>
+                    <div class="flex justify-center">
+                      
+                                
+                                    <button class="btn btn-danger mr-6 text-center text-base" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >BIKES</button>
+                               
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="text-center font-bold mt-4 text-2xl">¿Cual es tu Próximo Desafío?</h1>
+                </div>
+    
+                @livewire('eventos-index')
                     
                 
             </div>
@@ -1116,13 +1157,13 @@
                     </div>
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-danger ml-6 text-center text-base" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >EVENTOS</button>
+                        <button class="btn btn-danger ml-6 text-center text-base" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >EVENTOS</button>
                                
                     </div>
                     <div class="flex justify-center">
                       
                                 
-                                    <button class="btn btn-success mr-6 text-center text-base" @click="user = false; home = false; socio = false; registro = true; vendedor = false; base = false" >BIKES</button>
+                                    <button class="btn btn-success mr-6 text-center text-base" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >BIKES</button>
                                
                     </div>
                 </div>

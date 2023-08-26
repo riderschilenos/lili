@@ -573,35 +573,19 @@ class HomeController extends Controller
         
        
 
-        $atleta = AtletaStrava::where('user_id', auth()->user()->id)->first();
-        $client = new Client();
-        
-       
+        $atletaStrava = AtletaStrava::where('user_id', auth()->user()->id)->first();
 
-       
-        if ($atleta) {
-             // Crear una instancia del cliente Guzzle
-        // Token de acceso obtenido después de la autorización
-        $response = $client->post('https://www.strava.com/oauth/token', [
-            'form_params' => [
-                'client_id' => env('STRAVA_CLIENT_ID'),
-                'client_secret' => env('STRAVA_CLIENT_SECRET'),
-                'code' => $atleta->scope, // El código de autorización recibido después de la autenticación de Strava.
-                'grant_type' => 'authorization_code',
-            ],
-        ]);
+        if ($atletaStrava) {
+            $accessToken = $atletaStrava->access_token;
 
-        $data = json_decode($response->getBody(), true);
-
-        // ID del atleta para el que deseas obtener las actividades
-        $athleteId = $atleta->atleta_id;
-
-        // Realizar una solicitud GET a la API de Strava para obtener las actividades del atleta
+            // Realiza una solicitud a la API de Strava para obtener las actividades
+            $client = new Client();
             $response = $client->get('https://www.strava.com/api/v3/athlete/activities', [
                 'headers' => [
-                    'Authorization' => 'Bearer ' . $data['access_token'],
+                    'Authorization' => 'Bearer ' . $accessToken,
                 ],
             ]);
+
             $activities = json_decode($response->getBody(), true);
         }else{
             $activities=null;

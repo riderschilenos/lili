@@ -91,14 +91,19 @@
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
                                     
-                                  @php
-                                    $n=1;
-                                       foreach ($activities as $activity) {
-                                        $n;
-                                        $n+=1;
-                                         $activity;
-                                        }
-                                  @endphp   
+                                    <div class="container mx-auto p-4">
+                                        <h1 class="text-2xl font-bold mb-4">Activities from Strava</h1>
+                                        <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                                            <?php foreach ($activities as $activity): ?>
+                                                <div class="bg-white p-4 rounded shadow">
+                                                    <p class="text-lg font-semibold">@php
+                                                        $activity['name']
+                                                    @endphp </p>
+                                                  
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
                                     <ul class="list-inside space-y-2">
                                         <li>
                                             <div class="flex items-center">

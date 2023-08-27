@@ -17,7 +17,13 @@
                                     <div class="flex items-center justify-between  my-1">
                                         
                                         <div>
-                                          <h2 class="text-sm">Entrada {{$ticket->evento->titulo}}</h2>
+                                          @if ($ticket->evento->type=='desafio')
+                                            <h2 class="text-sm text-center">{{$ticket->evento->titulo}}</h2>
+
+                                          @else
+                                            <h2 class="text-sm text-center">Entrada {{$ticket->evento->titulo}}</h2>
+                                          @endif
+                                        
                                           <h2 class="text-sm pb-2 text-center">{{$ticket->created_at->format('d/m/Y')}}</h2>
                                          
                                         </div>
@@ -78,7 +84,12 @@
                             <div class="flex items-center justify-between  my-1">
                                         
                               <div>
-                                <h2 class="text-sm">Entrada {{$ticket->evento->titulo}}</h2>
+                                @if ($ticket->evento->type=='desafio')
+                                <h2 class="text-sm text-center">{{$ticket->evento->titulo}}</h2>
+
+                              @else
+                                <h2 class="text-sm text-center">Entrada {{$ticket->evento->titulo}}</h2>
+                              @endif
                                 <h2 class="text-sm pb-2 text-center">{{$ticket->created_at->format('d/m/Y')}}</h2>
                                
                               </div>

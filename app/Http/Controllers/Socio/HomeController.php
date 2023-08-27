@@ -597,7 +597,7 @@ class HomeController extends Controller
             
                 // Actualiza el token de acceso en la base de datos con el nuevo token
                 $newAccessToken = $newData['access_token'];
-                $newAccessTokenExpiresAt = time() + $newData['expires_in']; // Calcula el nuevo tiempo de expiración
+                $newAccessTokenExpiresAt = now()->addSeconds($newData['expires_in']); // Calcula el nuevo tiempo de expiración
                 $atletaStrava->update(['access_token'=>$newAccessToken,
                             'token_expires_at'=>$newAccessTokenExpiresAt]);
 

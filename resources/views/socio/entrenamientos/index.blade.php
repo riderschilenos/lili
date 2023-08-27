@@ -94,25 +94,31 @@
                                     <div class="container mx-auto p-4">
                                         <h1 class="text-2xl font-bold mb-4">Actividad de Strava</h1>
                                         <div class="grid gap-4 grid-cols-1">
-                                            @foreach ($activities as $activity)
+                                            @if ($activities)
+                                                @foreach ($activities as $activity)
+                                                    <div class="bg-white p-4 rounded shadow">
+                                                        <p class="text-lg font-semibold">{{ $activity['name'] }}</p>
+                                                        <p class="text-sm text-gray-600">{{ $activity['type'] }}</p>
+                                                        @if (isset($activity['photos']) && count($activity['photos']) > 0)
+                                                            <img src="{{ $activity['photos'][0]['urls']['100'] }}" alt="Activity Photo" class="mt-2 w-full h-auto">
+                                                        @endif
+                                                        <p class="text-sm text-gray-600">Fecha: {{ $activity['start_date_local'] }}</p>
+                                                        <p class="text-sm text-gray-600">Duración: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
+                                                        <p class="text-sm text-gray-600">Distancia: {{ number_format(($activity['distance']/1000), 2, '.', '.') }} kms</p>
+                                                        <p class="text-sm text-gray-600">Elevation Gain: {{ number_format($activity['total_elevation_gain'], 2, '.', ',') }} metros</p>
+                                                        <p class="text-sm text-gray-600">Velocidad Promedio: {{ number_format($activity['average_speed'], 2) }} m/s</p>
+                                                        <p class="text-sm text-gray-600">Velocidad Máxima: {{ number_format($activity['max_speed'], 2) }} m/s</p>
+                                                        <p class="text-sm text-gray-600">Commute: {{ $activity['commute'] ? 'Yes' : 'No' }}</p>
+                                                        <p class="text-sm text-gray-600">Private: {{ $activity['private'] ? 'Yes' : 'No' }}</p>
+                                                        <p class="text-sm text-gray-600">Achievements: {{ $activity['achievement_count'] }}</p>
+                                                    
+                                                    </div>
+                                                @endforeach
+                                            @else
                                                 <div class="bg-white p-4 rounded shadow">
-                                                    <p class="text-lg font-semibold">{{ $activity['name'] }}</p>
-                                                    <p class="text-sm text-gray-600">{{ $activity['type'] }}</p>
-                                                    @if (isset($activity['photos']) && count($activity['photos']) > 0)
-                                                        <img src="{{ $activity['photos'][0]['urls']['100'] }}" alt="Activity Photo" class="mt-2 w-full h-auto">
-                                                    @endif
-                                                    <p class="text-sm text-gray-600">Fecha: {{ $activity['start_date_local'] }}</p>
-                                                    <p class="text-sm text-gray-600">Duración: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
-                                                    <p class="text-sm text-gray-600">Distancia: {{ number_format(($activity['distance']/1000), 2, '.', '.') }} kms</p>
-                                                    <p class="text-sm text-gray-600">Elevation Gain: {{ number_format($activity['total_elevation_gain'], 2, '.', ',') }} metros</p>
-                                                    <p class="text-sm text-gray-600">Velocidad Promedio: {{ number_format($activity['average_speed'], 2) }} m/s</p>
-                                                    <p class="text-sm text-gray-600">Velocidad Máxima: {{ number_format($activity['max_speed'], 2) }} m/s</p>
-                                                    <p class="text-sm text-gray-600">Commute: {{ $activity['commute'] ? 'Yes' : 'No' }}</p>
-                                                    <p class="text-sm text-gray-600">Private: {{ $activity['private'] ? 'Yes' : 'No' }}</p>
-                                                    <p class="text-sm text-gray-600">Achievements: {{ $activity['achievement_count'] }}</p>
-                                                   
+                                                    <p class="text-lg font-semibold">  No Registra Actividad</p>
                                                 </div>
-                                            @endforeach
+                                            @endif
                                         </div>
         
                                     </div>

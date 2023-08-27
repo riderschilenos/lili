@@ -12,6 +12,7 @@ use App\Models\Socio;
 use App\Models\Ticket;
 use App\Models\User;
 use App\Models\Vehiculo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Cache;
@@ -88,7 +89,15 @@ class EventoController extends Controller
     {
         $disciplinas= Disciplina::pluck('name','id');
         $evento=Evento::find($ticket->evento_id);
-        return view('payment.ticketview',compact('evento','disciplinas','ticket'));
+
+        $ticketCreatedAt = Carbon::parse($ticket->created_at);
+        $endTime = $ticketCreatedAt->addHours(48);
+        $currentTime = Carbon::now();
+        
+        $hoursRemaining = $endTime->diffInHours($currentTime);
+        $minutesRemaining = $endTime->diffInMinutes($currentTime) % 60;
+
+        return view('payment.ticketview',compact('evento','disciplinas','ticket', 'hoursRemaining', 'minutesRemaining'));
     }
 
     public function ticket_historial(User $user)

@@ -18,7 +18,12 @@
                       <img src="{{asset('img/ticket.png')}}" class="w-10 p-1">
                       
                       </span>
+                      @if ($evento->type=='desafio')
+                        <h2 class="text-xl mx-4">{{$evento->titulo}}</h2>
+
+                        @else
                         <h2 class="text-xl mx-4">Entrada {{$evento->titulo}}</h2>
+                        @endif
                       </div>
                      
                     </div>

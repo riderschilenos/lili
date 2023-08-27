@@ -33,8 +33,9 @@
                       <div class="flex flex-col mx-auto">
                         @if ($evento->type=='desafio')
                               <div class="bg-gray-100 p-4 rounded-lg shadow-lg text-center">
-                                <div class="text-3xl font-semibold mb-2">Kilómetros Recorridos</div>
-                                <div class="text-6xl font-bold mb-4" id="kilometers">1.58Km</div>
+                                <div class="text-3xl font-bold mb-4" id="kilometers">1.58Km</div>
+                                <div class="text-2xl font-semibold mb-2">Recorridos con Strava</div>
+                              
                             </div>
                         @else
                           <a href="{{route('ticket.historial.view',$ticket->user)}}">

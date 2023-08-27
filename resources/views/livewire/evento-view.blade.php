@@ -14,7 +14,7 @@
                           @can('enrolled', $ticket->evento)
                               <div class="bg-white shadow-lg rounded-xl p-4">
                   
-                                    <div class="flex items-center justify-between  my-1">
+                                    <div class="flex items-center justify-center  my-1">
                                         
                                         <div>
                                           @if ($ticket->evento->type=='desafio')
@@ -81,7 +81,7 @@
                         @else
                           <div class="bg-white shadow-lg rounded-xl p-4">
                     
-                            <div class="flex items-center justify-between  my-1">
+                            <div class="flex items-center justify-center  my-1">
                                         
                               <div>
                                 @if ($ticket->evento->type=='desafio')

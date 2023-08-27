@@ -20,6 +20,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 
+
 class HomeController extends Controller
 {
     /**
@@ -576,11 +577,37 @@ class HomeController extends Controller
         $atletaStrava = AtletaStrava::where('user_id', $socio->user->id)->first();
 
         if ($atletaStrava) {
-            $accessToken = $atletaStrava->access_token;
+            
+            $accessTokenExpiresAt = $atletaStrava->token_expires_at;
+            if (now() >= $accessTokenExpiresAt) {
+                // El token de acceso ha caducado, solicita un nuevo token usando el token de actualización
+            
+                // Realiza una solicitud POST para obtener un nuevo token de acceso usando el token de actualización
+                $client = new Client();
+                $response = $client->post('https://www.strava.com/oauth/token', [
+                    'form_params' => [
+                        'client_id' => 'TU_CLIENT_ID',
+                        'client_secret' => 'TU_CLIENT_SECRET',
+                        'refresh_token' => $atletaStrava->refresh_token,
+                        'grant_type' => 'refresh_token',
+                    ],
+                ]);
+            
+                $newData = json_decode($response->getBody(), true);
+            
+                // Actualiza el token de acceso en la base de datos con el nuevo token
+                $newAccessToken = $newData['access_token'];
+                $newAccessTokenExpiresAt = time() + $newData['expires_in']; // Calcula el nuevo tiempo de expiración
+                $atletaStrava->update(['access_token'=>$newAccessToken,
+                            'token_expires_at'=>$newAccessTokenExpiresAt]);
 
+                // Actualiza el token de acceso y su tiempo de expiración en la base de datos
+            } else {
+                // El token de acceso aún es válido, úsalo para hacer solicitudes a la API de Strava
+            }
             // ID del atleta para el que deseas obtener las actividades
             $athleteId = $atletaStrava->atleta_id;
-
+            $accessToken = $atletaStrava->access_token;
             // URL de la API de Strava
             $url = "https://www.strava.com/api/v3/athletes/{$athleteId}/activities";
 

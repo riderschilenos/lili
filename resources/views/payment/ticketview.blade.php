@@ -26,9 +26,17 @@
                     <div class="flex items-center">
                      
                       <div class="flex flex-col mx-auto">
-                        <a href="{{route('ticket.historial.view',$ticket->user)}}">
-                          <img src="{{Storage::url($ticket->qr)}}" width="150px" class=" p-1">
-                        </a>
+                        @if ($evento->type=='desafio')
+                              <div class="bg-gray-100 p-4 rounded-lg shadow-lg text-center">
+                                <div class="text-3xl font-semibold mb-2">Kilómetros Recorridos</div>
+                                <div class="text-6xl font-bold mb-4" id="kilometers">1.58Km</div>
+                            </div>
+                        @else
+                          <a href="{{route('ticket.historial.view',$ticket->user)}}">
+                            <img src="{{Storage::url($ticket->qr)}}" width="150px" class=" p-1">
+                          </a>
+                        @endif
+                       
                       </div>
                      
                     </div>

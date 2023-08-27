@@ -1,4 +1,4 @@
-<div class="w-full bg-blue-900">
+<div class="bg-blue-900 h-max pb-12">
 
 
   

@@ -1,6 +1,15 @@
  
 <x-app-layout > 
- 
+
+
+  <x-slot name="tl">
+            
+    <title>Ticket Nro: {{$ticket->id}}</title>
+</x-slot>
+
+<x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2"  :disciplinas="$disciplinas">
+   
+
   <div class="flex justify-center w-full bg-blue-900">
 
     <div class="rounded-lg mt-12 mb-28">
@@ -193,30 +202,32 @@
   
     </div>
   </div>
-  @php
+      @php
 
-      $endTime = $ticket->updated_at->addHours(48);
+          $endTime = $ticket->updated_at->addHours(48);
 
-  @endphp
-  <script>
-    const clockDisplay = document.getElementById('clock');
-    
-    function updateClock() {
-      const endTime = new Date(<?php echo json_encode($endTime) ?>);
-      const currentTime =  new Date(); // Reemplaza con tu fecha de finalización
+      @endphp
+      <script>
+        const clockDisplay = document.getElementById('clock');
+        
+        function updateClock() {
+          const endTime = new Date(<?php echo json_encode($endTime) ?>);
+          const currentTime =  new Date(); // Reemplaza con tu fecha de finalización
 
-        const timeRemaining = endTime.getTime() - currentTime.getTime();
+            const timeRemaining = endTime.getTime() - currentTime.getTime();
 
-        const seconds = Math.floor((timeRemaining / 1000) % 60);
-        const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
-        const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+            const seconds = Math.floor((timeRemaining / 1000) % 60);
+            const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
+            const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
 
-        clockDisplay.innerText = `Quedan ${hours} horas, ${minutes} minutos y ${seconds} segundos`;
-    }
+            clockDisplay.innerText = `Quedan ${hours} horas, ${minutes} minutos y ${seconds} segundos`;
+        }
 
-    updateClock(); // Actualiza inicialmente
+        updateClock(); // Actualiza inicialmente
 
-    setInterval(updateClock, 1000); // Actualiza cada segundo
-</script>
-  
+        setInterval(updateClock, 1000); // Actualiza cada segundo
+    </script>
+
+  </x-fast-view>
+
 </x-app-layout > 

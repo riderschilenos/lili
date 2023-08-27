@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="tl">
             
-        <title>Historial de Tickers - {{$user->name}}</title>
+        <title>Historial de Tickets - {{$user->name}}</title>
     </x-slot>
   
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2"  :disciplinas="$disciplinas">

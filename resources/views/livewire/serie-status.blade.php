@@ -1,4 +1,10 @@
 <div class="mt-8">
+    <x-slot name="tl">
+            
+        <title>{{$serie->titulo}}</title>
+        
+        
+    </x-slot>
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
             <div class="embed-responsive">

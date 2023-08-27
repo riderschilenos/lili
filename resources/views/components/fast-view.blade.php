@@ -1132,7 +1132,7 @@
                 </div>
     
                 <div>
-                    <h1 class="text-center font-bold mt-4 text-2xl">¿Cual es tu Próximo Desafío?</h1>
+                    <h1 class="text-center font-bold mt-4 text-2xl mb-2">¿Cual es tu Próximo Desafío?</h1>
                 </div>
     
                 @livewire('eventos-index')

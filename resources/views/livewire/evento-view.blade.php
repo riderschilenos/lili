@@ -17,7 +17,8 @@
                                     <div class="flex items-center justify-between  my-1">
                                         
                                         <div>
-                                          <h2 class="text-sm pb-2">Entrada {{$ticket->evento->titulo}}-{{$ticket->created_at}}</h2>
+                                          <h2 class="text-sm">Entrada {{$ticket->evento->titulo}}</h2>
+                                          <h2 class="text-sm pb-2 text-center">{{$ticket->created_at->format('d/m/Y')}}</h2>
                                          
                                         </div>
                                     </div>

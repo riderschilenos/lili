@@ -15,14 +15,10 @@
                               <div class="bg-white shadow-lg rounded-xl p-4">
                   
                                     <div class="flex items-center justify-between  my-1">
-                                        <div class="mr-3 rounded-full">
-
-                                            <img src="{{asset('img/ticket.png')}}" class="w-10 p-1">
                                         
-                                        </div>
                                         <div>
-                                          <h2 class="text-md">Entrada {{$ticket->evento->titulo}}</h2>
-                                          <h2 class="text-base mx-4">{{$ticket->created_at}}</h2>
+                                          <h2 class="text-sm pb-2">Entrada {{$ticket->evento->titulo}}-{{$ticket->created_at}}</h2>
+                                         
                                         </div>
                                     </div>
                                   

@@ -21,7 +21,7 @@
                                         
                                         </div>
                                         <div>
-                                          <h2 class="text-md mx-4">Entrada {{$ticket->evento->titulo}}</h2>
+                                          <h2 class="text-md">Entrada {{$ticket->evento->titulo}}</h2>
                                           <h2 class="text-base mx-4">{{$ticket->created_at}}</h2>
                                         </div>
                                     </div>

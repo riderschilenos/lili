@@ -586,8 +586,8 @@ class HomeController extends Controller
                 $client = new Client();
                 $response = $client->post('https://www.strava.com/oauth/token', [
                     'form_params' => [
-                        'client_id' => 'TU_CLIENT_ID',
-                        'client_secret' => 'TU_CLIENT_SECRET',
+                        'client_id' => env('ST_CLIENT_ID'),
+                        'client_secret' => env('ST_CLIENT_SECRET'),
                         'refresh_token' => $atletaStrava->refresh_token,
                         'grant_type' => 'refresh_token',
                     ],

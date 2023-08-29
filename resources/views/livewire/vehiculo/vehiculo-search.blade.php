@@ -4,7 +4,7 @@
     $motos=0;
     $bicicletas=0;
 
-        foreach ($vehiculos as $vehiculo) {
+        foreach ($vehiculosall as $vehiculo) {
             if ($vehiculo->status==5) {
                 if ($vehiculo->vehiculo_type->id==9 or $vehiculo->vehiculo_type->id==10 or $vehiculo->vehiculo_type->id==11 ) {
                     $bicicletas+=1;}

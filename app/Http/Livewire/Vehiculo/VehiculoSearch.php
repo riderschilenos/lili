@@ -25,8 +25,9 @@ class VehiculoSearch extends Component
                         })
                         ->orderBy('updated_at', 'desc') // Ordenar por fecha de modificación más reciente
                         ->paginate(8);
+        $vehiculosall = Vehiculo::all();
 
-        return view('livewire.vehiculo.vehiculo-search',compact('vehiculos'));
+        return view('livewire.vehiculo.vehiculo-search',compact('vehiculos','vehiculosall'));
     }
 
     public function limpiar_page(){

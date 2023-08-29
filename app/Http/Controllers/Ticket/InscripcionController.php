@@ -38,18 +38,28 @@ class InscripcionController extends Controller
      */
     public function store(Request $request)
     {
+        $ticket=Ticket::where('id',$request->ticket_id)->first();
 
-        
-        foreach(range(1,$request->nro) as $item){
-        $inscripcion = Inscripcion::create([
+        if($ticket->evento->type=='pista'){
+            foreach(range(1,$request->nro) as $item){
+            $inscripcion = Inscripcion::create([
+                    'ticket_id'=>$request->ticket_id,
+                    'categoria_id'=>$request->categoria_id,
+                    'fecha_categoria_id'=>$request->fecha_categoria_id,
+                    'cantidad'=>$request->cantidad,
+                    'fecha_id'=>$request->fecha_id
+                            ]);
+            }
+        }else{
+            $inscripcion = Inscripcion::create([
                 'ticket_id'=>$request->ticket_id,
                 'categoria_id'=>$request->categoria_id,
                 'fecha_categoria_id'=>$request->fecha_categoria_id,
                 'cantidad'=>$request->cantidad,
-                'fecha_id'=>$request->fecha_id
+                'fecha_id'=>$request->fecha_id,
+                'nro'=>$request->nro
                         ]);
         }
-
                                 
         $ticket= Ticket::find($request->ticket_id);
 

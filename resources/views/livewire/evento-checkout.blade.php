@@ -97,7 +97,7 @@
                             <div class="mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 
-                                    <div class="flex mx-auto mb-4 w-full  px-24">
+                                    <div class="grid grid-cols-3 gap-2 mx-auto mb-4 w-full  px-24">
                                         @foreach ($fech->categorias as $item)
                                             <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
                                                 @if ($item->inscripcion==0)

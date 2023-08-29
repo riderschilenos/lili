@@ -103,7 +103,7 @@
                         @else
                             <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripción</p>
                         @endif
-                        <div class="flex mx-auto mb-4 w-full  px-24">
+                        <div class="grid grid-cols-3 gap-2 mx-auto mb-4 w-full  px-24">
                             @foreach ($fech->categorias as $item)
                                 <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
                                     @if ($item->inscripcion==0)

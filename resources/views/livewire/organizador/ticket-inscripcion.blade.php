@@ -22,7 +22,7 @@
       
  
 </div>
-        @if ($evento->type=='carrera'|| $evento->type=='campeonato')
+        @if ($evento->type=='carrera' || $evento->type=='campeonato')
             
             <div class="flex justify-center">      
                 <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">

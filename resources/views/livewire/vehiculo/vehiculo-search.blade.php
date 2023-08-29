@@ -163,9 +163,9 @@
         <div class="max-w-7xl lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4">
 
             @foreach ($vehiculos as $vehiculo)
-                @if($vehiculo->status==5)
+               
                     <x-mivehiculo-card :vehiculo="$vehiculo" />        
-                @endif
+               
             @endforeach
     
         </div>

@@ -12,7 +12,7 @@
    
        
         <section class="bg-white py-4 mb-8 ">
-            <div class="container grid grid-cols-1 lg:grid-cols-2 gap-3">
+            <div class="container grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div class="flex justify-center">
                     @isset($evento->image)
                         <img class="h-72 w-72 object-center object-cover"  src="{{Storage::url($evento->image->url)}}" alt="">
@@ -45,8 +45,9 @@
 
        
 
-        <div class="container mb-20 pb-20 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="order-2 lg:col-span-2 lg:order-1 mb-24 pb-24">
+        <div class="container mb-20 pb-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="order-2 md:col-span-2 lg:order-1 mb-24 pb-24">
 
               
 
@@ -61,6 +62,7 @@
                         
                     
                         <p class="text-gray-700 text-base">{!!$evento->descripcion!!}</p>
+
                         @if ($evento->type=='pista')
                             <h1 class="font-bold text-xl my-4 text-gray-800">La Pista a Realizado {{$evento->fechas_count}} Entrenamientos.</h1>
                         
@@ -136,127 +138,128 @@
 
 
             <div class="order-1 lg:order-2">
-                @if ($ticket)
-                    <a href="{{route('payment.checkout.ticket', $ticket)}}">
-                        <section class="card mb-6">
-                            <div class="card-body">
-    
-                                @if ($evento->type=='pista')
-                                    <h1 class="font-bold text-2xl mb-2 text-gray-800">Próximos Entrenamientos</h1>
-                                @else
-                                    <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
-                                @endif
-                                <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
-                                        @php
-                                            $n=0;
-                                        @endphp
-                                    @foreach ($evento->fechas as $fecha)
-                                        
-                                        @if ($fecha->fecha>=now()->subDays(1))
-                                            <li class="text-center">
-                                                <div class="flex items-center justify-center pb-5 bg-blue-900 text-white py-2">
-                                                    @php
-                                                        $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-                                                    @endphp
-                                                    @if ($fecha->name=='keyname')
-                                                        <label class="mx-auto text-center"> {{$dias[date('N', strtotime($fecha->fecha))-1]}} <br> {{date('d/m/Y', strtotime($fecha->fecha))}}
-                                                        </label>
-                                                    @else
-                                                        <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
-                                                    @endif
-                                                        
-                                                </div>
-                                            </li>
-                                        
+                @if ($evento->type=='pista')
+                    @if ($ticket)
+                        <a href="{{route('payment.checkout.ticket', $ticket)}}">
+                            <section class="card mb-6">
+                                <div class="card-body">
+        
+                                    @if ($evento->type=='pista')
+                                        <h1 class="font-bold text-2xl mb-2 text-gray-800">Próximos Entrenamientos</h1>
+                                    @else
+                                        <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
+                                    @endif
+                                    <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
                                             @php
-                                                $n+=1;
+                                                $n=0;
                                             @endphp
-                                        @endif
-                                    @endforeach
-                                            @if ($n==0)
-                                                <div class="text-center">
-                                                    <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2">
+                                        @foreach ($evento->fechas as $fecha)
+                                            
+                                            @if ($fecha->fecha>=now()->subDays(1))
+                                                <li class="text-center">
+                                                    <div class="flex items-center justify-center pb-5 bg-blue-900 text-white py-2">
                                                         @php
                                                             $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                         @endphp
                                                         @if ($fecha->name=='keyname')
-                                                            <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                                            <label class="mx-auto text-center"> {{$dias[date('N', strtotime($fecha->fecha))-1]}} <br> {{date('d/m/Y', strtotime($fecha->fecha))}}
                                                             </label>
                                                         @else
                                                             <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
                                                         @endif
                                                             
                                                     </div>
-                                                </div>
+                                                </li>
+                                            
+                                                @php
+                                                    $n+=1;
+                                                @endphp
                                             @endif
-                                </ul>
-                            
-                            </div>
-    
-                        </section>
-                    </a>
-                @else
-                    <a href="{{route('checkout.evento',$evento)}}">
-                        <section class="card mb-6">
-                            <div class="card-body">
-    
-                                @if ($evento->type=='pista')
-                                    <h1 class="font-bold text-2xl mb-2 text-gray-800">Próximos Entrenamientos</h1>
-                                @else
-                                    <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
-                                @endif
-                                <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
-                                        @php
-                                            $n=0;
-                                        @endphp
-                                    @foreach ($evento->fechas as $fecha)
-                                        
-                                        @if ($fecha->fecha>=now()->subDays(1))
-                                            <li class="text-center">
-                                                <div class="flex items-center justify-center pb-5 bg-blue-900 text-white py-2">
-                                                    @php
-                                                        $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-                                                    @endphp
-                                                    @if ($fecha->name=='keyname')
-                                                        <label class="mx-auto text-center"> {{$dias[date('N', strtotime($fecha->fecha))-1]}} <br> {{date('d/m/Y', strtotime($fecha->fecha))}}
-                                                        </label>
-                                                    @else
-                                                        <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
-                                                    @endif
-                                                        
-                                                </div>
-                                            </li>
-                                        
+                                        @endforeach
+                                                @if ($n==0)
+                                                    <div class="text-center">
+                                                        <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2">
+                                                            @php
+                                                                $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+                                                            @endphp
+                                                            @if ($fecha->name=='keyname')
+                                                                <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                                                </label>
+                                                            @else
+                                                                <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                                            @endif
+                                                                
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                    </ul>
+                                
+                                </div>
+        
+                            </section>
+                        </a>
+                    @else
+                        <a href="{{route('checkout.evento',$evento)}}">
+                            <section class="card mb-6">
+                                <div class="card-body">
+        
+                                    @if ($evento->type=='pista')
+                                        <h1 class="font-bold text-2xl mb-2 text-gray-800">Próximos Entrenamientos</h1>
+                                    @else
+                                        <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
+                                    @endif
+                                    <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
                                             @php
-                                                $n+=1;
+                                                $n=0;
                                             @endphp
-                                        @endif
-                                    @endforeach
-                                            @if ($n==0)
-                                                <div class="text-center">
-                                                    <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2">
+                                        @foreach ($evento->fechas as $fecha)
+                                            
+                                            @if ($fecha->fecha>=now()->subDays(1))
+                                                <li class="text-center">
+                                                    <div class="flex items-center justify-center pb-5 bg-blue-900 text-white py-2">
                                                         @php
                                                             $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                         @endphp
                                                         @if ($fecha->name=='keyname')
-                                                            <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                                            <label class="mx-auto text-center"> {{$dias[date('N', strtotime($fecha->fecha))-1]}} <br> {{date('d/m/Y', strtotime($fecha->fecha))}}
                                                             </label>
                                                         @else
                                                             <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
                                                         @endif
                                                             
                                                     </div>
-                                                </div>
+                                                </li>
+                                            
+                                                @php
+                                                    $n+=1;
+                                                @endphp
                                             @endif
-                                </ul>
-                            
-                            </div>
-    
-                        </section>
-                    </a>
+                                        @endforeach
+                                                @if ($n==0)
+                                                    <div class="text-center">
+                                                        <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2">
+                                                            @php
+                                                                $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+                                                            @endphp
+                                                            @if ($fecha->name=='keyname')
+                                                                <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                                                </label>
+                                                            @else
+                                                                <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                                            @endif
+                                                                
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                    </ul>
+                                
+                                </div>
+        
+                            </section>
+                        </a>
 
-                @endif               
-                
+                    @endif               
+                @endif    
                 
                 <section class="card mb-4">
                     <div class="card-body">

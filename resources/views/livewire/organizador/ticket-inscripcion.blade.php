@@ -67,46 +67,48 @@
                             <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                         </div>
                         <div class="block">
-                        @if ($evento->type=='pista')
-                            
-                                <p class="ml-4">Cuantas Motos? </p>
-                                <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
+                            @if ($evento->type=='pista')
                                 
-                                <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
-                                    <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
-                                </div>
+                                    <p class="ml-4">Cuantas Motos? </p>
+                                    <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
+                                    
+                                    <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
+                                        <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
+                                    </div>
+
+                                
+                            @elseif($evento->type=='desafio')
+                                    
+                            @else
+                            
+                                    <p class="">Número de Moto: </p>
+                                    <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 rounded-lg">
+                                    
+                                    <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
+                                        <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
+                                    </div>
 
                             
-                        @elseif($evento->type=='desafio')
-                                
-                        @else
-                          
-                                <p class="">Número de Moto: </p>
-                                <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 rounded-lg">
-                                
-                                <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
-                                    <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
-                                </div>
-
-                           
-                        @endif
+                            @endif
 
                    
-                        <form action="{{route('ticket.inscripcions.store')}}" method="POST">
-                            @csrf
-                            
-
-                            <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                            <input name="categoria_id" type="hidden" value="{{$categoria_id}}">
-                            <input name="fecha_categoria_id" type="hidden" value="{{$fechacategoria->id}}">
-                            <input name="nro" type="hidden" value="{{$nro}}">
-                            <input name="cantidad" type="hidden" value="{{$fechacategoria->inscripcion}}">
-                            <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
-
-                            <button class="btn btn-primary mt-2 ml-4" type="submit">Agregar</button>
-                        </form>   
+                     
 
                     </div>
+                    
+                    <form action="{{route('ticket.inscripcions.store')}}" method="POST">
+                        @csrf
+                        
+
+                        <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
+                        <input name="categoria_id" type="hidden" value="{{$categoria_id}}">
+                        <input name="fecha_categoria_id" type="hidden" value="{{$fechacategoria->id}}">
+                        <input name="nro" type="hidden" value="{{$nro}}">
+                        <input name="cantidad" type="hidden" value="{{$fechacategoria->inscripcion}}">
+                        <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
+
+                        <button class="btn btn-primary mt-2 ml-4" type="submit">Agregar</button>
+                    </form>   
                         <p wire:click="add({{$fecha}})" class="hidden btn btn-primary">Agregar</p>
 
 

@@ -17,7 +17,7 @@ class VehiculoSearch extends Component
         $vehiculos = Vehiculo::
         join('users','vehiculos.user_id','=','users.id')
         ->select('vehiculos.*','users.name','users.email')
-        ->where('vehiculos.status',6)
+        ->where('vehiculos.status',5)
         ->orwhere('name','LIKE','%'. $this->search .'%')
         ->orwhere('users.email','LIKE','%'. $this->search .'%')
         ->orwhere('vehiculos.modelo','LIKE','%'. $this->search .'%')

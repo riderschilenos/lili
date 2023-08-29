@@ -57,11 +57,12 @@
                     
                     
                     @if ($categoria_id)  
-                        <div class="@if($ticket->evento->type=='pista') hidden @else block @endif">
-                            <p class="text-base leading-none mx-auto text-center">Categoria:  </p>
-                            <h1 style="font-size: 1rem;white-space: nowrap;" class="text-center">{{$fechacategoria->categoria->name}}</h1>
-                        </div>
-                    
+                        @if($ticket->evento->type=='pista')
+                            <div class="">
+                                <p class="text-base leading-none mx-auto text-center">Categoria:  </p>
+                                <h1 style="font-size: 1rem;white-space: nowrap;" class="text-center">{{$fechacategoria->categoria->name}}</h1>
+                            </div>
+                        @endif
                         <div class="text-white  text-md font-bold px-4" wire:loading wire:target="selectedcategoria">
                             <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                         </div>

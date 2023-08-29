@@ -20,14 +20,14 @@
 <div>
     <h1 class="text-center font-bold text-2xl">¿Cuántas Motos y Bicicletas Hay Registradas en Chile?</h1>
 </div>
-<div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-x-4">
+<div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-x-4">
                 
     <div>
 
     </div>
    
     <div class="hidden sm:block">
-        <div class="flex justify-end mr-4 ">
+        <div class="flex justify-center mr-4 ">
 
             
             <div class="grid grid-cols-3 gap-3">
@@ -160,7 +160,7 @@
     </div>
     @if($vehiculos->count())
         
-        <div class="max-w-7xl lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-4">
+        <div class="max-w-7xl lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-4">
 
             @foreach ($vehiculos as $vehiculo)
                

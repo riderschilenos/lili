@@ -24,7 +24,7 @@ class VehiculoSearch extends Component
                             ->orWhere('vehiculos.nro_serie', 'LIKE', '%' . $this->search . '%');
                     })
                     ->latest('id')
-                    ->paginate(9);
+                    ->paginate(8);
 
         return view('livewire.vehiculo.vehiculo-search',compact('vehiculos'));
     }

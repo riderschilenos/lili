@@ -274,7 +274,10 @@
                             
                             <div class="ml-4">
                                 <h1 class="font-fold text-gray-500 text-lg">Organizador: {{ $evento->organizador->name }}</h1>
-                                <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show',$evento->user->socio)}}">{{'@'.Str::slug($evento->user->socio->slug,'')}}</a>
+                                    @if ($evento->user->socio)
+                                        <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show',$evento->user->socio)}}">{{'@'.Str::slug($evento->user->socio->slug,'')}}</a>
+                                        
+                                    @endif
                             </div>
                         </div>
 

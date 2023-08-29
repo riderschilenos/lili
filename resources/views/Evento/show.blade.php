@@ -263,7 +263,7 @@
                 
                 <section class="card mb-4">
                     <div class="card-body">
-                        <div class="flex items-center">
+                        <div class="flex items-center mb-4">
                             @if (str_contains($evento->organizador->profile_photo_url,'https://ui-'))
                                 <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{ $evento->organizador->name }}"  />
                             
@@ -278,10 +278,25 @@
                             </div>
                         </div>
 
-                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->socio->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre" target="_blank" class="btn btn-success mt-4 btn-block">
-                           Contactar al Whatsapp
-                        </a>
+                       
+                        @if ($ticket)
+                            <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">
+                                    @if ($evento->type=='pista')
+                                        Finalizar Compra
+                                    @else
+                                        Finalizar Inscripción
+                                    @endif
+                                </a>
+                            @else
+                                <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">
+                                    @if ($evento->type=='pista')
+                                        Comprar
+                                    @else
+                                        Inscribirme
+                                    @endif
+                            </a>
 
+                        @endif
                         @can('enrolled', $evento)
                                 @if (auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->where('status',1)->first())
                                     @if($evento->type=='pista')
@@ -347,7 +362,7 @@
                                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                                     @endif
                                         
-                                    <div class="flex mx-auto mb-4 w-full  px-24">
+                                    <div class="grid grid-cols-3 mx-auto mb-4 w-full  px-24">
                                         @foreach ($fech->categorias as $item)
                                             <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
                                                 @if ($item->inscripcion==0)
@@ -377,7 +392,7 @@
                                     @else
                                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                                     @endif
-                                    <div class="flex mx-auto mb-4 w-full  px-24">
+                                    <div class="grid grid-cols-3 mx-auto mb-4 w-full  px-24">
                                         @foreach ($fech->categorias as $item)
                                             <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
                                                 @if ($item->inscripcion==0)
@@ -403,24 +418,11 @@
                                   
 
                                 @endif
-                                @if ($ticket)
-                                    <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">
-                                        @if ($evento->type=='pista')
-                                            Finalizar Compra
-                                        @else
-                                            Finalizar Inscripción
-                                        @endif
-                                    </a>
-                                @else
-                                    <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">
-                                        @if ($evento->type=='pista')
-                                            Comprar
-                                        @else
-                                            Inscribirme
-                                        @endif
-                                    </a>
 
-                                @endif
+                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->socio->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre" target="_blank" class="btn btn-success mt-4 btn-block">
+                                    Contactar al Whatsapp
+                                 </a>
+                               
                                
                                 @if (auth()->user())
                                     @if (auth()->user()->tickets)

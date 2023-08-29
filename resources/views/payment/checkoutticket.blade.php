@@ -443,7 +443,7 @@
                                                                                     @else
                                                                                         <td class="px-6 py-4 whitespace-nowrap">
                                                                                     
-                                                                                        
+                                                                                            {{$inscripcion->fecha_categoria->categoria->name}}
                                                                                         
                                                                                         </td>
                                                                                     @endif

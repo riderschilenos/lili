@@ -15,18 +15,16 @@ class VehiculoSearch extends Component
     public function render()
     {   
         $vehiculos = Vehiculo::join('users', 'vehiculos.user_id', '=', 'users.id')
-    ->leftJoin('mantencions', 'vehiculos.id', '=', 'mantencions.vehiculo_id')
-    ->select('vehiculos.*', 'users.name', 'users.email')
-    ->where('vehiculos.status', 6) // Filtro por estado
-    ->where(function($query) {
-        $query->where('name', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('users.email', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('vehiculos.modelo', 'LIKE', '%' . $this->search . '%')
-            ->orWhere('vehiculos.nro_serie', 'LIKE', '%' . $this->search . '%');
-    })
-    ->orderByRaw('CASE WHEN mantencions.created_at IS NULL THEN 1 ELSE 0 END, mantencions.created_at DESC')
-    ->orderBy('vehiculos.created_at', 'desc') // Ordenar por fecha de creación más reciente
-    ->paginate(8);
+                        ->select('vehiculos.*', 'users.name', 'users.email')
+                        ->where('vehiculos.status', 6) // Filtro por estado
+                        ->where(function($query) {
+                            $query->where('name', 'LIKE', '%' . $this->search . '%')
+                                ->orWhere('users.email', 'LIKE', '%' . $this->search . '%')
+                                ->orWhere('vehiculos.modelo', 'LIKE', '%' . $this->search . '%')
+                                ->orWhere('vehiculos.nro_serie', 'LIKE', '%' . $this->search . '%');
+                        })
+                        ->orderBy('updated_at', 'desc') // Ordenar por fecha de modificación más reciente
+                        ->paginate(8);
         $vehiculosall = Vehiculo::all();
 
         return view('livewire.vehiculo.vehiculo-search',compact('vehiculos','vehiculosall'));

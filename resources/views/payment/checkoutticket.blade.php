@@ -427,13 +427,14 @@
                                                                                 <tr>
                                                                                     <td class="px-6 py-4 whitespace-nowrap">
 
-                                                                                    @if ($inscripcion->fecha->name=='keyname')
+                                                                                        @if ($inscripcion->fecha->name=='keyname')
                                                                                             <label class=""> Entrenamiento {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}</label>
+                                                                                            <br>
+                                                                                            {{$inscripcion->fecha_categoria->categoria->name}}
                                                                                         @else
                                                                                             <label class=""> {{$inscripcion->fecha->name}}</label>
                                                                                         @endif
-                                                                                        <br>
-                                                                                        {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                        
                                                                                     </td>
                                                                                     @if ($evento->type=='pista')
 

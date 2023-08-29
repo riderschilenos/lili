@@ -421,11 +421,11 @@
                                   
 
                                 @endif
-
-                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->socio->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre" target="_blank" class="btn btn-success mt-4 btn-block">
-                                    Contactar al Whatsapp
-                                 </a>
-                               
+                                @if ($evento->user->socio)  
+                                    <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->socio->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre" target="_blank" class="btn btn-success mt-4 btn-block">
+                                        Contactar al Whatsapp
+                                    </a>
+                                @endif
                                
                                 @if (auth()->user())
                                     @if (auth()->user()->tickets)

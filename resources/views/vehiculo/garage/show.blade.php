@@ -236,7 +236,15 @@
                         <div class="card-body">
                             @if($vehiculo->property==1)
                                 <div class="flex items-center">
-                                    <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
+
+                                    @if (str_contains($vehiculo->user->profile_photo_url,'https://ui-'))
+                                        <img loading="lazy" class="cursor-pointer h-44 w-40 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{$socio->name}}">
+                                        
+                                    @else
+                                        <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="{{ $vehiculo->user->profile_photo_url }}" alt=""  />
+                                    
+                                    @endif
+                                      
                                     <div class="ml-4">
     
                                         

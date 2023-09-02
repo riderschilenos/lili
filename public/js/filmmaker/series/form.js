@@ -21,19 +21,91 @@ function slug (str) {
 //CKEDITOR
 
 ClassicEditor
-   .create( document.querySelector( '#descripcion' ), {
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote' ,'table'],
-        heading: {
-         options: [
-                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-            ]
-        }
-    } )
-    .catch( error => {
-        console.log( error );
-          } );
+.create(document.querySelector('#descripcion'), {
+    toolbar: {
+        items: [
+            'heading',
+            '|',
+            'bold',
+            'italic',
+            'underline',
+            'strikethrough',
+            'link',
+            '|',
+            'bulletedList',
+            'numberedList',
+            'todoList',
+            '|',
+            'outdent',
+            'indent',
+            '|',
+            'alignment',
+            'fontBackgroundColor',
+            'fontColor',
+            'fontSize',
+            'fontFamily',
+            '|',
+            'highlight',
+            'subscript',
+            'superscript',
+            'removeFormat',
+            'code',
+            'codeBlock',
+            '|',
+            'imageInsert',
+            'blockQuote',
+            'insertTable',
+            'mediaEmbed',
+            'pageBreak',
+            '|',
+            'undo',
+            'redo',
+            '|',
+            'horizontalLine',
+            'htmlEmbed',
+            'MathType',
+            '|',
+            'exportPdf',
+            'exportWord',
+            'exportHtml',
+            '|',
+            'find',
+            'selectAll',
+            'sourceEditing',
+            '|',
+            'undo',
+            'redo'
+        ],
+        shouldNotGroupWhenFull: true
+    },
+    language: 'es',
+    image: {
+        toolbar: [
+            'imageTextAlternative',
+            'imageStyle:full',
+            'imageStyle:side',
+            '|',
+            'imageResize',
+            'imageResize:50',
+            'imageResize:75',
+            '|',
+            'imageTextAlternative'
+        ]
+    },
+    table: {
+        contentToolbar: [
+            'tableColumn',
+            'tableRow',
+            'mergeTableCells',
+            'tableProperties',
+            'tableCellProperties'
+        ]
+    },
+    licenseKey: '',
+})
+.catch(error => {
+    console.error(error);
+});
 //
     //Cambiar imagen
 document.getElementById("file").addEventListener('change', cambiarImagen);

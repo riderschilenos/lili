@@ -838,7 +838,7 @@
                                             <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><h1 class="text-white text-base mb-2 font-bold">MOTOCROSS OHIGGINS 2023</h1>
                                      
                                            
-                                                        <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><img class="w-full h-32 object-contain my-auto content-center items-center bg-white" src="https://riderschilenos.cl/storage/eventos/MYom1YNyYu9AAB08EC-0581-4DDD-B0BE-5E6B4401A02E.jpeg" alt=""></a>
+                                                        <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><img class="w-full h-32 object-contain my-auto content-center items-center " src="https://riderschilenos.cl/storage/eventos/MYom1YNyYu9AAB08EC-0581-4DDD-B0BE-5E6B4401A02E.jpeg" alt=""></a>
                                                   
                                          
                                     </div>
@@ -905,7 +905,7 @@
                                             <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><h1 class="text-white text-base mb-2 font-bold">Desafío RidersChilenos ft Strava.</h1>
                                      
                                            
-                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><img class="w-full h-32 object-contain my-auto content-center items-center bg-white" src="https://riderschilenos.cl/storage/eventos/0Mmi3RMQAE9622586C-A3CD-4C0E-801F-6FFC54BC1000.jpeg" alt=""></a>
+                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><img class="w-full h-32 object-contain my-auto content-center items-center " src="https://riderschilenos.cl/storage/eventos/0Mmi3RMQAE9622586C-A3CD-4C0E-801F-6FFC54BC1000.jpeg" alt=""></a>
                                                   
                                          
                                     </div>
@@ -1075,7 +1075,7 @@
                                                         <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><h1 class="text-white text-base mb-2 font-bold">MOTOCROSS OHIGGINS 2023</h1>
                                                  
                                                        
-                                                                    <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><img class="w-full h-32 object-contain my-auto content-center items-center bg-white" src="https://riderschilenos.cl/storage/eventos/MYom1YNyYu9AAB08EC-0581-4DDD-B0BE-5E6B4401A02E.jpeg" alt=""></a>
+                                                                    <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><img class="w-full h-32 object-contain my-auto content-center items-center" src="https://riderschilenos.cl/storage/eventos/MYom1YNyYu9AAB08EC-0581-4DDD-B0BE-5E6B4401A02E.jpeg" alt=""></a>
                                                               
                                                      
                                                 </div>
@@ -1143,7 +1143,7 @@
                                                         <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><h1 class="text-white text-base mb-2 font-bold">Desafío RidersChilenos ft Strava.</h1>
                                                  
                                                        
-                                                                    <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><img class="w-full h-32 object-contain my-auto content-center items-center bg-white" src="https://riderschilenos.cl/storage/eventos/0Mmi3RMQAE9622586C-A3CD-4C0E-801F-6FFC54BC1000.jpeg" alt=""></a>
+                                                                    <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><img class="w-full h-32 object-contain my-auto content-center items-center" src="https://riderschilenos.cl/storage/eventos/0Mmi3RMQAE9622586C-A3CD-4C0E-801F-6FFC54BC1000.jpeg" alt=""></a>
                                                               
                                                      
                                                 </div>

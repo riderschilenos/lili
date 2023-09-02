@@ -95,7 +95,7 @@
                     @endisset
 
                     
-
+{{-- comment
                     <div class="mb-4">
                         {!! Form::label('nro', 'Numero Rider (Moto/Bicicleta)') !!}
                         {!! Form::text('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
@@ -104,7 +104,7 @@
                             <strong class="text-xs text-red-600">{{$message}}</strong>
                         @enderror
                     </div>
-
+ --}}
                     <div class="mb-4">
                         
                         
@@ -136,6 +136,7 @@
                     @php
                         $prev=['Fonasa'=>'Fonasa','Isapre'=>'Isapre'];
                     @endphp
+                    {{-- comment 
                     <div class="mb-4">
                         {!! Form::label('prevision', 'Prevision de Salud (Fonasa o Isapre? En caso de ser isapre, indicar cual)') !!}
                         {!! Form::select('prevision', $prev, null , ['class'=>'form-input block w-full mt-1']) !!}
@@ -144,7 +145,7 @@
                             <strong class="text-xs text-red-600">{{$message}}</strong>
                         @enderror
                     </div>
-
+--}}
                     
                     
                 </div>

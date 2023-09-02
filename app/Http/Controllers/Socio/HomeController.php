@@ -146,10 +146,8 @@ class HomeController extends Controller
             'name'=>'required',
             'last_name'=>'required',
             'born_date'=>'required',
-            'prevision'=>'required',
             'username'=>'required',
             'rut'=>'required',
-            'nro'=>'required',
             'slug'=>'required|unique:socios',
             'disciplina_id'=>'required'
             ]);
@@ -161,10 +159,8 @@ class HomeController extends Controller
                     'last_name'=> $request->last_name,
                     'slug'=> $request->slug,
                     'born_date'=> $request->born_date,
-                    'prevision'=> $request->prevision,
                     'fono'=> $request->fono,
                     'rut'=> $request->rut,
-                    'nro'=> $request->nro,
                     'disciplina_id'=> $request->disciplina_id,
                     'user_id'=> $request->user_id]);
             

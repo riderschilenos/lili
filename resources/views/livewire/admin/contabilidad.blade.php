@@ -821,6 +821,9 @@
                     if ($gastoanual_circular>0) {
                         $seriegastosanual[]=['name' =>$gastotype->name,
                                         'y'=> $gastoanual_circular];  
+                                                }else {
+                                                    $seriegastosanual[]=['name' =>$gastotype->name,
+                                                    'y'=> 0];  
                                                 }
         }
 

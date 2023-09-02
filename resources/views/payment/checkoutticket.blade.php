@@ -155,7 +155,7 @@
         
             <hr>
 
-            <p class="text-sm mt-4">{!!$ticket->evento->descripcion!!}</p>
+            <p class="text-sm mt-4 hidden">{!!$ticket->evento->descripcion!!}</p>
         </div>
     </div>
 

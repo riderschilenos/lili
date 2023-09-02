@@ -1,6 +1,11 @@
 <x-app-layout>
    
-
+    <x-slot name="tl">
+            
+        <title>Editar Perfil {{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}</title>
+        
+        
+    </x-slot>
     <div class="max-w-7xl mx-auto px-4 py-8">
 
         <div class="card pb-8">

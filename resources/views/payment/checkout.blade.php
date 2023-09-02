@@ -1,5 +1,10 @@
 <x-app-layout>
-
+    <x-slot name="tl">
+            
+        <title>Checkout {{$serie->titulo}}</title>
+        
+        
+    </x-slot>
     @php
         // SDK de Mercado Pago
         require base_path('/vendor/autoload.php');

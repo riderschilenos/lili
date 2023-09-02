@@ -130,13 +130,13 @@
                         
                         
                     </div>
-                    
+                     {{-- comment 
                     <h1 class="text-xl pb-4 text-center">Datos Médicos</h1>
 
                     @php
                         $prev=['Fonasa'=>'Fonasa','Isapre'=>'Isapre'];
                     @endphp
-                    {{-- comment 
+                   
                     <div class="mb-4">
                         {!! Form::label('prevision', 'Prevision de Salud (Fonasa o Isapre? En caso de ser isapre, indicar cual)') !!}
                         {!! Form::select('prevision', $prev, null , ['class'=>'form-input block w-full mt-1']) !!}

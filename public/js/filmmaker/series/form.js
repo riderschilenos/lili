@@ -22,8 +22,7 @@ function slug (str) {
 
 ClassicEditor
    .create( document.querySelector( '#descripcion' ), {
-        plugins: [ 'heading', 'bold', 'italic', 'link', 'blockQuote', 'table' ], // Agregar 'table'
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote', 'table' ],
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote' ,'table'],
         heading: {
          options: [
                 { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
@@ -34,8 +33,7 @@ ClassicEditor
     } )
     .catch( error => {
         console.log( error );
-    });
-
+          } );
 //
     //Cambiar imagen
 document.getElementById("file").addEventListener('change', cambiarImagen);

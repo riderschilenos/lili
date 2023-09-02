@@ -1,6 +1,23 @@
 <x-ticket-layout :evento="$evento">
 
-    
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+   
 
     <div class="@if($evento->type=='pista') hidden @else flex @endif  justify-between">
         <h1 class="text-2xl font-bold">INFORMACIÓN DEL EVENTO</h1>

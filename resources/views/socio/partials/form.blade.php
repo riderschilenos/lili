@@ -79,7 +79,7 @@
                     </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-4">
                     
-                    <p class="mb-2 mt-6">Los datos entregados en la seccion anterior en caso de ser necesario podrian ser validados al momento de querer comprar y vender un vehiculo.</p>
+                    <p class="mb-2 mt-6 hidden">Los datos entregados en la seccion anterior en caso de ser necesario podrian ser validados al momento de querer comprar y vender un vehiculo.</p>
                     
                     <h1 class="text-xl pb-4 text-center">Perfil Rider</h1>
 

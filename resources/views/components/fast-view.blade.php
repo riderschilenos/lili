@@ -897,78 +897,82 @@
                                         </div>
                 
                                 </article>
-                             
-                                            <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
+                                
+                                <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
                             
-                                                <div class="col-span-2 items-center content-center my-auto px-2 py-2">
-                                                 
-                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><h1 class="text-white text-base mb-2 font-bold">Desafío RidersChilenos ft Strava.</h1>
-                                                 
-                                                       
-                                                                    <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><img class="w-full h-32 object-contain my-auto content-center items-center bg-white" src="https://riderschilenos.cl/storage/eventos/0Mmi3RMQAE9622586C-A3CD-4C0E-801F-6FFC54BC1000.jpeg" alt=""></a>
-                                                              
+                                    <div class="col-span-2 items-center content-center my-auto px-2 py-2">
+                                     
+                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><h1 class="text-white text-base mb-2 font-bold">Desafío RidersChilenos ft Strava.</h1>
+                                     
+                                           
+                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><img class="w-full h-32 object-contain my-auto content-center items-center bg-white" src="https://riderschilenos.cl/storage/eventos/0Mmi3RMQAE9622586C-A3CD-4C0E-801F-6FFC54BC1000.jpeg" alt=""></a>
+                                                  
+                                         
+                                    </div>
+                                        <div class="px-2 py-2 col-span-4 bg-white">
+                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
+                                                        <p class="text-gray-500 text-sm mt-auto">Disciplina:Full Rider</p> 
+                                                        <p class="text-gray-500 text-sm mb-2">Organizador: RidersChilenos</p>
                                                      
-                                                </div>
-                                                    <div class="px-2 py-2 col-span-4 bg-white">
-                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
-                                                                    <p class="text-gray-500 text-sm mt-auto">Disciplina:Full Rider</p> 
-                                                                    <p class="text-gray-500 text-sm mb-2">Organizador: RidersChilenos</p>
-                                                                 
-                            
-                                                                    </a>
-                            
-                                                                   
-                                                        
-                                                               
-                                                                   
-                                                                         
-                                                                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion</p>
-                                                                                
-                                                                                <a href= "https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" class="btn bg-gray-300 btn-block">
-                                                                                    ${{number_format(10000)}}
-                                                                                </a>
-                            
-                                                                 
-                                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
-                                                                            <div class="flex mt-2">
-                                                                                <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
-                                                                                <p class="text-sm text-gray-500 ml-auto"> 
-                                                                                    <i class="fas fa-users"></i>
-                                                                                   0
-                                                                                </p>
-                                                                            </div>
-                                                                        </a>
-                            
-                                                                        <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
-                                                                           
+                
+                                                        </a>
+                
+                                                       
+                                            
+                                                   
+                                                       
+                                                             
+                                                                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion</p>
                                                                     
-                                                                                <li class="text-center">
-                                                                                    <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
-                                                                                       
-                                                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
-                                                                                          
-                                                                                                <p class="text-base leading-none dark:text-white"> Etapa 15km </p>
-                                                                                         
-                                                                                        </a>
-                                                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
-                                                                                          
-                                                                                            <p class="text-base leading-none dark:text-white"> Etapa 30km </p>
-                                                                                     
-                                                                                    </a>
-                                                                                    </div>
-                                                                                </li>
-                                                                            
-                                                                            
-      
+                                                                    <a href= "https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" class="btn bg-gray-300 btn-block">
+                                                                        ${{number_format(10000)}}
+                                                                    </a>
+                
+                                                     
+                                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
+                                                                <div class="flex mt-2">
+                                                                    <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
+                                                                    <p class="text-sm text-gray-500 ml-auto"> 
+                                                                        <i class="fas fa-users"></i>
+                                                                       0
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                
+                                                            <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
+                                                               
+                                                        
+                                                                    <li class="text-center">
+                                                                        <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
                                                                            
-                                                                    </ul>
-                            
-                            
-                            
-                                                            
-                                                    </div>
-                            
-                                            </article>
+                                                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
+                                                                              
+                                                                                    <p class="text-base leading-none dark:text-white"> Etapa 15km </p>
+                                                                             
+                                                                            </a>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="text-center">
+                                                                        <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
+                                                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" >
+                                                                              
+                                                                                <p class="text-base leading-none dark:text-white"> Etapa 30km </p>
+                                                                         
+                                                                            </a>
+                                                                        </div>
+                                                                    </li>
+                                                                
+                                                                
+
+                                                               
+                                                        </ul>
+                
+                
+                
+                                                
+                                        </div>
+                
+                                </article>
 
                                   
 

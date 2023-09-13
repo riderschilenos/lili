@@ -222,13 +222,7 @@ class TicketController extends Controller
                         ]
                     ]
                 ]
-                
             
-            
-            /*
-            "text"=>[
-                "body"=> "Buena Rider, Bienvenido al club"
-                ]*/
             ];
 
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();

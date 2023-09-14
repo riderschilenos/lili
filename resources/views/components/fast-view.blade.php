@@ -867,7 +867,7 @@
                                                                     <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
                                                                     <p class="text-sm text-gray-500 ml-auto"> 
                                                                         <i class="fas fa-users"></i>
-                                                                       0
+                                                                       2
                                                                     </p>
                                                                 </div>
                                                             </a>

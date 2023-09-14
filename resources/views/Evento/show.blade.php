@@ -187,7 +187,7 @@
                                                                 <div class="text-sm font-medium text-gray-900">
 
                                                                 
-                                                                    {{ Str::limit($ticket->user->name, 15) }}
+                                                                    {{ Str::limit($ticket->user->name, 18) }}
                                                                 </div>
                                                                 
                                                             </div>

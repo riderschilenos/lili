@@ -37,7 +37,7 @@
             <img class="" src="https://i.imgur.com/Qnmqkil.png" alt="" />
             <div class="text-center">
               <h1 class="text-4xl font-bold text-gray-800">${{number_format($total*0.069)}}</h1>
-              <span class="text-gray-500">Comision</span>
+              <span class="text-gray-500">Comision<br>(6.9%)</span>
             </div>
         </div>
 

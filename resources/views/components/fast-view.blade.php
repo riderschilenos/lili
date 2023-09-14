@@ -864,7 +864,7 @@
                                                      
                                                             <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
                                                                 <div class="flex mt-2">
-                                                                    <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
+                                                                    <p class="text-gray-500 text-md ">Riders Inscritos</p>
                                                                     <p class="text-sm text-gray-500 ml-auto"> 
                                                                         <i class="fas fa-users"></i>
                                                                        2
@@ -931,7 +931,7 @@
                                                      
                                                             <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
                                                                 <div class="flex mt-2">
-                                                                    <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
+                                                                    <p class="text-gray-500 text-md ">Riders Inscritos</p>
                                                                     <p class="text-sm text-gray-500 ml-auto"> 
                                                                         <i class="fas fa-users"></i>
                                                                        0
@@ -1101,7 +1101,7 @@
                                                                  
                                                                         <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
                                                                             <div class="flex mt-2">
-                                                                                <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
+                                                                                <p class="text-gray-500 text-md ">Riders Inscritos</p>
                                                                                 <p class="text-sm text-gray-500 ml-auto"> 
                                                                                     <i class="fas fa-users"></i>
                                                                                    2
@@ -1169,7 +1169,7 @@
                                                                  
                                                                         <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
                                                                             <div class="flex mt-2">
-                                                                                <p class="text-gray-500 text-md ">Riders c/ Entrada</p>
+                                                                                <p class="text-gray-500 text-md ">Riders Inscritos</p>
                                                                                 <p class="text-sm text-gray-500 ml-auto"> 
                                                                                     <i class="fas fa-users"></i>
                                                                                    0

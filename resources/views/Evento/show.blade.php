@@ -179,7 +179,7 @@
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
                                                             <div class="flex-shrink-0 h-10 w-10">
-                                                                <a href="{{route('socio.show', $sponsor->socio)}}">
+                                                                <a href="{{route('socio.show', $ticket->user->socio)}}">
                                                                     @if (str_contains($ticket->user->profile_photo_url,'https://ui-'))
                                                                         <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{ $ticket->user->name }}"  >
                                                                     
@@ -192,7 +192,7 @@
                                                             </div>
                                                             <div class="ml-4">
                                                                 <div class="text-sm font-medium text-gray-900">
-                                                                    <a href="{{route('socio.show', $sponsor->socio)}}">
+                                                                    <a href="{{route('socio.show', $ticket->user->socio)}}">
                                                                
                                                                         {{ Str::limit($ticket->user->name, 18) }}
                                                                     </a>

@@ -213,13 +213,13 @@
                                                                         @foreach ($ticket->inscripcions as $inscripcion)
                                                                                         
                                                                                               <div class="flex justify-center">
-                                                                                                 
+                                                                                                    <a href="{{route('socio.show', $ticket->user->socio)}}">
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                     
                                                                                                         {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
                                                                                                         
                                                                                                         </div>
-                                                                                            
+                                                                                                    </a>
                                                                                                 
                                                                                                     
                                                                                                 </div> 

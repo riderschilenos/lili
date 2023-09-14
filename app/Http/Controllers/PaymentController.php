@@ -9,6 +9,7 @@ use App\Models\Orden;
 use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\Qrregister;
+use App\Models\Retiro;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Suscripcion;
@@ -85,6 +86,26 @@ class PaymentController extends Controller
 
         $evento=Evento::find($ticket->evento_id);
         $evento->inscritos()->attach(auth()->user()->id);
+        
+        $tickets=$ticket->evento->tickets()->where('status','>=',3)->get();
+        $retiros = Retiro::where('evento_id',$ticket->evento->id)->get();
+
+        $total=0;
+        $retiroacumulado=0;
+
+        foreach ($retiros as $retiro){
+                $retiroacumulado+=$retiro->cantidad;
+        }
+            
+
+    
+
+            foreach ($tickets as $ticket){
+                    if($ticket->status>=3){
+                            $total+=$ticket->inscripcion;
+                    }
+                
+                }
 
         try {
                      //TOKEN QUE NOS DA FACEBOOK

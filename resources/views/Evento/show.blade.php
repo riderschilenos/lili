@@ -26,6 +26,18 @@
             tr:nth-child(even) {
               background-color: #dddddd;
             }
+            
+            /* Aplicar estilos específicos para pantallas pequeñas (menos de 600px de ancho) */
+            @media screen and (max-width: 600px) {
+              table {
+                border-collapse: collapse;
+                width: 100%;
+              }
+              th, td {
+                padding: 6px;
+                text-align: left;
+              }
+            }
             </style>
        
         <section class="bg-white py-4 mb-8 ">
@@ -132,7 +144,108 @@
                         
                     </header>
 
-                    <div class="bg-white py-2 px-4">
+                    <div class="bg-white">
+
+
+                        <x-table-responsive>
+                            {{-- comment
+                            <div class="px-6 py-4">
+                                <input wire:model="search" class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Buscar Rider...">
+                            </div>
+                     --}}
+                            @if ($tickets->count())
+                    
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                    <tr>
+                                   
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Nombre
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Categoria
+                                        </th>
+                                   
+                                      
+                                       
+                                    </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                    
+                                        @foreach ($tickets as $ticket)
+                                            
+                                                <tr>
+                                                  
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="flex items-center">
+                                                            <div class="flex-shrink-0 h-10 w-10">
+                                                        
+                                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$ticket->user->profile_photo_url}}" alt="">
+                                                                
+                                                            </div>
+                                                            <div class="ml-4">
+                                                                <div class="text-sm font-medium text-gray-900">
+
+                                                                
+                                                                    {{ Str::limit($ticket->user->name, 15) }}
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                    
+                                              
+                                                    
+                                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                        <div class="text-sm text-gray-900 text-center">
+                                                                        @php
+                                                                            $tot=0;
+                                                                        @endphp
+                                                                        
+                                                                        @foreach ($ticket->inscripcions as $inscripcion)
+                                                                                        
+                                                                                              <div class="flex justify-center">
+                                                                                                 
+                                                                                                        <div class="px-2 py-4 whitespace-nowrap">
+                                                                                                    
+                                                                                                        {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                        
+                                                                                                        </div>
+                                                                                            
+                                                                                                
+                                                                                                    
+                                                                                                </div> 
+                                                                                                    
+                                                                
+                                                    
+                        
+                                                                        @endforeach
+                                                                
+                                                            
+                                                        
+                                                        </div>
+                                                        
+                                                    </td>
+                    
+                                                    
+                                                    
+                    
+                                                  
+                                                </tr>
+                    
+                                        @endforeach
+                                    <!-- More people... -->
+                                    </tbody>
+                                </table>
+                            @else
+                                <div class="px-6 py-4">
+                                    No hay ningun registro
+                                </div>
+                            @endif 
+                    
+                        </x-table-responsive>
+
+                        {{-- comment
                         <ul class="sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-6 mt-8">
                             @foreach ($evento->Inscritos->reverse() as $sponsor)
                                 @if ($sponsor->socio)
@@ -144,7 +257,7 @@
                                 @endif    
                             @endforeach
                         </ul>
-                        
+                         --}}
                     </div>
                 </section>
                 <div class="mb-12 py-20">

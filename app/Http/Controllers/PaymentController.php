@@ -140,7 +140,7 @@ class PaymentController extends Controller
                                          ],
                                          [   //saldo
                                              'type'=>'text',
-                                             'text'=> '$'.number_format($total*0.9-$retiroacumulado)
+                                             'text'=> '$'.number_format($total*0.931-$retiroacumulado)
                                          ],
                                         
                                      ]

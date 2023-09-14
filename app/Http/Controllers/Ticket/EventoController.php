@@ -284,7 +284,10 @@ class EventoController extends Controller
         }        
           
         $fech = Fecha::where('evento_id',$evento->id)->first();
-        return view('Evento.show',compact('evento','fechas','similares','ticket','fech','series','riders','autos','socio2','disciplinas'));
+
+        $tickets = $evento->tickets()->where('status','>=',3)->get();
+
+        return view('Evento.show',compact('tickets','evento','fechas','similares','ticket','fech','series','riders','autos','socio2','disciplinas'));
     }
 
     public function pistas()

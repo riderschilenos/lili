@@ -86,7 +86,7 @@
       @csrf
       @if ($total-$total*0.069-$retiroacumulado>0)
           <div class="h-32 mt-6">
-              <h1 class="text-xl text-center"><b>Nombre:</b> {{$evento->user->vendedor->user->name}}</h1>
+              <h1 class="text-xl text-center"><b>Nombre:</b> {{$evento->user->vendedor->name}}</h1>
               <h1 class="text-xl text-center"><b>Rut:</b> {{$evento->user->vendedor->rut}}</h1>
               <h1 class="text-xl text-center"><b>Banco:</b> {{$evento->user->vendedor->banco}}</h1>
               <h1 class="text-xl text-center"><b>Cuenta:</b> {{$evento->user->vendedor->tipo_cuenta}}</h1>

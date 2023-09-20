@@ -867,7 +867,7 @@
                                                                     <p class="text-gray-500 text-md ">Riders Inscritos</p>
                                                                     <p class="text-sm text-gray-500 ml-auto"> 
                                                                         <i class="fas fa-users"></i>
-                                                                       2
+                                                                       3
                                                                     </p>
                                                                 </div>
                                                             </a>
@@ -1104,7 +1104,7 @@
                                                                                 <p class="text-gray-500 text-md ">Riders Inscritos</p>
                                                                                 <p class="text-sm text-gray-500 ml-auto"> 
                                                                                     <i class="fas fa-users"></i>
-                                                                                   2
+                                                                                   3
                                                                                 </p>
                                                                             </div>
                                                                         </a>

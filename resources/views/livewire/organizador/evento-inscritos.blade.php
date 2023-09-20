@@ -56,7 +56,10 @@
                                                 <div class="text-sm font-medium text-gray-900">
                                                     {{$sponsor->name}}<br>
                                                     {{$sponsor->email}}<br>
-                                                    {{$sponsor->socio->fono}}
+                                                    @if ($sponsor->socio->fono)
+                                                        {{$sponsor->socio->fono}}
+                                                    @endif
+                                                   
                                                 </div>
                                              </a>
                                             </div>
@@ -221,7 +224,10 @@
                                                         <div class="text-sm font-medium text-gray-900">
                                                             {{$inscripcion->ticket->user->name}}<br>
                                                             {{$inscripcion->ticket->user->email}}<br>
-                                                            {{$inscripcion->ticket->user->socio->fono}}
+                                                            @if ($inscripcion->ticket->user->socio->fono)
+                                                                {{$inscripcion->ticket->user->socio->fono}}
+                                                            @endif
+                                                           
                                                         </div>
                                                     </a>
                                                 </div>

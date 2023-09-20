@@ -56,9 +56,12 @@
                                                 <div class="text-sm font-medium text-gray-900">
                                                     {{$sponsor->name}}<br>
                                                     {{$sponsor->email}}<br>
-                                                    @if ($sponsor->socio->fono)
-                                                        {{$sponsor->socio->fono}}
+                                                    @if ($sponsor->socio)
+                                                        @if ($sponsor->socio->fono)
+                                                            {{$sponsor->socio->fono}}
+                                                        @endif
                                                     @endif
+                                                
                                                    
                                                 </div>
                                              </a>
@@ -224,9 +227,12 @@
                                                         <div class="text-sm font-medium text-gray-900">
                                                             {{$inscripcion->ticket->user->name}}<br>
                                                             {{$inscripcion->ticket->user->email}}<br>
-                                                            @if ($inscripcion->ticket->user->socio->fono)
-                                                                {{$inscripcion->ticket->user->socio->fono}}
+                                                            @if ($inscripcion->ticket->user->socio)
+                                                                @if ($inscripcion->ticket->user->socio->fono)
+                                                                    {{$inscripcion->ticket->user->socio->fono}}
+                                                                @endif
                                                             @endif
+                                                            
                                                            
                                                         </div>
                                                     </a>

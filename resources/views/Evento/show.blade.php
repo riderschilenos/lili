@@ -203,7 +203,7 @@
                                                             </div>
                                                             <div class="ml-4">
                                                                 <div class="text-sm font-medium text-gray-900">
-                                                                    @if ()
+                                                                    @if ($item->user->socio)
                                                                         <a href="{{route('socio.show', $item->user->socio)}}">
                                                                 
                                                                             {{ Str::limit($item->user->name, 18) }}
@@ -238,7 +238,7 @@
                                                                                                         </div>
                                                                                                     </a>
                                                                                                 @else
-                                                                                                    <div class="px-2 py-4 whitespace-nowrap">
+                                                                                                        <div class="px-2 py-4 whitespace-nowrap">
                                                                                                         
                                                                                                         {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
                                                                                                         

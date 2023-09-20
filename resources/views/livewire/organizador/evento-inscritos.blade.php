@@ -70,7 +70,10 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900 text">{{$sponsor->socio->rut}}</div>
+                                        @if ($sponsor->socio)
+                                            <div class="text-sm text-gray-900 text">{{$sponsor->socio->rut}}</div>
+                                        @endif
+                                       
                                         
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center">
@@ -241,7 +244,10 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900 text">{{$inscripcion->ticket->user->socio->rut}}</div>
+                                            @if ($inscripcion->ticket->user->socio)
+                                                <div class="text-sm text-gray-900 text">{{$inscripcion->ticket->user->socio->rut}}</div>
+                                            @endif
+                                          
                                             
                                         </td>
                                     

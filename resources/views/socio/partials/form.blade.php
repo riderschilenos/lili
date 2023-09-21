@@ -36,7 +36,7 @@
                             </div>
                             <div class="mb-4">
                                 {!! Form::label('rut', 'Rut* (Sin puntos y con guión)') !!}
-                                {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                                {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':''), 'id' => 'rut-input']) !!}
 
                                 @error('rut')
                                     <strong class="text-xs text-red-600">{{$message}}</strong>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="mb-4">
                                 {!! Form::label('fono', 'Fono*') !!}
-                                {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                                {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
 
                                 @error('fono')
                                     <strong class="text-xs text-red-600">{{$message}}</strong>
@@ -125,11 +125,31 @@
                                         {!! Form::label('slug', 'Slug',['class'=>'hidden']) !!}
                                         {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1','placeholder'=>'www.riderschilenos.cl/']) !!}
                                     </div>
+                                    @error('slug')
+                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                    @enderror
                             </div>
                         
                         
                         
                     </div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const rutInput = document.getElementById('rut-input');
+                            
+                            rutInput.addEventListener('input', function () {
+                                // Remover todos los caracteres que no sean números o guiones
+                                const cleanedValue = this.value.replace(/[^0-9-]/g, '');
+                                
+                                // Aplicar el nuevo valor limpio al campo de entrada
+                                this.value = cleanedValue;
+                            });
+                        });
+                        </script>
+                        
+                        
+                        
                      {{-- comment 
                     <h1 class="text-xl pb-4 text-center">Datos Médicos</h1>
 

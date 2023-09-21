@@ -831,72 +831,7 @@
                     <div class="mt-2 mb-6 flex justify-center">
                         <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
         
-                                <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
-                
-                                    <div class="col-span-2 items-center content-center my-auto px-2 py-2">
-                                     
-                                            <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><h1 class="text-white text-base mb-2 font-bold">MOTOCROSS OHIGGINS 2023</h1>
-                                     
-                                           
-                                                        <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><img class="w-full h-32 object-contain my-auto content-center items-center " src="https://riderschilenos.cl/storage/eventos/MYom1YNyYu9AAB08EC-0581-4DDD-B0BE-5E6B4401A02E.jpeg" alt=""></a>
-                                                  
-                                         
-                                    </div>
-                                        <div class="px-2 py-2 col-span-4 bg-white">
-                                            <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
-                                                        <p class="text-gray-500 text-sm mt-auto">Disciplina: Motocross</p> 
-                                                        <p class="text-gray-500 text-sm mb-2">Organizador: MotocrossOhiggins</p>
-                                                     
-                
-                                                        </a>
-                
-                                                       
-                                            
-                                                   
-                                                       
-                                                             
-                                                                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
-                                                                    
-                                                                    <a href= "https://riderschilenos.cl/eventos/motocross-ohiggins-2023" class="btn bg-gray-300 btn-block">
-                                                                        ${{number_format(25000)}} - ${{number_format(37000)}}
-                                                                    </a>
-                
-                                                     
-                                                            <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
-                                                                <div class="flex mt-2">
-                                                                    <p class="text-gray-500 text-md ">Riders Inscritos</p>
-                                                                    <p class="text-sm text-gray-500 ml-auto"> 
-                                                                        <i class="fas fa-users"></i>
-                                                                       3
-                                                                    </p>
-                                                                </div>
-                                                            </a>
-                
-                                                            <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
-                                                               
-                                                        
-                                                                    <li class="text-center">
-                                                                        <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
-                                                                           
-                                                                            <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
-                                                                              
-                                                                                    <p class="text-base leading-none dark:text-white"> Primer Round Mariocross</p>
-                                                                             
-                                                                            </a>
-                                                                        </div>
-                                                                    </li>
-                                                                
-                                                                
-
-                                                               
-                                                        </ul>
-                
-                
-                
-                                                
-                                        </div>
-                
-                                </article>
+                             
                                 
                                 <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
                             
@@ -1068,72 +1003,7 @@
                                 <div class="mt-2 mb-6 flex justify-center">
                                     <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
                     
-                                            <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
-                            
-                                                <div class="col-span-2 items-center content-center my-auto px-2 py-2">
-                                                 
-                                                        <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><h1 class="text-white text-base mb-2 font-bold">MOTOCROSS OHIGGINS 2023</h1>
-                                                 
-                                                       
-                                                                    <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023"><img class="w-full h-32 object-contain my-auto content-center items-center" src="https://riderschilenos.cl/storage/eventos/MYom1YNyYu9AAB08EC-0581-4DDD-B0BE-5E6B4401A02E.jpeg" alt=""></a>
-                                                              
-                                                     
-                                                </div>
-                                                    <div class="px-2 py-2 col-span-4 bg-white">
-                                                        <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
-                                                                    <p class="text-gray-500 text-sm mt-auto">Disciplina: Motocross</p> 
-                                                                    <p class="text-gray-500 text-sm mb-2">Organizador: MotocrossOhiggins</p>
-                                                                 
-                            
-                                                                    </a>
-                            
-                                                                   
-                                                        
-                                                               
-                                                                   
-                                                                         
-                                                                                <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
-                                                                                
-                                                                                <a href= "https://riderschilenos.cl/eventos/motocross-ohiggins-2023" class="btn bg-gray-300 btn-block">
-                                                                                    ${{number_format(25000)}} - ${{number_format(37000)}}
-                                                                                </a>
-                            
-                                                                 
-                                                                        <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
-                                                                            <div class="flex mt-2">
-                                                                                <p class="text-gray-500 text-md ">Riders Inscritos</p>
-                                                                                <p class="text-sm text-gray-500 ml-auto"> 
-                                                                                    <i class="fas fa-users"></i>
-                                                                                   3
-                                                                                </p>
-                                                                            </div>
-                                                                        </a>
-                            
-                                                                        <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
-                                                                           
-                                                                    
-                                                                                <li class="text-center">
-                                                                                    <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
-                                                                                       
-                                                                                        <a href="https://riderschilenos.cl/eventos/motocross-ohiggins-2023">
-                                                                                          
-                                                                                                <p class="text-base leading-none dark:text-white"> Primer Round Mariocross</p>
-                                                                                         
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </li>
-                                                                            
-                                                                            
-      
-                                                                           
-                                                                    </ul>
-                            
-                            
-                            
-                                                            
-                                                    </div>
-                            
-                                            </article>
+                                      
 
                                             
                                             <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">

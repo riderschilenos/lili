@@ -339,27 +339,33 @@ class EventoController extends Controller
 
     public function preticket(Evento $evento)
     {   
-        $ticket1=Ticket::where('user_id', auth()->user()->id)->where('status',3)->where('evento_id',$evento->id)->first();
-        if($ticket1){
-            return redirect()->route('ticket.view',$ticket1);
-        }
-        $ticket=Ticket::where('user_id', auth()->user()->id)->where('status',1)->where('evento_id',$evento->id)->first();
-        if ($ticket){
-            if ($ticket->status==1) {
-                return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
-            }else{
-                if($ticket->evento->inscritos->contains(auth()->user()->id)){
-                    return redirect()->route('ticket.view',$ticket);
-                }else{
-                    return view('Evento.preticket',compact('evento'));
-                }
+        if (auth()->user()) {
+           
+        
+            $ticket1=Ticket::where('user_id', auth()->user()->id)->where('status',3)->where('evento_id',$evento->id)->first();
+            if($ticket1){
+                return redirect()->route('ticket.view',$ticket1);
             }
-           
+            $ticket=Ticket::where('user_id', auth()->user()->id)->where('status',1)->where('evento_id',$evento->id)->first();
+            if ($ticket){
+                if ($ticket->status==1) {
+                    return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+                }else{
+                    if($ticket->evento->inscritos->contains(auth()->user()->id)){
+                        return redirect()->route('ticket.view',$ticket);
+                    }else{
+                        return view('Evento.preticket',compact('evento'));
+                    }
+                }
+            
 
+            }else{
+            
+                return view('Evento.preticket',compact('evento'));
+            }  
         }else{
-           
             return view('Evento.preticket',compact('evento'));
-        }   
+        } 
         
         
     }

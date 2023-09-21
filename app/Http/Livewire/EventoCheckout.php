@@ -27,18 +27,21 @@ class EventoCheckout extends Component
     {   
         $fechas= Fecha::where('evento_id',$this->evento->id)->paginate();
         $disciplinas= Disciplina::pluck('name','id');
-
-        if(auth()->user()->socio)
-        {
-            $socio = Socio::where('user_id',auth()->user()->id)->first();
-            $ticket =null;
-           
-                            
-        }
-        else{
-            $socio=null;
-            $ticket =null;
-        }
+        if (auth()->user()) {
+            if(auth()->user()->socio)
+            {
+                $socio = Socio::where('user_id',auth()->user()->id)->first();
+                $ticket =null;
+            
+                                
+            }else{
+                $socio=null;
+                $ticket =null;
+            }
+        }else{
+                $socio=null;
+                $ticket =null;
+            }
 
         $fech = Fecha::where('evento_id',$this->evento->id)->first();
 

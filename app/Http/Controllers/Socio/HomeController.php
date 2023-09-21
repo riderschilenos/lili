@@ -239,8 +239,7 @@ class HomeController extends Controller
             if($request->evento_id=='suscripcion'){
 
                 return redirect()->route('socio.create');
-            }
-            else{
+            }else{
                 $evento = Evento::find($request->evento_id);
                 return redirect()->route('checkout.evento', $evento);
             }

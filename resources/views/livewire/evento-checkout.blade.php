@@ -174,7 +174,8 @@
 
                         
                         </div>
-                        <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
+
+                        <h2 class="hidden text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
             
                     
                     </div>
@@ -204,7 +205,7 @@
 
                                         
 
-                                            <p class="text-xl leading-normal text-gray-800 dark:text-white">Bienvenido {{auth()->user()->name}}, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
+                                            <p class="text-xl leading-normal text-gray-800 dark:text-white">Bienvenido @if (auth()->user()) {{auth()->user()->name}} @endif, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
                                         
                                         </div>
                                     </div>
@@ -220,8 +221,10 @@
                                     <div class="max-w-full items-center">
                                         @include('socio.partials.form')
                                     </div>
-                                    
-                                    {!! Form::hidden('user_id',auth()->user()->id) !!}
+                                    @if (auth()->user())
+                                        {!! Form::hidden('user_id',auth()->user()->id) !!}
+                                    @endif
+                                      
 
                                     {!! Form::hidden('evento_id', $evento->id ) !!}
 
@@ -280,48 +283,53 @@
                         
                      
                     </div>
-                    @if (IS_NULL($ticket))
-                            <p class="text-sm mt-4">A continuacion encontrara los terminos y condiciones que la organizacion a estipulado para el evento:</a></p>
-                        
-
-                                <div class="max-w-4xl mt-2 py-2 px-3  bg-gray-100">
-
-                                    <scroll-container>
-                                        <p class="text-sm my-2 mx-2 px-2">{!!$evento->terminos!!}</p>
-                                    </scroll-container>
-                    
+                    @if (auth()->user())
+                        @if (auth()->user()->socio)
+                            @if (IS_NULL($ticket))
+                                    <p class="text-sm mt-4">A continuacion encontrara los terminos y condiciones que la organizacion a estipulado para el evento:</a></p>
                                 
-                                </div>
 
-                                <hr>
-                            {!! Form::open(['route' => 'organizador.tickets.store', 'method'=> 'POST']) !!}
-                                @csrf
+                                        <div class="max-w-4xl mt-2 py-2 px-3  bg-gray-100">
 
-                                <p class="text-sm mt-4 text-center">  <input type="checkbox" name="seleccionable" value="TRUE"> Acepto los terminos y condiciones</p>
+                                            <scroll-container>
+                                                <p class="text-sm my-2 mx-2 px-2">{!!$evento->terminos!!}</p>
+                                            </scroll-container>
                             
-                                @error('seleccionable')
-                                    <p class="text-xs text-red-600 text-center font-bold">{{$message}}</p>
-                                @enderror
-                                {!! Form::hidden('user_id',auth()->user()->id) !!}
+                                        
+                                        </div>
 
-                                {!! Form::hidden('evento_id',$evento->id) !!}
+                                        <hr>
+                                    {!! Form::open(['route' => 'organizador.tickets.store', 'method'=> 'POST']) !!}
+                                        @csrf
 
-                                {!! Form::hidden('pedidoable_type','App\Models\Socio') !!}
-                                
-                                @if (!IS_NULL($socio))
-                                    {!! Form::hidden('pedidoable_id',$socio->id) !!}
-                                @endif
-                    
-                                @if (!IS_NULL($socio))
-                                    <div class="flex justify-center my-4">
+                                        <p class="text-sm mt-4 text-center">  <input type="checkbox" name="seleccionable" value="TRUE"> Acepto los terminos y condiciones</p>
                                     
-                                        {!! Form::submit('Siguiente', ['class'=>'btn btn-primary']) !!}
-                                    </div>
-                                @endif
+                                        @error('seleccionable')
+                                            <p class="text-xs text-red-600 text-center font-bold">{{$message}}</p>
+                                        @enderror
+                                        @if (auth()->user())
+                                            {!! Form::hidden('user_id',auth()->user()->id) !!}
+                                        @endif
 
-                        {!! Form::close() !!}
+                                        {!! Form::hidden('evento_id',$evento->id) !!}
+
+                                        {!! Form::hidden('pedidoable_type','App\Models\Socio') !!}
+                                        
+                                        @if (!IS_NULL($socio))
+                                            {!! Form::hidden('pedidoable_id',$socio->id) !!}
+                                        @endif
+                            
+                                        @if (!IS_NULL($socio))
+                                            <div class="flex justify-center my-4">
+                                            
+                                                {!! Form::submit('Siguiente', ['class'=>'btn btn-primary']) !!}
+                                            </div>
+                                        @endif
+
+                                {!! Form::close() !!}
+                            @endif
+                        @endif
                     @endif
-                    
                 </div>
              <section id="pago">   
                 <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">

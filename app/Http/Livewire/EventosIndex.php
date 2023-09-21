@@ -20,14 +20,16 @@ class EventosIndex extends Component
     {   $disciplinas = Disciplina::all();
         $filmmakers = Filmmaker::all();
         
-        $eventos = Evento::where('status',1)
-                        ->where('type','carrera')
-                        ->orwhere('type','campeonato')
-                        ->orwhere('type','desafio')
-                        ->Disciplina($this->disciplina_id)
-                        ->Organizador($this->filmmaker_id)
-                        ->latest('id')
-                        ->paginate(8);
+        $eventos = Evento::where('status', 1)
+                            ->where(function($query) {
+                                $query->where('type', 'carrera')
+                                    ->orWhere('type', 'campeonato')
+                                    ->orWhere('type', 'desafio');
+                            })
+                            ->Disciplina($this->disciplina_id)
+                            ->Organizador($this->filmmaker_id)
+                            ->latest('id')
+                            ->paginate(8);
 
         return view('livewire.eventos-index',compact('eventos','disciplinas','filmmakers'));
     }

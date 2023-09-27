@@ -108,6 +108,24 @@
                             @endforeach
                         </select>
                     </div>
+
+                    @if(!is_null($smartphones))
+
+                        <div class="items-center mt-4">
+                            <Label class="flex justify-center">SMARTPHONE:</Label>
+                            <select wire:model="smartphone_id" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option value="">-smartphone-</option>
+                                @foreach ($smartphones as $smartphone)
+                                    
+        
+                                        <option value="{{$smartphone->id}}">{{$smartphone->marcasmartphone->name."; ".$smartphone->modelo}}</option>
+
+                                    
+                                @endforeach
+                            </select>
+                        
+                        </div>
+                    @endif
                 
                     @if(!is_null($marcas))
 
@@ -147,23 +165,7 @@
 
                         @endif
 
-                        @if(!is_null($smartphones))
-
-                            <div class="items-center mt-4">
-                                <Label class="flex justify-center">SMARTPHONE:</Label>
-                                <select wire:model="smartphone_id" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                    <option value="">-smartphone-</option>
-                                    @foreach ($smartphones as $smartphone)
-                                        
-            
-                                            <option value="{{$smartphone->id}}">{{$smartphone->marcasmartphone->name."; ".$smartphone->modelo}}</option>
-
-                                        
-                                    @endforeach
-                                </select>
-                            
-                            </div>
-                        @endif
+                       
                          
                         <div class="items-center mt-4">
                             <label class="flex justify-center">Nombre:</label>

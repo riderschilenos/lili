@@ -195,8 +195,9 @@
 
             {!! Form::hidden('invitado_status','creado') !!}
 
-            @include('vendedor.pedidos.partials.form')
-
+            <div wire:ignore>
+                @include('vendedor.pedidos.partials.form')
+            </div>
 
                     <div class="grid grid-cols-2 gap-4">
                     

@@ -716,8 +716,10 @@
            
                     
        
-               
-            foreach ($meses as $mes) {
+                    
+       
+             //  Calcular Ventas de los ultimos 2 años
+             foreach ($meses as $mes) {
                 $totalmes=0;
                
                 foreach ($pagos_anteanual as $pago) {
@@ -733,11 +735,13 @@
                     }
                 }
 
-            $ventas_anteanual[]=$totalmes;
+                $ventas_anteanual[]=$totalmes;
             }
+
+             //  Calcular Ventas del ultimo año
             foreach ($meses as $mes) {
                 $totalmes=0;
-               
+               //suma pagos
                 foreach ($pagos_anual as $pago) {
                     
                     if($pago->created_at->format('n')==$mes){
@@ -746,6 +750,7 @@
                         
                     
                 }
+                //Suma Suscripciones
                 foreach ($suscripcions_anual as $suscripcion) {
                     
                     if($suscripcion->created_at->format('n')==$mes){
@@ -754,37 +759,41 @@
                         
                     
                 }
-            $ventas_anteanual[]=$totalmes;
-            $ventas_anual[]=$totalmes;
+                $ventas_anteanual[]=$totalmes;
+                $ventas_anual[]=$totalmes;
             }
 
         $gast_anual=[];
         $gast_anteanual=[];
         $seriegastos30=[];
+
+        //calcular gastos ultimos 30 dias para grafico circular
         foreach($gastotypes as $gastotype){
             
             $gasto30_circular=0;
             $gasto30_cir=[];
                 
-                    
+                    //suma los gastos si corresponde al tipo de gasto que se esta sumando
                     foreach ($gastos30 as $pago) {
                         if ($pago->gastotype_id==$gastotype->id) {
                             $gasto30_circular+=$pago->cantidad;
                         }
              
                     }
-                   
+                    //inserta el gasto si la suma es mayor a cero
                         if ($gasto30_circular>0) {
                             $gasto30_cir[]=$gasto30_circular;
                             $seriegastos30[]=['name' =>$gastotype->name,
                                                     'y'=> $gasto30_circular];
                                 }
-                    }
+        }
 
+        //calcular gastos ultimos 2 años para grafico circular
         foreach($gastotypes as $gastotype){
                     $gastoanteanual_circular=0;
                     $gastoanteanual_cir=[];
 
+                      //suma los gastos si corresponde al tipo de gasto que se esta sumando
                         foreach ($gastos_anteanual as $pago) {
                             
                             if($pago->gastotype_id==$gastotype->id){
@@ -792,8 +801,9 @@
                             }
 
                         }
+
                         foreach ($gastos_anual as $pago) {
-                                if($pago->created_at->format('n')==$mes){
+                                if($pago->gastotype_id==$gastotype->id){
                                     $gastoanteanual_circular+=$pago->cantidad;
                                 }
                             
@@ -813,7 +823,7 @@
 
                         foreach ($gastos_anual as $pago) {
                             
-                            if($pago->created_at->format('n')==$mes){
+                            if($pago->gastotype_id==$gastotype->id){
                                 $gastoanual_circular+=$pago->cantidad;
                             }
                         
@@ -821,10 +831,10 @@
                     if ($gastoanual_circular>0) {
                         $seriegastosanual[]=['name' =>$gastotype->name,
                                         'y'=> $gastoanual_circular];  
-                                                }else {
-                                                    $seriegastosanual[]=['name' =>$gastotype->name,
-                                                    'y'=> 0];  
-                                                }
+                    }else {
+                        $seriegastosanual[]=['name' =>$gastotype->name,
+                        'y'=> 0];  
+                     }
         }
 
         foreach ($meses as $mes) {

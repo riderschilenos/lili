@@ -767,6 +767,8 @@
         $gast_anteanual=[];
         $seriegastos30=[];
 
+        $gasto30_total=0;
+
         //calcular gastos ultimos 30 dias para grafico circular
         foreach($gastotypes as $gastotype){
             
@@ -782,6 +784,7 @@
                     }
                     //inserta el gasto si la suma es mayor a cero
                         if ($gasto30_circular>0) {
+                            $gasto30_total+=$gasto30_circular;
                             $gasto30_cir[]=$gasto30_circular;
                             $seriegastos30[]=['name' =>$gastotype->name,
                                                     'y'=> $gasto30_circular];
@@ -831,10 +834,7 @@
                     if ($gastoanual_circular>0) {
                         $seriegastosanual[]=['name' =>$gastotype->name,
                                         'y'=> $gastoanual_circular];  
-                    }else {
-                        $seriegastosanual[]=['name' =>$gastotype->name,
-                        'y'=> 0];  
-                     }
+                    }
         }
 
         foreach ($meses as $mes) {
@@ -912,7 +912,9 @@
 
         //$ventas =[43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175];
        // $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
-        
+
+       $titulo30="Ultimos 30 Días $".number_format($gasto30_total);
+
     @endphp
 
     <script>
@@ -927,9 +929,10 @@
     };
     </script>
          <script>
-          var seriegastos30 = <?php echo json_encode($seriegastos30) ?>;
-          var seriegastosanual = <?php echo json_encode($seriegastosanual) ?>;
-          var seriegastosanteanual = <?php echo json_encode($seriegastosanteanual) ?>;
+            var total30 = <?php echo json_encode($titulo30) ?>;
+            var seriegastos30 = <?php echo json_encode($seriegastos30) ?>;
+            var seriegastosanual = <?php echo json_encode($seriegastosanual) ?>;
+            var seriegastosanteanual = <?php echo json_encode($seriegastosanteanual) ?>;
 
             Highcharts.chart('gastotreinta', {
                 chart: {
@@ -939,8 +942,8 @@
                    type: 'pie'
                 },
                 title: {
-                   text: 'Ultimos 30 Días',
-                   align: 'left'
+                    text: total30,
+                    align: 'left'
                 },
                 tooltip: {
                    pointFormat: '<b><b>${point.y}</b>({point.percentage:.0f}%)<br/>',

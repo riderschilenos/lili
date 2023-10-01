@@ -915,7 +915,7 @@
        // $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
 
        $titulo30="Ultimos 30 Días $".number_format($gasto30_total);
-       $titulo365="Ultimos 365 Días $".number_format($gasto365_total);
+       $titulo2="Ultimos 24 Meses $".number_format($gasto365_total);
 
     @endphp
 
@@ -932,7 +932,7 @@
     </script>
          <script>
             var total30 = <?php echo json_encode($titulo30) ?>;
-            var total365 = <?php echo json_encode($titulo365) ?>;
+            var total2 = <?php echo json_encode($titulo2) ?>;
             var seriegastos30 = <?php echo json_encode($seriegastos30) ?>;
             var seriegastosanual = <?php echo json_encode($seriegastosanual) ?>;
             var seriegastosanteanual = <?php echo json_encode($seriegastosanteanual) ?>;
@@ -982,7 +982,7 @@
                    type: 'pie'
                 },
                 title: {
-                   text: 'Ultimos 2 años',
+                   text: total2,
                    align: 'left'
                 },
                 tooltip: {
@@ -1019,7 +1019,7 @@
                    type: 'pie'
                 },
                 title: {
-                   text: total365,
+                   text: 'Ultimos 365 Días',
                    align: 'left'
                 },
                 tooltip: {

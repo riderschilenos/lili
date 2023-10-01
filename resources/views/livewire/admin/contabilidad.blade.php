@@ -1023,7 +1023,7 @@
                    type: 'pie'
                 },
                 title: {
-                   text: 'Ultimos 365 Días',
+                   text: total365,
                    align: 'left'
                 },
                 tooltip: {

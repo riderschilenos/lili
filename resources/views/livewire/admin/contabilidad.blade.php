@@ -769,6 +769,7 @@
 
         $gasto30_total=0;
         $gasto365_total=0;
+        $gasto2_total=0;
 
         //calcular gastos ultimos 30 dias para grafico circular
         foreach($gastotypes as $gastotype){
@@ -814,7 +815,7 @@
                         
                     }
                     if ($gastoanteanual_circular>0) {
-                        $gasto365_total+=$gastoanteanual_circular;
+                        $gasto2_total+=$gastoanteanual_circular;
                         $seriegastosanteanual[]=['name' =>$gastotype->name,
                                                 'y'=> $gastoanteanual_circular];  
 
@@ -833,6 +834,7 @@
                         
                     }
                     if ($gastoanual_circular>0) {
+                        $gasto365_total+=$gastoanual_circular;
                         $seriegastosanual[]=['name' =>$gastotype->name,
                                         'y'=> $gastoanual_circular];  
                     }
@@ -915,7 +917,8 @@
        // $gastos =[24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
 
        $titulo30="Ultimos 30 Días $".number_format($gasto30_total);
-       $titulo2="Ultimos 24 Meses $".number_format($gasto365_total);
+       $titulo365="Ultimos 365 Días $".number_format($gasto365_total);
+       $titulo2="Ultimos 24 Meses $".number_format($gasto2_total);
 
     @endphp
 
@@ -932,6 +935,7 @@
     </script>
          <script>
             var total30 = <?php echo json_encode($titulo30) ?>;
+            var total365 = <?php echo json_encode($titulo365) ?>;
             var total2 = <?php echo json_encode($titulo2) ?>;
             var seriegastos30 = <?php echo json_encode($seriegastos30) ?>;
             var seriegastosanual = <?php echo json_encode($seriegastosanual) ?>;

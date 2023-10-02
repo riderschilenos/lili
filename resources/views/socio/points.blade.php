@@ -291,7 +291,7 @@
                                            </thead>
                                            <tbody class="bg-white divide-y divide-gray-200">
                                                
-                                               @foreach ($socio->pedidos as $pedido)
+                                               @foreach ($socio->pedidos->reverse() as $pedido)
                                                     @if ($pedido->status>=4)
                                                        <tr>
                                                          @php
@@ -501,7 +501,7 @@
                                                        </tr>
                                                     @endif
                                                @endforeach
-                                                @foreach ($invitados as $invitado)
+                                                @foreach ($invitados->reverse() as $invitado)
                                                     @foreach ($invitado->pedidos->reverse() as $pedido)
                                                         @if ($pedido->status>=4)
                                                             <tr>
@@ -713,76 +713,76 @@
                                                     @endforeach
                                                 @endforeach
                                            <!-- More people... -->
-                                        <tr>
-                                         
-                
-                                              <td class="px-6 py-4 content-center">
-                                                  <div class="flex items-center">
-                                                     
-                                                      <div class="ml-2 flex-shrink-0 h-10 w-10">
-                                                        
-                                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
-                                                        
-                                                      </div>
-                                                      <div class="ml-4 whitespace-nowrap">
-                                                          
-                                                                <div class="text-sm font-medium text-gray-900">
-                                                                    
-                                                                       
-                                                                                            {{$socio->user->name}}
-                                                                                        
-                                                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                                                Socio
-                                                                                            </span>
-                                                                                  
-                                                                      
-                
-                
-                                                                </div>
-                                                                
-                                                                <div class="text-sm text-gray-500">
-                
-                                                               
-                                                                      
-                                                                            @if ($socio->direccion)
-                                                                                            {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
-                                                                            @endif   
-                
-                                                                         
-                                                                        <br>
-                                                                        
-                                                                </div>
-                                                          
-                                                      </div>
-                                                        <div class="ml-auto whitespace-nowrap">
-                                                                <div class="text-sm text-gray-900 ml-auto text-center mb-3">100 Pts</div>
-                                                               
-                                                          
-                                                        
-                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                    Registro
-                                                                </span>
-                                                          
-                                                        </div>
-                                                  </div>
-                                            </td>
-                
-                                         
-                
-                                              
-                
-                                           
+                                            <tr>
                                             
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($socio->created_at))-1]}}</div>
-                                                <div class="text-sm text-gray-900">{{$socio->created_at->format('d-m-Y')}}</div>    
-                                            </td>
-                
-                                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                  <a href="" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
+                    
+                                                <td class="px-6 py-4 content-center">
+                                                    <div class="flex items-center">
+                                                        
+                                                        <div class="ml-2 flex-shrink-0 h-10 w-10">
+                                                            
+                                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/compras.jpg')}}" alt="">
+                                                            
+                                                        </div>
+                                                        <div class="ml-4 whitespace-nowrap">
+                                                            
+                                                                    <div class="text-sm font-medium text-gray-900">
+                                                                        
+                                                                        
+                                                                                                {{$socio->user->name}}
+                                                                                            
+                                                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                                                    Socio
+                                                                                                </span>
+                                                                                    
+                                                                        
+                    
+                    
+                                                                    </div>
+                                                                    
+                                                                    <div class="text-sm text-gray-500">
+                    
+                                                                
+                                                                        
+                                                                                @if ($socio->direccion)
+                                                                                                {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
+                                                                                @endif   
+                    
+                                                                            
+                                                                            <br>
+                                                                            
+                                                                    </div>
+                                                            
+                                                        </div>
+                                                            <div class="ml-auto whitespace-nowrap">
+                                                                    <div class="text-sm text-gray-900 ml-auto text-center mb-3">100 Pts</div>
+                                                                
+                                                            
+                                                            
+                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                                        Registro
+                                                                    </span>
+                                                            
+                                                            </div>
+                                                    </div>
+                                                </td>
+                    
+                                            
+                    
                                                 
-                                              </td>
-                                        </tr>
+                    
+                                            
+                                                
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($socio->created_at))-1]}}</div>
+                                                    <div class="text-sm text-gray-900">{{$socio->created_at->format('d-m-Y')}}</div>    
+                                                </td>
+                    
+                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                    <a href="" class="text-indigo-600 hover:text-indigo-900">Ver detalles</a>
+                                                    
+                                                </td>
+                                            </tr>
                                            </tbody>
                                        </table>
                                    @else

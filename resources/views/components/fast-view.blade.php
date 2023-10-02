@@ -715,14 +715,14 @@
                         </span>
                     </button>
                 </div>
-        comment --}}
+       
         <section class="hidden md:hidden mt-12 sm:mt-16">
                     
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
                     <article>
                         <figure>
-                            <a href="catalogos/polerones.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/polerones-min.png')}}" alt=""></a>
+                            <a href=" https://riderschilenos.cl/catalogos/polerones.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/polerones-min.png')}}" alt=""></a>
                         </figure>
 
                     
@@ -744,7 +744,7 @@
                 </div>
 
         </section>
-        
+       
         <figure class="hidden pt-0 pb-4">
 
         
@@ -787,7 +787,7 @@
             </div>
 
         </section>
-    
+      comment --}}
 
         <section class="sm:mt-8">
             <div class="">

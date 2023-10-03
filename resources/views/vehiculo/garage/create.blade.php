@@ -13,7 +13,8 @@
                     <h1 class="text-2xl font-bold text-center">Inscribe tu Juguete Rider</h1>
                     <hr class="mt-2 mb-6">
                     <div class="bg-gray-100 border-t-4 mb-6 mx-3 border-gray-500 rounded-b text-gray-900 px-4 py-3 shadow-md" role="alert">
-                  
+                        <div class="flex">
+                        <div>
                         <p class="text-base text-center">
                             Al registrar tu vehículo, garantizamos que cualquiera que busque el número de chasis del mismo en Google podrá identificar rápidamente quién es el propietario legítimo de la moto o bicicleta. El proceso de indexación en google puede tardar hasta 96 horas y es gratis.
                         </p>

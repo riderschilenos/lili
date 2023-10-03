@@ -356,7 +356,7 @@
 
                                                 <div>
                                                                 @can('perfil_propio', $socio2)
-                                                                <a href="{{route('garage.vehiculo.create')}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Inscribir Vehiculo)</span></a>
+                                                                <a href="{{route('garage.vehiculo.create')}}"><span class="btn btn-success text-white font-bold text-sm align-middle">Inscribir Vehículo</span></a>
                                                                 @endcan
                                                 </div>
                                                 

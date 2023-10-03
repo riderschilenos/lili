@@ -1309,6 +1309,33 @@ t --}}
                 <div>
                     <h1 class="text-center font-bold mt-4 text-2xl mb-2">¿Cual es tu Próximo Desafío?</h1>
                 </div>
+
+                <div class="block sm:hidden">
+                    <div class="flex justify-center ">
+
+                        
+                            @if(auth()->user())
+                                @if(auth()->user()->socio)
+                                    <a href="{{ route('socio.show', auth()->user()->socio)}}">
+                                        <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Mi Perfil</button>
+                                    </a>
+                                    <a href="{{route('socio.create')}}">
+                                        <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Suscripción</button>
+                                    </a>
+                                @else
+                                    <a href="{{route('socio.create')}}">
+                                        <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
+                                    </a>
+                                @endif
+                            @else
+                                <a href="{{route('socio.create')}}">
+                                    <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>
+                                </a>
+                            @endif    
+                        
+
+                    </div>
+                </div>
     
                 @livewire('eventos-index')
                     

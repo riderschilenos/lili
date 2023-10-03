@@ -13,6 +13,9 @@
                     <h1 class="text-2xl font-bold text-center">Inscribe tu Juguete Rider</h1>
                     <hr class="mt-2 mb-6">
 
+                    <p class="text-base ">
+                        Nuestro registro en línea de motos y bicicletas ofrece un beneficio fundamental: al registrar tu vehículo con nosotros, garantizamos que, en caso de pérdida o robo, cualquiera que busque el número de chasis en Google podrá identificar rápidamente quién es el propietario legítimo. Registra tu vehículo hoy mismo para una mayor seguridad y tranquilidad.
+                    </p>
                     
                     @livewire('vehiculo.vehiculo-inscripcion')
 

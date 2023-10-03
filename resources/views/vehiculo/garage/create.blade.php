@@ -14,7 +14,7 @@
                     <hr class="mt-2 mb-6">
 
                     <p class="text-base ">
-                        Al registrar tu vehículo con nosotros, garantizamos que una vez registrado cualquiera que busque el número de chasis en Google podrá identificar rápidamente quién es el propietario legítimo de la moto o bicicleta. El proceso en ser indexado a google puede tardar hasta 96 horas.
+                        Al registrar tu vehículo con nosotros, garantizamos que una vez registrado cualquiera que busque el número de chasis en Google podrá identificar rápidamente quién es el propietario legítimo de la moto o bicicleta. El proceso de indexación en google puede tardar hasta 96 horas.
                     </p>
                     
                     @livewire('vehiculo.vehiculo-inscripcion')

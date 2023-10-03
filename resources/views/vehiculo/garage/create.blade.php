@@ -14,7 +14,7 @@
                     <hr class="mt-2 mb-6">
 
                     <p class="text-base ">
-                        Nuestro registro en línea de motos y bicicletas ofrece un beneficio fundamental: al registrar tu vehículo con nosotros, garantizamos que, en caso de pérdida o robo, cualquiera que busque el número de chasis en Google podrá identificar rápidamente quién es el propietario legítimo. Registra tu vehículo hoy mismo para una mayor seguridad y tranquilidad.
+                        Al registrar tu vehículo con nosotros, garantizamos que una vez registrado cualquiera que busque el número de chasis en Google podrá identificar rápidamente quién es el propietario legítimo de la moto o bicicleta. El proceso en ser indexado a google puede tardar hasta 96 horas.
                     </p>
                     
                     @livewire('vehiculo.vehiculo-inscripcion')

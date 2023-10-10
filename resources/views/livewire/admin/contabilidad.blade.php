@@ -1118,7 +1118,7 @@
             }
 
             });
-            Highcharts.chart('container', {
+        Highcharts.chart('container', {
                 chart: {
                     type: 'areaspline'
                 },

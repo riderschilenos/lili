@@ -197,23 +197,7 @@ class HomeController extends Controller
                 $activities = json_decode($response, true);
 
                 foreach($activities as $activity){
-                    if ($activity['photos']) {
-                        Activitie::create([
-                            'user_id'=>$atletaStrava->user_id,
-                            'name'=>$activity['name'],
-                            'type'=>$activity['type'],
-                            'photo_url'=>$activity['photos'][0]['urls']['100'],
-                            'start_date_local'=>$activity['start_date_local'],
-                            'moving_time'=> gmdate("H:i:s", $activity['moving_time']),
-                         'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),
-                         'total_elevation_gain'=>number_format($activity['total_elevation_gain'], 2, '.', ','),
-                         'average_speed'=>number_format($activity['average_speed'], 2),
-                         'max_speed'=>number_format($activity['max_speed'], 2),
-                           'commute'=>$activity['commute'] ? 'Yes' : 'No' ,
-                           'private'=>$activity['private'] ? 'Yes' : 'No' ,
-                           'achievement_count'=>$activity['achievement_count']
-                        ]);
-                    } else {
+                    
                         Activitie::create([
                             'user_id'=>$atletaStrava->user_id,
                             'name'=>$activity['name'],
@@ -229,9 +213,6 @@ class HomeController extends Controller
                            'private'=>$activity['private'] ? 'Yes' : 'No' ,
                            'achievement_count'=>$activity['achievement_count']
                         ]);
-                    }
-                    
-                     
            
                 }
 

@@ -307,7 +307,7 @@ class PedidosProduccion extends Component
         }
 
         try {
-            $fono='569'.substr(str_replace(' ', '', $pedido->vendedor->fono), -8);
+            $fvendedor='569'.substr(str_replace(' ', '', $pedido->vendedor->fono), -8);
        
             //TOKEN QUE NOS DA FACEBOOK
             $token = env('WS_TOKEN');
@@ -318,7 +318,7 @@ class PedidosProduccion extends Component
             $vendload=[
                 'messaging_product' => 'whatsapp',
                 "preview_url"=> false,
-                'to'=>$fono,
+                'to'=>$fvendedor,
                 
                 'type'=>'template',
                     'template'=>[

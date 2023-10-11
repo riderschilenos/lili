@@ -22,7 +22,7 @@ class CreateActivitiesTable extends Migration
             
             $table->string('name');
             $table->string('type');
-            $table->string('photo_url')->nullable();
+            $table->string('strava_id');
             $table->string('start_date_local');
             $table->integer('moving_time');
             $table->float('distance');

@@ -207,7 +207,7 @@ class HomeController extends Controller
                             'user_id'=>$atletaStrava->user_id,
                             'name'=>$activity['name'],
                             'type'=>$activity['type'],
-                            'photo_url'=>null,
+                            'strava_id'=>$activity['name'],
                             'start_date_local'=>$activity['start_date_local'],
                             'moving_time'=> $activity['moving_time'],
                          'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),

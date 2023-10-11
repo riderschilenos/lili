@@ -307,7 +307,7 @@ class PedidosProduccion extends Component
         }
 
         try {
-            $fono='569'.substr(str_replace(' ', '', $pedido->user->vendedor->fono), -8);
+            $fono='569'.substr(str_replace(' ', '', $pedido->vendedor->fono), -8);
        
             //TOKEN QUE NOS DA FACEBOOK
             $token = env('WS_TOKEN');

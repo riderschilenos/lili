@@ -331,7 +331,7 @@ class PedidosProduccion extends Component
                                 'parameters'=>[
                                     [   //Cantidad
                                         'type'=>'text',
-                                        'text'=> number_format($comisiones)
+                                        'text'=> $comisiones
                                     ]
                                 ]
                             ]

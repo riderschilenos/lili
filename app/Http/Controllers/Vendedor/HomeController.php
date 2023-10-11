@@ -203,7 +203,7 @@ class HomeController extends Controller
                             'name'=>$activity['name'],
                             'type'=>$activity['type'],
                             'photo_url'=>null,
-                            'start_date_local'=>gmdate("Y-m-d H:i:s", $activity['start_date_local']),
+                            'start_date_local'=>$activity['start_date_local'],
                             'moving_time'=> gmdate("H:i:s", $activity['moving_time']),
                          'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),
                          'total_elevation_gain'=>number_format($activity['total_elevation_gain'], 2, '.', ','),

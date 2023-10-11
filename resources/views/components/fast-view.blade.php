@@ -831,7 +831,12 @@
                     <div class="mt-2 mb-6 flex justify-center">
                         <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
         
-                             
+                                @if (auth()->user()->tickets->where('status',3)->first())
+                                    <div class="items-center my-auto">
+                                        <h1 class="text-center">Desafío ft Strava Activo <div class="bg-green-500 text-green-500 h-2 w-2 rounded-full">.</div></h1>
+                                        @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
+                                    </div>
+                                @endif
                                 
                                 <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
                             
@@ -959,11 +964,11 @@
                    
                                                   
                   
-{{-- commen
-                    <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
-                        <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
-                    </a>
-t --}}
+                                    {{-- commen
+                                                        <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
+                                                            <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
+                                                        </a>
+                                    t --}}
                 @else
                    {{-- comment 
                     <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
@@ -1089,18 +1094,18 @@ t --}}
           
                             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
                          
-                                         
-                                  
-                            <article>
+                                                
+                                        
+                                    <article>
 
-                                <figure>
-                                    <a href="{{route('socio.create')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/registroriders.png')}}" alt=""></a>
-                                </figure>
-            
-                            
-                            </article>
-            
-                        
+                                        <figure>
+                                            <a href="{{route('socio.create')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/registroriders.png')}}" alt=""></a>
+                                        </figure>
+                    
+                                    
+                                    </article>
+                    
+                                
                             </div>
                     @endif
             

@@ -10,9 +10,9 @@
     </div>
     @php
 
-    $endTime = $ticket->updated_at->addHours(10000);
+        $endTime = $ticket->updated_at->addHours(10000);
 
-@endphp
+    @endphp
     <script>
     const clockDisplay = document.getElementById('clock');
     

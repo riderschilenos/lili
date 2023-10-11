@@ -198,7 +198,7 @@ class HomeController extends Controller
 
                 foreach($activities as $activity){
                     
-                    $activ=Activitie::where('name',$activity['name'])->first();
+                    $activ=Activitie::where('strava_id',$activity['id'])->first();
 
                     if ($activ) {
                        //

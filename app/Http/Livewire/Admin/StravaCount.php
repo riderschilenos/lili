@@ -13,7 +13,7 @@ class StravaCount extends Component
     }
 
     public function render()
-    {   $activities=Activitie::where('user_id',auth()->user()->id)->get();
+    {   $activities=Activitie::where('user_id',$this->ticket->user_id)->get();
 
         return view('livewire.admin.strava-count',compact('activities'));
     }

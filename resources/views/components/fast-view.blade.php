@@ -834,7 +834,7 @@
                                 @if (auth()->user()->tickets->where('status',3)->first())
                                     <div class="items-center my-auto">
                                         <h1 class="text-center">Desafío ft Strava Activo <div class="bg-green-500 text-green-500 h-2 w-2 rounded-full">.</div></h1>
-                                        @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
+                                            @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
                                     </div>
                                 @endif
                                 

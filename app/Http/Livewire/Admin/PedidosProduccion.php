@@ -204,6 +204,9 @@ class PedidosProduccion extends Component
             $cliente=Socio::find($pedido->pedidoable_id);
         }
 
+        
+
+
         try {
             $fono='569'.substr(str_replace(' ', '', $cliente->fono), -8);
        
@@ -283,7 +286,105 @@ class PedidosProduccion extends Component
             $this->reset(['file']);
 
         }
-        
+
+        $pedidos= Pedido::where('user_id',$pedido->user_id)
+        ->where('status',7)
+        ->orderby('status','DESC')
+        ->latest('id')
+        ->get();
+
+        $comisiones=0;
+        foreach($pedidos as $pedido){
+            foreach ($pedido->ordens as $orden){
+                     
+                if($pedido->pedidoable_type=="App\Models\Socio"){
+                        $comisiones+=$orden->producto->comision_socio;
+                    }
+                if($pedido->pedidoable_type=="App\Models\Invitado"){
+                        $comisiones+=$orden->producto->comision_invitado;
+                }
+            }
+        }
+
+        try {
+            $fono='569'.substr(str_replace(' ', '', $pedido->user->vendedor->fono), -8);
+       
+            //TOKEN QUE NOS DA FACEBOOK
+            $token = env('WS_TOKEN');
+            $phoneid= env('WS_PHONEID');
+            //$link= 'https://riderschilenos.cl/seguimiento/'.$pedido->id;
+            $version='v16.0';
+            $url="https://riderschilenos.cl/";
+            $vendload=[
+                'messaging_product' => 'whatsapp',
+                "preview_url"=> false,
+                'to'=>$fono,
+                
+                'type'=>'template',
+                    'template'=>[
+                        'name'=>'nueva_comision',
+                        'language'=>[
+                            'code'=>'es'],
+                        'components'=>[ 
+                            [
+                                'type'=>'body',
+                                'parameters'=>[
+                                    [   //Cantidad
+                                        'type'=>'text',
+                                        'text'=> number_format($comisiones)
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    
+                
+            ];
+            
+            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$vendload)->throw()->json();
+    
+    
+            
+             //TOKEN QUE NOS DA FACEBOOK
+             $token = env('WS_TOKEN');
+             $phoneid= env('WS_PHONEID');
+             $version='v16.0';
+             $url="https://riderschilenos.cl/";
+             $wsload=[
+                 'messaging_product' => 'whatsapp',
+                 "preview_url"=> false,
+                 'to'=>'56963176726',
+                 
+                 'type'=>'template',
+                     'template'=>[
+                         'name'=>'nro_seguimiento',
+                         'language'=>[
+                             'code'=>'es'],
+                         'components'=>[ 
+                            [
+                                'type'=>'body',
+                                'parameters'=>[
+                                    [   //Link
+                                        'type'=>'text',
+                                        'text'=> 'https://riderschilenos.cl/seguimiento/'.$pedido->id
+                                    ]
+                                ]
+                            ]
+                         ]
+                     ]
+                     
+                 
+             ];
+             
+             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+            
+            
+            $this->reset(['file']);
+        } catch (\Throwable $th) {
+           
+            $this->reset(['file']);
+
+        }        
         
     }
 

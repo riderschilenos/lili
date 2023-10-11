@@ -11,8 +11,10 @@ use App\Models\Pedido;
 use App\Models\Producto;
 use App\Models\Serie;
 use App\Models\Socio;
+use App\Models\Sync;
 use App\Models\Vehiculo;
 use App\Models\Vendedor;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -148,6 +150,7 @@ class HomeController extends Controller
     {   
         if($vendedor->view==1){
             $atletas_stravas=AtletaStrava::all();
+            $n=0;
         foreach ($atletas_stravas as $atletaStrava){
           
                 
@@ -218,6 +221,7 @@ class HomeController extends Controller
                            'private'=>$activity['private'] ? 'Yes' : 'No' ,
                            'achievement_count'=>$activity['achievement_count']
                         ]);
+                        $n+=1;
                     }
                     
                     
@@ -226,6 +230,15 @@ class HomeController extends Controller
 
             
         }
+
+        Sync::create([
+            'tipo'=>'MANUAL',
+            'entidad'=>'STRAVA_ACTIVITY',
+            'fecha'=>Carbon::now(),
+            'cantidad'=>$n
+        ]);
+
+
             $vendedor->view=0;
             $vendedor->save();
         }else{

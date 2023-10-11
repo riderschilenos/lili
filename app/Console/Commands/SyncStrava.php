@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Models\Activitie;
 use App\Models\AtletaStrava;
+use App\Models\Sync;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
@@ -41,6 +43,7 @@ class SyncStrava extends Command
      */
     public function handle()
     {      $atletas_stravas=AtletaStrava::all();
+            $n=0;
         foreach ($atletas_stravas as $atletaStrava){
           
                 
@@ -111,6 +114,7 @@ class SyncStrava extends Command
                            'private'=>$activity['private'] ? 'Yes' : 'No' ,
                            'achievement_count'=>$activity['achievement_count']
                         ]);
+                        $n+=1;
                     }
                     
                     
@@ -119,6 +123,12 @@ class SyncStrava extends Command
 
             
         }
+        Sync::create([
+            'tipo'=>'PROGRAMADA',
+            'entidad'=>'STRAVA_ACTIVITY',
+            'fecha'=>Carbon::now(),
+            'cantidad'=>$n
+        ]);
 
      return Command::SUCCESS;
 

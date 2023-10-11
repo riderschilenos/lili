@@ -198,6 +198,11 @@ class HomeController extends Controller
 
                 foreach($activities as $activity){
                     
+                    $activ=Activitie::where('name',$activity['name'])->first();
+
+                    if ($activ) {
+                       //
+                    } else {
                         Activitie::create([
                             'user_id'=>$atletaStrava->user_id,
                             'name'=>$activity['name'],
@@ -213,6 +218,9 @@ class HomeController extends Controller
                            'private'=>$activity['private'] ? 'Yes' : 'No' ,
                            'achievement_count'=>$activity['achievement_count']
                         ]);
+                    }
+                    
+                    
            
                 }
 

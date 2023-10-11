@@ -461,8 +461,6 @@ class PedidosProduccion extends Component
         
         $pedidos= Pedido::where('user_id',$pedido->user_id)
         ->where('status',7)
-        ->orderby('status','DESC')
-        ->latest('id')
         ->get();
 
         $comisiones=0;

@@ -10,6 +10,7 @@ use App\Models\Orden;
 use App\Models\Pedido;
 use App\Models\Socio;
 use App\Models\User;
+use App\Models\WhatsappMensaje;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\support\Str;
@@ -260,6 +261,11 @@ class PedidosProduccion extends Component
             ];
             
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+            WhatsappMensaje::create(['numero'=> $fono,
+            'mensaje'=>"¡Hola! Muchas gracias por confiar en nuestro trabajo. Queremos informarte que tu pedido ya ha sido enviado y que en el siguiente link puedes descargar la boleta de envío donde encontraras el número de seguimiento. https://riderschilenos.cl/seguimiento/".$pedido->id."
+            Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos al +56963176726. ¡Que tengas un buen día!",
+            'type'=>'enviado']);
+
             $vendedor=Socio::find($pedido->user_id);
             $fvend='569'.substr(str_replace(' ', '', $vendedor->fono), -8);
             
@@ -295,7 +301,12 @@ class PedidosProduccion extends Component
              ];
              
              Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
-            
+             WhatsappMensaje::create(['numero'=> $fvend,
+            'mensaje'=>"¡Felicidades! Tienes $ ".number_format($comisiones)."en comisiones para retirar.
+            Visita el siguiente link para hacer el retiro deseado
+            https://riderschilenos.cl/vendedor/comisiones 
+            Atte. Administración RidersChilenos",
+            'type'=>'enviado']);
          
             $this->reset(['file']);
         } catch (\Throwable $th) {

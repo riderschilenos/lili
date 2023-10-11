@@ -284,7 +284,7 @@ class PedidosProduccion extends Component
                                 'parameters'=>[
                                     [   //Link
                                         'type'=>'text',
-                                        'text'=> '1.000'
+                                        'text'=> number_format($comisiones)
                                     ]
                                 ]
                             ]

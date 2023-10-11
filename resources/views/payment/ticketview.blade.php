@@ -40,11 +40,33 @@
                     <div class="flex items-center">
                      
                       <div class="flex flex-col mx-auto">
-                        @if ($evento->type=='desafio')
-                              
-                              @livewire('admin.strava-count', ['ticket' => $ticket], key($ticket->id))
-                             
-                             
+                          @if ($evento->type=='desafio')
+                              @if (auth()->user()->strava)
+                                        
+                                  @livewire('admin.strava-count', ['ticket' => $ticket], key($ticket->id))
+                                    
+                              @else
+                                  
+                                  
+
+                                  <div class="bg-white p-6 rounded shadow-md">
+                                      <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
+                                      <div class="my-2">
+                                          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
+                                      </div>
+                                      <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
+                                      <div class="flex justify-center">
+                                          <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                              Enlazar con Strava
+                                          </a>
+                                      </div>
+                                      
+                                      <p class="mt-4 text-sm text-gray-500">
+                                          Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
+                                      </p>
+                                  </div>
+                              @endif   
+                                      
                            
                         @else
                           <a href="{{route('ticket.historial.view',$ticket->user)}}">

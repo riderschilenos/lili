@@ -6,7 +6,7 @@ use App\Models\Ticket;
 use Livewire\Component;
 
 class StravaCount extends Component
-{   public $ticket=null;
+{   public $ticket;
     public function mount(Ticket $ticket){
         $this->ticket=$ticket;
     }

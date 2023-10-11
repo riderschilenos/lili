@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Activitie;
 use App\Models\Ticket;
 use Livewire\Component;
 
@@ -12,7 +13,8 @@ class StravaCount extends Component
     }
 
     public function render()
-    {
-        return view('livewire.admin.strava-count');
+    {   $activities=Activitie::where('user_id',auth()->user()->id)->get();
+
+        return view('livewire.admin.strava-count',compact('activities'));
     }
 }

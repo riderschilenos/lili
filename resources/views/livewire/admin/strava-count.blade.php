@@ -2,10 +2,27 @@
    @php
        $hoursRemaining=0;
        $minutesRemaining=0;
+       $total=0;
    @endphp
+   @foreach ($activities as $activitie)
+        @php
+            $date1=date($activitie->start_date_local);
+            $date2=date($ticket->updated_at);
+        @endphp
+        {{-- comment
+        {{$date1}}<br>
+        {{$date2}} <br> --}}
+    
+        @if ($date1>$date2)
+            @php
+                    $total+=floatval($activitie->distance);
+            @endphp
+        @endif
+     
+   @endforeach
     <div class="bg-gray-100 p-4 rounded-lg shadow-lg text-center">
                                 
-        <div class="text-4xl font-bold my-4" id="kilometers">0.00 Kms</div>
+        <div class="text-4xl font-bold my-4" id="kilometers">{{$total}} Kms</div>
         <div class="text-2xl font-semibold mb-2">Recorridos con Strava</div>
         
         <div id="clock" class="text-sm hidden">Quedan {{ $hoursRemaining }} horas y {{ $minutesRemaining }} minutos</div>

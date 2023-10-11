@@ -42,7 +42,8 @@
                       <div class="flex flex-col mx-auto">
                         @if ($evento->type=='desafio')
                               
-                              @livewire('admin.strava-count')
+                              @livewire('admin.strava-count', ['ticket' => $ticket], key($ticket->id))
+                             
                              
                            
                         @else

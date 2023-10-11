@@ -384,6 +384,49 @@ class PedidosProduccion extends Component
          
          Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
         
+
+         $vendedor=Socio::find($pedido->user_id);
+         $fvend='569'.substr(str_replace(' ', '', $vendedor->fono), -8);
+         
+          //TOKEN QUE NOS DA FACEBOOK
+          $token = env('WS_TOKEN');
+          $phoneid= env('WS_PHONEID');
+          $version='v16.0';
+          $url="https://riderschilenos.cl/";
+          $wsload=[
+              'messaging_product' => 'whatsapp',
+              "preview_url"=> false,
+              'to'=>$fvend,
+              
+              'type'=>'template',
+                  'template'=>[
+                      'name'=>'nueva_comision',
+                      'language'=>[
+                          'code'=>'es'],
+                      'components'=>[ 
+                         [
+                             'type'=>'body',
+                             'parameters'=>[
+                                 [   //Link
+                                     'type'=>'text',
+                                     'text'=> number_format($comisiones)
+                                 ]
+                             ]
+                         ]
+                      ]
+                  ]
+                  
+              
+          ];
+          
+          Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+          WhatsappMensaje::create(['numero'=> $fvend,
+         'mensaje'=>"¡Felicidades! Tienes $ ".number_format($comisiones)."en comisiones para retirar.
+         Visita el siguiente link para hacer el retiro deseado
+         https://riderschilenos.cl/vendedor/comisiones 
+         Atte. Administración RidersChilenos",
+         'type'=>'enviado']);
+      
         
         $this->reset(['file']);
         } catch (\Throwable $th) {

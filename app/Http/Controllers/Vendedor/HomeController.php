@@ -222,10 +222,10 @@ class HomeController extends Controller
                     
                     
            
-                }
+            }
 
             
-    }
+        }
             $vendedor->view=0;
             $vendedor->save();
         }else{

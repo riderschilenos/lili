@@ -40,7 +40,7 @@ class SyncStrava extends Command
      * @return int
      */
     public function handle()
-    {   $atletas_stravas=AtletaStrava::all();
+    {      $atletas_stravas=AtletaStrava::all();
         foreach ($atletas_stravas as $atletaStrava){
           
                 
@@ -90,14 +90,19 @@ class SyncStrava extends Command
                 $activities = json_decode($response, true);
 
                 foreach($activities as $activity){
-                 
+                    
+                    $activ=Activitie::where('strava_id',$activity['id'])->first();
+
+                    if ($activ) {
+                       //
+                    } else {
                         Activitie::create([
                             'user_id'=>$atletaStrava->user_id,
                             'name'=>$activity['name'],
                             'type'=>$activity['type'],
-                            'photo_url'=>$activity['photos'][0]['urls']['100'],
+                            'strava_id'=>$activity['id'],
                             'start_date_local'=>$activity['start_date_local'],
-                            'moving_time'=> gmdate("H:i:s", $activity['moving_time']),
+                            'moving_time'=> $activity['moving_time'],
                          'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),
                          'total_elevation_gain'=>number_format($activity['total_elevation_gain'], 2, '.', ','),
                          'average_speed'=>number_format($activity['average_speed'], 2),
@@ -106,11 +111,14 @@ class SyncStrava extends Command
                            'private'=>$activity['private'] ? 'Yes' : 'No' ,
                            'achievement_count'=>$activity['achievement_count']
                         ]);
+                    }
+                    
+                    
            
-                }
+            }
 
             
-    }
+        }
 
      return Command::SUCCESS;
 

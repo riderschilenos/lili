@@ -144,7 +144,7 @@
    
 
 </div>
-<a class="flex justify-center sm:hidden mt-4" href="{{route('garage.vehiculo.create')}}">
+<a class="flex justify-center mt-4" href="{{route('garage.vehiculo.create')}}">
                     
     <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mr-4 mb-2" wire:click="resetFilters">
     

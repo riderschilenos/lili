@@ -260,8 +260,8 @@ class PedidosProduccion extends Component
             ];
             
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-    
-            $fvend='569'.substr(str_replace(' ', '', $pedido->user->vendedor->fono), -8);
+            $vendedor=Socio::find($pedido->user_id);
+            $fvend='569'.substr(str_replace(' ', '', $vendedor->fono), -8);
             
              //TOKEN QUE NOS DA FACEBOOK
              $token = env('WS_TOKEN');

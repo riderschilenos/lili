@@ -275,7 +275,7 @@ class PedidosProduccion extends Component
                  
                  'type'=>'template',
                      'template'=>[
-                         'name'=>'nro_seguimiento',
+                         'name'=>'nueva_comision',
                          'language'=>[
                              'code'=>'es'],
                          'components'=>[ 
@@ -284,7 +284,7 @@ class PedidosProduccion extends Component
                                 'parameters'=>[
                                     [   //Link
                                         'type'=>'text',
-                                        'text'=> 'https://riderschilenos.cl/seguimiento/'.$pedido->id
+                                        'text'=> '1.000'
                                     ]
                                 ]
                             ]
@@ -296,44 +296,7 @@ class PedidosProduccion extends Component
              
              Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
             
-             $fvendedor='569'.substr(str_replace(' ', '', $pedido->vendedor->fono), -8);
-       
-             //TOKEN QUE NOS DA FACEBOOK
-             $token = env('WS_TOKEN');
-             $phoneid= env('WS_PHONEID');
-             //$link= 'https://riderschilenos.cl/seguimiento/'.$pedido->id;
-             $version='v16.0';
-             $url="https://riderschilenos.cl/";
-             $vendload=[
-                 'messaging_product' => 'whatsapp',
-                 "preview_url"=> false,
-                 'to'=>$fvendedor,
-                 
-                 'type'=>'template',
-                     'template'=>[
-                         'name'=>'nueva_comision',
-                         'language'=>[
-                             'code'=>'es'],
-                         'components'=>[ 
-                             [
-                                 'type'=>'body',
-                                 'parameters'=>[
-                                     [   //Cantidad
-                                         'type'=>'text',
-                                         'text'=> number_format($comisiones)
-                                     ]
-                                 ]
-                             ]
-                         ]
-                     ]
-                     
-                 
-             ];
-             
-             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$vendload)->throw()->json();
-     
-          
-    
+         
             $this->reset(['file']);
         } catch (\Throwable $th) {
            

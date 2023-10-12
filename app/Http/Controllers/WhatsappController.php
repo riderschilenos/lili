@@ -73,62 +73,71 @@ class WhatsappController extends Controller
         $respuesta = json_decode($respuesta, true);
         //EXTRAEMOS EL TELEFONO DEL ARRAY
         //GUARDAMOS EL MENSAJE Y LA RESPUESTA EN EL ARCHIVO text.txt
-        WhatsappMensaje::create(['numero'=> $respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from'],
-                                'mensaje'=>$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']]);
-           
-                                
+
+        if (isset($respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from']) && isset($respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'])) {
+            $numero = $respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from'];
+            $mensaje = $respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body'];
+            WhatsappMensaje::create(['numero'=> $respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from'],
+            'mensaje'=>$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']]);
             $num=$respuesta['entry'][0]['changes'][0]['value']['messages'][0]['from'];
+
+                 
+            try {
+                //code...
             
-        try {
-            //code...
-        
-            $fono='+569'.substr(str_replace(' ', '', $num), -8);
-                                //TOKEN QUE NOS DA FACEBOOK
-            $token = env('WS_TOKEN');
-            $phoneid= env('WS_PHONEID');
-            $version='v16.0';
-            $url="https://riderschilenos.cl/";
-            $payload=[
-                'messaging_product' => 'whatsapp',
-                "preview_url"=> false,
-                'to'=>'56963176726',
-                
-                'type'=>'template',
-                    'template'=>[
-                        'name'=>'notificacion_mensaje',
-                        'language'=>[
-                            'code'=>'es'],
-                        'components'=>[ 
-                            [
-                                'type'=>'body',
-                                'parameters'=>[
-                                    [   //fono
-                                        'type'=>'text',
-                                        'text'=> $fono
-                                    ],
-                                    [   //mensaje
-                                        'type'=>'text',
-                                        'text'=> $respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
+                $fono='+569'.substr(str_replace(' ', '', $num), -8);
+                                    //TOKEN QUE NOS DA FACEBOOK
+                $token = env('WS_TOKEN');
+                $phoneid= env('WS_PHONEID');
+                $version='v16.0';
+                $url="https://riderschilenos.cl/";
+                $payload=[
+                    'messaging_product' => 'whatsapp',
+                    "preview_url"=> false,
+                    'to'=>'56963176726',
+                    
+                    'type'=>'template',
+                        'template'=>[
+                            'name'=>'notificacion_mensaje',
+                            'language'=>[
+                                'code'=>'es'],
+                            'components'=>[ 
+                                [
+                                    'type'=>'body',
+                                    'parameters'=>[
+                                        [   //fono
+                                            'type'=>'text',
+                                            'text'=> $fono
+                                        ],
+                                        [   //mensaje
+                                            'type'=>'text',
+                                            'text'=> $respuesta['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
+                                        ]
+                                    
                                     ]
-                                   
                                 ]
                             ]
                         ]
-                    ]
+                        
                     
+                    
+                    /*
+                    "text"=>[
+                        "body"=> "Buena Rider, Bienvenido al club"
+                        ]*/
+                    ];
                 
-                
-                /*
-                "text"=>[
-                    "body"=> "Buena Rider, Bienvenido al club"
-                    ]*/
-                ];
+                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
             
-            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-        
-        } catch (\Throwable $th) {
-            //throw $th;
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            // Aquí puedes continuar con tu código
+        } else {
+            // Manejar la falta de datos o mostrar un mensaje de error
         }
+     
+       
       }
     
     

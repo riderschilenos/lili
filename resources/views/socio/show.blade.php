@@ -110,11 +110,11 @@
                                             @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
                                                 <img class="h-44 w-40 mx-auto object-cover"
                                                 src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
-                                                alt="">
+                                                alt="Rider Chileno">
                                             @else
                                                 <img class="h-44 w-42 object-cover"
                                                 src="{{ $socio->user->profile_photo_url }}"
-                                                alt="{{$socio->user->name}}">
+                                                alt="{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}">
                 
                                             @endif
                                            

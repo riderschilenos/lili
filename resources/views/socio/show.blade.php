@@ -114,7 +114,7 @@
                                             @else
                                                 <img class="h-44 w-42 object-cover"
                                                 src="{{ $socio->user->profile_photo_url }}"
-                                                alt="">
+                                                alt="{{$socio->name}}">
                 
                                             @endif
                                            

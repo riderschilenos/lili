@@ -317,38 +317,7 @@
                                                                    </div>
                                                                    <div class="ml-4 whitespace-nowrap">
                                                                          <a href="{{route('pedido.seguimiento',$pedido)}}">
-                                                                             <div class="text-sm font-medium text-gray-900">
-                                                                                 
-                                                                                     @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                                                         @foreach ($socios as $item)
-                                                                                                 
-                                                                                                 @if($item->id == $pedido->pedidoable_id)
-                                                                                                     <a href="{{route('pedido.seguimiento',$pedido)}}">
-                                                                                                         {{$item->user->name}}
-                                                                                                     
-                                                                                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                                                             Socio
-                                                                                                         </span>
-                                                                                                    
-                                                                                                 @endif
-                                                                                         @endforeach
-                                                                                     @endif
-                                                                                     @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                                         @foreach ($invitados as $invitado)
-                                                                                                 
-                                                                                                 @if($invitado->id == $pedido->pedidoable_id)
-                                                                                               
-                                                                                                     {{$invitado->name}} 
-                                                                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                                                                         Invitado
-                                                                                                     </span>
-                                                                                              
-                                                                                                 @endif
-                                                                                         @endforeach
-                                                                                     @endif
-                             
-                             
-                                                                             </div>
+                                                                             
                                                                              
                                                                              <div class="text-sm text-gray-500">
                              
@@ -536,10 +505,7 @@
                                                                                                         @if($item->id == $pedido->pedidoable_id)
                                                                                                             <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                                                 {{$item->user->name}}
-                                                                                                            
-                                                                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                                                                    Socio
-                                                                                                                </span>
+                                                                                                           
                                                                                                         
                                                                                                         @endif
                                                                                                 @endforeach
@@ -550,9 +516,7 @@
                                                                                                         @if($invitado->id == $pedido->pedidoable_id)
                                                                                                     
                                                                                                             {{$invitado->name}} 
-                                                                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                                                                                Invitado
-                                                                                                            </span>
+                                                                                                         
                                                                                                     
                                                                                                         @endif
                                                                                                 @endforeach
@@ -714,9 +678,7 @@
                                                                         
                                                                                                 {{$socio->user->name}}
                                                                                             
-                                                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                                                    Socio
-                                                                                                </span>
+                                                                                          
                                                                                     
                                                                         
                     

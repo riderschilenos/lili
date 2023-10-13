@@ -570,13 +570,85 @@
                                                 <span>Entrenamientos</span>
                                             </div>
                                                                     
-                                        <div>
+                                                        <div>
                                                             
                                                             <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
                                                         
                                                         </div> 
                                             
                                         </div>
+                                        <ul class="list-inside space-y-2">
+                                            @if ($socio->user->activities)
+                                                    @foreach ($socio->user->activities->take(6) as $activity)
+                                                    <li>
+                                                        <div class="flex items-center">
+                                                            <span class="text-yellow-600">
+                                                                @if ($activity->type=='Ride')
+                                                                    <i class="fas fa-bicycle text-white-800"></i>
+                                                                    @elseif($activity->type=='Velomobile')
+                                                                        <i class="fas fa-bicycle text-white-800"></i>
+                                                                    @elseif($activity->type=='Run')
+                                                                        <i class="fas fa-running"></i>
+                                                                    @else
+                                                                        <i class="fas fa-dumbbell text-white-800"></i>
+                                                                    @endif
+                                                                
+                                                            </span>
+                                                            <div class="ml-4">
+                                                                <div class="text-teal-600"> 
+                                                                    @if ($activity->type=='Ride')
+                                                                        {{ number_format($activity->distance)}}   km Bicicleta
+                                                                    @elseif($activity->type=='Velomobile')
+                                                                        {{ number_format($activity->distance)}}   km Velomobil
+                                                                    @else
+                                                                        {{ number_format($activity->moving_time/60,1,',','.')}} Minutos  {{ $activity->type}}
+                                                                    @endif
+                                                                </div>
+                                                                <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                       
+                                                    @endforeach
+                                               
+                                                @endif
+                                                    {{-- comment
+                                            <li>
+                                                <div class="flex items-center">
+                                                    <span class="text-yellow-600">
+                                                        <i class="fas fa-dumbbell text-white-800"></i>
+                                                    </span>
+                                                    <div class="ml-4">
+                                                        <div class="text-teal-600">50 Min Pesas.</div>
+                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                           
+                                            <li>
+                                                <div class="flex items-center">
+                                                    <span class="text-yellow-600">
+                                                        <i class="fas fa-running"></i>
+                                                    </span>
+                                                    <div class="ml-4">
+                                                        <div class="text-teal-600">10k running</div>
+                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="flex items-center">
+                                                    <span class="text-yellow-600">
+                                                        <i class="fas fa-bicycle text-white-800"></i>
+                                                    </span>
+                                                    <div class="ml-4">
+                                                        <div class="text-teal-600">70km Bicicleta</div>
+                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                                --}}
+                                        </ul>
                                     </div>
                                         
                                     {{-- commen

@@ -114,14 +114,23 @@
                                         </div>
         
                                     </div>
---}}
+                                                    --}}
                                     <ul class="list-inside space-y-2">
                                         @if ($activities)
                                                 @foreach ($activities as $activity)
                                                 <li>
                                                     <div class="flex items-center">
                                                         <span class="text-yellow-600">
-                                                            <i class="fas fa-bicycle text-white-800"></i>
+                                                            @if ($activity->type=='Ride')
+                                                                <i class="fas fa-bicycle text-white-800"></i>
+                                                                @elseif($activity->type=='Velomobile')
+                                                                    <i class="fas fa-bicycle text-white-800"></i>
+                                                                @elseif($activity->type=='Run')
+                                                                    <i class="fas fa-running"></i>
+                                                                @else
+                                                                    <i class="fas fa-dumbbell text-white-800"></i>
+                                                                @endif
+                                                            
                                                         </span>
                                                         <div class="ml-4">
                                                             <div class="text-teal-600"> 
@@ -130,10 +139,10 @@
                                                                 @elseif($activity->type=='Velomobile')
                                                                     {{ number_format($activity->distance)}}   km Velomobil
                                                                 @else
-                                                                    {{ $activity->moving_time}} Segundos  {{ $activity->type}}
+                                                                    {{ number_format($activity->moving_time/60,1,',','.')}} Minutos  {{ $activity->type}}
                                                                 @endif
                                                             </div>
-                                                            <div class="text-gray-500 text-xs">{{ $activity->start_date_local.'-'.$activity->moving_time }}</div>
+                                                            <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}}</div>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -141,7 +150,7 @@
                                                 @endforeach
                                            
                                             @endif
-
+                                                {{-- comment
                                         <li>
                                             <div class="flex items-center">
                                                 <span class="text-yellow-600">
@@ -176,6 +185,7 @@
                                                 </div>
                                             </div>
                                         </li>
+                                            --}}
                                     </ul>
                                     
                                 </div>

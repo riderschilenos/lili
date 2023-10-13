@@ -80,7 +80,8 @@ Route::get('/politica-de-privacidad',[AdminHomeController::class,'privacidad'])-
 
 Route::get('/terminos-y-condiciones',[AdminHomeController::class,'terminos'])->name('terminos.condiciones');
 
- 
+Route::get('/stravasync',[StravaController::class,'activitie_sync'])->name('strava.sync');
+
 Route::get('/login-google', [GoogleController::class,'login']);
  
 Route::get('/google-callback', [GoogleController::class,'callback']);

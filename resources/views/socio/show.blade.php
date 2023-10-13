@@ -600,6 +600,9 @@
                                                                         {{ number_format($activity->distance)}}   km Bicicleta
                                                                     @elseif($activity->type=='Velomobile')
                                                                         {{ number_format($activity->distance)}}   km Velomobil
+                                                                    @elseif($activity->type=='Run')
+                                                                    {{ number_format($activity->moving_time/60,1,',','.')}} Minutos de Trote
+                                                                    
                                                                     @else
                                                                         {{ number_format($activity->moving_time/60,1,',','.')}} Minutos  {{ $activity->type}}
                                                                     @endif

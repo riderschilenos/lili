@@ -107,7 +107,7 @@ class SyncStrava extends Command
                             'start_date_local'=>$activity['start_date_local'],
                             'moving_time'=> $activity['moving_time'],
                          'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),
-                         'total_elevation_gain'=>number_format($activity['total_elevation_gain'], 2, '.', ','),
+                         'total_elevation_gain'=>null,
                          'average_speed'=>number_format($activity['average_speed'], 2),
                          'max_speed'=>number_format($activity['max_speed'], 2),
                            'commute'=>$activity['commute'] ? 'Yes' : 'No' ,

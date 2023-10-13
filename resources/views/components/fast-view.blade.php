@@ -800,7 +800,7 @@
                             @else
                 
                                 <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 my-4 @routeIs('garage.vehiculo.create') hidden @endif">
-                                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="success">
+                                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
                                     <strong class="font-bold">Falta poco!</strong>
                                     <span class="block sm:inline">Ahora puedes registrar tu moto o bicicleta, esto te permitira registrar sus servicios y mantenciones, entre otras cosas.</span>
                                     <a href="{{route('garage.vehiculo.create')}}">

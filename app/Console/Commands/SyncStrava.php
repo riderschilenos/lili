@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Activitie;
 use App\Models\AtletaStrava;
 use App\Models\Sync;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use GuzzleHttp\Client;
@@ -114,6 +115,13 @@ class SyncStrava extends Command
                            'private'=>$activity['private'] ? 'Yes' : 'No' ,
                            'achievement_count'=>$activity['achievement_count']
                         ]);
+                        $user=User::find($atletaStrava->user_id);
+                        if ($user) {
+                            $user->ForceFill([
+                                'updated_at'=> Carbon::now()
+                            ])->save();
+                        }
+                        
                         $n+=1;
                     }
                     

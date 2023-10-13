@@ -90,28 +90,20 @@
                                     @endcan
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
-                                    
+                                    {{-- comment 
                                     <div class="container mx-auto p-4">
                                         <h1 class="text-2xl font-bold mb-4">Actividad de Strava</h1>
                                         <div class="grid gap-4 grid-cols-1">
                                             @if ($activities)
                                                 @foreach ($activities as $activity)
                                                     <div class="bg-white p-4 rounded shadow">
-                                                        <p class="text-lg font-semibold">{{ $activity['name'] }}</p>
-                                                        <p class="text-sm text-gray-600">{{ $activity['type'] }}</p>
-                                                        @if (isset($activity['photos']) && count($activity['photos']) > 0)
-                                                            <img src="{{ $activity['photos'][0]['urls']['100'] }}" alt="Activity Photo" class="mt-2 w-full h-auto">
-                                                        @endif
-                                                        <p class="text-sm text-gray-600">Fecha: {{ $activity['start_date_local'] }}</p>
-                                                        <p class="text-sm text-gray-600">Duración: {{ gmdate("H:i:s", $activity['moving_time']) }}</p>
-                                                        <p class="text-sm text-gray-600">Distancia: {{ number_format(($activity['distance']/1000), 2, '.', '.') }} kms</p>
-                                                        <p class="text-sm text-gray-600">Elevation Gain: {{ number_format($activity['total_elevation_gain'], 2, '.', ',') }} metros</p>
-                                                        <p class="text-sm text-gray-600">Velocidad Promedio: {{ number_format($activity['average_speed'], 2) }} m/s</p>
-                                                        <p class="text-sm text-gray-600">Velocidad Máxima: {{ number_format($activity['max_speed'], 2) }} m/s</p>
-                                                        <p class="text-sm text-gray-600">Commute: {{ $activity['commute'] ? 'Yes' : 'No' }}</p>
-                                                        <p class="text-sm text-gray-600">Private: {{ $activity['private'] ? 'Yes' : 'No' }}</p>
-                                                        <p class="text-sm text-gray-600">Achievements: {{ $activity['achievement_count'] }}</p>
-                                                    
+                                                        <p class="text-lg font-semibold">{{ $activity->name}}</p>
+                                                        <p class="text-sm text-gray-600">{{ $activity->type}}</p>
+                                                       
+                                                        <p class="text-sm text-gray-600">Fecha: {{ $activity->start_date_local }}</p>
+                                                        <p class="text-sm text-gray-600">Duración: {{ $activity->moving_time}}</p>
+                                                        <p class="text-sm text-gray-600">Distancia: {{ number_format($activity->distance)}} kms</p>
+                                                       
                                                     </div>
                                                 @endforeach
                                             @else
@@ -122,7 +114,34 @@
                                         </div>
         
                                     </div>
+--}}
                                     <ul class="list-inside space-y-2">
+                                        @if ($activities)
+                                                @foreach ($activities as $activity)
+                                                <li>
+                                                    <div class="flex items-center">
+                                                        <span class="text-yellow-600">
+                                                            <i class="fas fa-bicycle text-white-800"></i>
+                                                        </span>
+                                                        <div class="ml-4">
+                                                            <div class="text-teal-600"> 
+                                                                @if ($activity->type=='Ride')
+                                                                    {{ number_format($activity->distance)}}   km Bicicleta
+                                                                @elseif($activity->type=='Velomobile')
+                                                                    {{ number_format($activity->distance)}}   km Velomobil
+                                                                @else
+                                                                    {{ $activity->moving_time}} Segundos  {{ $activity->type}}
+                                                                @endif
+                                                            </div>
+                                                            <div class="text-gray-500 text-xs">{{ $activity->start_date_local.'-'.$activity->moving_time }}</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                   
+                                                @endforeach
+                                           
+                                            @endif
+
                                         <li>
                                             <div class="flex items-center">
                                                 <span class="text-yellow-600">
@@ -134,17 +153,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="flex items-center">
-                                                <span class="text-yellow-600">
-                                                    <i class="fas fa-bicycle text-white-800"></i>
-                                                </span>
-                                                <div class="ml-4">
-                                                    <div class="text-teal-600">70km Bicicleta</div>
-                                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                       
                                         <li>
                                             <div class="flex items-center">
                                                 <span class="text-yellow-600">

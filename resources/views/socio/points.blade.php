@@ -173,23 +173,6 @@
                                         <a href="{{route('socio.show', $socio)}}">
                                             <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1">{{ '@'.$socio->slug }}</h1>
                                         </a>  
-                                        <div class="flex content-center">
-                                            <div class="px-2 py-2 text-red-500 font-semibold content-center">
-                                                <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="px-2 py-2 text-sm">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
-                                        </div>
-                                    
-                                        <div class="flex items-center content-center">
-                                                    @if($socio->direccion)
-                                                        <div class="px-2 py-2 text-red-500 font-semibold content-center">
-                                                        <i class="fa fa-map-marker my-auto py-auto" aria-hidden="true"></i>
-                                                    </div>
-                                                    
-                                                        <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
-                                                    @endif
-                                        </div>
-
                                       
                                     
 

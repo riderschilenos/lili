@@ -144,5 +144,7 @@ class StravaController extends Controller
         'fecha'=>Carbon::now(),
         'cantidad'=>$n
     ]);
+
+    return redirect()->route('home');
     }
 }

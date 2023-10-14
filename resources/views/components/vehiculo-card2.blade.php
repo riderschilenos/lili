@@ -9,9 +9,9 @@
                         <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                             @if($vehiculo->image->first())
                                 
-                                    <img class="w-full h-32 object-contain my-auto content-center items-center " src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                    <img class="w-full h-32 object-cover my-auto content-center items-center " src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                 @else
-                                    <img class="w-full h-32 object-contain my-auto content-center items-center " src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                    <img class="w-full h-32 object-cover my-auto content-center items-center " src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                             
                                  
                                 @endif    

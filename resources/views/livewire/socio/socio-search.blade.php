@@ -195,10 +195,13 @@
                 No hay ningun registro
             </div>
         @endif 
-
+        
         <div class="flex justify-center text-gray-400 px-6 py-4">
             Cargando....
          </div>
+        <div class="px-6 py-4">
+            {{$socios->links()}}
+        </div>
 
         <script>
             document.addEventListener('livewire:load', function () {

@@ -27,7 +27,7 @@
                             <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                                 @foreach ($vehiculo->image as $image)  
                                 <li class="shrink-0 snap-center w-full snap-mandatory">  
-                                    <section class="bg-cover bg-center" style="background-color: rgba(0, 0, 0, 0.7); z-index: 1">     
+                                    <section class="bg-cover bg-center" style="background-color: rgba(151, 159, 165, 0.8); z-index: 1">     
                                         <img class="" src="{{Storage::url($image->url)}}" alt="" style="scroll-snap-align: center;">
                                     </section>
                                 </li>

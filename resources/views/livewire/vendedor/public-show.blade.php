@@ -145,7 +145,7 @@
     
             <div class="mt-1 p-2">
                 <h2 class="text-slate-700">{{$producto->name}}</h2>
-                <p class="mt-1 text-sm text-slate-400">Despacho todo Chile</p>
+                <p class="hidden mt-1 text-sm text-slate-400">Despacho todo Chile</p>
     
                 <div class="mt-3 flex items-end justify-between">
                     <p class="text-lg font-bold text-blue-500">${{number_format($producto->precio)}}</p>

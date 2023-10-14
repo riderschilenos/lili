@@ -11,13 +11,13 @@ class VehiculoSearch extends Component
     use WithPagination;
 
     public $search;
+
     public $perPage = 8;
-    public $posts;
-    public $loadedCount = 0;
+    public $loadedCount = 4;
 
     public function loadMore()
     {
-        $this->perPage += 4;
+        $this->perPage += $this->loadedCount;
     }
 
     public function render()

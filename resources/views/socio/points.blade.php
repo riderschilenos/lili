@@ -140,12 +140,7 @@
                                         <p class="ml-2 tracking-wide">{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }} </p>
                                         
                                     </div>
-                                        @can('perfil_propio', $socio)
-
-                                        
-                                            <a href="{{route('socio.edit',$socio)}}" class="ml-2"><h5 class="text-blue-600 font-bold text-sm cursor-pointer ml-4">(Editar)</h5></a>
-                                        
-                                        @endcan
+                                      
                                         
                                    
                             </div>
@@ -165,9 +160,7 @@
                                             @endif
                                            
                                         </div>
-                                        @can('perfil_propio', $socio)
-                                            <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
-                                        @endcan
+                                      
                                     </div>
                                     <div class="col-spam-3 px-4 w-full">
                                         <a href="{{route('socio.show', $socio)}}">

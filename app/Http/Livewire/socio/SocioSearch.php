@@ -18,7 +18,7 @@ class SocioSearch extends Component
 
     public function loadMore()
     {
-        $this->perPage += 4;
+        $this->perPage += 5;
     }
     
     public function render()
@@ -27,17 +27,13 @@ class SocioSearch extends Component
 
         $sociosfull = Socio::all();
 
-        $socios = Socio::join('users','socios.user_id','=','users.id')
-                    ->select('socios.*','users.name','users.email','users.updated_at')
-                    ->where('rut','LIKE','%'. $this->search .'%')
-                    ->orwhere('email','LIKE','%'. $this->search .'%')
-                    ->orwhere('socios.name','LIKE','%'. $this->search .'%')
-                    ->orwhere('users.name','LIKE','%'. $this->search .'%')
-                    ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
-                    ->orderByRaw("CASE WHEN users.profile_photo_path IS NOT NULL THEN 0 ELSE 1 END, 
-                    CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
-                    CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
-                    id DESC")
+        $socios = Socio::select('socios.*')
+                    ->where('rut', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('socios.name', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('socios.slug', 'LIKE', '%' . $this->search . '%')
+                    ->orderByRaw("CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
+                                CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
+                                id DESC")
                     ->paginate($this->perPage);
 
         

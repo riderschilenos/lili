@@ -2,7 +2,7 @@
 
 <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
                             
-    <div class="col-span-2 items-center content-center my-auto px-2 py-2">
+    <div class="col-span-2 items-center content-center my-auto px-1 py-1">
      
           
            

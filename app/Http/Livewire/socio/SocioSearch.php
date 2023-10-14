@@ -12,8 +12,9 @@ class SocioSearch extends Component
     use WithPagination;
 
     public $search;
-    public $perPage = 8;
-    public $loadedCount = 4;
+
+    public $perPage = 10;
+    public $loadedCount = 5;
 
     public function loadMore()
     {

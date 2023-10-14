@@ -1,5 +1,5 @@
 <div>
-    <div class="w-full py-6">
+    <div class="w-full pt-6 pb-2">
         <div class="flex">
           <div class="w-1/4">
             <div class="relative mb-2">

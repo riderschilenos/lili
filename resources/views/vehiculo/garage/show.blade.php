@@ -23,13 +23,17 @@
                     @if($vehiculo->image->first())
                     
                         {{-- comment <img class="h-80 w-full object-cover object-center" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">--}}
-                        <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
-                            @foreach ($vehiculo->image as $image)  
-                            <li class="shrink-0 snap-center w-full snap-mandatory">       
-                                <img class="" src="{{Storage::url($image->url)}}" alt="" style="scroll-snap-align: center;">
-                            </li>
-                            @endforeach
-                        </ul>
+                        
+                            <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
+                                @foreach ($vehiculo->image as $image)  
+                                <li class="shrink-0 snap-center w-full snap-mandatory">  
+                                    <section class="bg-cover bg-center" style="background-color: rgba(0, 0, 0, 0.7); z-index: 1">     
+                                        <img class="" src="{{Storage::url($image->url)}}" alt="" style="scroll-snap-align: center;">
+                                    </section>
+                                </li>
+                                @endforeach
+                            </ul>
+                       
 
                         <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8" style='z-index: 10 ;'>
 

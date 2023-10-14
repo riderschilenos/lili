@@ -104,73 +104,7 @@
 
         @if ($socios->count())
 
-            {{--  
-            
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Nombre
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Email
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Rut
-                        </th>
-                    
-                        <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Edit</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-
-                    @foreach ($socios as $socio)
-                    
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                                
-                                                <img class="h-11 w-11 object-cover object-center rounded-full" src="{{ $socio->user->profile_photo_url }}" alt=""  />
-                                            
-                                                
-                                            
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm text-gray-900">
-                                                {{$socio->name}}
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{$socio->email}}</div>
-                                    
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{$socio->rut}}</div>
-                                    
-                                </td>
-
-                                
-                                
-
-                                
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a wire:click="updatesocio_id({{$socio->id}})" class="text-indigo-600 hover:text-indigo-900 cursor-pointer">Seleccionar</a>
-                                
-                                </td>
-                            </tr>
-
-                    @endforeach
-                <!-- More people... -->
-                </tbody>
-            </table>--}}
+        
             <section class="mb-4 pt-2 pb-12">
                
                 <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">

@@ -17,7 +17,7 @@
 </style>
 
 
-            <section class="bg-gray-700 pb-12 pt-20 mb-8 ">
+            <section class="bg-gray-700 pb-6 pt-2 mb-8 ">
                 <figure class="block sm:hidden pt-6 pb-4">
     
                     @if($vehiculo->image->first())
@@ -56,7 +56,7 @@
                     @endif
                 </figure>
                 <div class="container grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <figure class="hidden sm:block">
+                    <figure class="hidden sm:block pt-6">
     
                         @if($vehiculo->image->first())
                         
@@ -87,7 +87,7 @@
                         @endif
                     </figure>
     
-                    <div class="text-white">
+                    <div class="text-white items-center my-auto">
                         <h1 class="text-4xl">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
                         @can('Super admin')
                             @if($vehiculo->ubicacion)

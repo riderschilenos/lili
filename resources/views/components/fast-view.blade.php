@@ -332,19 +332,26 @@
                                                 
                                                     @foreach ($socio2->user->vehiculos as $vehiculo)
                                                         @if($vehiculo->status==5 || $vehiculo->status==6)
-                                                            <div class="text-center p-2 m-2 bg-main-color rounded-xl">
-                                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
-                                                                    @if($vehiculo->image->first())
-                                                                         <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
-                                                                    @else
-                                                                        <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
-                                                                    @endif   
-                                                                   
-                                                                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}"> 
-                                                                        <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
+                                                            <div class="hidden sm:block">
+                                                            
+                                                                <div class="text-center p-2 m-2 bg-main-color rounded-xl">
+                                                                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
+                                                                        @if($vehiculo->image->first())
+                                                                            <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                                                        @else
+                                                                            <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                                                        @endif   
+                                                                    
+                                                                        <a href="{{route('garage.vehiculo.show', $vehiculo)}}"> 
+                                                                            <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
+                                                                        </a>
                                                                     </a>
-                                                                </a>
+                                                                </div>
                                                             </div>
+                                                            <div class="block sm:hidden">
+                                                                    <x-vehiculo-card2 :vehiculo="$vehiculo" />    
+                                                            </div>
+                                                          
                                                         @endif
                                                     @endforeach
 

@@ -96,7 +96,7 @@ class PedidosCreate extends Component
 
         $this->socio_id = $socio_id;
         $this->resetPage();
-         $this->reset(['search','invitados','invitado_id']);
+         $this->reset(['invitados','invitado_id']);
     }
 
     public function updateinvitado_id($invitado_id){
@@ -110,7 +110,7 @@ class PedidosCreate extends Component
 
 
     public function cancel(){
-        $this->reset(['selectedSocios','invitados','socio_id']);
+        $this->reset(['selectedSocios','invitados','socio_id','invitado_id','search']);
     }
 
     public function resetsocio(){

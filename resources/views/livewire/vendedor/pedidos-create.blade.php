@@ -24,7 +24,7 @@
         @endif
     </div>
 
-    @if(!is_null($invitados) || ($search && $guess->count()) || ($search && $socios->count()==0) || ($search && $guess->count()==0))
+    @if(!is_null($invitados) || ($search && $guess->count() && is_null($socio_id)) || ($search && $socios->count()==0) || ($search && $guess->count()==0))
 
         @if ($invitado_id)  
 
@@ -246,7 +246,7 @@
         
     @endif
 
-    @if(!is_null($selectedSocios) || ($search && $socios->count()>0))
+    @if(!is_null($selectedSocios) || ($search && $socios->count()>0 && is_null($invitado_id)))
         @if(is_null($socio_id))
         
             <x-table-responsive>

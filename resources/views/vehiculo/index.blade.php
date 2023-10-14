@@ -10,8 +10,8 @@
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
         <h1 class="text-xs font-bold text-center my-1">Registro Nacional de Motos y Bicicletas</h1>
         <div class="max-w-7xl mx-auto pb-8 ">      
-            <div class="card">
-                <div class="card-body">
+            <div class="">
+                <div class="bg-white">
                     
                     
                         

@@ -1487,8 +1487,8 @@
                                
                     </div>
                 </div>
-                
-                <div class=" px-6 pb-4">
+            </div>  
+                <div class="pb-4">
                     
                     
                         
@@ -1500,7 +1500,7 @@
                     @livewire('vehiculo.vehiculo-search')
                 
                 </div>
-            </div>
+          
 
         </div>
 

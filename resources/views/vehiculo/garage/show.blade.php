@@ -30,12 +30,13 @@
                             </li>
                             @endforeach
                         </ul>
+
                         <div class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8" style='z-index: 10 ;'>
 
                             @foreach ($vehiculo->image as $image)
                 
-                                <img class="h-24 w-full object-contain object-center" src="{{Storage::url($image->url)}}" alt="">
-                        
+                                <img class="h-24 w-full object-contain object-center image-button" data-target="{{ $image->id }}" src="{{Storage::url($image->url)}}" alt="">
+                               
                                 
                             @endforeach
 
@@ -49,7 +50,10 @@
                             @endcan
                 
                         </div>
-    
+                        <div class="flex justify-between hidden">
+                            <button id="prevButton">Anterior</button>
+                            <button id="nextButton">Siguiente</button>
+                        </div>
                     @else
                         <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                     
@@ -370,7 +374,43 @@
             </div>
         </x-fast-view>
        
-    
+    <script>
+        document.getElementById('prevButton').addEventListener('click', function() {
+        const slider = document.querySelector('.slider');
+        const currentPosition = slider.scrollLeft;
+        const newPosition = currentPosition - slider.offsetWidth;
+        
+        slider.scrollTo({
+            left: newPosition,
+            behavior: 'smooth' // Esto proporcionará una transición suave
+        });
+        });
+
+        document.getElementById('nextButton').addEventListener('click', function() {
+        const slider = document.querySelector('.slider');
+        const currentPosition = slider.scrollLeft;
+        const newPosition = currentPosition + slider.offsetWidth;
+        
+        slider.scrollTo({
+            left: newPosition,
+            behavior: 'smooth' // Esto proporcionará una transición suave
+        });
+        });
+
+        const imageButtons = document.querySelectorAll('.image-button');
+        const slider = document.querySelector('.slider');
+
+        imageButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            const newPosition = index * slider.offsetWidth;
+            slider.scrollTo({
+            left: newPosition,
+            behavior: 'smooth'
+            });
+        });
+        });
+
+    </script>
     
 
 </x-app-layout>

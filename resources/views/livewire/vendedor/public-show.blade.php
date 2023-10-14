@@ -51,7 +51,7 @@
     {{-- comment
     @livewire('vendedor.catalogo-productos')
  --}}
-    <h1 class="text-center text-2xl font-bold text-gray-800 mt-6">Marketplace RidersChilenos</h1>
+    <h1 class="text-center text-2xl font-bold text-gray-800 mt-6">Tienda RidersChilenos</h1>
     <div class="px-6 py-4  my-4">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese nombre, categoria o descripción del producto que busca" required autofocus autocomplete="off">
     </div>

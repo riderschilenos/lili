@@ -111,7 +111,7 @@
                 </div>
             </x-table-responsive>
 
-            <div class="flex justify-end">
+            <div class="hidden flex justify-end">
                 <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
                 
             </div>

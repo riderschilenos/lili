@@ -1324,19 +1324,8 @@
 
         <section class="my-4  pb-12">
             <h1 class="text-center text-3xl text-gray-600 font-bold mt-2">Registro Riders Chilenos</h1>
-            <p class="text-center text-gray-500 text-sm mb-6">Bicicletas, Motos y Otros.</p>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
-
-                @foreach ($autos as $auto)
-
-                    <x-vehiculo-card :vehiculo="$auto" />
-                    
-                @endforeach
-
-            </div>
-
-            <div class="flex justify-center mt-4 pt-4">
+            <p class="text-center text-gray-500 text-sm">Bicicletas, Motos y Otros.</p>
+            <div class="flex justify-center my-2">
                 <div class="grid grid-cols-2 gap-2">
                 <a href="{{route('garage.vehiculo.create')}}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-center">
                     Publicar
@@ -1347,6 +1336,17 @@
 
                 </div>
             </div>
+            <div class="max-w-7xl mx-auto px-4 mt-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+
+                @foreach ($autos as $auto)
+
+                    <x-vehiculo-card :vehiculo="$auto" />
+                    
+                @endforeach
+
+            </div>
+
+          
                 
         
         </section>

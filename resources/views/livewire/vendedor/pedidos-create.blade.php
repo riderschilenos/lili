@@ -246,7 +246,7 @@
         
     @endif
 
-    @if(!is_null($selectedSocios) || ($search && $socios->count()))
+    @if(!is_null($selectedSocios) || ($search && $socios->count()>0))
         @if(is_null($socio_id))
         
             <x-table-responsive>

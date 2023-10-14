@@ -88,6 +88,10 @@
             tr:nth-child(even) {
               background-color: #dddddd;
             }
+
+            .words::-webkit-scrollbar {
+            display: none;
+            }
             
             /* Aplicar estilos específicos para pantallas pequeñas (menos de 600px de ancho) */
             @media screen and (max-width: 600px) {

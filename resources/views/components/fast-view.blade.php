@@ -1373,7 +1373,7 @@
     
                    
 
-                <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                <div  class="hidden mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
                         <button class="btn btn-success ml-6 text-center text-sm " @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
@@ -1391,6 +1391,18 @@
                                
                     </div>
                 </div>
+                <div class="words bg-white pt-2 overflow-x-auto whitespace-no-wrap border-b-2">
+                    <div class="flex justify-center">
+                      <div class="px-4 py-2 cursor-pointer underline" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
+                      <!-- Agrega más categorías aquí -->
+                    </div>
+                  </div>
+                <div>
+
+                </div>
+
     
             
     
@@ -1412,7 +1424,7 @@
     
                    
 
-                <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                <div  class="hidden mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
                         <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
@@ -1430,6 +1442,14 @@
                                
                     </div>
                 </div>
+                <div class="words bg-white pt-2 overflow-x-auto whitespace-no-wrap border-b-2">
+                    <div class="flex justify-center">
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
+                      <div class="px-4 py-2 cursor-pointer underline" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
+                      <!-- Agrega más categorías aquí -->
+                    </div>
+                  </div>
     
                 <div>
                     <h1 class="text-center font-bold mt-4 text-2xl mb-2">¿Cual es tu Próximo Desafío?</h1>
@@ -1476,7 +1496,7 @@
 
         <div class="max-w-7xl mx-auto pb-8 ">      
             <div class="card">
-                <div  class="mt-4 text-2xl mb-2 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
+                <div  class="hidden mt-4 text-2xl mb-2 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
                         <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
@@ -1494,6 +1514,14 @@
                                
                     </div>
                 </div>
+                <div class="words bg-white pt-2 overflow-x-auto whitespace-no-wrap border-b-2">
+                    <div class="flex justify-center">
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
+                      <div class="px-4 py-2 cursor-pointer underline" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
+                      <!-- Agrega más categorías aquí -->
+                    </div>
+                  </div>
             </div>  
                 <div class="pb-4">
                     

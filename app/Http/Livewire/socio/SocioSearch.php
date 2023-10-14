@@ -13,12 +13,12 @@ class SocioSearch extends Component
 
     public $search;
     
-    public $perPage = 10;
+    public $perPagesoc = 10;
     public $loadedCount = 5;
 
     public function loadMore()
     {
-        $this->perPage += $this->loadedCount;
+        $this->perPagesoc += $this->loadedCount;
     }
 
     public function render()
@@ -41,7 +41,7 @@ class SocioSearch extends Component
                             CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
                             CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
                             id DESC")
-                            ->paginate($this->perPage);
+                            ->paginate($this->perPagesoc);
 
         
         return view('livewire.socio.socio-search',compact('socios','disciplinas','sociosfull'));

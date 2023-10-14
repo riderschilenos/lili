@@ -196,9 +196,9 @@
             </div>
         @endif 
 
-        <div class="px-6 py-4">
-            {{$socios->links()}}
-        </div>
+        <div class="flex justify-center text-gray-400 px-6 py-4">
+            Cargando....
+         </div>
 
         <script>
             document.addEventListener('livewire:load', function () {

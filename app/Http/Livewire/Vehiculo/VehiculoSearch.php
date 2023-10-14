@@ -11,6 +11,14 @@ class VehiculoSearch extends Component
     use WithPagination;
 
     public $search;
+    public $perPage = 8;
+    public $posts;
+    public $loadedCount = 0;
+
+    public function loadMore()
+    {
+        $this->perPage += 2;
+    }
 
     public function render()
     {   
@@ -24,7 +32,7 @@ class VehiculoSearch extends Component
                                 ->orWhere('vehiculos.nro_serie', 'LIKE', '%' . $this->search . '%');
                         })
                         ->orderBy('updated_at', 'desc') // Ordenar por fecha de modificación más reciente
-                        ->paginate(8);
+                        ->paginate($this->perPage);
         $vehiculosall = Vehiculo::all();
 
         return view('livewire.vehiculo.vehiculo-search',compact('vehiculos','vehiculosall'));

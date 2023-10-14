@@ -180,6 +180,16 @@
         <div class="px-6 py-4">
             {{$vehiculos->links()}}
         </div>
+
+        <script>
+          document.addEventListener('livewire:load', function () {
+              window.addEventListener('scroll', function() {
+                  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                      @this.loadMore(); // Invocar un método para cargar más registros
+                  }
+              });
+          });
+      </script>
   
         
 </div>

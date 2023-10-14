@@ -51,8 +51,8 @@
     {{-- comment
     @livewire('vendedor.catalogo-productos')
  --}}
-    <h1 class="text-center text-2xl font-bold text-gray-800 mt-6">Tienda RidersChilenos</h1>
-    <div class="px-6 py-4  my-4">
+    <h1 class="text-center text-2xl font-bold text-gray-800 mt-2">Tienda RidersChilenos</h1>
+    <div class="px-6 my-4">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese nombre, categoria o descripción del producto que busca" required autofocus autocomplete="off">
     </div>
   </div>
@@ -133,7 +133,7 @@
 
     
     <!-- Product List -->
-  <section class="py-10 bg-gray-100">
+  <section class="pb-10 bg-gray-100">
     <div class="mx-auto grid max-w-7xl  grid-cols-2 gap-6 py-6 px-2 md:px-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
       @foreach ($productos as $producto)
         <article  wire:click="set_product({{$producto->id}})" class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">

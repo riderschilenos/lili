@@ -48,13 +48,14 @@ class PedidosCreate extends Component
     public function updateselectedSocios(Socio $socio){
 
         $this->selectedSocios= Socio::all();
-
+        
         $this->reset(['invitados']);
     }
 
     public function updateselectedInvitado(Socio $socio){
 
         $this->invitados= Invitado::all();
+        
         $this->reset(['selectedSocios']);
     }
 
@@ -87,12 +88,16 @@ class PedidosCreate extends Component
                             ->get();
 
         $this->socio_id = $socio_id;
+        $this->resetPage();
+         $this->reset(['search','invitados','invitado_id']);
     }
 
     public function updateinvitado_id($invitado_id){
 
 
         $this->invitado_id = $invitado_id;
+        $this->resetPage();
+         $this->reset(['selectedSocios','invitados','socio_id']);
     }
 
 
@@ -107,6 +112,7 @@ class PedidosCreate extends Component
 
     public function limpiar_page(){
         $this->resetPage();
+        $this->reset(['selectedSocios','invitados','socio_id','invitado_id']);
     }
 
 }

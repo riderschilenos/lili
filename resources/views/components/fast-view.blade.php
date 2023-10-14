@@ -1376,7 +1376,7 @@
                 <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-success ml-6 text-center text-sm " @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >RIDERS</button>
+                        <button class="btn btn-success ml-6 text-center text-sm " @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
                                
                     </div>
                     <div class="flex justify-center">
@@ -1415,7 +1415,7 @@
                 <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >RIDERS</button>
+                        <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
                                
                     </div>
                     <div class="flex justify-center">
@@ -1479,7 +1479,7 @@
                 <div  class="mt-4 text-2xl mb-2 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; socio = true; registro = false; vendedor = false; base = false" >RIDERS</button>
+                        <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
                                
                     </div>
                     <div class="flex justify-center">

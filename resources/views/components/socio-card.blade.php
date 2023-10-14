@@ -8,7 +8,7 @@
                     <div class="photo-wrapper flex justify-center">
                         <a href= "{{route('socio.show', $socio)}}">
                            
-                                <div class="flex justify-end z-10"> <!-- Contenedor de la estrella con z-index -->
+                                <div class="flex justify-end z-0"> <!-- Contenedor de la estrella con z-index -->
            
                                     <span class="bg-red-500 absolute mt-1 p-1 rounded text-white text-xs">{{$socio->disciplina->name}}</span> <!-- Estrella usando Font Awesome (ajusta el tamaño y el color según necesites) -->
                                 </div>

@@ -24,7 +24,7 @@
         @endif
     </div>
 
-    @if(!is_null($invitados) || ($search && $guess->count()) || ($search && $socios->count(0)))
+    @if(!is_null($invitados) || ($search && $guess->count()) || ($search && $socios->count()==0) || ($search && $guess->count()==0))
 
         @if ($invitado_id)  
 

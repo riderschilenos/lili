@@ -155,17 +155,20 @@
 
 
 
-    <div class="px-2 mt-2">
+    <div class="px-2 my-2">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Buscar por Nombre del Dueño" autocomplete="off">
     </div>
     @if($vehiculos->count())
         
-        <div class="max-w-7xl lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-4">
+        <div class="max-w-7xl lg:px-8 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-4">
 
             @foreach ($vehiculos as $vehiculo)
-               
-                    <x-mivehiculo-card :vehiculo="$vehiculo" />        
-               
+                   <div class="hidden sm:block">
+                    <x-mivehiculo-card :vehiculo="$vehiculo" />  
+                  </div>
+                  <div class="block sm:hidden">
+                    <x-vehiculo-card2 :vehiculo="$vehiculo" />    
+                  </div>
             @endforeach
     
         </div>

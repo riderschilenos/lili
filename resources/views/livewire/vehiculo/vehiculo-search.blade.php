@@ -160,7 +160,7 @@
     </div>
     @if($vehiculos->count())
         
-        <div class="max-w-7xl lg:px-8 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-4">
+        <div class="max-w-7xl px-1 lg:px-8 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-4">
 
             @foreach ($vehiculos as $vehiculo)
                    <div class="hidden sm:block">

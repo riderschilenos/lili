@@ -736,7 +736,7 @@
 
     <!-- Responsive Navigation Menu -->
     
-    <h1 class="text-center text-xs font-bold my-1 hidden md:block">Obtén tu suscripción de RidersChilenos</h1>
+    <h1 class="text-center text-xs font-bold my-1 hidden md:block">Regístra tu Moto y Bicicleta de manera Gratuita Ahora!</h1>
     <div class="flex justify-end z-20" style="z-index: 20;">
         <div :class="{'fixed': open, 'hidden': ! open}" class="hidden md:hidden">
             <div class="space-y-1 bg-white z-20" style="z-index: 20;">

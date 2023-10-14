@@ -104,7 +104,7 @@ class PedidosCreate extends Component
 
         $this->invitado_id = $invitado_id;
         $this->resetPage();
-         $this->reset(['search','selectedSocios','invitados','socio_id']);
+         $this->reset(['selectedSocios','socio_id']);
     }
 
 

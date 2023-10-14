@@ -54,6 +54,33 @@
             .border-main-color {
                 border-color: var(--main-color);
             }
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: center;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            
+            /* Aplicar estilos específicos para pantallas pequeñas (menos de 600px de ancho) */
+            @media screen and (max-width: 600px) {
+              table {
+                border-collapse: collapse;
+                width: 100%;
+              }
+              th, td {
+                padding: 6px;
+                text-align: left;
+              }
+            }
         </style>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}

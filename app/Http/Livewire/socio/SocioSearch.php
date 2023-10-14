@@ -14,11 +14,11 @@ class SocioSearch extends Component
     public $search;
 
     public $perPage = 10;
-    public $loadedCount = 5;
+    public $loadedCount = 0;
 
     public function loadMore()
     {
-        $this->perPage += $this->loadedCount;
+        $this->perPage += 5;
     }
     
     public function render()
@@ -36,8 +36,7 @@ class SocioSearch extends Component
                     ->orwhere('socios.slug','LIKE','%'. $this->search .'%')
                     ->orderByRaw("CASE WHEN users.profile_photo_path IS NOT NULL THEN 0 ELSE 1 END, 
                     CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
-                    CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
-                    id DESC")
+                    CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END")
                     ->paginate($this->perPage);
 
         

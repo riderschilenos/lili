@@ -22,7 +22,7 @@
     </div>
         <div class="px-2 py-2 col-span-4 bg-white">
             <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
-                        <p class="text-gray-500 text-base font-bold mt-auto">{{$vehiculo->marca->name.' '.$vehiculo->modelo.$vehiculo->cilindrada.' '.$vehiculo->año}}</p> 
+                        <p class="text-gray-500 text-base font-bold mt-auto">{{$vehiculo->marca->name.' '.$vehiculo->modelo.' '.$vehiculo->año}}</p> 
                         <p class="text-gray-500 text-sm">Dueño:  
                             @if ($vehiculo->user->socio)
                                 {{ $vehiculo->user->socio->name.' '.$vehiculo->user->socio->last_name}}

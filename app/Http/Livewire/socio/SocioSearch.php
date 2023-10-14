@@ -33,7 +33,7 @@ class SocioSearch extends Component
                             CASE WHEN socios.created_at >= CURDATE() THEN 0 ELSE 1 END, 
                             CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
                             id DESC")
-                            ->paginate(16);
+                            ->paginate(10);
 
         
         return view('livewire.socio.socio-search',compact('socios','disciplinas','sociosfull'));

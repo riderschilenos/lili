@@ -310,7 +310,7 @@
                                             
                                         </div>
                                         
-                                        <div class="grid grid-cols-1 p-1 md:grid-cols-4 gap-1 mt-4 "> 
+                                        <div class="grid grid-cols-1 p-1 md:grid-cols-4 gap-1 mt-2 "> 
 
                                             @if ($socio->user->vehiculos)
                                                 

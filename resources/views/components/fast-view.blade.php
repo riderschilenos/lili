@@ -307,8 +307,8 @@
                                 <div class="bg-white shadow-sm rounded-sm">
 
                                     <div class="grid grid-cols-1 sm:grid-cols-1">
-                                        <div class="bg-white p-3 hover:shadow">
-                                            <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                        <div class="bg-white hover:shadow">
+                                            <div class="items-center p-3 flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8">
                                                 
                                                 <div>
                                                     <span class="text-red-500">
@@ -325,7 +325,7 @@
                                                 
                                             </div>
                                             
-                                            <div class="grid grid-cols-1  md:grid-cols-4 gap-1 mt-4 "> 
+                                            <div class="grid grid-cols-1 p-1 md:grid-cols-4 gap-1 mt-2 "> 
 
                                                 @if ($socio2->user->vehiculos)
                                                     

@@ -18,7 +18,7 @@
 
 
             <section class="bg-gray-700 pb-6 mb-8 ">
-                <figure class="block sm:hidden pt-6 pb-4">
+                <figure class="block sm:hidden pb-4">
     
                     @if($vehiculo->image->first())
                     

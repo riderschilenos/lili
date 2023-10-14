@@ -325,14 +325,14 @@
                                                 
                                             </div>
                                             
-                                            <div class="grid grid-cols-2  md:grid-cols-4 gap-1 mt-4 "> 
+                                            <div class="grid grid-cols-1  md:grid-cols-4 gap-1 mt-4 "> 
 
                                                 @if ($socio2->user->vehiculos)
                                                     
                                                 
                                                     @foreach ($socio2->user->vehiculos as $vehiculo)
                                                         @if($vehiculo->status==5 || $vehiculo->status==6)
-                                                            <div class="hidden sm:block">
+                                                            <div class="hidden md:block">
                                                             
                                                                 <div class="text-center p-2 m-2 bg-main-color rounded-xl">
                                                                     <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
@@ -348,7 +348,7 @@
                                                                     </a>
                                                                 </div>
                                                             </div>
-                                                            <div class="block sm:hidden">
+                                                            <div class="block md:hidden">
                                                                     <x-vehiculo-card2 :vehiculo="$vehiculo" />    
                                                             </div>
                                                           

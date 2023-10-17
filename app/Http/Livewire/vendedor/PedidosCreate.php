@@ -51,7 +51,7 @@ class PedidosCreate extends Component
 
         return view('livewire.vendedor.pedidos-create',compact('socios','guess'));
     }
-
+    
     public function updateselectedSocios(Socio $socio){
 
         $this->selectedSocios= Socio::all();

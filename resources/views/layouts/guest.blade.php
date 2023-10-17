@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app5.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-92Q72DQR36"></script>
         <script>

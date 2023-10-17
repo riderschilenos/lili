@@ -358,7 +358,7 @@
                 {!! Form::open(['route' => 'vendedor.pedidos.store', 'method'=> 'POST']) !!}
                 @csrf
                 {!! Form::hidden('user_id',auth()->user()->id) !!}
-
+                
                 {!! Form::hidden('pedidoable_type','App\Models\Invitado') !!}
 
                 {!! Form::hidden('invitado_status','creado') !!}

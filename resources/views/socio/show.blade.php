@@ -119,6 +119,7 @@
                                             @endif
                                            
                                         </div>
+                                        
                                         @can('perfil_propio', $socio)
                                             <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
                                         @endcan

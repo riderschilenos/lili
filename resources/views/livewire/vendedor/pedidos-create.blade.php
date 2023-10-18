@@ -192,7 +192,7 @@
         @endif 
     @endif
 
-    @if(!is_null($invitados) || ($search && $guess->count() && is_null($socio_id)) || ($search && $socios->count()==0) || ($search && $guess->count()==0))
+    @if(!is_null($invitados) || ($search && $guess->count() && is_null($socio_id)) || ($search && $socios->count()==0) || ($search && $guess->count()==0 && is_null($socio_id)))
 
         @if ($invitado_id)  
 

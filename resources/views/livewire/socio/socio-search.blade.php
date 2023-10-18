@@ -66,7 +66,7 @@
             
                         
                             
-                        @if ($disciplina)
+                    @if ($disciplina)
                         <button wire:click="disciplina_reset()" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
                         
                     @else
@@ -141,15 +141,24 @@
                
                 <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
 
-                    @foreach ($socios as $socio)
-
+                    @if (IS_NULL($disciplina))
+                        @foreach ($socios as $socio) 
+                          <x-socio-card :socio="$socio" />
+                        @endforeach
+                    @endif
+                    @if ($disciplina=='moto')
+                        @foreach ($sociosmoto as $socio)   
+                          <x-socio-card :socio="$socio" />
+                        @endforeach
+                    @endif
+                    @if ($disciplina=='bicicleta')
+                        @foreach ($sociosbici as $socio)   
+                          <x-socio-card :socio="$socio" />
+                        @endforeach
+                    @endif
+                
                         
 
-                            <x-socio-card :socio="$socio" />
-
-                        
-        
-                    @endforeach
         
                 </div>
             

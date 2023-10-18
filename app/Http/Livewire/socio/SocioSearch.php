@@ -26,9 +26,8 @@ class SocioSearch extends Component
         $disciplinas = Disciplina::all();
 
         $sociosfull = Socio::all();
-        if ($this->disciplina) {
-            if($this->disciplina=='bicicleta'){
-                $socios = Socio::join('users', 'socios.user_id', '=', 'users.id')
+       
+            $sociosbici = Socio::join('users', 'socios.user_id', '=', 'users.id')
                 ->select('socios.*', 'users.name', 'users.email', 'users.updated_at')
                 ->where(function($query) {
                     $search = $this->search;
@@ -44,8 +43,8 @@ class SocioSearch extends Component
                 CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
                 id DESC")
                 ->paginate($this->perPagesoc);
-            }else{
-                $socios = Socio::join('users', 'socios.user_id', '=', 'users.id')
+          
+            $sociosmoto = Socio::join('users', 'socios.user_id', '=', 'users.id')
                     ->select('socios.*', 'users.name', 'users.email', 'users.updated_at')
                     ->where(function($query) {
                         $search = $this->search;
@@ -61,8 +60,6 @@ class SocioSearch extends Component
                     CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
                     id DESC")
                     ->paginate($this->perPagesoc);
-            }
-        } else {
             $socios = Socio::join('users', 'socios.user_id', '=', 'users.id')
                 ->select('socios.*', 'users.name', 'users.email', 'users.updated_at')
                 ->where(function($query) {
@@ -78,12 +75,12 @@ class SocioSearch extends Component
                 CASE WHEN socios.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
                 id DESC")
                 ->paginate($this->perPagesoc);
-        }
+     
         
        
 
         
-        return view('livewire.socio.socio-search',compact('socios','disciplinas','sociosfull'));
+        return view('livewire.socio.socio-search',compact('socios','sociosbici','sociosmoto','disciplinas','sociosfull'));
     }
 
     public function disciplina_update($disciplina){

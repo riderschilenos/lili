@@ -58,82 +58,28 @@
  
 
  
-    <div class="max-w-7xl mx-auto px-2 pt-2 pb-8">
+    <div class="max-w-7xl mx-auto pt-2 pb-8">
 
         <div class="card ">
             @if (auth()->user())
                 @if (auth()->user()->vendedor)
 
+                  <div class="max-w-7xl mx-auto pt-2 pb-8">
+        
+                    <div class="bg-white shadow-lg rounded overflow-hidden pb-8 ">
+                  
+                            
+                          @livewire('vendedor.public-show')
+                   
+                    </div>
+               
+                    </div>
+
+
                     <div class="justify-between gap-4 bg-red-700">
                     
                         <h1 class="px-2 text-3xl font-bold py-4 text-center text-white">Estas a un Paso de Finalizar</h1>
                         
-                    </div>
-
-                @else
-
-                
-
-                    <div class="max-w-7xl sm:px-6 mx-2 lg:px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 mt-4 lg:mx-14">
-                        <article class="col-span-2 sm:col-span-2">
-                            <figure>
-                                <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/first.png')}}" alt=""></a>
-                            </figure>
-                
-                        
-                        </article>
-                        <article  class="hidden md:block mx-10">
-                            @if (auth()->user())
-                                <figure>
-                                    <a href=""><img class="h-35 w-55 object-cover" src="{{asset('img/vendedores/vend3.png')}}" alt=""></a>
-                                </figure>
-                            @else
-                                <div class="bg-red-600 rounded-lg max-w-sm mx-auto">
-                                    <h1 class="text-3xl text-center font-bold text-white pt-4">ACCESO RIDERS</h1>
-                                    
-                                    <div class="flex justify-center mb-4 ">
-                                        
-                                    <div class="block w-full mx-4 pb-4">
-                                        
-                                        <form method="POST" action="{{ route('login') }}">
-                                            @csrf
-                                
-                                            <div>
-                                                <x-jet-label for="email" value="{{ __('Email') }}" class="text-white" />
-                                                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
-                                            </div>
-                                
-                                            <div class="mt-4">
-                                                <x-jet-label for="password" value="{{ __('Contraseña') }}" class="text-white"/>
-                                                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                                            </div>
-                                
-                                            <div class="block mt-4">
-                                                <label for="remember_me" class="flex items-center">
-                                                    <x-jet-checkbox id="remember_me" name="remember" />
-                                                    <span class="ml-2 text-sm text-white">{{ __('Recordar mi cuenta') }}</span>
-                                                </label>
-                                            </div>
-                                
-                                            <div class="flex items-center justify-end mt-4">
-                                                @if (Route::has('password.request'))
-                                                    <a class="underline text-sm text-white hover:text-gray-900 mr-auto" href="{{ route('register') }}">
-                                                    {{ __('Registrarme') }}
-                                                    </a>
-                                                
-                                                @endif
-                                
-                                                <x-jet-button class="ml-4">
-                                                    {{ __('Ingresar') }}
-                                                </x-jet-button>
-                                            </div>
-                                        </form>
-                                    </div> 
-                                    </div>
-                                </div>
-                            @endif
-
-                        </article>
                     </div>
 
                 @endif
@@ -151,7 +97,7 @@
 
             @else
              
-            @livewire('vendedor.public-show')
+                @livewire('vendedor.public-show')
             
                 <h1 class="text-3xl font-bold text-center my-8">Formulario de Inscripción</h1>
             

@@ -1464,9 +1464,6 @@
                                     <a href="{{ route('socio.show', auth()->user()->socio)}}">
                                         <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Mi Perfil</button>
                                     </a>
-                                    <a href="{{route('socio.create')}}">
-                                        <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Suscripción</button>
-                                    </a>
                                 @else
                                     <a href="{{route('socio.create')}}">
                                         <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Crear Perfil Rider</button>

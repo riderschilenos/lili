@@ -33,7 +33,7 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100" x-data="{@routeIs('home') home: true @else home: false @endif, base: true, socio: false, evento: false, registro: false, user: false, vendedor: false}" >
+        <div class="min-h-screen bg-gray-100"  x-data="{@routeIs('home') home: true @else home: false @endif, base: true, socio: false, evento: false,registro: false, user: false, vendedor: false, novedades: false}">
             @livewire('navigation-menu')
 
             <!-- Page Content -->

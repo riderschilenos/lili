@@ -390,12 +390,21 @@
                                                     <span>Curriculum Deportivo</span>
                                                 </div>
                                                 <div>
-                                                    <span class="text-blue-600 font-bold text-sm align-middle"> (Pronto)</span>
-                                                </div>   
+                                                    @can('Super admin')
+                                                        <form action="{{route('socio.edit',$socio)}}"
+                                                        method="POST"
+                                                        class="dropzone"
+                                                        id="my-awesome-dropzone">
+                                                        <div class="dz-message " data-dz-message>
+                                                            <span class="text-blue-600 font-bold text-sm align-middle"> [Agregar]</span>
+                                                        </div>
+                                                        </form>
+                                                    @endcan
+                                                </div>    
                                             </div>
 
                                             <!-- This is an example component -->
-                                            @can('Super admin')
+                                           
                                                 
                                             @livewire('socio.curriculum-deportivo',['socio' => $socio2], key('curriculum-deportivo'.$socio2->slug))
 

@@ -375,7 +375,16 @@
                                                 <span>Curriculum Deportivo</span>
                                             </div>
                                             <div>
-                                                <span class="text-blue-600 font-bold text-sm align-middle"> (Pronto)</span>
+                                                @can('Super admin')
+                                                    <form action="{{route('socio.edit',$socio)}}"
+                                                    method="POST"
+                                                    class="dropzone"
+                                                    id="my-awesome-dropzone">
+                                                    <div class="dz-message " data-dz-message>
+                                                        <span class="text-blue-600 font-bold text-sm align-middle"> [Agregar]</span>
+                                                    </div>
+                                                    </form>
+                                                @endcan
                                             </div>   
                                         </div>
 
@@ -705,5 +714,27 @@
             </div>
 
     </x-fast-view>
+
+    <x-slot name="js">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+        <script>
+          
+          Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+            headers:{
+              'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
+            },
+            acceptedFiles: "image/*",
+            maxFiles: 6,
+            
+    
+              
+              };
+             
+              
+          
+        </script>
+  
+      </x-slot>
 
 </x-app-layout>

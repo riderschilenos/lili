@@ -371,7 +371,16 @@
                                                     <span>Curriculum Deportivo</span>
                                                 </div>
                                                 <div>
-                                                    <span class="text-blue-600 font-bold text-sm align-middle"> (Pronto)</span>
+                                                    @can('Super admin')
+                                                        <form action="{{route('socio.edit',$socio)}}"
+                                                        method="POST"
+                                                        class="dropzone"
+                                                        id="my-awesome-dropzone">
+                                                        <div class="dz-message " data-dz-message>
+                                                            <span class="text-blue-600 font-bold text-sm align-middle"> [Agregar]</span>
+                                                        </div>
+                                                        </form>
+                                                    @endcan
                                                 </div>   
                                             </div>
     

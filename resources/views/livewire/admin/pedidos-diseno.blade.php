@@ -120,6 +120,27 @@
                                                             
                                                         @endforeach
                                                     @endif
+                                                    <br>
+                                                    @switch($pedido->transportista->id)
+                                                        @case(1)
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                {{$pedido->transportista->name}}
+                                                            </span>
+                                                            @break
+                                                        @case(2)
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                                {{$pedido->transportista->name}}
+                                                            </span>
+                                                            @break
+                                                            @case(3)
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                                {{$pedido->transportista->name}}
+                                                            </span>
+                                                            @break
+                                                        
+                                                        @default
+                                                            
+                                                    @endswitch
         
                                                 </div>
                                             </a>

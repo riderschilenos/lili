@@ -53,6 +53,7 @@
     </head>
     <body class="font-sans antialiased">
         <style>
+            
             :root {
                 --main-color: #4a76a8;
                 --rider-color: #314780;
@@ -127,6 +128,24 @@
 
         @livewireScripts
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+        <script>
+          
+          Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+            headers:{
+              'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
+            },
+            acceptedFiles: "image/*",
+            maxFiles: 6,
+            
+    
+              
+              };
+             
+              
+          
+        </script>
+  
         @isset($js)
 
             {{$js}}

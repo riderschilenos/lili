@@ -162,7 +162,7 @@
       <div x-show="activeTab===1"> 
           <div class="mx-1 max-w-7xl px-1 lg:px-8 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-4">
 
-              @foreach ($vehiculosbici as $vehiculo)
+              @foreach ($vehiculosmoto as $vehiculo)
                     <div class="hidden sm:block">
                       <x-mivehiculo-card :vehiculo="$vehiculo" />  
                     </div>
@@ -176,7 +176,7 @@
       <div x-show="activeTab===2">  
             <div class="mx-1 max-w-7xl px-1 lg:px-8 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-4">
 
-                @foreach ($vehiculosmoto as $vehiculo)
+                @foreach ($vehiculosbici as $vehiculo)
                       <div class="hidden sm:block">
                         <x-mivehiculo-card :vehiculo="$vehiculo" />  
                       </div>

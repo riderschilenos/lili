@@ -377,7 +377,7 @@
                                                         class="dropzone"
                                                         id="my-awesome-dropzone">
                                                         <div class="dz-message " data-dz-message>
-                                                            <span class="text-blue-600 font-bold text-sm align-middle"> [Agregar]</span>
+                                                            <span class="btn btn-success text-white font-bold text-sm align-middle">Agregar</span>
                                                         </div>
                                                         </form>
                                                     @endcan

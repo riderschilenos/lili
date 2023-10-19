@@ -25,7 +25,7 @@
     <div x-data="setup()">
                      
        
-            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3">
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 mx-2">
                 
                 <div>
             
@@ -83,7 +83,7 @@
            
             </div>
    
-        <div class="px-4 py-2">
+        <div class="px-2 py-2">
             <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre de un rider" autocomplete="off">
         </div>
 

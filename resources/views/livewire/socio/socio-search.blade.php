@@ -22,7 +22,9 @@
      <div>
         <h1 class="text-center font-bold mt-4 text-2xl">¿Cuántos Riders Hay en Chile?</h1>
     </div>
-
+    <div x-data="setup()">
+                     
+       
             <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-x-4 mx-4">
                 
                 <div>
@@ -34,9 +36,9 @@
             
                         
                         <div class="grid grid-cols-3 gap-3">
-                                <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
-                                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
-                                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETA</button>
+                                <button @click="activeTab = 0" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
+                                <button @click="activeTab = 1" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
+                                <button @click="activeTab = 2" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
                                
                         </div>
                         
@@ -48,13 +50,10 @@
             
                         
                             
-                            <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center mr-2">{{$bicicletas+$motos}}<br> TOTAL</button>
-                     
-                            <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
+                        <button @click="activeTab = 0" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
+                        <button @click="activeTab = 1" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
+                        <button @click="activeTab = 2" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
                        
-                      
-                            <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}}<br> BICICLETA</button>
-                            
                         
             
                     </div>
@@ -96,6 +95,7 @@
                 </div>
            
             </div>
+   
         <div class="px-6 pb-2">
             <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre de un rider" autocomplete="off">
         </div>
@@ -104,25 +104,55 @@
 
         @if ($socios->count())
 
-        
+       
             <section class="mb-4 pt-2 pb-12">
                
-                <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
+                 
+                      
+                        <div x-show="activeTab===0">   
+                            <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
+                                    
+                                @foreach ($socios as $socio)
 
-                    @foreach ($socios as $socio)
+                            
 
-                        
+                                        <x-socio-card :socio="$socio" />
 
-                            <x-socio-card :socio="$socio" />
+                                    
+                    
+                                @endforeach
+                            </div>
+                        </div>
+                        <div x-show="activeTab===1">
+                            <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
+                
+                                @foreach ($sociosmoto as $socio)
 
-                        
+                            
+
+                                        <x-socio-card :socio="$socio" />
+
+                                    
+                    
+                                @endforeach
+                            </div>
+                        </div>
+                        <div x-show="activeTab===2">
+                            <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
+                
+                                @foreach ($sociosbici as $socio)
+                                        <x-socio-card :socio="$socio" />
+                                @endforeach
+                            </div>
+                        </div>
+                       
+                   
+                   
         
-                    @endforeach
-        
-                </div>
+               
             
             </section>
-            
+      
             
         @else
             <div class="px-6 py-4">
@@ -136,8 +166,20 @@
         <div class="px-6 py-4">
             {{$socios->links()}}
         </div>
-
+    </div>
+  
         <script>
+         
+        function setup() {
+            return {
+            activeTab: 0,
+            tabs: [
+                "TOTAL",
+                "MOTO",
+                "BICICLETA"
+            ]
+            };
+        };
             document.addEventListener('livewire:load', function () {
                 window.addEventListener('scroll', function() {
                     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {

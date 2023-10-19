@@ -36,9 +36,9 @@
             
                         
                         <div class="grid grid-cols-3 gap-3">
-                                <button @click="activeTab = 0" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
-                                <button @click="activeTab = 1" class="btn text-white w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
-                                <button @click="activeTab = 2" class="btn text-white w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
+                                <button @click="activeTab = 0" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
+                                <button @click="activeTab = 1" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
+                                <button @click="activeTab = 2" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
                                
                         </div>
                         
@@ -50,9 +50,9 @@
             
                         
                             
-                        <button @click="activeTab = 0" class="btn text-white w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
-                        <button @click="activeTab = 1" class="btn text-white w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
-                        <button @click="activeTab = 2" class="btn text-white w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
+                        <button @click="activeTab = 0" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
+                        <button @click="activeTab = 1" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
+                        <button @click="activeTab = 2" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
                        
                         
             

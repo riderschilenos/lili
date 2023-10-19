@@ -391,7 +391,7 @@
                                                 </div>
                                                 <div>
                                                     @can('Super admin')
-                                                        <form action="{{route('socio.edit',$socio)}}"
+                                                        <form action="{{route('socio.edit',$socio2)}}"
                                                         method="POST"
                                                         class="dropzone"
                                                         id="my-awesome-dropzone">

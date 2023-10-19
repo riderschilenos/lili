@@ -33,7 +33,7 @@ class VehiculoSearch extends Component
                         })
                         ->orderBy('updated_at', 'desc') // Ordenar por fecha de modificación más reciente
                         ->paginate($this->perPage);
-        $vehiculosmoto = Vehiculo::join('users', 'vehiculos.user_id', '=', 'users.id')
+        $vehiculosbici = Vehiculo::join('users', 'vehiculos.user_id', '=', 'users.id')
                         ->select('vehiculos.*', 'users.name', 'users.email')
                         ->where('vehiculos.status', 6) // Filtro por estado
                         ->where(function($query) {
@@ -45,7 +45,7 @@ class VehiculoSearch extends Component
                         ->whereNotIn('vehiculos.vehiculo_type_id', [9, 10, 11]) // Condición para vehiculo_type_id
                         ->orderBy('updated_at', 'desc') // Ordenar por fecha de modificación más reciente
                         ->paginate($this->perPage);
-        $vehiculosbici =Vehiculo::join('users', 'vehiculos.user_id', '=', 'users.id')
+        $vehiculosmoto =Vehiculo::join('users', 'vehiculos.user_id', '=', 'users.id')
                         ->select('vehiculos.*', 'users.name', 'users.email')
                         ->where('vehiculos.status', 6) // Filtro por estado
                         ->where(function($query) {

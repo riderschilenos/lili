@@ -41,7 +41,7 @@
 
               </div>
           </div>
-          <div class="block px-6 sm:hidden">
+          <div class="block sm:hidden">
               <div class="flex justify-center ">
 
                   

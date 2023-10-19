@@ -117,7 +117,7 @@
             </div>
        
 
-            <main style="z-index: 10;" class="pt-2"> 
+            <main style="z-index: 10;" class="pt-1"> 
                 {{ $slot }}
             </main>
             

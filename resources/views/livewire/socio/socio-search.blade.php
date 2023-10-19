@@ -34,27 +34,9 @@
             
                         
                         <div class="grid grid-cols-3 gap-3">
-                            @if ($disciplina)
-                                <button wire:click="disciplina_reset()" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
-                                
-                            @else
-                                <button wire:click="disciplina_reset()" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
-                                
-                            @endif
-                            @if ($disciplina=='moto')
-                                <button wire:click="disciplina_update('moto')" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
-                               
-                            @else
-                                <button wire:click="disciplina_update('moto')" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
-                                
-                            @endif
-                            @if ($disciplina=='bicicleta')
-                                <button wire:click="disciplina_update('bicicleta')" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETA</button>
-                              
-                            @else
-                                <button wire:click="disciplina_update('bicicleta')" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETA</button>
-                                
-                            @endif
+                                <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
+                                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
+                                <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas}}<br> BICICLETA</button>
                                
                         </div>
                         
@@ -66,27 +48,13 @@
             
                         
                             
-                    @if ($disciplina)
-                        <button wire:click="disciplina_reset()" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
-                        
-                    @else
-                        <button wire:click="disciplina_reset()" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center">{{$bicicletas+$motos}}<br> TOTAL</button>
-                        
-                    @endif
-                    @if ($disciplina=='moto')
-                        <button wire:click="disciplina_update('moto')" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$motos}}<br> MOTO</button>
+                            <button class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center mr-2">{{$bicicletas+$motos}}<br> TOTAL</button>
+                     
+                            <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ">{{$motos}}<br> MOTO</button>
                        
-                    @else
-                        <button wire:click="disciplina_update('moto')" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$motos}}<br> MOTO</button>
-                        
-                    @endif
-                    @if ($disciplina=='bicicleta')
-                        <button wire:click="disciplina_update('bicicleta')" class="btn bg-red-600 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}}<br> BICICLETA</button>
                       
-                    @else
-                        <button wire:click="disciplina_update('bicicleta')" class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}}<br> BICICLETA</button>
-                        
-                    @endif
+                            <button class="btn bg-gray-900 text-white w-full max-w-xs items-center justify-items-center ml-2">{{$bicicletas}}<br> BICICLETA</button>
+                            
                         
             
                     </div>
@@ -141,24 +109,15 @@
                
                 <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
 
-                    @if (IS_NULL($disciplina))
-                        @foreach ($socios as $socio) 
-                          <x-socio-card :socio="$socio" />
-                        @endforeach
-                    @endif
-                    @if ($disciplina=='moto')
-                        @foreach ($sociosmoto as $socio)   
-                          <x-socio-card :socio="$socio" />
-                        @endforeach
-                    @endif
-                    @if ($disciplina=='bicicleta')
-                        @foreach ($sociosbici as $socio)   
-                          <x-socio-card :socio="$socio" />
-                        @endforeach
-                    @endif
-                
+                    @foreach ($socios as $socio)
+
                         
 
+                            <x-socio-card :socio="$socio" />
+
+                        
+        
+                    @endforeach
         
                 </div>
             

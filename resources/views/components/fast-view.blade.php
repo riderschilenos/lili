@@ -405,8 +405,8 @@
 
                                             <!-- This is an example component -->
                                            
-                                                
-                                            @livewire('socio.curriculum-deportivo',['socio' => $socio2], key('curriculum-deportivo'.$socio2->slug))
+                                            @can('Super admin')
+                                                @livewire('socio.curriculum-deportivo',['socio' => $socio2], key('curriculum-deportivo'.$socio2->slug))
 
                                     
                                             @endcan

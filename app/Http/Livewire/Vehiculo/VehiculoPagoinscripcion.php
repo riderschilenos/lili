@@ -29,7 +29,10 @@ class VehiculoPagoinscripcion extends Component
         $this->suscripcion = $suscripcion;
         if($suscripcion=='gratis'){
             $this->vehiculo->insc='1';
-            $this->suscripcion=$suscripcion;
+            $this->vehiculo->update(['status'=>'5']);
+    
+            return redirect()->route('garage.vehiculo.show',$this->vehiculo)->with('info','Publicación realizada con éxito, ya estas en la base de datos de RidersChilenos y Google');
+            //$this->suscripcion=$suscripcion;
         }
         if($suscripcion=='5000'){
             $this->vehiculo->insc='2';

@@ -47,26 +47,7 @@
     
 @if(is_null($vehiculo->insc))
 
-            <h4 class="text-xl text-gray-800 text-center mt-6">¿Tienes un KitQR fisicamente?</h1>
-            
-                <article class="flex justify-center">
-                    
-                        
-                    <div class="pb-4 order-2 lg:order-2 max-w-sm" wire:click="suscripcion('qr')">
-                    <div class="bg-white mt-8 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
-                       
-                        <p class="px-4 text-center text-sm pt-4">Para activar tu KitQR debes indicar el NRO y PASS que viene al interior del kit para activarlo.</p>
-                       
-                        <div class="text-center bg-blue-900 ">
-                            <button class="inline-block my-4 font-bold text-white">Activalo Aquí</button>
-                        </div>
-                    </div>
-                    </div>
-                  
-            </article>
-
-            <h4 class="text-xl text-gray-800 text-center mt-6">Si no tienes un KIT QR puedes comprarlo de forma online y sera despachado segun lo solicites.</h1>
-
+          
             <article class="flex items-center">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     
@@ -85,7 +66,7 @@
                     
                         </ul>
                         <div class="text-center bg-gray-200 ">
-                            <button class="inline-block my-6 font-bold text-gray-800">Seleccionar</button>
+                            <button class="inline-block my-6 font-bold text-gray-800">Publicar</button>
                         </div>
                     </div>
                     </div>
@@ -130,6 +111,25 @@
                     </div>
                 </div>   
             </article>
+            <h4 class="text-xl text-gray-800 text-center mt-6">¿Tienes un KitQR fisicamente?</h1>
+            
+                <article class="flex justify-center">
+                    
+                        
+                    <div class="pb-4 order-2 lg:order-2 max-w-sm" wire:click="suscripcion('qr')">
+                    <div class="bg-white mt-8 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
+                       
+                        <p class="px-4 text-center text-sm pt-4">Para activar tu KitQR debes indicar el NRO y PASS que viene al interior del kit para activarlo.</p>
+                       
+                        <div class="text-center bg-blue-900 ">
+                            <button class="inline-block my-4 font-bold text-white">Activalo Aquí</button>
+                        </div>
+                    </div>
+                    </div>
+                  
+            </article>
+
+            <h4 class="text-xl text-gray-800 text-center mt-6">Si no tienes un KIT QR puedes comprarlo de forma online y sera despachado segun lo solicites.</h1>
 
 
 

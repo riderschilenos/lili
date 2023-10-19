@@ -97,7 +97,7 @@
                  
                       
                         <div x-show="activeTab===0">   
-                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
+                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4">
                                     
                                 @foreach ($socios as $socio)
 
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div x-show="activeTab===1">
-                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
+                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4">
                 
                                 @foreach ($sociosmoto as $socio)
 
@@ -125,7 +125,7 @@
                             </div>
                         </div>
                         <div x-show="activeTab===2">
-                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-4">
+                            <div class="max-w-7xl mx-auto sm:px-2 lg:px-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4">
                 
                                 @foreach ($sociosbici as $socio)
                                         <x-socio-card :socio="$socio" />

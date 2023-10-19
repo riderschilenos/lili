@@ -25,34 +25,21 @@
     <div x-data="setup()">
                      
        
-            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-x-4 mx-4">
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3">
                 
                 <div>
             
                 </div>
                
-                <div class="hidden sm:block">
-                    <div class="flex justify-end mr-4 ">
-            
-                        
-                        <div class="grid grid-cols-3 gap-3">
-                                <button @click="activeTab = 0" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
-                                <button @click="activeTab = 1" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
-                                <button @click="activeTab = 2" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
-                               
-                        </div>
-                        
-            
-                    </div>
-                </div>
-                <div class="block sm:hidden">
+                
+                <div class="block">
                     <div class="flex justify-center ">
             
                         
                             
-                        <button @click="activeTab = 0" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
-                        <button @click="activeTab = 1" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
-                        <button @click="activeTab = 2" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center ml-2" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
+                        <button @click="activeTab = 0" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center mx-2" :class="activeTab===0? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas+$motos}}<br> TOTAL</button>
+                        <button @click="activeTab = 1" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center" :class="activeTab===1? ' bg-red-600' : '  bg-gray-900'" >{{$motos}}<br> MOTO</button>
+                        <button @click="activeTab = 2" class="btn text-white text-sm w-full max-w-xs items-center justify-items-center mx-2" :class="activeTab===2? ' bg-red-600' : '  bg-gray-900'" >{{$bicicletas}}<br> BICICLETA</button>
                        
                         
             

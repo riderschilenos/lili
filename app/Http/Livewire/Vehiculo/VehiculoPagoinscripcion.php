@@ -31,7 +31,7 @@ class VehiculoPagoinscripcion extends Component
             $this->vehiculo->insc='1';
             $this->vehiculo->update(['status'=>'5']);
     
-            return redirect()->route('garage.vehiculo.show',$this->vehiculo)->with('info','Publicación realizada con éxito, ya estas en la base de datos de RidersChilenos y Google');
+            return redirect()->route('garage.vehiculo.show',$this->vehiculo)->with('info','Ya estas en la base de datos de RidersChilenos, dentro de 96 horas esta ficha online será indexada en Google.');
             //$this->suscripcion=$suscripcion;
         }
         if($suscripcion=='5000'){

@@ -2069,26 +2069,26 @@
                 <div  class="hidden mt-4 text-2xl mb-2 sm:text-xl mx-4 leading-none font-bold text-gray-900 flex justify-between">
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
+                        <button class="btn btn-danger ml-6 text-center text-sm" @click="user = false; home = false; novedades = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >RIDERS</button>
                                
                     </div>
                     <div class="flex justify-center">
                        
-                        <button class="btn btn-danger ml-6 text-center text-sm" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >EVENTOS</button>
+                        <button class="btn btn-danger ml-6 text-center text-sm" @click="evento = true; user = false; novedades = false; home = false; socio = false; registro = false; vendedor = false; base = false" >EVENTOS</button>
                                
                     </div>
                     <div class="flex justify-center">
                       
                                 
-                                    <button class="btn btn-success mr-6 text-center text-sm" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >BIKES</button>
+                                    <button class="btn btn-success mr-6 text-center text-sm" @click="user = false; novedades = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >BIKES</button>
                                
                     </div>
                 </div>
                 <div class="words sm:hidden bg-white pt-2 overflow-x-auto whitespace-no-wrap border-b-2 font-bold text-gray-700">
                     <div class="flex justify-center">
-                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
-                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
-                      <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; novedades = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
+                      <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; novedades = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
+                      <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; novedades = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
                       <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Novedades</div>
                       
                       <!-- Agrega más categorías aquí -->

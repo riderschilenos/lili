@@ -25,7 +25,7 @@
     <div x-data="setup()">
                      
        
-            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 mx-2">
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-3">
                 
                 <div>
             

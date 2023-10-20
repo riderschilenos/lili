@@ -77,11 +77,15 @@
                                     </div>
 
                                 
-                            @elseif($evento->type=='desafio')
+                            @elseif($evento->type=='desafio' || $evento->disciplina_id==5)
                                     
                             @else
                             
-                                    <p class="">Número de Moto: </p>
+                                    @if (($evento->disciplina_id==2) || ($evento->disciplina_id==4) || ($evento->disciplina_id==5) || ($evento->disciplina_id==8))
+                                        <p class="ml-4">Número: </p>
+                                    @else
+                                        <p class="ml-4">Número de Moto: </p>
+                                    @endif
                                     <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 rounded-lg">
                                     
                                     <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">

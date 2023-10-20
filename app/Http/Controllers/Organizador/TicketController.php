@@ -41,33 +41,33 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->pedidoable_type=='App\Models\Invitado'){
+        if($request->ticketable_type=='App\Models\Invitado'){
             $request->validate([
-            'name'=>'required',
-            'rut'=>'required',
-            'fono'=>'required',
-            'email'=>'required',
-            ]);}
-            else{
+                'seleccionable'=>'required'
+            ]);
+            }else{
                 $request->validate([
                     'seleccionable'=>'required'
                     ]);
             }
     
-            if($request->pedidoable_type == 'App\Models\Invitado'){
-                    $invitado =  Invitado::create([
-                                    'name'=> $request->name,
-                                    'rut'=> $request->rut,
-                                    'fono'=> $request->fono,
-                                    'email'=>$request->email]);
+            if($request->ticketable_type == 'App\Models\Invitado'){
+                  
                                 
                     $ticket = Ticket::create([
-                        'user_id'=> $request->user_id,
                         'evento_id'=> $request->evento_id,
-                        'ticketable_id'=> $invitado->id,
-                        'ticketable_type'=> $request->pedidoable_type]);
+                        'ticketable_id'=> $request->ticketable_id,
+                        'ticketable_type'=> $request->ticketable_type]);
+                     
+                    QrCode::format('svg')->size('300')->generate('https://riderschilenos.cl/ticket/view/'.$ticket->id, '../public/storage/qrcodes/cod'.$ticket->id.'.svg');
+                
+                    $ticket->update(['qr'=>'qrcodes/cod'.$ticket->id.'.svg']);
+                    $ticket->save();
                     
-                    return redirect()->back();
+                    $evento=Evento::find($request->evento_id);
+    
+                    return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+               
                 }
             else{
                 
@@ -76,8 +76,8 @@ class TicketController extends Controller
                 $ticket = Ticket::create([
                     'user_id'=> $request->user_id,
                     'evento_id'=> $request->evento_id,
-                    'ticketable_id'=> $request->pedidoable_id,
-                    'ticketable_type'=> $request->pedidoable_type]);
+                    'ticketable_id'=> $request->ticketable_id,
+                    'ticketable_type'=> $request->ticketable_type]);
                 
                 
                 QrCode::format('svg')->size('300')->generate('https://riderschilenos.cl/ticket/view/'.$ticket->id, '../public/storage/qrcodes/cod'.$ticket->id.'.svg');

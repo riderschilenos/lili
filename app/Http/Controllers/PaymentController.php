@@ -94,7 +94,11 @@ class PaymentController extends Controller
             }  
 
         $evento=Evento::find($ticket->evento_id);
-        $evento->inscritos()->attach(auth()->user()->id);
+
+        if (auth()->user()) {
+            $evento->inscritos()->attach(auth()->user()->id);
+        }
+          
         
         $tickets=$ticket->evento->tickets()->where('status','>=',3)->get();
         $retiros = Retiro::where('evento_id',$ticket->evento->id)->get();

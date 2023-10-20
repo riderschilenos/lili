@@ -8,17 +8,21 @@ use App\Models\Evento;
 use App\Models\Fecha;
 use App\Models\Fecha_categoria;
 use App\Models\Inscripcion;
+use App\Models\Invitado;
 use App\Models\Socio;
 use App\Models\Ticket;
 use Livewire\Component;
 
 class EventoCheckout extends Component
 {   
-    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro;
+    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro, $invitado, $search;
 
 
-    public function mount(Evento $evento){
-        
+    public function mount(Evento $evento,$invitado){
+        if($invitado){
+            $this->invitado=Invitado::find($invitado->id);
+        }
+
         $this->evento =$evento;        
         
     }
@@ -46,6 +50,15 @@ class EventoCheckout extends Component
         $fech = Fecha::where('evento_id',$this->evento->id)->first();
 
         return view('livewire.evento-checkout',compact('fechas','disciplinas','socio','ticket','fech'));
+    }
+
+    public function getInvitadosProperty(){
+        return  Invitado::where('rut','LIKE','%'. $this->search .'%')
+        ->orwhere('email','LIKE','%'. $this->search .'%')
+        ->orwhere('name','LIKE','%'. $this->search .'%')
+        ->orwhere('fono','LIKE','%'. $this->search .'%')
+        ->latest('id')
+        ->paginate(3);
     }
 
     public function updatedselectedcategoria($category_product){

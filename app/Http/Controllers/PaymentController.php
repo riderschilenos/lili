@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Disciplina;
 use App\Models\Evento;
 use App\Models\Fecha;
+use App\Models\Invitado;
 use App\Models\Orden;
 use App\Models\Pago;
 use App\Models\Pedido;
@@ -48,7 +49,14 @@ class PaymentController extends Controller
     public function checkoutticket(Ticket $ticket){
         
         $fechas= Fecha::where('evento_id',$ticket->evento->id)->paginate();
-        $socio = Socio::where('user_id',auth()->user()->id)->first();
+
+        if($ticket->ticketable_type == 'App\Models\Invitado'){
+            $socio = Invitado::find($ticket->ticketable_id);
+        
+        }else{
+            $socio = Socio::where('user_id',auth()->user()->id)->first();
+        }
+
         $disciplinas= Disciplina::pluck('name','id');
         $evento=$ticket->evento;
 
@@ -62,6 +70,7 @@ class PaymentController extends Controller
             $ticket->inscripcion=$alfa;
             $ticket->save();
         $fech = Fecha::where('evento_id',$evento->id)->first();
+
         return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento','fech'));
     }
 

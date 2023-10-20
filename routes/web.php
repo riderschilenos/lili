@@ -64,6 +64,8 @@ Route::post('/webhook', [WhatsappController::class,'recibe']);
 
 Route::get('checkout/{evento}', [EventoController::class,'preticket'])->name('checkout.evento');
 
+Route::get('checkout/{evento}/{invitado}', [EventoController::class,'preticketinv'])->name('checkout.evento.invitado');
+
 Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');
 
 Route::post('ticket/{ticket}/enrolled', [TicketController::class, 'enrolled'])->middleware('auth')->name('ticket.enrolled');

@@ -87,7 +87,7 @@ class RouteServiceProvider extends ServiceProvider
                 //->namespace($this->namespace)
                 ->group(base_path('routes/organizador.php'));
 
-            Route::middleware('web','auth')
+            Route::middleware('web')
                 ->name('payment.')
                 ->prefix('payment')
                 ->namespace($this->namespace)

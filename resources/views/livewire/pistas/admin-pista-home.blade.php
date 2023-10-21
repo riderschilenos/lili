@@ -646,10 +646,11 @@
 
             @endif
         @endforeach
+
         @can('Super admin')
             @foreach ($pistastotal as $pista)
                 
-                @if (auth()->user()->id==$pista->user_id)
+     
 
                     @php
                         $total=0;
@@ -1291,7 +1292,7 @@
                                 
                     @endcan 
 
-                @endif
+              
             @endforeach
         @endcan
 </div>

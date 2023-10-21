@@ -9,9 +9,24 @@
 
 <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2"  :disciplinas="$disciplinas">
    
+  @can('Super admin')
+              
+    <div class="flex justify-center mb-2">
+      {!! Form::open(['route'=>['whatsapp.resend.ticket',$ticket] , 'method'=>'Post']) !!}
+                    
+    
+        
+          
+              {!! Form::submit('  Resend Ticket Whatsapp', ['class'=>'btn btn-success']) !!}
+          
+      {!! Form::close() !!}
 
+    </div>
+
+  @endcan
   <div class="flex justify-center w-full bg-blue-900">
-
+      
+        
     <div class="rounded-lg mt-12 mb-28">
     
         <div class="z-10 bg-blue-900 rounded-lg pb-20">

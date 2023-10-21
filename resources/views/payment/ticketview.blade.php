@@ -11,7 +11,7 @@
    
   @can('Super admin')
               
-    <div class="flex justify-center mb-2">
+    <div class="flex justify-center my-2">
       {!! Form::open(['route'=>['whatsapp.resend.ticket',$ticket] , 'method'=>'Post']) !!}
                     
     

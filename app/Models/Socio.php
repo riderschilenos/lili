@@ -41,7 +41,7 @@ class Socio extends Model
     }
 
     public function tickets(){
-        return $this->MorphOne('App\Models\Ticket','ticketable');
+        return $this->morphMany('App\Models\Ticket','ticketable');
     }
 
     public function suscripcions(){

@@ -108,7 +108,10 @@ class InscripcionController extends Controller
                     $ticket->status=2;
                     $ticket->save();
                     $evento=Evento::find($ticket->evento_id);
-                    $evento->inscritos()->detach($ticket->user->id);
+                    if ($ticket->user) {
+                        $evento->inscritos()->detach($ticket->user->id);
+                    }
+                  
 
                 }else{
                     $ticket->status=1;
@@ -127,7 +130,9 @@ class InscripcionController extends Controller
                     $ticket->status=4;
                     $ticket->save();
                     $evento=Evento::find($ticket->evento_id);
-                    $evento->inscritos()->detach($ticket->user->id);
+                    if ($ticket->user) {
+                        $evento->inscritos()->detach($ticket->user->id);
+                    }
 
                 }else{
                     $ticket->status=3;

@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Organizador;
 
 use App\Models\Evento;
 use App\Models\Inscripcion;
+use App\Models\Invitado;
+use App\Models\Socio;
+use App\Models\Ticket;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -28,14 +31,18 @@ class EventoInscritos extends Component
     }
 
     public function render()
-    {   $sponsors = $this->evento->inscritos()->where('name','LIKE','%'. $this->search .'%')->paginate(50);
+    {   $tickets=Ticket::where('evento_id',$this->evento->id)->get();
+        $socios=Socio::all();
+        $invitados=Invitado::all();
+        $sponsors = $this->evento->inscritos()->where('name','LIKE','%'. $this->search .'%')->get();
+
         $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
                             ->select('inscripcions.*','tickets.evento_id')
                             ->where('evento_id',$this->evento->id)
-                            ->where('estado','>=',2)
+                            ->where('estado','>=',1)
                             ->orderby('categoria_id','DESC')
                             ->paginate(50);
 
-        return view('livewire.organizador.evento-inscritos',compact('sponsors','inscripciones'));
+        return view('livewire.organizador.evento-inscritos',compact('sponsors','inscripciones','tickets','socios','invitados'));
     }
 }

@@ -15,10 +15,11 @@ use Livewire\WithPagination;
 class AdminPistaHome extends Component
 {   use WithPagination;
 
-    public $search, $user_id, $pistas ,$pista;
+    public $search, $user_id, $pistas, $pistastotal ,$pista;
 
     public function render()
     {   $this->pistas=Evento::where('user_id',auth()->user()->id)->get();
+        $this->pistastotal=Evento::all();
        // $this->pista=Evento::where('type','pista')->where('user_id',auth()->user()->id)->first();
         $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
                     ->select('inscripcions.*','tickets.evento_id')

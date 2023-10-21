@@ -69,9 +69,14 @@
                                       
                            
                         @else
-                          <a href="{{route('ticket.historial.view',$ticket->user)}}">
-                            <img src="{{Storage::url($ticket->qr)}}" width="150px" class=" p-1">
-                          </a>
+                            @if ($ticket->user)
+                              <a href="{{route('ticket.historial.view',$ticket->user)}}">
+                                <img src="{{Storage::url($ticket->qr)}}" width="150px" class=" p-1">
+                              </a>
+                            @else
+                                 <img src="{{Storage::url($ticket->qr)}}" width="150px" class=" p-1">
+                            @endif
+                          
                         @endif
                        
                       </div>
@@ -194,18 +199,36 @@
                     <div class="flex items-center px-5 pt-3 text-sm">
                       <div class="flex flex-col">
                         <span class="">Nombre</span>
-                        <div class="font-semibold">{{$ticket->user->name}}</div>
+                        @if ($ticket->ticketable_type=='App\Models\Socio')
+                            <div class="font-semibold">{{$ticket->user->name}}</div>
+                        @else
+                            @foreach ($invitados as $item)
+                                @if ($item->id==$ticket->ticketable_id)
+                                    <div class="font-semibold">{{$item->name}}</div>
+                                @endif
+                                    
+                            @endforeach
+                           
+
+                        @endif
+                 
       
                       </div>
                      
                      
                      
-                      @if($ticket->user->socio->direccion)
-                          <div class="flex flex-col ml-6">
-                            <span class="">Localidad</span>
-                            <div class="font-semibold">{{Str::limit($ticket->user->socio->direccion->comuna.', '.$ticket->user->socio->direccion->region,20)}}</div>
-          
-                          </div>
+                      @if($ticket->user)
+                        @if ($ticket->user->socio)
+                            @if ($ticket->user->socio->direccion)
+
+                           
+                              <div class="flex flex-col ml-6">
+                                <span class="">Localidad</span>
+                                <div class="font-semibold">{{Str::limit($ticket->user->socio->direccion->comuna.', '.$ticket->user->socio->direccion->region,20)}}</div>
+              
+                              </div>
+                            @endif
+                          @endif
                       @endif
                     </div>
                     <div class="flex flex-col py-5  justify-center text-sm ">
@@ -250,6 +273,6 @@
         setInterval(updateClock, 1000); // Actualiza cada segundo
     </script>
 
-  </x-fast-view>
+</x-fast-view>
 
 </x-app-layout > 

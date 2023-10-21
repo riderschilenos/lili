@@ -10,12 +10,13 @@
     </ul>
 
     <div x-show="activeTab===0">
+        
         <x-table-responsive>
             <div class="px-6 py-4">
                 <input wire:model="search" class="flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg" placeholder="Buscar Rider...">
             </div>
 
-            @if ($sponsors->count())
+            @if ($tickets->count())
 
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
@@ -41,124 +42,255 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                        @foreach ($sponsors as $sponsor)
-                        
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10">
-                                        
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$sponsor->profile_photo_url}}" alt="">
-                                                
-                                            </div>
-                                            <div class="ml-4">
-                                            <a href="{{route('ticket.historial.view',$sponsor)}}">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    {{$sponsor->name}}<br>
-                                                    {{$sponsor->email}}<br>
-                                                    @if ($sponsor->socio)
-                                                        @if ($sponsor->socio->fono)
-                                                            {{$sponsor->socio->fono}}
-                                                        @endif
-                                                    @endif
-                                                
-                                                   
-                                                </div>
-                                             </a>
-                                            </div>
-                                        </div>
-                                    </td>
+                        @foreach ($tickets as $ticket)
 
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        @if ($sponsor->socio)
-                                            <div class="text-sm text-gray-900 text">{{$sponsor->socio->rut}}</div>
-                                        @endif
-                                       
-                                        
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">
-                                        <div class="text-sm text-gray-900 text-center">
+                            @if ($ticket->ticketable_type=='App\Models\Socio')
+                                        @foreach ($socios as $item)
                                             
-                                            @foreach ($sponsor->tickets->reverse() as $ticket)
-                                                @if ($ticket->evento->id==$evento->id)
-
-                                                    @if ($ticket->status<=2)
-                                                        @if ($ticket->status==2)
-
-                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
-                                                            @break
-                                                        @else
-                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
-                                                            @break
+                                    
+                                            @php
+                                                if($ticket->ticketable_id==$item->id){
+                                                    $sponsor=$item;
+                                                }else{
+                                                    $sponsor=null;
+                                                }
+                                            @endphp    
+                                            @if ($sponsor)
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="flex items-center">
+                                                            <div class="flex-shrink-0 h-10 w-10">
+                                                        @if ($sponsor->user->profile_photo_url)
+                                                            <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$sponsor->user->profile_photo_url}}" alt="">
                                                         @endif
-                                                    @else
-                                                        @if ($ticket->status==3)
+                                                            </div>
+                                                            <div class="ml-4">
+                                                            <a href="{{route('ticket.historial.view',$sponsor)}}">
+                                                                <div class="text-sm font-medium text-gray-900">
+                                                                    {{$sponsor->user->name}}<br>
+                                                                    {{$sponsor->user->email}}<br>
+                                                                
+                                                                        @if ($sponsor->fono)
+                                                                            {{$sponsor->fono}}
+                                                                        @endif
+                                                                
+                                                                
+                                                                
+                                                                </div>
+                                                            </a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
 
-                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}}</a>
-                                                            @break
-                                                        @else
-                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}}</a>
-                                                            @break
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        @if ($sponsor->rut)
+                                                            <div class="text-sm text-gray-900 text">{{$sponsor->rut}}</div>
                                                         @endif
-
-                                                        @break
-                                                    @endif
-                                                
-                                                
                                                     
-                                                @endif
-                                                
-                                            @endforeach
-                                            
-                                        
-                                        </div>
-                                        
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center">
-                                        <div class="text-sm text-gray-900 text-center">
-                                        
-                                                    @isset($ticket->inscripcions)
-                                                        @foreach ($ticket->inscripcions as $inscripcion)
-                                                                        
-                                                                            <div class="flex">
-                                                                                
-                                                                                        <div class="px-6 py-4 whitespace-nowrap">
-                                                                                    
-                                                                                        {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                        
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                        <div class="text-sm text-gray-900 text-center">
+                                                            
+                                                            @foreach ($sponsor->tickets->reverse() as $ticket)
+                                                                @if ($ticket->evento->id==$evento->id)
+
+                                                                    @if ($ticket->status<=2)
+                                                                        @if ($ticket->status==2)
+
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
+                                                                            @break
+                                                                        @else
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
+                                                                            @break
+                                                                        @endif
+                                                                    @else
+                                                                        @if ($ticket->status==3)
+
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}} PAGADO</a>
+                                                                            @break
+                                                                        @else
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} COBRADO</a>
+                                                                            @break
+                                                                        @endif
+
+                                                                        @break
+                                                                    @endif
+                                                                
+                                                                
+                                                                    
+                                                                @endif
+                                                                
+                                                            @endforeach
+                                                            
+                                                        
+                                                        </div>
+                                                        
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                        <div class="text-sm text-gray-900 text-center">
+                                                        
+                                                                    @isset($ticket->inscripcions)
+                                                                        @foreach ($ticket->inscripcions as $inscripcion)
                                                                                         
-                                                                                        </div>
-                                                                            
-                                                                                
+                                                                                            <div class="flex">
+                                                                                                
+                                                                                                        <div class="px-6 py-4 whitespace-nowrap">
+                                                                                                    
+                                                                                                        {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                        
+                                                                                                        </div>
+                                                                                            
+                                                                                                
+                                                                    
+                                                                                                        <div class="px-6 py-4 whitespace-nowrap">
+                                                                                                            <div class="items-center">
+                                                                                                                <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    
+                                                                                                </div> 
+                                                                                                    
+                                                                
                                                     
-                                                                                        <div class="px-6 py-4 whitespace-nowrap">
-                                                                                            <div class="items-center">
-                                                                                                <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    
-                                                                                </div> 
-                                                                                    
-                                                
-                                    
-        
-                                                        @endforeach
-                                                    @endif
+                        
+                                                                        @endforeach
+                                                                    @endif
+                                                            
+                                                        
+                                                        </div>
+                                                        
+                                                    </td>
+
+                                                    
+                                                    
+
+                                                    
+                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <a href="" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                            @else
+                                    @foreach ($invitados as $item)
                                             
-                                        
-                                        </div>
-                                        
-                                    </td>
+                                    
+                                        @php
+                                            if($ticket->ticketable_id==$item->id){
+                                                $sponsor=$item;
+                                            }else{
+                                                $sponsor=null;
+                                            }
+                                        @endphp  
 
-                                    
-                                    
+                                        @if ($sponsor)
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                            @if ($sponsor->user)
+                                                                <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$sponsor->user->profile_photo_url}}" alt="">
+                                                            @endif
+                                                        </div>
+                                                        <div class="ml-4">
+                                                        <a href="{{route('ticket.historial.view',$sponsor)}}">
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                {{$sponsor->name}}<br>
+                                                                {{$sponsor->email}}<br>
+                                                            
+                                                                    @if ($sponsor->fono)
+                                                                        {{$sponsor->fono}}
+                                                                    @endif
+                                                            
+                                                            
+                                                            
+                                                            </div>
+                                                        </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
 
-                                    
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="" class="text-indigo-600 hover:text-indigo-900">Ver</a>
-                                    
-                                    </td>
-                                </tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    @if ($sponsor->rut)
+                                                        <div class="text-sm text-gray-900 text">{{$sponsor->rut}}</div>
+                                                    @endif
+                                                
+                                                    
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                    <div class="text-sm text-gray-900 text-center">
+                                                        <div>
+                                                                    @if ($ticket->status<=2)
+                                                                        @if ($ticket->status==2)
 
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
+                                                                    
+                                                                        @else
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
+                                                                        
+                                                                        @endif
+                                                                    @else
+                                                                        @if ($ticket->status==3)
+
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}} PAGADO</a>
+                                                                        
+                                                                        @else
+                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} COBRADO</a>
+                                                                          
+                                                                        @endif
+
+                                                                    @endif
+                                                                
+                                                                
+                                                                    
+                                                                
+                                                    
+                                                    </div>
+                                                    
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                    <div class="text-sm text-gray-900 text-center">
+                                                    
+                                                                @isset($ticket->inscripcions)
+                                                                    @foreach ($ticket->inscripcions as $inscripcion)
+                                                                                    
+                                                                                        <div class="flex">
+                                                                                            
+                                                                                                    <div class="px-6 py-4 whitespace-nowrap">
+                                                                                                
+                                                                                                    {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                    
+                                                                                                    </div>
+                                                                                        
+                                                                                            
+                                                                
+                                                                                                    <div class="px-6 py-4 whitespace-nowrap">
+                                                                                                        <div class="items-center">
+                                                                                                            <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                
+                                                                                        </div> 
+                                                                                     
+                                                                    @endforeach
+                                                               
+                                                                @endif
+                                                        
+                                                    
+                                                    </div>
+                                                    
+                                                </td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                    <a href="" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                                                
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                            @endif
                         @endforeach
                     <!-- More people... -->
                     </tbody>
@@ -168,9 +300,7 @@
                     No hay ningun registro
                 </div>
             @endif 
-            <div class="px-6 py-4">
-                {{$sponsors->links()}}
-            </div>
+       
         </x-table-responsive>
     </div>
     <div x-show="activeTab===1">
@@ -207,7 +337,110 @@
                     <tbody class="bg-white divide-y divide-gray-200">
 
                         @foreach ($inscripciones->reverse() as $inscripcion)
-                            @if ($evento->inscritos->contains($inscripcion->ticket->evento->user->id))
+                            @if ($inscripcion->ticket->ticketable_type=='App\Models\Socio')
+
+                                @if ($evento->inscritos->contains($inscripcion->ticket->evento->user->id))
+                                    @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status==3)
+                                        <tr>
+                                        
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                @if ($inscripcion->categoria)
+                                                        <div class="text-sm text-gray-900 text-center">{{$inscripcion->categoria->name}}</div>
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="flex-shrink-0 h-10 w-10">
+                                                
+                                                    
+                                                            <img class="h-11 w-11 object-cover object-center rounded-full" src="" alt="">
+                                                    
+                                                    </div>
+                                                    <div class="ml-4">
+                                                        <a href="{{route('ticket.historial.view',$inscripcion->ticket->user)}}">
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                @if ($inscripcion->ticket->user)
+                                                                    
+                                                            
+                                                                    {{$inscripcion->ticket->user->name}}<br>
+                                                                    {{$inscripcion->ticket->user->email}}<br>
+                                                                    @if ($inscripcion->ticket->user->socio)
+                                                                        @if ($inscripcion->ticket->user->socio->fono)
+                                                                            {{$inscripcion->ticket->user->socio->fono}}
+                                                                        @endif
+                                                                    @endif
+                                                                @endif
+                                                            
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                @if ($inscripcion->ticket->user)
+                                                    <div class="text-sm text-gray-900 text">{{$inscripcion->ticket->user->socio->rut}}</div>
+                                                @endif
+                                            
+                                                
+                                            </td>
+                                        
+                                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                <div class="text-sm text-gray-900 text-center">
+                                                    
+                                                    
+                                                            @if ($inscripcion->ticket->status<=2)
+                                                                @if ($inscripcion->ticket->status==1)
+                                                                    
+                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (CERRADO)</a>
+                                                                    
+                                                                @else
+                                                                    @break
+                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
+                                                                    
+                                                                @endif
+                                                            @else
+                                                                @if ($inscripcion->ticket->status==3)
+                                                                    @if ($inscripcion->estado==4)
+                                                                        <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                    
+                                                                    @else
+                                                                        <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                    
+                                                                    @endif
+
+                                                                    
+                                                                @else
+                                                                    @break
+                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                    
+                                                                @endif
+
+                                                            
+
+                                                            @endif
+                                                            
+                                                            
+                                                                
+                                                    
+                                                    
+                                                
+                                                </div>
+                                                
+                                            </td>
+
+                                            
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <a href="" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                                            
+                                            </td>
+                                        </tr>
+                                    @endif
+
+                                @endif
+                            @else
                                 @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status==3)
                                     <tr>
                                     
@@ -222,32 +455,46 @@
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
                                             
-                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$inscripcion->ticket->user->profile_photo_url}}" alt="">
-                                                    
+                                                
+                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="" alt="">
+                                                
                                                 </div>
                                                 <div class="ml-4">
-                                                    <a href="{{route('ticket.historial.view',$inscripcion->ticket->user)}}">
+                                                  
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            {{$inscripcion->ticket->user->name}}<br>
-                                                            {{$inscripcion->ticket->user->email}}<br>
-                                                            @if ($inscripcion->ticket->user->socio)
-                                                                @if ($inscripcion->ticket->user->socio->fono)
-                                                                    {{$inscripcion->ticket->user->socio->fono}}
-                                                                @endif
-                                                            @endif
+                                                        @foreach ($invitados as $item)
+                                            
+                                    
+                                                            @php
+                                                                if($inscripcion->ticket->ticketable_id==$item->id){
+                                                                    $invitado=$item;
+                                                                }else{
+                                                                    $invitado=null;
+                                                                }
+                                                            @endphp    
+                                                                @if ($inscripcion->ticket->user)
+                                                                    
                                                             
-                                                           
+                                                                    {{$invitado->name}}<br>
+                                                                    {{$invitado->email}}<br>
+                                                                   
+                                                                        @if ($invitado->fono)
+                                                                            {{$invitado->fono}}
+                                                                        @endif
+                                                                   
+                                                                @endif
+                                                        @endforeach
                                                         </div>
-                                                    </a>
+                                                   
                                                 </div>
                                             </div>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            @if ($inscripcion->ticket->user->socio)
+                                            @if ($inscripcion->ticket->user)
                                                 <div class="text-sm text-gray-900 text">{{$inscripcion->ticket->user->socio->rut}}</div>
                                             @endif
-                                          
+                                        
                                             
                                         </td>
                                     
@@ -261,7 +508,7 @@
                                                                 <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (CERRADO)</a>
                                                                 
                                                             @else
-                                                                @break
+                                                                
                                                                 <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
                                                                 
                                                             @endif
@@ -302,7 +549,6 @@
                                         </td>
                                     </tr>
                                 @endif
-
                             @endif
                         @endforeach
                 
@@ -313,9 +559,7 @@
                     No hay ningun registro
                 </div>
             @endif 
-            <div class="px-6 py-4">
-                {{$sponsors->links()}}
-            </div>
+         
         </x-table-responsive>
     </div>
 </div>

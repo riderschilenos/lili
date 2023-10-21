@@ -17,6 +17,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Cache;
+use MercadoPago\Invoice;
 
 class EventoController extends Controller
 {
@@ -143,8 +144,9 @@ class EventoController extends Controller
         
         $hoursRemaining = $endTime->diffInHours($currentTime);
         $minutesRemaining = $endTime->diffInMinutes($currentTime) % 60;
+        $invitados=Invitado::all();
 
-        return view('payment.ticketview',compact('evento','socio2','disciplinas','riders','series','autos','ticket', 'hoursRemaining', 'minutesRemaining'));
+        return view('payment.ticketview',compact('invitados','evento','socio2','disciplinas','riders','series','autos','ticket', 'hoursRemaining', 'minutesRemaining'));
     }
 
     public function ticket_historial(User $user)

@@ -166,9 +166,12 @@
                                                     
 
                                                     
-                                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a href="" class="text-indigo-600 hover:text-indigo-900">Ver</a>
-                                                    
+                                                    <td class="whitespace-nowrap text-right text-sm font-medium">
+
+                                           
+                                                        @can('Super admin')
+                                                            <a wire:click="pagomanual({{$ticket->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
+                                                        @endcan   
                                                     </td>
                                                 </tr>
                                             @endif
@@ -283,13 +286,15 @@
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href="" class="text-indigo-600 hover:text-indigo-900">Ver</a>
-                                                
+                                                    @can('Super admin')
+                                                        <a wire:click="pagomanual({{$ticket->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
+                                                    @endcan   
                                                 </td>
                                             </tr>
                                         @endif
                                     @endforeach
                             @endif
+
                         @endforeach
                     <!-- More people... -->
                     </tbody>

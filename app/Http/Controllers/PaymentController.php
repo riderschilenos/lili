@@ -93,123 +93,123 @@ class PaymentController extends Controller
                 $inscripcion->save();
             }  
 
-        $evento=Evento::find($ticket->evento_id);
+            $evento=Evento::find($ticket->evento_id);
 
-        if (auth()->user()) {
-            $evento->inscritos()->attach(auth()->user()->id);
-        }
-          
-        
-        $tickets=$ticket->evento->tickets()->where('status','>=',3)->get();
-        $retiros = Retiro::where('evento_id',$ticket->evento->id)->get();
-
-        $total=0;
-        $retiroacumulado=0;
-
-        foreach ($retiros as $retiro){
-                $retiroacumulado+=$retiro->cantidad;
-        }
+            if (auth()->user()) {
+                $evento->inscritos()->attach(auth()->user()->id);
+            }
             
+            
+            $tickets=$ticket->evento->tickets()->where('status','>=',3)->get();
+            $retiros = Retiro::where('evento_id',$ticket->evento->id)->get();
 
-    
+            $total=0;
+            $retiroacumulado=0;
 
-            foreach ($tickets as $ticket){
-                    if($ticket->status>=3){
-                            $total+=$ticket->inscripcion;
-                    }
+            foreach ($retiros as $retiro){
+                    $retiroacumulado+=$retiro->cantidad;
+            }
                 
-                }
 
-        try {
-                     //TOKEN QUE NOS DA FACEBOOK
-                     $cell='569'.substr(str_replace(' ', '', $ticket->evento->user->vendedor->fono), -8);
-            
-                     //TOKEN QUE NOS DA FACEBOOK
-                     $token = env('WS_TOKEN');
-                     $phoneid= env('WS_PHONEID');
-                     $version='v16.0';
-                     $url="https://riderschilenos.cl/";
-                     $payload=[
-                     'messaging_product' => 'whatsapp',
-                     "preview_url"=> false,
-                     'to'=>$cell,
-                     
-                     'type'=>'template',
-                         'template'=>[
-                             'name'=>'entrada_vendida',
-                             'language'=>[
-                                 'code'=>'es'],
-                             'components'=>[ 
-                                 [
-                                     'type'=>'body',
-                                     'parameters'=>[
-                                         [   //cliente
-                                             'type'=>'text',
-                                             'text'=> $ticket->user->name
-                                         ],
-                                         [   //Cantidad
-                                             'type'=>'text',
-                                             'text'=> '$'.number_format($ticket->inscripcion)
-                                         ],
-                                         [   //saldo
-                                             'type'=>'text',
-                                             'text'=> '$'.number_format($total*0.931-$retiroacumulado)
-                                         ],
-                                        
-                                     ]
-                                 ]
-                             ]
-                         ]
-                     
-                     ];
-         
-                     Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-                     
-                     $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
-                     $token = env('WS_TOKEN');
-                     $phoneid= env('WS_PHONEID');
-                     $version='v16.0';
-                     $url="https://riderschilenos.cl/";
-                     $wsload=[
-                         'messaging_product' => 'whatsapp',
-                         "preview_url"=> false,
-                         'to'=>$fono,
-                         'type'=>'template',
-                             'template'=>[
-                                 'name'=>'entrada_comprada',
-                                 'language'=>[
-                                     'code'=>'es'],
-                                 'components'=>[ 
-                                     [
-                                         'type'=>'body',
-                                         'parameters'=>[
-                                             [   //pista
-                                                 'type'=>'text',
-                                                 'text'=> $ticket->evento->titulo
-                                             ],
-                                             [   //Socio
-                                                 'type'=>'text',
-                                                 'text'=> 'https://riderschilenos.cl/ticket/view/'.$ticket->id
-                                             ]
-                                         ]
-                                     ]
-                                 ]
-                             ]
-                             
-                         
-                     ];
-                     
-                     Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
-                     
-            
-            return redirect()->route('ticket.view',$ticket);
-            
-        } catch (\Throwable $th) {
-             
-            return redirect()->route('ticket.view',$ticket);
-        }
         
-         }
+
+                foreach ($tickets as $ticket){
+                        if($ticket->status>=3){
+                                $total+=$ticket->inscripcion;
+                        }
+                    
+                    }
+
+            try {
+                        //TOKEN QUE NOS DA FACEBOOK
+                        $cell='569'.substr(str_replace(' ', '', $ticket->evento->user->vendedor->fono), -8);
+                
+                        //TOKEN QUE NOS DA FACEBOOK
+                        $token = env('WS_TOKEN');
+                        $phoneid= env('WS_PHONEID');
+                        $version='v16.0';
+                        $url="https://riderschilenos.cl/";
+                        $payload=[
+                        'messaging_product' => 'whatsapp',
+                        "preview_url"=> false,
+                        'to'=>$cell,
+                        
+                        'type'=>'template',
+                            'template'=>[
+                                'name'=>'entrada_vendida',
+                                'language'=>[
+                                    'code'=>'es'],
+                                'components'=>[ 
+                                    [
+                                        'type'=>'body',
+                                        'parameters'=>[
+                                            [   //cliente
+                                                'type'=>'text',
+                                                'text'=> $ticket->user->name
+                                            ],
+                                            [   //Cantidad
+                                                'type'=>'text',
+                                                'text'=> '$'.number_format($ticket->inscripcion)
+                                            ],
+                                            [   //saldo
+                                                'type'=>'text',
+                                                'text'=> '$'.number_format($total*0.931-$retiroacumulado)
+                                            ],
+                                            
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        
+                        ];
+            
+                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                        
+                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                        $token = env('WS_TOKEN');
+                        $phoneid= env('WS_PHONEID');
+                        $version='v16.0';
+                        $url="https://riderschilenos.cl/";
+                        $wsload=[
+                            'messaging_product' => 'whatsapp',
+                            "preview_url"=> false,
+                            'to'=>$fono,
+                            'type'=>'template',
+                                'template'=>[
+                                    'name'=>'entrada_comprada',
+                                    'language'=>[
+                                        'code'=>'es'],
+                                    'components'=>[ 
+                                        [
+                                            'type'=>'body',
+                                            'parameters'=>[
+                                                [   //pista
+                                                    'type'=>'text',
+                                                    'text'=> $ticket->evento->titulo
+                                                ],
+                                                [   //Socio
+                                                    'type'=>'text',
+                                                    'text'=> 'https://riderschilenos.cl/ticket/view/'.$ticket->id
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                                
+                            
+                        ];
+                        
+                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                        
+                
+                return redirect()->route('ticket.view',$ticket);
+                
+            } catch (\Throwable $th) {
+                
+                return redirect()->route('ticket.view',$ticket);
+            }
+            
+        }
         else{
            
         }

@@ -195,9 +195,8 @@
                                                             @endif
                                                         </div>
                                                         <div class="ml-4">
-                                                        <a href="{{route('ticket.historial.view',$sponsor)}}">
                                                             <div class="text-sm font-medium text-gray-900">
-                                                                {{$sponsor->name}}<br>
+                                                                {{$sponsor->name}} (Invitado)<br>
                                                                 {{$sponsor->email}}<br>
                                                             
                                                                     @if ($sponsor->fono)
@@ -207,7 +206,7 @@
                                                             
                                                             
                                                             </div>
-                                                        </a>
+                                                     
                                                         </div>
                                                     </div>
                                                 </td>

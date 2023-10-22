@@ -1133,7 +1133,7 @@
                     </div>
 
                     @if (IS_NULL(auth()->user()))
-                                <div class="mt-2 mb-6 flex justify-center">
+                                <div class="hidden mt-2 mb-6 flex justify-center">
                                     <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
                     
                                       

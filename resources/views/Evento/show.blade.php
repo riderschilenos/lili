@@ -179,8 +179,20 @@
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
                                                             <div class="flex-shrink-0 h-10 w-10">
-                                                                @if ($item->user->socio)
-                                                                    <a href="{{route('socio.show', $item->user->socio)}}">
+                                                                @if ($item->user)
+                                                                    @if ($item->user->socio)
+                                                                        <a href="{{route('socio.show', $item->user->socio)}}">
+                                                                            @if (str_contains($item->user->profile_photo_url,'https://ui-'))
+                                                                                <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{ $item->user->name }}"  >
+                                                                            
+                                                                            @else
+                                                                                <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$item->user->profile_photo_url}}" alt="">
+                                                                            
+                                                                            @endif
+                                                                        </a>
+                                                                    @endif
+                                                                @else
+                                                                    @if ($item->user)
                                                                         @if (str_contains($item->user->profile_photo_url,'https://ui-'))
                                                                             <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{ $item->user->name }}"  >
                                                                         
@@ -188,30 +200,28 @@
                                                                             <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$item->user->profile_photo_url}}" alt="">
                                                                         
                                                                         @endif
-                                                                    </a>
-                                                                @else
-                                                                    @if (str_contains($item->user->profile_photo_url,'https://ui-'))
-                                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{ $item->user->name }}"  >
-                                                                    
                                                                     @else
-                                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$item->user->profile_photo_url}}" alt="">
-                                                                    
+                                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt=""  >
+                                                                       
                                                                     @endif
+                                                                        
                                                                 @endif
                                                               
                                                                 
                                                             </div>
                                                             <div class="ml-4">
                                                                 <div class="text-sm font-medium text-gray-900">
-                                                                    @if ($item->user->socio)
-                                                                        <a href="{{route('socio.show', $item->user->socio)}}">
-                                                                
-                                                                            {{ Str::limit($item->user->name, 18) }}
-                                                                        </a>
-                                                                    @else
-                                                                            {{ Str::limit($item->user->name, 18) }}
+                                                                    
+                                                                    @if ($item->user)
+                                                                        @if ($item->user->socio)
+                                                                            <a href="{{route('socio.show', $item->user->socio)}}">
+                                                                    
+                                                                                {{ Str::limit($item->user->name, 18) }}
+                                                                            </a>
+                                                                        @else
+                                                                                {{ Str::limit($item->user->name, 18) }}
+                                                                        @endif
                                                                     @endif
-                                                                   
                                                                 </div>
                                                                 
                                                             </div>
@@ -229,7 +239,7 @@
                                                                         @foreach ($item->inscripcions as $inscripcion)
                                                                                         
                                                                                               <div class="flex justify-center">
-                                                                                                @if ($item->user->socio)
+                                                                                                @if ($item->user)
                                                                                                     <a href="{{route('socio.show', $item->user->socio)}}">
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                     

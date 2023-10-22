@@ -28,7 +28,7 @@
                                     <img loading="lazy" class="h-44 w-full object-cover" src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
                                 </a>
                                 @else
-                                <a href="{{route('garage.image', $vehiculo)}}">
+                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                     <img loading="lazy" class="h-44 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                                 </a>
                                 @endif
@@ -69,21 +69,21 @@
 
 
 
-                            <div class="grid grid-cols-2">
-                                <div>
-                                    <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
-                                        Ver ficha
-                                    </a>
-                                </div>
-                                <div>
-                                    
-                                        <a href= "{{route('garage.inscripcion', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
-                                            Terminar Inscripción
+                                <div class="grid grid-cols-2">
+                                    <div>
+                                        <a href= "{{route('garage.vehiculo.show', $vehiculo)}}" class="mt-4 btn btn-danger text-xs btn-block">
+                                            Ver ficha
                                         </a>
-                                    
-                                    
+                                    </div>
+                                    <div>
+                                        
+                                            <a href= "{{route('garage.inscripcion', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
+                                                Terminar Inscripción
+                                            </a>
+                                        
+                                        
+                                    </div>
                                 </div>
-                            </div>
                             @else
                             <a href= "{{route('garage.image', $vehiculo)}}" class="mt-4 btn btn-danger ml-2 text-xs btn-block">
                                 Terminar Inscripción

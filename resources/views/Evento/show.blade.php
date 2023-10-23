@@ -61,10 +61,11 @@
                         
                     <p class="mb-2"><i class="fas fa-biking"></i> Disciplina: {{$evento->disciplina->name}}</p>
                     <p class="mb-2"><i class="fas fa-user"></i> Organizador: {{$evento->user->name}}</p>
+                    {{-- comment 
                     @if ($evento->type!='pista')
-                        <p class="mb-2"><i class="fas fa-users"></i> Limite de inscritos: {{$evento->Inscritos_count}}</p>
+                        <p class="mb-2"><i class="fas fa-users"></i> Inscritos:    {{$evento->tickets->where('status','>=',3)->count()}}</p>
                     @endif
-                   
+                   --}}
 
                 </div>
 

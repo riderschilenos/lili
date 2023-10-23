@@ -23,7 +23,7 @@
                 border-color: var(--main-color);
             }
         </style>
-        <section class="bg-cover bg-center" style="background-image: url({{asset('img/home/riders.jpg')}})">
+        <section class="hidden sm:block bg-cover bg-center" style="background-image: url({{asset('img/home/riders.jpg')}})">
 
             <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 py-24">
                 <div class="w-full md:w-3/4 lg:w-1/2">
@@ -38,6 +38,18 @@
             </div>
 
         </section>
+        <div class="words sm:hidden bg-white pt-2 overflow-x-auto whitespace-no-wrap border-b-2 font-bold text-gray-700">
+            <div class="flex justify-center">
+              <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
+              <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
+              <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
+              <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; novedades = true; home = false; socio = false; evento = false; registro = false; vendedor = false; base = false" >Novedades</div>
+               
+              <!-- Agrega más categorías aquí -->
+            </div>
+          </div>
+
+        <div>
         
         @livewire('eventos-index')
     </x-fast-view>

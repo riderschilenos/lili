@@ -777,7 +777,7 @@
     
                                     <hr>
     
-                                <p class="text-sm mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta ipsum tenetur beatae esse placeat eos, inventore quod amet tempora voluptas dicta, reprehenderit aliquid praesentium earum magnam est sequi fugiat? <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
+                                <p class="text-sm mt-4">Esta compra esta protegida por todos los protocolos asignados por Mercado Pago, una vez hecha el pago sera redireccionado hasta su entrada, no la comparta en redes sociales, para más detalles visite nuestros <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
                         </section>
                     
                         

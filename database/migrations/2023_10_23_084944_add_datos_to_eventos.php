@@ -17,7 +17,7 @@ class AddDatosToEventos extends Migration
 
             $table->float('comision')->default(6.9);
 
-            $table->float('datos')->nullable();
+            $table->string('datos')->nullable();
 
 
         });

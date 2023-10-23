@@ -18,8 +18,8 @@
             <!-- Agrega más categorías aquí -->
             </div>
         </div>
-        
-        <div class="max-w-7xl mx-auto py-8">
+
+        <div class="max-w-7xl mx-auto pb-8">
 
             <div class="card">
                 

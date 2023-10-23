@@ -10,6 +10,10 @@
                             @if($vehiculo->image->first())
                                 
                                     <img class="w-full h-32 object-cover content-center items-center " src=" {{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                @elseif($vehiculo->vehiculo_type_id==10)
+                                
+                                    <img class="w-full h-32 object-cover content-center items-center " src="{{asset('img/bmx.jpeg')}}" alt="">
+
                                 @else
                                     <img class="w-full h-32 object-cover content-center items-center " src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                             

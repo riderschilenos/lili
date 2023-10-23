@@ -120,7 +120,7 @@ class EventoInscritos extends Component
                                         ],
                                         [   //saldo
                                             'type'=>'text',
-                                            'text'=> '$'.number_format($total*0.931-$retiroacumulado)
+                                            'text'=> '$'.number_format($total*(1-($evento->comision/100))-$retiroacumulado)
                                         ],
                                         
                                     ]

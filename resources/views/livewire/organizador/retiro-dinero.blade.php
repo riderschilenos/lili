@@ -36,13 +36,13 @@
         <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
             <img class="" src="https://i.imgur.com/Qnmqkil.png" alt="" />
             <div class="text-center">
-              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total*0.069)}}</h1>
-              <span class="text-gray-500">Comision<br>(6.9%)</span>
+              <h1 class="text-4xl font-bold text-gray-800">${{number_format($total*($evento->comision/100))}}</h1>
+              <span class="text-gray-500">Comision<br>({{number_format($evento->comision,1)}}%)</span>
             </div>
         </div>
 
         
-        @if ($total-$total*0.069-$retiroacumulado==0)
+        @if ($total-$total*($evento->comision/100)-$retiroacumulado==0)
             <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
                 <img class="ml-6" src="https://i.imgur.com/dJeEVcO.png" alt="" />
                 <div class="text-center">
@@ -54,7 +54,7 @@
             <div class="bg-white w-full rounded-xl shadow-lg flex items-center justify-around">
                 <img class="ml-6" src="https://i.imgur.com/dJeEVcO.png" alt="" />
                 <div class="text-center">
-                <h1 class="text-4xl font-bold text-gray-800">${{number_format($total-$total*0.069-$retiroacumulado)}}</h1>
+                <h1 class="text-4xl font-bold text-gray-800">${{number_format($total-$total*($evento->comision/100)-$retiroacumulado)}}</h1>
                 <span class="text-gray-500">Pendiente de </span>
          
                 <span class="text-blue-500 font-bold">RETIRAR</span>
@@ -84,7 +84,7 @@
       </div>
       {!! Form::open(['route'=>'organizador.retiros.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
       @csrf
-      @if ($total-$total*0.069-$retiroacumulado>0)
+      @if ($total-$total*($evento->comision/100)-$retiroacumulado>0)
           <div class="h-32 mt-6">
               <h1 class="text-xl text-center"><b>Nombre:</b> {{$evento->user->vendedor->name}}</h1>
               <h1 class="text-xl text-center"><b>Rut:</b> {{$evento->user->vendedor->rut}}</h1>
@@ -92,7 +92,7 @@
               <h1 class="text-xl text-center"><b>Cuenta:</b> {{$evento->user->vendedor->tipo_cuenta}}</h1>
               <h1 class="text-xl text-center"><b>Nro Cuenta:</b> {{$evento->user->vendedor->nro_cuenta}}</h1>
 
-              <h1 class="text-xl font-bold text-center py-2 mt-4">Monto: ${{number_format($total-$total*0.069-$retiroacumulado)}}</h1>
+              <h1 class="text-xl font-bold text-center py-2 mt-4">Monto: ${{number_format($total-$total*($evento->comision/100)-$retiroacumulado)}}</h1>
               <hr class="w-full mb-4">
               
               {{-- comment{!! Form::file('comprobante', ['class'=>'form-input w-full mt-6'.($errors->has('comprobante')?' border-red-600':''), 'id'=>'comprobante','accept'=>'image/*']) !!}
@@ -110,7 +110,7 @@
           {!! Form::hidden('evento_id', $evento->id ) !!}
 
 
-          {!! Form::hidden('cantidad', $total-$total*0.069-$retiroacumulado ) !!}
+          {!! Form::hidden('cantidad', $total-$total*($evento->comision/100)-$retiroacumulado ) !!}
 
          
 
@@ -289,15 +289,18 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10">
-                                    
+                                            @if ($ticket->user)
                                                 <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$ticket->user->profile_photo_url}}" alt="">
-                                            
+                                            @endif
                                         </div>
                                         <div class="ml-4">
+
                                             <div class="text-sm font-medium text-gray-900">
-                                                {{$ticket->user->name}}<br>
-                                                {{$ticket->user->email}}<br>
-                                                {{$ticket->user->socio->fono}}
+                                                @if ($ticket->user)
+                                                    {{$ticket->user->name}}<br>
+                                                    {{$ticket->user->email}}<br>
+                                                    {{$ticket->user->socio->fono}}
+                                                @endif
                                             </div>
                                             
                                         </div>
@@ -305,8 +308,9 @@
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 text">{{$ticket->user->socio->rut}}</div>
-                                    
+                                    @if ($ticket->user)
+                                        <div class="text-sm text-gray-900 text">{{$ticket->user->socio->rut}}</div>
+                                    @endif
                                 </td>
                                 
                                 <td class="px-6 py-4 whitespace-nowrap text-center">

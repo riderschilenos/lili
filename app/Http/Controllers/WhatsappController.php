@@ -198,7 +198,7 @@ class WhatsappController extends Controller
                                         ],
                                         [   //saldo
                                             'type'=>'text',
-                                            'text'=> '$'.number_format($total*0.931-$retiroacumulado)
+                                            'text'=> '$'.number_format($total*(1-($ticket->evento->comision/100))-$retiroacumulado)
                                         ],
                                         
                                     ]
@@ -274,7 +274,7 @@ class WhatsappController extends Controller
                                         ],
                                         [   //saldo
                                             'type'=>'text',
-                                            'text'=> '$'.number_format($total*0.931-$retiroacumulado)
+                                            'text'=> '$'.number_format($total*(1-($ticket->evento->comision/100))-$retiroacumulado)
                                         ],
                                         
                                     ]

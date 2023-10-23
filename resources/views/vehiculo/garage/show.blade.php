@@ -71,9 +71,17 @@
                             <button id="nextButton">Siguiente</button>
                         </div>
                     @elseif($vehiculo->vehiculo_type_id==10)
-                      
-                        <img class="h-60 w-full object-cover object-center" src="{{asset('img/bmx.jpeg')}}" alt="">
                     
+                        <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
+                           
+                            <li class="shrink-0 snap-center w-full snap-mandatory">  
+                                <section class="bg-cover bg-center" style="background-color: rgba(209, 213, 219, 0.15); z-index: 1">     
+                                    <img class="" src="{{asset('img/bmx.jpeg')}}" alt="" style="scroll-snap-align: center;">
+                                </section>
+                            </li>
+                          
+                        </ul>
+                      
                     @else
                         <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                     

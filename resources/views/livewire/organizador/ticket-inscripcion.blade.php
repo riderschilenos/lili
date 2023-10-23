@@ -10,29 +10,33 @@
     <div class="grid grid-cols-1 justify-center">
         @if (IS_NULL($categoria_id))
             @foreach ($fecha->categorias as $item)
-            
-                <form action="{{route('ticket.inscripcions.store')}}" method="POST">
-                    @csrf
                     
+                    @if ($evento->datos==null)
+                      
+                            <form action="{{route('ticket.inscripcions.store')}}" method="POST">
+                                @csrf
+                                
 
-                    <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                    <input name="categoria_id" type="hidden" value="{{$item->categoria->id}}">
+                                <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
+                                <input name="categoria_id" type="hidden" value="{{$item->categoria->id}}">
 
-                    <input name="fecha_categoria_id" type="hidden" value="{{$item->id}}">
-                    <input name="nro" type="hidden" value="{{$nro}}">
+                                <input name="fecha_categoria_id" type="hidden" value="{{$item->id}}">
+                                <input name="nro" type="hidden" value="{{$nro}}">
 
-                    <input name="cantidad" type="hidden" value="{{$item->inscripcion}}">
-                    <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
+                                <input name="cantidad" type="hidden" value="{{$item->inscripcion}}">
+                                <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
 
-                    <button class="btn btn-danger text-white mx-2 text-md my-2">
-                        {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
-                    </button>
-                </form>
-           {{-- comment 
-                <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2">
-                    {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
-                </button>
-                    --}}
+                                <button class="btn btn-danger text-white mx-2 text-md my-2 w-full">
+                                    {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
+                                </button>
+                            </form>
+                      
+                    @else
+                        <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2">
+                            {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
+                        </button>
+                    @endif
+
             @endforeach
         @else
             <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4">

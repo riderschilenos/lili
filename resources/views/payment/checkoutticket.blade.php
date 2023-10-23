@@ -406,10 +406,9 @@
                                                         </th>
                                                     @endif   
                                             
-                                                @if ($evento->type=='pista')
+                                                @if ($evento->datos==null)
 
-                                                @elseif ($evento->type=='desafio')
-                            
+                                              
                                                 @else
                                                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Número
@@ -448,9 +447,7 @@
                                                                                         </td>
                                                                                     @endif
                                                                                 
-                                                                                        @if ($evento->type=='pista')
-
-                                                                                        @elseif ($evento->type=='desafio')
+                                                                                        @if ($evento->datos==null)                                                                                   
                             
                                                                                         @else
                                                                                             <td class="px-6 py-4 whitespace-nowrap">

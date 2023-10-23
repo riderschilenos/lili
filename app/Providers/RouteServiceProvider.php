@@ -81,7 +81,7 @@ class RouteServiceProvider extends ServiceProvider
                 //->namespace($this->namespace)
                 ->group(base_path('routes/whatsapp.php'));
             
-            Route::middleware('web','auth')
+            Route::middleware('web')
                 ->name('organizador.')
                 ->prefix('organizador')
                 //->namespace($this->namespace)

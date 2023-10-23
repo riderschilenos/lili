@@ -70,6 +70,10 @@
                             <button id="prevButton">Anterior</button>
                             <button id="nextButton">Siguiente</button>
                         </div>
+                    @elseif($vehiculo->vehiculo_type_id==10)
+                      
+                        <img class="h-60 w-full object-cover object-center" src="{{asset('img/bmx.jpeg')}}" alt="">
+                    
                     @else
                         <img class="h-60 w-full object-cover object-center" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                     

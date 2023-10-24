@@ -31,6 +31,10 @@
                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                     <img class="w-full h-32 object-cover content-center items-center " src="{{asset('img/bmx.jpeg')}}" alt="">
                                 </a>
+                                @elseif($vehiculo->vehiculo_type_id==11)
+                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
+                                    <img class="w-full h-32 object-cover content-center items-center " src="{{asset('img/dirt.jpeg')}}" alt="">
+                                </a>
                                 @else
                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                     <img loading="lazy" class="h-44 w-full object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">

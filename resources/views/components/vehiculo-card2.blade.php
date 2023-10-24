@@ -14,6 +14,10 @@
                                 
                                     <img class="w-full h-32 object-cover content-center items-center " src="{{asset('img/bmx.jpeg')}}" alt="">
 
+                                @elseif($vehiculo->vehiculo_type_id==11)
+                                
+                                    <img class="w-full h-32 object-cover content-center items-center " src="{{asset('img/dirt.jpeg')}}" alt="">
+
                                 @else
                                     <img class="w-full h-32 object-cover content-center items-center " src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
                             

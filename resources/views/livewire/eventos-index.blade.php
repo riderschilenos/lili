@@ -1,4 +1,7 @@
 <div>
+    @php
+        $n=0;
+    @endphp
     <div class="bg-gray-200 py-4 mb-8 hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
             

@@ -56,7 +56,24 @@
                         @if ($evento->type=='pista')
                             <p class="mb-2"><i class="fas fa-calendar"></i> <b>+ {{$evento->fechas_count}}</b> Entrenamientos Realizados</p>
                         @else
-                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> Fechas</p>
+                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> 
+                            @if ($evento->fechas_count>1)
+                                Fechas
+                            @else
+                                Fecha 
+                            @endif
+
+                            @if ($evento->fechas)
+                                @foreach ($evento->fechas as $fecha)       
+                                    @if ($fecha->fecha>=now()->subDays(1))
+                                        @if ($fecha->fecha)
+                                           ( {{date('d/m/Y', strtotime($fecha->fecha))}} )
+                                        @endif 
+                                    @endif
+                                @endforeach
+                            @endif
+                            
+                            </p>
                         @endif
                         
                     <p class="mb-2"><i class="fas fa-biking"></i> Disciplina: {{$evento->disciplina->name}}</p>

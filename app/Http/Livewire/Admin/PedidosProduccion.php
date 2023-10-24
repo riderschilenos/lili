@@ -206,19 +206,19 @@ class PedidosProduccion extends Component
         }
 
         $pedidos= Pedido::where('user_id',$pedido->user_id)
-        ->where('status',7)
-        ->orderby('status','DESC')
-        ->latest('id')
-        ->get();
+                    ->where('status',7)
+                    ->orderby('status','DESC')
+                    ->latest('id')
+                    ->get();
 
         $comisiones=0;
-        foreach($pedidos as $pedido){
-            foreach ($pedido->ordens as $orden){
+        foreach($pedidos as $item){
+            foreach ($item->ordens as $orden){
                      
-                if($pedido->pedidoable_type=="App\Models\Socio"){
+                if($item->pedidoable_type=="App\Models\Socio"){
                         $comisiones+=$orden->producto->comision_socio;
                     }
-                if($pedido->pedidoable_type=="App\Models\Invitado"){
+                if($item->pedidoable_type=="App\Models\Invitado"){
                         $comisiones+=$orden->producto->comision_invitado;
                 }
             }

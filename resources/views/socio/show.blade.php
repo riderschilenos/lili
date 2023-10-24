@@ -213,10 +213,10 @@
                                                 <p class="text-center text-xs mb-2">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
                                          
                                                  <div class="flex justify-between text-sm">
-                                                <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-green-100 rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>
-                                                <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-red-100 rounded-[4px] border border-green-700 p-3 text-[#191D23]">$5.000</div>
-                                                <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-blue-100 rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$10.000</div>
-                                                <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-orange-100 rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$20.000</div>
+                                                <div class="mt-[14px] whitespace-nowrap rounded-lg cursor-pointer bg-green-100 border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>
+                                                <div class="mt-[14px] whitespace-nowrap rounded-lg cursor-pointer bg-red-100 border border-green-700 p-3 text-[#191D23]">$5.000</div>
+                                                <div class="mt-[14px] whitespace-nowrap rounded-lg cursor-pointer bg-blue-100 border border-[#E7EAEE] p-3 text-[#191D23]">$10.000</div>
+                                                <div class="mt-[14px] whitespace-nowrap rounded-lg cursor-pointer bg-orange-100 border border-[#E7EAEE] p-3 text-[#191D23]">$20.000</div>
                                                 
                                                 </div>
                                                 <div><input class="mt-2 w-full rounded-lg border border-[#A0ABBB] p-2 hidden" value="$1.000" type="text" placeholder="$1.000" /></div>

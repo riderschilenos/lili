@@ -1,4 +1,8 @@
 <div class="mt-2 mb-6 flex justify-center">
+    @php
+        $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo']; 
+        $n=0;
+    @endphp
     <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
 
             @foreach ($pistas as $pista)
@@ -21,6 +25,23 @@
                                 <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
 
                         @endisset
+
+                        @if ($pista->fechas)
+                            @foreach ($pista->fechas as $fecha)       
+                                @if ($fecha->fecha>=now()->subDays(1))
+                                    <div class="flex justify-center">
+                                        <p class="font-bold text-white text-sm rounded-full bg-blue-800 my-2 p-2"> 
+                                        {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                        </p>
+                                    
+                                    </div>
+                                    @php
+                                        $n+=1;
+                                    @endphp
+                                @endif
+                            @endforeach
+                        @endif
+
                     </div>
                         <div class="px-2 py-2 col-span-4 bg-white">
                             <a href="{{route('ticket.pista.show', $pista)}}">
@@ -125,9 +146,7 @@
                                                 @if ($fecha->fecha>=now()->subDays(1))
                                                     <li class="text-center">
                                                         <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
-                                                            @php
-                                                                $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-                                                            @endphp
+                                                           
                                                             <a href="{{route('ticket.evento.show', $pista)}}">
                                                                 @if ($fecha->name=='keyname')
                                                                 <div class="flex">

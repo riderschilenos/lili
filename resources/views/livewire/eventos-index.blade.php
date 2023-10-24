@@ -105,6 +105,23 @@
                                     <img loading="lazy" class="h-80 w-full object-cover" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
         
                             @endisset
+
+                            @if ($evento->fechas)
+                                @foreach ($evento->fechas as $fecha)       
+                                    @if ($fecha->fecha>=now()->subDays(1))
+                                        <div class="flex justify-center">
+                                            <p class="font-bold text-white text-sm rounded-full bg-blue-800 my-2 p-2"> 
+                                            {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                            </p>
+                                        
+                                        </div>
+                                        @php
+                                            $n+=1;
+                                        @endphp
+                                    @endif
+                                @endforeach
+                            @endif
+
                         </div>
                             <div class="px-2 py-2 col-span-4 bg-white">
                                 <a href="{{route('ticket.evento.show', $evento)}}">

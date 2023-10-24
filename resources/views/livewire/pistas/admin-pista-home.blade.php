@@ -38,7 +38,7 @@
                                 @endisset
                             </div>
                         <div class="col-span-2 content-center items-center my-auto">
-                            <h1 class="text-center text-2xl my-3 mr-4"> Administracion Pista <b>{{$pista->titulo}}</b></h1>
+                            <h1 class="text-center text-2xl my-3 mr-4"> Administración<b>{{$pista->titulo}}</b></h1>
                         </div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@
                                         @endisset
                                     </div>
                                 <div class="col-span-2 content-center items-center my-auto">
-                                    <h1 class="text-center text-2xl my-3 mr-4"> Administracion Pista <b>{{$pista->titulo}}</b></h1>
+                                    <h1 class="text-center text-2xl my-3 mr-4"> Administración <b>{{$pista->titulo}}</b></h1>
                                 </div>
                                 </div>
                             </div>
@@ -686,7 +686,7 @@
                                     @endisset
                                 </div>
                             <div class="col-span-2 content-center items-center my-auto">
-                                <h1 class="text-center text-2xl my-3 mr-4"> Administracion Pista <b>{{$pista->titulo}}</b></h1>
+                                <h1 class="text-center text-2xl my-3 mr-4"> Administración <b>{{$pista->titulo}}</b></h1>
                             </div>
                             </div>
                         </div>

@@ -362,55 +362,7 @@
                                                                              <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
                                                                             
                                                                          </a>
-                                                                         @switch($pedido->status)
-                                                                         @case(1)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                                 Borrador
-                                                                             </span>
-                                                                             @break
-                                                                         @case(2)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                                 Pendiente de Pago
-                                                                             </span>
-                                                                             @break
-                                                                         @case(3)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                                                 Procesando Pago
-                                                                             </span>
-                                                                             @break
-                                                                         @case(4)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                                                 Pendiente de diseño
-                                                                             </span>
-                                                                             @break
-                                                                             @case(5)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                                                                 Pendiente de producción
-                                                                             </span>
-                                                                             @break
-                                                                             @case(6)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                                                 Pendiente de despacho
-                                                                             </span>
-                                                                             @break
-                                                                             @case(7)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                                 Despachado
-                                                                             </span>
-                                                                             @break
-                                                                             @case(8)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                                 Procesando Comisión
-                                                                             </span>
-                                                                             @break
-                                                                             @case(9)
-                                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                                                 Cerrado
-                                                                             </span>
-                                                                             @break
-                                                                         @default
-                                                                             
-                                                                         @endswitch
+                                                                        
                                                                      </div>
                                                                </div>
                                                          </td>

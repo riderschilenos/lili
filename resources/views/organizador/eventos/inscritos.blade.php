@@ -6,10 +6,10 @@
     <h1 class="text-2xl font-bold"> 
             Listado de Inscritos: {{$evento->titulo}}
     </h1>
-    <hr class="mt-2 mb-6">
-
+    <hr class="mt-2 mb-6 ">
+<div class="pb-6 mb-6">
    @livewire('organizador.evento-inscritos', ['evento' => $evento], key('evento.'.$evento->id))
-    
+</div>
 
 </x-ticket-layout>
 

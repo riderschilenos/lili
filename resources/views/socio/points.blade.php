@@ -470,8 +470,7 @@
                                                                     <div class="text-sm font-medium text-gray-900">
                                                                         
                                                                         
-                                                                                                {{$socio->user->name}}
-                                                                                            
+                                                                                            Puntos por Registro
                                                                                           
                                                                                     
                                                                         
@@ -481,28 +480,14 @@
                                                                     
                                                                     <div class="text-sm text-gray-500">
                     
-                                                                
-                                                                        
-                                                                                @if ($socio->direccion)
-                                                                                                {{$socio->direccion->comuna.", ".$socio->direccion->region}} 
-                                                                                @endif   
-                    
+                                                                        {{$socio->created_at->format('d-m-Y')}}
                                                                             
                                                                             <br>
                                                                             
                                                                     </div>
                                                             
                                                         </div>
-                                                            <div class="ml-auto whitespace-nowrap">
-                                                                    <div class="text-sm text-gray-900 ml-auto text-center mb-3">100 Pts</div>
-                                                                
-                                                            
-                                                            
-                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                        Registro
-                                                                    </span>
-                                                            
-                                                            </div>
+                                                         
                                                     </div>
                                                 </td>
                     
@@ -513,8 +498,17 @@
                                             
                                                 
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($socio->created_at))-1]}}</div>
-                                                    <div class="text-sm text-gray-900">{{$socio->created_at->format('d-m-Y')}}</div>    
+                                                    <div class="ml-auto whitespace-nowrap">
+                                                        <div class="text-sm text-gray-900 ml-auto text-center mb-3">100 Pts</div>
+                                                    
+                                                
+                                                
+                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                            Registro
+                                                        </span>
+                                                
+                                                    </div>
+                                                  
                                                 </td>
                     
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

@@ -290,7 +290,9 @@ class EventoController extends Controller
 
         $tickets = $evento->tickets()->where('status','>=',3)->get();
 
-        return view('Evento.show',compact('tickets','evento','fechas','similares','ticket','fech','series','riders','autos','socio2','disciplinas'));
+        $invitados=Invitado::all();
+
+        return view('Evento.show',compact('invitados','tickets','evento','fechas','similares','ticket','fech','series','riders','autos','socio2','disciplinas'));
     }
 
     public function pistas()

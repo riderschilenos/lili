@@ -409,9 +409,7 @@
                                                                         <div class="ml-4 whitespace-nowrap">
                                                                                 <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                     <div class="text-sm font-medium text-gray-900">
-                                                                                        
-                                                                                        {{$pedido->created_at->format('d-m-Y')}}
-                                    
+                                                                                        Compra de Productos
                                     
                                                                                     </div>
                                                                                     
@@ -419,64 +417,15 @@
                                     
                                                                                 
                                                                                         
-                                                                                                @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                                                                    
-                                                                                                    @foreach ($socios as $item)
-                                                                                                        @if(!is_null($item->direccion))
-                                                                                                            @if($item->id == $pedido->pedidoable_id)
-                                                                                                                {{$item->direccion->comuna.", ".$item->direccion->region}} 
-                                                                                                            @endif
-                                                                                                        @endif
-                                                                                                    @endforeach
-                                                                                                @endif
-                                    
-                                                                                                @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                                                    @foreach ($invitados as $invitado)
-                                                                                                        
-                                                                                                            @if($invitado->id == $pedido->pedidoable_id)
-                                                                                                            
-                                                                                                                @if(!is_null($invitado->direccion))
-                                                                                                                    {{$invitado->direccion->comuna.", ".$invitado->direccion->region}}
-                                                                                                                @else
-                                                                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                                                                        FALTA DIRECCIÓN DE DESPACHO
-                                                                                                                    </span>
-                                                                                                                @endif
-                                                                                                            
-                                                                                                            @endif
-                                                                                                        
-                                                                                                    @endforeach
-                                                                                                @endif
-                                                                                            <br>
-                                                                                            @switch($pedido->transportista->id)
-                                                                                                @case(1)
-                                                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                                                        {{$pedido->transportista->name}}
-                                                                                                    </span>
-                                                                                                    @break
-                                                                                                @case(2)
-                                                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                                                                                        {{$pedido->transportista->name}}
-                                                                                                    </span>
-                                                                                                    @break
-                                                                                                    @case(3)
-                                                                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                                                                                        {{$pedido->transportista->name}}
-                                                                                                    </span>
-                                                                                                    @break
                                                                                                 
-                                                                                                @default
-                                                                                                    
-                                                                                            @endswitch
+                                                                                        {{$pedido->created_at->format('d-m-Y')}}
+                                    
+                                                                                            <br>
+                                                                                          
                                                                                     </div>
                                                                                 </a>
                                                                         </div>
-                                                                            <div class="ml-auto whitespace-nowrap">
-                                                                                <a href="{{route('pedido.seguimiento',$pedido)}}">
-                                                                                    <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
-                                                                                
-                                                                                </a>
-                                                                            </div>
+                                                                          
                                                                     </div>
                                                                 </td>
                                     
@@ -488,8 +437,12 @@
                                                             
                                                                 
                                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
-                                                                    <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
+                                                                    <div class="whitespace-nowrap">
+                                                                        <a href="{{route('pedido.seguimiento',$pedido)}}">
+                                                                            <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
+                                                                        
+                                                                        </a>
+                                                                    </div>
                                                                 </td>
                                     
                                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

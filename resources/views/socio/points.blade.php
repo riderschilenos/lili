@@ -500,12 +500,6 @@
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="ml-auto whitespace-nowrap">
                                                         <div class="text-sm text-gray-900 ml-auto text-center mb-3">100 Pts</div>
-                                                    
-                                                
-                                                
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                            Registro
-                                                        </span>
                                                 
                                                     </div>
                                                   

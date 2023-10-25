@@ -266,12 +266,12 @@
                                            <thead class="bg-gray-50">
                                            <tr>
                                                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500">
-                                               Cliente / Subtotal
+                                              Detalle
                                                </th>
                                             
                                             
                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                               Fecha
+                                               Puntos
                                                </th>
                                                <th class="relative px-6 py-3">
                                                <span class="sr-only">Edit</span>
@@ -335,13 +335,7 @@
                                                                              </div>
                                                                          </a>
                                                                    </div>
-                                                                     <div class="ml-auto whitespace-nowrap">
-                                                                         <a href="{{route('pedido.seguimiento',$pedido)}}">
-                                                                             <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
-                                                                            
-                                                                         </a>
-                                                                        
-                                                                     </div>
+                                                                     
                                                                </div>
                                                          </td>
                              
@@ -354,8 +348,13 @@
                                                         
                                                          
                                                          <td class="px-6 py-4 whitespace-nowrap">
-                                                             <div class="text-sm text-gray-500">{{$dias[date('N', strtotime($pedido->created_at))-1]}}</div>
-                                                             <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
+                                                           
+                                                                <a href="{{route('pedido.seguimiento',$pedido)}}">
+                                                                    <div class="text-sm text-gray-900 ml-auto text-center mb-3">{{number_format($subtotal*0.01)}} Pts</div>
+                                                                   
+                                                                </a>
+                                                               
+                                                            
                                                          </td>
                              
                                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

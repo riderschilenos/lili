@@ -1,4 +1,4 @@
-<div>
+<div class="mb-6 pb-6">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <div x-data="setup()">
     <ul class="flex justify-center items-center my-4">

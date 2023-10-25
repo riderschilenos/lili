@@ -481,28 +481,7 @@
                                                                                 <a href="{{route('pedido.seguimiento',$pedido)}}">
                                                                                     <div class="text-sm font-medium text-gray-900">
                                                                                         
-                                                                                            @if($pedido->pedidoable_type=='App\Models\Socio')
-                                                                                                @foreach ($socios as $item)
-                                                                                                        
-                                                                                                        @if($item->id == $pedido->pedidoable_id)
-                                                                                                            <a href="{{route('pedido.seguimiento',$pedido)}}">
-                                                                                                                {{$item->user->name}}
-                                                                                                           
-                                                                                                        
-                                                                                                        @endif
-                                                                                                @endforeach
-                                                                                            @endif
-                                                                                            @if($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                                                @foreach ($invitados as $invitado)
-                                                                                                        
-                                                                                                        @if($invitado->id == $pedido->pedidoable_id)
-                                                                                                    
-                                                                                                            {{$invitado->name}} 
-                                                                                                         
-                                                                                                    
-                                                                                                        @endif
-                                                                                                @endforeach
-                                                                                            @endif
+                                                                                        {{$pedido->created_at->format('d-m-Y')}}
                                     
                                     
                                                                                     </div>

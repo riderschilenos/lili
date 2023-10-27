@@ -343,7 +343,7 @@
                         @foreach ($inscripciones->reverse() as $inscripcion)
                             @if ($inscripcion->ticket->ticketable_type=='App\Models\Socio')
 
-                                @if ($evento->inscritos->contains($inscripcion->ticket->evento->user->id))
+                               
                                     @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status==3)
                                         <tr>
                                         
@@ -443,7 +443,7 @@
                                         </tr>
                                     @endif
 
-                                @endif
+                                
                             @else
                                 @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status==3)
                                     <tr>
@@ -476,7 +476,7 @@
                                                                     $invitado=null;
                                                                 }
                                                             @endphp    
-                                                                @if ($inscripcion->ticket->user)
+                                                                @if ($invitado)
                                                                     
                                                             
                                                                     {{$invitado->name}}<br>

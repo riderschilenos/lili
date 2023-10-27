@@ -215,7 +215,14 @@
                       <div class="flex flex-col">
                         <span class="">Nombre</span>
                         @if ($ticket->ticketable_type=='App\Models\Socio')
-                            <div class="font-semibold">{{$ticket->user->name}}</div>
+                          @if ($ticket->user->socio)
+                           <div class="font-semibold">{{$ticket->user->socio->name}}</div>  
+                          @else
+
+                             <div class="font-semibold">{{$ticket->user->name}}</div>  
+                          @endif
+                             
+
                         @else
                             @foreach ($invitados as $item)
                                 @if ($item->id==$ticket->ticketable_id)

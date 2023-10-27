@@ -356,11 +356,11 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-10 w-10">
+                                                    <div class="hidden flex-shrink-0 h-10 w-10">
                                                 
-                                                    {{-- 
+                                                    
                                                             <img class="h-11 w-11 object-cover object-center rounded-full" src="" alt="">
-                                                    comment --}}
+                                                    
                                                     </div>
                                                     <div class="ml-4">
                                                         <a href="{{route('ticket.historial.view',$inscripcion->ticket->user)}}">

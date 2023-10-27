@@ -398,7 +398,7 @@
                                                             @if ($inscripcion->ticket->status<=2)
                                                                 @if ($inscripcion->ticket->status==1)
                                                                     
-                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (CERRADO)</a>
+                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
                                                                     
                                                                 @else
                                                                     @break
@@ -408,10 +408,10 @@
                                                             @else
                                                                 @if ($inscripcion->ticket->status==3)
                                                                     @if ($inscripcion->estado==4)
-                                                                        <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                        <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}} PAGADO</a>
                                                                     
                                                                     @else
-                                                                        <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                        <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}} PAGADO</a>
                                                                     
                                                                     @endif
 
@@ -509,7 +509,7 @@
                                                         @if ($inscripcion->ticket->status<=2)
                                                             @if ($inscripcion->ticket->status==1)
                                                                 
-                                                                <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (CERRADO)</a>
+                                                                <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
                                                                 
                                                             @else
                                                                 
@@ -522,7 +522,7 @@
                                                                     <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
                                                                 
                                                                 @else
-                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}}</a>
+                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$inscripcion->ticket->id}} PAGADO</a>
                                                                 
                                                                 @endif
 

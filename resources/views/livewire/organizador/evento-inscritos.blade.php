@@ -67,7 +67,7 @@
                                                             <div class="ml-4">
                                                             <a href="{{route('ticket.historial.view',$sponsor->user)}}">
                                                                 <div class="text-sm font-medium text-gray-900">
-                                                                    {{$sponsor->name}}<br>
+                                                                    {{$sponsor->name.' '.$sponsor->last_name}}<br>
                                                                     {{$sponsor->user->email}}<br>
                                                                 
                                                                         @if ($sponsor->fono)

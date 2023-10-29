@@ -33,7 +33,17 @@ class EventoInscritos extends Component
     }
 
     public function render()
-    {   $tickets=Ticket::where('evento_id',$this->evento->id)->get();
+    {   
+        $tickets =   $this->evento->tickets()
+                        ->where('status', '>=', 3)
+                        ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
+                        ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
+                        ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
+                        ->orderBy('tickets.ticketable_type', 'desc') // Ordenar por ticketable_type en orden descendente
+                        ->orderBy('categorias.name', 'asc') // Luego, ordenar por el nombre de la categoría en orden ascendente
+                        ->select('tickets.*') // Seleccionar todas las columnas de la tabla 'tickets'
+                        ->get();
+                        
         $socios=Socio::all();
         $invitados=Invitado::all();
         $sponsors = $this->evento->inscritos()->where('name','LIKE','%'. $this->search .'%')->get();

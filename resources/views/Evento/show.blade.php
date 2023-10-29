@@ -219,13 +219,17 @@
                                                                         
                                                                     </div>
                                                                     <div class="ml-4">
-                                                                        <div class="text-sm font-medium text-gray-900">
+                                                                        <div class="text-sm font-medium text-gray-900 text-left">
                                                                             
                                                                            
                                                                                 @if ($item->user->socio)
                                                                                     <a href="{{route('socio.show', $item->user->socio)}}">
                                                                             
-                                                                                        {{ Str::limit($item->user->name, 18) }}
+                                                                                        {{ Str::limit($item->user->name, 18) }}<br>
+                                                                                        <span class="px-2 mt-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                                                           Ver Perfil Rider
+                                                                                        </span>
+
                                                                                     </a>
                                                                                 @else
                                                                                         {{ Str::limit($item->user->name, 18) }}

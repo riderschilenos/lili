@@ -288,7 +288,7 @@ class EventoController extends Controller
           
         $fech = Fecha::where('evento_id',$evento->id)->first();
 
-        $tickets = $evento->tickets()->where('status','>=',3)->get();
+        $tickets = $evento->tickets()->where('status', '>=', 3)->orderBy('ticketable_type', 'desc')->get();
 
         $invitados=Invitado::all();
 

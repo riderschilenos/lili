@@ -11,6 +11,7 @@ use App\Models\Vendedor;
 use Illuminate\Http\Request;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Http;
 
 class GastoController extends Controller
 {
@@ -87,8 +88,53 @@ class GastoController extends Controller
                 $pedido->status = 8;
                 $pedido->save();
             }
+            $user=User::find($request->user_id);
+            try {
+                $token = env('WS_TOKEN');
+                $phoneid= env('WS_PHONEID');
+                $version='v16.0';
+                $url="https://riderschilenos.cl/";
+                $gpload=[
+                    'messaging_product' => 'whatsapp',
+                    "preview_url"=> false,
+                    'to'=>'56963176726',
+                    
+                    'type'=>'template',
+                    'template'=>[
+                        'name'=>'comision_solicitada',
+                        'language'=>[
+                            'code'=>'es'],
+                        'components'=>[ 
+                            [
+                                'type'=>'body',
+                                'parameters'=>[
+                                    [   //cliente
+                                        'type'=>'text',
+                                        'text'=> $user->name
+                                    ],
+                                    [   //Cantidad
+                                        'type'=>'text',
+                                        'text'=> number_format($request->cantidad)
+                                    ],
+                                    
+                                ]
+                            ]
+                        ]
+                    ]
+                
+                ];
+                
+                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$gpload)->throw()->json();
+                
+                return redirect()->route('vendedor.pedidos.comisiones');
 
-            return redirect()->route('vendedor.pedidos.comisiones');
+            } catch (\Throwable $th) {
+
+                return redirect()->route('vendedor.pedidos.comisiones');
+            }
+
+           
+
         }
         else{
             return redirect()->route('admin.gastos.create');

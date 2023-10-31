@@ -481,7 +481,7 @@
                                                                                     $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                                                 @endphp
                                                                                 
-                                                                        No hay Entranamientos Anunciados
+                                                                            Evento Realizado
                                                                                     
                                                                             </div>
                                                                         </div>

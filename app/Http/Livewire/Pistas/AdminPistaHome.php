@@ -18,8 +18,8 @@ class AdminPistaHome extends Component
     public $search, $user_id, $pistas, $pistastotal ,$pista;
 
     public function render()
-    {   $this->pistas=Evento::where('user_id', auth()->user()->id)->orderBy('updated_at', 'desc')->get();
-        $this->pistastotal=Evento::orderBy('created_at', 'desc')->get();
+    {   $this->pistas=Evento::where('user_id', auth()->user()->id)->where('status','<',2)->orderBy('updated_at', 'desc')->get();
+        $this->pistastotal=Evento::where('status','<',2)->orderBy('created_at', 'desc')->get();
        // $this->pista=Evento::where('type','pista')->where('user_id',auth()->user()->id)->first();
         $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
                     ->select('inscripcions.*','tickets.evento_id')

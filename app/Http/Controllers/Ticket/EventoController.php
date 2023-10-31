@@ -293,9 +293,8 @@ class EventoController extends Controller
                         ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
                         ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
                         ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
-                        ->orderBy('tickets.ticketable_type', 'desc') // Luego, ordenar por ticketable_type en orden descendente
-                        ->orderBy('categorias.name', 'asc') // Finalmente, ordenar por el nombre de la categoría en orden ascendente
-                        ->orderBy('tickets.id', 'desc') // Ordenar por ID en orden descendente
+                        ->orderBy('tickets.ticketable_type', 'desc') // Ordenar por ticketable_type en orden descendente
+                        ->orderBy('categorias.name', 'asc') // Luego, ordenar por el nombre de la categoría en orden ascendente
                         ->select('tickets.*') // Seleccionar todas las columnas de la tabla 'tickets'
                         ->get();
 

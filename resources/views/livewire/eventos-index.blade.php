@@ -266,7 +266,7 @@
                                                                                 </div>
                                                                             
                                                                                 @else
-                                                                                    <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                                                                    <p class="text-base leading-none dark:text-white font-bold"> {{$fecha->name}}</p>
                                                                                 @endif
                                                                             </a>
                                                                         </div>
@@ -279,12 +279,12 @@
                                                             @endforeach
                                                                     @if ($n==0)
                                                                         <div class="text-center">
-                                                                            <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2 rounded-lg">
+                                                                            <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2 rounded-lg mx-auto text-center font-bold">
                                                                                 @php
                                                                                     $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                                                 @endphp
                                                                                 
-                                                                            <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                                                            No hay Entranamientos Anunciados
                                                                                     
                                                                             </div>
                                                                         </div>
@@ -463,7 +463,7 @@
                                                                                 </div>
                                                                             
                                                                                 @else
-                                                                                    <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                                                                    <p class="text-base leading-none dark:text-white font-bold"> {{$fecha->name}}</p>
                                                                                 @endif
                                                                             </a>
                                                                         </div>
@@ -476,12 +476,12 @@
                                                             @endforeach
                                                                     @if ($n==0)
                                                                         <div class="text-center">
-                                                                            <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2 rounded-lg">
+                                                                            <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2 rounded-lg mx-auto text-center font-bold">
                                                                                 @php
                                                                                     $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                                                 @endphp
                                                                                 
-                                                                            <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
+                                                                        No hay Entranamientos Anunciados
                                                                                     
                                                                             </div>
                                                                         </div>

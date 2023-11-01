@@ -1,4 +1,17 @@
 <x-app-layout>
+
+    
+    <x-slot name="ft">
+        @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
+            
+            <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg">
+           
+        @else
+            <link rel="shortcut icon" href="{{ $socio->user->profile_photo_url }}">
+        @endif
+       
+    </x-slot>
+
     <x-slot name="tl">
             
         <title>{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}</title>

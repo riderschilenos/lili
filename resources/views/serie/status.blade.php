@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="tl">
             
-        <title>Videos RidersChilenos</title>
+        <title>{{$serie->titulo}}</title>
         
         
     </x-slot>

@@ -50,7 +50,7 @@ Route::post('content/{serie}/enrolled', [SerieController::class, 'enrolled'])->m
 
 Route::post('evento/{evento}/enrolled', [EventoController::class, 'enrolled'])->middleware('auth')->name('evento.enrolled');
 
-Route::get('serie-status/{serie}', SerieStatus::class)->name('series.status')->middleware('auth');
+Route::get('serie-status/{serie}',[SerieController::class,'status'])->name('series.status')->middleware('auth');
 
 Route::get('evento-view/{user}', EventoView::class)->name('user.view')->middleware('auth');
 

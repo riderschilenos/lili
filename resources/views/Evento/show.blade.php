@@ -1,9 +1,13 @@
-<x-evento-layout :evento="$evento">
+<x-evento-layout>
     
     <x-slot name="tl">
             
         <title>{{$evento->titulo}}</title>
-        
+        @isset($evento->image)
+            <link rel="shortcut icon" href="{{Storage::url($evento->image->url)}}">
+        @else
+            <link rel="shortcut icon" href="{{asset('img/logo.png')}}">
+        @endisset
         
     </x-slot>
 

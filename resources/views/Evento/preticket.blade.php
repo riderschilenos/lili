@@ -2,8 +2,11 @@
     <x-slot name="tl">
             
         <title>Checkout {{$evento->titulo}}</title>
-        
-        
+        @isset($evento->image)
+            <link rel="shortcut icon" href="{{Storage::url($evento->image->url)}}">
+        @else
+            <link rel="shortcut icon" href="{{asset('img/logo.png')}}">
+        @endisset
     </x-slot>
     
    

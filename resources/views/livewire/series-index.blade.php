@@ -12,7 +12,7 @@
                     <div>
                         <button class="bg-white shadow h-12 px-4 rounded-lg text-gray-700 mr-4" x-on:click="open = true">
                             <i class="fas fa-biking text-sm mr-2"></i>
-                            Filmmaker
+                            Subido por:
                             <i class="fas fa-angle-down text-sm ml-2"></i>
                         </button>
                     </div>

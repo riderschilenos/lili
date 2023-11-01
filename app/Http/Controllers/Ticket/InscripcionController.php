@@ -63,7 +63,7 @@ class InscripcionController extends Controller
                                 
         $ticket= Ticket::find($request->ticket_id);
 
-        return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+        return redirect(route('payment.checkout.ticket',$ticket).'/#pagando');
 
     }
 
@@ -187,7 +187,7 @@ class InscripcionController extends Controller
             $ticket->save();
 
         //return redirect()->route('checkout.evento',$evento);
-        return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+        return redirect(route('payment.checkout.ticket',$ticket).'/#pagando');
      
     }
 }

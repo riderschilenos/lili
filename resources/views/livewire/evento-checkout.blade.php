@@ -719,7 +719,7 @@
                
     
                 
-    
+            <section id="pagando">
                 <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
                     <div class="flex justify-between">
                             <div class="flex items-center">
@@ -783,7 +783,7 @@
                         
                     @endif
                 </div>
-               
+            </section>
     
                 <div class="flex justify-center mb-2">
                     <a href="{{route('home')}}">

@@ -511,50 +511,50 @@
          
         </div>
         @if ($ticket->inscripcion)
-        <section>
-            <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
-                <div class="flex items-center justify-between px-8">
-                    @if ($evento->type=='pista')
-                    <p class="text-base leading-none text-gray-800 dark:text-white">Entradas</p>
-                    @else
-                        <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
-                    @endif
-                
-                <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
+    <section id="pagando">
+                    <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
+                        <div class="flex items-center justify-between px-8">
+                            @if ($evento->type=='pista')
+                            <p class="text-base leading-none text-gray-800 dark:text-white">Entradas</p>
+                            @else
+                                <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
+                            @endif
+                        
+                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
+                        </div>
+                    </div>
+                <div>
+                    <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
+                    <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
+                    <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
+                    </div>
                 </div>
-            </div>
-        <div>
-            <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
-              <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
-              <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
-            </div>
-        </div>
 
-        <div class="cho-container flex justify-center mt-2 mb-4">
-            <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
-        </div>
+                <div class="cho-container flex justify-center mt-2 mb-4">
+                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                </div>
 
-        @can('Super admin')
-            <div>
-                <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
-                    @csrf
-                
-                    <button class="btn btn-primary mt-4" >Agregar Gratis</button>
-                    
-                </form>
+                @can('Super admin')
+                    <div>
+                        <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
+                            @csrf
+                        
+                            <button class="btn btn-primary mt-4" >Agregar Gratis</button>
+                            
+                        </form>
 
-                <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
-                    @csrf
-                
-                    <button class="btn btn-danger mt-4" >Agregar Simulación Pago</button>
-                    
-                </form>
-            </div>
-        @endcan
-      
+                        <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
+                            @csrf
+                        
+                            <button class="btn btn-danger mt-4" >Agregar Simulación Pago</button>
+                            
+                        </form>
+                    </div>
+                @endcan
+            
 
 
-            <hr>
+                    <hr>
 
         <p class="text-sm mt-4">Esta compra esta protegida por todos los protocolos asignados por mercado pago, una vez hecha el pago sera redireccionado hasta su entrada, no la comparta en redes sociales, para más detalles visite nuestros <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
     </section>

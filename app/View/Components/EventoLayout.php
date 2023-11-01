@@ -6,16 +6,13 @@ use Illuminate\View\Component;
 
 class EventoLayout extends Component
 {
-    public $evento;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($evento)
-    {
-        $this->evento = $evento;
-    }
+
 
     /**
      * Get the view / contents that represent the component.

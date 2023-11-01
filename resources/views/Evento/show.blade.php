@@ -1,4 +1,4 @@
-<x-evento-layout :evento="$evento->id">
+<x-evento-layout :evento="$evento">
     
     <x-slot name="tl">
             

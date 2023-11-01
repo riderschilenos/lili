@@ -1,4 +1,4 @@
-<x-evento-layout :evento="$evento->id">
+<x-evento-layout>
     <x-slot name="tl">
             
         <title>Checkout {{$evento->titulo}}</title>

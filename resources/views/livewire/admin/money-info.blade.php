@@ -231,7 +231,7 @@
                 $totalmespago=0;
                 foreach ($pagos_anual as $pagoanu) {
                     
-                    if($pago->created_at->format('n')==$mes){
+                    if($pagoanu->created_at->format('n')==$mes){
                         $totalmespago+=$pagoanu->cantidad;
                     }
                         

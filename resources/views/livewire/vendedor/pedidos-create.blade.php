@@ -13,7 +13,8 @@
     @endif
     <div class="flex justify-center">
         <div class="block">
-            <textarea wire:model="textoPortapapeles" wire:loaded="verificarPortapapeles" class="flex w-full shadow-sm border-2 border-gray-300 bg-white px-5 pr-16 rounded-lg focus:outline-none" required autofocus autocomplete="off"></textarea>
+            <textarea wire:model="textoPortapapeles"  class=" flex w-full shadow-sm  border-2 border-gray-300 bg-white px-5 pr-16 rounded-lg focus:outline-none" required autofocus autocomplete="off"></textarea>
+   
         </div>
     </div>
     <div class="flex justify-center">
@@ -460,20 +461,6 @@
         
         
     @endif
-
-    <script>
-        document.addEventListener('livewire:load', function () {
-            Livewire.on('verificar-portapapeles', function () {
-                // Verificar el portapapeles y establecer el valor del textarea si es necesario.
-                var contenidoPortapapeles = navigator.clipboard.readText().then(function (clipText) {
-                    // Verificar si el portapapeles contiene algo y asignarlo al textarea.
-                    if (clipText) {
-                        document.querySelector('[wire:model="textoPortapapeles"]').value = clipText;
-                    }
-                });
-            });
-        });
-    </script>
 
    
 </div>

@@ -239,12 +239,13 @@
                 }
                 foreach ($suscripcions_anual as $suscripcion) {
                     
-                    if($pago->created_at->format('n')==$mes){
+                    if($suscripcion->created_at->format('n')==$mes){
                         $totalmespagando+=$suscripcion->precio;
                     }
                         
                     
                 }
+                
             $ventas_anual[]=$totalmespagando;
             }
 

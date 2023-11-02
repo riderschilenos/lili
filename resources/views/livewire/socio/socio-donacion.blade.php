@@ -12,7 +12,14 @@
         </div>
         <div>
             <div x-show="open">
-                <input class="mt-2 w-full rounded-lg border border-[#A0ABBB] p-2" type="text" placeholder="${{$valor}}" /></div>
+                <input class="mt-2 w-full rounded-lg border border-[#A0ABBB] p-2" type="text" placeholder="${{$valor}}" />
+                <p class="text-xs text-center mt-1">fono</p>
+                <input class="w-full rounded-lg border border-[#A0ABBB] p-2" type="text" placeholder="+569..." />
+                <a href= "" class="mt-2 btn btn-success btn-block">
+                    Ir a Pagar
+                </a>
             </div>
+        </div>
+
     </div>
 </div>

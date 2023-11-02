@@ -13,7 +13,8 @@
     @endif
     <div class="flex justify-center">
         <div class="block">
-            <textarea wire:model="textoPortapapeles" rows="4" cols="50"></textarea>
+            <input wire:model="textoPortapapeles"  class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" required autofocus autocomplete="off">
+   
         </div>
     </div>
     <div class="flex justify-center">

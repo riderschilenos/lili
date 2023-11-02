@@ -90,6 +90,12 @@ class PedidosCreate extends Component
         $this->search = $this->nombre;
 }
 
+public function verificarPortapapeles()
+{
+    // Aquí puedes agregar JavaScript para verificar el portapapeles y establecer el valor del textarea si es necesario.
+    $this->dispatchBrowserEvent('verificar-portapapeles');
+}
+
 
 
     public function render()

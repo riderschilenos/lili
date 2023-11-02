@@ -1,7 +1,7 @@
 <div>
     <div class="mt-2" x-data="{open: false}">
         <div class="font-semibold text-center text-sm mb-2">¡¡ AUSPICIA A {{Str::limit(strtoupper($socio->name),10)}} AHORA !!</div>
-        <p class="text-center text-xs mb-2">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
+        <p x-on:click="open=!open" class="text-center text-xs mb-2">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
 
         <div class="flex justify-between text-sm">
         <div x-on:click="open=!open" wire:click='updatevalor(1000)'class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>

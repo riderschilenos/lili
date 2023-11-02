@@ -92,7 +92,7 @@ class LoteController extends Controller
         
 
         
-        return redirect()->route('admin.disenos.index');
+        return redirect(route('admin.disenos.index').'/#table');
     }
 
     /**

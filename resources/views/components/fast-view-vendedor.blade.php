@@ -327,7 +327,11 @@
                                                         @if($vehiculo->status==5 || $vehiculo->status==6)
                                                             <div class="text-center p-2 m-2 bg-main-color rounded-xl">
                                                                 <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
-                                                                    <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                                                    @if($vehiculo->image->first())
+                                                                        <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                                                    @else
+                                                                        <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                                                    @endif  
                                                                     <a href="{{route('garage.vehiculo.show', $vehiculo)}}">
                                                                         <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
                                                                     </a>
@@ -337,27 +341,6 @@
                                                     @endforeach
     
                                                 @endif
-                                                {{-- comment 
-                                                
-                                                    <div class="text-center my-2">
-                                                        <img class="h-24 w-34 mx-auto"
-                                                            src="https://www.canyon.com/on/demandware.static/-/Sites-canyon-master/default/dwb5b29ea2/images/full/full_2021_/2021/full_2021_sender-cfr_2251_tm_P5.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Kojstantin</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-26 w-36 mx-auto"
-                                                            src="https://www.motofichas.com/images/phocagallery/Honda/crf250r-2022/02-honda-crf250r-2022-estudio.jpg"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">James</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-26 w-36 mx-auto"
-                                                            src="https://i.ytimg.com/vi/qmfxU0KMBBg/maxresdefault.jpg"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Natie</a>
-                                                    </div>
-                                                --}}
                                             </div>
                                         </div>
                                     </div>

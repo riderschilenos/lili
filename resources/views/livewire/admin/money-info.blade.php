@@ -229,10 +229,10 @@
         $ventas_anual=[];
             foreach ($meses as $mes) {
                 $totalmespago=0;
-                foreach ($pagos_anual as $pago) {
+                foreach ($pagos_anual as $pagoanu) {
                     
                     if($pago->created_at->format('n')==$mes){
-                        $totalmespago+=$pago->cantidad;
+                        $totalmespago+=$pagoanu->cantidad;
                     }
                         
                     

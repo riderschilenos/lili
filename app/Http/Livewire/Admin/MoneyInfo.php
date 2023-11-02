@@ -27,7 +27,7 @@ class MoneyInfo extends Component
         $suscripcions=Suscripcion::all();
         $suscripcions7=Suscripcion::all()->where('created_at', '>=', now()->subDays(7));
         $suscripcions30=Suscripcion::all()->where('created_at', '>=', now()->subDays(29));
-        $suscripcions_anual=Suscripcion::all()->where('created_at', '>=', now()->subDays(325));
+        $suscripcions_anual=Suscripcion::all()->where('created_at', '>=', now()->subDays(330));
         $suscripcions_22anual=Suscripcion::whereYear('created_at', '=', 2022)->get();
         $suscripcions_23anual=Suscripcion::whereYear('created_at', '=', 2023)->get();
 
@@ -35,13 +35,13 @@ class MoneyInfo extends Component
         $gastos=Gasto::all();
         $gastos7=Gasto::all()->where('created_at', '>=', now()->subDays(7));
         $gastos30=Gasto::all()->where('created_at', '>=', now()->subDays(29));
-        $gastos_anual=Gasto::all()->where('created_at', '>=', now()->subDays(325));
+        $gastos_anual=Gasto::all()->where('created_at', '>=', now()->subDays(330));
 
         
         $pagos=Pago::all();
         $pagos7=Pago::all()->where('created_at', '>=', now()->subDays(7));
         $pagos30=Pago::all()->where('created_at', '>=', now()->subDays(29));
-        $pagos_anual=Pago::all()->where('created_at', '>=', now()->subDays(325));
+        $pagos_anual=Pago::all()->where('created_at', '>=', now()->subDays(330));
         $pagos_22anual=Pago::whereYear('created_at', '=', 2022)->get();
         $pagos_23anual=Pago::whereYear('created_at', '=', 2023)->get();
         $vendedors=Vendedor::all();

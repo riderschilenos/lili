@@ -23,7 +23,7 @@
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
                     
         <div x-data="{fullview: false}" >            
-            <div x-show="fullview" x-on:click="fullview=false" class="fixed sm:hidden top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-white">
+            <div x-show="fullview" x-on:click="fullview=false" class="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-white">
                 <div class="flex-shrink-0 flex items-center" x-on:click="fullview=false">
                     @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
                         <img class="w-full mx-4 object-cover"

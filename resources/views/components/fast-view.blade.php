@@ -32,11 +32,11 @@
                     <div x-show="fullview2" x-on:click="fullview2=false" class="fixed sm:hidden top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-white">
                         <div class="flex-shrink-0 flex items-center" x-on:click="fullview2=false">
                             @if (str_contains($socio2->user->profile_photo_url,'https://ui-'))
-                                <img class="w-full mx-4 object-cover"
+                                <img class="w-full mx-4 object-contain"
                                 src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
                                 alt="Rider Chileno">
                             @else
-                                <img class="w-full mx-4 object-cover"
+                                <img class="w-full mx-4 object-contain"
                                 src="{{ $socio2->user->profile_photo_url }}"
                                 alt="{{ $socio2->name." ".$socio2->second_name }} {{ $socio2->last_name }}">
                             @endif

@@ -22,13 +22,6 @@
             <button wire:click="completarDesdePortapapeles">(Autocompletar)</button>
         </div>
     </div>
-    <div class="text-center">
-        <p>Nombres: {{ $nombre }}</p>
-        <p>Apellidos: {{ $apellidos }}</p>
-        <p>RUT: {{ $rut }}</p>
-        <p>Teléfono: {{ $telefono }}</p>
-        <p>Correo electrónico: {{ $email }}</p>
-    </div>
         
     <div class="px-6 py-4">
         <input wire:keydown="limpiar_page" wire:model="search"  class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Buscar..." required autofocus autocomplete="off">
@@ -382,7 +375,44 @@
                 {!! Form::hidden('invitado_status','creado') !!}
 
                 <div wire:ignore>
-                    @include('vendedor.pedidos.partials.form')
+                    <div class="mb-4">
+                        {!! Form::label('name', 'Nombre') !!}
+                        {!! Form::text('name', $nombre, ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+
+                        @error('name')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+                    
+                    <div class="mb-4">
+                        {!! Form::label('rut', 'Rut') !!}
+                        {!! Form::text('rut', $rut , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':'')]) !!}
+                    
+                        @error('rut')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+                    
+                    <div class="mb-4">
+                        {!! Form::label('fono', 'Fono') !!}
+                        {!! Form::text('fono', $telefono , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
+                    
+                        @error('fono')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+                    
+                    <div class="mb-4">
+                        {!! Form::label('email', 'Email') !!}
+                        {!! Form::text('email', $email , ['class' => 'form-input block w-full mt-1'.($errors->has('email')?' border-red-600':'')]) !!}
+                    
+                        @error('email')
+                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                        @enderror
+                    </div>
+                    
+                    
+                    
                 </div>
 
                         <div class="grid grid-cols-2 gap-4">

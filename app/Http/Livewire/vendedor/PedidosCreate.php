@@ -39,7 +39,7 @@ class PedidosCreate extends Component
     preg_match($patternTelefono, $this->textoPortapapeles, $matchesTelefono);
     preg_match($patternEmail, $this->textoPortapapeles, $matchesEmail);
 
-    $this->nombre = $matchesNombres[1] ?? '';
+    $this->nombre = $matchesNombres[1]?? '';
     $this->apellidos = $matchesApellidos[1] ?? '';
     $this->rut = $matchesRut[1] ?? '';
     $this->telefono = $matchesTelefono[1] ?? '';
@@ -74,9 +74,9 @@ class PedidosCreate extends Component
         } else {
             $telefonoTemporal = '';
         }
-        
-        $this->nombre = empty($this->nombre) ? $nombreTemporal : $this->nombre;
+
         $this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
+        $this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
         $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
         
         if (preg_match($patternRut2, $this->textoPortapapeles, $matchesRut2)) {
@@ -87,7 +87,7 @@ class PedidosCreate extends Component
             $this->email = $matchesEmail2[0];
         }
                 
-        $this->search = $this->nombre . ' ' . $this->apellidos;
+        $this->search = $this->nombre;
 }
 
 

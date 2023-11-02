@@ -228,11 +228,11 @@
         
         $ventas_anual=[];
             foreach ($meses as $mes) {
-                $totalmespago=0;
+                $totalmespagando=0;
                 foreach ($pagos_anual as $pagoanu) {
                     
                     if($pagoanu->created_at->format('n')==$mes){
-                        $totalmespago+=$pagoanu->cantidad;
+                        $totalmespagando+=$pagoanu->cantidad;
                     }
                         
                     
@@ -240,12 +240,12 @@
                 foreach ($suscripcions_anual as $suscripcion) {
                     
                     if($pago->created_at->format('n')==$mes){
-                        $totalmespago+=$suscripcion->precio;
+                        $totalmespagando+=$suscripcion->precio;
                     }
                         
                     
                 }
-            $ventas_anual[]=$totalmespago;
+            $ventas_anual[]=$totalmespagando;
             }
 
         $gast_anual=[];
@@ -346,7 +346,7 @@
                     </div>
                     <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
                         <h1 class="text-center text-sm">{{$meses[date('m', strtotime($now))-1]}}</h1>
-                        <h1 class="mx-1">${{number_format($totalmespago)}}</h1>
+                        <h1 class="mx-1">${{number_format($totalmespagando)}}</h1>
                     </div>
                     <div class="mt-[14px] w-full mx-2 cursor-pointer bg-white  rounded-full border border-[#E7EAEE] px-3 text-[#191D23]">
                         <h1 class="text-center text-sm">2023</h1>

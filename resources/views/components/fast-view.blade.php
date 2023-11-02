@@ -222,20 +222,10 @@
                                             
                                         
                                             <div class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded-lg shadow-sm ">
-                                                <div class="mt-2">
-                                                    <div class="font-semibold text-center text-sm mb-2">¡¡ AUSPICIA A {{Str::limit(strtoupper($socio2->name),10)}} AHORA !!</div>
-                                                    <p class="text-center text-xs mb-2">Al realizar tu colaboración monetaria, apareceras en el perfil del rider como un auspiciador, manteniendo la cantidad donada de forma anonima.</p>
-                                            
-                                                    <div class="flex justify-between text-sm">
-                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$1.000</div>
-                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-green-700 p-3 text-[#191D23]">$5.000</div>
-                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$10.000</div>
-                                                    <div class="mt-[14px] whitespace-nowrap cursor-pointer bg-white rounded-[4px] border border-[#E7EAEE] p-3 text-[#191D23]">$20.000</div>
-                                                    
-                                                    </div>
-                                                    <div><input class="mt-2 w-full rounded-lg border border-[#A0ABBB] p-2 hidden" value="$1.000" type="text" placeholder="$1.000" /></div>
-                                                
-                                                </div>
+                                               
+
+                                                @livewire('socio.socio-donacion', ['socio' => $socio2], key($socio2->id))
+                                          
                                             
                                                 <div class="mt-6 hidden">
                                                     <div class="flex justify-between">

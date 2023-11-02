@@ -1,4 +1,5 @@
 <x-app-layout>
+    
     <x-slot name="tl">
             
         <title>{{$serie->titulo}}</title>

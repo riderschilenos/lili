@@ -2,10 +2,10 @@
     <div class="max-w-5xl mx-auto">
 
 
-        <ol class="relative border-l border-gray-200 dark:border-gray-700">
+        <ol class="border-l border-gray-200 dark:border-gray-700">
             <li class=" ml-2">
                 <div
-                    class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                    class="w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
                 </div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">Febrero 2023</time>
                 <div class="flex items-center">
@@ -30,7 +30,7 @@
             </li>
             <li class=" ml-2">
                 <div
-                    class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                    class="w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
                 </div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">Febrero 2023</time>
                 <div class="flex items-center">
@@ -54,7 +54,7 @@
               
             </li><li class=" ml-2">
                 <div
-                    class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+                    class="w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
                 </div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">Febrero 2023</time>
                 <div class="flex items-center">

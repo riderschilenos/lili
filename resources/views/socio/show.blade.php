@@ -22,7 +22,22 @@
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
                     
-                
+        <div x-data="{fullview: false}" >            
+            <div x-show="fullview" x-on:click="fullview=false" class="fixed sm:hidden top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-white">
+                <div class="flex-shrink-0 flex items-center" x-on:click="fullview=false">
+                    @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
+                        <img class="w-full mx-4 object-cover"
+                        src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
+                        alt="Rider Chileno">
+                    @else
+                        <img class="w-full mx-4 object-cover"
+                        src="{{ $socio->user->profile_photo_url }}"
+                        alt="{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}">
+                    @endif
+                </div>
+            </div>
+            
+
             @php
                 $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
             @endphp
@@ -119,7 +134,7 @@
 
                                 <div class="flex">
                                     <div class="content-center items-center">
-                                        <div class="image overflow-hidden">
+                                        <div class="image overflow-hidden" x-on:click="fullview=true">
                                             @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
                                                 <img class="h-44 w-40 mx-auto object-cover"
                                                 src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
@@ -714,7 +729,7 @@
                     </div>
                 </div>
             </div>
-
+        </div>
     </x-fast-view>
 
     <x-slot name="js">

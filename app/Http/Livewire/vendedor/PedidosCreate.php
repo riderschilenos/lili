@@ -83,7 +83,7 @@ class PedidosCreate extends Component
             }
             
             if (preg_match($patternApellidos2, $this->textoPortapapeles, $matchesApellidos2)) {
-                $this->apellidos = $matchesApellidos2[1];
+                $this->apellidos = $matchesApellidos2[0];
             } else {
                 //$apellidosTemporal = '';
             }

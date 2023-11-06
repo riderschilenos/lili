@@ -61,7 +61,7 @@
                                                 </div>
                                                 
                                                 <div class="ml-4">
-                                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                        <a target="_blank" href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                                         <div class="text-sm font-medium text-gray-900 whitespace-nowrap">
                                                         
                                                             @if($pedido->pedidoable_type=='App\Models\Socio')

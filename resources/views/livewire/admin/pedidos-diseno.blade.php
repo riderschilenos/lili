@@ -261,7 +261,7 @@
                                                     @else
                                                         <td class="whitespace-nowrap px-2 py-4 @if($orden->status==1)bg-yellow-200 @elseif($orden->status==3) bg-green-400 @else bg-green-200 @endif ">
                                                             @if ($orden->producto->id==37)
-                                                                {{$orden->producto->name}}<br>
+                                                                {{$orden->producto->name}}<br><br>
                                                                 @foreach ($socios as $socio)
                                                                         @if($socio->id == $pedido->pedidoable_id)
                                                                             <a class="btn btn-danger mt-2" target="_blank" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>

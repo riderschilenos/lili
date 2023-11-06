@@ -92,8 +92,10 @@ class PedidosCreate extends Component
             if (preg_match($patternEmail2, $this->textoPortapapeles, $matchesEmail2)) {
                 $this->email = $matchesEmail2[0];
             }
-                    
-            $this->search = $this->nombre;
+            if ($this->nombre) {
+                $this->search = $this->nombre;
+            }
+           
     }
 
 

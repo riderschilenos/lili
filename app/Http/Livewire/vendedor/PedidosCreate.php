@@ -93,11 +93,11 @@ class PedidosCreate extends Component
             } else {
                 $telefonoTemporal = '';
             }
-/*
+
             $this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
             $this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
             $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
-            */
+            
             if (preg_match($patternRut2, $this->textoPortapapeles, $matchesRut2)) {
                 $this->rut = $matchesRut2[0];
             }

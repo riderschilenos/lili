@@ -19,7 +19,10 @@
     </div>
     <div class="flex justify-center">
         <div class="block">
-            <button wire:click="completarDesdePortapapeles">(Autocompletar)</button>
+            @if ($textoPortapapeles)
+                <button wire:click="completarDesdePortapapeles">(Autocompletar)</button>
+            @endif
+           
         </div>
     </div>
         

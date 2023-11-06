@@ -64,6 +64,7 @@ class PedidosCreate extends Component
         } else {
             # code...
         }
+
         
             // Expresiones regulares para extraer información del segundo conjunto de datos
             $patternNombre2 = '/([A-Z][a-z]+ [A-Z][a-z]+)/';
@@ -77,26 +78,26 @@ class PedidosCreate extends Component
             $matchesTelefono2 = [];
             
             if (preg_match($patternNombre2, $this->textoPortapapeles, $matchesNombre2)) {
-                $this->nombre = $matchesNombre2[0];
+                $nombreTemporal = $matchesNombre2[0];
             } else {
                 $nombreTemporal = '';
             }
             
             if (preg_match($patternApellidos2, $this->textoPortapapeles, $matchesApellidos2)) {
-                $this->apellidos = $matchesApellidos2[1];
+                $apellidosTemporal = $matchesApellidos2[1];
             } else {
-                //$apellidosTemporal = '';
+                $apellidosTemporal = '';
             }
             
             if (preg_match($patternTelefono2, $this->textoPortapapeles, $matchesTelefono2)) {
-                $this->telefono = $matchesTelefono2[0];
+                $telefonoTemporal = $matchesTelefono2[0];
             } else {
-               // $telefonoTemporal = '';
+                $telefonoTemporal = '';
             }
 
-            //$this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
-            //$this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
-           // $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
+            $this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
+            $this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
+            $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
             
             if (preg_match($patternRut2, $this->textoPortapapeles, $matchesRut2)) {
                 $this->rut = $matchesRut2[0];
@@ -106,9 +107,7 @@ class PedidosCreate extends Component
                 $this->email = $matchesEmail2[0];
             }
             if ($this->nombre) {
-                $this->search = $this->nombre.' '.$this->apellidos;
-            }else{
-                $this->search = 'Estructura de Texto no Coincide';
+                $this->search = $this->nombre;
             }
            
     }

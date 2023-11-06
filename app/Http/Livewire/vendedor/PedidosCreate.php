@@ -67,7 +67,7 @@ class PedidosCreate extends Component
         
             // Expresiones regulares para extraer información del segundo conjunto de datos
             $patternNombre2 = '/([A-Z][a-z]+ [A-Z][a-z]+)/';
-            $patternApellidos2 = '/([A-Z][a-z]+ [A-Z][a-z]+)/'; // Expresión regular para capturar apellidos de dos palabras
+            $patternApellidos2 = '/\n([A-Z][a-z]+ [A-Z][a-z ]+)\n/'; // Expresión regular para capturar apellidos de dos palabras
             $patternRut2 = '/\b(\d{1,2}\.\d{3}\.\d{3}-[\dKk]|\d{7,8}-[\dKk])\b/'; // Modificamos la expresión regular del RUT
             $patternTelefono2 = '/\b(\+?569\d{8}|9\d{8}|\d{8})\b/';   // Expresión regular para números de teléfono en ambas estructuras
             $patternEmail2 = '/\b([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})\b/';
@@ -78,15 +78,14 @@ class PedidosCreate extends Component
             
             if (preg_match($patternNombre2, $this->textoPortapapeles, $matchesNombre2)) {
                 $this->nombre = $matchesNombre2[0];
-                $apellidosTemporal = $matchesNombre2[1];
             } else {
-                $nombreTemporal = '';
+                //$nombreTemporal = '';
             }
             
             if (preg_match($patternApellidos2, $this->textoPortapapeles, $matchesApellidos2)) {
-                $apellidosTemporal = $matchesNombre2[1];
+                $this->apellidos = $matchesApellidos2[1];
             } else {
-                $apellidosTemporal = '';
+                //$this->apellidos = '';
             }
             
             if (preg_match($patternTelefono2, $this->textoPortapapeles, $matchesTelefono2)) {
@@ -95,7 +94,7 @@ class PedidosCreate extends Component
                // $telefonoTemporal = '';
             }
 
-            $this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
+            //$this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
             //$this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
            // $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
             

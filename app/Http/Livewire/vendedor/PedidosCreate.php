@@ -77,7 +77,7 @@ class PedidosCreate extends Component
             $matchesTelefono2 = [];
             
             if (preg_match($patternNombre2, $this->textoPortapapeles, $matchesNombre2)) {
-                $this->nombre = $matchesNombre2[0];
+                $this->nombre = $matchesNombre2[1];
             } else {
                 $nombreTemporal = '';
             }

@@ -36,7 +36,7 @@ class PedidosCreate extends Component
         $patternNombres = '/NOMBRES: ([A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+(?: [A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+)?)\\s/';
         $patternApellidos = '/APELLIDOS: ?([A-Za-zÉéÍíÑñÓóÚúÁáÜü-]+(?: [A-Za-zÉéÍíÑñÓóÚúÁáÜü-]+)*)(?:\s|$)/';
         $patternRut = '/RUT: (\d{1,2}\.\d{3}\.\d{3}-[\dKk]|\d{7,8}-[\dKk])/'; // Modificamos la expresión regular del RUT
-        $patternTelefono = '/FONO: (\+?569\d{8}|569\d{8}|9\s\d{7,8}|9\d{7,8})/';
+        $patternTelefono = '/FONO: (\+?569\d{8}|569\d{8}|9\s\d{8}|9\d{8})(?![\d-])/';
         $patternEmail = '/MAIL: ([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/';
 
         if (preg_match($patternNombres, $this->textoPortapapeles, $matchesNombres)) {
@@ -69,7 +69,7 @@ class PedidosCreate extends Component
             $patternNombre2 = '/([A-Z][a-z]+ [A-Z][a-z]+)/';
             $patternApellidos2 = '/\n([A-Z][a-z]+ [A-Z][a-z ]+)\n/'; // Expresión regular para capturar apellidos de dos palabras
             $patternRut2 = '/\b(\d{1,2}\.\d{3}\.\d{3}-[\dKk]|\d{7,8}-[\dKk])\b/'; // Modificamos la expresión regular del RUT
-            $patternTelefono2 = '/\b(\+?569\d{8}|569\d{8}|9\s\d{7,8}|9\d{7,8})\b/';   // Expresión regular para números de teléfono en ambas estructuras
+            $patternTelefono2 = '/\b(\+?569\d{8}|569\d{8}|9\s\d{8}|9\d{8})(?![\d-])\b/';   // Expresión regular para números de teléfono en ambas estructuras
             $patternEmail2 = '/\b([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})\b/';
             
             $matchesNombre2 = [];

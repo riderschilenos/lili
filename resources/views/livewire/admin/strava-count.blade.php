@@ -21,14 +21,25 @@
      
    @endforeach
    <a href="{{route('ticket.view',$ticket)}}">
-    <div class="bg-gray-100 p-4 rounded-lg shadow-lg text-center">
-                                
-        <div class="text-4xl font-bold my-4" id="kilometers">{{$total}} Kms</div>
-        <div class="text-2xl font-semibold mb-2">Recorridos con Strava</div>
-        
-        <div id="clock" class="text-sm hidden">Quedan {{ $hoursRemaining }} horas y {{ $minutesRemaining }} minutos</div>
-        
-    </div>
+        @if ($ticket->status==4)
+            <div class="bg-gray-100 p-4 rounded-lg shadow-lg text-center">
+                                            
+                <div class="text-4xl font-bold my-4" id="kilometers">Felicidades!!</div>
+                <div class="text-2xl font-semibold mb-2">Desafio Completado!</div>
+                
+                <div id="clock" class="text-sm hidden">Quedan {{ $hoursRemaining }} horas y {{ $minutesRemaining }} minutos</div>
+                
+            </div>
+        @else
+            <div class="bg-gray-100 p-4 rounded-lg shadow-lg text-center">
+                                            
+                <div class="text-4xl font-bold my-4" id="kilometers">{{$total}} Kms</div>
+                <div class="text-2xl font-semibold mb-2">Recorridos con Strava</div>
+                
+                <div id="clock" class="text-sm hidden">Quedan {{ $hoursRemaining }} horas y {{ $minutesRemaining }} minutos</div>
+                
+            </div>
+        @endif
     </a>
     @php
 

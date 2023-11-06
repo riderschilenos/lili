@@ -167,7 +167,7 @@
                                                                                                             @endforeach
                                                                                                            
                                                                                                         @endif
-                                                                                                                <p class="mx-4 text-center"> {{$total}}Kms</p>
+                                                                                                                <p class="mx-4 text-center"> {{$total}} Kms</p>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     

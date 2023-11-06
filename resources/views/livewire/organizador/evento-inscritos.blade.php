@@ -145,7 +145,29 @@
                                                                     
                                                                                                         <div class="px-6 py-4 whitespace-nowrap">
                                                                                                             <div class="items-center">
-                                                                                                                <p class="mx-4 text-center">{{$inscripcion->nro}}</p>
+                                                                                                                @if ($ticket->evento->type=='desafio')
+                                                                                                                @php
+                                                                                                                    $total=0;
+                                                                                                                @endphp
+                                                                                                                @foreach ($ticket->user->activities as $activitie)
+                                                                                                                @php
+                                                                                                                    $date1=date($activitie->start_date_local);
+                                                                                                                    $date2=date($ticket->updated_at);
+                                                                                                                @endphp
+                                                                                                                {{-- comment
+                                                                                                                {{$date1}}<br>
+                                                                                                                {{$date2}} <br> --}}
+                                                                                                            
+                                                                                                                @if ($date1>$date2)
+                                                                                                                    @php
+                                                                                                                            $total+=floatval($activitie->distance);
+                                                                                                                    @endphp
+                                                                                                                @endif
+                                                                                                            
+                                                                                                            @endforeach
+                                                                                                           
+                                                                                                        @endif
+                                                                                                                <p class="mx-4 text-center"> {{$total}}Kms</p>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     
@@ -161,28 +183,7 @@
                                                         </div>
 
                                                         
-                                                        @if ($ticket->evento->type=='desafio')
-                                                                @php
-                                                                    $total=0;
-                                                                @endphp
-                                                                @foreach ($ticket->user->activities as $activitie)
-                                                                @php
-                                                                    $date1=date($activitie->start_date_local);
-                                                                    $date2=date($ticket->updated_at);
-                                                                @endphp
-                                                                {{-- comment
-                                                                {{$date1}}<br>
-                                                                {{$date2}} <br> --}}
-                                                            
-                                                                @if ($date1>$date2)
-                                                                    @php
-                                                                            $total+=floatval($activitie->distance);
-                                                                    @endphp
-                                                                @endif
-                                                            
-                                                            @endforeach
-                                                            {{$total}}
-                                                        @endif
+                                                    
                                                        
                                                     </td>
 

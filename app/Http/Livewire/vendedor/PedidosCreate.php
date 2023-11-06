@@ -39,31 +39,17 @@ class PedidosCreate extends Component
         $patternTelefono = '/FONO: (\+569\d{8}|569\d{8}|\d{9}|\d{1} \d{8})/';
         $patternEmail = '/MAIL: ([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/';
 
-        if (preg_match($patternNombres, $this->textoPortapapeles, $matchesNombres)) {
-            $this->nombre = $matchesNombres[1];
-        } else {
-            # code...
-        }
-        if (preg_match($patternApellidos, $this->textoPortapapeles, $matchesApellidos)) {
-            $this->apellidos = $matchesApellidos[1];
-        } else {
-            # code...
-        }
-        if (preg_match($patternRut, $this->textoPortapapeles, $matchesRut)) {
-            $this->rut = $matchesRut[1];
-        } else {
-            # code...
-        }
-        if (preg_match($patternTelefono, $this->textoPortapapeles, $matchesTelefono)) {
-            $this->telefono = $matchesTelefono[1];
-        } else {
-            # code...
-        }
-        if (preg_match($patternEmail, $this->textoPortapapeles, $matchesEmail)) {
-            $this->email = $matchesEmail[1];
-        } else {
-            # code...
-        }
+        preg_match($patternNombres, $this->textoPortapapeles, $matchesNombres);
+        preg_match($patternApellidos, $this->textoPortapapeles, $matchesApellidos);
+        preg_match($patternRut, $this->textoPortapapeles, $matchesRut);
+        preg_match($patternTelefono, $this->textoPortapapeles, $matchesTelefono);
+        preg_match($patternEmail, $this->textoPortapapeles, $matchesEmail);
+
+        $this->nombre = $matchesNombres[1]?? '';
+        $this->apellidos = $matchesApellidos[1] ?? '';
+        $this->rut = $matchesRut[1] ?? '';
+        $this->telefono = $matchesTelefono[1] ?? '';
+        $this->email = $matchesEmail[1] ?? '';
 
         
             // Expresiones regulares para extraer información del segundo conjunto de datos
@@ -106,10 +92,8 @@ class PedidosCreate extends Component
             if (preg_match($patternEmail2, $this->textoPortapapeles, $matchesEmail2)) {
                 $this->email = $matchesEmail2[0];
             }
-            if ($this->nombre) {
-                $this->search = $this->nombre;
-            }
-           
+            
+            $this->search = $this->nombre;
     }
 
 

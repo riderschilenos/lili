@@ -69,7 +69,7 @@ class PedidosCreate extends Component
             $patternNombre2 = '/([A-Z][a-z]+ [A-Z][a-z]+)/';
             $patternApellidos2 = '/\n([A-Z][a-z]+ [A-Z][a-z ]+)\n/'; // Expresión regular para capturar apellidos de dos palabras
             $patternRut2 = '/\b(\d{1,2}\.\d{3}\.\d{3}-[\dKk]|\d{7,8}-[\dKk])\b/'; // Modificamos la expresión regular del RUT
-            $patternTelefono2 = '/\b(\+?569\d{8}|9\d{8}|\d{8})\b/';   // Expresión regular para números de teléfono en ambas estructuras
+            $patternTelefono2 = '/\b(\+?569\d{8}|569\d{8}|9\s\d{7,8}|9\d{7,8})\b/';   // Expresión regular para números de teléfono en ambas estructuras
             $patternEmail2 = '/\b([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})\b/';
             
             $matchesNombre2 = [];
@@ -89,14 +89,15 @@ class PedidosCreate extends Component
             }
             
             if (preg_match($patternTelefono2, $this->textoPortapapeles, $matchesTelefono2)) {
-                $this->telefono = $matchesTelefono2[0];
+                $telefonoTemporal = $matchesTelefono2[0];
+                $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
             } else {
                // $telefonoTemporal = '';
             }
 
             //$this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
             //$this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
-           // $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
+           
             
             if (preg_match($patternRut2, $this->textoPortapapeles, $matchesRut2)) {
                 $this->rut = $matchesRut2[0];

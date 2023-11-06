@@ -13,8 +13,8 @@
     @endif
     <div class="flex justify-center">
         <div class="block">
-            <textarea wire:model="textoPortapapeles"  class=" flex w-full shadow-sm  border-2 border-gray-300 bg-white px-5 pr-16 rounded-lg focus:outline-none" required autofocus autocomplete="off"></textarea>
-   
+            <textarea id="myTextarea" wire:model="textoPortapapeles" class="w-full shadow-sm border-2 border-gray-300 bg-white px-5 pr-16 rounded-lg focus:outline-none" required autofocus autocomplete="off"></textarea>
+            <button onclick="pegarDesdePortapapeles()">Pegar</button>
         </div>
     </div>
     <div class="flex justify-center">
@@ -461,6 +461,18 @@
         
         
     @endif
-
+    
+    <script>
+        function pegarDesdePortapapeles() {
+            navigator.clipboard.readText()
+                .then((text) => {
+                    const textarea = document.getElementById('myTextarea');
+                    textarea.value = text;
+                })
+                .catch((error) => {
+                    console.error('No se pudo pegar desde el portapapeles: ', error);
+                });
+        }
+    </script>
    
 </div>

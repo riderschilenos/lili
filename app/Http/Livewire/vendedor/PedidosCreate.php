@@ -23,6 +23,14 @@ class PedidosCreate extends Component
 
     use WithPagination;
 
+    protected $listeners = ['actualizarTextoPortapapeles'];
+
+
+    public function actualizarTextoPortapapeles($text)
+    {
+        $this->textoPortapapeles = $text;
+    }
+
     public function completarDesdePortapapeles()
     {
         // Expresiones regulares para extraer información del primer conjunto de datos

@@ -32,7 +32,7 @@ class WhatsappSenderCliente extends Component
                 ->paginate(7);
         $guess_all=Invitado::all();
 
-        
+
 
 
         return view('livewire.admin.whatsapp-sender-cliente',compact('socios','guess','socios_all','guess_all'));
@@ -68,19 +68,13 @@ class WhatsappSenderCliente extends Component
             Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
             
             WhatsappMensaje::create(['numero'=> $fono,
-            'mensaje'=>"Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
-            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
-            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
-            https://riderschilenos.cl/register",
+            'mensaje'=>"Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar ....",
             'type'=>'enviado']);
 
 
         } catch (\Throwable $th) {
             WhatsappMensaje::create(['numero'=> $fono,
-            'mensaje'=>"ERROR al enviar Mentaje => Hola!! Hazte parte de la comunidad de RidersChilenos y aprovechar todos los beneficios de nuestra plataforma web, la cual es completamente gratuita y te permitirá registrar tu moto y/o bicicleta de una manera fácil y rápida, para mantener un registro online de mantenciones y servicios.
-            Además, tendrás acceso a diferentes beneficios, como cupones de descuento en tiendas de bicicletas y motocicletas, ofertas exclusivas en productos y mucho más.
-            Si estás interesado en registrarte y comenzar a disfrutar de todos estos beneficios, haz clic en el siguiente enlace y sigue los pasos para crear tu cuenta.
-            https://riderschilenos.cl/register",
+            'mensaje'=>"ERROR al enviar Mentaje => Hola!! Hazte parte de la comunidad .....",
             'type'=>'enviado']);
         }
     }
@@ -157,14 +151,7 @@ class WhatsappSenderCliente extends Component
             WhatsappMensaje::create(['numero'=> $fono,
             'mensaje'=>"Te dejamos el catálogo de accesorios en el siguiente link:
 
-            https://clubriderschilenos.cl/catalogoportanumero.pdf
-            Aquí te facilitamos una plantilla para escoger el diseño. Copiala, pegala y llena los siguientes datos:
-            
-            MARCA DISEÑO:
-            N° DISEÑO:
-            TU NOMBRE:
-            TU NÚMERO:
-            ACCESORIO: collar, llavero, colgante, stiker (elige uno)",
+            https://clubriderschilenos.cl/catalogoportanumero.pdf.......",
             'type'=>'enviado']);
 
 
@@ -172,14 +159,7 @@ class WhatsappSenderCliente extends Component
             WhatsappMensaje::create(['numero'=> $fono,
             'mensaje'=>"ERROR al enviar Mentaje => Te dejamos el catálogo de accesorios en el siguiente link:
 
-            https://clubriderschilenos.cl/catalogoportanumero.pdf
-            Aquí te facilitamos una plantilla para escoger el diseño. Copiala, pegala y llena los siguientes datos:
-            
-            MARCA DISEÑO:
-            N° DISEÑO:
-            TU NOMBRE:
-            TU NÚMERO:
-            ACCESORIO: collar, llavero, colgante, stiker (elige uno)",
+            https://clubriderschilenos.cl/catalogoportanumero.pdf....",
             'type'=>'enviado']);
         }
     }

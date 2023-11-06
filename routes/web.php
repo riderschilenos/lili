@@ -84,6 +84,8 @@ Route::get('/terminos-y-condiciones',[AdminHomeController::class,'terminos'])->n
 
 Route::get('/stravasync',[StravaController::class,'activitie_sync'])->name('strava.sync');
 
+Route::get('/stravacheck',[StravaController::class,'checkstrava'])->name('strava.check');
+
 Route::get('/login-google', [GoogleController::class,'login']);
  
 Route::get('/google-callback', [GoogleController::class,'callback']);

@@ -1061,9 +1061,15 @@
                                     <div class="flex justify-between">
                                         
                                         <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">Whatsapp RCH</button>
-                                        <a href="{{route('strava.sync')}}">
-                                            <button class="btn btn-danger ml-2 text-center text-xl">Strava Sync</button>
-                                        </a>
+                                        
+                                        <div>
+                                            <a href="{{route('strava.sync')}}">
+                                                <button class="btn btn-danger ml-2 text-center text-xl">Strava Sync</button>
+                                            </a>
+                                            <a href="{{route('strava.check')}}">
+                                                <button class="btn btn-danger ml-2 text-center text-xl">Strava Check</button>
+                                            </a>
+                                        </div>
                                         <a href="{{route('contabilidad')}}">
                                             <button class="btn btn-danger ml-2 text-center text-xl">Gráficos y Estadisticas</button>
                                         </a>

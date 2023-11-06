@@ -35,7 +35,7 @@ class PedidosCreate extends Component
         // Expresiones regulares para extraer información del primer conjunto de datos
         $patternNombres = '/NOMBRES: ([A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+(?: [A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+)?)\\s/';
         $patternApellidos = '/APELLIDOS: ([A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+(?: [A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+)?)\\s/';
-        $patternRut = '/RUT: (\d{1,2}\.\d{3}\.\d{3}-[\dKk]|\d{7,8}-[\dKk])/'; // Modificamos la expresión regular del RUT
+        $patternApellidos = '/(APELLIDOS:|-\s?)([A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+(?: [A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+)?)\\s/';
         $patternTelefono = '/FONO: (\+569\d{8}|569\d{8}|\d{9}|\d{1} \d{8})/';
         $patternEmail = '/MAIL: ([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/';
 

@@ -38,7 +38,7 @@ class PedidosCreate extends Component
         $patternRut = '/RUT: (\d{1,2}\.\d{3}\.\d{3}-[\dKk]|\d{7,8}-[\dKk])/'; // Modificamos la expresión regular del RUT
         $patternTelefono = '/FONO: (\+569\d{8}|569\d{8}|\d{9}|\d{1} \d{8})/';
         $patternEmail = '/MAIL: ([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/';
-
+        /*
         preg_match($patternNombres, $this->textoPortapapeles, $matchesNombres);
         preg_match($patternApellidos, $this->textoPortapapeles, $matchesApellidos);
         preg_match($patternRut, $this->textoPortapapeles, $matchesRut);
@@ -50,7 +50,7 @@ class PedidosCreate extends Component
         $this->rut = $matchesRut[1] ?? '';
         $this->telefono = $matchesTelefono[1] ?? '';
         $this->email = $matchesEmail[1] ?? '';
-
+*/
         
             // Expresiones regulares para extraer información del segundo conjunto de datos
             $patternNombre2 = '/([A-Z][a-z]+ [A-Z][a-z]+)/';

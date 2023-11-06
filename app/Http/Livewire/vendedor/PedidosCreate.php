@@ -55,7 +55,7 @@ class PedidosCreate extends Component
             # code...
         }
         if (preg_match($patternTelefono, $this->textoPortapapeles, $matchesTelefono)) {
-            $this->telefono = $matchesTelefono[1];
+            $this->telefono = $matchesTelefono[0];
         } else {
             # code...
         }

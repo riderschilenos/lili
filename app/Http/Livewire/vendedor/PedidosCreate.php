@@ -83,7 +83,7 @@ class PedidosCreate extends Component
             }
             
             if (preg_match($patternApellidos2, $this->textoPortapapeles, $matchesApellidos2)) {
-                $this->apellidos = $matchesApellidos2[0];
+                $apellidosTemporal = $matchesApellidos2[0];
             } else {
                 //$apellidosTemporal = '';
             }
@@ -94,7 +94,7 @@ class PedidosCreate extends Component
                // $telefonoTemporal = '';
             }
 
-            //$this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
+            $this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
             //$this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
            // $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
             

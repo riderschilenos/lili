@@ -77,7 +77,7 @@ class PedidosCreate extends Component
             $matchesTelefono2 = [];
             
             if (preg_match($patternNombre2, $this->textoPortapapeles, $matchesNombre2)) {
-                $nombreTemporal = $matchesNombre2[0];
+                $this->nombre = $matchesNombre2[0];
             } else {
                 $nombreTemporal = '';
             }
@@ -95,7 +95,7 @@ class PedidosCreate extends Component
             }
 
             //$this->apellidos = empty($this->apellidos) ? $apellidosTemporal : $this->apellidos;
-            $this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
+            //$this->nombre = empty($this->nombre) ? $nombreTemporal.' '.$this->apellidos : $this->nombre.' '.$this->apellidos;
            // $this->telefono = empty($this->telefono) ? $telefonoTemporal : $this->telefono;
             
             if (preg_match($patternRut2, $this->textoPortapapeles, $matchesRut2)) {
@@ -106,7 +106,7 @@ class PedidosCreate extends Component
                 $this->email = $matchesEmail2[0];
             }
             if ($this->nombre) {
-                $this->search = $this->nombre;
+                $this->search = $this->nombre.' '.$this->apellidos;
             }
            
     }

@@ -107,6 +107,8 @@ class PedidosCreate extends Component
             }
             if ($this->nombre) {
                 $this->search = $this->nombre.' '.$this->apellidos;
+            }else{
+                $this->search = 'Estructura de Texto no Coincide';
             }
            
     }

@@ -32,6 +32,8 @@ class WhatsappSenderCliente extends Component
                 ->paginate(7);
         $guess_all=Invitado::all();
 
+        
+
 
         return view('livewire.admin.whatsapp-sender-cliente',compact('socios','guess','socios_all','guess_all'));
        

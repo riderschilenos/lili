@@ -36,7 +36,7 @@ class PedidosCreate extends Component
         $patternNombres = '/NOMBRES: ([A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+(?: [A-Z][A-ZA-ZA-Za-zÉéÍíÑñÓóÚúÁáÜü-]+)?)\\s/';
         $patternApellidos = '/APELLIDOS: ?([A-Za-zÉéÍíÑñÓóÚúÁáÜü-]+(?: [A-Za-zÉéÍíÑñÓóÚúÁáÜü-]+)*)(?:\s|$)/';
         $patternRut = '/RUT: (\d{1,2}\.\d{3}\.\d{3}-[\dKk]|\d{7,8}-[\dKk])/'; // Modificamos la expresión regular del RUT
-        $patternTelefono = '/FONO: (\+569\d{8}|569\d{8}|\d{9}|\d{1} \d{8})/';
+        $patternTelefono = '/FONO: (\+?569\d{8}|569\d{8}|9\d{8})/';
         $patternEmail = '/MAIL: ([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/';
 
         if (preg_match($patternNombres, $this->textoPortapapeles, $matchesNombres)) {

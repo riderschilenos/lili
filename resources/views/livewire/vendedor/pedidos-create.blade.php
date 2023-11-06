@@ -461,9 +461,25 @@
         
         
     @endif
+
     
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            pegarDesdePortapapelesOnLoad();
+        });
+
         function pegarDesdePortapapeles() {
+            navigator.clipboard.readText()
+                .then((text) => {
+                    const textarea = document.getElementById('myTextarea');
+                    textarea.value = text;
+                })
+                .catch((error) => {
+                    console.error('No se pudo pegar desde el portapapeles: ', error);
+                });
+        }
+
+        function pegarDesdePortapapelesOnLoad() {
             navigator.clipboard.readText()
                 .then((text) => {
                     const textarea = document.getElementById('myTextarea');

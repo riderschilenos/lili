@@ -264,7 +264,7 @@
                                                                 {{$orden->producto->name}}<br>
                                                                 @foreach ($socios as $socio)
                                                                         @if($socio->id == $pedido->pedidoable_id)
-                                                                            <a class="btn btn-success" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
+                                                                            <a class="btn btn-success" target="_blank" href="{{route('admin.socios.show', $socio)}}">Ver Ficha</a>
                                                                         @endif
                                                                 @endforeach
                                                                 

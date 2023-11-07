@@ -332,31 +332,36 @@
 
                                             @if ($socio->user->vehiculos)
                                                 
-                                            
+                                                @php
+                                                    $n=0;
+                                                @endphp
                                                 @foreach ($socio->user->vehiculos as $vehiculo)
                                                     @if($vehiculo->status==5 || $vehiculo->status==6)
-                                                    <div class="hidden md:block">
-                                                            
-                                                        <div class="text-center p-2 m-2 bg-main-color rounded-xl">
-                                                            <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
-                                                                @if($vehiculo->image->first())
-                                                                    <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
-                                                                @else
-                                                                    <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
-                                                                @endif   
-                                                            
-                                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}"> 
-                                                                    <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
+                                                        <div class="hidden md:block">
+                                                                
+                                                            <div class="text-center p-2 m-2 bg-main-color rounded-xl">
+                                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
+                                                                    @if($vehiculo->image->first())
+                                                                        <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                                                    @else
+                                                                        <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                                                    @endif   
+                                                                
+                                                                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}"> 
+                                                                        <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
+                                                                    </a>
                                                                 </a>
-                                                            </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="block md:hidden">
-                                                            <x-vehiculo-card2 :vehiculo="$vehiculo" />    
-                                                    </div>
+                                                        <div class="block md:hidden">
+                                                                <x-vehiculo-card2 :vehiculo="$vehiculo" />    
+                                                        </div>
+                                                        @php
+                                                            $n+=1;
+                                                        @endphp
                                                     @endif
                                                 @endforeach
-
+                                            
                                             @endif
                                             {{-- comment 
                                             
@@ -380,6 +385,20 @@
                                                 </div>
                                             --}}
                                         </div>
+                                        @if ($n==0)
+                                            <div class="max-w-3xl flex justify-center my-6">
+                                                <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg">
+                                                    <div class="flex items-center space-x-4">
+                                                        <img src="{{asset('img/bike.png')}}" class="h-14 w-14" alt="">
+                                                        <div class="flex flex-col space-y-1">
+                                                            <span class="font-bold">{{ $socio->name}} Aun no Registra su Garage</span>
+                                                            <span class="text-sm text-center">Pronto nuevas novedades 🔥</span>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2">

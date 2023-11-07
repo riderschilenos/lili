@@ -387,7 +387,7 @@
                                         </div>
                                         @if ($n==0)
                                             <div class="max-w-3xl flex justify-center mb-6 mt-4">
-                                                <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg">
+                                                <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg mx-2">
                                                     <div class="flex items-center space-x-4">
                                                         <img src="{{asset('img/bike.png')}}" class="h-14 w-14" alt="">
                                                         <div class="flex flex-col space-y-1">

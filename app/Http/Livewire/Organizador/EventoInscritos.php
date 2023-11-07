@@ -35,7 +35,7 @@ class EventoInscritos extends Component
     public function render()
     {   
         $tickets =   $this->evento->tickets()
-                        ->where('status', '>=', 3)
+                        ->where('status', '>=', 1)
                         ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
                         ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
                         ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')

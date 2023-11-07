@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invitado;
 use App\Models\Retiro;
+use App\Models\Socio;
 use App\Models\Ticket;
 use App\Models\WhatsappMensaje;
 use Illuminate\Http\Request;
@@ -210,7 +212,13 @@ class WhatsappController extends Controller
         
                     Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
                     
-                    $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                    
+                    if($ticket->ticketable_type == 'App\Models\Invitado'){
+                        $fono ='569'.substr(str_replace(' ', '', Invitado::find($ticket->ticketable_id)->fono), -8);
+                    }else{
+                        $fono ='569'.substr(str_replace(' ', '', Socio::find($ticket->ticketable_id)->fono), -8);
+                    }
+
                     $token = env('WS_TOKEN');
                     $phoneid= env('WS_PHONEID');
                     $version='v16.0';

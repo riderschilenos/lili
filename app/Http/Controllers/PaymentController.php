@@ -48,6 +48,10 @@ class PaymentController extends Controller
 
     public function checkoutticket(Ticket $ticket){
         
+        if($ticket->status==3){
+            return redirect()->route('ticket.view',$ticket);
+        }
+
         $fechas= Fecha::where('evento_id',$ticket->evento->id)->paginate();
 
         if($ticket->ticketable_type == 'App\Models\Invitado'){

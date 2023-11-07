@@ -219,8 +219,7 @@ class WhatsappController extends Controller
                         $fono ='569'.substr(str_replace(' ', '', Socio::find($ticket->ticketable_id)->fono), -8);
                     }
 
-                    $token = env('WS_TOKEN');
-                    $phoneid= env('WS_PHONEID');
+                
                     $version='v16.0';
                     $url="https://riderschilenos.cl/";
                     $wsload=[
@@ -253,9 +252,7 @@ class WhatsappController extends Controller
                     ];
                     
                     Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
-                    
-                    $token = env('WS_TOKEN');
-                    $phoneid= env('WS_PHONEID');
+                  
                     $version='v16.0';
                     $url="https://riderschilenos.cl/";
                     $gpload=[

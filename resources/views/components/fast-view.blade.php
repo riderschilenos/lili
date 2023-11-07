@@ -394,8 +394,8 @@
                                                             <div class="flex items-center space-x-4">
                                                                 <img src="{{asset('img/bike.png')}}" class="h-14 w-14" alt="">
                                                                 <div class="flex flex-col space-y-1">
-                                                                    <span class="font-bold">{{ $socio2->name}} Incribe tu Primer Vehiculo</span>
-                                                                    <span class="text-sm text-center">Es Gratis y Tendras una ficha online para registrar Mantenciones y Servicios 🔥</span>
+                                                                    <span class="font-bold">{{ $socio2->name}} Incribe tu Primer Moto o Bicicleta</span>
+                                                                    <span class="text-sm text-center">Es Gratis y obtendras una ficha online para registrar Mantenciones y Servicios, ademas si agregar el nro de Chasis en el registro al cabo de 96 horas aparecera el registro en Google 🔥</span>
                                                                 </div>
                                                             </div>
                                                         

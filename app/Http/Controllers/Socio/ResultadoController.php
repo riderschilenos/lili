@@ -181,8 +181,16 @@ class ResultadoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Resultado $resultado)
-    {
-        }
+    {       
+        $request->validate([
+            'titulo'=>'required',
+            'descripcion'=>'required'
+        ]);
+
+        $resultado->update($request->all());
+        
+        return redirect(route('socio.show',$resultado->user->socio).'/#curriculum');
+    }
     
     
 
@@ -192,8 +200,13 @@ class ResultadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Resultado  $resultado)
+    {   $socio=$resultado->user->socio;
+        
+        $resultado->delete();
+        
+
+        return redirect()->route('socio.show',$socio)->with('info','El Registo se elimino con éxito.');
+
     }
 }

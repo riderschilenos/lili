@@ -68,7 +68,7 @@
                     <div x-data="{ open: false }"
                         class="flex flex-col max-w-screen-xl py-5 sm:py-0 px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                         <div class="flex flex-row items-center justify-between p-4 ">
-                            <a href="{{route('socio.index')}}"
+                            <a href="{{route('socio.show',$resultado->user->socio)}}"                                                  
                                 class="hidden md:inline text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline cursor-pointer"><i class="fas fa-arrow-circle-left text-white-800"></i> Seguir Navegando</a>
                         
                         </div>
@@ -134,9 +134,13 @@
                                                 @livewire('socio.resultado-image', ['resultado' => $resultado])
 
                                                 <div class="flex md:hidden justify-between my-2">
-                                                    <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
-                                                        Cancelar
-                                                    </button>
+                                                    <a href="{{route('socio.show',$resultado->user->socio)}}"  >
+                                                        <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
+                                                            Cancelar
+                                                        </button>
+                                                    </a>
+                                                    {!! Form::model($resultado, ['route'=>['socio.resultados.update',$resultado],'method' => 'put', 'files'=> true , 'autocomplete'=>'off']) !!}
+                                                        {!! Form::hidden('status', 2 ) !!}
                                                     <button class="hover:shadow-form btn btn-success py-3 px-8 text-base font-semibold text-white outline-none">
                                                     Publicar
                                                     </button>
@@ -153,37 +157,42 @@
                                         
                                             @can('perfil_propio', $socio)
                                                 <div class="mx-auto w-full max-w-[550px]">
-                                                    <form action="https://formbold.com/s/FORM_ID" method="POST">
                                                    
-                                                    <div class="mb-2">
-                                                      
-                                                        <input
-                                                        type="text"
-                                                        name="subject"
-                                                        id="subject"
-                                                        placeholder="Resultado o Nombre del Evento/Competencia"
-                                                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                                                        />
+                                                    
+                                                    <div class="mb-4">
+                                                        {!! Form::label('titulo', 'Titulo') !!}
+                                                        {!! Form::text('titulo', null , ['class' => 'w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'.($errors->has('titulo')?' border-red-600':''), 'placeholder'=>'Nombre o Resultado del Evento/Competencia']) !!}
+                                
+                                                        @error('titulo')
+                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
-                                                    <div class="mb-2">
-                                                      
-                                                        <textarea
-                                                        rows="4"
-                                                        name="message"
-                                                        id="message"
-                                                        placeholder="Descripción...."
-                                                        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                                                        ></textarea>
+                                                    <div class="mb-4">
+                                                        {!! Form::label('descripcion', 'Descripción') !!}
+                                                        {!! Form::textarea('descripcion', null , ['class' => 'w-full rounded-md border border-[#e0e0e0] bg-white px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md', 'placeholder'=>'Descripción....']) !!}
+                                                        
+                                                        @error('descripcion')
+                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
-                                                    <div class="hidden md:flex justify-between my-2">
-                                                        <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
-                                                            Cancelar
-                                                        </button>
+                                                  
+                                             
+                                                    <div class="hidden md:flex justify-end my-2">
+                                                       
                                                         <button class="hover:shadow-form btn btn-success py-3 px-8 text-base font-semibold text-white outline-none">
                                                         Publicar
                                                         </button>
                                                     </div>
-                                                    </form>
+
+                                                    {!! Form::close() !!}
+
+                                                    <div class="hidden justify-end my-2">
+                                                        <a href="{{route('socio.show',$resultado->user->socio)}}">
+                                                            <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
+                                                                Cancelar
+                                                            </button>
+                                                            </div>
+                                                        </a>
                                               </div>
                                             @endcan
                                            
@@ -195,14 +204,22 @@
                                   
                                     <!-- End of Experience and education grid -->
                                 </div>
+                            <div class="flex justify-end">
+                                <form action="{{route('socio.resultados.destroy',$resultado)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                    
+                                    <button class="text-right p-4 text-red-500 cursor-pointer"> ( Eliminar )</button>
+                                </form>
+                            </div>
 
-                                
-                                
                             </div>
                             
                         </div>
                     </div>
-            </div>
+                </div>
+             
+          
         </div>
     </x-fast-view>
 

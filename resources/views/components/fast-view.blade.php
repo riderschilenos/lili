@@ -448,55 +448,7 @@
                                                                     
                                             </div>
                                         </div>
-                                        <div class="bg-white p-3 hover:shadow">
-                                            <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                                <span class="text-red-500">
-                                                    <i class="fas fa-film text-white-800"></i>
-                                                </span>
-                                                <span>MovieCollection</span>
-                                                
-                                                <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
-                                                            
-                                            </div>
-                                            <div class="grid grid-cols-4 gap-4">
-                                            
-                                                @if ($socio2->user->serie_enrolled)
-                                                    
-                                                
-                                                    @foreach ($socio2->user->serie_enrolled as $serie)
-                                                        <div class="text-center my-2">
-                                                            <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                                <img class="h-16 w-20 mx-auto"
-                                                                src="{{Storage::url($serie->image->url)}}"
-                                                                alt="">
-                                                            </a>
-                                                        </div>
-                                                    @endforeach
-
-                                                @endif
-                                                    {{-- 
-                                                        <div class="text-center my-2">
-                                                            <img class="h-16 w-16 rounded-full mx-auto"
-                                                                src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
-                                                                alt="">
-                                                            <a href="#" class="text-main-color">James</a>
-                                                        </div>
-                                                        <div class="text-center my-2">
-                                                            <img class="h-16 w-16 rounded-full mx-auto"
-                                                                src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                                                                alt="">
-                                                            <a href="#" class="text-main-color">Natie</a>
-                                                        </div>
-                                                        <div class="text-center my-2">
-                                                            <img class="h-16 w-16 rounded-full mx-auto"
-                                                                src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                                                                alt="">
-                                                            <a href="#" class="text-main-color">Casey</a>
-                                                        </div>
-                                                    --}}
-                                                    
-                                            </div>
-                                        </div>
+                                        
                                         
 
                                     </div>
@@ -560,42 +512,7 @@
                                                         @endforeach
                                                    
                                                     @endif
-                                                        {{-- comment
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-dumbbell text-white-800"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">50 Min Pesas.</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                               
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-running"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">10k running</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-bicycle text-white-800"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">70km Bicicleta</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                    --}}
+                                        
                                             </ul>
                    
                                             <ul class="list-inside space-y-2 ml-2 hidden">
@@ -647,33 +564,56 @@
                                         
                                         </div>
 
+                                        <div class="bg-white p-3 hover:shadow">
+                                            <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-film text-white-800"></i>
+                                                </span>
+                                                <span>MovieCollection</span>
+                                                
+                                                <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm ml-12 align-middle"> (Ver más)</span></a>
+                                                            
+                                            </div>
+                                            <div class="grid grid-cols-4 gap-4">
+                                            
+                                                @if ($socio2->user->serie_enrolled)
+                                                    
+                                                
+                                                    @foreach ($socio2->user->serie_enrolled as $serie)
+                                                        <div class="text-center my-2">
+                                                            <a href="{{route('series.show', $serie)}}" class="text-main-color">
+                                                                <img class="h-16 w-20 mx-auto"
+                                                                src="{{Storage::url($serie->image->url)}}"
+                                                                alt="">
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
 
-                                        {{-- commen
-                                                <div>
-                                                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                                                        <span clas="text-green-500">
-                                                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                                stroke="currentColor">
-                                                                <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
-                                                                <path fill="#fff"
-                                                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                                                            </svg>
-                                                        </span>
-                                                        <span class="tracking-wide">Education</span>
-                                                    </div>
-                                                    <ul class="list-inside space-y-2">
-                                                        <li>
-                                                            <div class="text-teal-600">Masters Degree in Oxford</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </li>
-                                                    </ul>
-                                        </div>t --}}
+                                                @endif
+                                                    {{-- 
+                                                        <div class="text-center my-2">
+                                                            <img class="h-16 w-16 rounded-full mx-auto"
+                                                                src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
+                                                                alt="">
+                                                            <a href="#" class="text-main-color">James</a>
+                                                        </div>
+                                                        <div class="text-center my-2">
+                                                            <img class="h-16 w-16 rounded-full mx-auto"
+                                                                src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                                                alt="">
+                                                            <a href="#" class="text-main-color">Natie</a>
+                                                        </div>
+                                                        <div class="text-center my-2">
+                                                            <img class="h-16 w-16 rounded-full mx-auto"
+                                                                src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
+                                                                alt="">
+                                                            <a href="#" class="text-main-color">Casey</a>
+                                                        </div>
+                                                    --}}
+                                                    
+                                            </div>
+                                        </div>
+                                       
                                     </div>
                                     
                                 </div> 

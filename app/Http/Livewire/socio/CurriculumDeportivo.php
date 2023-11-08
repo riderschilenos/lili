@@ -17,10 +17,12 @@ class CurriculumDeportivo extends Component
     public $socio , $socioid, $current=NULL, $formulario=FALSE;
     
     public function mount(Socio $socio){
-    $this->socio= $socio;}
+        $this->socio= $socio;
+    }
 
     public function render()
-    {   $resultados=Resultado::where('user_id', $this->socio->user->id)->take(3);
+    {   $resultados=Resultado::where('user_id', $this->socio->user->id)->where('status',2)->get();
+
         return view('livewire.socio.curriculum-deportivo',compact('resultados'));
     }
 }

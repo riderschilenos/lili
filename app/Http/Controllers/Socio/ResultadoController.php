@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ResultadoController extends Controller
 {
@@ -204,7 +205,13 @@ class ResultadoController extends Controller
      */
     public function destroy(Resultado  $resultado)
     {   $socio=$resultado->user->socio;
-
+        if($resultado->image){
+            foreach($resultado->image as $image){
+                Storage::delete($image->url);
+                $image->delete();
+            }
+            }
+            
         $resultado->delete();
         
 

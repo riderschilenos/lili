@@ -99,7 +99,7 @@ class VehiculoController extends Controller
                     'url'=>'socios/'.$nombre
                 ]);   
         
-        return redirect()->route('garage.uploadresultado',$resultado->user->socio);
+        return redirect()->back();
                 
     }
 

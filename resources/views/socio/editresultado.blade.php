@@ -101,7 +101,7 @@
                             <!-- garage and movie -->
                            
                             <div class="bg-white shadow-sm rounded-sm">
-                                <div class="flex justify-between mb-2 items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                <div class="p-3 flex justify-between items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                                     <div>
                                         <span class="text-red-500">
                                             <i class="fas fa-film text-white-800"></i>
@@ -110,7 +110,7 @@
                                     </div>
                                     <div>
                                     
-                                    </div>   
+                                </div>   
                                 </div>
                                     <div class="grid grid-cols-1 sm:grid-cols-2">
 
@@ -130,6 +130,15 @@
                                                     <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
                                                     </div>
                                                 </form>
+
+                                                <div class="flex md:hidden justify-between my-2">
+                                                    <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
+                                                        Cancelar
+                                                    </button>
+                                                    <button class="hover:shadow-form btn btn-success py-3 px-8 text-base font-semibold text-white outline-none">
+                                                    Publicar
+                                                    </button>
+                                                </div>
                                             
                                             @livewire('socio.curriculum-deportivo',['socio' => $socio], key('curriculum-deportivo'.$socio->slug))
 
@@ -163,7 +172,7 @@
                                                 <div class="mx-auto w-full max-w-[550px]">
                                                     <form action="https://formbold.com/s/FORM_ID" method="POST">
                                                    
-                                                    <div class="mb-5 mt-10">
+                                                    <div class="mb-5">
                                                       
                                                         <input
                                                         type="text"
@@ -173,7 +182,7 @@
                                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                                         />
                                                     </div>
-                                                    <div class="mb-5">
+                                                    <div class="mb-2">
                                                       
                                                         <textarea
                                                         rows="4"
@@ -183,11 +192,12 @@
                                                         class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                                         ></textarea>
                                                     </div>
-                                                    <div>
-                                                        <button
-                                                        class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none"
-                                                        >
-                                                        Submit
+                                                    <div class="hidden md:flex justify-between">
+                                                        <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
+                                                            Cancelar
+                                                        </button>
+                                                        <button class="hover:shadow-form btn btn-success py-3 px-8 text-base font-semibold text-white outline-none">
+                                                        Publicar
                                                         </button>
                                                     </div>
                                                     </form>
@@ -198,79 +208,8 @@
                                         </div>
 
                                     </div>
-                                    <div class="grid grid-cols-1 sm:grid-cols-1">
-                                        <div class="bg-white hover:shadow">
-                                            <div class="items-center p-3 flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                                
-                                                <div>
-                                                    <span class="text-red-500">
-                                                        <i class="fas fa-car text-white-800"></i>
-                                                    </span>
-                                                    <span>Garage</span>
-                                                </div>
 
-                                                <div>
-                                                                @can('perfil_propio', $socio)  
-                                                                <a href="{{route('garage.vehiculo.create')}}"><span class="btn btn-success text-white font-bold text-sm align-middle">Inscribir Vehículo</span></a>
-                                                                @endcan
-                                                </div>
-                                                
-                                            </div>
-                                            
-                                            <div class="grid grid-cols-1 p-1 md:grid-cols-4 gap-1"> 
-
-                                                @if ($socio->user->vehiculos)
-                                                    
-                                                    @php
-                                                        $n=0;
-                                                    @endphp
-                                                    @foreach ($socio->user->vehiculos as $vehiculo)
-                                                        @if($vehiculo->status==5 || $vehiculo->status==6)
-                                                            <div class="hidden md:block">
-                                                                    
-                                                                <div class="text-center p-2 m-2 bg-main-color rounded-xl">
-                                                                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
-                                                                        @if($vehiculo->image->first())
-                                                                            <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
-                                                                        @else
-                                                                            <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
-                                                                        @endif   
-                                                                    
-                                                                        <a href="{{route('garage.vehiculo.show', $vehiculo)}}"> 
-                                                                            <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
-                                                                        </a>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="block md:hidden">
-                                                                    <x-vehiculo-card2 :vehiculo="$vehiculo" />    
-                                                            </div>
-                                                            @php
-                                                                $n+=1;
-                                                            @endphp
-                                                        @endif
-                                                    @endforeach
-                                                
-                                                @endif
-                                            
-                                            </div>
-                                            @if ($n==0)
-                                                <div class="max-w-3xl flex justify-center mb-6 mt-4">
-                                                    <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg mx-2">
-                                                        <div class="flex items-center space-x-4">
-                                                            <img src="{{asset('img/bike.png')}}" class="h-14 w-14" alt="">
-                                                            <div class="flex flex-col space-y-1">
-                                                                <span class="font-bold">{{ $socio->name}} Aun no Registra su Garage</span>
-                                                                <span class="text-sm text-center">Pronto nuevas novedades 🔥</span>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                
+                                  
                                     <!-- End of Experience and education grid -->
                                 </div>
 

@@ -324,7 +324,7 @@
                                         @can('Super admin')
                                             
                                                     
-                                            <form action="{{route('garage.uploadresultado')}}"
+                                            <form action="{{route('garage.uploadresultado',$resultado)}}"
                                                 method="POST"
                                                 class="dropzone"
                                                 id="my-awesome-dropzone">

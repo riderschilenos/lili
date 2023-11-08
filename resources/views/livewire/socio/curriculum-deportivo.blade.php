@@ -14,6 +14,7 @@
                                 @if ($resultado->image->first())
                                     <img class="h-16 object-contain mr-4 cursor-pointer items-center" src="{{Storage::url($resultado->image->first()->url)}}" title="image" alt="">
                                 @else
+                                    {{$resultado->image}}
                                     <img class="h-16 object-contain mr-4 cursor-pointer items-center" src="{{asset('img/copa.png')}}" title="Descargar" alt="">
                                 @endif
                                 <div class="ml-2">

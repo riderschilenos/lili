@@ -15,15 +15,17 @@ class Resultado extends Model
     const PUBLICADO =2;
     const CERRADO =3;
     
+     //relacion uno a uno polimorfica
+     public function image(){
+        return $this->morphMany('App\Models\Image','imageable');
+    }
+    
     public function getRouteKeyName()
     {
         return 'id';
     }
 
-     //relacion uno a uno polimorfica
-     public function image(){
-        return $this->morphMany('App\Models\Image','imageable');
-    }
+    
 
     //relacion uno uno inversa
 

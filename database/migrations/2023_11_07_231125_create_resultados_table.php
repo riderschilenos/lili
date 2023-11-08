@@ -29,6 +29,8 @@ class CreateResultadosTable extends Migration
             $table->string('titulo')->nullable();
             $table->string('descripcion')->nullable();
 
+            $table->date('fecha');
+
             $table->enum('status',[Resultado::BORRADOR,Resultado::PUBLICADO, RESULTADO::CERRADO])->default(RESULTADO::BORRADOR);
 
 

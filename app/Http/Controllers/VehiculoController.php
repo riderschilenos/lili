@@ -83,7 +83,8 @@ class VehiculoController extends Controller
 
         $resultado=Resultado::where('user_id',auth()->user()->id)->where('status',1)->first();
         if (is_null($resultado)) {
-            $resultado=Resultado::create(['user_id'=>auth()->user()->id]);
+            $resultado=Resultado::create(['user_id'=>auth()->user()->id,
+                                        'fecha'=>Carbon::now()]);
         }
         
 

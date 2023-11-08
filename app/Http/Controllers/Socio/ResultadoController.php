@@ -9,6 +9,7 @@ use App\Models\Resultado;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Vehiculo;
+use Carbon\Carbon;
 use Illuminate\support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
@@ -84,7 +85,8 @@ class ResultadoController extends Controller
 
         $resultado=Resultado::where('user_id',auth()->user()->id)->where('status',1)->first();
         if (is_null($resultado)) {
-            $resultado=Resultado::create(['user_id'=>auth()->user()->id]);
+            $resultado=Resultado::create(['user_id'=>auth()->user()->id,
+                                            'fecha'=>Carbon::now()]);
         }
         
         $socio=Socio::where('user_id',$resultado->user_id)->first();
@@ -202,7 +204,7 @@ class ResultadoController extends Controller
      */
     public function destroy(Resultado  $resultado)
     {   $socio=$resultado->user->socio;
-        
+
         $resultado->delete();
         
 

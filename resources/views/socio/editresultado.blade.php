@@ -106,7 +106,7 @@
                                         <span class="text-red-500">
                                             <i class="fas fa-film text-white-800"></i>
                                         </span>
-                                        <span>Curriculum Deportivo</span>
+                                        <span>Nuevo Registro Curriculum Deportivo</span>
                                     </div>
                                     <div>
                                     
@@ -114,7 +114,7 @@
                                 </div>
                                     <div class="grid grid-cols-1 sm:grid-cols-2">
 
-                                        <div class="order-2 lg:order-1 bg-white p-3 hover:shadow">
+                                        <div class="order-2 lg:order-1 bg-white px-3 hover:shadow">
                                            
 
                                             <!-- This is an example component -->
@@ -141,24 +141,7 @@
                                                 </div>
                                             
                                             @endcan
-                                            <div class="grid grid-cols-4 gap-4 hidden">
-                                            
-                                                @if ($socio->user->serie_enrolled)
-                                                    
-                                                
-                                                    @foreach ($socio->user->serie_enrolled as $serie)
-                                                        <div class="text-center my-2">
-                                                            <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                                <img class="h-16 w-20 mx-auto"
-                                                                src="{{Storage::url($serie->image->url)}}"
-                                                                alt="">
-                                                            </a>
-                                                        </div>
-                                                    @endforeach
-
-                                                @endif
-                                                                    
-                                            </div>
+                                           
                                         </div>
                                         
                                     
@@ -169,7 +152,7 @@
                                                 <div class="mx-auto w-full max-w-[550px]">
                                                     <form action="https://formbold.com/s/FORM_ID" method="POST">
                                                    
-                                                    <div class="mb-5">
+                                                    <div class="mb-4">
                                                       
                                                         <input
                                                         type="text"
@@ -179,17 +162,17 @@
                                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                                         />
                                                     </div>
-                                                    <div class="mb-2">
+                                                    <div class="">
                                                       
                                                         <textarea
                                                         rows="4"
                                                         name="message"
                                                         id="message"
                                                         placeholder="Descripción...."
-                                                        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                                        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                                         ></textarea>
                                                     </div>
-                                                    <div class="hidden md:flex justify-between">
+                                                    <div class="hidden md:flex justify-between my-2">
                                                         <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
                                                             Cancelar
                                                         </button>

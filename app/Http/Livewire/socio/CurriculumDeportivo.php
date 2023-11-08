@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Socio;
 
+use App\Models\Resultado;
 use App\Models\Socio;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
@@ -19,7 +20,7 @@ class CurriculumDeportivo extends Component
     $this->socio= $socio;}
 
     public function render()
-    {
-        return view('livewire.socio.curriculum-deportivo');
+    {   $resultados=Resultado::where('user_id', $this->socio->user->id)->take(3);
+        return view('livewire.socio.curriculum-deportivo',compact('resultados'));
     }
 }

@@ -140,9 +140,6 @@
                                                     </button>
                                                 </div>
                                             
-                                            @livewire('socio.curriculum-deportivo',['socio' => $socio], key('curriculum-deportivo'.$socio->slug))
-
-                                    
                                             @endcan
                                             <div class="grid grid-cols-4 gap-4 hidden">
                                             

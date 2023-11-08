@@ -32,38 +32,7 @@ class ResultadoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Resultado $resultado)
-    {
         
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Resultado $resultado)
-    {
         if(Cache::has('autos')){
             $autos = Cache::get('autos');
         }else{
@@ -108,10 +77,48 @@ class ResultadoController extends Controller
         }
 
         $disciplinas= Disciplina::pluck('name','id');
+
+        $resultado=Resultado::where('user_id',auth()->user()->id)->where('status',1)->first();
+        if (is_null($resultado)) {
+            $resultado=Resultado::create(['user_id'=>auth()->user()->id]);
+        }
         
         $socio=Socio::where('user_id',$resultado->user_id)->first();
 
         return view('socio.editresultado',compact('socio','resultado','socio2','disciplinas','riders','series','autos'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Resultado $resultado)
+    {
+        
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Resultado $resultado)
+    {
+
     }
 
     /**
@@ -125,28 +132,7 @@ class ResultadoController extends Controller
     {
         }
     
-    public function uploadres(Request $request, Resultado $resultado)
-        {
-        
-        $request->validate([
-            'file'=>'required|image'
-        ]);
-
-      
-        $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
-        $ruta = public_path().'/storage/vehiculos/'.$nombre;
-        Image::make($request->file('file'))->orientate()
-                ->resize(600, null , function($constraint){
-                $constraint->aspectRatio();
-                })
-                ->save($ruta);
-        $resultado->image()->create([
-                    'url'=>'vehiculos/'.$nombre
-                ]);   
-        
-        return redirect()->route('socio.uploadresultado',$resultado);
-                
-    }
+    
 
     /**
      * Remove the specified resource from storage.

@@ -412,10 +412,8 @@
                                             </div>
                                             <div>
                                                 @can('Super admin')
-                                                {{-- comment
-                                                    <a href="{{route('socio.resultados.edit',$socio->user->resultados()->first())}}" class="btn btn-success text-white font-bold text-sm align-middle">Agregar id:{{$socio->user->resultados()->first()->id}}</a>
-                                                --}}
-                                                    @endcan
+                                                    <a href="{{route('socio.resultados.create')}}" class="btn btn-success text-white font-bold text-sm align-middle">Agregar</a>
+                                                @endcan
                                             </div>   
                                         </div>
 

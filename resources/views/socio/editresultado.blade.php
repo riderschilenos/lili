@@ -61,8 +61,6 @@
                     border-color: var(--main-color);
                 }
             </style>
-            <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
 
 
             <div class="bg-gray-100 min-h-screen pb-6">
@@ -306,101 +304,9 @@
                            
 
                             <!-- garage and movie -->
+                           
                             <div class="bg-white shadow-sm rounded-sm">
-
-                                <div class="grid grid-cols-1 sm:grid-cols-1">
-                                    <div class="bg-white hover:shadow">
-                                        <div class="items-center p-3 flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                            
-                                            <div>
-                                                <span class="text-red-500">
-                                                    <i class="fas fa-car text-white-800"></i>
-                                                </span>
-                                                <span>Garage</span>
-                                            </div>
-
-                                            <div>
-                                                            @can('perfil_propio', $socio)  
-                                                            <a href="{{route('garage.vehiculo.create')}}"><span class="btn btn-success text-white font-bold text-sm align-middle">Inscribir Vehículo</span></a>
-                                                            @endcan
-                                            </div>
-                                            
-                                        </div>
-                                        
-                                        <div class="grid grid-cols-1 p-1 md:grid-cols-4 gap-1"> 
-
-                                            @if ($socio->user->vehiculos)
-                                                
-                                                @php
-                                                    $n=0;
-                                                @endphp
-                                                @foreach ($socio->user->vehiculos as $vehiculo)
-                                                    @if($vehiculo->status==5 || $vehiculo->status==6)
-                                                        <div class="hidden md:block">
-                                                                
-                                                            <div class="text-center p-2 m-2 bg-main-color rounded-xl">
-                                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
-                                                                    @if($vehiculo->image->first())
-                                                                        <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
-                                                                    @else
-                                                                        <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
-                                                                    @endif   
-                                                                
-                                                                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}"> 
-                                                                        <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
-                                                                    </a>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="block md:hidden">
-                                                                <x-vehiculo-card2 :vehiculo="$vehiculo" />    
-                                                        </div>
-                                                        @php
-                                                            $n+=1;
-                                                        @endphp
-                                                    @endif
-                                                @endforeach
-                                            
-                                            @endif
-                                            {{-- comment 
-                                            
-                                                <div class="text-center my-2">
-                                                    <img class="h-24 w-34 mx-auto"
-                                                        src="https://www.canyon.com/on/demandware.static/-/Sites-canyon-master/default/dwb5b29ea2/images/full/full_2021_/2021/full_2021_sender-cfr_2251_tm_P5.png"
-                                                        alt="">
-                                                    <a href="#" class="text-main-color">Kojstantin</a>
-                                                </div>
-                                                <div class="text-center my-2">
-                                                    <img class="h-26 w-36 mx-auto"
-                                                        src="https://www.motofichas.com/images/phocagallery/Honda/crf250r-2022/02-honda-crf250r-2022-estudio.jpg"
-                                                        alt="">
-                                                    <a href="#" class="text-main-color">James</a>
-                                                </div>
-                                                <div class="text-center my-2">
-                                                    <img class="h-26 w-36 mx-auto"
-                                                        src="https://i.ytimg.com/vi/qmfxU0KMBBg/maxresdefault.jpg"
-                                                        alt="">
-                                                    <a href="#" class="text-main-color">Natie</a>
-                                                </div>
-                                            --}}
-                                        </div>
-                                        @if ($n==0)
-                                            <div class="max-w-3xl flex justify-center mb-6 mt-4">
-                                                <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg mx-2">
-                                                    <div class="flex items-center space-x-4">
-                                                        <img src="{{asset('img/bike.png')}}" class="h-14 w-14" alt="">
-                                                        <div class="flex flex-col space-y-1">
-                                                            <span class="font-bold">{{ $socio->name}} Aun no Registra su Garage</span>
-                                                            <span class="text-sm text-center">Pronto nuevas novedades 🔥</span>
-                                                        </div>
-                                                    </div>
-                                                  
-                                                </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2">
+ <div class="grid grid-cols-1 sm:grid-cols-2">
                                     <div class="bg-white p-3 hover:shadow">
                                         <div class="flex justify-between mb-2 items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                                             <div>
@@ -418,7 +324,7 @@
                                         @can('Super admin')
                                             
                                                     
-                                            <form action="{{route('garage.uploadresultado',$resultado->id)}}"
+                                            <form action="{{route('garage.uploadresultado')}}"
                                                 method="POST"
                                                 class="dropzone"
                                                 id="my-awesome-dropzone">
@@ -558,191 +464,83 @@
                                     </div>
 
                                 </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-1">
+                                    <div class="bg-white hover:shadow">
+                                        <div class="items-center p-3 flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                            
+                                            <div>
+                                                <span class="text-red-500">
+                                                    <i class="fas fa-car text-white-800"></i>
+                                                </span>
+                                                <span>Garage</span>
+                                            </div>
+
+                                            <div>
+                                                            @can('perfil_propio', $socio)  
+                                                            <a href="{{route('garage.vehiculo.create')}}"><span class="btn btn-success text-white font-bold text-sm align-middle">Inscribir Vehículo</span></a>
+                                                            @endcan
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-1 p-1 md:grid-cols-4 gap-1"> 
+
+                                            @if ($socio->user->vehiculos)
+                                                
+                                                @php
+                                                    $n=0;
+                                                @endphp
+                                                @foreach ($socio->user->vehiculos as $vehiculo)
+                                                    @if($vehiculo->status==5 || $vehiculo->status==6)
+                                                        <div class="hidden md:block">
+                                                                
+                                                            <div class="text-center p-2 m-2 bg-main-color rounded-xl">
+                                                                <a href="{{route('garage.vehiculo.show', $vehiculo)}}" class="text-main-color">
+                                                                    @if($vehiculo->image->first())
+                                                                        <img class="h-44 w-42 object-cover" src="{{Storage::url($vehiculo->image->first()->url)}}" alt="">
+                                                                    @else
+                                                                        <img class="h-44 w-42 object-cover" src="https://www.greenmedical.cl/wp-content/uploads/2019/10/producto-sin-imagen.png" alt="">
+                                                                    @endif   
+                                                                
+                                                                    <a href="{{route('garage.vehiculo.show', $vehiculo)}}"> 
+                                                                        <h1 class="text-white mt-1 font-bold text-md">{{$vehiculo->marca->name.' '.strtoupper($vehiculo->modelo).'-'.$vehiculo->cilindrada.'cc '.$vehiculo->año}}</h1>
+                                                                    </a>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="block md:hidden">
+                                                                <x-vehiculo-card2 :vehiculo="$vehiculo" />    
+                                                        </div>
+                                                        @php
+                                                            $n+=1;
+                                                        @endphp
+                                                    @endif
+                                                @endforeach
+                                            
+                                            @endif
+                                           
+                                        </div>
+                                        @if ($n==0)
+                                            <div class="max-w-3xl flex justify-center mb-6 mt-4">
+                                                <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg mx-2">
+                                                    <div class="flex items-center space-x-4">
+                                                        <img src="{{asset('img/bike.png')}}" class="h-14 w-14" alt="">
+                                                        <div class="flex flex-col space-y-1">
+                                                            <span class="font-bold">{{ $socio->name}} Aun no Registra su Garage</span>
+                                                            <span class="text-sm text-center">Pronto nuevas novedades 🔥</span>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                               
                                 <!-- End of Experience and education grid -->
                             </div>
 
-                            <div class="my-4">
                             
-                            <div class="bg-white pt-3 pb-12 shadow-sm rounded-sm">
-
-                                <div class="mb-12 grid grid-cols-1 sm:grid-cols-2">
-                                
-                                    <div class="bg-white p-3 hover:shadow">
-                                        <div class="flex justify-between items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                           
-                                           <div>
-                                                <span class="text-red-500">
-                                                    <i class="fas fa-film text-white-800"></i>
-                                                </span>
-                                                <span>MovieCollection</span>
-                                            </div> 
-                                            <div>
-                                                <a href="{{route('series.index')}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
-                                            </div>        
-                                        </div>
-                                        <div class="grid grid-cols-4 gap-4">
-                                        
-                                            @if ($socio->user->serie_enrolled)
-                                                
-                                            
-                                                @foreach ($socio->user->serie_enrolled as $serie)
-                                                    <div class="text-center my-2">
-                                                        <a href="{{route('series.show', $serie)}}" class="text-main-color">
-                                                            <img class="h-16 w-20 mx-auto"
-                                                            src="{{Storage::url($serie->image->url)}}"
-                                                            alt="">
-                                                        </a>
-                                                    </div>
-                                                @endforeach
-
-                                            @endif
-                                                {{-- 
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">James</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Natie</a>
-                                                    </div>
-                                                    <div class="text-center my-2">
-                                                        <img class="h-16 w-16 rounded-full mx-auto"
-                                                            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                                                            alt="">
-                                                        <a href="#" class="text-main-color">Casey</a>
-                                                    </div>
-                                                --}}
-                                                
-                                        </div>
-                                    </div>
-                                    <div class="bg-white p-3 hover:shadow">
-                                        <div class="items-center flex justify-between space-x-3 font-semibold text-gray-900 text-xl leading-8 mb-3">
-                                            <div>
-                                                <span class="text-red-500">
-                                                    <i class="fas fa-dumbbell text-white-800"></i>
-                                                </span>
-                                                <span>Entrenamientos</span>
-                                            </div>
-                                                                    
-                                                        <div>
-                                                            
-                                                            <a href="{{route('socio.entrenamiento',$socio)}}"><span class="text-blue-600 font-bold text-sm align-middle"> (Ver más)</span></a>
-                                                        
-                                                        </div> 
-                                            
-                                        </div>
-                                        <ul class="list-inside space-y-2">
-                                            @if ($socio->user->activities)
-                                                    @foreach ($socio->user->activities->take(6) as $activity)
-                                                    <li>
-                                                        <div class="flex items-center">
-                                                            <span class="text-yellow-600">
-                                                                @if ($activity->type=='Ride')
-                                                                    <i class="fas fa-bicycle text-white-800"></i>
-                                                                    @elseif($activity->type=='Velomobile')
-                                                                        <i class="fas fa-bicycle text-white-800"></i>
-                                                                    @elseif($activity->type=='Run')
-                                                                        <i class="fas fa-running"></i>
-                                                                    @else
-                                                                        <i class="fas fa-dumbbell text-white-800"></i>
-                                                                    @endif
-                                                                
-                                                            </span>
-                                                            <div class="ml-4">
-                                                                <div class="text-teal-600"> 
-                                                                    @if ($activity->type=='Ride')
-                                                                        {{ number_format($activity->distance)}}   km Bicicleta
-                                                                    @elseif($activity->type=='Velomobile')
-                                                                        {{ number_format($activity->distance)}}   km Velomobil
-                                                                    @elseif($activity->type=='Run')
-                                                                    {{ number_format($activity->moving_time/60,1,',','.')}} Minutos de Trote
-                                                                    
-                                                                    @else
-                                                                        {{ number_format($activity->moving_time/60,1,',','.')}} Minutos  {{ $activity->type}}
-                                                                    @endif
-                                                                </div>
-                                                                <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}}</div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                       
-                                                    @endforeach
-                                               
-                                                @endif
-                                                    {{-- comment
-                                            <li>
-                                                <div class="flex items-center">
-                                                    <span class="text-yellow-600">
-                                                        <i class="fas fa-dumbbell text-white-800"></i>
-                                                    </span>
-                                                    <div class="ml-4">
-                                                        <div class="text-teal-600">50 Min Pesas.</div>
-                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                           
-                                            <li>
-                                                <div class="flex items-center">
-                                                    <span class="text-yellow-600">
-                                                        <i class="fas fa-running"></i>
-                                                    </span>
-                                                    <div class="ml-4">
-                                                        <div class="text-teal-600">10k running</div>
-                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="flex items-center">
-                                                    <span class="text-yellow-600">
-                                                        <i class="fas fa-bicycle text-white-800"></i>
-                                                    </span>
-                                                    <div class="ml-4">
-                                                        <div class="text-teal-600">70km Bicicleta</div>
-                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                                --}}
-                                        </ul>
-                                    </div>
-                                        
-                                    {{-- commen
-                                            <div>
-                                                <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                                                    <span clas="text-green-500">
-                                                        <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                            stroke="currentColor">
-                                                            <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
-                                                            <path fill="#fff"
-                                                                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                                                        </svg>
-                                                    </span>
-                                                    <span class="tracking-wide">Education</span>
-                                                </div>
-                                                <ul class="list-inside space-y-2">
-                                                    <li>
-                                                        <div class="text-teal-600">Masters Degree in Oxford</div>
-                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                    </li>
-                                                </ul>
-                                    </div>t --}}
-                                </div>
-                                
-                            </div> 
-
-                            </div>
                             
                         </div>
                         

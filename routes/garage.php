@@ -30,7 +30,7 @@ Route::post('{vehiculo}/update',[VehiculoController::class, 'update'])->name('ve
 
 Route::post('{vehiculo}/upload', [VehiculoController::class,'upload'])->name('upload');
 
-Route::post('{resultado}/uploadresult', [ResultadoController::class,'uploadres'])->name('uploadresultado');
+Route::post('uploadresult', [VehiculoController::class,'uploadres'])->name('uploadresultado');
 
 Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name('comision');
 

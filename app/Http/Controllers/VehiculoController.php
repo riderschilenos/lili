@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Disciplina;
 use App\Models\Qrregister;
+use App\Models\Resultado;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Vehiculo;
@@ -71,6 +72,35 @@ class VehiculoController extends Controller
        $disciplinas= Disciplina::pluck('name','id');
 
         return view('vehiculo.usados.index',compact('socio2','disciplinas','riders','series','autos'));
+    }
+    
+    public function uploadres(Request $request)
+        {
+        
+        $request->validate([
+            'file'=>'required|image'
+        ]); 
+
+        $resultado=Resultado::where('user_id',auth()->user()->id)->where('status',1)->first();
+        if (is_null($resultado)) {
+            $resultado=Resultado::create(['user_id'=>auth()->user()->id]);
+        }
+        
+
+    
+        $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+        $ruta = public_path().'/storage/socios/'.$nombre;
+        Image::make($request->file('file'))->orientate()
+                ->resize(600, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($ruta);
+        $resultado->image()->create([
+                    'url'=>'socios/'.$nombre
+                ]);   
+        
+        return redirect()->route('socio.show',$resultado->user->socio);
+                
     }
 
     public function personalindex(){

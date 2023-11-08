@@ -10,24 +10,40 @@
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{$resultado->titulo}}</h3>
                                 <time class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">Febrero 2023</time>
                             </div>
-                            <div class="flex items-center">
-                                @if ($resultado->image->first())
-                                    <img class="h-16 object-contain mr-4 cursor-pointer items-center" src="{{Storage::url($resultado->image->first()->url)}}" title="image" alt="">
-                                @else
-                                    {{$resultado->image}}
-                                    <img class="h-16 object-contain mr-4 cursor-pointer items-center" src="{{asset('img/copa.png')}}" title="Descargar" alt="">
-                                @endif
-                                <div class="ml-2">
-                                
-                                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">{{$resultado->descripcion}}</p>
-                                    
-                                    
+                            <article class="grid grid-cols-6">
+                            
+                                <div class="col-span-2 items-center content-center my-auto">
+                                 
+                                      
+                                       
+                                                    <a href="">
+                                                            @if($resultado->image->first())
+                                                            
+                                                                <img class="w-full h-32 object-cover content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="">
+                                                            
+                                                            @else
+                                                                <img class="w-full h-32 object-cover content-center items-center " src="{{asset('img/copa.png')}}" alt="">
+                                                        
+                                                             
+                                                            @endif    
+                                                            
+                                                        </a>
+                                              
+                                     
                                 </div>
-                              
+                                <div class="flex justify-start px-2 py-2 col-span-4 ">
 
-                            </div>
+                                    <div class="items-center my-2">
+                                        <p class="text-gray-500 text-base font-bold">{{$resultado->descripcion}}</p>
+                                    </div>
+                                
+                                </div>
+                                
+                            
+                            </article>
+                        
 
-                            <div class="flex justify-end  rounded-lg p-1 items-center">
+                            <div class="flex justify-end  rounded-lg px-1 items-center">
                                @can('perfil_propio', $socio)
                                     <a href="{{route('socio.resultados.edit',$resultado)}}" class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">editar</a>
                                 @endcan

@@ -73,7 +73,7 @@ class VehiculoController extends Controller
 
         return view('vehiculo.usados.index',compact('socio2','disciplinas','riders','series','autos'));
     }
-    
+
     public function uploadres(Request $request)
         {
         
@@ -99,7 +99,7 @@ class VehiculoController extends Controller
                     'url'=>'socios/'.$nombre
                 ]);   
         
-        return redirect()->route('socio.show',$resultado->user->socio);
+        return redirect()->route('garage.uploadresultado',$resultado->user->socio);
                 
     }
 

@@ -131,6 +131,8 @@
                                                     </div>
                                                 </form>
 
+                                                @livewire('socio.resultado-image', ['resultado' => $resultado])
+
                                                 <div class="flex md:hidden justify-between my-2">
                                                     <button class="hover:shadow-form btn btn-danger py-3 px-8 text-base font-semibold text-white outline-none">
                                                         Cancelar
@@ -139,6 +141,7 @@
                                                     Publicar
                                                     </button>
                                                 </div>
+
                                             
                                             @endcan
                                            
@@ -146,13 +149,13 @@
                                         
                                     
                                         
-                                        <div class="order-1 lg:order-2 bg-white p-3 hover:shadow">
+                                        <div class="order-1 lg:order-2 bg-white px-3 hover:shadow">
                                         
                                             @can('perfil_propio', $socio)
                                                 <div class="mx-auto w-full max-w-[550px]">
                                                     <form action="https://formbold.com/s/FORM_ID" method="POST">
                                                    
-                                                    <div class="mb-4">
+                                                    <div class="mb-2">
                                                       
                                                         <input
                                                         type="text"
@@ -162,7 +165,7 @@
                                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                                         />
                                                     </div>
-                                                    <div class="">
+                                                    <div class="mb-2">
                                                       
                                                         <textarea
                                                         rows="4"

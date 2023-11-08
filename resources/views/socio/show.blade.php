@@ -403,8 +403,8 @@
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2">
                                     <section id="curriculum">
-                                        <div class="bg-white p-3 hover:shadow">
-                                            <div class="flex justify-between mb-2 items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                        <div class="bg-white hover:shadow">
+                                            <div class="p-3 flex justify-between mb-2 items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                                                 <div>
                                                     <span class="text-red-500">
                                                         <i class="fas fa-film text-white-800"></i>

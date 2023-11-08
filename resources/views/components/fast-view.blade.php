@@ -416,15 +416,8 @@
                                                 </div>
                                                 <div>
                                                     @can('Super admin')
-                                                        <form action="{{route('socio.resultados.store')}}"
-                                                        method="POST"
-                                                        class="dropzone"
-                                                        id="my-awesome-dropzone">
-                                                        <div class="dz-message " data-dz-message>
-                                                            <span class="btn btn-success text-white font-bold text-sm align-middle">Agregar</span>
-                                                        </div>
-                                                        </form>
-                                                    @endcan
+                                                        <a href="{{route('socio.resultados.create')}}" class="btn btn-success text-white font-bold text-sm align-middle">Agregar</a>
+                                                     @endcan
                                                 </div>    
                                             </div>
 

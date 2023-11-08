@@ -159,103 +159,40 @@
                                         <div class="order-1 lg:order-2 bg-white p-3 hover:shadow">
                                         
                                             @can('perfil_propio', $socio)
-                                                @if (auth()->user()->strava)
-                                                    
-                                            
-                                                    <div class="bg-green-50 p-6 rounded shadow-md items-center ">
-                                                    
-                                                        <div class="flex items-center justify-between">
-                                                            <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                                            </svg>
-                                                            <div>
-                                                                <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
-                                                                <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes en eventos virtuales!</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mt-4 flex justify-between">
-                                                            <a href="#" class="text-blue-500 hover:underline hover:text-blue-600 transition duration-300 ml-4">
-                                                                Desconectar Perfil
-                                                            </a>
-                                                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-6">
-                                                        </div>
-                                                    
+                                                <div class="mx-auto w-full max-w-[550px]">
+                                                    <form action="https://formbold.com/s/FORM_ID" method="POST">
+                                                   
+                                                    <div class="mb-5 mt-10">
+                                                      
+                                                        <input
+                                                        type="text"
+                                                        name="subject"
+                                                        id="subject"
+                                                        placeholder="Resultado o Nombre del Evento/Competencia"
+                                                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                                        />
                                                     </div>
-                                                @else
-                                                    
-                                                    
-
-                                                    <div class="bg-white p-6 rounded shadow-md">
-                                                        <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
-                                                        <div class="my-2">
-                                                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
-                                                        </div>
-                                                        <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
-                                                        <div class="flex justify-center">
-                                                            <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
-                                                                Enlazar con Strava
-                                                            </a>
-                                                        </div>
-                                                        
-                                                        <p class="mt-4 text-sm text-gray-500">
-                                                            Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
-                                                        </p>
+                                                    <div class="mb-5">
+                                                      
+                                                        <textarea
+                                                        rows="4"
+                                                        name="message"
+                                                        id="message"
+                                                        placeholder="Descripción...."
+                                                        class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                                        ></textarea>
                                                     </div>
-                                                @endif
+                                                    <div>
+                                                        <button
+                                                        class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none"
+                                                        >
+                                                        Submit
+                                                        </button>
+                                                    </div>
+                                                    </form>
+                                              </div>
                                             @endcan
-                                            <div class="bg-blue-500 py-16">
-                                                <div class="container mx-auto text-center">
-                                                    <h1 class="text-white text-4xl font-semibold mb-4">¡Desafío Strava! 15 y 30Km Online!</h1>
-                                                    <p class="text-white text-lg mb-8">Demuestra tu constancia montando a la bicicleta y participa de este desafio virtual.</p>
-                                                    <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" class="bg-white text-blue-500 hover:bg-blue-100 text-lg font-semibold py-2 px-6 rounded-full">Regístrate ahora</a>
-                                                </div>
-                                            </div>
-                                            <ul class="list-inside space-y-2 ml-2 hidden">
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-dumbbell text-white-800"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">50 Min Pesas.</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-bicycle text-white-800"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">70km Bicicleta</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-running"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">10k running</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-bicycle text-white-800"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">70km Bicicleta</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                           
                                         
                                         </div>
 

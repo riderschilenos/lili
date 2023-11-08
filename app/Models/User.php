@@ -170,6 +170,10 @@ public function sendPasswordResetNotification($token)
         return $this->hasMany('App\Models\Ticket');
     }
 
+    public function resultados(){
+        return $this->hasMany('App\Models\Resultado');
+    }
+
     public function filmmakers(){
         return $this->hasMany('App\Models\Filmmaker');
     }

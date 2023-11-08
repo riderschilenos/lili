@@ -18,6 +18,9 @@
         
         
     </x-slot>
+    @section('css')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @endsection
     
 
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
@@ -230,16 +233,12 @@
                                    
                                 
                             
-                                    @livewire('socio.socio-auspiciadores',['socio' => $socio], key('socio-auspiciadores.'.$socio->slug))
-
+                                    
                                     @can('Super admin')
                                         
                                     
                                         <div class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded-lg shadow-sm ">
-                                            
-                                            @livewire('socio.socio-donacion', ['socio' => $socio], key($socio->id))
                                           
-                                        
                                             <div class="mt-6 hidden">
                                                 <div class="flex justify-between">
                                                 <span class="font-semibold text-[#191D23]">Receiving</span>
@@ -411,15 +410,24 @@
                                                 <span>Curriculum Deportivo</span>
                                             </div>
                                             <div>
-                                                @can('Super admin')
-                                                    <a href="{{route('socio.resultados.edit',$socio->user->resultados()->first())}}" class="btn btn-success text-white font-bold text-sm align-middle">Agregar id:{{$socio->user->resultados()->first()->id}}</a>
-                                                @endcan
+                                              
                                             </div>   
                                         </div>
 
                                         <!-- This is an example component -->
                                         @can('Super admin')
                                             
+                                                    
+                                            <form action="{{route('garage.uploadresultado',$resultado->id)}}"
+                                                method="POST"
+                                                class="dropzone"
+                                                id="my-awesome-dropzone">
+                                                <div class="dz-message " data-dz-message>
+                                                <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
+                                                <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
+                                                </div>
+                                            </form>
+                                        
                                         @livewire('socio.curriculum-deportivo',['socio' => $socio], key('curriculum-deportivo'.$socio->slug))
 
                                    
@@ -746,6 +754,18 @@
 
     <x-slot name="js">
 
-      </x-slot>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+        <script>
+          Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+            headers:{
+              'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
+            },
+            acceptedFiles: "image/*",
+            maxFiles: 6,
+              };
+        </script>
+  
+    </x-slot>
+      
 
 </x-app-layout>

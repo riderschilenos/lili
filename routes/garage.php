@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Socio\ResultadoController;
 use App\Http\Controllers\Vehiculo\MantencionController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,8 @@ Route::post('{vehiculo}/update',[VehiculoController::class, 'update'])->name('ve
 
 
 Route::post('{vehiculo}/upload', [VehiculoController::class,'upload'])->name('upload');
+
+Route::post('{resultado}/uploadresult', [ResultadoController::class,'uploadres'])->name('uploadresultado');
 
 Route::get('{vehiculo}/comision', [VehiculoController::class,'comision'])->name('comision');
 

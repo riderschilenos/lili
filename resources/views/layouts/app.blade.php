@@ -38,7 +38,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+     
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app6.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
@@ -58,6 +58,7 @@
         @livewireStyles
 
         @yield('css')
+        
     </head>
     <body class="font-sans antialiased">
         <style>
@@ -135,24 +136,6 @@
         @stack('modals')
 
         @livewireScripts
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
-        <script>
-          
-          Dropzone.options.myGreatDropzone = { // camelized version of the `id`
-            headers:{
-              'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
-            },
-            acceptedFiles: "image/*",
-            maxFiles: 6,
-            
-    
-              
-              };
-             
-              
-          
-        </script>
   
         @isset($js)
 

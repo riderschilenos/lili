@@ -416,7 +416,7 @@
                                                 </div>
                                                 <div>
                                                     @can('Super admin')
-                                                        <form action="{{route('socio.edit',$socio2)}}"
+                                                        <form action="{{route('socio.resultados.store')}}"
                                                         method="POST"
                                                         class="dropzone"
                                                         id="my-awesome-dropzone">
@@ -431,6 +431,7 @@
                                             <!-- This is an example component -->
                                            
                                             @can('Super admin')
+                                            
                                                 @livewire('socio.curriculum-deportivo',['socio' => $socio2], key('curriculum-deportivo'.$socio2->slug))
 
                                     

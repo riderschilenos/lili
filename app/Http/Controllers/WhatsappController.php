@@ -219,7 +219,8 @@ class WhatsappController extends Controller
                         $fono ='569'.substr(str_replace(' ', '', Socio::find($ticket->ticketable_id)->fono), -8);
                     }
 
-                
+                    $token = env('WS_TOKEN');
+                    $phoneid= env('WS_PHONEID');
                     $version='v16.0';
                     $url="https://riderschilenos.cl/";
                     $wsload=[
@@ -253,45 +254,7 @@ class WhatsappController extends Controller
                     
                     Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
                   
-                    $version='v16.0';
-                    $url="https://riderschilenos.cl/";
-                    $gpload=[
-                        'messaging_product' => 'whatsapp',
-                        "preview_url"=> false,
-                        'to'=>'56963176726',
-                        
-                        'type'=>'template',
-                        'template'=>[
-                            'name'=>'entrada_vendida',
-                            'language'=>[
-                                'code'=>'es'],
-                            'components'=>[ 
-                                [
-                                    'type'=>'body',
-                                    'parameters'=>[
-                                        [   //cliente
-                                            'type'=>'text',
-                                            'text'=> $ticket->user->name
-                                        ],
-                                        [   //Cantidad
-                                            'type'=>'text',
-                                            'text'=> '$'.number_format($ticket->inscripcion)
-                                        ],
-                                        [   //saldo
-                                            'type'=>'text',
-                                            'text'=> '$'.number_format($total*(1-($ticket->evento->comision/100))-$retiroacumulado)
-                                        ],
-                                        
-                                    ]
-                                ]
-                            ]
-                        ]
-                    
-                    ];
-                    
-                    Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$gpload)->throw()->json();
-                    
-            
+                 
             return redirect()->route('ticket.view',$ticket);
             
         } catch (\Throwable $th) {

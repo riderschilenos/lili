@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Socio\AuspiciadorController;
 use App\Http\Controllers\Socio\HomeController;
+use App\Http\Controllers\Socio\ResultadoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('riders', [HomeController::class,'index'])->name('index');
@@ -25,3 +26,7 @@ Route::get('socio/{socio}/edit', [HomeController::class,'edit'])->name('edit');
 Route::put('socio/{socio}/update', [HomeController::class,'update'])->name('update');
 
 Route::resource('auspiciador', AuspiciadorController::class)->names('auspiciadors');
+
+Route::resource('resultado', ResultadoController::class)->names('resultados');
+
+

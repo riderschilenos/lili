@@ -101,20 +101,21 @@
                             <!-- garage and movie -->
                            
                             <div class="bg-white shadow-sm rounded-sm">
+                                <div class="flex justify-between mb-2 items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                    <div>
+                                        <span class="text-red-500">
+                                            <i class="fas fa-film text-white-800"></i>
+                                        </span>
+                                        <span>Curriculum Deportivo</span>
+                                    </div>
+                                    <div>
+                                    
+                                    </div>   
+                                </div>
                                     <div class="grid grid-cols-1 sm:grid-cols-2">
 
                                         <div class="order-2 lg:order-1 bg-white p-3 hover:shadow">
-                                            <div class="flex justify-between mb-2 items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                                                <div>
-                                                    <span class="text-red-500">
-                                                        <i class="fas fa-film text-white-800"></i>
-                                                    </span>
-                                                    <span>Curriculum Deportivo</span>
-                                                </div>
-                                                <div>
-                                                
-                                                </div>   
-                                            </div>
+                                           
 
                                             <!-- This is an example component -->
                                             @can('Super admin')

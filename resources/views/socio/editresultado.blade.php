@@ -101,7 +101,7 @@
                             <!-- garage and movie -->
                            
                             <div class="bg-white shadow-sm rounded-sm">
-                                <div class="p-3 flex justify-between items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                                <div class="px-3 pt-3 flex justify-between items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                                     <div>
                                         <span class="text-red-500">
                                             <i class="fas fa-film text-white-800"></i>

@@ -11,8 +11,8 @@
                                 <time class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">Febrero 2023</time>
                             </div>
                             <div class="flex items-center">
-                                @if ($resultado->image()->first())
-                                    <img class="h-16 object-contain mr-4 cursor-pointer items-center" src="{{Storage::url($resultado->image()->first()->url)}}" title="image" alt="">
+                                @if ($resultado->image->first())
+                                    <img class="h-16 object-contain mr-4 cursor-pointer items-center" src="{{Storage::url($resultado->image->first()->url)}}" title="image" alt="">
                                 @else
                                     <img class="h-16 object-contain mr-4 cursor-pointer items-center" src="{{asset('img/copa.png')}}" title="Descargar" alt="">
                                 @endif

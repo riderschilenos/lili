@@ -2114,7 +2114,7 @@
 
                          
                     <div>
-                        <h1 class="text-center font-bold text-2xl pt-2">Premiaciones, Logros y Recuerdos Riders</h1>
+                        <h1 class="text-center font-bold text-2xl pt-2">Logros y Recuerdos Riders</h1>
                     </div>
                     <a class="flex justify-center mt-4" href="{{route('socio.resultados.create')}}">
                               

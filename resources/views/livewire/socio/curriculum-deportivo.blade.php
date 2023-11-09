@@ -16,7 +16,7 @@
             @if ($resultados->count()>0)
                 @foreach ($resultados as $resultado)
                     
-                        <li class="bg-gray-100 rounded-lg px-2 my-2 shadow-lg" x-data="{slr: false}">
+                        <li class="bg-gray-100 rounded-lg px-2 py-1 my-2 shadow-lg" x-data="{slr: false}">
                             <div x-show="slr">
                                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' x-on:click="slr=!slr">
                                     @if ($resultado->image)

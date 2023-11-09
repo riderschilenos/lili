@@ -27,6 +27,6 @@ Route::put('socio/{socio}/update', [HomeController::class,'update'])->name('upda
 
 Route::resource('auspiciador', AuspiciadorController::class)->names('auspiciadors');
 
-Route::resource('resultado', ResultadoController::class)->names('resultados');
+Route::resource('resultado', ResultadoController::class)->middleware('auth')->names('resultados');
 
 

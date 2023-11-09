@@ -1370,8 +1370,8 @@
                             <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
                             <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
                             <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
-                            <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                             <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; novedades = true; home = false; socio = false; evento = false; registro = false; vendedor = false; base = false" >Novedades</div>
+                            <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                         
                         <!-- Agrega más categorías aquí -->
                         </div>
@@ -1426,8 +1426,8 @@
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
                         <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
-                        <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; novedades = true; home = false; socio = false; evento = false; registro = false; vendedor = false; base = false" >Novedades</div>
+                        <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                         
                       <!-- Agrega más categorías aquí -->
                     </div>
@@ -1498,8 +1498,8 @@
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
                         <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
-                        <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; novedades = true; home = false; socio = false; evento = false; registro = false; vendedor = false; base = false" >Novedades</div>
+                        <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                         
                       <!-- Agrega más categorías aquí -->
                     </div>
@@ -2045,8 +2045,8 @@
                 <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; home = false; socio = true; evento = false; registro = false; vendedor = false; video = false; base = false" >Riders</div>
                 <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; home = false; socio = false; registro = false; vendedor = false; video = false; base = false" >Eventos</div>
                 <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; socio = false; evento = false; registro = true; vendedor = false; video = false; base = false" >Bikes</div>
-                <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="user = false; home = false; socio = false; video = true; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                 <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; novedades = true; home = false; socio = false; evento = false; registro = false; vendedor = false; video = false; base = false" >Novedades</div>
+                <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="user = false; home = false; socio = false; video = true; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
             
             <!-- Agrega más categorías aquí -->
             </div>
@@ -2100,8 +2100,8 @@
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="user = false; home = false; video = false; novedades = false; socio = true; evento = false; registro = false; vendedor = false; base = false" >Riders</div>
                         <div class="px-4 py-2 cursor-pointer hover:underline" @click="evento = true; user = false; video = false; novedades = false; home = false; socio = false; registro = false; vendedor = false; base = false" >Eventos</div>
                         <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; video = false; novedades = false; home = false; socio = false; evento = false; registro = true; vendedor = false; base = false" >Bikes</div>
-                        <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; novedades = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                         <div class="px-4 py-2 cursor-pointer underline text-gray-900" @click="user = false; novedades = true; video = false; home = false; socio = false; evento = false; registro = false; vendedor = false; base = false" >Novedades</div>
+                        <div class="px-4 py-2 cursor-pointer hover:underline text-gray-900" @click="user = false; novedades = false; home = false; video = true; socio = false; evento = false; registro = false; vendedor = false; base = false" >Videos</div>
                       
                       <!-- Agrega más categorías aquí -->
                     </div>
@@ -2113,9 +2113,18 @@
                         
 
                          
-
+                    <div>
+                        <h1 class="text-center font-bold text-2xl pt-2">Premiaciones, Logros y Recuerdos Riders</h1>
+                    </div>
+                    <a class="flex justify-center mt-4" href="{{route('socio.resultados.create')}}">
+                              
+                        <button class="btn max-w-sm btn-block btn-success shadow h-10 px-4 rounded-lg text-white mb-2">
+                        
+                            Nueva Publicación
+                        </button>
+                    </a>
                     <div class="flex justify-center items-center h-screen ">
-                        <h1 class="text-center font-bold mt-10">PRONTO NOVEDADES...</h1>
+                        @livewire('socio.galeria-resultados')
                     </div>
                     
                 </div>

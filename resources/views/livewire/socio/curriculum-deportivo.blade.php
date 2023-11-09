@@ -22,8 +22,6 @@
                                 <div class="col-span-2 items-center content-center my-auto">
                                  
                                       
-                                       
-                                                    <a href="">
                                                             @if($resultado->image->first())
                                                             
                                                                 <img class="w-full h-32 object-contain content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="">
@@ -34,7 +32,7 @@
                                                              
                                                             @endif    
                                                             
-                                                        </a>
+                                                       
                                               
                                      
                                 </div>

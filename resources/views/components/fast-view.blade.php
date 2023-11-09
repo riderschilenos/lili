@@ -2118,7 +2118,7 @@
                     </div>
                     <a class="flex justify-center mt-4" href="{{route('socio.resultados.create')}}">
                               
-                        <button class="btn max-w-sm btn-block btn-success shadow h-10 px-4 rounded-lg text-white mb-2">
+                        <button class="btn max-w-sm btn-block btn-danger shadow h-10 px-4 rounded-lg text-white mb-2">
                         
                             Nueva Publicación
                         </button>

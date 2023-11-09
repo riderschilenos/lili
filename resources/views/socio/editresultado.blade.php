@@ -168,6 +168,14 @@
                                                         @enderror
                                                     </div>
                                                     <div class="mb-4">
+                                                        {!! Form::label('fecha', 'Fecha') !!}
+                                                        {!! Form::date('fecha', null , ['class' => 'w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'.($errors->has('titulo')?' border-red-600':''), 'placeholder'=>'Nombre o Resultado del Evento/Competencia']) !!}
+                                
+                                                        @error('fecha')
+                                                            <strong class="text-xs text-red-600">{{ $message }}</strong>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="mb-4">
                                                         {!! Form::label('descripcion', 'Descripción') !!}
                                                         {!! Form::textarea('descripcion', null , ['class' => 'w-full rounded-md border border-[#e0e0e0] bg-white px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md', 'placeholder'=>'Descripción....']) !!}
                                                         

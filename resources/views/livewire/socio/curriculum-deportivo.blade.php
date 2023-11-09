@@ -63,10 +63,8 @@
                                                             @if($resultado->image->first())
                                                             
                                                                 <img class="w-full h-32 object-contain content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="">
-                                                                <p class="text-center">({{'1/'.$resultado->image->count()}})</p>
                                                             @else
                                                                 <img class="w-full h-32 object-contain content-center items-center " src="{{asset('img/copa.png')}}" alt="">
-                                                                <p class="text-center">({{'0/0'}})</p>
                                                              
                                                             @endif    
                                                             
@@ -85,13 +83,37 @@
                                 
                             
                             </article>
+                            <article class="grid grid-cols-6">
+                            
+                                <div class="col-span-2 items-center content-center my-auto">
+                                 
+                                      
+                                                            @if($resultado->image->first())
+                                                            
+                                                                <p class="text-center">({{'1/'.$resultado->image->count()}})</p>
+                                                            @else
+                                                               <p class="text-center">({{'0/0'}})</p>
+                                                             
+                                                            @endif    
+                                                            
+                                                       
+                                              
+                                     
+                                </div>
+                                <div class="px-2 col-span-4 ">
+                                    
+                                    <div class="flex justify-end  rounded-lg px-1 items-center">
+                                        @can('perfil_propio', $socio)
+                                            <a href="{{route('socio.resultados.edit',$resultado)}}" class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">editar</a>
+                                        @endcan
+                                    </div>
+                                
+                                </div>
+                                
+                            
+                            </article>
                         
 
-                            <div class="flex justify-end  rounded-lg px-1 items-center">
-                               @can('perfil_propio', $socio)
-                                    <a href="{{route('socio.resultados.edit',$resultado)}}" class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">editar</a>
-                                @endcan
-                            </div>
                         </li>
 
                 @endforeach

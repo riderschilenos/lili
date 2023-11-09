@@ -74,19 +74,12 @@ class VehiculoController extends Controller
         return view('vehiculo.usados.index',compact('socio2','disciplinas','riders','series','autos'));
     }
 
-    public function uploadres(Request $request)
+    public function uploadres(Request $request, Resultado $resultado)
         {
         
         $request->validate([
             'file'=>'required|image'
         ]); 
-
-        $resultado=Resultado::where('user_id',auth()->user()->id)->where('status',1)->first();
-        if (is_null($resultado)) {
-            $resultado=Resultado::create(['user_id'=>auth()->user()->id,
-                                        'fecha'=>Carbon::now()]);
-        }
-        
 
     
         $nombre = Str::random(10).$request->file('file')->getClientOriginalName();

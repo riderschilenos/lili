@@ -57,19 +57,45 @@
                             </div>
                         </li>
                 @endforeach
-            @else
-                <div class="max-w-3xl flex justify-center mb-6 mt-4">
-                    <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg mx-2">
-                        <div class="flex items-center space-x-4">
-                            <img src="{{asset('img/copa.png')}}" class="h-14 w-14" alt="">
-                            <div class="flex flex-col space-y-1">
-                                <span class="font-bold">Aun no Registra su Curriculum Deportivo</span>
-                                <span class="text-sm text-center">Pronto nuevas novedades 🔥</span>
+            @else 
+                @can('perfil_propio', $socio)
+                    <a href="{{route('socio.resultados.create')}}">
+                        <div class="max-w-3xl flex justify-center mb-6 mt-4">
+                            <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg mx-2">
+                                <div class="flex items-center space-x-4">
+                                    <img src="{{asset('img/copa.png')}}" class="h-14 w-14" alt="">
+                                    <div class="flex flex-col space-y-1">
+                                    
+                                            <span class="font-bold">Registra tu Curriculum Deportivo</span>
+                                            <span class="text-sm text-center">de forma Online 🔥</span>
+                                    
+                                        
+                                            
+                                    </div>
+                                </div>
+                            
                             </div>
                         </div>
-                    
+                    </a>
+                @else
+                    <div class="max-w-3xl flex justify-center mb-6 mt-4">
+                        <div class="flex justify-between py-6 px-4 bg-gray-200 rounded-lg mx-2">
+                            <div class="flex items-center space-x-4">
+                                <img src="{{asset('img/copa.png')}}" class="h-14 w-14" alt="">
+                                <div class="flex flex-col space-y-1">
+                                
+                                    <span class="font-bold">Aun no Registra su Curriculum Deportivo</span>
+                                    <span class="text-sm text-center">Pronto nuevas novedades 🔥</span>
+                                
+                                    
+                                        
+                                </div>
+                            </div>
+                        
+                        </div>
                     </div>
-                </div>
+                  
+                @endcan
             @endif
                
            

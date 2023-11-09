@@ -26,10 +26,10 @@
                                                     <a href="">
                                                             @if($resultado->image->first())
                                                             
-                                                                <img class="w-full h-32 object-cover content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="">
+                                                                <img class="w-full h-32 object-contain content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="">
                                                             
                                                             @else
-                                                                <img class="w-full h-32 object-cover content-center items-center " src="{{asset('img/copa.png')}}" alt="">
+                                                                <img class="w-full h-32 object-contain content-center items-center " src="{{asset('img/copa.png')}}" alt="">
                                                         
                                                              
                                                             @endif    

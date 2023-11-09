@@ -1,4 +1,12 @@
 <div>
+    
+           
+<style>
+    .slider::-webkit-scrollbar {
+  display: none;
+}
+</style>
+
     <div class="max-w-5xl mx-auto">
         @php
             $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -7,8 +15,26 @@
         <ol class="border-l border-gray-200 dark:border-gray-700">
             @if ($resultados->count()>0)
                 @foreach ($resultados as $resultado)
-                        <li class="bg-gray-100 rounded-lg p-2 mt-4 shadow-lg">
-                            <div class="flex justify-between  rounded-lg p-1 items-center">
+                    
+                        <li class="bg-gray-100 rounded-lg p-2 mt-4 shadow-lg" x-data="{slr: false}">
+                            <div x-show="slr">
+                                <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' x-on:click="slr=!slr">
+                                    @if ($resultado->image)
+                                        @foreach ($resultado->image as $image)
+                                            <li class="shrink-0 snap-center w-full snap-mandatory">       
+                                                <img class="" src="{{Storage::url($image->url)}}" alt="" style="scroll-snap-align: center;">
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <li class="shrink-0 snap-center w-full snap-mandatory">       
+                                            <img class="" src="{{asset('img/copa.png')}}" alt="" style="scroll-snap-align: center;">
+                                        </li>
+                                    @endif
+                                    
+                                                        
+                                </ul>
+                            </div>
+                            <div class="flex justify-between  rounded-lg p-1 items-center" x-on:click="slr=!slr">
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{$resultado->titulo}}</h3>
                                 <time class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">
                                   
@@ -17,7 +43,7 @@
                              
                                 </time>
                             </div>
-                            <article class="grid grid-cols-6">
+                            <article class="grid grid-cols-6" x-on:click="slr=!slr">
                             
                                 <div class="col-span-2 items-center content-center my-auto">
                                  
@@ -54,6 +80,7 @@
                                 @endcan
                             </div>
                         </li>
+
                 @endforeach
             @else 
                 @can('perfil_propio', $socio)

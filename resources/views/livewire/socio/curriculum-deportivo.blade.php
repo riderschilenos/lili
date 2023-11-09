@@ -74,23 +74,29 @@
                                               
                                      
                                 </div>
-                                <div class="flex justify-start px-2 py-2 col-span-4 ">
-
-                                    <div class="items-center my-2">
-                                        <p class="text-gray-500 text-base font-bold">{{$resultado->descripcion}}</p>
+                                <div class="flex-col px-2 py-2 col-span-4">
+                                    <div class="flex justify-start h-full">
+                                        <div class="items-center my-2">
+                                            <p class="text-gray-500 text-base font-bold">{{$resultado->descripcion}}</p>
+                                        </div>
                                     </div>
-                                
+                                    <div class="relative h-32  w-full ">
+                                        <div class="absolute bottom-0 right-0 justify-end h-full w-full">
+                                            <div class="flex justify-end">
+                                                @can('perfil_propio', $socio)
+                                                    <a href="{{route('socio.resultados.edit',$resultado)}}" class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-auto text-right">editar</a>
+                                                @endcan
+                                            </div>
+                                        </div>
+                                      </div>
+
                                 </div>
+                                
                                 
                             
                             </article>
                         
 
-                            <div class="flex justify-end  rounded-lg px-1 items-center">
-                               @can('perfil_propio', $socio)
-                                    <a href="{{route('socio.resultados.edit',$resultado)}}" class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">editar</a>
-                                @endcan
-                            </div>
                         </li>
 
                 @endforeach

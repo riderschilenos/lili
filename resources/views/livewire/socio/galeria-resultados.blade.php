@@ -107,7 +107,14 @@
                                         
                                         <div class="flex justify-end  rounded-lg px-1 items-center">
                                             @can('perfil_propio', $resultado->user->socio)
-                                                <a href="{{route('socio.resultados.edit',$resultado)}}" class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">editar</a>
+                                            <time class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">
+                                        
+                                                {{$meses[date('n', strtotime($resultado->fecha))-1]}}
+                                                {{date('Y', strtotime($resultado->fecha))}}
+                                        
+                                            </time>
+                                            -
+                                            <a href="{{route('socio.resultados.edit',$resultado)}}" class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">editar</a>
                                             @else
                                                 <time class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">
                                         

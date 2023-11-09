@@ -63,10 +63,10 @@
                                                             @if($resultado->image->first())
                                                             
                                                                 <img class="w-full h-32 object-contain content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="">
-                                                            
+                                                                <p class="text-center">({{'1/'.$resultado->image->count()}})</p>
                                                             @else
                                                                 <img class="w-full h-32 object-contain content-center items-center " src="{{asset('img/copa.png')}}" alt="">
-                                                        
+                                                                <p class="text-center">({{'0/0'}})</p>
                                                              
                                                             @endif    
                                                             

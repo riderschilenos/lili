@@ -20,10 +20,17 @@
                             <div x-show="slr">
                                 <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' x-on:click="slr=!slr">
                                     @if ($resultado->image)
+                                    @php
+                                        $n=1;
+                                    @endphp
                                         @foreach ($resultado->image as $image)
                                             <li class="shrink-0 snap-center w-full snap-mandatory">       
                                                 <img class="" src="{{Storage::url($image->url)}}" alt="" style="scroll-snap-align: center;">
+                                                <p class="text-center">({{$n.'/'.$resultado->image->count()}})</p>
                                             </li>
+                                            @php
+                                                $n+=1;
+                                            @endphp
                                         @endforeach
                                     @else
                                         <li class="shrink-0 snap-center w-full snap-mandatory">       

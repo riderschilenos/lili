@@ -1,6 +1,8 @@
 <div>
     <div class="max-w-5xl mx-auto">
-
+        @php
+            $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        @endphp
 
         <ol class="border-l border-gray-200 dark:border-gray-700">
             @if ($resultados->count()>0)
@@ -8,7 +10,12 @@
                         <li class="bg-gray-100 rounded-lg p-2 mt-4 shadow-lg">
                             <div class="flex justify-between  rounded-lg p-1 items-center">
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{$resultado->titulo}}</h3>
-                                <time class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">Febrero 2023</time>
+                                <time class="my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">
+                                  
+                                   {{$meses[date('n', strtotime($resultado->fecha))-1]}}
+                                   {{date('Y', strtotime($resultado->fecha))}}
+                             
+                                </time>
                             </div>
                             <article class="grid grid-cols-6">
                             

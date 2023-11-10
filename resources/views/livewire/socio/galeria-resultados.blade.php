@@ -24,7 +24,7 @@
                                 @if ($resultadoid==$resultado->id)
                                     
                                     <div>
-                                        <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' wire:click="resetresultado()">
+                                        <ul class="snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' wire:click="resetresultado()">
                                             @if ($resultado->image)
                                             @php
                                                 $n=1;

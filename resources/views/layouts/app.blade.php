@@ -100,7 +100,7 @@
             }
 
             .words::-webkit-scrollbar {
-            display: none;
+                display: none;
             }
             
             /* Aplicar estilos específicos para pantallas pequeñas (menos de 600px de ancho) */

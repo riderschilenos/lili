@@ -3,8 +3,8 @@
            
 <style>
     .slider::-webkit-scrollbar {
-  display: none;
-}
+        display: none;
+    }
 </style>
 
     <div class="max-w-5xl mx-auto">
@@ -18,7 +18,7 @@
                     
                         <li class="bg-gray-100 rounded-lg px-2 py-1 my-2 mx-1 shadow-lg" x-data="{slr: false}">
                             <div x-show="slr">
-                                <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' x-on:click="slr=!slr">
+                                <ul class="snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' x-on:click="slr=!slr">
                                     @if ($resultado->image)
                                     @php
                                         $n=1;

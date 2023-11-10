@@ -47,12 +47,17 @@
         <x-jet-banner />
         
         <style>
-            :root {
+             :root {
                 --main-color: #4a76a8;
+                --rider-color: #314780;
             }
         
             .bg-main-color {
                 background-color: var(--main-color);
+            }
+        
+            .bg-rider-color {
+                background-color: var(--rider-color);
             }
         
             .text-main-color {
@@ -76,6 +81,10 @@
             
             tr:nth-child(even) {
               background-color: #dddddd;
+            }
+
+            .words::-webkit-scrollbar {
+            display: none;
             }
             
             /* Aplicar estilos específicos para pantallas pequeñas (menos de 600px de ancho) */

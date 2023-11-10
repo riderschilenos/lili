@@ -82,7 +82,7 @@
                                                     <p class="text-gray-500 text-base font-bold cursor-pointer">{{$resultado->descripcion}}</p>
                                                 </div>
                                                 <a href="{{route('socio.show', $resultado->user->socio)}}">
-                                                    <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1">{{ '@'.$resultado->user->socio->slug }}</h1>
+                                                    <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1 mt-2">{{ '@'.$resultado->user->socio->slug }}</h1>
                                                 </a>  
                                             </div>
                                         </div>

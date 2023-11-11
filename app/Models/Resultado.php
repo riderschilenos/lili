@@ -25,8 +25,16 @@ class Resultado extends Model
         return 'id';
     }
 
-    
+    public function scopeDisciplina($query,$disciplina_id){
+        if($disciplina_id){
+            return $query->where('disciplina_id',$disciplina_id);
+        }
+    }
 
+    public function disciplina(){
+        return $this->BelongsTo('App\Models\Disciplina');
+    }
+    
     //relacion uno uno inversa
 
     public function user(){

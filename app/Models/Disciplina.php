@@ -17,6 +17,10 @@ class Disciplina extends Model
         return $this->hasMany('App\Models\Serie');
     }
 
+    public function resultados(){
+        return $this->hasMany('App\Models\Resultado');
+    }
+
     public function socios(){
         return $this->hasMany('App\Models\Socio');
     }

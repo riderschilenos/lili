@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app6.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app7.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
@@ -81,6 +81,14 @@
             
             tr:nth-child(even) {
               background-color: #dddddd;
+            }
+
+            .words::-webkit-scrollbar {
+                display: none;
+            }
+
+            .raider::-webkit-scrollbar {
+                display: none;
             }
             
             /* Aplicar estilos específicos para pantallas pequeñas (menos de 600px de ancho) */

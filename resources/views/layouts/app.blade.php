@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
      
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app6.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app7.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         {{-- comment<script src="{{ asset('js/instascan.min.js')}}"></script>
 
@@ -100,6 +100,10 @@
             }
 
             .words::-webkit-scrollbar {
+                display: none;
+            }
+
+            .raider::-webkit-scrollbar {
                 display: none;
             }
             

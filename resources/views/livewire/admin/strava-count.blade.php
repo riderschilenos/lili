@@ -13,7 +13,7 @@
         {{$date1}}<br>
         {{$date2}} <br> --}}
     
-        @if ($date1>$date2)
+        @if ($date1>$date2 && $activitie->type=='Ride')
             @php
                     $total+=floatval($activitie->distance);
             @endphp

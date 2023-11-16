@@ -49,7 +49,7 @@ class PremiacionDesafio extends Command
                         $date1=date($activitie->start_date_local);
                         $date2=date($ticket->updated_at);
 
-                        if ($date1>$date2){
+                        if ($date1>$date2 && $activitie->type=='Ride'){
                             $total+=floatval($activitie->distance);
                         }
                     }

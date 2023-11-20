@@ -141,6 +141,7 @@
                                                     </a>
                                                     {!! Form::model($resultado, ['route'=>['socio.resultados.update',$resultado],'method' => 'put', 'files'=> true , 'autocomplete'=>'off']) !!}
                                                         {!! Form::hidden('status', 2 ) !!}
+                                                        
                                                     <button class="hover:shadow-form btn btn-success py-3 px-8 text-base font-semibold text-white outline-none">
                                                     Publicar
                                                     </button>

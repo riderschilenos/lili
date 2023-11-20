@@ -261,7 +261,15 @@
                                                                                 @foreach ($invitados as $invitado)
                                                                                     
                                                                                     @if ($item->ticketable_id==$invitado->id)
-                                                                                        {{ Str::limit($invitado->name, 18) }}
+                                                                                        @can('Super admin')
+                                                                                            <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
+                                                                                                {{ Str::limit($invitado->name, 18) }}
+                                                                                            </a>
+                                                                                        @else
+                                                                                            {{ Str::limit($invitado->name, 18) }}
+                                                                                        @endcan
+                                                                                          
+
                                                                                     @endif
 
                                                                                 @endforeach

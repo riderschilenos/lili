@@ -128,6 +128,9 @@
 
                         @if($selecteddisciplina==1)
                             @include('vehiculo.garage.partials.formmoto')
+                        
+                        @elseif($selecteddisciplina==13)
+                            @include('vehiculo.garage.partials.formtabla')
                         @elseif($selecteddisciplina==2)
                             @if ($selectedvehiculo_type==10)
                                 @include('vehiculo.garage.partials.formbmx')

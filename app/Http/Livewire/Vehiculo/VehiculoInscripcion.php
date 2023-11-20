@@ -35,6 +35,9 @@ class VehiculoInscripcion extends Component
         if($vehiculo_type==12 or $vehiculo_type==13 or $vehiculo_type==14){
             $disciplina_id=9;
         }
+        if($vehiculo_type==16){
+            $disciplina_id=13;
+        }
 
         
 

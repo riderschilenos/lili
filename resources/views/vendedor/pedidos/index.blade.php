@@ -89,6 +89,9 @@
                     </div>
                 @endcan  
                 @livewire('vendedor.pedidos-index')
+                <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+                    @livewire('pistas.admin-pista-home')
+                </div>
             </div>
             
         </div>

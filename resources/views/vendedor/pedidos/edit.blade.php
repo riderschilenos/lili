@@ -65,7 +65,7 @@
                                 <div class="mb-6 flex">
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
                                         <div>
-                                            <a href="{{route('socio.show', $socio)}}"><p class="mr-4 font-bold">Nombre:</p>{{$socio->user->name}}</a>
+                                            <a href="{{route('socio.show', $socio)}}" target="_blank"><p class="mr-4 font-bold">Nombre:</p>{{$socio->user->name}}</a>
                                             <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-green-100 text-green-800">
                                                 Socio
                                             </span>

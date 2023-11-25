@@ -142,7 +142,7 @@
                                             @endisset
                                             
                                         </div>
-                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}" target="_blank" >
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900">
                                                 

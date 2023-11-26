@@ -33,6 +33,9 @@ class FechaCategorias extends Component
         if($this->evento->type=='pista'){
             $categorias=Categoria::where('disciplina_id',$this->fecha->evento->disciplina_id)
                                     ->where('descripciopn','pista')->get();
+        }elseif($this->evento->type=='academia'){
+            $categorias=Categoria::where('disciplina_id',$this->fecha->evento->disciplina_id)
+                                    ->where('descripciopn','academia')->get();
         }else{
             $categorias=Categoria::where('disciplina_id',$this->fecha->evento->disciplina_id)
                                     ->where('descripciopn','race')->get();

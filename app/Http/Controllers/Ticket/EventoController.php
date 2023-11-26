@@ -309,6 +309,12 @@ class EventoController extends Controller
 
     }
 
+    public function academias()
+    {       
+        return view('academias.index');
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.

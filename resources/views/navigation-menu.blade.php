@@ -27,7 +27,12 @@
         'name'=>'Eventos',
         'route'=>route('ticket.evento.index'),
         'active'=>request()->routeIs('ticket.evento.*')
-    ] ,[   
+    ]
+    ,[   
+        'name'=>'Academias',
+        'route'=>route('ticket.academias.index'),
+        'active'=>request()->routeIs('ticket.academias.*')
+    ],[   
         'name'=>'Pistas',
         'route'=>route('ticket.pistas.index'),
         'active'=>request()->routeIs('ticket.pistas*')

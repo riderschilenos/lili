@@ -122,7 +122,15 @@
                             </div>
                             <div class="flex justify-center"> 
                                 <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
-                                    <button class="btn btn-danger ml-2 text-center text-lg mt-4">Entrenamientos</button>
+                                    <button class="btn btn-danger ml-2 text-center text-lg mt-4">
+                                        @if ($evento->type=='pista')
+                                            Entrenamientos
+                                        @elseif($evento->type=='academia')
+                                            Clases
+                                        @else
+                                            Fechas y Categorias
+                                        @endif
+                                    </button>
                                 </a>
                             
                                 <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>
@@ -335,7 +343,17 @@
                                     </a>
                                     <div class="flex justify-center"> 
                                         <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
-                                            <button class="btn btn-danger ml-2 text-center text-lg mt-4">Entrenamientos</button>
+                                            <button class="btn btn-danger ml-2 text-center text-lg mt-4">
+                                                @if ($evento->type=='pista')
+                                                    Entrenamientos
+                                                @elseif($evento->type=='academia')
+                                                    Clases
+                                                @else
+                                                    Fechas y Categorias
+                                                @endif
+                                               
+                                            
+                                            </button>
                                         </a>
                                     
                                         <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>
@@ -770,7 +788,15 @@
                                 </div>
                                 <div class="flex justify-center"> 
                                     <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
-                                        <button class="btn btn-danger ml-2 text-center text-lg mt-4">Entrenamientos</button>
+                                        <button class="btn btn-danger ml-2 text-center text-lg mt-4">
+                                            @if ($evento->type=='pista')
+                                                Entrenamientos
+                                            @elseif($evento->type=='academia')
+                                                Clases
+                                            @else
+                                                Fechas y Categorias
+                                            @endif
+                                        </button>
                                     </a>
                                 
                                     <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>

@@ -123,9 +123,9 @@
                             <div class="flex justify-center"> 
                                 <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                                     <button class="btn btn-danger ml-2 text-center text-lg mt-4">
-                                        @if ($evento->type=='pista')
+                                        @if ($pista->type=='pista')
                                             Entrenamientos
-                                        @elseif($evento->type=='academia')
+                                        @elseif($pista->type=='academia')
                                             Clases
                                         @else
                                             Fechas y Categorias
@@ -344,9 +344,9 @@
                                     <div class="flex justify-center"> 
                                         <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                                             <button class="btn btn-danger ml-2 text-center text-lg mt-4">
-                                                @if ($evento->type=='pista')
+                                                @if ($pista->type=='pista')
                                                     Entrenamientos
-                                                @elseif($evento->type=='academia')
+                                                @elseif($pista->type=='academia')
                                                     Clases
                                                 @else
                                                     Fechas y Categorias
@@ -789,9 +789,9 @@
                                 <div class="flex justify-center"> 
                                     <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                                         <button class="btn btn-danger ml-2 text-center text-lg mt-4">
-                                            @if ($evento->type=='pista')
+                                            @if ($pista->type=='pista')
                                                 Entrenamientos
-                                            @elseif($evento->type=='academia')
+                                            @elseif($pista->type=='academia')
                                                 Clases
                                             @else
                                                 Fechas y Categorias

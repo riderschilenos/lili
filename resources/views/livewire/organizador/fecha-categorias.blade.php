@@ -50,6 +50,10 @@
                                                         <div>
                                                             {!! Form::hidden('descripciopn','pista') !!}
                                                         </div>
+                                                    @elseif($evento->type=='academia')
+                                                        <div>
+                                                            {!! Form::hidden('descripciopn','academia') !!}
+                                                        </div>
                                                     @else
                                                         <div>
                                                             {!! Form::hidden('descripciopn','race') !!}

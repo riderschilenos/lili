@@ -118,7 +118,6 @@
                                            
 
                                             <!-- This is an example component -->
-                                            @can('Super admin')
                                                 
                                                         
                                                 <form action="{{route('garage.uploadresultado',$resultado)}}"
@@ -147,8 +146,7 @@
                                                     </button>
                                                 </div>
 
-                                            
-                                            @endcan
+                                         
                                            
                                         </div>
                                         

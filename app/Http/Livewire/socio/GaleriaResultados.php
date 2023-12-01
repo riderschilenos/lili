@@ -24,7 +24,7 @@ class GaleriaResultados extends Component
         ->select('resultados.*', 'users.name', 'users.email', 'users.updated_at')
         ->where(function($query) {
             $search = $this->search;
-            $query->where('status', 2) // Agregando la condición de status igual a 2
+            $query->where('status', 2)
                 ->where(function($query) use ($search) {
                     $query->where('titulo', 'LIKE', '%' . $search . '%')
                         ->orWhere('descripcion', 'LIKE', '%' . $search . '%')
@@ -32,11 +32,9 @@ class GaleriaResultados extends Component
                         ->orWhere('users.email', 'LIKE', '%' . $search . '%');
                 });
         })
-        ->orderByRaw("CASE WHEN users.profile_photo_path IS NOT NULL THEN 0 ELSE 1 END, 
-        CASE WHEN resultados.created_at >= CURDATE() THEN 0 ELSE 1 END, 
-        CASE WHEN resultados.updated_at >= CURDATE() THEN 0 ELSE 1 END, 
-        id DESC")
+        ->orderByDesc('resultados.fecha') // Ordenar por la columna 'fecha' de forma descendente
         ->paginate($this->perPagesoc);
+    
     
 
         return view('livewire.socio.galeria-resultados',compact('resultados'));

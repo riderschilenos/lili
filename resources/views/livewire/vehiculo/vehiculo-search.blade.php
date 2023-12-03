@@ -72,7 +72,7 @@
                                           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                         </svg>
                                       </div>
-                                      <div class="flex-grow pl-4">
+                                      <div class="grow pl-4">
                                         <h2 class="title-font mb-1 text-sm font-medium tracking-wider text-gray-900">1 Registro AntiRobo</h2>
                                         <p class="font-laonoto leading-relaxed">
                                           Al momento de escanear el  <br />
@@ -89,7 +89,7 @@
                                           <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                                         </svg>
                                       </div>
-                                      <div class="flex-grow pl-4">
+                                      <div class="grow pl-4">
                                         <h2 class="title-font mb-1 text-sm font-medium tracking-wider text-gray-900">2 Registro de Mantenciones</h2>
                                         <p class="font-laonoto leading-relaxed">Podras <b>registrar</b><b> de cada una de las mantenciones realizadas a tu vehiculo</b>.</p>
                                       </div>
@@ -101,7 +101,7 @@
                                           <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
                                         </svg>
                                       </div>
-                                      <div class="flex-grow pl-4">
+                                      <div class="grow pl-4">
                                         <h2 class="title-font mb-1 text-sm font-medium tracking-wider text-gray-900">3 Facil Instalación / Sin mantención</h2>
                                         <p class="font-laonoto leading-relaxed">
                                           Lo compras una vez y disfrutas sin costos de <span> <b>mantención</b></span

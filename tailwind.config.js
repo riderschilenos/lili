@@ -1,14 +1,24 @@
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+import tailwindForms from '@tailwindcss/forms';
+import tailwindTypography from '@tailwindcss/typography';
+import postcssImport from 'postcss-import';
+import tailwindAspectRatio from '@tailwindcss/aspect-ratio';
 
-const defaultTheme = require('tailwindcss/defaultTheme');
-
-module.exports = {
+export default {
     //mode: 'jit',
     content: [
+          // Example content paths...
+        './public/**/*.html',
+        './src/**/*.{js,jsx,ts,tsx,vue}',
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/views/**/**/*.blade.php',
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
@@ -16,26 +26,33 @@ module.exports = {
     ],
     
     theme: {
-        
-        fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        extend: {
+            colors: {
+                gray: colors.blueGray,
             },
-        
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            },
+        },
     },
 
     separator: '_',
 
+   
+
+    plugins: [
+        forms,
+        colors,
+        tailwindcss,
+        autoprefixer,
+        tailwindForms,
+        tailwindTypography,
+        postcssImport,
+        tailwindAspectRatio,
+    ],
     corePlugins: {
         preflight: false,
        container: false,
     },
-
-    plugins:    [require('tailwindcss'),
-                require('autoprefixer'),
-                require('@tailwindcss/forms'), 
-                require('@tailwindcss/typography'),
-                require('postcss-import'),
-                require('@tailwindcss/aspect-ratio')
-            ],
                 
 };

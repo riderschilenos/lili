@@ -26,7 +26,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app7.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
@@ -40,6 +39,7 @@
             gtag('config', 'G-92Q72DQR36');
             </script>
         @livewireStyles
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         @yield('css')
     </head>

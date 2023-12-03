@@ -38,26 +38,33 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-     
+                
+        
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app7.css') }}">
+
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         {{-- comment<script src="{{ asset('js/instascan.min.js')}}"></script>
 
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
         <!-- include the library -->
-            <script src="{{asset('js/html5scan5.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js/html5scan5.js')}}" type="text/javascript"></script>
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://cdn.tailwindcss.com"></script>
         {{-- 
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />         --}}
 
-
-        @livewireStyles
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+        
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         @yield('css')
+        
+        @livewireStyles
+
+      
         
     </head>
     <body class="font-sans antialiased">

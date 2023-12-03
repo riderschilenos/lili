@@ -30,8 +30,8 @@
         gtag('config', 'G-92Q72DQR36');
         </script>
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+  </head>
     <body>
         <style>
             :root {

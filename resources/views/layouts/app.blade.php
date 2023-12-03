@@ -54,19 +54,17 @@
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />         --}}
-                
-        
 
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
-    
+        
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
         @yield('css')
         
         @livewireStyles
         
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-      
-        
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     </head>
     <body class="font-sans antialiased">
         <style>

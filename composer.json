@@ -5,15 +5,15 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.1.0",
+        "php": "^8.0.0",
         "barryvdh/laravel-dompdf": "^2.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
         "jeroennoten/laravel-adminlte": "^3.7",
-        "laravel/framework": "10.0",
+        "laravel/framework": "^9.0",
         "laravel/jetstream": "^2.4",
-        "laravel/sanctum": "^3.2",
+        "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
@@ -23,7 +23,7 @@
         "spatie/laravel-permission": "^5.3"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^2.0",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",

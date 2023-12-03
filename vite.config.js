@@ -14,11 +14,7 @@ export default defineConfig({
         refresh: [
             ...refreshPaths,
             'app/Http/Livewire/**',
-        ],
-        // Agregar configuración de Alpine.js aquí
-        optimizeDeps: {
-            include: ['alpinejs'], // Incluye Alpine.js como dependencia a optimizar
-        },
+        ]
             })
         // react(),
         // vue({

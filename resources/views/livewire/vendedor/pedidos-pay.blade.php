@@ -519,7 +519,7 @@
                                                         
 
                                                         <div class="flex justify-center">
-                                                            {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                                            {!! Form::submit('Enviar', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center my-4 cursor-pointer mt-4']) !!}
                                                         </div>
                                                     
                                                     {!! Form::close() !!}

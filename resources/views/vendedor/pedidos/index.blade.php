@@ -57,11 +57,16 @@
 
                             <div class="flex justify-between">
                                 
-                                <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">Whatsapp RCH</button>
+                                <div>
+                                    <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">Whatsapp RCH</button>
+                                    
+                                    <button class="btn btn-success ml-2 text-center text-xl mt-2" x-on:click="whatsap=!whatsap">Historial WTSP</button>
+                                </div>
+                               
                                 
                                 <div>
                                     <a href="{{route('strava.sync')}}">
-                                        <button class="btn btn-danger ml-2 text-center text-xl">Strava Sync</button>
+                                        <button class="btn btn-danger ml-2 mb-2 text-center text-xl">Strava Sync</button>
                                     </a>
                                     <a href="{{route('strava.check')}}">
                                         <button class="btn btn-danger ml-2 text-center text-xl">Strava Check</button>

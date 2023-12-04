@@ -31,7 +31,8 @@
                 
             </div>
         @else
-            <div class="bg-gray-100 p-4 rounded-lg shadow-lg text-center">
+        <div class="border-t-4 mb-4 mx-3 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md text-center" role="alert">
+      
                                             
                 <div class="text-4xl font-bold my-4" id="kilometers">{{$total}} Kms</div>
                 <div class="text-2xl font-semibold mb-2">Recorridos con Strava</div>

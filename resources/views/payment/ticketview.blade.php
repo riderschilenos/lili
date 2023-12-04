@@ -17,7 +17,7 @@
     
         
           
-              {!! Form::submit('  Resend Ticket Whatsapp', ['class'=>'btn btn-success']) !!}
+              {!! Form::submit('  Resend Ticket Whatsapp', ['class'=>'font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded']) !!}
           
       {!! Form::close() !!}
 
@@ -34,7 +34,7 @@
             <div class="bg-white w-full rounded-lg px-6 py-5 mx-4">
   
               
-                <div class="w-full mx-12">
+                <div class="w-full">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center justify-between  my-1">
                       <span class="mr-3 rounded-full bg-white">
@@ -96,8 +96,8 @@
                       </div>
                      
                     </div>
-                    <div class="border-b border-dashed border-b-2 my-5 pt-5">
-                      <div class="absolute rounded-full w-5 h-5 bg-gray-800 -mt-2 -left-2"></div>
+                    <div class="border-b border-dashed my-5 pt-5">
+                      <div class=""></div>
                       @if ($evento->type=='pista')
                         <h1 class="text-xs text-center">Información de pista</h1>
                       @else
@@ -189,7 +189,7 @@
                                       <div class="font-semibold text-center">
                                           {!! Form::open(['route'=>['ticket.inscripcions.update',$inscripcion], 'method'=> 'PUT' ]) !!}
                                               @csrf
-                                          {!! Form::submit('COBRAR', ['class'=>'btn btn-danger my-auto cursor-pointer']) !!}
+                                          {!! Form::submit('COBRAR', ['class'=>'font-semibold rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded my-auto cursor-pointer']) !!}
                                           {!! Form::close() !!}
                                       </div>
                                     </div>
@@ -206,7 +206,7 @@
                       @endforeach
                     
                     <div class="border-b border-dashed border-b-2 my-5 pt-5">
-                      <div class="absolute rounded-full w-5 h-5 bg-gray-800 -mt-2 -left-2"></div>
+                    
                       <h1 class="text-xs text-center">Información del Rider</h1>
                     
                     </div>

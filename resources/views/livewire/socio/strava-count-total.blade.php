@@ -27,7 +27,7 @@
         
         
         </div>
-        <div class="counting-values" data-total="{{ $totalactivitierch }}" data-week="{{ $activityweek }}"></div>
+        <div class="counting-values flex justify-center" data-total="{{ $totalactivitierch }}" data-week="{{ $activityweek }}"></div>
 
     </div>
     <script>
@@ -49,11 +49,11 @@
       if (currentTotal <= totalValue && currentWeek <= weekValue) {
         element.innerHTML = `
           <div class="text-center p-2 bg-gray-100 rounded-lg">
-            <p class="text-lg font-semibold mt-2">${currentTotal.toFixed(1).replace('.', ',')} km</p>
+            <p class="text-lg font-semibold">${currentTotal.toFixed(1).replace('.', ',')} km</p>
             <p class="text-sm text-gray-600">Total</p>
           </div>
-          <div class="text-center p-2 bg-gray-100 rounded-lg">
-            <p class="text-lg font-semibold mt-2">${currentWeek.toFixed(1).replace('.', ',')} km</p>
+          <div class="text-center p-2 bg-gray-100 rounded-lg ml-2">
+            <p class="text-lg font-semibold">${currentWeek.toFixed(1).replace('.', ',')} km</p>
             <p class="text-sm text-gray-600">Ultimos 7 Días</p>
           </div>
         `;

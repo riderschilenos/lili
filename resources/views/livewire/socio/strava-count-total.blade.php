@@ -30,11 +30,11 @@
         <div class="grid grid-cols-2 gap-4">
             <div class="text-center p-2 bg-gray-100 rounded-lg">
             
-                <p class="text-lg font-semibold mt-2">{{$totalactivitierch}} km</p>
+                <p class="text-lg font-semibold mt-2">{{number_format($totalactivitierch,1,',')}} km</p>
                 <p class="text-sm text-gray-600">Total</p>
             </div>
             <div class="text-center p-2 bg-gray-100 rounded-lg">
-                <p class="text-lg font-semibold mt-2">{{$activityweek}} km</p>
+                <p class="text-lg font-semibold mt-2">{{number_format($activityweek,1,',')}} km</p>
                 <p class="text-sm text-gray-600">Ultimos 7 Días</p>
             </div>
         </div>

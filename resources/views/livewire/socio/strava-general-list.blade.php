@@ -34,7 +34,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
     
-                        @foreach ($atletas_stravas as $atleta)
+                        @foreach ($atletas_stravas as $user)
     
                                 
                                 <tr >
@@ -42,21 +42,21 @@
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
                                                     
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$atleta->user->profile_photo_url }}" alt=""  />
+                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$user->profile_photo_url }}" alt=""  />
                                                 
                                                     
                                                 
                                             </div>
                                             <div class="ml-4">
                                                 <div class="flex sm:hidden  text-sm text-gray-900">
-                                                    {{Str::limit($atleta->user->name,15)}}
+                                                    {{Str::limit($user->name,15)}}
                                                 </div>
                                                 <div class="hidden sm:flex  text-sm text-gray-900">
-                                                    {{Str::limit($atleta->user->name,40)}}
+                                                    {{Str::limit($user->name,40)}}
                                                 </div>
                                                 <div class="text-sm text-gray-500">
                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                       {{$atleta->user->socio->disciplina->name}}
+                                                       {{$user->socio->disciplina->name}}
                                                     </span>
                                                 </div>
                                             </div>
@@ -66,8 +66,8 @@
                                     @php
                                         $total=0;
                                     @endphp
-                                        @if ($atleta->user->activities)
-                                            @foreach ($atleta->user->activities as $activitie)
+                                        @if ($user->activities)
+                                            @foreach ($user->activities as $activitie)
                                                
                                                 {{-- comment
                                                 {{$date1}}<br>

@@ -402,7 +402,7 @@
                         <form action="{{route('vendedor.pedido.close',$pedido)}}" method="POST">
                             @csrf
 
-                            <button class="btn btn-success justify-center my-4" type="submit">Finalizar->Pagar</button>
+                            <button class="font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center my-4" type="submit">Finalizar->Pagar</button>
                         </form>
                     @endif
                 </div>

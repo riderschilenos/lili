@@ -198,8 +198,8 @@
 
 
             <div class="flex justify-end">
-                <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
-                {!! Form::submit('Ingresar Pedido', ['class'=>'btn btn-success cursor-pointer ml-2']) !!}
+                <button type="button" class="font-semibold rounded-lg bg-red-600 hover:bg-red-500 text-white py-2 px-4 justify-center my-4 text-sm ml-2" wire:click="cancel" >Cancelar</button>
+                {!! Form::submit('Ingresar Pedido', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center my-4 cursor-pointer ml-2']) !!}
             </div>
 
         {!! Form::close() !!}

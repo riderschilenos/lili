@@ -1,6 +1,6 @@
 <div class="flex justify-center pb-2 items-center">
     @php
-        $totalactivitierch=1000;
+        $totalactivitierch=0;
         $activityweek=0;
         foreach ($activities as $activitie) {
                 $totalactivitierch+=floatval($activitie->distance);

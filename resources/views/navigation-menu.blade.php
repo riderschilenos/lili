@@ -832,12 +832,7 @@
                                 {{ __('Mi Perfil') }}
                             </x-jet-responsive-nav-link>
                         @endif
-                        <x-jet-responsive-nav-link href="{{ route('socio.create') }}" :active="request()->routeIs('socio.create')">
-                            {{ __('Suscripción') }}
-                        </x-jet-responsive-nav-link>
-                        <x-jet-responsive-nav-link href="{{ route('garage.vehiculos.index') }}" :active="request()->routeIs('garage.vehiculos.index')">
-                            {{ __('Mis vehiculos') }}
-                        </x-jet-responsive-nav-link>
+                      
                         <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                             {{ __('Configuración') }}
                         </x-jet-responsive-nav-link>

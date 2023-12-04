@@ -27,16 +27,45 @@
         
         
         </div>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="text-center p-2 bg-gray-100 rounded-lg">
-            
-                <p class="text-lg font-semibold mt-2">{{number_format($totalactivitierch,1,',')}} km</p>
-                <p class="text-sm text-gray-600">Total</p>
-            </div>
-            <div class="text-center p-2 bg-gray-100 rounded-lg">
-                <p class="text-lg font-semibold mt-2">{{number_format($activityweek,1,',')}} km</p>
-                <p class="text-sm text-gray-600">Ultimos 7 Días</p>
-            </div>
-        </div>
+        <div class="counting-values" data-total="{{ $totalactivitierch }}" data-week="{{ $activityweek }}"></div>
+
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+  const countingElements = document.querySelectorAll(".counting-values");
+  
+  countingElements.forEach((element) => {
+    const totalValue = parseFloat(element.getAttribute("data-total"));
+    const weekValue = parseFloat(element.getAttribute("data-week"));
+    const duration = 15000; // Duración en segundos (2 minutos)
+    const interval = 1000; // Intervalo de actualización en milisegundos
+    const stepsTotal = (totalValue + 50) / (duration / (interval / 1000));
+    const stepsWeek = (weekValue + 50) / (duration / (interval / 1000));
+
+    let currentTotal = totalValue-70;
+    let currentWeek = weekValue-70;
+
+    const updateValues = () => {
+      if (currentTotal <= totalValue && currentWeek <= weekValue) {
+        element.innerHTML = `
+          <div class="text-center p-2 bg-gray-100 rounded-lg">
+            <p class="text-lg font-semibold mt-2">${currentTotal.toFixed(1).replace('.', ',')} km</p>
+            <p class="text-sm text-gray-600">Total</p>
+          </div>
+          <div class="text-center p-2 bg-gray-100 rounded-lg">
+            <p class="text-lg font-semibold mt-2">${currentWeek.toFixed(1).replace('.', ',')} km</p>
+            <p class="text-sm text-gray-600">Ultimos 7 Días</p>
+          </div>
+        `;
+        currentTotal += stepsTotal;
+        currentWeek += stepsWeek;
+        setTimeout(updateValues, interval);
+      }
+    };
+
+    updateValues();
+  });
+});
+
+    </script>
 </div>

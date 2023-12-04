@@ -77,6 +77,9 @@
                   <td class="p-3 text-center">
                     <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-light-inverse bg-light rounded-lg"> Under Review </span>
                   </td>
+                  <td class="pr-0 text-center">
+                    <span class="font-semibold text-light-inverse text-md/normal">2024-04-11</span>
+                  </td>
                   <td class="p-3 pr-0 text-center">
                     <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-danger bg-danger-light rounded-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1">
@@ -84,9 +87,7 @@
                       </svg> 2.7% </span>
                   </td>
                 
-                  <td class="pr-0 text-center">
-                    <span class="font-semibold text-light-inverse text-md/normal">2024-04-11</span>
-                  </td>
+               
                   <td class="p-3 pr-0 text-center">
                     <button class="mx-auto text-secondary-dark bg-light-dark hover:text-primary flex items-center h-[25px] w-[25px] text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-200 ease-in-out shadow-none border-0 justify-center">
                       <span class="flex items-center justify-center p-0 m-0 leading-none shrink-0 ">

@@ -2119,13 +2119,12 @@
                         <h1 class="text-center font-bold text-2xl pt-2">Logros y Recuerdos Riders</h1>
                     </div>
                     <a class="flex justify-center mt-4" href="{{route('socio.resultados.create')}}">
-                              
                         <button class="btn max-w-sm btn-block btn-danger shadow h-10 px-4 rounded-lg text-white mb-2">
                         
                             Nueva Publicación
                         </button>
                     </a>
-                    <div class="flex justify-center items-center h-screen ">
+                    <div class="flex justify-center items-center">
                         @livewire('socio.galeria-resultados')
                     </div>
                     

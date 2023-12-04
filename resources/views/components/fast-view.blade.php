@@ -485,7 +485,7 @@
                                                     }
                                                 }
                                             @endphp
-                                            <div class="flex justify-between items-center mt-4 mx-4 mb-4">
+                                           <div class="flex justify-between items-center mt-4 mb-6 rounded-lg shadow-lg p-3">
                                                 <div>
                                                     <span class="mt-2 text-xl font-medium text-gray-800">{{$salidas}}</span>
                                                     <h4 class="text-gray-600 text-sm">Salidas</h4>

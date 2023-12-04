@@ -4,6 +4,8 @@
         $activityweek=0;
         foreach ($activities as $activitie) {
                 $totalactivitierch+=floatval($activitie->distance);
+            }
+        foreach ($activities7 as $activitie) {
                 $activityweek+=floatval($activitie->distance);
             }
     @endphp

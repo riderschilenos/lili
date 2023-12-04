@@ -23,7 +23,7 @@
                         <td class="p-3 pl-0">
                         <div class="flex items-center">
                             <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                            <img src="{{ Auth::user()->profile_photo_url }}" class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
+                            <img src="{{$atleta->user->profile_photo_url }}" class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
                             </div>
                             <div class="flex flex-col justify-start">
                             <a href="javascript:void(0)" class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">{{$atleta->user->name}}</a>

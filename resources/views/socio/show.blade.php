@@ -562,6 +562,33 @@
                                                             </div> 
                                                 
                                             </div>
+                                            @php
+                                                $salidas=0;
+                                                $km=0;
+                                                $time=0;
+                                                if ($socio->user->activities) {
+                                                    foreach ($socio->user->activities as $activitie) {
+                                                        $salidas+=1;
+                                                        $km+=floatval($activitie->distance);
+                                                    }
+                                                }
+                                            @endphp
+                                            <div class="flex justify-between items-center mt-4 mb-6 rounded-lg shadow-lg p-3">
+                                                <div>
+                                                    <span class="mt-2 text-xl font-medium text-gray-800">{{$salidas}}</span>
+                                                    <h4 class="text-gray-600 text-sm">Salidas</h4>
+                                                </div>
+                                                <div>
+                                                    <span class="mt-2 text-xl font-medium text-gray-800">{{$km}}</span>
+                                                    <h4 class="text-gray-600 text-sm">Kilómetros</h4>
+                                                  
+                                                </div>
+                                                <div>
+                                                    <span class="mt-2 text-xl font-medium text-gray-800">-</span>
+                                                    <h4 class="text-gray-600 text-sm">Meses Entrenando</h4>
+                                                </div>
+                                             
+                                            </div>
                                             <ul class="list-inside space-y-2">
                                                 @if ($socio->user->activities)
                                                         @foreach ($socio->user->activities->take(6) as $activity)

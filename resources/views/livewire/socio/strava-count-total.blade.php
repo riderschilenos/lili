@@ -31,10 +31,12 @@
 
     </div>
     <script>
+      var cantriders = <?php echo json_encode($atletastrava->count()) ?>;
+
         document.addEventListener("DOMContentLoaded", function () {
-  const countingElements = document.querySelectorAll(".counting-values");
-  
-  countingElements.forEach((element) => {
+    const countingElements = document.querySelectorAll(".counting-values");
+    const cantrid = cantriders; // Duración en segundos (2 minutos)
+    countingElements.forEach((element) => {
     const totalValue = parseFloat(element.getAttribute("data-total"));
     const weekValue = parseFloat(element.getAttribute("data-week"));
     const duration = 30000; // Duración en segundos (2 minutos)
@@ -58,7 +60,7 @@
           </div>
           <div>
             <div class="ml-2 mb-1 items-center my-auto text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1 text-center">
-              <p class="items-center my-auto text-lg font-semibold text-xs">30 Riders</p>
+              <p class="items-center my-auto text-lg font-semibold text-xs">${cantriders} Riders</p>
             </div>
             <div class="ml-2 items-center my-auto text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1 text-center">
               <p class="items-center my-auto text-lg font-semibold text-xs">Ver Ranking</p>

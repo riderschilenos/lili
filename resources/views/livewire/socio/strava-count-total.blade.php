@@ -1,6 +1,6 @@
 <div class="flex justify-center pb-2 items-center">
     @php
-        $totalactivitierch=0;
+        $totalactivitierch=1000;
         $activityweek=0;
         foreach ($activities as $activitie) {
                 $totalactivitierch+=floatval($activitie->distance);
@@ -49,11 +49,11 @@
       if (currentTotal <= totalValue && currentWeek <= weekValue) {
         element.innerHTML = `
           <div class="text-center p-2 bg-gray-100 rounded-lg">
-            <p class="text-lg font-semibold">${currentTotal.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace('.', ',')} km</p>
+            <p class="text-lg font-semibold">${currentTotal.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.')} km</p>
             <p class="text-sm text-gray-600">Total</p>
           </div>
           <div class="text-center p-2 bg-gray-100 rounded-lg ml-2">
-            <p class="text-lg font-semibold">${currentWeek.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace('.', ',')} km</p>
+            <p class="text-lg font-semibold">${currentWeek.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.')} km</p>
             <p class="text-sm text-gray-600">Ultimos 7 Días</p>
           </div>
         `;

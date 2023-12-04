@@ -1,4 +1,12 @@
 <div class="flex justify-center pb-2 items-center">
+    @php
+        $totalactivitierch=0;
+        $activityweek=0;
+        foreach ($activities as $activitie) {
+                $totalactivitierch+=floatval($activitie->distance);
+                $activityweek+=floatval($activitie->distance);
+            }
+    @endphp
     <div class="bg-white rounded-lg profile-card w-96">
     
         <div class="text-center mb-4">
@@ -20,11 +28,11 @@
         <div class="grid grid-cols-2 gap-4">
             <div class="text-center p-2 bg-gray-100 rounded-lg">
             
-                <p class="text-lg font-semibold mt-2">12.000 km</p>
+                <p class="text-lg font-semibold mt-2">{{$totalactivitierch}} km</p>
                 <p class="text-sm text-gray-600">Total</p>
             </div>
             <div class="text-center p-2 bg-gray-100 rounded-lg">
-                <p class="text-lg font-semibold mt-2">1.654 km</p>
+                <p class="text-lg font-semibold mt-2">{{$activityweek}} km</p>
                 <p class="text-sm text-gray-600">Ultimos 7 Días</p>
             </div>
         </div>

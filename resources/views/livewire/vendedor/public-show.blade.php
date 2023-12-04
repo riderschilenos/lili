@@ -61,75 +61,116 @@
    
         @if ($product)
             <!-- Tab Menu -->
-            <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
-            <div class="min-w-screen min-h-screen bg-yellow-300 flex items-center lg:p-10 overflow-hidden relative">
-                <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
-                    <div class="md:flex items-center -mx-10  p-4">
-                        <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
-                            <div class="flex justify-center">
-                                <img src="{{Storage::url($product->image)}}" class="w-full mx-6 z-10" alt="">
-                                <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-1/2 px-10">
-                            <div class="mb-10 ml-4">
-                                <h1 class="font-bold uppercase text-2xl mb-5 text-center">{{$product->name}}</h1>
-                                <p class="text-sm">
-                                    @if ($product->descripcion)
-                                        {{$product->descripcion}}
-                                    @endif
-                                </p>
-                            </div>
-
-                        
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+                <div class="flex flex-col md:flex-row -mx-4">
+                  <div class="md:flex-1 px-4">
+                    <div x-data="{ image: 1 }" x-cloak>
+                      <div class="h-80 md:h-92 rounded-lg bg-gray-100 mb-4">
+                        <div x-show="image === 1" class="h-80 md:h-92   rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
                             
-
-                            <div class="flex justify-between mx-10">
-                                <div class="inline-block align-bottom ml-4 md:ml-8">
-                                    <span class="text-2xl leading-none align-baseline">$</span>
-                                    <span class="font-bold text-4xl leading-none align-baseline">{{number_format($product->precio)}}</span>
-
+                            <div class="flex justify-center">
+                                <img src="{{Storage::url($product->image)}}" class="h-80 md:h-92  " alt="">
+                             </div>
+                        </div>
+            
+                        <div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                          <span class="text-5xl">2</span>
+                        </div>
+            
+                        <div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                          <span class="text-5xl">3</span>
+                        </div>
+            
+                        <div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                          <span class="text-5xl">4</span>
+                        </div>
+                      </div>
+            
+                      <div class="flex -mx-2 mb-4">
+                        <template x-for="i in 4">
+                          <div class="flex-1 px-2">
+                            <button x-on:click="image = i" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === i }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
+                                <div class="flex justify-center p-3">
+                                    <img src="{{Storage::url($product->image)}}" class="p-2" alt="">
                                 </div>
-                                <div class="grid grid-cols-1 gap-y-2 align-bottom mr-4 md:mr-8">
-                                    <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido;%20me%20podrias%20enviar%20el%20catalogo%20de%20{{str_replace(' ', '%20', $product->name)}}">
-                                        <button class="bg-red-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> COMPRAR</button>
-                                    </a>
-                                    <a href= "https://api.whatsapp.com/send?phone=56963176726&text=Hola,%20Deseo%20hacer%20un%20pedido;%20me%20podrias%20enviar%20el%20catalogo%20de%20{{str_replace(' ', '%20', $product->name)}}">
-                                        <button class="bg-blue-500 opacity-75 hover:opacity-100 text-white hover:text-gray-200 rounded-full px-10 py-2 font-semibold pr-4"><i class="mdi mdi-cart ml-4 mr-2"></i> Agregar al Carro</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="w-full md:w-1/2 relative z-1 rounded overflow-hidden">
+                            </button>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="md:flex-1 px-4">
+                    <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{{$product->name}}</h2>
+                    <p class="text-gray-500 text-sm">By <a href="#" class="text-indigo-600 hover:underline">ABC Company</a></p>
+            
+                    <div class="flex items-center space-x-4 my-4">
+                      <div>
+                        <div class="rounded-lg bg-gray-100 flex py-2 px-3">
+                          <span class="text-indigo-400 mr-1 mt-1">$</span>
+                          <span class="font-bold text-indigo-600 text-3xl">{{number_format($product->precio)}}</span>
+                        </div>
+                      </div>
+                      <div class="flex-1">
+                        <p class="text-green-500 text-xl font-semibold">Save 12%</p>
+                        <p class="text-gray-400 text-sm">Inclusive of all Taxes.</p>
+                      </div>
+                    </div>
+            
+                    <p class="text-gray-500">
+                        @if ($product->descripcion)
+                            {{$product->descripcion}}
+                        @endif
+                    </p>
+            
+                    <div class="flex py-4 space-x-4">
+                      <div class="relative">
+                        <div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold mb-2">Cantidad</div>
+                            <select class="cursor-pointer appearance-none rounded-xl border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1 w-28 text-center">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+            
+                      
+                      </div>
+            
+                      <button type="button" class="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
+                      Agregar al Carro
+                      </button>
+                    </div>
+                    <div class="w-full relative z-1 rounded overflow-hidden">
                             
                                 
-                                <div class="flex justify-center mt-6 mb-6">
-                                <ul>
-                                    <li class="flex items-center">
-                                    <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
-                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-umbrella"><path class="primary" d="M11 3.05V2a1 1 0 0 1 2 0v1.05A10 10 0 0 1 22 13c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a10 10 0 0 1 9-9.95z"/><path class="secondary" d="M11 14a1 1 0 0 1 2 0v5a3 3 0 0 1-6 0 1 1 0 0 1 2 0 1 1 0 0 0 2 0v-5z"/></svg>
-                                    </div>
-                                    <span class="text-gray-700 text-lg ml-3">Despacho a todo Chile</span>
-                                    </li>
-                                    <li class="flex items-center mt-3">
-                                    <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
-                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-shopping-bag"><path class="primary" d="M5 8h14a1 1 0 0 1 1 .92l1 12A1 1 0 0 1 20 22H4a1 1 0 0 1-1-1.08l1-12A1 1 0 0 1 5 8z"/><path class="secondary" d="M9 10a1 1 0 0 1-2 0V7a5 5 0 1 1 10 0v3a1 1 0 0 1-2 0V7a3 3 0 0 0-6 0v3z"/></svg>
-                                    </div>
-                                    <span class="text-gray-700 text-lg ml-3">Paga con tarjetas debito y crédito</span>
-                                    </li>
-                                    <li class="flex items-center mt-3">
-                                    <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
-                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-pie-chart"><path class="primary" d="M14 13h6.78a1 1 0 0 1 .97 1.22A10 10 0 1 1 9.78 2.25a1 1 0 0 1 1.22.97V10a3 3 0 0 0 3 3z"/><path class="secondary" d="M20.78 11H14a1 1 0 0 1-1-1V3.22a1 1 0 0 1 1.22-.97c3.74.85 6.68 3.79 7.53 7.53a1 1 0 0 1-.97 1.22z"/></svg>
-                                    </div>
-                                    <span class="text-gray-700 text-lg ml-3">2-3 Dias Hábiles en Despachar</span>
-                                    </li>
-                                </ul>
-                                </div>
-                            
+                        <div class="flex justify-center mt-6 mb-24">
+                        <ul>
+                            <li class="flex items-center">
+                            <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-umbrella"><path class="primary" d="M11 3.05V2a1 1 0 0 1 2 0v1.05A10 10 0 0 1 22 13c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a2 2 0 1 0-4 0c0 1.33-2 1.33-2 0a10 10 0 0 1 9-9.95z"/><path class="secondary" d="M11 14a1 1 0 0 1 2 0v5a3 3 0 0 1-6 0 1 1 0 0 1 2 0 1 1 0 0 0 2 0v-5z"/></svg>
                             </div>
+                            <span class="text-gray-700 text-lg ml-3">Despacho a todo Chile</span>
+                            </li>
+                            <li class="flex items-center mt-3">
+                            <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-shopping-bag"><path class="primary" d="M5 8h14a1 1 0 0 1 1 .92l1 12A1 1 0 0 1 20 22H4a1 1 0 0 1-1-1.08l1-12A1 1 0 0 1 5 8z"/><path class="secondary" d="M9 10a1 1 0 0 1-2 0V7a5 5 0 1 1 10 0v3a1 1 0 0 1-2 0V7a3 3 0 0 0-6 0v3z"/></svg>
+                            </div>
+                            <span class="text-gray-700 text-lg ml-3">Paga con tarjetas debito y crédito</span>
+                            </li>
+                            <li class="flex items-center mt-3">
+                            <div class="bg-yellow-200 rounded-full p-2 fill-current text-yellow-700">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-pie-chart"><path class="primary" d="M14 13h6.78a1 1 0 0 1 .97 1.22A10 10 0 1 1 9.78 2.25a1 1 0 0 1 1.22.97V10a3 3 0 0 0 3 3z"/><path class="secondary" d="M20.78 11H14a1 1 0 0 1-1-1V3.22a1 1 0 0 1 1.22-.97c3.74.85 6.68 3.79 7.53 7.53a1 1 0 0 1-.97 1.22z"/></svg>
+                            </div>
+                            <span class="text-gray-700 text-lg ml-3">2-3 Dias Hábiles en Despachar</span>
+                            </li>
+                        </ul>
                         </div>
+                    
                     </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+           
         @endif 
    
     <!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->

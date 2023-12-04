@@ -3,8 +3,8 @@
         <div class="card">
             <div class="px-3 py-4">
                 
-                <h1 class="text-2xl font-bold text-center">Ranking Strava</h1>
-                <hr class="mt-2 mb-6">
+                <h1 class="text-2xl font-bold text-center mb-4">Ranking Strava</h1>
+              
                 
               
         <x-table-responsive>
@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm text-gray-900">
-                                                    {{$atleta->user->name}}
+                                                    {{Str::limit($atleta->user->name,19)}}
                                                 </div>
                                                 <div class="text-sm text-gray-500">
         
@@ -55,7 +55,7 @@
                                                                 
                                                                      
                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                       MOTOCROSS
+                                                       {{$atleta->user->socio->disciplina->name}}
                                                     </span>
                                                 
                                                 </div>

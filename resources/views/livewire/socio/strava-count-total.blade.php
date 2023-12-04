@@ -37,7 +37,7 @@
   countingElements.forEach((element) => {
     const totalValue = parseFloat(element.getAttribute("data-total"));
     const weekValue = parseFloat(element.getAttribute("data-week"));
-    const duration = 19000; // Duración en segundos (2 minutos)
+    const duration = 30000; // Duración en segundos (2 minutos)
     const interval = 1000; // Intervalo de actualización en milisegundos
     const stepsTotal = (totalValue + 50) / (duration / (interval / 1000));
     const stepsWeek = (weekValue + 50) / (duration / (interval / 1000));

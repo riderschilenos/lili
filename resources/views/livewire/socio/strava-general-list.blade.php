@@ -46,20 +46,17 @@
                                                 
                                             </div>
                                             <div class="ml-4">
-                                                <div class="text-sm text-gray-900">
+                                                <div class="flex sm:hidden  text-sm text-gray-900">
                                                     {{Str::limit($atleta->user->name,15)}}
                                                 </div>
+                                                <div class="hidden sm:flex  text-sm text-gray-900">
+                                                    {{Str::limit($atleta->user->name,40)}}
+                                                </div>
                                                 <div class="text-sm text-gray-500">
-        
-                                                        
-                                                                
-                                                                     
                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                                        {{$atleta->user->socio->disciplina->name}}
                                                     </span>
-                                                
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                        

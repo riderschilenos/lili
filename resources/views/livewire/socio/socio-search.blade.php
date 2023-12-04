@@ -22,27 +22,29 @@
     <div>
     <div class="grid grid-cols-3"> 
         <div class="col-span-3 md:col-span-2 flex justify-center items-center mx-auto">
-            <div class="bg-white w-full max-w-5xl mx-auto px-2 lg:px-2 py-2 my-2 shadow-md rounded-md flex flex-col lg:flex-row justify-center items-center">
-                <div class="w-full lg:w-1/2 lg:pr-8 lg:border-r-2 lg:border-slate-300 flex justify-center items-center my-auto">
-                
-                    <div class="hidden md:flex justify-center my-auto items-center w-full max-w-sm h-36" style="perspective:1000px">
-                        <div id="creditCard" class="cursor-pointer transition-transform duration-500 " style="transform-style:preserve-3d">
-                            <div class="flex justify-center w-full h-36  my-auto items-center mx-auto rounded-xl text-white shadow-2xl" style="backface-visibility:hidden">
-                                <img src="{{asset('img/strava/strava.jpg')}}" class=" object-cover w-full h-full rounded-xl" />
+            <a href="{{route('socio.ranking.strava')}}">
+                <div class="bg-white w-full max-w-5xl mx-auto px-2 lg:px-2 py-2 my-2 shadow-md rounded-md flex flex-col lg:flex-row justify-center items-center cursor-pointer">
+                    <div class="w-full lg:w-1/2 lg:pr-8 lg:border-r-2 lg:border-slate-300 flex justify-center items-center my-auto">
+                    
+                        <div class="hidden md:flex justify-center my-auto items-center w-full max-w-sm h-36" style="perspective:1000px">
+                            <div id="creditCard" class="cursor-pointer transition-transform duration-500 " style="transform-style:preserve-3d">
+                                <div class="flex justify-center w-full h-36  my-auto items-center mx-auto rounded-xl text-white shadow-2xl" style="backface-visibility:hidden">
+                                    <img src="{{asset('img/strava/strava.jpg')}}" class=" object-cover w-full h-full rounded-xl" />
+                                
+                                </div>
                             
                             </div>
-                        
                         </div>
+                    
+                
+                    </div>
+                    <div class="w-full lg:w-1/2 lg:pl-8">
+                    @livewire('socio.strava-count-total')
                     </div>
                 
-            
+                
                 </div>
-                <div class="w-full lg:w-1/2 lg:pl-8">
-                  @livewire('socio.strava-count-total')
-                </div>
-            
-            
-            </div>
+            </a>
         </div>
 
             <div class="col-span-3 md:col-span-1 order-1 md:order-2">

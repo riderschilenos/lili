@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('riders', [HomeController::class,'index'])->name('index');
 
+Route::get('ranking/strava', [HomeController::class,'ranking_strava'])->name('ranking.strava');
+
 Route::get('{socio}', [HomeController::class,'show'])->name('show');
 
 Route::get('socio/suscripcion', [HomeController::class,'create'])->middleware('auth')->name('create');

@@ -60,7 +60,7 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="text-center p-4 bg-gray-100 rounded-lg">
                                 
-                                    <p class="text-lg font-semibold mt-2">12,000 km</p>
+                                    <p class="text-lg font-semibold mt-2">12.000 km</p>
                                     <p class="text-sm text-gray-600">Total</p>
                                 </div>
                                 <div class="text-center p-4 bg-gray-100 rounded-lg">

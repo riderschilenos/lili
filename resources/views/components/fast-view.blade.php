@@ -921,7 +921,7 @@
                                     <div class="items-center my-auto">
                                      
                                         <h1 class="text-center">Desafío ft Strava Activo <div class="h-2 w-2 rounded-full"></div></h1>
-                                        @if (auth()->user()->strava)
+                                        @if (auth()->user()->AtletaStrava)
                                         
                                             @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
                                     
@@ -1568,7 +1568,7 @@
                                         <div class="flex justify-between">
                                             <div>
                                                 <button class="btn btn-success ml-2 text-center text-xl" x-on:click="whatsap=!whatsap">Whatsapp RCH</button>
-                                                
+
                                                 <button class="btn btn-success ml-2 text-center text-xl mt-2" x-on:click="whatsap=!whatsap">Historial WTSP</button>
                                             </div>
                                            

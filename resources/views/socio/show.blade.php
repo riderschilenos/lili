@@ -437,7 +437,7 @@
                                     <div class="bg-white p-3 hover:shadow">
                                       
                                         @can('perfil_propio', $socio)
-                                            @if (auth()->user()->strava)
+                                            @if (auth()->user()->AtletaStrava)
                                                 
                                         
                                                 <div class="bg-green-50 p-6 rounded shadow-md items-center ">

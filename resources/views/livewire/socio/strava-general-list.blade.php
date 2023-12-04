@@ -20,7 +20,7 @@
               <tbody>
                 @foreach ($atletas_stravas as $atleta)  
                     <tr class="border-b border-dashed last:border-b-0">
-                        <td class="p-3 pl-0">
+                        <td class="p-3 pl-4">
                         <div class="flex items-center">
                             <div class="relative inline-block shrink-0 rounded-2xl me-3">
                             <img src="{{$atleta->user->profile_photo_url }}" class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">

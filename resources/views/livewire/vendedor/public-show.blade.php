@@ -122,7 +122,7 @@
                         @endif
                     </p>
             
-                    <div class="flex py-4 space-x-4">
+                    <div class="flex justify-between py-4 space-x-4">
                       <div class="relative">
                         <div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold mb-2">Cantidad</div>
                             <select class="cursor-pointer appearance-none rounded-xl border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1 w-28 text-center">

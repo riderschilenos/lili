@@ -56,6 +56,9 @@
             <p class="text-lg font-semibold">${currentWeek.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.')} km</p>
             <p class="text-sm text-gray-600">Ultimos 7 Días</p>
           </div>
+          <div class="ml-2 items-center my-auto text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2 text-center">
+            <p class="items-center my-auto text-lg font-semibold text-xs">Ver Ranking</p>
+          </div>
         `;
         currentTotal += stepsTotal;
         currentWeek += stepsWeek;

@@ -21,7 +21,7 @@
     @endphp
     <div>
     <div class="grid grid-cols-3"> 
-        <div class="col-span-3 md:col-span-2 order-2 md:order-1">
+        <div class="col-span-3 md:col-span-2 ">
             <div class="bg-white w-full max-w-5xl mx-auto px-2 lg:px-2 py-2 my-2 shadow-md rounded-md flex flex-col lg:flex-row">
                 <div class="w-full lg:w-1/2 lg:pr-8 lg:border-r-2 lg:border-slate-300 flex justify-center items-center my-auto">
                 

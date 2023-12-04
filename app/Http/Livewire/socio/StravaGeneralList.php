@@ -12,10 +12,10 @@ class StravaGeneralList extends Component
 {   use WithPagination;
 
     public function render()
-    {   $atletas_stravas=User::select('users.id', 'users.name', DB::raw('COALESCE(SUM(activities.distance), 0) AS total_distance'))
+    {   $atletas_stravas=User::select('users.id', 'users.name', 'users.profile_photo_path', DB::raw('COALESCE(SUM(activities.distance), 0) AS total_distance'))
         ->join('atleta_stravas', 'users.id', '=', 'atleta_stravas.user_id')
         ->leftJoin('activities', 'users.id', '=', 'activities.user_id')
-        ->groupBy('users.id', 'users.name')
+        ->groupBy('users.id', 'users.name', 'users.profile_photo_path')
         ->orderByDesc('total_distance')
         ->paginate(100);
         

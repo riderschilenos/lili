@@ -66,8 +66,8 @@
                 <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
                     <div class="md:flex items-center -mx-10  p-4">
                         <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
-                            <div class="relative">
-                                <img src="{{Storage::url($product->image)}}" class="h-48 relative z-10" alt="">
+                            <div class="flex justify-center">
+                                <img src="{{Storage::url($product->image)}}" class="w-full mx-6 z-10" alt="">
                                 <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
                             </div>
                         </div>

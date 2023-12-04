@@ -39,6 +39,7 @@
                                     
                                     <tr >
                                         <td class="px-3 py-4 whitespace-nowrap">
+                                            <a href="{{route('socio.show',$user->socio)}}">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
                                                         
@@ -61,7 +62,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        
+                                            </a>
                                         </td>
                                         @php
                                             $total=0;

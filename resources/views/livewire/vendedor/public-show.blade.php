@@ -135,11 +135,16 @@
             
                       
                       </div>
-            
-                      <button type="button" class="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
-                      Agregar al Carro
-                      </button>
+                        <div class="flex flex-col items-center w-full">
+                            <button class="block w-full mb-2 h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
+                                Agregar al Carro
+                            </button>
+                            <button class="block w-full h-14 px-6 py-2 font-semibold rounded-xl bg-red-600 hover:bg-red-500 text-white">
+                                Comprar
+                            </button>
+                        </div>
                     </div>
+                    
                     <div class="w-full relative z-1 rounded overflow-hidden">
                             
                                 

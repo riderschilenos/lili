@@ -19,10 +19,12 @@
                         RIDERS
                         </th>
                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            KMS
+                            KMS<br>
+                             Total
                         </th>
                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            PROGRESO
+                            KMS<br>
+                             Semana
                         </th>
                     
                         <th scope="col" class="relative px-6 py-3">

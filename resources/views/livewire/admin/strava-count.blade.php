@@ -31,7 +31,7 @@
                 
             </div>
         @else
-        <div class="border-t-4 mb-4 mx-3 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md text-center" role="alert">
+        <div class="border-t-4 mb-4 mx-3 border-green-500 rounded-b px-4 py-3 shadow-md text-center" role="alert">
       
                                             
                 <div class="text-4xl font-bold my-4" id="kilometers">{{$total}} Kms</div>

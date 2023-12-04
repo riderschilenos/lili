@@ -62,7 +62,7 @@
         @if ($product)
             <!-- Tab Menu -->
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
-                <div class="flex flex-col md:flex-row -mx-4">
+                <div class="flex flex-col md:flex-row mx-2">
                   <div class="md:flex-1 px-4">
                     <div x-data="{ image: 1 }" x-cloak>
                       <div class="h-80 md:h-92 rounded-lg bg-gray-100 mb-4">

@@ -26,3 +26,19 @@
 .btn-danger:hover{
     @apply bg-red-700;
 }
+
+.bg-success {
+    --tw-bg-opacity: 1;
+    background-color: rgb(76 175 80 / var(--tw-bg-opacity));
+  }
+  
+  .bg-success-dark {
+    --tw-bg-opacity: 1;
+    background-color: rgb(59 135 62 / var(--tw-bg-opacity));
+  }
+  
+  .bg-success-light {
+    --tw-bg-opacity: 1;
+    background-color: rgb(237 247 237 / var(--tw-bg-opacity));
+  }
+  

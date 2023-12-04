@@ -62,7 +62,7 @@
         @if ($product)
             <!-- Tab Menu -->
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
-                <div class="flex flex-col md:flex-row mx-2">
+                <div class="flex flex-col md:flex-row -mx-4">
                   <div class="md:flex-1 px-4">
                     <div x-data="{ image: 1 }" x-cloak>
                       <div class="h-80 md:h-92 rounded-lg bg-gray-100 mb-4">
@@ -99,7 +99,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="md:flex-1 px-4">
+                  <div class="md:flex-1 px-4 mx-2">
                     <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{{$product->name}}</h2>
                     <p class="text-gray-500 text-sm">By <a href="#" class="text-indigo-600 hover:underline">ABC Company</a></p>
             

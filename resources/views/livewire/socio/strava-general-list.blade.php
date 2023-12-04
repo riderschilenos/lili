@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm text-gray-900">
-                                                    {{Str::limit($atleta->user->name,19)}}
+                                                    {{Str::limit($atleta->user->name,15)}}
                                                 </div>
                                                 <div class="text-sm text-gray-500">
         

@@ -37,7 +37,7 @@
                         </div>
                         </td>
                         <td class="pr-0 text-center">
-                            <span class="font-semibold text-light-inverse text-md/normal">2023-08-23</span>
+                            <span class="font-semibold text-light-inverse text-md/normal">499 Km</span>
                             </td>
                         <td class="p-3 pr-0 text-center">
                         <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">

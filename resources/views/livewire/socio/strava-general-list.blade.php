@@ -15,19 +15,19 @@
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                     <tr>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                         RIDERS
                         </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                             KMS<br>
                              Total
                         </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                             KMS<br>
                              Semana
                         </th>
                     
-                        <th scope="col" class="relative px-6 py-3">
+                        <th scope="col" class="relative px-6 py-1">
                         <span class="sr-only">Edit</span>
                         </th>
                     </tr>

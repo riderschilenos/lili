@@ -95,12 +95,12 @@
                                         </div>
                                     @else
                                         <a href="{{route('socio.create')}}">
-                                            <button class="btn btn-success w-full items-center justify-items-center">Crear Perfil Rider</button>
+                                            <button class="btn btn-success w-full items-center justify-items-center whitespace-nowrap">Crear Perfil Rider</button>
                                         </a>
                                     @endif
                                 @else
                                     <a href="{{route('socio.create')}}">
-                                        <button class="btn btn-success w-full items-center justify-items-center">Crear Perfil Rider</button>
+                                        <button class="btn btn-success w-full items-center justify-items-center whitespace-nowrap">Crear Perfil Rider</button>
                                     </a>
                                 @endif    
                             

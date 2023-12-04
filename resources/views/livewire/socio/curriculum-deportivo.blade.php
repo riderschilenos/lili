@@ -12,7 +12,7 @@
             $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
         @endphp
 
-        <ol class="border-l border-gray-200 dark:border-gray-200">
+        <ol class="">
             @if ($resultados->count()>0)
                 @foreach ($resultados as $resultado)
                     

@@ -1004,7 +1004,7 @@
                                                                         </div>
                                                                     </li>
                                                                     <li class="text-center">
-                                                                        <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
+                                                                        <div class=" bg-red-600 text-white py-2 rounded-lg">
                                                                             <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" >
                                                                               
                                                                                 <p class="text-base leading-none dark:text-white"> Etapa 30km </p>
@@ -1142,7 +1142,7 @@
                                                                                     </div>
                                                                                 </li>
                                                                                 <li class="text-center">
-                                                                                    <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
+                                                                                    <div class=" bg-red-600 text-white py-2 rounded-lg">
                                                                                         <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" >
                                                                                           
                                                                                             <p class="text-base leading-none dark:text-white"> Etapa 30km </p>

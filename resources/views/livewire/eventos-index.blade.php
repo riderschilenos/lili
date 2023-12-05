@@ -249,7 +249,7 @@
                                                                 
                                                                 @if ($fecha->fecha>=now()->subDays(1))
                                                                     <li class="text-center">
-                                                                        <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
+                                                                        <div class=" bg-red-600 text-white py-2 rounded-lg">
                                                                             @php
                                                                                 $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                                             @endphp
@@ -446,7 +446,7 @@
                                                                 
                                                                 @if ($fecha->fecha>=now()->subDays(1))
                                                                     <li class="text-center">
-                                                                        <div class="pb-5 bg-red-600 text-white py-2 rounded-lg">
+                                                                        <div class=" bg-red-600 text-white py-2 rounded-lg">
                                                                             @php
                                                                                 $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
                                                                             @endphp

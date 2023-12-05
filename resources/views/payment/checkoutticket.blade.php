@@ -318,7 +318,7 @@
                         @if (!IS_NULL($socio))
                             <div class="flex justify-center my-4">
                             
-                                {!! Form::submit('Siguiente', ['class'=>'btn btn-primary']) !!}
+                                {!! Form::submit('Siguiente', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center my-4 cursor-pointer']) !!}
                             </div>
                         @endif
 

@@ -7,7 +7,7 @@
                <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
-                        <span class="text-4xl sm:text-2xl leading-none font-bold text-gray-900">{{number_format($diseños->count())}}</span>
+                        <span class="text-4xl sm:text-4xl leading-none font-bold text-gray-900">{{number_format($diseños->count())}}</span>
                         <h3 class="sm:hidden text-base font-normal text-gray-500">Diseño</h3>
                         <h3 class="hidden sm:block text-base font-normal text-gray-500">Diseño</h3>
                      </div>
@@ -25,7 +25,7 @@
                <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
-                        <span class="text-4xl sm:text-2xl leading-none font-bold text-gray-900">{{number_format($produccion->count())}}</span>
+                        <span class="text-4xl sm:text-4xl leading-none font-bold text-gray-900">{{number_format($produccion->count())}}</span>
                         <h3 class="sm:hidden text-base font-normal text-gray-500">Producción</h3>
                         <h3 class="hidden sm:block text-base font-normal text-gray-500">Producción</h3>
                      </div>
@@ -43,7 +43,7 @@
                <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                   <div class="flex items-center">
                      <div class="flex-shrink-0">
-                        <span class="text-4xl sm:text-2xl leading-none font-bold text-gray-900">{{number_format($despacho->count())}}</span>
+                        <span class="text-4xl sm:text-4xl leading-none font-bold text-gray-900">{{number_format($despacho->count())}}</span>
                         <h3 class="sm:hidden text-base font-normal text-gray-500">Despacho</h3>
                         <h3 class="hidden sm:block text-base font-normal text-gray-500">Despacho</h3>
                      </div>

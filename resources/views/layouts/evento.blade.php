@@ -28,7 +28,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
             <!-- Google tag (gtag.js) -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-92Q72DQR36"></script>
             <script>
@@ -38,10 +37,16 @@
     
             gtag('config', 'G-92Q72DQR36');
             </script>
-        @livewireStyles
+        <script src="https://cdn.tailwindcss.com"></script>
+      
+        
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         @yield('css')
+        
+        @livewireStyles
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

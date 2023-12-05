@@ -258,6 +258,7 @@ class StravaController extends Controller
 
                                 }
                             }
+                            
                         }
                     }
 

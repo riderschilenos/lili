@@ -33,7 +33,7 @@
                                 {{$disciplina->name}}
                             </td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.disciplinas.edit',$disciplina)}}">Editar</a>
+                                <a class="btn bg-blue-500 text-white btn-sm" href="{{route('admin.disciplinas.edit',$disciplina)}}">Editar</a>
                             </td>
                             <td width="10px">
                                 <form action="{{route('admin.disciplinas.destroy',$disciplina)}}" method="POST">

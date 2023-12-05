@@ -20,7 +20,7 @@
                     @enderror
 
                 </div>
-                {!! Form::submit('Crear Disciplina', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Crear Disciplina', ['class'=>'btn bg-blue-500 text-white']) !!}
             {!! Form::close() !!}
         </div>
     </div>

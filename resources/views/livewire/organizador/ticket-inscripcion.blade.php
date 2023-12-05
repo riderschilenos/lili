@@ -11,30 +11,32 @@
         @if (IS_NULL($categoria_id))
             @foreach ($fecha->categorias as $item)
                     
-                    @if ($evento->datos==null)
-                      
-                            <form action="{{route('ticket.inscripcions.store')}}" method="POST">
-                                @csrf
-                                
-
-                                <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                                <input name="categoria_id" type="hidden" value="{{$item->categoria->id}}">
-
-                                <input name="fecha_categoria_id" type="hidden" value="{{$item->id}}">
-                                <input name="nro" type="hidden" value="{{$nro}}">
-
-                                <input name="cantidad" type="hidden" value="{{$item->inscripcion}}">
-                                <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
-
-                                <button class="btn btn-danger text-white mx-2 text-md my-2 w-full">
-                                    {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
-                                </button>
-                            </form>
-                      
-                    @else
+                    @if ($evento->datos!=null || $evento->type=='desafio')
                         <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2">
                             {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
                         </button>
+                      
+                          
+                      
+                    @else
+                        <form action="{{route('ticket.inscripcions.store')}}" method="POST">
+                            @csrf
+                            
+
+                            <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
+                            <input name="categoria_id" type="hidden" value="{{$item->categoria->id}}">
+
+                            <input name="fecha_categoria_id" type="hidden" value="{{$item->id}}">
+                            <input name="nro" type="hidden" value="{{$nro}}">
+
+                            <input name="cantidad" type="hidden" value="{{$item->inscripcion}}">
+                            <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
+
+                            <button class="btn btn-danger text-white mx-2 text-md my-2 w-full">
+                                {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
+                            </button>
+                        </form>
+                      
                     @endif
 
             @endforeach
@@ -135,7 +137,7 @@
                         <input name="cantidad" type="hidden" value="{{$fechacategoria->inscripcion}}">
                         <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
 
-                        <button class="btn btn-primary mt-2 ml-4" type="submit">Agregar</button>
+                        <button class="btn bg-blue-500 text-white mt-2 ml-4" type="submit">Agregar</button>
                     </form>   
                         <p wire:click="add({{$fecha}})" class="hidden btn btn-primary">Agregar</p>
 

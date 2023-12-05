@@ -266,5 +266,6 @@ class StravaController extends Controller
                 }
             }
         }
+        return redirect()->route('home');
     }
 }

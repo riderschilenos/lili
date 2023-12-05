@@ -60,7 +60,7 @@
     const duration = 30000; // Duración en segundos (2 minutos)
     const interval = 1000; // Intervalo de actualización en milisegundos
     const stepsTotal = (totalValue + 50) / (duration / (interval / 1000));
-    const stepsWeek = (weekValue + 3) / (duration / (interval / 100));
+    const stepsWeek = (weekValue + 3) / (duration / (interval / 10));
 
     let currentTotal = totalValue-50;
     let currentWeek = weekValue-3;

@@ -59,11 +59,11 @@
     const weekValue = parseFloat(element.getAttribute("data-week"));
     const duration = 30000; // Duración en segundos (2 minutos)
     const interval = 1000; // Intervalo de actualización en milisegundos
-    const stepsTotal = (totalValue + 30) / (duration / (interval / 1000));
-    const stepsWeek = (weekValue + 30) / (duration / (interval / 1000));
+    const stepsTotal = (totalValue + 50) / (duration / (interval / 1000));
+    const stepsWeek = (weekValue + 15) / (duration / (interval / 1000));
 
-    let currentTotal = totalValue-30;
-    let currentWeek = weekValue-30;
+    let currentTotal = totalValue-50;
+    let currentWeek = weekValue-15;
 
     const updateValues = () => {
       if (currentTotal <= totalValue && currentWeek <= weekValue) {

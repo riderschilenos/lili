@@ -77,16 +77,26 @@
                                         </td>
                                         @php
                                             $total=0;
+                                            $week=0;
                                         @endphp
                                             @if ($user->activities)
                                                 @foreach ($user->activities as $activitie)
-                                                
-                                                    {{-- comment
-                                                    {{$date1}}<br>
-                                                    {{$date2}} <br> --}}
-                                                
+                                                @php
+                                                    $date1 = strtotime($activitie->start_date_local);
+                                                    $date2 = strtotime($now);
+
+                                                    // Calcula la diferencia en segundos entre las dos fechas
+                                                    $difference = $date2 - $date1;
+
+                                                    // Convierte la diferencia de segundos a días
+                                                    $daysDifference = floor($difference / (60 * 60 * 24));
+                                                   
+                                                @endphp
                                                         @php
                                                                 $total+=floatval($activitie->distance);
+                                                                if ($daysDifference < 7) {
+                                                                    $week+=floatval($activitie->distance);
+                                                                }
                                                         @endphp
                                                 
                                                 @endforeach
@@ -103,7 +113,7 @@
         
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="text-sm text-gray-900"> 
-                                                -
+                                                {{$week}}
                                                     <span class="hidden text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-danger bg-danger-light rounded-lg">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181" />

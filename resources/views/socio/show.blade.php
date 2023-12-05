@@ -592,6 +592,17 @@
                                             <ul class="list-inside space-y-2">
                                                 @if ($socio->user->activities)
                                                         @foreach ($socio->user->activities->take(6) as $activity)
+                                                            @php
+                                                            $date1 = strtotime($activitie->start_date_local);
+                                                            $date2 = strtotime($now);
+        
+                                                            // Calcula la diferencia en segundos entre las dos fechas
+                                                            $difference = $date2 - $date1;
+        
+                                                            // Convierte la diferencia de segundos a días
+                                                            $daysDifference = floor($difference / (60 * 60 * 24));
+                                                        
+                                                        @endphp
                                                         <li>
                                                             <div class="flex items-center">
                                                                 <span class="text-yellow-600">
@@ -619,7 +630,7 @@
                                                                             {{ number_format($activity->moving_time/60,1,',','.')}} Minutos  {{ $activity->type}}
                                                                         @endif
                                                                     </div>
-                                                                    <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}}</div>
+                                                                    <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}} (Hace {{$daysDifference}} Dias)</div>
                                                                 </div>
                                                             </div>
                                                         </li>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Socio;
 
 use App\Models\AtletaStrava;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -18,7 +19,8 @@ class StravaGeneralList extends Component
         ->groupBy('users.id', 'users.name', 'users.profile_photo_path')
         ->orderByDesc('total_distance')
         ->paginate(100);
+        $now=Carbon::now();
         
-        return view('livewire.socio.strava-general-list',compact('atletas_stravas'));
+        return view('livewire.socio.strava-general-list',compact('atletas_stravas','now'));
     }
 }

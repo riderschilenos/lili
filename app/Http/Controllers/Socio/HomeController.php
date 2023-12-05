@@ -13,6 +13,7 @@ use App\Models\Producto;
 use App\Models\Serie;
 use App\Models\Socio;
 use App\Models\Vehiculo;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -363,8 +364,9 @@ class HomeController extends Controller
         }
 
        $disciplinas= Disciplina::pluck('name','id');
+       $now=Carbon::now();
 
-        return view('socio.show',compact('socio','socio2','disciplinas','riders','series','autos'));
+        return view('socio.show',compact('socio','socio2','disciplinas','riders','series','autos','now'));
     }
 
     public function showstore(Socio $socio)

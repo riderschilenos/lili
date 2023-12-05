@@ -2,11 +2,22 @@
     @php
         $totalactivitierch=0;
         $activityweek=0;
+       
+                                                   
         foreach ($activities as $activitie) {
                 $totalactivitierch+=floatval($activitie->distance);
-            }
-        foreach ($activities7 as $activitie) {
-                $activityweek+=floatval($activitie->distance);
+                $date1 = strtotime($activitie->start_date_local);
+                $date2 = strtotime($now);
+
+                // Calcula la diferencia en segundos entre las dos fechas
+                $difference = $date2 - $date1;
+
+                // Convierte la diferencia de segundos a días
+                $daysDifference = floor($difference / (60 * 60 * 24));
+
+                if ($daysDifference < 7) {
+                    $activityweek+=floatval($activitie->distance);
+                }
             }
     @endphp
     <div class="bg-white rounded-lg profile-card w-96">

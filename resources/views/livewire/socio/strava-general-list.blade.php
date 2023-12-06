@@ -1,7 +1,7 @@
 <div class="flex flex-wrap -mx-3 mb-5">
     <div class="container py-2">
         <div class="card" x-data=(orden:true)>
-            <div class="bg-white px-3 py-4">
+            <div class="bg-white px-3">
                 
                 <div class="bg-white w-full max-w-5xl mx-auto px-2 lg:px-2 py-2 my-2 shadow-md rounded-md flex flex-col lg:flex-row justify-center items-center cursor-pointer">
                     <div class="w-full lg:w-1/2 lg:pr-8 lg:border-r-2 lg:border-slate-300 flex justify-center items-center my-auto">

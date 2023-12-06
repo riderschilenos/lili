@@ -1,6 +1,6 @@
 <div class="flex flex-wrap -mx-3 mb-5">
     <div class="container py-2">
-        <div class="card">
+        <div class="card" x-data=(orden:true)>
             <div class="bg-white px-3 py-4">
                 
                 @livewire('socio.strava-count-total')
@@ -18,11 +18,11 @@
                             <th scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                             RIDERS
                             </th>
-                            <th wire:click='set_orden(1)'scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
+                            <th x-on:click="orden=true" scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
                                 KMS<br>
                                 Semana
                             </th>
-                            <th wire:click='set_orden(2)'scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
+                            <th x-on:click="orden=false" scope="col" class="px-6 py-1 text-center text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
                                 KMS<br>
                                 Total
                             </th>
@@ -32,7 +32,7 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            @if ($orden=1)
+                            <div x-show="orden">
                                 @foreach ($atletas_stravas7dias as $user)   
                                         <tr >
                                             <td class="px-3 py-4 whitespace-nowrap">
@@ -132,7 +132,8 @@
                                             </td>
                                         </tr>
                                 @endforeach
-                            @else
+                            </div>
+                            <div x-show="!orden">
                                 @foreach ($atletas_stravas as $user)
                                     <tr >
                                         <td class="px-3 py-4 whitespace-nowrap">
@@ -232,7 +233,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif
+                            </div>
                         </tbody>
                     </table>
                     

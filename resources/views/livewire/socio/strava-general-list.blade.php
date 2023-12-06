@@ -3,7 +3,66 @@
         <div class="card" x-data=(orden:true)>
             <div class="bg-white px-3 py-4">
                 
-                @livewire('socio.strava-count-total')
+                <div class="bg-white w-full max-w-5xl mx-auto px-2 lg:px-2 py-2 my-2 shadow-md rounded-md flex flex-col lg:flex-row justify-center items-center cursor-pointer">
+                    <div class="w-full lg:w-1/2 lg:pr-8 lg:border-r-2 lg:border-slate-300 flex justify-center items-center my-auto">
+                    
+                        <div class="hidden md:flex justify-center my-auto items-center w-full max-w-sm">
+                            @livewire('socio.strava-count-total')
+                           
+                            
+                        </div>
+                    
+                
+                    </div>
+                    <div class="w-full lg:w-1/2 lg:pl-8">
+                        @can('perfil_propio', auth()->user()->socio)
+                                @if (auth()->user()->AtletaStrava)
+                                    <div class="hidden md:block bg-green-50 p-6 rounded shadow-md items-center ">
+                                            
+                                        <div class="flex items-center justify-between">
+                                            <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <div>
+                                                <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
+                                                <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes en eventos virtuales!</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <a href="#" class="text-blue-500 hover:underline hover:text-blue-600 transition duration-300 ml-4">
+                                                Desconectar Perfil
+                                            </a>
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-6">
+                                        </div>
+                                    
+                                    </div>
+                            
+                                @else
+                                    
+                                    
+
+                                    <div class="bg-white p-6 rounded shadow-md">
+                                        <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
+                                        <div class="my-2">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
+                                </div>
+                                <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
+                                <div class="flex justify-center">
+                                    <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                        Enlazar con Strava
+                                    </a>
+                                </div>
+                                
+                                <p class="mt-4 text-sm text-gray-500">
+                                    Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
+                                </p>
+                            </div>
+                        @endif
+                @endcan
+                    </div>
+                
+                
+                </div>
               
               
             <x-table-responsive>

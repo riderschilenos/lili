@@ -597,11 +597,11 @@
                                         
                                     <div class="grid grid-cols-3 gap-x-2 gap-y-2 mx-auto mb-4 w-full  px-24">
                                         @foreach ($fech->categorias as $item)
-                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
+                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2 items-center">
                                                 @if ($item->inscripcion==0)
-                                                    <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                                    <p class=" text-gray-500 font-bold text-center">Gratis</p>
                                                 @else
-                                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
+                                                    <p class=" text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
                                                 @endif
                                                 <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
                                             </div>

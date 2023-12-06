@@ -604,7 +604,7 @@
                                                     <input name="nro" type="hidden" value="{{$nro}}">
                                                     <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
     
-                                                    <button class="btn btn-primary" type="submit">Agregar</button>
+                                                    <button class="font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white py-2 px-4 cursor-pointer" type="submit">Agregar</button>
                                                 </form>   
     
                                                 <p wire:click="add({{$fecha}})" class="hidden btn btn-primary">Agregar</p>

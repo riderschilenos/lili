@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 return [
 
     /*
@@ -14,6 +16,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+
+    'now_global' => Carbon::now(),
 
     /*
     |--------------------------------------------------------------------------

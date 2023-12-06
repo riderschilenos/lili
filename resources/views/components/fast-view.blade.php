@@ -504,6 +504,7 @@
                                                 @if ($socio2->user->activities)
                                                     @foreach ($socio2->user->activities()->orderBy('start_date_local', 'desc')->take(6)->get() as $activity)
                                                         @php
+                                                            $now = config('app.now_global');
                                                             $date1 = strtotime($activity->start_date_local);
                                                             $date2 = strtotime($now);
 

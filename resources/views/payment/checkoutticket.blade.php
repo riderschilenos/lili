@@ -171,7 +171,7 @@
                     </svg>
 
                     <div class="flex flex-col items-center mx-5 space-y-1">
-                        <h2 class="px-2 text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">1) Datos del Rider</h2>
+                        <h2 class="px-2 text-lg font-medium text-gray-900 sm:text-2xl ">1) Datos del Rider</h2>
                         
                     </div>
 
@@ -207,7 +207,7 @@
 
                                 
 
-                                    <p class="text-xl leading-normal text-gray-800 dark:text-white">Bienvenido {{auth()->user()->name}}, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
+                                    <p class="text-xl leading-normal text-gray-800">Bienvenido {{auth()->user()->name}}, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
                                 
                                 </div>
                             </div>
@@ -267,7 +267,7 @@
                     </svg>
 
                     <div class="flex flex-col items-center mx-5 space-y-1">
-                        <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">2) Terminos y Condiciones</h2>
+                        <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">2) Terminos y Condiciones</h2>
                     
                     </div>
 
@@ -275,7 +275,7 @@
                 </div>
                 @if (!IS_NULL($ticket))
                         <div class="flex flex-col items-center mx-5 my-auto">
-                            <h2 class="text-xs font-medium text-gray-900 sm:text-xs dark:text-gray-200">Ha aceptado los terminos {{$ticket->evento->created_at->format('d-m-Y')}}</h2>
+                            <h2 class="text-xs font-medium text-gray-900 sm:text-xs ">Ha aceptado los terminos {{$ticket->evento->created_at->format('d-m-Y')}}</h2>
                         
                         </div>
 
@@ -335,7 +335,7 @@
                     </svg>
 
                     <div class="flex flex-col items-center mx-5 space-y-1">
-                        <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">
+                        <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">
                             @if ($evento->type=='pista')
                                 3) Entradas por Entrenamiento
                             @else
@@ -373,7 +373,7 @@
                                     <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
                                     </label>
                                 @else
-                                    <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                    <p class="text-base leading-none"> {{$fecha->name}}</p>
                                 @endif
                                     
                             </div>
@@ -503,7 +503,7 @@
                 </svg>
 
                 <div class="flex flex-col items-center mx-5 space-y-1">
-                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">4) Pago</h2>
+                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">4) Pago</h2>
                 
                 </div>
             </div>
@@ -515,18 +515,18 @@
                     <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                         <div class="flex items-center justify-between px-8">
                             @if ($evento->type=='pista')
-                            <p class="text-base leading-none text-gray-800 dark:text-white">Entradas</p>
+                            <p class="text-base leading-none text-gray-800 ">Entradas</p>
                             @else
-                                <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
+                                <p class="text-base leading-none text-gray-800 ">Inscripción</p>
                             @endif
                         
-                        <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
+                        <p class="text-base leading-none text-gray-800 ">${{number_format($ticket->inscripcion)}}</p>
                         </div>
                     </div>
                 <div>
                     <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
-                    <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
-                    <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($ticket->inscripcion)}}</p>
+                    <p class="text-2xl leading-normal text-gray-800 ">Total</p>
+                    <p class="text-2xl font-bold leading-normal text-right text-gray-800 ">${{number_format($ticket->inscripcion)}}</p>
                     </div>
                 </div>
 

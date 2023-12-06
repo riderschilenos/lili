@@ -168,7 +168,7 @@
                                 </svg>
     
                                 <div class="flex flex-col items-center mx-5 space-y-1">
-                                    <h2 class="px-2 text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
+                                    <h2 class="px-2 text-lg font-medium text-gray-900 sm:text-2xl ">1) Datos del Competidor</h2>
                                     
                                 </div>
     
@@ -205,7 +205,7 @@
     
                                             
     
-                                                <p class="text-xl leading-normal text-gray-800 dark:text-white">Bienvenido @if (auth()->user()) {{auth()->user()->name}} @endif, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
+                                                <p class="text-xl leading-normal text-gray-800">Bienvenido @if (auth()->user()) {{auth()->user()->name}} @endif, a continuacion ingresaras los datos para tu primera inscripción en RidersChilenos, con esta Información ademas de proporcionarte la inscripción para este evento te entregaremos un perfil donde podras llevar todo el historial de tu carrera deportiva</p>
                                             
                                             </div>
                                         </div>
@@ -362,7 +362,7 @@
                                 </svg>
         
                                 <div class="flex flex-col items-center mx-5 space-y-1">
-                                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">2) Terminos y Condiciones</h2>
+                                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">2) Terminos y Condiciones</h2>
                                 
                                 </div>
     
@@ -370,7 +370,7 @@
                             </div>
                             @if (!IS_NULL($ticket))
                                     <div class="flex flex-col items-center mx-5 my-auto">
-                                        <h2 class="text-xs font-medium text-gray-900 sm:text-xs dark:text-gray-200">Ha aceptado los terminos {{$evento->created_at->format('d-m-Y')}}</h2>
+                                        <h2 class="text-xs font-medium text-gray-700 sm:text-xs ">Ha aceptado los terminos {{$evento->created_at->format('d-m-Y')}}</h2>
                                     
                                     </div>
     
@@ -493,7 +493,7 @@
                                 </svg>
     
                                 <div class="flex flex-col items-center mx-5 space-y-1">
-                                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">
+                                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">
                                         @if ($evento->type=='pista')
                                             3) Entradas por Entrenamiento
                                         @else
@@ -546,7 +546,7 @@
                                         <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
                                     @endif
                                                 
-                                    <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-900 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         
                                         @if ($evento->type=='pista')
                                             <option value="">--Cilindrada--</option>
@@ -588,7 +588,7 @@
                                                     @endif
                                                        
                                                 
-                                                    <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
+                                                    <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-700 ml-4 rounded-lg">
                                                     <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
                                                         <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
                                                     </div>
@@ -616,9 +616,9 @@
                                                     <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                                                 </div>
                                                 @if ($evento->type=='pista')
-                                                    <p class="bg-white text-gray-900 py-2 px-4 rounded-lg">Ingrese una cilindrada</p>
+                                                    <p class="bg-white text-gray-700 py-2 px-4 rounded-lg">Ingrese una cilindrada</p>
                                                 @else
-                                                    <p class="bg-white text-gray-900 py-2 px-4 rounded-lg">Ingrese una categoria</p>
+                                                    <p class="bg-white text-gray-700 py-2 px-4 rounded-lg">Ingrese una categoria</p>
                                                 @endif
                                             
                                             @endif        
@@ -728,7 +728,7 @@
                             </svg>
     
                             <div class="flex flex-col items-center mx-5 space-y-1">
-                                <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">4) Pago</h2>
+                                <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">4) Pago</h2>
                             
                             </div>
                         </div>

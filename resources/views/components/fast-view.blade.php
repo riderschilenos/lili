@@ -477,11 +477,20 @@
                                                 $salidas=0;
                                                 $km=0;
                                                 $time=0;
+                                                $now = config('app.now_global');
                                                 if ($socio2->user->activities) {
                                                     foreach ($socio2->user->activities as $activitie) {
                                                         $salidas+=1;
                                                         $km+=floatval($activitie->distance);
                                                     }
+
+                                                    $firstdate=strtotime($socio2->user->activities()->first()->start_date_local);
+                                                     // Calcula la diferencia en segundos entre las dos fechas
+                                                     $difference2 = strtotime($now) - $firstdate;
+                                                            // Convierte la diferencia de segundos a días
+                                                    $tiempo_entrenando = floor($difference2 / (60 * 60 * 24));
+                                                 
+
                                                 }
                                             @endphp
                                            <div class="flex justify-between items-center mt-4 mb-6 rounded-lg shadow-lg p-3">
@@ -495,8 +504,8 @@
                                                 
                                                 </div>
                                                 <div>
-                                                    <span class="mt-2 text-xl font-medium text-gray-800">-</span>
-                                                    <h4 class="text-gray-600 text-sm">Meses Entrenando</h4>
+                                                    <span class="mt-2 text-xl font-medium text-gray-800">{{$tiempo_entrenando}} Días</span>
+                                                    <h4 class="text-gray-600 text-sm">Entrenando</h4>
                                                 </div>
                                             
                                             </div>
@@ -504,15 +513,17 @@
                                                 @if ($socio2->user->activities)
                                                     @foreach ($socio2->user->activities()->orderBy('start_date_local', 'desc')->take(6)->get() as $activity)
                                                         @php
-                                                            $now = config('app.now_global');
+                                                           
+                                                           
                                                             $date1 = strtotime($activity->start_date_local);
                                                             $date2 = strtotime($now);
 
                                                             // Calcula la diferencia en segundos entre las dos fechas
                                                             $difference = $date2 - $date1;
-
                                                             // Convierte la diferencia de segundos a días
                                                             $daysDifference = floor($difference / (60 * 60 * 24));
+
+                                                            
                                                         
                                                         @endphp
                                                         <li>

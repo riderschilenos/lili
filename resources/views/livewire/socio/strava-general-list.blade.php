@@ -59,6 +59,8 @@
                                     </p>
                                 </div>
                             @endif
+                        @else
+                            @livewire('socio.strava-count-total')
                         @endif
 
                 @endcan

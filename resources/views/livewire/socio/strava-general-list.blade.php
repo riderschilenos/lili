@@ -15,6 +15,7 @@
                     <div class="w-full lg:w-1/2 lg:pl-8">
                         @if (auth()->user())
                             @can('perfil_propio', auth()->user()->socio)
+                                    @livewire('socio.strava-count-total')
                                     @if (auth()->user()->AtletaStrava)
                                         <div class="hidden md:block bg-green-50 p-6 rounded shadow-md items-center ">
                                                 

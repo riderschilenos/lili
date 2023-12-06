@@ -471,7 +471,7 @@
                                             @endif
                                             
                                          
-                                            @if (!IS_NULL($socio) || $invitado)
+                                            @if (!IS_NULL($socio) || !IS_NULL($invitado))
                                                 <div class="flex justify-center my-4">
                                                 
                                                     {!! Form::submit('Siguiente', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center my-4 cursor-pointer']) !!}

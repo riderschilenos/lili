@@ -90,7 +90,7 @@
                                     @endcan
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
-                                  
+                                    
                                                     @php
                                                         $now = config('app.now_global');
                                                     @endphp
@@ -135,7 +135,7 @@
                                                                                     {{ number_format($activity->moving_time/60,1,',','.')}} Minutos  {{ $activity->type}}
                                                                                 @endif
                                                                             </div>
-                                                                            <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}}</div>
+                                                                            <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}} (Hace {{$daysDifference}} Dias)</div>
                                                                         </div>
                                                                     </div>
                                                                 </li>

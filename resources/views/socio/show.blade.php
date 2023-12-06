@@ -591,7 +591,7 @@
                                             </div>
                                             <ul class="list-inside space-y-2">
                                                 @if ($socio->user->activities)
-                                                        @foreach ($socio->user->activities->take(6) as $activity)
+                                                        @foreach ($socio->user->activities()->orderBy('start_date_local', 'desc')->take(6)->get() as $activity)
                                                             @php
                                                             $date1 = strtotime($activity->start_date_local);
                                                             $date2 = strtotime($now);

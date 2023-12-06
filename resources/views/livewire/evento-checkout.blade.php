@@ -175,7 +175,7 @@
                             
                             </div>
     
-                            <h2 class="hidden text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
+                            <h2 class="hidden text-2xl font-semibold text-gray-500 sm:text-4xl"><span class="text-base font-medium">Editar</span></h2>
                 
                         
                         </div>
@@ -532,7 +532,7 @@
                                             <label class="mx-auto text-center font-bold"> No hay Entranamientos Anunciados
                                             </label>
                                         @else
-                                            <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                            <p class="text-base leading-none "> {{$fecha->name}}</p>
                                         @endif
                                             
                                     </div>
@@ -565,7 +565,7 @@
     
                                     @foreach ($evento->fechas as $fecha)
                                         <div class="flex items-center justify-between pb-5 px-8 bg-blue-900 text-white py-2 my-4">
-                                            <p class="text-base leading-none dark:text-white"> {{$fecha->name}}</p>
+                                            <p class="text-base leading-none"> {{$fecha->name}}</p>
                                                             
                                     
                                             
@@ -739,21 +739,21 @@
                         <section>
                             <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                                 <div class="flex items-center justify-between px-8">
-                                <p class="text-base leading-none text-gray-800 dark:text-white">Inscripción</p>
-                                <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($alfa)}}</p>
+                                <p class="text-base leading-none text-gray-800 ">Inscripción</p>
+                                <p class="text-base leading-none text-gray-800 ">${{number_format($alfa)}}</p>
                                 </div>
                             
     
                                 <div class="flex items-center justify-between pt-5 px-8">
-                                <p class="text-base leading-none text-gray-800 dark:text-white">Costos del Servicio</p>
-                                <p class="text-base leading-none text-gray-800 dark:text-white">${{number_format($valor-$alfa)}}</p>
+                                <p class="text-base leading-none text-gray-800 ">Costos del Servicio</p>
+                                <p class="text-base leading-none text-gray-800 ">${{number_format($valor-$alfa)}}</p>
                                 </div>
                             
                             </div>
                                 <div>
                                     <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
-                                    <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
-                                    <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">${{number_format($valor)}}</p>
+                                    <p class="text-2xl leading-normal text-gray-800 ">Total</p>
+                                    <p class="text-2xl font-bold leading-normal text-right text-gray-800 ">${{number_format($valor)}}</p>
                                     </div>
                                 </div>
     

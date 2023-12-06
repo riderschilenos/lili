@@ -762,78 +762,78 @@
                     </button>
                 </div>
        
-        <section class="hidden md:hidden mt-12 sm:mt-16">
-                    
+                    <section class="hidden md:hidden mt-12 sm:mt-16">
+                                
 
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
-                    <article>
-                        <figure>
-                            <a href=" https://riderschilenos.cl/catalogos/polerones.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/polerones-min.png')}}" alt=""></a>
-                        </figure>
+                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8">
+                                <article>
+                                    <figure>
+                                        <a href=" https://riderschilenos.cl/catalogos/polerones.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/polerones-min.png')}}" alt=""></a>
+                                    </figure>
 
-                    
-                    </article>
-                    <article>
-                        <figure>
-                            <a href="{{route('catalogo.carcasas')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt=""></a>
-                        </figure>
-                    
-                    </article>
-                    <article>
-                        <figure>
-                            <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/poleras-min.png')}}" alt=""></a>
-                        </figure>
-                    
-                    </article>
+                                
+                                </article>
+                                <article>
+                                    <figure>
+                                        <a href="{{route('catalogo.carcasas')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt=""></a>
+                                    </figure>
+                                
+                                </article>
+                                <article>
+                                    <figure>
+                                        <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/mobileslider/poleras-min.png')}}" alt=""></a>
+                                    </figure>
+                                
+                                </article>
+                            
+                            
+                            </div>
+
+                    </section>
                 
-                
-                </div>
+                    <figure class="hidden pt-0 pb-4">
 
-        </section>
-       
-        <figure class="hidden pt-0 pb-4">
-
-        
-           
-                <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
                     
-                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
-                        <a href="https://riderschilenos.cl/eventos/mariocross"><img class="" src="{{asset('img/home/mariocross.png')}}" alt="" style="scroll-snap-align: center;"></a>
-                    </li>
-                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
-                        <a href="{{route('catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
-                    </li>
-                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
-                        <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
-                    </li>        
-                    <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
-                        <a href="https://tienda.riderschilenos.cl"><img class="" src="{{asset('img/mobileslider/tienda-minc.jpg')}}" alt="" style="scroll-snap-align: center;"></a>
-                    </li>
-                
-                </ul>
-
-                <a href="https://tienda.riderschilenos.cl"><img class="hidden" src="{{asset('img/mobileslider/tienda-minc.jpg')}}" alt="" style="scroll-snap-align: center;"></a>
-            
-
-        
-        </figure>
-
-        
-        <section class="bg-cover bg-center hidden sm:hidden" style="background-image: url({{asset('img/home/homefotomini.png')}})">
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 pt-64 pb-8">
-                
-                    <h1 class="text-white font-fold text-4xl text-center">RidersChilenos</h1>
-                    <p class="text-white text-lg mt-2 mb-4 text-center">Bienvenidos al Portal Rider Más Grande del País </p>
-                        <!-- component -->
-                        <!-- This is an example component -->
-                
                     
-                
-            </div>
+                            <ul class="slider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; '>
+                                
+                                <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
+                                    <a href="https://riderschilenos.cl/eventos/mariocross"><img class="" src="{{asset('img/home/mariocross.png')}}" alt="" style="scroll-snap-align: center;"></a>
+                                </li>
+                                <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
+                                    <a href="{{route('catalogo.carcasas')}}"><img class="" src="{{asset('img/mobileslider/carcasas-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
+                                </li>
+                                <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
+                                    <a href="catalogos/catalogopolerasmx_compressed.pdf"><img class="" src="{{asset('img/mobileslider/poleras-min.png')}}" alt="" style="scroll-snap-align: center;"></a>
+                                </li>        
+                                <li class="hidden shrink-0 snap-center w-full snap-mandatory">       
+                                    <a href="https://tienda.riderschilenos.cl"><img class="" src="{{asset('img/mobileslider/tienda-minc.jpg')}}" alt="" style="scroll-snap-align: center;"></a>
+                                </li>
+                            
+                            </ul>
 
-        </section>
-      comment --}}
+                            <a href="https://tienda.riderschilenos.cl"><img class="hidden" src="{{asset('img/mobileslider/tienda-minc.jpg')}}" alt="" style="scroll-snap-align: center;"></a>
+                        
+
+                    
+                    </figure>
+
+                    
+                    <section class="bg-cover bg-center hidden sm:hidden" style="background-image: url({{asset('img/home/homefotomini.png')}})">
+
+                        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 pt-64 pb-8">
+                            
+                                <h1 class="text-white font-fold text-4xl text-center">RidersChilenos</h1>
+                                <p class="text-white text-lg mt-2 mb-4 text-center">Bienvenidos al Portal Rider Más Grande del País </p>
+                                    <!-- component -->
+                                    <!-- This is an example component -->
+                            
+                                
+                            
+                        </div>
+
+                    </section>
+                comment --}}
 
         <section class="sm:mt-8">
             <div class="">

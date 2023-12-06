@@ -177,7 +177,7 @@
 
                 
                 </div>
-                <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl dark:text-gray-300"><span class="text-base font-medium">Editar</span></h2>
+                <h2 class="text-2xl font-semibold text-gray-500 sm:text-4xl"><span class="text-base font-medium">Editar</span></h2>
     
             
             </div>

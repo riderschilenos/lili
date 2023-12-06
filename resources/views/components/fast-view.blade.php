@@ -949,83 +949,51 @@
                                     </div>
                                 @endif
                                 
-                                <article class=" grid grid-cols-6 shadow-lg rounded-lg bg-main-color">
-                            
-                                    <div class="col-span-2 items-center content-center my-auto px-2 py-2">
-                                     
-                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><h1 class="text-white text-base mb-2 font-bold">Desafío RidersChilenos ft Strava.</h1>
-                                     
-                                           
-                                                        <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava"><img class="w-full h-32 object-contain my-auto content-center items-center " src="https://riderschilenos.cl/storage/eventos/0Mmi3RMQAE9622586C-A3CD-4C0E-801F-6FFC54BC1000.jpeg" alt=""></a>
-                                                  
-                                         
-                                    </div>
-                                        <div class="px-2 py-2 col-span-4 bg-white">
-                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
-                                                        <p class="text-gray-500 text-sm mt-auto">Disciplina:Full Rider</p> 
-                                                        <p class="text-gray-500 text-sm mb-2">Organizador: RidersChilenos</p>
-                                                     
-                
-                                                        </a>
-                
-                                                       
+                                @can('perfil_propio', auth()->user()->socio)
+                                        @if (auth()->user()->AtletaStrava)
                                             
-                                                   
-                                                       
-                                                             
-                                                                    <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion</p>
-                                                                    
-                                                                    <a href= "https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" class="btn bg-gray-300 btn-block">
-                                                                        ${{number_format(10000)}}
-                                                                    </a>
-                
-                                                     
-                                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
-                                                                <div class="flex mt-2">
-                                                                    <p class="text-gray-500 text-md ">Riders Inscritos</p>
-                                                                    <p class="text-sm text-gray-500 ml-auto"> 
-                                                                        <i class="fas fa-users"></i>
-                                                                       3
-                                                                    </p>
-                                                                </div>
-                                                            </a>
-                
-                                                            <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
-                                                               
-                                                        
-                                                                    <li class="text-center">
-                                                                        <div class="bg-red-600 text-white py-2 rounded-lg">
-                                                                           
-                                                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava">
-                                                                              
-                                                                                    <p class="text-base leading-none dark:text-white"> Etapa 15km </p>
-                                                                             
-                                                                            </a>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="text-center">
-                                                                        <div class=" bg-red-600 text-white py-2 rounded-lg">
-                                                                            <a href="https://riderschilenos.cl/eventos/desaf-o-riderschilenos-ft-strava" >
-                                                                              
-                                                                                <p class="text-base leading-none dark:text-white"> Etapa 30km </p>
-                                                                         
-                                                                            </a>
-                                                                        </div>
-                                                                    </li>
-                                                                
-                                                                
+                                    
+                                            <div class="bg-green-50 p-6 rounded shadow-md items-center ">
+                                            
+                                                <div class="flex items-center justify-between">
+                                                    <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                                    </svg>
+                                                    <div>
+                                                        <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
+                                                        <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes en eventos virtuales!</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-4 flex justify-between">
+                                                    <a href="#" class="text-blue-500 hover:underline hover:text-blue-600 transition duration-300 ml-4">
+                                                        Desconectar Perfil
+                                                    </a>
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-6">
+                                                </div>
+                                            
+                                            </div>
+                                        @else
+                                            
+                                            
 
-                                                               
-                                                        </ul>
-                
-                
-                
+                                            <div class="bg-white p-6 rounded shadow-md">
+                                                <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
+                                                <div class="my-2">
+                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
+                                                </div>
+                                                <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
+                                                <div class="flex justify-center">
+                                                    <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                                        Enlazar con Strava
+                                                    </a>
+                                                </div>
                                                 
-                                        </div>
-                
-                                </article>
-
-                                  
+                                                <p class="mt-4 text-sm text-gray-500">
+                                                    Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
+                                                </p>
+                                            </div>
+                                        @endif
+                                @endcan
 
                         </div>
 

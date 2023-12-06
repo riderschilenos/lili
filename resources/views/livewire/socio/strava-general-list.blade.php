@@ -8,8 +8,6 @@
                     
                         <div class="hidden md:flex justify-center my-auto items-center w-full max-w-sm">
                             @livewire('socio.strava-count-total')
-                           
-                            
                         </div>
                     
                 
@@ -91,7 +89,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            @livewire('socio.strava-count-total')
                         @endif
 
                

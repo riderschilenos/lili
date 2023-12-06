@@ -15,7 +15,9 @@
                     <div class="w-full lg:w-1/2 lg:pl-8">
                         @if (auth()->user())
                             @can('perfil_propio', auth()->user()->socio)
+                                <div class="md:hidden">
                                     @livewire('socio.strava-count-total')
+                                </div>
                                     @if (auth()->user()->AtletaStrava)
                                         <div class="hidden md:block bg-green-50 p-6 rounded shadow-md items-center ">
                                                 
@@ -61,7 +63,7 @@
                             @endcan
                         @else
                             
-                            <div class="flex justify-center ">
+                            <div class="hidden md:flex justify-center ">
                                 <div class="bg-white max-w-4xl px-6 pt-2 mb-4rounded-xl">
                                     <div class="items-center">
                                        
@@ -90,7 +92,9 @@
                                     </div>
                                 </div>
                             </div>
-                            @livewire('socio.strava-count-total')
+                            <div class="md:hidden">
+                                @livewire('socio.strava-count-total')
+                            </div>
                         @endif
 
                

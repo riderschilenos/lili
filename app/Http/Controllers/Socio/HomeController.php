@@ -628,7 +628,7 @@ class HomeController extends Controller
             
             
 
-            $activities = Activitie::where('user_id', $socio->user->id)->orderBy('start_date_local', 'asc')->get();
+            $activities = Activitie::where('user_id', $socio->user->id)->orderBy('start_date_local', 'desc')->get();
 
 
         }else{

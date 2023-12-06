@@ -1,5 +1,5 @@
 <div class="flex flex-wrap -mx-3 mb-5">
-    <div class="container py-2">
+    <div class="container pb-2">
         <div class="card" x-data=(orden:true)>
             <div class="bg-white px-3">
                 

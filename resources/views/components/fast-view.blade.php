@@ -28,7 +28,7 @@
     <div :class="{'block': user, 'hidden': ! user}" class="hidden">
         @if($socio2)
           
-            <div x-data="{fullview2: false}" >            
+            <div x-data="{fullview2: false}">       
                     <div x-show="fullview2" x-on:click="fullview2=false" class="fixed sm:hidden top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-white">
                         <div class="flex items-center" x-on:click="fullview2=false">
                             @if (str_contains($socio2->user->profile_photo_url,'https://ui-'))

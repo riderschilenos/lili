@@ -328,8 +328,8 @@
                                                 
                                                         
                                                         <div class="flex justify-end">
-                                                        
-                                                            {!! Form::submit('Siguiente', ['class'=>'btn btn-success cursor-pointer ml-2']) !!}
+                                                         
+                                                            {!! Form::submit('Siguiente', ['class'=>'font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded cursor-pointer']) !!}
                                                         </div>
                                                     {!! Form::close() !!}
                                             </div>

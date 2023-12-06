@@ -625,9 +625,9 @@
                                     @else
                                         <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
                                     @endif
-                                    <div class="grid grid-cols-3 gap-x-2 gap-y-2 mx-auto mb-4 w-full  px-4">
+                                    <div class="grid grid-cols-3 gap-x-2 gap-y-2 mx-auto mb-4 w-full  px-4 items-center my-auto">
                                         @foreach ($fech->categorias as $item)
-                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
+                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2 items-center my-auto">
                                                 @if ($item->inscripcion==0)
                                                     <p class=" text-gray-500 font-bold text-center">Gratis</p>
                                                 @else
@@ -637,7 +637,7 @@
                                             </div>
                                         @endforeach
 
-                                        <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                        <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1 items-center my-auto">
                                             @if ($max==0)
                                                 <p class="text-gray-500 font-bold text-center">Gratis</p>
                                             @else

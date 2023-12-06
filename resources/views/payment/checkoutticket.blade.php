@@ -97,7 +97,7 @@
                         @endphp    
                     @endforeach
                 @endforeach
-                    <div class="mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
+                    <div class="hidden mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
                         @if ($evento->type=='pista')
                             <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entrada a Pista</p>
                         @else

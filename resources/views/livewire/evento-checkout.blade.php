@@ -94,7 +94,7 @@
                                 @endphp    
                             @endforeach
                         @endforeach
-                            <div class="mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
+                            <div class="hidden mx-24 grid grid-cols-1 md:grid-cols-1 w-full">
                                 <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
                                 
                                     <div class="grid grid-cols-3 gap-2 mx-auto mb-4 w-full  px-24">

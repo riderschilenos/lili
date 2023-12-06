@@ -160,7 +160,7 @@
 
             <div class="mx-2 mt-6 grid grid-cols-1 gap-y-4 xl:mt-12" x-data="condiciones:false">
                 <section id="datos">   
-                    <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
+                    <div class="w-full bg-white items-center px-8 py-4 mx-auto border cursor-pointer rounded-xl">
                         <div class="flex justify-between">
                                 <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 @if (IS_NULL($socio)) text-blue-600 @else text-green-600 @endif sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
@@ -168,7 +168,7 @@
                                 </svg>
     
                                 <div class="flex flex-col items-center mx-5 space-y-1">
-                                    <h2 class="px-2 text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
+                                    <h2 class="px-2 text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">1) Datos del Competidor</h2>
                                     
                                 </div>
     
@@ -354,7 +354,7 @@
     
                 
     
-                    <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
+                    <div class="w-full bg-white items-center px-8 py-4 mx-auto border  cursor-pointer rounded-xl">
                         <div class="flex justify-between">
                             <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 @if (IS_NULL($ticket)) text-blue-600 @else text-green-600 @endif sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
@@ -362,7 +362,7 @@
                                 </svg>
         
                                 <div class="flex flex-col items-center mx-5 space-y-1">
-                                    <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">2) Terminos y Condiciones</h2>
+                                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">2) Terminos y Condiciones</h2>
                                 
                                 </div>
     
@@ -370,7 +370,7 @@
                             </div>
                             @if (!IS_NULL($ticket))
                                     <div class="flex flex-col items-center mx-5 my-auto">
-                                        <h2 class="text-xs font-medium text-gray-700 sm:text-xs dark:text-gray-200">Ha aceptado los terminos {{$evento->created_at->format('d-m-Y')}}</h2>
+                                        <h2 class="text-xs font-medium text-gray-900 sm:text-xs dark:text-gray-200">Ha aceptado los terminos {{$evento->created_at->format('d-m-Y')}}</h2>
                                     
                                     </div>
     
@@ -485,7 +485,7 @@
                         
                     </div>
                  <section id="pago">   
-                    <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
+                    <div class="w-full bg-white items-center px-8 py-4 mx-auto border  cursor-pointer rounded-xl">
                         <div class="flex justify-between">
                                 <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
@@ -493,7 +493,7 @@
                                 </svg>
     
                                 <div class="flex flex-col items-center mx-5 space-y-1">
-                                    <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">
+                                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">
                                         @if ($evento->type=='pista')
                                             3) Entradas por Entrenamiento
                                         @else
@@ -546,7 +546,7 @@
                                         <p class="text-base leading-none my-auto mx-auto">En que categoria deseas competir?</p>
                                     @endif
                                                 
-                                    <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <select wire:model="selectedcategoria" class="block appearance-none bg-gray-200 border border-gray-200 text-gray-900 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                         
                                         @if ($evento->type=='pista')
                                             <option value="">--Cilindrada--</option>
@@ -720,7 +720,7 @@
     
                 
             <section id="pagando">
-                <div class="w-full bg-white items-center px-8 py-4 mx-auto border border-blue-500 cursor-pointer rounded-xl">
+                <div class="w-full bg-white items-center px-8 py-4 mx-auto border  cursor-pointer rounded-xl">
                     <div class="flex justify-between">
                             <div class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600 sm:h-9 sm:w-9" viewBox="0 0 20 20" fill="currentColor">
@@ -728,7 +728,7 @@
                             </svg>
     
                             <div class="flex flex-col items-center mx-5 space-y-1">
-                                <h2 class="text-lg font-medium text-gray-700 sm:text-2xl dark:text-gray-200">4) Pago</h2>
+                                <h2 class="text-lg font-medium text-gray-900 sm:text-2xl dark:text-gray-200">4) Pago</h2>
                             
                             </div>
                         </div>

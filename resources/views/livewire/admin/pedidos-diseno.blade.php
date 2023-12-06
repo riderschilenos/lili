@@ -399,7 +399,7 @@
                                                 <h1 class="text-center py-6">El producto ira directamente a producción</h1>
 
                                                 <div class="flex justify-center">
-                                                    <button class="btn btn-primary text-sm" wire:click="descartar">Enviar</button>
+                                                    <button class="font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center text-sm" wire:click="descartar">Enviar</button>
                                                 </div>
                                     
                                             @else
@@ -433,7 +433,7 @@
                                                 
 
                                                 <div class="flex justify-center">
-                                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-16']) !!}
+                                                    {!! Form::submit('Enviar', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center cursor-pointer mt-16']) !!}
                                                 </div>
                                             
                                             {!! Form::close() !!}

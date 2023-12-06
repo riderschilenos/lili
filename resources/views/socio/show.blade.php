@@ -593,7 +593,7 @@
                                                 @if ($socio->user->activities)
                                                         @foreach ($socio->user->activities->take(6) as $activity)
                                                             @php
-                                                            $date1 = strtotime($activitie->start_date_local);
+                                                            $date1 = strtotime($activity->start_date_local);
                                                             $date2 = strtotime($now);
         
                                                             // Calcula la diferencia en segundos entre las dos fechas

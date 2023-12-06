@@ -587,7 +587,7 @@
                                              
                                             </div>
                                             <ul class="list-inside space-y-2">
-                                                @if ($socio->user->activities)
+                                                    @if ($socio->user->activities)
                                                         @foreach ($socio->user->activities()->orderBy('start_date_local', 'desc')->take(6)->get() as $activity)
                                                             @php
                                                             $date1 = strtotime($activity->start_date_local);
@@ -635,42 +635,7 @@
                                                         @endforeach
                                                 
                                                     @endif
-                                                        {{-- comment
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-dumbbell text-white-800"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">50 Min Pesas.</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-running"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">10k running</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="flex items-center">
-                                                        <span class="text-yellow-600">
-                                                            <i class="fas fa-bicycle text-white-800"></i>
-                                                        </span>
-                                                        <div class="ml-4">
-                                                            <div class="text-teal-600">70km Bicicleta</div>
-                                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                    --}}
+                                                      
                                             </ul>
                                     </div>
                                     <div class="bg-white p-3 hover:shadow">

@@ -629,9 +629,9 @@
                                         @foreach ($fech->categorias as $item)
                                             <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2">
                                                 @if ($item->inscripcion==0)
-                                                    <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                                    <p class=" text-gray-500 font-bold text-center">Gratis</p>
                                                 @else
-                                                    <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
+                                                    <p class=" text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
                                                 @endif
                                                 <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
                                             </div>
@@ -639,9 +639,9 @@
 
                                         <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1">
                                             @if ($max==0)
-                                                <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                                <p class="text-gray-500 font-bold text-center">Gratis</p>
                                             @else
-                                                <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($max)}}</p>
+                                                <p class="text-gray-500 font-bold text-center">${{number_format($max)}}</p>
                                             @endif
                                            
                                             <p class="text-gray-500 text-sm text-center">Adultos</p> 

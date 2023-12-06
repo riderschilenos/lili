@@ -571,7 +571,7 @@
                                                     }
 
                                                     
-                                                    $firstdate=strtotime($socio->user->activities()->first()->start_date_local);
+                                                    $firstdate=strtotime($socio->user->activities()->orderBy('start_date_local', 'asc')->first()->start_date_local);
                                                      // Calcula la diferencia en segundos entre las dos fechas
                                                     $difference2 = strtotime($now) - $firstdate;
                                                             // Convierte la diferencia de segundos a días

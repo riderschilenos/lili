@@ -415,20 +415,19 @@
                                                     <span>Curriculum Deportivo</span>
                                                 </div>
                                                 <div>
-                                                    @can('Super admin')
+                                                    
                                                         <a href="{{route('socio.resultados.create')}}" class="btn btn-success text-white font-bold text-sm align-middle">Agregar</a>
-                                                     @endcan
+                                                     
                                                 </div>    
                                             </div>
 
                                             <!-- This is an example component -->
                                            
-                                            @can('Super admin')
+                                          
                                             
                                                 @livewire('socio.curriculum-deportivo',['socio' => $socio2], key('curriculum-deportivo'.$socio2->slug))
 
                                     
-                                            @endcan
                                             <div class="grid grid-cols-4 gap-4 hidden">
                                             
                                                 @if ($socio2->user->serie_enrolled)

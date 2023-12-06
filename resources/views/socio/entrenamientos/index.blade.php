@@ -90,34 +90,24 @@
                                     @endcan
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
-                                    {{-- comment 
-                                    <div class="container mx-auto p-4">
-                                        <h1 class="text-2xl font-bold mb-4">Actividad de Strava</h1>
-                                        <div class="grid gap-4 grid-cols-1">
-                                            @if ($activities)
-                                                @foreach ($activities as $activity)
-                                                    <div class="bg-white p-4 rounded shadow">
-                                                        <p class="text-lg font-semibold">{{ $activity->name}}</p>
-                                                        <p class="text-sm text-gray-600">{{ $activity->type}}</p>
-                                                       
-                                                        <p class="text-sm text-gray-600">Fecha: {{ $activity->start_date_local }}</p>
-                                                        <p class="text-sm text-gray-600">Duración: {{ $activity->moving_time}}</p>
-                                                        <p class="text-sm text-gray-600">Distancia: {{ number_format($activity->distance)}} kms</p>
-                                                       
-                                                    </div>
-                                                @endforeach
-                                            @else
-                                                <div class="bg-white p-4 rounded shadow">
-                                                    <p class="text-lg font-semibold">  No Registra Actividad</p>
-                                                </div>
-                                            @endif
-                                        </div>
-        
-                                    </div>
-                                                    --}}
+                                  
+                                                    @php
+                                                        $now = config('app.now_global');
+                                                    @endphp
                                                     <ul class="list-inside space-y-2">
                                                         @if ($activities)
                                                                 @foreach ($activities as $activity)
+                                                                    @php
+                                                                    $date1 = strtotime($activity->start_date_local);
+                                                                    $date2 = strtotime($now);
+                
+                                                                    // Calcula la diferencia en segundos entre las dos fechas
+                                                                    $difference = $date2 - $date1;
+                
+                                                                    // Convierte la diferencia de segundos a días
+                                                                    $daysDifference = floor($difference / (60 * 60 * 24));
+                                                                
+                                                                @endphp
                                                                 <li>
                                                                     <div class="flex items-center">
                                                                         <span class="text-yellow-600">
@@ -149,47 +139,13 @@
                                                                         </div>
                                                                     </div>
                                                                 </li>
-                                                                   
+                                                                
                                                                 @endforeach
-                                                           
-                                                            @endif
-                                                                {{-- comment
-                                                        <li>
-                                                            <div class="flex items-center">
-                                                                <span class="text-yellow-600">
-                                                                    <i class="fas fa-dumbbell text-white-800"></i>
-                                                                </span>
-                                                                <div class="ml-4">
-                                                                    <div class="text-teal-600">50 Min Pesas.</div>
-                                                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                       
-                                                        <li>
-                                                            <div class="flex items-center">
-                                                                <span class="text-yellow-600">
-                                                                    <i class="fas fa-running"></i>
-                                                                </span>
-                                                                <div class="ml-4">
-                                                                    <div class="text-teal-600">10k running</div>
-                                                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="flex items-center">
-                                                                <span class="text-yellow-600">
-                                                                    <i class="fas fa-bicycle text-white-800"></i>
-                                                                </span>
-                                                                <div class="ml-4">
-                                                                    <div class="text-teal-600">70km Bicicleta</div>
-                                                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                            --}}
-                                                    </ul>
+                                                        
+                                                          
+                                                        @endif
+                                                          
+                                                </ul>
                                     
                                 </div>
                                 <!-- End of profile card -->

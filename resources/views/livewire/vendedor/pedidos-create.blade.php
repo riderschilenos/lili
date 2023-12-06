@@ -279,7 +279,7 @@
 
             <div class="flex justify-end">
 
-                {!! Form::submit('Ingresar Pedido', ['class'=>'btn btn-success cursor-pointer ml-2 my-2']) !!}
+                {!! Form::submit('Ingresar Pedido', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center ml-2 my-2']) !!}
             </div>
             {!! Form::close() !!}
         @else
@@ -446,7 +446,7 @@
                         </div>
                         <div class="flex justify-end">
                         
-                            {!! Form::submit('Ingresar Pedido', ['class'=>'btn btn-success cursor-pointer ml-2']) !!}
+                            {!! Form::submit('Ingresar Pedido', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center ml-2']) !!}
                         </div>
                     {!! Form::close() !!}
             </div>

@@ -62,7 +62,7 @@
                             
                             <div class="flex justify-center ">
                                 <div class="bg-white max-w-4xl px-6 pt-2 mb-4rounded-xl">
-                                    <div class="mt-4 items-center">
+                                    <div class="items-center">
                                        
                               
                                         <h1 class="text-center my-2 font-bold">¡Súmate al Rankin!</h1>

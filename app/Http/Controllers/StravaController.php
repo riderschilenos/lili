@@ -108,7 +108,7 @@ class StravaController extends Controller
                 
                 $activ=Activitie::where('strava_id',$activity['id'])->first();
 
-                if ($activ->count()>0) {
+                if ($activ) {
                    //
                 } else {
                     Activitie::create([

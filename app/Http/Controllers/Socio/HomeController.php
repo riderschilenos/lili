@@ -628,7 +628,24 @@ class HomeController extends Controller
             
             
 
-            $activities = Activitie::where('user_id', $socio->user->id)->orderBy('start_date_local', 'desc')->get();
+            //$activities = Activitie::where('user_id', $socio->user->id)->orderBy('start_date_local', 'desc')->get();
+
+            $athleteId = $atletaStrava->atleta_id;
+            $accessToken = $atletaStrava->access_token;
+            // URL de la API de Strava
+            $url = "https://www.strava.com/api/v3/athletes/{$athleteId}/activities";
+
+            // Configuración de la solicitud cURL
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $accessToken,
+            ]);
+
+            // Realizar la solicitud cURL
+            $response = curl_exec($ch);
+
+            $activities = json_decode($response, true);
 
 
         }else{

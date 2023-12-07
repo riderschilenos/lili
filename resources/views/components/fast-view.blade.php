@@ -478,7 +478,7 @@
                                                 $km=0;
                                                 $time=0;
                                                 $now = config('app.now_global');
-                                                if ($socio2->user->activities) {
+                                                if ($socio2->user->activities->count()>0) {
                                                     foreach ($socio2->user->activities as $activitie) {
                                                         $salidas+=1;
                                                         $km+=floatval($activitie->distance);

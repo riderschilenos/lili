@@ -564,7 +564,7 @@
                                                 $km=0;
                                                 $time=0;
                                                 $now = config('app.now_global');
-                                                if ($socio->user->activities) {
+                                                if ($socio->user->activities->count()>0) {
                                                     foreach ($socio->user->activities as $activitie) {
                                                         $salidas+=1;
                                                         $km+=floatval($activitie->distance);
@@ -599,16 +599,16 @@
                                                     @if ($socio->user->activities)
                                                         @foreach ($socio->user->activities()->orderBy('start_date_local', 'desc')->take(6)->get() as $activity)
                                                             @php
-                                                            $date1 = strtotime($activity->start_date_local);
-                                                            $date2 = strtotime($now);
-        
-                                                            // Calcula la diferencia en segundos entre las dos fechas
-                                                            $difference = $date2 - $date1;
-        
-                                                            // Convierte la diferencia de segundos a días
-                                                            $daysDifference = floor($difference / (60 * 60 * 24));
-                                                        
-                                                        @endphp
+                                                                $date1 = strtotime($activity->start_date_local);
+                                                                $date2 = strtotime($now);
+            
+                                                                // Calcula la diferencia en segundos entre las dos fechas
+                                                                $difference = $date2 - $date1;
+            
+                                                                // Convierte la diferencia de segundos a días
+                                                                $daysDifference = floor($difference / (60 * 60 * 24));
+                                                            
+                                                            @endphp
                                                         <li>
                                                             <div class="flex items-center">
                                                                 <span class="text-yellow-600">

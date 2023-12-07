@@ -576,7 +576,8 @@
                                                     $difference2 = strtotime($now) - $firstdate;
                                                             // Convierte la diferencia de segundos a días
                                                     $tiempo_entrenando = floor($difference2 / (60 * 60 * 24));
-
+                                                }else{
+                                                    $tiempo_entrenando =0;
                                                 }
                                             @endphp
                                             <div class="flex justify-between items-center mt-4 mb-6 rounded-lg shadow-lg p-3">

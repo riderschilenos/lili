@@ -91,61 +91,9 @@
                                     </div>
                                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Ultimos Entrenamientos:</h3>
                                     
-                                                    @php
-                                                        $now = config('app.now_global');
-                                                    @endphp
-                                                    <ul class="list-inside space-y-2">
-                                                        @if ($activities)
-                                                                @foreach ($activities as $activity)
-                                                                    @php
-                                                                    $date1 = strtotime($activity->start_date_local);
-                                                                    $date2 = strtotime($now);
-                
-                                                                    // Calcula la diferencia en segundos entre las dos fechas
-                                                                    $difference = $date2 - $date1;
-                
-                                                                    // Convierte la diferencia de segundos a días
-                                                                    $daysDifference = floor($difference / (60 * 60 * 24));
-                                                                
-                                                                @endphp
-                                                                <li>
-                                                                    <div class="flex items-center">
-                                                                        <span class="text-yellow-600">
-                                                                            @if ($activity->type=='Ride')
-                                                                                <i class="fas fa-bicycle text-white-800"></i>
-                                                                                @elseif($activity->type=='Velomobile')
-                                                                                    <i class="fas fa-bicycle text-white-800"></i>
-                                                                                @elseif($activity->type=='Run')
-                                                                                    <i class="fas fa-running"></i>
-                                                                                @else
-                                                                                    <i class="fas fa-dumbbell text-white-800"></i>
-                                                                                @endif
-                                                                            
-                                                                        </span>
-                                                                        <div class="ml-4">
-                                                                            <div class="text-teal-600"> 
-                                                                                @if ($activity->type=='Ride')
-                                                                                    {{ number_format($activity->distance)}}   km Bicicleta
-                                                                                @elseif($activity->type=='Velomobile')
-                                                                                    {{ number_format($activity->distance)}}   km Velomobil
-                                                                                @elseif($activity->type=='Run')
-                                                                                {{ number_format($activity->moving_time/60,1,',','.')}} Minutos de Trote
-                                                                                
-                                                                                @else
-                                                                                    {{ number_format($activity->moving_time/60,1,',','.')}} Minutos  {{ $activity->type}}
-                                                                                @endif
-                                                                            </div>
-                                                                            <div class="text-gray-500 text-xs">{{ number_format($activity->moving_time/60,1,',','.') .'Minutos - '.Str::limit($activity->start_date_local,10)}} (Hace {{$daysDifference}} Dias)</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                                
-                                                                @endforeach
-                                                        
-                                                          
-                                                        @endif
-                                                          
-                                                </ul>
+                                    @foreach ($activities as $activity) 
+                                        <h1>Actividad</h1>
+                                    @endforeach
                                     
                                 </div>
                                 <!-- End of profile card -->

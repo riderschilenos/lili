@@ -328,11 +328,21 @@
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        @can('Super admin')
-                                                            @if ($tick->status==1)
-                                                                <a wire:click="pagomanual({{$tick->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
+                                                    @can('Super admin')
+                                                        @if ($tick->status==1)
+                                                            <a wire:click="pagomanual({{$tick->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
+                                                        @endif
+                                                        @if (!IS_NULL($tick->metodo))
+                                                            @if ($tick->metodo=='TRANSFERENCIA')
+                                                            <a  class="font-bold py-2 px-4 rounded bg-red-500 text-white cursor-pointer h-10 my-auto">TRANSFERENCIA</a>
                                                             @endif
-                                                        @endcan   
+                                                            @if ($tick->metodo=='MERCADOPAGO')
+                                                                <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
+                                                            @endif
+                                                        @else
+                                                            <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
+                                                        @endif
+                                                    @endcan   
                                                 </td>
                                             </tr>
                                         @endif

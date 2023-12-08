@@ -92,9 +92,7 @@
                                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                                         <div class="text-sm text-gray-900 text-center">
                                                             
-                                                            @foreach ($sponsor->tickets->reverse() as $ticket)
-                                                                @if ($ticket->evento->id==$evento->id)
-
+                                                      
                                                                     @if ($ticket->status<=2)
                                                                         @if ($ticket->status==2)
 
@@ -119,10 +117,6 @@
                                                                 
                                                                 
                                                                     
-                                                                @endif
-                                                                
-                                                            @endforeach
-                                                            
                                                         
                                                         </div>
                                                         

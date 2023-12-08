@@ -187,7 +187,7 @@
                       {!! Form::hidden('vehiculo_type_id',$selectedvehiculotype) !!}
 
                         <div class="flex justify-center">
-                          {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                          {!! Form::submit('Siguiente', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                         </div>
 
                 {!! Form::close() !!}

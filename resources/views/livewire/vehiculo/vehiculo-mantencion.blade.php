@@ -77,7 +77,7 @@
                 {!! Form::hidden('vehiculo_id',$vehiculo->id) !!}
 
             <div>
-              {!! Form::submit('Guardar', ['class'=>'btn btn-primary cursor-pointer']) !!}
+              {!! Form::submit('Guardar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
 
               {!! Form::close() !!}
               <a class="btn btn-danger mr-2 mb-2 ml-auto" x-on:click="open=false">Cancelar</a> 

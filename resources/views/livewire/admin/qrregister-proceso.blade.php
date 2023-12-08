@@ -18,7 +18,7 @@
         @break
         @case(4)
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomenos({{$qrregister}})">-</a>
-            <a class="btn btn-primary btn-sm" href="">IMPRESO</a>
+            <a class="font-bold py-2 px-4 rounded bg-blue-500 text-white btn-sm" href="">IMPRESO</a>
             <a class="btn btn-secondary btn-sm" href="" wire:click="procesomas({{$qrregister}})">+</a>
             @break
         @case(5)

@@ -41,7 +41,7 @@
                     @include('filmmaker.series.partials.form')
 
                     <div class="flex justify-end">
-                        {!! Form::submit('Crear nueva serie', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                        {!! Form::submit('Crear nueva serie', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                     </div>
 
                 {!! Form::close() !!}

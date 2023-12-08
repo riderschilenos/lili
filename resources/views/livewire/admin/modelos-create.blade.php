@@ -56,7 +56,7 @@
                     @enderror
 
                 </div>
-                {!! Form::submit('Crear Modelo', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Crear Modelo', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
             {!! Form::close() !!}
         </div>
     </div>

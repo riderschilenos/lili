@@ -502,7 +502,7 @@
                                                 
 
                                                 <div class="flex justify-center mt-16">
-                                                    {!! Form::submit('Retirar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                                    {!! Form::submit('Retirar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                 </div>
                                             
                                             {!! Form::close() !!}

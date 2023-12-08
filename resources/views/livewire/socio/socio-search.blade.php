@@ -89,7 +89,7 @@
                                     @if(auth()->user()->socio)
                                         <div class="flex justify-center gap-2">
                                             <a href="{{ route('socio.show', auth()->user()->socio) }}">
-                                                <button class="btn btn-primary w-full items-center justify-items-center whitespace-nowrap">Perfil</button>
+                                                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white w-full items-center justify-items-center whitespace-nowrap">Perfil</button>
                                             </a>
                                             <a href="{{route('socio.create')}}">
                                                 <button class="btn btn-success w-full items-center justify-items-center whitespace-nowrap">Suscripción</button>

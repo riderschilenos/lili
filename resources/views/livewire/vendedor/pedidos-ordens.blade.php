@@ -231,7 +231,7 @@
 
                 <div class="flex justify-end mt-4">
                     <button class="btn btn-danger" x-on:click="open=false">Cancelar</button>
-                    <button class="btn btn-primary ml-2" wire:click="store">Agregar</button>
+                    <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white ml-2" wire:click="store">Agregar</button>
 
                 </div>
             </div>

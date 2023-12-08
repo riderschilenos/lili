@@ -167,7 +167,7 @@
                         
                             <div class="flex justify-center">
                               <a href="{{route('garage.inscripcion',$vehiculo)}}">
-                                <button class="btn btn-primary mt-4">
+                                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white mt-4">
                                   Siguiente
                                 </button>
                               </a>
@@ -177,7 +177,7 @@
                         
                             <div class="flex justify-center">
                               <a href="{{route('garage.comision',$vehiculo)}}">
-                                <button class="btn btn-primary mt-4">
+                                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white mt-4">
                                   Siguiente
                                 </button>
                               </a>

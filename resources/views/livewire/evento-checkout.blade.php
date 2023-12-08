@@ -237,7 +237,7 @@
                                             @enderror
                                             
                                             <div class="flex justify-center">
-                                                {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                                                {!! Form::submit('Siguiente paso', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                                             </div>
                             
                                         {!! Form::close() !!}
@@ -607,7 +607,7 @@
                                                     <button class="font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white py-2 px-4 cursor-pointer" type="submit">Agregar</button>
                                                 </form>   
     
-                                                <p wire:click="add({{$fecha}})" class="hidden btn btn-primary">Agregar</p>
+                                                <p wire:click="add({{$fecha}})" class="hidden font-bold py-2 px-4 rounded bg-blue-500 text-white">Agregar</p>
     
     
     
@@ -758,7 +758,7 @@
                                 </div>
     
                                 <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                 </div>
     
                                 <div>
@@ -766,7 +766,7 @@
                                         <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
                                             @csrf
                                         
-                                            <button class="btn btn-primary" >Agregar </button>
+                                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white" >Agregar </button>
                                             
                                         </form>
                                     @endif

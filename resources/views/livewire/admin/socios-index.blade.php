@@ -50,14 +50,14 @@
                                 </td>
                                 <td width="120px">
                                     @if($socio->status==2)
-                                    <a class="btn btn-primary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a>
+                                    <a class="font-bold py-2 px-4 rounded bg-blue-500 text-white btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a>
                                     @else
                                         @if ($socio->suscripcions->count())
                                             {{$socio->suscripcions->first()->end_date}}
 
                                             
                                         @else
-                                        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a> 
+                                        <a class="font-bold py-2 px-4 rounded bg-blue-500 text-white btn-sm float-right" href="{{route('admin.suscripcion.sociocreate',$socio)}}">Suscripción</a> 
                                         
                                         @endif
                                     

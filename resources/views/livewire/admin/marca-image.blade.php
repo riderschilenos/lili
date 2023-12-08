@@ -56,7 +56,7 @@
                                                 
     
                                                 <div class="flex justify-center">
-                                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                                    {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                 </div>
                                             
                                             {!! Form::close() !!}
@@ -73,7 +73,7 @@
                                      
     
                                     <div class="flex justify-center">
-                                        {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                        {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                     </div>
                                 
                                 {!! Form::close() !!}
@@ -94,7 +94,7 @@
                                                 
     
                                                 <div class="flex justify-center">
-                                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                                    {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                 </div>
                                             
                                             {!! Form::close() !!}
@@ -111,7 +111,7 @@
                                      
     
                                     <div class="flex justify-center">
-                                        {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                        {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                     </div>
                                 
                                 {!! Form::close() !!}
@@ -125,7 +125,7 @@
                             {{-- comment 
                             
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.marcas.edit',$marca)}}">Editar</a>
+                                <a class="font-bold py-2 px-4 rounded bg-blue-500 text-white btn-sm" href="{{route('admin.marcas.edit',$marca)}}">Editar</a>
                             </td>--}}
                             
                             <td width="10px">

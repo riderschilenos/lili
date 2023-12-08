@@ -95,7 +95,7 @@
 
                       <div class="flex justify-center mt-2">
                           <button href="" class="btn btn-danger mx-4" x-on:click="open=!open">Cancelar</button>
-                          {!! Form::submit('Agregar', ['class'=>'btn btn-primary']) !!}
+                          {!! Form::submit('Agregar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
                       </div>
               {!! Form::close() !!}
 
@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center mt-2">
-                        {!! Form::submit('Siguiente', ['class'=>'btn btn-primary']) !!}
+                        {!! Form::submit('Siguiente', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
                     </div>
                 
                 {!! Form::close() !!}
@@ -233,7 +233,7 @@
             </div>
             <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
           </div>
-          <div class="btn btn-primary">
+          <div class="font-bold py-2 px-4 rounded bg-blue-500 text-white">
             <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
         </div>
           
@@ -256,7 +256,7 @@
                         <div class="flex" x-on:click="categoria=!categoria">
                           <div class="max-w-lg mx-auto">
 
-                            <div class="btn btn-primary">
+                            <div class="font-bold py-2 px-4 rounded bg-blue-500 text-white">
                                 <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
                             </div>
                               <div class="text-center mt-12">

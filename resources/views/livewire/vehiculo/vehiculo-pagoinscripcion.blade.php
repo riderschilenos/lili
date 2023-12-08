@@ -228,20 +228,20 @@
                                         <form action="{{route('garage.inscribir',$vehiculo)}}" method="POST">
                                             @csrf
                     
-                                            <button class="btn btn-primary" type="submit">Publicar</button>
+                                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white" type="submit">Publicar</button>
                                         </form>   
 
                                     </div>
                                 @break
                                 @case(2)
                                     <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                     </div>
                                     @break
                                 
                                 @case(3)
                                     <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                     </div>
                                     @break
                                 @case(4)
@@ -276,7 +276,7 @@
                                                 @enderror
                                             </div>
                                             <div class="flex justify-center">
-                                                <button class="btn btn-primary my-4" type="submit">Activar</button>
+                                                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white my-4" type="submit">Activar</button>
                                             </div>
                                         </form>   
 
@@ -434,7 +434,7 @@
                 @else
                 <div class="flex justify-center mt-2 mb-4">
 
-                    <button  class="btn btn-primary cursor-pointer">Bajar publicación</button>
+                    <button  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer">Bajar publicación</button>
                        
                 </div>
                 @endif

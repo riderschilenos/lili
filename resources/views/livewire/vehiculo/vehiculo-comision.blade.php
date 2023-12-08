@@ -91,7 +91,7 @@
                 
                     </div>
                     <div class="flex justify-center mt-6">
-                        {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                        {!! Form::submit('Siguiente paso', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                     </div>
                 {!! Form::close() !!}
 
@@ -158,7 +158,7 @@
                     @switch($vehiculo->comision)
                                 @case(1)
                                     <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                     </div>
                                     @break
                                 @case(2)
@@ -167,7 +167,7 @@
                                         <form action="{{route('garage.publicar',$vehiculo)}}" method="POST">
                                             @csrf
                     
-                                            <button class="btn btn-primary" type="submit">Publicar</button>
+                                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white" type="submit">Publicar</button>
                                         </form>   
 
                                     </div>
@@ -214,14 +214,14 @@
                     </div></div></div>
                     
                     <div class="cho-container flex justify-center mt-2 mb-4">
-                        <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                        <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                     </div>
 
 
                 @else
                 <div class="flex justify-center mt-2 mb-4">
 
-                    <button wire:click="vehiculodown({{$vehiculo}})" class="btn btn-primary cursor-pointer">Bajar publicación</button>
+                    <button wire:click="vehiculodown({{$vehiculo}})" class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer">Bajar publicación</button>
                        
                 </div>
                 @endif

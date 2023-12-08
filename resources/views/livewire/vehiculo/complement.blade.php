@@ -149,7 +149,7 @@
                         <form action="{{route('garage.inscribir',$vehiculo)}}" method="POST">
                             @csrf
 
-                            <button class="btn btn-primary" type="submit">Inscribir</button>
+                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white" type="submit">Inscribir</button>
                         </form>   
 
                     </div>
@@ -199,7 +199,7 @@
                 </div>
                 
                 <div class="cho-container flex justify-center mt-2 mb-4">
-                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                 </div>
                 
             
@@ -251,7 +251,7 @@
             
             
                 <div class="cho-container flex justify-center mt-2 mb-4">
-                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                 </div>
         @endif           
 

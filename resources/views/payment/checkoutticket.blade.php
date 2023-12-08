@@ -235,7 +235,7 @@
                             @enderror
                             
                             <div class="flex justify-center">
-                                {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                                {!! Form::submit('Siguiente paso', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                             </div>
             
                         {!! Form::close() !!}
@@ -531,7 +531,7 @@
                 </div>
 
                 <div class="cho-container flex justify-center mt-2 mb-4">
-                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                 </div>
 
                 @can('Super admin')
@@ -539,7 +539,7 @@
                         <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
                             @csrf
                         
-                            <button class="btn btn-primary mt-4" >Agregar Gratis</button>
+                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white mt-4" >Agregar Gratis</button>
                             
                         </form>
 

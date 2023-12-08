@@ -7,7 +7,7 @@
             <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="¿Qué te pareció la serie? Comenta..."></textarea>
 
             <div class="flex">
-                <button class="btn btn-primary mr-2 mb-2" wire:click="store">Guardar</button>
+                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white mr-2 mb-2" wire:click="store">Guardar</button>
                 <ul class="flex items-center">
                     <li class="mr-1 cursor-pointer" wire:click="$set('rating',1)">
                         <i class="fas fa-star text-{{$rating>= 1 ? 'yellow' : 'gray'}}-300"></i>

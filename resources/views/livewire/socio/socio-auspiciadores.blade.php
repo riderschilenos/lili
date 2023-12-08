@@ -140,7 +140,7 @@
     
                 <div class="flex justify-center">
                     <a class="btn btn-danger mr-2 ml-auto" wire:click="formulario">Cancelar</a> 
-                    {!! Form::submit('Guardar', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                    {!! Form::submit('Guardar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                     {!! Form::close() !!}
                 </div>
     

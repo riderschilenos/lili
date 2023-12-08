@@ -707,7 +707,7 @@
                                         @if(auth()->user()->socio)
                                             <div class="grid grid-cols-2 gap-2">
                                             <a href="{{ route('socio.show', auth()->user()->socio) }}">
-                                                <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Perfil</button>
+                                                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white w-full max-w-xs items-center justify-items-center ">Perfil</button>
                                             </a>
                                             <a href="{{route('socio.create')}}">
                                                 <button class="btn btn-success w-full max-w-xs items-center justify-items-center">Mi Suscripción</button>
@@ -734,7 +734,7 @@
                                     @if(auth()->user())
                                         @if(auth()->user()->socio)
                                             <a href="{{ route('socio.show', auth()->user()->socio)}}">
-                                                <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Perfil</button>
+                                                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white w-full max-w-xs items-center justify-items-center ">Perfil</button>
                                             </a>
                                             <a href="{{route('socio.create')}}">
                                                 <button class="btn btn-success w-full max-w-xs items-center justify-items-center ml-2">Mi Suscripción</button>
@@ -1069,7 +1069,7 @@
                                             <h1 class="text-center">{{auth()->user()->name}}</h1>
                                             
                                             <div class="cho-container flex justify-center mt-2 mb-4">
-                                                <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                                <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                             </div>
 
                                             
@@ -1163,7 +1163,7 @@
                                             {!! Form::hidden('user_id',auth()->user()->id) !!}
                                         
                                                 <div class="flex justify-center">
-                                                    {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                                                    {!! Form::submit('Siguiente paso', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                                                 </div>
                                             
                                             {!! Form::close() !!}
@@ -1221,7 +1221,7 @@
                                 <h1 class="text-center py-2 font-bold">Para desbloquear el formulario debes ingresar a tu cuenta RCH</h1>
                                 <div class="flex justify-center">
                                     
-                                    <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
+                                    <a href="{{ route('login') }}" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Iniciar Sesión</a>
                                     
                                 </div>
                                     @endif  
@@ -1444,7 +1444,7 @@
                                     <h1 class="text-center">{{auth()->user()->name}}</h1>
                                     
                                     <div class="cho-container flex justify-center mt-2 mb-4">
-                                        <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                        <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                     </div>
 
                                     
@@ -1538,7 +1538,7 @@
                                     {!! Form::hidden('user_id',auth()->user()->id) !!}
                                 
                                         <div class="flex justify-center">
-                                            {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                                            {!! Form::submit('Siguiente paso', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                                         </div>
                                     
                                     {!! Form::close() !!}
@@ -1596,7 +1596,7 @@
                         <h1 class="text-center py-2 font-bold">Para desbloquear el formulario debes ingresar a tu cuenta RCH</h1>
                         <div class="flex justify-center">
                             
-                            <a href="{{ route('login') }}" class="btn btn-primary">Iniciar Sesión</a>
+                            <a href="{{ route('login') }}" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Iniciar Sesión</a>
                             
                         </div>
                             @endif  

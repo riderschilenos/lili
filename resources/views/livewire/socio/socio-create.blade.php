@@ -158,13 +158,13 @@
                                 @if($socio->carnet || $socio->foto )
                                     @if(is_null($socio->carnet) || is_null($socio->foto))
                                         <div class="flex justify-center">
-                                            {!! Form::submit('Actualizar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                            {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                         </div>
                                     @endif
 
                                 @else
                                 <div class="flex justify-center">
-                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-4']) !!}
+                                    {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                 </div>
                               
                                 @endif                                {!! Form::close() !!}
@@ -202,11 +202,11 @@
                                 </article>
                                 
                                 <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                 </div>
 
                                 <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                 </div>
                 
                                 <hr>
@@ -266,7 +266,7 @@
                 @enderror
                    
                 <div class="flex justify-center">
-                    {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                    {!! Form::submit('Siguiente paso', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                 </div>
 
             {!! Form::close() !!}

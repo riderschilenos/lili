@@ -63,7 +63,7 @@ foreach ($smartphones->reverse() as $smartphone)
                     </div>
 
                 </div>
-                {!! Form::submit('Crear Smartphone', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Crear Smartphone', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
             {!! Form::close() !!}
         </div>
     </div>
@@ -181,7 +181,7 @@ foreach ($smartphones->reverse() as $smartphone)
         
                                 
                                 <div class="mt-4 flex justify-end">
-                                    <button type="submit" class="btn btn-primary text-sm">Actualizar</button>
+                                    <button type="submit" class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm">Actualizar</button>
                                     <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
                                 
                                 </div>
@@ -192,7 +192,7 @@ foreach ($smartphones->reverse() as $smartphone)
                             @else
                             
                                 
-                                <button class="btn btn-primary text-sm" wire:click="edit({{$smartphone->id}})">Editar Stock</button>
+                                <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm" wire:click="edit({{$smartphone->id}})">Editar Stock</button>
 
                             @endif
                             

@@ -53,7 +53,7 @@
                         @enderror
 
                         <div class="mt-4 flex justify-end">
-                            <button type="submit" class="btn btn-primary text-sm">Actualizar</button>
+                            <button type="submit" class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm">Actualizar</button>
                             <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
                         
                         </div>
@@ -99,7 +99,7 @@
                                                     <form wire:submit.prevent="imageupdate">
                                                         <div class="flex items-center" >
                                                             <input wire:model="file" type="file" class="form-input flex-1 bg-gray-200"> 
-                                                            <button type="submit" class="btn btn-primary text-sm ml-2" >Guardar</button>
+                                                            <button type="submit" class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm ml-2" >Guardar</button>
                                                     
                                                         </div>
                                 
@@ -122,7 +122,7 @@
                                 <p class="text-sm">Plataforma: {{$item->platform->name}} </p>
                                 <p class="text-sm">Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a> </p>
                                 <div class="mt-2">
-                                    <button class="btn btn-primary text-sm" wire:click="edit({{$item}})">editar</button>
+                                    <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm" wire:click="edit({{$item}})">editar</button>
                                     <button class="btn btn-danger text-sm" wire:click="destroy({{$item}})">Eliminar</button>
                                 </div>
                                     
@@ -216,7 +216,7 @@
 
                 <div class="flex justify-end mt-4">
                     <button class="btn btn-danger" x-on:click="open=false">Cancelar</button>
-                    <button class="btn btn-primary ml-2" wire:click="store">Agregar</button>
+                    <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white ml-2" wire:click="store">Agregar</button>
 
                 </div>
             </div>

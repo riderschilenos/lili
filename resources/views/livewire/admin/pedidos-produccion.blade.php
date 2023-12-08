@@ -549,7 +549,7 @@
                                        
 
                                         <div class="flex justify-center">
-                                            <button class="btn btn-primary text-sm" wire:click="rediseñar">Enviar</button>
+                                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm" wire:click="rediseñar">Enviar</button>
                                         </div>
                                
                                     @elseif(!is_null($etiquetas))
@@ -572,7 +572,7 @@
                                             
     
                                             <div class="flex justify-center">
-                                                {!! Form::submit('Enviar', ['class'=>'btn btn-primary cursor-pointer mt-16']) !!}
+                                                {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-16']) !!}
                                             </div>
                                         
                                         {!! Form::close() !!}
@@ -600,7 +600,7 @@
                                         
 
                                         <div class="flex justify-center">
-                                            <button class="btn btn-primary" wire:click="encaja"> Enviar</button>
+                                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white" wire:click="encaja"> Enviar</button>
                                         </div>
                                     
                                  

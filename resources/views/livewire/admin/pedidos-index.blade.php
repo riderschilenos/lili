@@ -189,7 +189,7 @@
 
                                 
                                 <td width="10px">
-                                    <a class="btn btn-primary" href="{{route('vendedor.pedidos.edit',$pedido)}}">Ver detalles</a>
+                                    <a class="font-bold py-2 px-4 rounded bg-blue-500 text-white" href="{{route('vendedor.pedidos.edit',$pedido)}}">Ver detalles</a>
                                 </td>
                                 <td width="10px">
                                     @can('Super admin')
@@ -318,7 +318,7 @@
 
                                     
                                     <td width="10px">
-                                        <a class="btn btn-primary" href="{{route('vendedor.pedidos.edit',$pedido)}}">Ver detalles</a>
+                                        <a class="font-bold py-2 px-4 rounded bg-blue-500 text-white" href="{{route('vendedor.pedidos.edit',$pedido)}}">Ver detalles</a>
                                     </td>
                                     <td width="10px">
                                         @can('Super admin')

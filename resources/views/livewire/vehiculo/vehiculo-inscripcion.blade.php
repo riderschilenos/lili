@@ -198,7 +198,7 @@
                       
                       @if ($marcas)
                         <div class="flex justify-center">
-                          {!! Form::submit('Siguiente', ['class'=>'btn btn-primary cursor-pointer mb-14']) !!}
+                          {!! Form::submit('Siguiente', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mb-14']) !!}
                         </div>
                       @endif
                         

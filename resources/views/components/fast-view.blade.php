@@ -1416,7 +1416,7 @@
                             @if(auth()->user())
                                 @if(auth()->user()->socio)
                                     <a href="{{ route('socio.show', auth()->user()->socio)}}">
-                                        <button class="btn btn-primary w-full max-w-xs items-center justify-items-center ">Mi Perfil</button>
+                                        <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white w-full max-w-xs items-center justify-items-center ">Mi Perfil</button>
                                     </a>
                                 @else
                                     <a href="{{route('socio.create')}}">
@@ -1669,7 +1669,7 @@
                                                     <h1 class="text-center text-2xl font-bold my-4">{{auth()->user()->name}}</h1>
                                                     
                                                     <div class="cho-container flex justify-center mt-2 mb-4">
-                                                        <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                                                        <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                                                     </div>
                     
                                                     <div class="flex justify-center">
@@ -1922,7 +1922,7 @@
                                                 {!! Form::hidden('user_id',auth()->user()->id) !!}
                                             
                                                     <div class="flex justify-center">
-                                                        {!! Form::submit('Siguiente paso', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                                                        {!! Form::submit('Siguiente paso', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                                                     </div>
                                                 
                                                 {!! Form::close() !!}

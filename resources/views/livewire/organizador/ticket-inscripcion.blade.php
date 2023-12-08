@@ -139,7 +139,7 @@
 
                         <button class="btn bg-blue-500 text-white mt-2 ml-4" type="submit">Agregar</button>
                     </form>   
-                        <p wire:click="add({{$fecha}})" class="hidden btn btn-primary">Agregar</p>
+                        <p wire:click="add({{$fecha}})" class="hidden font-bold py-2 px-4 rounded bg-blue-500 text-white">Agregar</p>
 
 
 

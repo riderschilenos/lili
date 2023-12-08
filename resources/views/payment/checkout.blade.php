@@ -49,7 +49,7 @@
                     <p class="text-xl font-bold ml-auto">${{number_format($serie->precio->value)}}</p>
                 </article>
                 <div class="cho-container flex justify-end mt-2 mb-4">
-                    <!-- Esto es <a href="" class="btn btn-primary">Pagar</a> un comentario -->
+                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                 </div>
 
                 <hr>

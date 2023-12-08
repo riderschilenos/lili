@@ -201,7 +201,7 @@
                                                             @if ($ticket->status==1)
                                                                 <a wire:click="pagomanual({{$ticket->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
                                                             @endif
-                                                            @if (!IS_NULL($ticket->metodo))
+                                                            @if (!IS_NULL($ticket->metodo) && $ticket->status==3)
                                                                 @if ($ticket->metodo=='TRANSFERENCIA')
                                                                    <a  class="font-bold py-2 px-4 rounded bg-red-500 text-white cursor-pointer h-10 my-auto">TRANSFERENCIA</a>
                                                                 @endif
@@ -332,7 +332,7 @@
                                                         @if ($tick->status==1)
                                                             <a wire:click="pagomanual({{$tick->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
                                                         @endif
-                                                        @if (!IS_NULL($tick->metodo))
+                                                        @if (!IS_NULL($tick->metodo) && $tick->status==3)
                                                             @if ($tick->metodo=='TRANSFERENCIA')
                                                             <a  class="font-bold py-2 px-4 rounded bg-red-500 text-white cursor-pointer h-10 my-auto">TRANSFERENCIA</a>
                                                             @endif

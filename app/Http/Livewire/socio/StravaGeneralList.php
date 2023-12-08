@@ -21,7 +21,7 @@ class StravaGeneralList extends Component
         ->orderByDesc('total_distance')
         ->paginate(100);
 
-        $fechaHace7Dias = Carbon::now()->subDays(7);
+        $fechaHace7Dias = Carbon::now()->subDays(6);
 
         $atletas_stravas7dias = User::select(
                                 'users.id',

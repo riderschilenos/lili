@@ -418,7 +418,7 @@
                 <input wire:model="search" class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg " placeholder="Buscar Rider...">
             </div>
 
-            @if ($fullinscripciones->count())
+            @if ($inscripciones->count())
 
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
@@ -445,7 +445,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                        @foreach ($fullinscripciones->reverse() as $inscripcion)
+                        @foreach ($inscripciones->reverse() as $inscripcion)
                             @if ($inscripcion->ticket->ticketable_type=='App\Models\Socio')
 
                                

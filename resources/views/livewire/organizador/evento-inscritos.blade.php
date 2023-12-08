@@ -290,6 +290,8 @@
                                                                                                     <div class="px-6 py-4 whitespace-nowrap">
                                                                                                 
                                                                                                     {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                    <br>
+                                                                                                    {{$inscripcion->fecha->name}}
                                                                                                     
                                                                                                     </div>
                                                                                         
@@ -479,7 +481,11 @@
                                     
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             @if ($inscripcion->categoria)
-                                                    <div class="text-sm text-gray-900 text-center">{{$inscripcion->categoria->name}}</div>
+                                                    <div class="text-sm text-gray-900 text-center">
+                                                        {{$inscripcion->categoria->name}}<br>
+                                                        {{$inscripcion->fecha->name}}
+
+                                                    </div>
                                             @else
                                                 -
                                             @endif

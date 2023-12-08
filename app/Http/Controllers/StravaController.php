@@ -433,15 +433,13 @@ class StravaController extends Controller
                                         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
                                         
                                         WhatsappMensaje::create(['numero'=> $fono,
-                                        'mensaje'=>"¡Felicidades!
-                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'mensaje'=>"¡Felicidades! Haz superado con éxito el desafio de 50Km ft. Strava",
                                         'type'=>'enviado']);
                             
                             
                                     } catch (\Throwable $th) {
                                         WhatsappMensaje::create(['numero'=> $fono,
-                                        'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!
-                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!Haz superado con éxito el desafio de 30Km ft. Strava",
                                         'type'=>'enviado']);
                                     }
 

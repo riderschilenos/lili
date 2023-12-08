@@ -300,6 +300,8 @@
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                     
                                                                                                         {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                         <br>
+                                                                                                         {{$inscripcion->fecha->name}}
                                                                                                         
                                                                                                         </div>
                                                                                                     </a>
@@ -307,6 +309,8 @@
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                         
                                                                                                         {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                        <br>
+                                                                                                        {{$inscripcion->fecha->name}}                                                                                     
                                                                                                         
                                                                                                         </div>
                                                                                                     

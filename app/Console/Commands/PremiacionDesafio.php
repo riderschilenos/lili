@@ -228,6 +228,7 @@ class PremiacionDesafio extends Command
                                             
                                         ];
                                         
+                                        
                                         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
                                         
                                         WhatsappMensaje::create(['numero'=> $fono,
@@ -314,6 +315,106 @@ class PremiacionDesafio extends Command
                                                         'code'=>'es'],
                                                 
                                                 ]
+                                            
+                                        ];
+                                        
+                                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                                        
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"¡Felicidades!
+                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'type'=>'enviado']);
+                            
+                            
+                                    } catch (\Throwable $th) {
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!
+                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'type'=>'enviado']);
+                                    }
+
+                                }
+                            }
+                            if ($inscripcion->fecha->name=='Etapa 50 Km' && $inscripcion->estado<4) {
+                                if ($total>30) {
+                                    if($inscripcion->estado==2){
+                                        $inscripcion->estado=1;
+                                        $inscripcion->save();
+                            
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==1){
+                                                $ticket->status=2;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
+                                                }
+                                            
+                            
+                                            }else{
+                                                $ticket->status=1;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                                break;
+                                            }
+                                        }
+                                    }else{
+                                        $inscripcion->estado=4;
+                                        $inscripcion->save();
+                            
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==4){
+                                                $ticket->status=4;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
+                                                }
+                            
+                                            }else{
+                                                $ticket->status=3;
+                                                $ticket->save();
+                            
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                            
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                    //TOKEN QUE NOS DA FACEBOOK
+                            
+                                    try {
+                                        $token = env('WS_TOKEN');
+                                        $phoneid= env('WS_PHONEID');
+                                        $version='v16.0';
+                                        $url="https://riderschilenos.cl/";
+                                        $payload=[
+                                            'messaging_product' => 'whatsapp',
+                                            "preview_url"=> false,
+                                            'to'=>$fono,
+                                            
+                                            'type'=>'template',
+                                                'template'=>[
+                                                    'name'=>'desafio_terminado',
+                                                    'language'=>[
+                                                        'code'=>'es'],
+                                                    'components'=>[ 
+                                                        [
+                                                            'type'=>'body',
+                                                            'parameters'=>[
+                                                                [   //Socio
+                                                                    'type'=>'text',
+                                                                    'text'=> '50'
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                ]
+                                                
                                             
                                         ];
                                         

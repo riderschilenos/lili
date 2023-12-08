@@ -209,7 +209,7 @@
                                             
                                     
                                         @php
-                                            if($ticket->ticketable_id==$item->id){
+                                            if($tick->ticketable_id==$item->id){
                                                 $sponsor=$item;
                                             }else{
                                                 $sponsor=null;
@@ -252,22 +252,22 @@
                                                 <td class="px-6 py-4 whitespace-nowrap text-center">
                                                     <div class="text-sm text-gray-900 text-center">
                                                         <div>
-                                                                    @if ($ticket->status<=2)
-                                                                        @if ($ticket->status==2)
+                                                                    @if ($tick->status<=2)
+                                                                        @if ($tick->status==2)
 
-                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
+                                                                            <a href="{{route('ticket.view',$tick)}}" class="btn btn-danger h-10 my-auto">Nro: {{$tick->id}} (CERRADO)</a>
                                                                     
                                                                         @else
-                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
+                                                                            <a href="{{route('ticket.view',$tick)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$tick->id}} (SIN PAGAR)</a>
                                                                         
                                                                         @endif
                                                                     @else
-                                                                        @if ($ticket->status==3)
+                                                                        @if ($tick->status==3)
 
-                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}} PAGADO</a>
+                                                                            <a href="{{route('ticket.view',$tick)}}" class="btn btn-success h-10 my-auto">Nro: {{$tick->id}} PAGADO</a>
                                                                         
                                                                         @else
-                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} COBRADO</a>
+                                                                            <a href="{{route('ticket.view',$tick)}}" class="btn btn-danger h-10 my-auto">Nro: {{$tick->id}} COBRADO</a>
                                                                           
                                                                         @endif
 
@@ -283,8 +283,8 @@
                                                 <td class="px-6 py-4 whitespace-nowrap text-center">
                                                     <div class="text-sm text-gray-900 text-center">
                                                     
-                                                                @isset($ticket->inscripcions)
-                                                                    @foreach ($ticket->inscripcions as $inscripcion)
+                                                                @isset($tick->inscripcions)
+                                                                    @foreach ($tick->inscripcions as $inscripcion)
                                                                                     
                                                                                         <div class="flex">
                                                                                             
@@ -317,7 +317,7 @@
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     @can('Super admin')
-                                                        <a wire:click="pagomanual({{$ticket->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
+                                                        <a wire:click="pagomanual({{$tick->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
                                                     @endcan   
                                                 </td>
                                             </tr>

@@ -82,7 +82,7 @@
                                                             </a>
                                                             </div>
                                                             @can('Super admin')
-                                                                @if ($tick->status==3)
+                                                                @if ($tick->status>=3)
                                                                     
                                                                 
                                                                     @php
@@ -275,7 +275,7 @@
                                                         </div>
                                                         <div class="ml-auto">
                                                             @can('Super admin')
-                                                                @if ($tick->status==3)
+                                                                @if ($tick->status>=3)
                                                                     
                                                                 
                                                                     @php

@@ -41,7 +41,7 @@
                 <div class="flex justify-center">
 
                     <a href="{{route('socio.show', $socio)}}"><button type="button" class="btn btn-danger mr-6">Cancelar</button></a>
-                    {!! Form::submit('Actualizar información', ['class'=>'btn btn-primary cursor-pointer']) !!}
+                    {!! Form::submit('Actualizar información', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer']) !!}
                 </div>
 
                 {!! Form::close() !!}

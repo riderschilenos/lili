@@ -135,7 +135,7 @@
                                             @foreach ($evento->fechas as $fecha)       
                                                 @if ($fecha->fecha>=now()->subDays(1))
                                                     <div class="flex justify-center">
-                                                        <p class="font-bold text-white text-sm rounded-full bg-blue-800 my-2 p-2"> 
+                                                        <p class="font-bold text-white text-sm rounded-full bg-blue-800 my-1 p-2"> 
                                                         {{date('d/m/Y', strtotime($fecha->fecha))}}
                                                         </p>
                                                     

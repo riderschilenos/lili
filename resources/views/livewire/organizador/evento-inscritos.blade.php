@@ -399,12 +399,12 @@
        
         </x-table-responsive>
         @can('Super admin')
-            
+            <div class="flex justify-center mt-6">
+                <a class="btn bg-gray-200 h-10 my-auto">Ganancia= ${{number_format($gananciatotal)}}</a>
+                
+            </div>
         @endcan
-        <div class="flex justify-center">
-            <a class="btn bg-gray-200 h-10 my-auto">Ganancia= ${{number_format($gananciatotal)}}</a>
-            
-        </div>
+       
     </div>
     <div x-show="activeTab===1">
         <x-table-responsive>

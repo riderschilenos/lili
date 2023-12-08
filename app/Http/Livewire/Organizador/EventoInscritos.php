@@ -48,13 +48,13 @@ class EventoInscritos extends Component
         $invitados=Invitado::all();
         $sponsors = $this->evento->inscritos()->where('name','LIKE','%'. $this->search .'%')->get();
 
-        $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
+        $fullinscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
                             ->select('inscripcions.*','tickets.evento_id')
                             ->where('evento_id',$this->evento->id)
                             ->orderby('categoria_id','DESC')
                             ->paginate(50);
 
-        return view('livewire.organizador.evento-inscritos',compact('sponsors','inscripciones','tickets','socios','invitados'));
+        return view('livewire.organizador.evento-inscritos',compact('sponsors','fullinscripciones','tickets','socios','invitados'));
     }
 
     public function pagomanual(Ticket $ticket){

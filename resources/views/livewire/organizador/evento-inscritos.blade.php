@@ -445,7 +445,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                        @foreach ($inscripciones->reverse() as $inscripcion)
+                        @foreach ($fullinscripciones->reverse() as $inscripcion)
                             @if ($inscripcion->ticket->ticketable_type=='App\Models\Socio')
 
                                

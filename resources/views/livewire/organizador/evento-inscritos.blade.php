@@ -208,7 +208,7 @@
                                                                 @if ($ticket->metodo=='MERCADOPAGO')
                                                                     <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
                                                                 @endif
-                                                            @else
+                                                            @elseif($ticket->status==3)
                                                                 <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
                                                             @endif
                                                         @endcan   
@@ -339,7 +339,7 @@
                                                             @if ($tick->metodo=='MERCADOPAGO')
                                                                 <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
                                                             @endif
-                                                        @else
+                                                        @elseif($tick->status==3)
                                                             <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
                                                         @endif
                                                     @endcan   

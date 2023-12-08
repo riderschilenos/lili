@@ -122,7 +122,7 @@
                                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} (CERRADO)</a>
                                                                             @break
                                                                         @else
-                                                                            <a href="{{route('ticket.view',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
+                                                                            <a href="{{route('payment.checkout.ticket',$ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$ticket->id}} (SIN PAGAR)</a>
                                                                             @break
                                                                         @endif
                                                                     @else
@@ -313,7 +313,7 @@
                                                                             <a href="{{route('ticket.view',$tick)}}" class="btn btn-danger h-10 my-auto">Nro: {{$tick->id}} (CERRADO)</a>
                                                                     
                                                                         @else
-                                                                            <a href="{{route('ticket.view',$tick)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$tick->id}} (SIN PAGAR)</a>
+                                                                            <a href="{{route('payment.checkout.ticket',$tick)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$tick->id}} (SIN PAGAR)</a>
                                                                         
                                                                         @endif
                                                                     @else

@@ -2,7 +2,7 @@
 
     <x-slot name="tl">
             
-        <title>Lista de Riders</title>
+        <title>Ranking Strava En Vivo</title>
         
         
     </x-slot>

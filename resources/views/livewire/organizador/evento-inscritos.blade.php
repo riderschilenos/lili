@@ -595,7 +595,7 @@
                                                                         @if ($invitado->fono)
                                                                             {{$invitado->fono}}
                                                                         @endif
-                                                                   
+                                                                   @break
                                                                 @endif
                                                         @endforeach
                                                         </div>

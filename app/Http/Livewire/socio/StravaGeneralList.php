@@ -21,7 +21,7 @@ class StravaGeneralList extends Component
         ->orderByDesc('total_distance')
         ->paginate(100);
 
-        $fechaHace7Dias = Carbon::now()->subDays(8);
+        $fechaHace7Dias = Carbon::now()->subDays(7);
 
         $atletas_stravas7dias = User::select(
                                 'users.id',
@@ -33,8 +33,9 @@ class StravaGeneralList extends Component
                             ->join('atleta_stravas', 'users.id', '=', 'atleta_stravas.user_id')
                             ->leftJoin('activities', 'users.id', '=', 'activities.user_id')
                             ->groupBy('users.id', 'users.name', 'users.profile_photo_path')
-                            ->orderByRaw('CASE WHEN last_week_distance > 0 THEN 0 ELSE 1 END, last_week_distance DESC, total_distance DESC')
-                            ->setBindings(['fechaHace7Dias' => $fechaHace7Dias])
+                            ->orderByDesc('last_week_distance') // Ordenar primero por la suma de la última semana
+                            ->orderByDesc('total_distance') // Luego por la suma total de distancia
+                            ->setBindings(['fechaHace7Dias' => $fechaHace7Dias]) // Pasa la variable a la subconsulta
                             ->paginate(100);
 
         $now=Carbon::now();

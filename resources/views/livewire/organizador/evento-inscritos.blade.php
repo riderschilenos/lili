@@ -449,7 +449,6 @@
                             @if ($inscripcion->ticket->ticketable_type=='App\Models\Socio')
 
                                
-                                    @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status>=3)
                                         <tr>
                                         
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -550,11 +549,9 @@
                                             
                                             </td>
                                         </tr>
-                                    @endif
-
+                                  
                                 
                             @else
-                                @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status>=3)
                                     <tr>
                                     
                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -665,7 +662,7 @@
                                         
                                         </td>
                                     </tr>
-                                @endif
+                              
                             @endif
                         @endforeach
                 

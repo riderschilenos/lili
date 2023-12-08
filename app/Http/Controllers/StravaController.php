@@ -347,7 +347,7 @@ class StravaController extends Controller
 
                                 }
                             }
-                            if ($inscripcion->fecha->name=='Etapa 50 Km' && $inscripcion->estado<4) {
+                            if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado<4) {
                                 if ($total>50) {
                                     if($inscripcion->estado==2){
                                         $inscripcion->estado=1;

@@ -198,7 +198,7 @@
 
                                            
                                                         @can('Super admin')
-                                                            @if ($ticket->status<3;)
+                                                            @if ($ticket->status<3)
                                                                 <a wire:click="pagomanual({{$ticket->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
                                                             @endif
                                                         @endcan   

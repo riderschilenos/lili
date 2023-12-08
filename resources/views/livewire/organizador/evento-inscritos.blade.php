@@ -608,9 +608,9 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            @if ($inscripcion->ticket->user)
-                                                <div class="text-sm text-gray-900 text">{{$inscripcion->ticket->user->socio->rut}}</div>
-                                            @endif
+                                            
+                                                <div class="text-sm text-gray-900 text">{{$invitado->rut}}</div>
+                                         
                                         
                                             
                                         </td>

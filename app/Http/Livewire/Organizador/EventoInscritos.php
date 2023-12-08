@@ -35,15 +35,15 @@ class EventoInscritos extends Component
     public function render()
     {   
         $tickets =  $this->evento->tickets()
-                    ->where('status', '>=', 1)
-                    ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
-                    ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
-                    ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
-                    ->orderBy('categorias.name', 'asc')
-                    ->orderBy('tickets.id', 'desc')
-                    ->select('tickets.*')
-                    ->distinct() // Agregar DISTINCT para obtener resultados únicos de la tabla 'tickets'
-                    ->get();
+        ->where('status', '>=', 1)
+        ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
+        ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
+        ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
+        ->orderBy('categorias.name', 'asc')
+        ->orderBy('tickets.id', 'desc')
+        ->select('tickets.*', 'categorias.name as categoria_name') // Seleccionar 'categorias.name'
+        ->distinct('tickets.id') // Usar DISTINCT solo en tickets.id para evitar duplicados en esa columna
+        ->get();
                         
         $socios=Socio::all();
         $invitados=Invitado::all();

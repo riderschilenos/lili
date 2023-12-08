@@ -449,12 +449,14 @@
                             @if ($inscripcion->ticket->ticketable_type=='App\Models\Socio')
 
                                
-                                    @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status==3)
+                                    @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status>=3)
                                         <tr>
                                         
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 @if ($inscripcion->categoria)
-                                                        <div class="text-sm text-gray-900 text-center">{{$inscripcion->categoria->name}}</div>
+                                                        <div class="text-sm text-gray-900 text-center">{{$inscripcion->categoria->name}}<br>
+                                                            {{$inscripcion->fecha->name}} 
+                                                        </div>
                                                 @else
                                                     -
                                                 @endif
@@ -473,7 +475,7 @@
                                                                 @if ($inscripcion->ticket->user)
                                                                     
                                                             
-                                                                    {{$inscripcion->ticket->user->name}}<br>
+                                                                    {{$inscripcion->ticket->user->name}} (Rider)<br>
                                                                     {{$inscripcion->ticket->user->email}}<br>
                                                                     @if ($inscripcion->ticket->user->socio)
                                                                         @if ($inscripcion->ticket->user->socio->fono)
@@ -552,7 +554,7 @@
 
                                 
                             @else
-                                @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status==3)
+                                @if ($inscripcion->ticket->status==1 || $inscripcion->ticket->status>=3)
                                     <tr>
                                     
                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -590,7 +592,7 @@
                                                                 @if ($invitado)
                                                                     
                                                             
-                                                                    {{$invitado->name}}<br>
+                                                                    {{$invitado->name}} (Invitado)<br>
                                                                     {{$invitado->email}}<br>
                                                                    
                                                                         @if ($invitado->fono)

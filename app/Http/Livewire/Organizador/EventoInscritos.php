@@ -61,6 +61,7 @@ class EventoInscritos extends Component
     public function pagomanual(Ticket $ticket){
 
         $ticket->status=3;
+        $ticket->metodo='TRANSFERENCIA';
         $ticket->save();
         foreach ($ticket->inscripcions as $inscripcion){
             $inscripcion->estado=3;

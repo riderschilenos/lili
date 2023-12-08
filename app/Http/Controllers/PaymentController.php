@@ -91,6 +91,7 @@ class PaymentController extends Controller
 
         if($status == 'approved'){
             $ticket->status=3;
+            $ticket->metodo='MERCADOPAGO';
             $ticket->save();
             foreach ($ticket->inscripcions as $inscripcion){
                 $inscripcion->estado=3;

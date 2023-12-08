@@ -402,7 +402,7 @@
             
         @endcan
         <div class="flex justify-center">
-            <h1 class="text-center font-bold">Ganancia= ${{number_format($gananciatotal)}}</h1>
+            <a class="btn bg-gray-200 h-10 my-auto">Ganancia= ${{number_format($gananciatotal)}}</a>
             
         </div>
     </div>

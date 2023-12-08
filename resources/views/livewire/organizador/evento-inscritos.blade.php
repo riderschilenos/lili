@@ -505,11 +505,11 @@
                                                             @if ($inscripcion->ticket->status<=2)
                                                                 @if ($inscripcion->ticket->status==1)
                                                                     
-                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
+                                                                    <a href="{{route('payment.checkout.ticket',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
                                                                     
                                                                 @else
                                                                     @break
-                                                                    <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
+                                                                    <a href="{{route('payment.checkout.ticket',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
                                                                     
                                                                 @endif
                                                             @else
@@ -620,11 +620,11 @@
                                                         @if ($inscripcion->ticket->status<=2)
                                                             @if ($inscripcion->ticket->status==1)
                                                                 
-                                                                <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
+                                                                <a href="{{route('payment.checkout.ticket',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
                                                                 
                                                             @else
                                                                 
-                                                                <a href="{{route('ticket.view',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
+                                                                <a href="{{route('payment.checkout.ticket',$inscripcion->ticket)}}" class="btn bg-gray-200 h-10 my-auto">Nro: {{$inscripcion->ticket->id}} (SIN PAGAR)</a>
                                                                 
                                                             @endif
                                                         @else

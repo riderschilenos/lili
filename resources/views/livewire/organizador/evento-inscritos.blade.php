@@ -138,7 +138,8 @@
                                                                                                         <div class="px-6 py-4 whitespace-nowrap">
                                                                                                     
                                                                                                         {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
-                                                                                                        
+                                                                                                                                        <br>
+                                                                                                                                        {{$inscripcion->fecha->name}}
                                                                                                         </div>
                                                                                             
                                                                                                 

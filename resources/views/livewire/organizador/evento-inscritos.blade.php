@@ -201,8 +201,13 @@
                                                             @if ($ticket->status==1)
                                                                 <a wire:click="pagomanual({{$ticket->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>
                                                             @endif
-                                                            @if ($ticket->metodo=='TRANSFERENCIA')
-                                                                <a  class="font-bold py-2 px-4 rounded bg-red-500 text-white cursor-pointer h-10 my-auto">TRANSFERENCIA</a>
+                                                            @if (!IS_NULL($ticket->metodo))
+                                                                @if ($ticket->metodo=='TRANSFERENCIA')
+                                                                   <a  class="font-bold py-2 px-4 rounded bg-red-500 text-white cursor-pointer h-10 my-auto">TRANSFERENCIA</a>
+                                                                @endif
+                                                                @if ($ticket->metodo=='MERCADOPAGO')
+                                                                    <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
+                                                                @endif
                                                             @else
                                                                 <a  class="font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer h-10 my-auto">MERCADOPAGO</a>
                                                             @endif

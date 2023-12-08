@@ -31,12 +31,8 @@ class StravaGeneralList extends Component
                                 DB::raw('COALESCE(SUM(CASE WHEN activities.start_date_local >= :fechaHace7Dias THEN activities.distance ELSE 0 END), 0) AS last_week_distance')
                             )
                             ->join('atleta_stravas', 'users.id', '=', 'atleta_stravas.user_id')
-                            ->leftJoin('activities', function($join) use ($fechaHace7Dias) {
-                                $join->on('users.id', '=', 'activities.user_id')
-                                    ->where('activities.start_date_local', '>=', $fechaHace7Dias);
-                            })
+                            ->leftJoin('activities', 'users.id', '=', 'activities.user_id')
                             ->groupBy('users.id', 'users.name', 'users.profile_photo_path')
-                            ->havingRaw('MAX(activities.start_date_local) >= :fechaHace7Dias') // Filtrar usuarios con actividad en los últimos 7 días
                             ->orderByDesc('last_week_distance') // Ordenar primero por la suma de la última semana
                             ->orderByDesc('total_distance') // Luego por la suma total de distancia
                             ->setBindings(['fechaHace7Dias' => $fechaHace7Dias]) // Pasa la variable a la subconsulta

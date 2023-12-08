@@ -605,8 +605,10 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            
+                                            @if ($invitado)
                                                 <div class="text-sm text-gray-900 text">{{$invitado->rut}}</div>
+                                            @endif
+                                             
                                          
                                         
                                             

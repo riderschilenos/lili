@@ -216,7 +216,7 @@
                                                     
 
                                                     
-                                                    <td class="whitespace-nowrap text-right text-sm font-medium">
+                                                    <td class="whitespace-nowrap text-center text-sm font-medium">
 
                                            
                                                         @can('Super admin')
@@ -371,7 +371,7 @@
                                                     
                                                 </td>
 
-                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                                     @can('Super admin')
                                                         @if ($tick->status==1)
                                                             <a wire:click="pagomanual({{$tick->id}})" class="btn btn-success cursor-pointer h-10 my-auto">PAGO MANUAL</a>

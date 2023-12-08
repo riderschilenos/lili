@@ -42,14 +42,14 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                        @foreach ($tickets as $ticket)
+                        @foreach ($tickets as $tick)
 
-                            @if ($ticket->ticketable_type=='App\Models\Socio')
+                            @if ($tick->ticketable_type=='App\Models\Socio')
                                         @foreach ($socios as $item)
                                             
                                     
                                             @php
-                                                if($ticket->ticketable_id==$item->id){
+                                                if($tick->ticketable_id==$item->id){
                                                     $sponsor=$item;
                                                 }else{
                                                     $sponsor=null;
@@ -92,7 +92,9 @@
                                                     <td class="px-6 py-4 whitespace-nowrap text-center">
                                                         <div class="text-sm text-gray-900 text-center">
                                                             
-                                                      
+                                                            @foreach ($sponsor->tickets->reverse() as $ticket)
+                                                                @if ($ticket->evento->id==$tick->id)
+
                                                                     @if ($ticket->status<=2)
                                                                         @if ($ticket->status==2)
 
@@ -115,8 +117,12 @@
                                                                         @break
                                                                     @endif
                                                                 
-                                                                
+                                                                    @break
                                                                     
+                                                                @endif
+                                                                
+                                                            @endforeach
+                                                            
                                                         
                                                         </div>
                                                         

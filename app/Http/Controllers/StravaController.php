@@ -170,7 +170,7 @@ class StravaController extends Controller
                     if ($ticket->inscripcions) {
                         foreach ($ticket->inscripcions as $inscripcion) {
                             if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado<4) {
-                                if ($total>30) {
+                                if ($total>15) {
                                     if($inscripcion->estado==2){
                                         $inscripcion->estado=1;
                                         $inscripcion->save();

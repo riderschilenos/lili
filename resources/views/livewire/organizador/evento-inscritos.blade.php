@@ -8,7 +8,9 @@
                 x-text="tab"></li>
         </template>
     </ul>
-
+    @php
+        $gananciatotal=0;
+    @endphp
     <div x-show="activeTab===0">
         
         <x-table-responsive>
@@ -84,10 +86,11 @@
                                                                                     @php
                                                                                         if($ticket->metodo=='TRANSFERENCIA'){
                                                                                             $ganancia=($ticket->inscripcion*$ticket->evento->comision/100);
+
                                                                                         }else{
                                                                                             $ganancia=($ticket->inscripcion*$ticket->evento->comision/100)-($ticket->inscripcion*0.037961);
                                                                                         }
-                                                                                    
+                                                                                        $gananciatotal+=$ganancia;
                                                                                     @endphp
                                                                                 <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg ">
                                                                                     +${{number_format($ganancia)}} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
@@ -276,7 +279,7 @@
                                                                     }else{
                                                                         $ganancia=($tick->inscripcion*$tick->evento->comision/100)-($tick->inscripcion*0.037961);
                                                                     }
-                                                                
+                                                                    $gananciatotal+=$ganancia;
                                                                 @endphp
                                                             <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
                                                                 +${{number_format($ganancia)}} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
@@ -395,6 +398,13 @@
             @endif 
        
         </x-table-responsive>
+        @can('Super admin')
+            
+        @endcan
+        <div class="flex justify-center">
+            <h1 class="text-center font-bold">Ganancia= ${{number_format($gananciatotal)}}</h1>
+            
+        </div>
     </div>
     <div x-show="activeTab===1">
         <x-table-responsive>

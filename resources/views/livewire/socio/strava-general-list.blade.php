@@ -144,6 +144,14 @@
                                                     </div>
                                                     @php
                                                         $lugar+=1;
+                                                        
+                                                    // Fecha de nacimiento del usuario (suponiendo que está almacenada en $user->socio->borndate)
+                                                    $borndate = strtotime($user->socio->born_date);
+
+                                                    // Calcula la diferencia en segundos
+                                                    $diferencia_segundos = strtotime($now) - $borndate;
+                                                    $diferencia_anios = floor($diferencia_segundos / (365 * 24 * 60 * 60));
+
                                                     @endphp
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                             
@@ -164,9 +172,10 @@
                                                             {{Str::limit($user->name,40)}}
                                                         </div>
                                                         <div class="text-sm text-gray-500 flex justify-start">
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 mr-2">
                                                             {{$user->socio->disciplina->name}}
                                                             </span>
+                                                            {{$diferencia_anios}} Años
                                                         
                                                         </div>
                                                         @if(!is_null($user->socio->direccion))
@@ -255,6 +264,14 @@
                                                     </div>
                                                     @php
                                                         $lugar+=1;
+                                                             
+                                                    // Fecha de nacimiento del usuario (suponiendo que está almacenada en $user->socio->borndate)
+                                                    $borndate = strtotime($user->socio->born_date);
+
+                                                    // Calcula la diferencia en segundos
+                                                    $diferencia_segundos = strtotime($now) - $borndate;
+                                                    $diferencia_anios = floor($diferencia_segundos / (365 * 24 * 60 * 60));
+
                                                     @endphp
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                      
@@ -276,10 +293,10 @@
                                                             {{Str::limit($user->name,40)}}
                                                         </div>
                                                         <div class="text-sm text-gray-500 flex justify-start">
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 mr-2">
                                                             {{$user->socio->disciplina->name}}
                                                             </span>
-                                                        
+                                                            {{$diferencia_anios}} Años
                                                         </div>
                                                         @if(!is_null($user->socio->direccion))
                                                             <div class="text-xs flex items-center mt-1">

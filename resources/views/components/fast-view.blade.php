@@ -1039,8 +1039,10 @@
                         <img class="h-full w-full object-cover object-center mt-4" src="{{asset('img/home/mariocross2.png')}}" alt="">
                     </a>
                     --}}
-                    <div class="flex justify-center ">
-                        <div class="bg-white max-w-4xl px-6 pt-2 mb-4 mt-6 shadow-lg rounded-xl">
+                <div class="flex justify-center" >
+                    <div class="grid grid-cols-5 max-w-7xl justify-center">
+
+                        <div class="col-span 5 sm:col-span-2 bg-white mx-auto  px-6 pt-2 mb-4 mt-6 shadow-lg rounded-xl">
 
                             <div class="photo-wrapper flex justify-center mt-2">
                                      <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="">
@@ -1067,7 +1069,30 @@
 
                             </div>
                         </div>
+
+                        <div class="col-span-5 sm:col-span-3 flex justify-center  items-center">
+                            <div class="px-4 py-2 bg-white">
+                                @livewire('socio.strava-count-total')
+                                <div class="w-full mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
+                         
+                                                
+                                        
+                                    <article>
+
+                                        <figure>
+                                            <a href="{{route('socio.create')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/registroriders.png')}}" alt=""></a>
+                                        </figure>
+                    
+                                    
+                                    </article>
+                    
+                                
+                            </div>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
 
                     @if (IS_NULL(auth()->user()))
                                 <div class="hidden mt-2 mb-6 flex justify-center">
@@ -1156,7 +1181,7 @@
 
                                 </div>
           
-                            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
+                            <div class="hidden max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
                          
                                                 
                                         

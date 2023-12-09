@@ -259,7 +259,7 @@
                                                 <div class="flex items-center">
                                                     <div>
                                                         <h1 class="mr-4 font-bold text-gray-400">
-                                                            {{($lugar+$atletas_stravas7dias->count())}}°
+                                                            {{($lugar)}}°
                                                         </h1>
                                                     </div>
                                                     @php

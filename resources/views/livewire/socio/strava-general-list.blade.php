@@ -129,15 +129,29 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            
+                            @php
+                                $lugar=1;
+                            @endphp
                                 @foreach ($atletas_stravas7dias as $user)   
                                         <tr >
                                             <td class="px-3 py-4 whitespace-nowrap">
                                                 <a href="{{route('socio.show',$user->socio)}}">
                                                 <div class="flex items-center">
+                                                    <div>
+                                                        <h1 class="mr-4 font-bold text-gray-400">
+                                                            {{$lugar}}°
+                                                        </h1>
+                                                    </div>
+                                                    @php
+                                                        $lugar+=1;
+                                                    @endphp
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                             
+                                                        @if (str_contains($user->profile_photo_url,'https://ui-'))
+                                                            <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt=""  />
+                                                        @else
                                                             <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$user->profile_photo_url }}" alt=""  />
+                                                        @endif
                                                         
                                                             
                                                         
@@ -234,13 +248,26 @@
                                             <td class="px-3 py-4 whitespace-nowrap">
                                                 <a href="{{route('socio.show',$user->socio)}}">
                                                 <div class="flex items-center">
+                                                    <div>
+                                                        <h1 class="mr-4 font-bold text-gray-400">
+                                                            {{($lugar+$atletas_stravas7dias->count())}}°
+                                                        </h1>
+                                                    </div>
+                                                    @php
+                                                        $lugar+=1;
+                                                    @endphp
                                                     <div class="flex-shrink-0 h-10 w-10">
-                                                            
+                                                     
+                                                        @if (str_contains($user->profile_photo_url,'https://ui-'))
+                                                            <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt=""  />
+                                                        @else
                                                             <img class="h-11 w-11 object-cover object-center rounded-full" src="{{$user->profile_photo_url }}" alt=""  />
+                                                        @endif
                                                         
                                                             
                                                         
                                                     </div>
+                                                  
                                                     <div class="ml-4">
                                                         <div class="flex sm:hidden  text-sm text-gray-900">
                                                             {{Str::limit($user->name,15)}}

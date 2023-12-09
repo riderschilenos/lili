@@ -236,7 +236,7 @@
                                 
                                         <div class="flex justify-end">
                                           
-                                            {!! Form::submit('Agregar Dirección', ['class'=>'btn btn-success cursor-pointer ml-2']) !!}
+                                            {!! Form::submit('Agregar Dirección', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center cursor-pointer ml-2']) !!}
                                         </div>
                                 
                                         {!! Form::close() !!}

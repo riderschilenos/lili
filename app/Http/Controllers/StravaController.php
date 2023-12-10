@@ -184,44 +184,41 @@ class StravaController extends Controller
 
             $activities = json_decode($response, true);
 
-            if ($activities->count()>0) {
-             
-                foreach($activities as $activity){
-                    
-                    $activ=Activitie::where('strava_id',$activity['id'])->first();
+            
+            foreach($activities as $activity){
+                
+                $activ=Activitie::where('strava_id',$activity['id'])->first();
 
-                    if ($activ) {
-                    //
-                    } else {
-                        Activitie::create([
-                            'user_id'=>$atletaStrava->user_id,
-                            'name'=>$activity['name'],
-                            'type'=>$activity['type'],
-                            'strava_id'=>$activity['id'],
-                            'start_date_local'=>$activity['start_date_local'],
-                            'moving_time'=> $activity['moving_time'],
-                        'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),
-                        'total_elevation_gain'=>null,
-                        'average_speed'=>number_format($activity['average_speed'], 2),
-                        'max_speed'=>number_format($activity['max_speed'], 2),
-                        'commute'=>$activity['commute'] ? 'Yes' : 'No' ,
-                        'private'=>$activity['private'] ? 'Yes' : 'No' ,
-                        'achievement_count'=>$activity['achievement_count']
-                        ]);
-                        $user=User::find($atletaStrava->user_id);
-                        if ($user) {
-                            $user->ForceFill([
-                                'updated_at'=> Carbon::now()
-                            ])->save();
-                        }
-                        
-                        $n+=1;
+                if ($activ) {
+                   //
+                } else {
+                    Activitie::create([
+                        'user_id'=>$atletaStrava->user_id,
+                        'name'=>$activity['name'],
+                        'type'=>$activity['type'],
+                        'strava_id'=>$activity['id'],
+                        'start_date_local'=>$activity['start_date_local'],
+                        'moving_time'=> $activity['moving_time'],
+                     'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),
+                     'total_elevation_gain'=>null,
+                     'average_speed'=>number_format($activity['average_speed'], 2),
+                     'max_speed'=>number_format($activity['max_speed'], 2),
+                       'commute'=>$activity['commute'] ? 'Yes' : 'No' ,
+                       'private'=>$activity['private'] ? 'Yes' : 'No' ,
+                       'achievement_count'=>$activity['achievement_count']
+                    ]);
+                    $user=User::find($atletaStrava->user_id);
+                    if ($user) {
+                        $user->ForceFill([
+                            'updated_at'=> Carbon::now()
+                        ])->save();
                     }
                     
-                    
-        
+                    $n+=1;
                 }
-                  
+                
+                
+       
             }
 
         

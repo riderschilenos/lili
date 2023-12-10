@@ -107,28 +107,28 @@ class StravaController extends Controller
             var_dump($activities); // O utiliza print_r($activities); para una visualización más legible
 
 
-            foreach($activities as $activity){
-                var_dump($activity); // O utiliza print_r($activities); para una visualización más legible
+            foreach($activities as $item){
+                var_dump($item); // O utiliza print_r($activities); para una visualización más legible
 
-                $activ=Activitie::where('strava_id',$activity['id'])->first();
+                $activ=Activitie::where('strava_id',$item['id'])->first();
 
                 if ($activ) {
                    //
                 } else {
                     Activitie::create([
                         'user_id'=>$atletaStrava->user_id,
-                        'name'=>$activity['name'],
-                        'type'=>$activity['type'],
-                        'strava_id'=>$activity['id'],
-                        'start_date_local'=>$activity['start_date_local'],
-                        'moving_time'=> $activity['moving_time'],
-                     'distance'=>number_format(($activity['distance']/1000), 2, '.', '.'),
+                        'name'=>$item['name'],
+                        'type'=>$item['type'],
+                        'strava_id'=>$item['id'],
+                        'start_date_local'=>$item['start_date_local'],
+                        'moving_time'=> $item['moving_time'],
+                     'distance'=>number_format(($item['distance']/1000), 2, '.', '.'),
                      'total_elevation_gain'=>null,
-                     'average_speed'=>number_format($activity['average_speed'], 2),
-                     'max_speed'=>number_format($activity['max_speed'], 2),
-                       'commute'=>$activity['commute'] ? 'Yes' : 'No' ,
-                       'private'=>$activity['private'] ? 'Yes' : 'No' ,
-                       'achievement_count'=>$activity['achievement_count']
+                     'average_speed'=>number_format($item['average_speed'], 2),
+                     'max_speed'=>number_format($item['max_speed'], 2),
+                       'commute'=>$item['commute'] ? 'Yes' : 'No' ,
+                       'private'=>$item['private'] ? 'Yes' : 'No' ,
+                       'achievement_count'=>$item['achievement_count']
                     ]);
                     $user=User::find($atletaStrava->user_id);
                     if ($user) {

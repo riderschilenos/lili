@@ -255,8 +255,47 @@ class PaymentController extends Controller
                     'numero'=>$socio->nro,
                     'pedido_id'=>$pedido->id
                 ]);
-
+                
+        try {
+            $token = env('WS_TOKEN');
+            $phoneid= env('WS_PHONEID');
+            $version='v16.0';
+            $url="https://riderschilenos.cl/";
+            $wsload=[
+                'messaging_product' => 'whatsapp',
+                "preview_url"=> false,
+                'to'=>'56963176726',
+                
+                'type'=>'template',
+                    'template'=>[
+                        'name'=>'nueva_suscripcion',
+                        'language'=>[
+                            'code'=>'es'],
+                        'components'=>[ 
+                            [
+                                'type'=>'body',
+                                'parameters'=>[
+                                    [   //nombre
+                                        'type'=>'text',
+                                        'text'=> $socio->name
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    
+                
+            ];
+            
+            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
             return redirect()->route('socio.create');
+
+         
+        } catch (\Throwable $th) {
+            return redirect()->route('socio.create');
+        }
+
+           
         }
         else{
             

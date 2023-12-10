@@ -108,7 +108,7 @@ class StravaController extends Controller
                 if (is_array($activity)) {
                      $activ=Activitie::where('strava_id',$activity['id'])->first();
                 } else {
-                   $active=true;
+                   $activ=true;
                 }
               
 

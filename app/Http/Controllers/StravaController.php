@@ -102,7 +102,9 @@ class StravaController extends Controller
             // Realizar la solicitud cURL
             $response = curl_exec($ch);
 
-            $activities = json_decode($response, true);
+            $responseData = json_decode($response, true);
+            $activities = $responseData['activities'];
+
 
             foreach($activities as $activity){
                 

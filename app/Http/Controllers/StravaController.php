@@ -184,6 +184,7 @@ class StravaController extends Controller
 
             $activities = json_decode($response, true);
 
+            var_dump($activities);
             
             foreach($activities as $activity){
                 

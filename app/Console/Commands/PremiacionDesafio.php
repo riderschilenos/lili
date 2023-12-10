@@ -190,7 +190,7 @@ class PremiacionDesafio extends Command
                                                 'user_id'=> $ticket->user->id,
                                                 'transportista_id'=> 1,
                                                 'pedidoable_id'=> $ticket->user->socio->id,
-                                                'status'=> 4,
+                                                'status'=> 5,
                                                 'pedidoable_type'=> 'App\Models\Socio']);
                                             
                                             $orden= Orden::create([
@@ -333,7 +333,7 @@ class PremiacionDesafio extends Command
                                                 'user_id'=> $ticket->user->id,
                                                 'transportista_id'=> 1,
                                                 'pedidoable_id'=> $ticket->user->socio->id,
-                                                'status'=> 4,
+                                                'status'=> 5,
                                                 'pedidoable_type'=> 'App\Models\Socio']);
                                             
                                             $orden= Orden::create([
@@ -475,7 +475,7 @@ class PremiacionDesafio extends Command
                                                 'user_id'=> $ticket->user->id,
                                                 'transportista_id'=> 1,
                                                 'pedidoable_id'=> $ticket->user->socio->id,
-                                                'status'=> 4,
+                                                'status'=> 5,
                                                 'pedidoable_type'=> 'App\Models\Socio']);
                                             
                                             $orden= Orden::create([

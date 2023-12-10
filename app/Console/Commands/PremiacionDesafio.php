@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use App\Models\Activitie;
 use App\Models\AtletaStrava;
 use App\Models\Evento;
+use App\Models\Orden;
+use App\Models\Pedido;
 use App\Models\Sync;
 use App\Models\Ticket;
 use App\Models\User;
@@ -184,6 +186,18 @@ class PremiacionDesafio extends Command
                                         }else{
                                             $inscripcion->estado=4;
                                             $inscripcion->save();
+                                            $pedido = Pedido::create([
+                                                'user_id'=> $ticket->user->id,
+                                                'transportista_id'=> 1,
+                                                'pedidoable_id'=> $ticket->user->socio->id,
+                                                'status'=> 4,
+                                                'pedidoable_type'=> 'App\Models\Socio']);
+                                            
+                                            $orden= Orden::create([
+                                                    'producto_id'=> 54,
+                                                    'name'=>'Etapa 15 km',
+                                                    'pedido_id'=>$pedido->id
+                                                ]);
                                             try {
                                                 $token = env('WS_TOKEN');
                                                 $phoneid= env('WS_PHONEID');
@@ -315,6 +329,19 @@ class PremiacionDesafio extends Command
                                         }else{
                                             $inscripcion->estado=4;
                                             $inscripcion->save();
+                                            $pedido = Pedido::create([
+                                                'user_id'=> $ticket->user->id,
+                                                'transportista_id'=> 1,
+                                                'pedidoable_id'=> $ticket->user->socio->id,
+                                                'status'=> 4,
+                                                'pedidoable_type'=> 'App\Models\Socio']);
+                                            
+                                            $orden= Orden::create([
+                                                    'producto_id'=> 55,
+                                                    'name'=>'Etapa 30 km',
+                                                    'pedido_id'=>$pedido->id
+                                                ]);
+
                                             try {
                                                 $token = env('WS_TOKEN');
                                                 $phoneid= env('WS_PHONEID');
@@ -444,6 +471,19 @@ class PremiacionDesafio extends Command
                                         }else{
                                             $inscripcion->estado=4;
                                             $inscripcion->save();
+                                            $pedido = Pedido::create([
+                                                'user_id'=> $ticket->user->id,
+                                                'transportista_id'=> 1,
+                                                'pedidoable_id'=> $ticket->user->socio->id,
+                                                'status'=> 4,
+                                                'pedidoable_type'=> 'App\Models\Socio']);
+                                            
+                                            $orden= Orden::create([
+                                                    'producto_id'=> 56,
+                                                    'name'=>'Etapa 50 km',
+                                                    'pedido_id'=>$pedido->id
+                                                ]);
+
                                             try {
                                                 $token = env('WS_TOKEN');
                                                 $phoneid= env('WS_PHONEID');

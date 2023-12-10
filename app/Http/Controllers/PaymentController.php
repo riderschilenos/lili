@@ -127,6 +127,12 @@ class PaymentController extends Controller
 
             try {
                         //TOKEN QUE NOS DA FACEBOOK
+                        if($ticket->ticketable_type == 'App\Models\Invitado'){
+                            $cliente=Invitado::find($ticket->ticketable_id);
+                        }else{
+                            $cliente=Socio::find($ticket->ticketable_id);
+                        }
+
                         $cell='569'.substr(str_replace(' ', '', $ticket->evento->user->vendedor->fono), -8);
                 
                         //TOKEN QUE NOS DA FACEBOOK
@@ -150,7 +156,7 @@ class PaymentController extends Controller
                                         'parameters'=>[
                                             [   //cliente
                                                 'type'=>'text',
-                                                'text'=> $ticket->user->name
+                                                'text'=> $cliente->name
                                             ],
                                             [   //Cantidad
                                                 'type'=>'text',

@@ -105,7 +105,7 @@ class StravaController extends Controller
             $activities = json_decode($response, true);
 
             foreach($activities as $activity){
-                if (is_array($$activity)) {
+                if (is_array($activity)) {
                      $activ=Activitie::where('strava_id',$activity['id'])->first();
                 } else {
                    $active=true;

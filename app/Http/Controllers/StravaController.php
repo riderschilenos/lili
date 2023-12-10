@@ -117,7 +117,6 @@ class StravaController extends Controller
                    'private'=>$activity['private'] ? 'Yes' : 'No' ,
                    'achievement_count'=>$activity['achievement_count']
                 ]);
-                
                 $user=User::find($atletaStrava->user_id);
                 if ($user) {
                     $user->ForceFill([

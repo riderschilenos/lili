@@ -49,8 +49,49 @@ class StravaController extends Controller
 
         // Aquí puedes guardar el token de acceso en la base de datos u otra acción
         // $data['access_token'] contiene el token de acceso que puedes utilizar para acceder a la API de Strava
+       
+         //TOKEN QUE NOS DA FACEBOOK
 
-        return redirect()->route('home');
+        try {
+            $token = env('WS_TOKEN');
+            $phoneid= env('WS_PHONEID');
+            $version='v16.0';
+            $url="https://riderschilenos.cl/";
+            $wsload=[
+                'messaging_product' => 'whatsapp',
+                "preview_url"=> false,
+                'to'=>'56963176726',
+                
+                'type'=>'template',
+                    'template'=>[
+                        'name'=>'nuevo_strava',
+                        'language'=>[
+                            'code'=>'es'],
+                        'components'=>[ 
+                            [
+                                'type'=>'body',
+                                'parameters'=>[
+                                    [   //nombre
+                                        'type'=>'text',
+                                        'text'=> auth()->user()->name
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                    
+                
+            ];
+            
+            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+            return redirect()->route('home');
+
+         
+        } catch (\Throwable $th) {
+            return redirect()->route('home');
+        }
+
+        
     }
 
     public function activitie_sync(){

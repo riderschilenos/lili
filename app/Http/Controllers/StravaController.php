@@ -108,7 +108,8 @@ class StravaController extends Controller
 
 
             foreach($activities as $activity){
-                
+                var_dump($activity); // O utiliza print_r($activities); para una visualización más legible
+
                 $activ=Activitie::where('strava_id',$activity['id'])->first();
 
                 if ($activ) {

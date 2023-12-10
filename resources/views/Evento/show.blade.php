@@ -161,7 +161,7 @@
                         @if ($evento->type=='pista')
                              <h1 class="font-bold text-lg text-gray-800">Riders Con Entrada</h1>
                         @else
-                             <h1 class="font-bold text-lg text-gray-800">{{$tickets->count()}} Inscritos</h1>
+                             <h1 class="font-bold text-lg text-gray-800">{{$tickets->count()}} Riders Inscritos</h1>
                         @endif
                         
                     </header>

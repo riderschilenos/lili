@@ -351,6 +351,28 @@ class StravaController extends Controller
                                         if($inscripcion->estado==2){
                                             $inscripcion->estado=1;
                                             $inscripcion->save();
+                                           
+                                            foreach($ticket->inscripcions as $inscripcion){
+                                                if($inscripcion->estado==1){
+                                                    $ticket->status=2;
+                                                    $ticket->save();
+                                                    $evento=Evento::find($ticket->evento_id);
+                                                    if ($ticket->user) {
+                                                        $evento->inscritos()->detach($ticket->user->id);
+                                                    }
+                                                
+                                
+                                                }else{
+                                                    $ticket->status=1;
+                                                    $ticket->save();
+                                                    $evento=Evento::find($ticket->evento_id);
+                                                    $evento->inscritos()->attach($ticket->user->id);
+                                                    break;
+                                                }
+                                            }
+                                        }else{
+                                            $inscripcion->estado=4;
+                                            $inscripcion->save();
                                             try {
                                                 $token = env('WS_TOKEN');
                                                 $phoneid= env('WS_PHONEID');
@@ -392,28 +414,6 @@ class StravaController extends Controller
                                             } catch (\Throwable $th) {
                                             
                                             }
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==1){
-                                                    $ticket->status=2;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                                
-                                
-                                                }else{
-                                                    $ticket->status=1;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                    break;
-                                                }
-                                            }
-                                        }else{
-                                            $inscripcion->estado=4;
-                                            $inscripcion->save();
-                                
                                             foreach($ticket->inscripcions as $inscripcion){
                                                 if($inscripcion->estado==4){
                                                     $ticket->status=4;
@@ -480,6 +480,28 @@ class StravaController extends Controller
                                         if($inscripcion->estado==2){
                                             $inscripcion->estado=1;
                                             $inscripcion->save();
+                                           
+                                            foreach($ticket->inscripcions as $inscripcion){
+                                                if($inscripcion->estado==1){
+                                                    $ticket->status=2;
+                                                    $ticket->save();
+                                                    $evento=Evento::find($ticket->evento_id);
+                                                    if ($ticket->user) {
+                                                        $evento->inscritos()->detach($ticket->user->id);
+                                                    }
+                                                
+                                
+                                                }else{
+                                                    $ticket->status=1;
+                                                    $ticket->save();
+                                                    $evento=Evento::find($ticket->evento_id);
+                                                    $evento->inscritos()->attach($ticket->user->id);
+                                                    break;
+                                                }
+                                            }
+                                        }else{
+                                            $inscripcion->estado=4;
+                                            $inscripcion->save();
                                             try {
                                                 $token = env('WS_TOKEN');
                                                 $phoneid= env('WS_PHONEID');
@@ -521,28 +543,6 @@ class StravaController extends Controller
                                             } catch (\Throwable $th) {
                                             
                                             }
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==1){
-                                                    $ticket->status=2;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                                
-                                
-                                                }else{
-                                                    $ticket->status=1;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                    break;
-                                                }
-                                            }
-                                        }else{
-                                            $inscripcion->estado=4;
-                                            $inscripcion->save();
-                                
                                             foreach($ticket->inscripcions as $inscripcion){
                                                 if($inscripcion->estado==4){
                                                     $ticket->status=4;

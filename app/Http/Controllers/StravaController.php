@@ -102,15 +102,11 @@ class StravaController extends Controller
             // Realizar la solicitud cURL
             $response = curl_exec($ch);
 
-            $activities = json_decode($response);
+            $activities = json_decode($response, true);
 
             foreach($activities as $activity){
-                if (is_array($activity)) {
-                     $activ=Activitie::where('strava_id',$activity['id'])->first();
-                } else {
-                   $activ=true;
-                }
-              
+                
+                $activ=Activitie::where('strava_id',$activity['id'])->first();
 
                 if ($activ) {
                    //

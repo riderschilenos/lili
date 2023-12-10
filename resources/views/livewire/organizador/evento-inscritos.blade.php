@@ -88,7 +88,7 @@
                                                                     @php
                                                                         if($tick->metodo=='TRANSFERENCIA'){
                                                                             $ganancia=($tick->inscripcion*$tick->evento->comision/100);
-                                                                        }else{
+                                                                        }elseif(IN_NULL($tick->metodo) || $tick->metodo=='MERCADOPAGO'){
                                                                             $ganancia=($tick->inscripcion*$tick->evento->comision/100)-($tick->inscripcion*0.037961);
                                                                         }
                                                                         $gananciatotal+=$ganancia;
@@ -281,7 +281,7 @@
                                                                     @php
                                                                         if($tick->metodo=='TRANSFERENCIA'){
                                                                             $ganancia=($tick->inscripcion*$tick->evento->comision/100);
-                                                                        }else{
+                                                                        }elseif(IN_NULL($tick->metodo) || $tick->metodo=='MERCADOPAGO'){
                                                                             $ganancia=($tick->inscripcion*$tick->evento->comision/100)-($tick->inscripcion*0.037961);
                                                                         }
                                                                         $gananciatotal+=$ganancia;

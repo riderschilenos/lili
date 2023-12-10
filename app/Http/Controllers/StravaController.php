@@ -241,6 +241,47 @@ class StravaController extends Controller
                                     }else{
                                         $inscripcion->estado=4;
                                         $inscripcion->save();
+                                        try {
+                                            $token = env('WS_TOKEN');
+                                            $phoneid= env('WS_PHONEID');
+                                            $version='v16.0';
+                                            $url="https://riderschilenos.cl/";
+                                            $wsload=[
+                                                'messaging_product' => 'whatsapp',
+                                                "preview_url"=> false,
+                                                'to'=>'56963176726',
+                                                
+                                                'type'=>'template',
+                                                    'template'=>[
+                                                        'name'=>'desafio_completado',
+                                                        'language'=>[
+                                                            'code'=>'es'],
+                                                        'components'=>[ 
+                                                            [
+                                                                'type'=>'body',
+                                                                'parameters'=>[
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $ticket->user->name
+                                                                    ],
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $inscripcion->fecha->name
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    
+                                                
+                                            ];
+                                            
+                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                                          
+                                         
+                                        } catch (\Throwable $th) {
+                                          
+                                        }
                             
                                         foreach($ticket->inscripcions as $inscripcion){
                                             if($inscripcion->estado==4){
@@ -261,6 +302,7 @@ class StravaController extends Controller
                                                 break;
                                             }
                                         }
+
                                     }
 
                                     $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
@@ -308,7 +350,47 @@ class StravaController extends Controller
                                     if($inscripcion->estado==2){
                                         $inscripcion->estado=1;
                                         $inscripcion->save();
-                            
+                                        try {
+                                            $token = env('WS_TOKEN');
+                                            $phoneid= env('WS_PHONEID');
+                                            $version='v16.0';
+                                            $url="https://riderschilenos.cl/";
+                                            $wsload=[
+                                                'messaging_product' => 'whatsapp',
+                                                "preview_url"=> false,
+                                                'to'=>'56963176726',
+                                                
+                                                'type'=>'template',
+                                                    'template'=>[
+                                                        'name'=>'desafio_completado',
+                                                        'language'=>[
+                                                            'code'=>'es'],
+                                                        'components'=>[ 
+                                                            [
+                                                                'type'=>'body',
+                                                                'parameters'=>[
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $ticket->user->name
+                                                                    ],
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $inscripcion->fecha->name
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    
+                                                
+                                            ];
+                                            
+                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                                          
+                                         
+                                        } catch (\Throwable $th) {
+                                          
+                                        }
                                         foreach($ticket->inscripcions as $inscripcion){
                                             if($inscripcion->estado==1){
                                                 $ticket->status=2;
@@ -397,7 +479,47 @@ class StravaController extends Controller
                                     if($inscripcion->estado==2){
                                         $inscripcion->estado=1;
                                         $inscripcion->save();
-                            
+                                        try {
+                                            $token = env('WS_TOKEN');
+                                            $phoneid= env('WS_PHONEID');
+                                            $version='v16.0';
+                                            $url="https://riderschilenos.cl/";
+                                            $wsload=[
+                                                'messaging_product' => 'whatsapp',
+                                                "preview_url"=> false,
+                                                'to'=>'56963176726',
+                                                
+                                                'type'=>'template',
+                                                    'template'=>[
+                                                        'name'=>'desafio_completado',
+                                                        'language'=>[
+                                                            'code'=>'es'],
+                                                        'components'=>[ 
+                                                            [
+                                                                'type'=>'body',
+                                                                'parameters'=>[
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $ticket->user->name
+                                                                    ],
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $inscripcion->fecha->name
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    
+                                                
+                                            ];
+                                            
+                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                                          
+                                         
+                                        } catch (\Throwable $th) {
+                                          
+                                        }
                                         foreach($ticket->inscripcions as $inscripcion){
                                             if($inscripcion->estado==1){
                                                 $ticket->status=2;

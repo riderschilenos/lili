@@ -102,7 +102,7 @@
                                                                 @endforeach
 
                                                                 <div class="flex justify-center">
-                                                                    {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                                    {!! Form::submit('Enviar', ['class'=>'btn btn-primary mt-4']) !!}
                                                                 </div>
                                                             
                                             {!! Form::close() !!}

@@ -94,7 +94,7 @@
                                                                         $gananciatotal+=$ganancia;
                                                                     @endphp
                                                                 <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
-                                                                    +${{number_format($ganancia)}} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                                                                    +${{number_format($ganancia,0)}} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                                                                     </svg></span>  
                                                                     
@@ -287,7 +287,7 @@
                                                                         $gananciatotal+=$ganancia;
                                                                     @endphp
                                                                 <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
-                                                                    +${{number_format($ganancia)}} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                                                                    +${{number_format($ganancia,0)}} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                                                                     </svg></span>  
                                                                     
@@ -406,7 +406,7 @@
         </x-table-responsive>
         @can('Super admin')
             <div class="flex justify-center mt-6">
-                <a class="btn bg-gray-200 h-10 my-auto">Ganancia= ${{number_format($gananciatotal)}}</a>
+                <a class="btn bg-gray-200 h-10 my-auto">Ganancia= ${{number_format($gananciatotal,0)}}</a>
                 
             </div>
         @endcan

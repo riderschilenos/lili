@@ -22,8 +22,8 @@
 	}
 </style>
 
-  <div class="flex justify-center w-full bg-blue-900 pt-4 pb-12 px-2">
-    <div class="max-w-md w-full h-full mx-auto z-10 bg-blue-800 rounded-3xl">
+  <div class="flex justify-center w-full bg-blue-800 pt-4 pb-12 px-2">
+    <div class="max-w-md w-full h-full mx-auto z-10 bg-blue-900 rounded-3xl">
       <div class="flex flex-col">
         <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
           <div class="flex-none sm:flex">

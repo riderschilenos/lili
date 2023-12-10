@@ -142,435 +142,90 @@ class PremiacionDesafio extends Command
         'fecha'=>Carbon::now(),
         'cantidad'=>$n
     ]);
+    
     $tickets=Ticket::where('status',3)->get();
-        foreach ($tickets as $ticket) {
-            if ($ticket->evento->type=='desafio') {
-                if($ticket->user){
-                    if ($ticket->user->activities){
-                        $total=0;
-                        foreach ($ticket->user->activities as $activitie){
-                            $date1=date($activitie->start_date_local);
-                            $date2=date($ticket->updated_at);
+    foreach ($tickets as $ticket) {
+        if ($ticket->evento->type=='desafio') {
+            if($ticket->user){
+                if ($ticket->user->activities){
+                    $total=0;
+                    foreach ($ticket->user->activities as $activitie){
+                        $date1=date($activitie->start_date_local);
+                        $date2=date($ticket->updated_at);
 
-                            if ($date1>$date2){
-                                $total+=floatval($activitie->distance);
-                            }
+                        if ($date1>$date2){
+                            $total+=floatval($activitie->distance);
                         }
+                    }
 
-                        if ($ticket->inscripcions) {
-                            foreach ($ticket->inscripcions as $inscripcion) {
-                                if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado<4) {
-                                    if ($total>15) {
-                                        if($inscripcion->estado==2){
-                                            $inscripcion->estado=1;
-                                            $inscripcion->save();
-                                
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==1){
-                                                    $ticket->status=2;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                                
-                                
-                                                }else{
-                                                    $ticket->status=1;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                    break;
+                    if ($ticket->inscripcions) {
+                        foreach ($ticket->inscripcions as $inscripcion) {
+                            if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado<4) {
+                                if ($total>15) {
+                                    if($inscripcion->estado==2){
+                                        $inscripcion->estado=1;
+                                        $inscripcion->save();
+                            
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==1){
+                                                $ticket->status=2;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
                                                 }
+                                            
+                            
+                                            }else{
+                                                $ticket->status=1;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                                break;
                                             }
-                                        }else{
-                                            $inscripcion->estado=4;
-                                            $inscripcion->save();
-                                            $pedido = Pedido::create([
-                                                'user_id'=> $ticket->user->id,
-                                                'transportista_id'=> 1,
-                                                'pedidoable_id'=> $ticket->user->socio->id,
-                                                'status'=> 4,
-                                                'pedidoable_type'=> 'App\Models\Socio']);
-                                            
-                                            $orden= Orden::create([
-                                                    'producto_id'=> 54,
-                                                    'name'=>'Etapa 15 km',
-                                                    'pedido_id'=>$pedido->id
-                                                ]);
-                                            try {
-                                                $token = env('WS_TOKEN');
-                                                $phoneid= env('WS_PHONEID');
-                                                $version='v16.0';
-                                                $url="https://riderschilenos.cl/";
-                                                $wsload=[
-                                                    'messaging_product' => 'whatsapp',
-                                                    "preview_url"=> false,
-                                                    'to'=>'56963176726',
-                                                    
-                                                    'type'=>'template',
-                                                        'template'=>[
-                                                            'name'=>'desafio_completado',
-                                                            'language'=>[
-                                                                'code'=>'es'],
-                                                            'components'=>[ 
-                                                                [
-                                                                    'type'=>'body',
-                                                                    'parameters'=>[
-                                                                        [   //nombre
-                                                                            'type'=>'text',
-                                                                            'text'=> $ticket->user->name
-                                                                        ],
-                                                                        [   //nombre
-                                                                            'type'=>'text',
-                                                                            'text'=> $inscripcion->fecha->name
-                                                                        ]
-                                                                    ]
-                                                                ]
-                                                            ]
-                                                        ]
-                                                        
-                                                    
-                                                ];
-                                                
-                                                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
-                                            
-                                            
-                                            } catch (\Throwable $th) {
-                                            
-                                            }
-                                
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==4){
-                                                    $ticket->status=4;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                
-                                                }else{
-                                                    $ticket->status=3;
-                                                    $ticket->save();
-                                
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                
-                                                    break;
-                                                }
-                                            }
-
                                         }
-
-                                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
-                                        //TOKEN QUE NOS DA FACEBOOK
-                                
+                                    }else{
+                                        $inscripcion->estado=4;
+                                        $inscripcion->save();
+                                        $pedido = Pedido::create([
+                                            'user_id'=> $ticket->user->id,
+                                            'transportista_id'=> 1,
+                                            'pedidoable_id'=> $ticket->user->socio->id,
+                                            'status'=> 4,
+                                            'pedidoable_type'=> 'App\Models\Socio']);
+                                        $pedido->status=5;
+                                        $pedido->save();
+                                        $orden= Orden::create([
+                                                'producto_id'=> 54,
+                                                'name'=>'Etapa 15 km',
+                                                'pedido_id'=>$pedido->id
+                                            ]);
                                         try {
                                             $token = env('WS_TOKEN');
                                             $phoneid= env('WS_PHONEID');
                                             $version='v16.0';
                                             $url="https://riderschilenos.cl/";
-                                            $payload=[
+                                            $wsload=[
                                                 'messaging_product' => 'whatsapp',
                                                 "preview_url"=> false,
-                                                'to'=>$fono,
+                                                'to'=>'56963176726',
                                                 
                                                 'type'=>'template',
                                                     'template'=>[
-                                                        'name'=>'desafio15_terminado',
-                                                        'language'=>[
-                                                            'code'=>'es'],
-                                                    
-                                                    ]
-                                                
-                                            ];
-                                            
-                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-                                            
-                                            WhatsappMensaje::create(['numero'=> $fono,
-                                            'mensaje'=>"¡Felicidades!
-                                            Haz superado con éxito el desafio de 30Km ft. Strava",
-                                            'type'=>'enviado']);
-                                
-                                
-                                        } catch (\Throwable $th) {
-                                            WhatsappMensaje::create(['numero'=> $fono,
-                                            'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!
-                                            Haz superado con éxito el desafio de 30Km ft. Strava",
-                                            'type'=>'enviado']);
-                                        }
-
-                                    }
-                                }
-                                if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado<4) {
-                                    if ($total>30) {
-                                        if($inscripcion->estado==2){
-                                            $inscripcion->estado=1;
-                                            $inscripcion->save();
-                                           
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==1){
-                                                    $ticket->status=2;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                                
-                                
-                                                }else{
-                                                    $ticket->status=1;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                    break;
-                                                }
-                                            }
-                                        }else{
-                                            $inscripcion->estado=4;
-                                            $inscripcion->save();
-                                            $pedido = Pedido::create([
-                                                'user_id'=> $ticket->user->id,
-                                                'transportista_id'=> 1,
-                                                'pedidoable_id'=> $ticket->user->socio->id,
-                                                'status'=> 4,
-                                                'pedidoable_type'=> 'App\Models\Socio']);
-                                            
-                                            $orden= Orden::create([
-                                                    'producto_id'=> 55,
-                                                    'name'=>'Etapa 30 km',
-                                                    'pedido_id'=>$pedido->id
-                                                ]);
-
-                                            try {
-                                                $token = env('WS_TOKEN');
-                                                $phoneid= env('WS_PHONEID');
-                                                $version='v16.0';
-                                                $url="https://riderschilenos.cl/";
-                                                $wsload=[
-                                                    'messaging_product' => 'whatsapp',
-                                                    "preview_url"=> false,
-                                                    'to'=>'56963176726',
-                                                    
-                                                    'type'=>'template',
-                                                        'template'=>[
-                                                            'name'=>'desafio_completado',
-                                                            'language'=>[
-                                                                'code'=>'es'],
-                                                            'components'=>[ 
-                                                                [
-                                                                    'type'=>'body',
-                                                                    'parameters'=>[
-                                                                        [   //nombre
-                                                                            'type'=>'text',
-                                                                            'text'=> $ticket->user->name
-                                                                        ],
-                                                                        [   //nombre
-                                                                            'type'=>'text',
-                                                                            'text'=> $inscripcion->fecha->name
-                                                                        ]
-                                                                    ]
-                                                                ]
-                                                            ]
-                                                        ]
-                                                        
-                                                    
-                                                ];
-                                                
-                                                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
-                                            
-                                            
-                                            } catch (\Throwable $th) {
-                                            
-                                            }
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==4){
-                                                    $ticket->status=4;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                
-                                                }else{
-                                                    $ticket->status=3;
-                                                    $ticket->save();
-                                
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                
-                                                    break;
-                                                }
-                                            }
-                                        }
-
-                                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
-                                        //TOKEN QUE NOS DA FACEBOOK
-                                
-                                        try {
-                                            $token = env('WS_TOKEN');
-                                            $phoneid= env('WS_PHONEID');
-                                            $version='v16.0';
-                                            $url="https://riderschilenos.cl/";
-                                            $payload=[
-                                                'messaging_product' => 'whatsapp',
-                                                "preview_url"=> false,
-                                                'to'=>$fono,
-                                                
-                                                'type'=>'template',
-                                                    'template'=>[
-                                                        'name'=>'desafio30_terminado',
-                                                        'language'=>[
-                                                            'code'=>'es'],
-                                                    
-                                                    ]
-                                                
-                                            ];
-                                            
-                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-                                            
-                                            WhatsappMensaje::create(['numero'=> $fono,
-                                            'mensaje'=>"¡Felicidades!
-                                            Haz superado con éxito el desafio de 30Km ft. Strava",
-                                            'type'=>'enviado']);
-                                
-                                
-                                        } catch (\Throwable $th) {
-                                            WhatsappMensaje::create(['numero'=> $fono,
-                                            'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!
-                                            Haz superado con éxito el desafio de 30Km ft. Strava",
-                                            'type'=>'enviado']);
-                                        }
-
-                                    }
-                                }
-                                if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado<4) {
-                                    if ($total>50) {
-                                        if($inscripcion->estado==2){
-                                            $inscripcion->estado=1;
-                                            $inscripcion->save();
-                                           
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==1){
-                                                    $ticket->status=2;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                                
-                                
-                                                }else{
-                                                    $ticket->status=1;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                    break;
-                                                }
-                                            }
-                                        }else{
-                                            $inscripcion->estado=4;
-                                            $inscripcion->save();
-                                            $pedido = Pedido::create([
-                                                'user_id'=> $ticket->user->id,
-                                                'transportista_id'=> 1,
-                                                'pedidoable_id'=> $ticket->user->socio->id,
-                                                'status'=> 4,
-                                                'pedidoable_type'=> 'App\Models\Socio']);
-                                            
-                                            $orden= Orden::create([
-                                                    'producto_id'=> 56,
-                                                    'name'=>'Etapa 50 km',
-                                                    'pedido_id'=>$pedido->id
-                                                ]);
-
-                                            try {
-                                                $token = env('WS_TOKEN');
-                                                $phoneid= env('WS_PHONEID');
-                                                $version='v16.0';
-                                                $url="https://riderschilenos.cl/";
-                                                $wsload=[
-                                                    'messaging_product' => 'whatsapp',
-                                                    "preview_url"=> false,
-                                                    'to'=>'56963176726',
-                                                    
-                                                    'type'=>'template',
-                                                        'template'=>[
-                                                            'name'=>'desafio_completado',
-                                                            'language'=>[
-                                                                'code'=>'es'],
-                                                            'components'=>[ 
-                                                                [
-                                                                    'type'=>'body',
-                                                                    'parameters'=>[
-                                                                        [   //nombre
-                                                                            'type'=>'text',
-                                                                            'text'=> $ticket->user->name
-                                                                        ],
-                                                                        [   //nombre
-                                                                            'type'=>'text',
-                                                                            'text'=> $inscripcion->fecha->name
-                                                                        ]
-                                                                    ]
-                                                                ]
-                                                            ]
-                                                        ]
-                                                        
-                                                    
-                                                ];
-                                                
-                                                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
-                                            
-                                            
-                                            } catch (\Throwable $th) {
-                                            
-                                            }
-                                            foreach($ticket->inscripcions as $inscripcion){
-                                                if($inscripcion->estado==4){
-                                                    $ticket->status=4;
-                                                    $ticket->save();
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    if ($ticket->user) {
-                                                        $evento->inscritos()->detach($ticket->user->id);
-                                                    }
-                                
-                                                }else{
-                                                    $ticket->status=3;
-                                                    $ticket->save();
-                                
-                                                    $evento=Evento::find($ticket->evento_id);
-                                                    $evento->inscritos()->attach($ticket->user->id);
-                                                
-                                                    break;
-                                                }
-                                            }
-                                        }
-
-                                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
-                                        //TOKEN QUE NOS DA FACEBOOK
-                                
-                                        try {
-                                            $token = env('WS_TOKEN');
-                                            $phoneid= env('WS_PHONEID');
-                                            $version='v16.0';
-                                            $url="https://riderschilenos.cl/";
-                                            $payload=[
-                                                'messaging_product' => 'whatsapp',
-                                                "preview_url"=> false,
-                                                'to'=>$fono,
-                                                
-                                                'type'=>'template',
-                                                    'template'=>[
-                                                        'name'=>'desafio_terminado',
+                                                        'name'=>'desafio_completado',
                                                         'language'=>[
                                                             'code'=>'es'],
                                                         'components'=>[ 
                                                             [
                                                                 'type'=>'body',
                                                                 'parameters'=>[
-                                                                    [   //Socio
+                                                                    [   //nombre
                                                                         'type'=>'text',
-                                                                        'text'=> '50'
+                                                                        'text'=> $ticket->user->name
+                                                                    ],
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $inscripcion->fecha->name
                                                                     ]
                                                                 ]
                                                             ]
@@ -580,30 +235,380 @@ class PremiacionDesafio extends Command
                                                 
                                             ];
                                             
-                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
-                                            
-                                            WhatsappMensaje::create(['numero'=> $fono,
-                                            'mensaje'=>"¡Felicidades! Haz superado con éxito el desafio de 50Km ft. Strava",
-                                            'type'=>'enviado']);
-                                
-                                
+                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                                        
+                                        
                                         } catch (\Throwable $th) {
-                                            WhatsappMensaje::create(['numero'=> $fono,
-                                            'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!Haz superado con éxito el desafio de 30Km ft. Strava",
-                                            'type'=>'enviado']);
+                                        
+                                        }
+                            
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==4){
+                                                $ticket->status=4;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
+                                                }
+                            
+                                            }else{
+                                                $ticket->status=3;
+                                                $ticket->save();
+                            
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                            
+                                                break;
+                                            }
                                         }
 
                                     }
+
+                                    $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                    //TOKEN QUE NOS DA FACEBOOK
+                            
+                                    try {
+                                        $token = env('WS_TOKEN');
+                                        $phoneid= env('WS_PHONEID');
+                                        $version='v16.0';
+                                        $url="https://riderschilenos.cl/";
+                                        $payload=[
+                                            'messaging_product' => 'whatsapp',
+                                            "preview_url"=> false,
+                                            'to'=>$fono,
+                                            
+                                            'type'=>'template',
+                                                'template'=>[
+                                                    'name'=>'desafio15_terminado',
+                                                    'language'=>[
+                                                        'code'=>'es'],
+                                                
+                                                ]
+                                            
+                                        ];
+                                        
+                                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                                        
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"¡Felicidades!
+                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'type'=>'enviado']);
+                            
+                            
+                                    } catch (\Throwable $th) {
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!
+                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'type'=>'enviado']);
+                                    }
+
+                                }
+                            }
+                            if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado<4) {
+                                if ($total>30) {
+                                    if($inscripcion->estado==2){
+                                        $inscripcion->estado=1;
+                                        $inscripcion->save();
+                                       
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==1){
+                                                $ticket->status=2;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
+                                                }
+                                            
+                            
+                                            }else{
+                                                $ticket->status=1;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                                break;
+                                            }
+                                        }
+                                    }else{
+                                        $inscripcion->estado=4;
+                                        $inscripcion->save();
+                                        $pedido = Pedido::create([
+                                            'user_id'=> $ticket->user->id,
+                                            'transportista_id'=> 1,
+                                            'pedidoable_id'=> $ticket->user->socio->id,
+                                            'status'=> 4,
+                                            'pedidoable_type'=> 'App\Models\Socio']);
+                                        $pedido->status=5;
+                                        $pedido->save();
+                                        
+                                        $orden= Orden::create([
+                                                'producto_id'=> 55,
+                                                'name'=>'Etapa 30 km',
+                                                'pedido_id'=>$pedido->id
+                                            ]);
+
+                                        try {
+                                            $token = env('WS_TOKEN');
+                                            $phoneid= env('WS_PHONEID');
+                                            $version='v16.0';
+                                            $url="https://riderschilenos.cl/";
+                                            $wsload=[
+                                                'messaging_product' => 'whatsapp',
+                                                "preview_url"=> false,
+                                                'to'=>'56963176726',
+                                                
+                                                'type'=>'template',
+                                                    'template'=>[
+                                                        'name'=>'desafio_completado',
+                                                        'language'=>[
+                                                            'code'=>'es'],
+                                                        'components'=>[ 
+                                                            [
+                                                                'type'=>'body',
+                                                                'parameters'=>[
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $ticket->user->name
+                                                                    ],
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $inscripcion->fecha->name
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    
+                                                
+                                            ];
+                                            
+                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                                        
+                                        
+                                        } catch (\Throwable $th) {
+                                        
+                                        }
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==4){
+                                                $ticket->status=4;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
+                                                }
+                            
+                                            }else{
+                                                $ticket->status=3;
+                                                $ticket->save();
+                            
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                            
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                    //TOKEN QUE NOS DA FACEBOOK
+                            
+                                    try {
+                                        $token = env('WS_TOKEN');
+                                        $phoneid= env('WS_PHONEID');
+                                        $version='v16.0';
+                                        $url="https://riderschilenos.cl/";
+                                        $payload=[
+                                            'messaging_product' => 'whatsapp',
+                                            "preview_url"=> false,
+                                            'to'=>$fono,
+                                            
+                                            'type'=>'template',
+                                                'template'=>[
+                                                    'name'=>'desafio30_terminado',
+                                                    'language'=>[
+                                                        'code'=>'es'],
+                                                
+                                                ]
+                                            
+                                        ];
+                                        
+                                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                                        
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"¡Felicidades!
+                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'type'=>'enviado']);
+                            
+                            
+                                    } catch (\Throwable $th) {
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!
+                                        Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'type'=>'enviado']);
+                                    }
+
+                                }
+                            }
+                            if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado<4) {
+                                if ($total>50) {
+                                    if($inscripcion->estado==2){
+                                        $inscripcion->estado=1;
+                                        $inscripcion->save();
+                                       
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==1){
+                                                $ticket->status=2;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
+                                                }
+                                            
+                            
+                                            }else{
+                                                $ticket->status=1;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                                break;
+                                            }
+                                        }
+                                    }else{
+                                        $inscripcion->estado=4;
+                                        $inscripcion->save();
+                                        $pedido = Pedido::create([
+                                            'user_id'=> $ticket->user->id,
+                                            'transportista_id'=> 1,
+                                            'pedidoable_id'=> $ticket->user->socio->id,
+                                            'status'=> 4,
+                                            'pedidoable_type'=> 'App\Models\Socio']);
+                                        $pedido->status=5;
+                                        $pedido->save();
+                                        $orden= Orden::create([
+                                                'producto_id'=> 56,
+                                                'name'=>'Etapa 50 km',
+                                                'pedido_id'=>$pedido->id
+                                            ]);
+
+                                        try {
+                                            $token = env('WS_TOKEN');
+                                            $phoneid= env('WS_PHONEID');
+                                            $version='v16.0';
+                                            $url="https://riderschilenos.cl/";
+                                            $wsload=[
+                                                'messaging_product' => 'whatsapp',
+                                                "preview_url"=> false,
+                                                'to'=>'56963176726',
+                                                
+                                                'type'=>'template',
+                                                    'template'=>[
+                                                        'name'=>'desafio_completado',
+                                                        'language'=>[
+                                                            'code'=>'es'],
+                                                        'components'=>[ 
+                                                            [
+                                                                'type'=>'body',
+                                                                'parameters'=>[
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $ticket->user->name
+                                                                    ],
+                                                                    [   //nombre
+                                                                        'type'=>'text',
+                                                                        'text'=> $inscripcion->fecha->name
+                                                                    ]
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                    
+                                                
+                                            ];
+                                            
+                                            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                                        
+                                        
+                                        } catch (\Throwable $th) {
+                                        
+                                        }
+                                        foreach($ticket->inscripcions as $inscripcion){
+                                            if($inscripcion->estado==4){
+                                                $ticket->status=4;
+                                                $ticket->save();
+                                                $evento=Evento::find($ticket->evento_id);
+                                                if ($ticket->user) {
+                                                    $evento->inscritos()->detach($ticket->user->id);
+                                                }
+                            
+                                            }else{
+                                                $ticket->status=3;
+                                                $ticket->save();
+                            
+                                                $evento=Evento::find($ticket->evento_id);
+                                                $evento->inscritos()->attach($ticket->user->id);
+                                            
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                    //TOKEN QUE NOS DA FACEBOOK
+                            
+                                    try {
+                                        $token = env('WS_TOKEN');
+                                        $phoneid= env('WS_PHONEID');
+                                        $version='v16.0';
+                                        $url="https://riderschilenos.cl/";
+                                        $payload=[
+                                            'messaging_product' => 'whatsapp',
+                                            "preview_url"=> false,
+                                            'to'=>$fono,
+                                            
+                                            'type'=>'template',
+                                                'template'=>[
+                                                    'name'=>'desafio_terminado',
+                                                    'language'=>[
+                                                        'code'=>'es'],
+                                                    'components'=>[ 
+                                                        [
+                                                            'type'=>'body',
+                                                            'parameters'=>[
+                                                                [   //Socio
+                                                                    'type'=>'text',
+                                                                    'text'=> '50'
+                                                                ]
+                                                            ]
+                                                        ]
+                                                    ]
+                                                ]
+                                                
+                                            
+                                        ];
+                                        
+                                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                                        
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"¡Felicidades! Haz superado con éxito el desafio de 50Km ft. Strava",
+                                        'type'=>'enviado']);
+                            
+                            
+                                    } catch (\Throwable $th) {
+                                        WhatsappMensaje::create(['numero'=> $fono,
+                                        'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!Haz superado con éxito el desafio de 30Km ft. Strava",
+                                        'type'=>'enviado']);
+                                    }
+
                                 }
                             }
                         }
-
-
-
                     }
+
+
+
                 }
             }
         }
+    }
         return Command::SUCCESS;
    
     }

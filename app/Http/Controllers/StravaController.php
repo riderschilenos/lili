@@ -250,7 +250,8 @@ class StravaController extends Controller
                                                 'pedidoable_id'=> $ticket->user->socio->id,
                                                 'status'=> 4,
                                                 'pedidoable_type'=> 'App\Models\Socio']);
-                                            
+                                            $pedido->status=5;
+                                            $pedido->save();
                                             $orden= Orden::create([
                                                     'producto_id'=> 54,
                                                     'name'=>'Etapa 15 km',
@@ -393,6 +394,8 @@ class StravaController extends Controller
                                                 'pedidoable_id'=> $ticket->user->socio->id,
                                                 'status'=> 4,
                                                 'pedidoable_type'=> 'App\Models\Socio']);
+                                            $pedido->status=5;
+                                            $pedido->save();
                                             
                                             $orden= Orden::create([
                                                     'producto_id'=> 55,
@@ -535,7 +538,8 @@ class StravaController extends Controller
                                                 'pedidoable_id'=> $ticket->user->socio->id,
                                                 'status'=> 4,
                                                 'pedidoable_type'=> 'App\Models\Socio']);
-                                            
+                                            $pedido->status=5;
+                                            $pedido->save();
                                             $orden= Orden::create([
                                                     'producto_id'=> 56,
                                                     'name'=>'Etapa 50 km',

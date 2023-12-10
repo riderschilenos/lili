@@ -104,6 +104,9 @@ class StravaController extends Controller
 
             $activities = json_decode($response, true);
 
+            var_dump($activities); // O utiliza print_r($activities); para una visualización más legible
+
+
             foreach($activities as $activity){
                 
                 $activ=Activitie::where('strava_id',$activity['id'])->first();

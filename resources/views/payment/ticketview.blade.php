@@ -9,21 +9,7 @@
 
 <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2"  :disciplinas="$disciplinas">
    
-  @can('Super admin')
-              
-    <div class="flex justify-center my-2">
-      {!! Form::open(['route'=>['whatsapp.resend.ticket',$ticket] , 'method'=>'Post']) !!}
-                    
-    
-        
-          
-              {!! Form::submit('  Resend Ticket Whatsapp', ['class'=>'font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded']) !!}
-          
-      {!! Form::close() !!}
 
-    </div>
-
-  @endcan
  
 
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -36,7 +22,7 @@
 	}
 </style>
 
-<div class="flex justify-center w-full bg-blue-900 pt-4 pb-12 px-2">
+  <div class="flex justify-center w-full bg-blue-900 pt-4 pb-12 px-2">
     <div class="max-w-md w-full h-full mx-auto z-10 bg-blue-800 rounded-3xl">
       <div class="flex flex-col">
         <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
@@ -260,6 +246,21 @@
 
     </div>
   </div>
+  @can('Super admin')
+              
+  <div class="flex justify-center mt-2 mb-12">
+    {!! Form::open(['route'=>['whatsapp.resend.ticket',$ticket] , 'method'=>'Post']) !!}
+                  
+  
+      
+        
+            {!! Form::submit('  Resend Ticket Whatsapp', ['class'=>'font-semibold rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded']) !!}
+        
+    {!! Form::close() !!}
+
+  </div>
+
+@endcan
 
       @php
 

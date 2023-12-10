@@ -54,7 +54,7 @@
                     @endif
                   </h2>
                 </div>
-                <div class="ml-auto text-blue-800">Nro: {{$ticket->id}}</div>
+                <div class="ml-auto text-blue-800 font-bold">Nro: {{$ticket->id}}</div>
               </div>
               <div class="border-b border-dashed border-b-2 my-5"></div>
                 <div class="flex justify-center items-center">

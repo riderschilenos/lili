@@ -106,7 +106,7 @@ class StravaController extends Controller
 
             foreach($activities as $activity){
                 
-                $activ=Activitie::where('strava_id',$activity["id"])->first();
+                $activ=Activitie::where('strava_id',$activity['id'])->first();
 
                 if ($activ) {
                    //

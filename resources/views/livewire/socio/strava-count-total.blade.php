@@ -76,7 +76,7 @@
           </div>
           <div class="text-center p-2 bg-gray-100 rounded-lg ml-2">
             <p class="text-lg font-semibold whitespace-nowrap">${currentWeek.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&.')} km</p>
-            <p class="text-sm text-gray-600">Ultimos 7 Días</p>
+            <p class="text-sm text-gray-600 whitespace-nowrap">Ultimos 7 Días</p>
           </div>
           <div class="items-center my-auto">
             <div class="ml-2 mb-1 items-center my-auto text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1 text-center">

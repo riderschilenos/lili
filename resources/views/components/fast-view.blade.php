@@ -1072,7 +1072,9 @@
                         </div>
                         <div class="col-span-5 sm:col-span-3 flex justify-center items-center">
                             <div class="px-4 py-2 bg-white">
-                                @livewire('socio.strava-count-total')
+                                <a href="{{route('socio.ranking.strava')}}">
+                                    @livewire('socio.strava-count-total')
+                                </a>
                                 <div class="w-full mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
                          
                                                 

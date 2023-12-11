@@ -20,7 +20,7 @@
                 }
             }
     @endphp
-    <a href="{{route('socio.ranking.strava')}}">
+
       <div class="bg-white rounded-lg profile-card w-96">
       
           <div class="text-center mb-4">
@@ -49,7 +49,7 @@
           <div class="counting-values flex justify-center items-center" data-total="{{ $totalactivitierch }}" data-week="{{ $activityweek }}"></div>
 
       </div>
-    </a>
+
     <script>
       var cantriders = <?php echo json_encode($atletastrava->count()) ?>;
 

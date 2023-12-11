@@ -1039,8 +1039,8 @@
                         <img class="h-full w-full object-cover object-center mt-4" src="{{asset('img/home/mariocross2.png')}}" alt="">
                     </a>
                     --}}
-
-                    <div class="grid grid-cols-5 ">
+                <div class="flex justify-center max-w-7xl mx-auto">
+                    <div class="grid grid-cols-5 mx-auto">
                         <div class="col-span-5 sm:col-span-2 flex justify-center ">
                             <div class="  bg-white mx-auto px-6 pt-2 mb-4 mt-6 shadow-lg rounded-xl">
 
@@ -1092,7 +1092,7 @@
                         </div>
 
                     </div>
-
+                </div>
 
                     @if (IS_NULL(auth()->user()))
                                 <div class="hidden mt-2 mb-6 flex justify-center">

@@ -20,34 +20,36 @@
                 }
             }
     @endphp
-    <div class="bg-white rounded-lg profile-card w-96">
-    
-        <div class="text-center mb-4">
-            @if(Route::currentRouteName() == 'socio.ranking.strava')
+    <a href="{{route('socio.ranking.strava')}}">
+      <div class="bg-white rounded-lg profile-card w-96">
+      
+          <div class="text-center mb-4">
+              @if(Route::currentRouteName() == 'socio.ranking.strava')
+                
+                  <h1 class="text-2xl font-bold text-center mb-4">Ranking Strava en Vivo</h1>
+
+              @else
+                <div class="grid grid-cols-3">
+                    <div class="flex md:hidden">
+                        <div class="w-full h-20  my-auto items-center m-auto rounded-xl text-white shadow-2xl" style="backface-visibility:hidden">
+                            <img src="{{asset('img/strava/strava.jpg')}}" class="relative object-cover w-full h-full rounded-xl" />
+                        
+                        </div>
+                    </div>
+                    <div class="col-span-2 md:col-span-3 flex items-center">
+                        <h2 class="text-xl font-semibold items-center my-auto">¿Cuanto Kilómetros Hemos Pedaleado?</h2>
+                    </div>
+
+                </div>
+              @endif
               
-                <h1 class="text-2xl font-bold text-center mb-4">Ranking Strava en Vivo</h1>
+          
+          
+          </div>
+          <div class="counting-values flex justify-center items-center" data-total="{{ $totalactivitierch }}" data-week="{{ $activityweek }}"></div>
 
-            @else
-               <div class="grid grid-cols-3">
-                  <div class="flex md:hidden">
-                      <div class="w-full h-20  my-auto items-center m-auto rounded-xl text-white shadow-2xl" style="backface-visibility:hidden">
-                          <img src="{{asset('img/strava/strava.jpg')}}" class="relative object-cover w-full h-full rounded-xl" />
-                      
-                      </div>
-                  </div>
-                  <div class="col-span-2 md:col-span-3 flex items-center">
-                      <h2 class="text-xl font-semibold items-center my-auto">¿Cuanto Kilómetros Hemos Pedaleado?</h2>
-                  </div>
-
-              </div>
-            @endif
-             
-        
-        
-        </div>
-        <div class="counting-values flex justify-center items-center" data-total="{{ $totalactivitierch }}" data-week="{{ $activityweek }}"></div>
-
-    </div>
+      </div>
+    </a>
     <script>
       var cantriders = <?php echo json_encode($atletastrava->count()) ?>;
 

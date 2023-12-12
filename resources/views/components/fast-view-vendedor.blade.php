@@ -817,7 +817,7 @@
                            @livewire('vendedor.pedidos-index')
                     </div>
                     <div x-show="activeTab===1">
-                        <h1>hola mundo</h1>
+                        <h1>PortalWeb</h1>
                  </div>
                 </div>
                         <script>

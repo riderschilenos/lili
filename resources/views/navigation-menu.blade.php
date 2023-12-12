@@ -121,7 +121,7 @@
         </div>
     </div>
     
-    <h1 class="text-center hidden">hola mundo</h1>
+    <h1 class="text-center hidden">PortalWeb</h1>
 
     <div class="hidden md:block top-0 bg-red-600 w-full md:relative md:bg-white sm:pt-3" style="z-index: 20;">
         <div class="container mb-0 sm:mb-6" >

@@ -125,7 +125,7 @@
                                             <p class="font-bold mr-2s">Nro: </p>{{$invitado->direccion->numero}}
                                         </div>
                                         <div>
-                                            <p class="font-bold mr-2">{{$invitado->direccion->region}}</p>
+                                            <p class="font-bold mr-2">Region:</p>{{$invitado->direccion->region}}
                                         </div>
             
                                         <div>
@@ -203,7 +203,7 @@
                                                 <p class="font-bold mr-2s">Nro: </p>{{$socio->direccion->numero}}
                                             </div>
                                             <div>
-                                                <p class="font-bold mr-2">{{$socio->direccion->region}}</p>
+                                                <p class="font-bold mr-2">Región:</p>{{$socio->direccion->region}}
                                             </div>
                 
                                             <div>

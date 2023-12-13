@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::table('tickets', function (Blueprint $table) {
-            //
+            $table ->foreignId('pedido_id')
+            ->nullable()
+            ->onDelete('set null');
+
+            $table ->foreignId('resultado_id')
+            ->nullable()
+            ->onDelete('set null');
         });
     }
 

@@ -51,7 +51,7 @@
                                         <p class="ml-auto mr-4"><b>Rut:  </b> {{$invitado->rut}}</p>
 
                                         @if ($invitado->fono)
-                                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola" target="_blank" >
+                                        <a target="_blank" href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola">
                                             <p class="ml-auto mr-4"><b>Fono:  </b>{{$invitado->fono}}</p>
                                         </a>
                                         @endif
@@ -86,7 +86,7 @@
                                             <div>
                                             <p class="mr-4"><b>Rut: </b>{{$socio->rut}}</p>
                                             @if ($socio->fono)
-                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola">
+                                                <a target="_blank" href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola">
                                                     <p class="mr-4"><b>Fono: </b>{{$socio->fono}}</p>
                                                 </a>
                                             @endif

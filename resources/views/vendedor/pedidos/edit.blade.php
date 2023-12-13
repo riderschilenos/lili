@@ -41,7 +41,7 @@
                                 @if ($invitado->id == $pedido->pedidoable_id )
 
                                     <div class="mb-6 flex">
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-y-4 gap-x-4">
                                         <div>
                                                 <p class="font-bold mr-4">Nombre:</p>{{$invitado->name}}
                                                 <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-yellow-100 text-yellow-800">
@@ -76,7 +76,7 @@
                                 @if ($socio->id == $pedido->pedidoable_id )
                                 
                                     <div class="mb-6 flex">
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-4">
                                             <div>
                                                 <a href="{{route('socio.show', $socio)}}" target="_blank"><p class="mr-4 font-bold">Nombre:</p>{{$socio->user->name}}</a>
                                                 <span class="ml-2 px-2 inline-flex text-xs leading-5 items-center font-semibold rounded-full bg-green-100 text-green-800">

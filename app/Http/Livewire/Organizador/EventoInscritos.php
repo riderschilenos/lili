@@ -42,6 +42,7 @@ class EventoInscritos extends Component
                         ->orderBy('categorias.name', 'asc') // Luego, ordenar por el nombre de la categoría en orden ascendente
                         ->orderBy('tickets.id', 'desc') // Ordenar por ticketable_type en orden descendente
                         ->select('tickets.*') // Seleccionar todas las columnas de la tabla 'tickets'
+                        ->distinct() // Obtener solo registros de tickets únicos
                         ->get();
                         
         $socios=Socio::all();

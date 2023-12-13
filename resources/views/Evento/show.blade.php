@@ -194,7 +194,7 @@
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
                     
-                                        @foreach ($tickets as $item)
+                                        @foreach ($tickets->reverse() as $item)
                                             
                                                 <tr>
                                                   

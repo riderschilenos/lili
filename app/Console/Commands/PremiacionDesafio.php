@@ -149,19 +149,35 @@ class PremiacionDesafio extends Command
             if($ticket->user){
                 if ($ticket->user->activities){
                     $total=0;
+                    $superado=0;
                     foreach ($ticket->user->activities as $activitie){
-                        $date1=date($activitie->start_date_local);
-                        $date2=date($ticket->updated_at);
+                            $date1=date($activitie->start_date_local);
+                            $date2=date($ticket->updated_at);
 
-                        if ($date1>$date2 && ($activitie->type=='Ride' or $activitie->type=='VirtualRide')){
-                            $total+=floatval($activitie->distance);
+                            if ($date1>$date2 && ($activitie->type=='Ride' or $activitie->type=='VirtualRide')){
+                                $total+=floatval($activitie->distance);
+                            }
+                    }
+                    if ($ticket->inscripcions) {
+                        foreach ($ticket->inscripcions as $inscripcion) {
+                            if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado>=4) {
+                                $superado+=15;
+                            }
+                            if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado>=4) {
+                                $superado+=30;
+                            }
+                            if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado>=4) {
+                                $superado+=50;
+                            }
+
                         }
                     }
+
 
                     if ($ticket->inscripcions) {
                         foreach ($ticket->inscripcions as $inscripcion) {
                             if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado<4) {
-                                if ($total>15) {
+                                if (($total-$superado)>15) {
                                     if($inscripcion->estado==2){
                                         $inscripcion->estado=1;
                                         $inscripcion->save();
@@ -305,7 +321,7 @@ class PremiacionDesafio extends Command
                                 }
                             }
                             if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado<4) {
-                                if ($total>30) {
+                                if (($total-$superado)>30) {
                                     if($inscripcion->estado==2){
                                         $inscripcion->estado=1;
                                         $inscripcion->save();
@@ -449,7 +465,7 @@ class PremiacionDesafio extends Command
                                 }
                             }
                             if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado<4) {
-                                if ($total>50) {
+                                if (($total-$superado)>50) {
                                     if($inscripcion->estado==2){
                                         $inscripcion->estado=1;
                                         $inscripcion->save();

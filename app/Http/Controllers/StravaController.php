@@ -287,6 +287,7 @@ class StravaController extends Controller
                 if($ticket->user){
                     if ($ticket->user->activities){
                         $total=0;
+                        $superado=0;
                         foreach ($ticket->user->activities as $activitie){
                             $date1=date($activitie->start_date_local);
                             $date2=date($ticket->updated_at);
@@ -298,8 +299,24 @@ class StravaController extends Controller
 
                         if ($ticket->inscripcions) {
                             foreach ($ticket->inscripcions as $inscripcion) {
+                                if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado>=4) {
+                                    $superado+=15;
+                                }
+                                if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado>=4) {
+                                    $superado+=30;
+                                }
+                                if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado>=4) {
+                                    $superado+=50;
+                                }
+    
+                            }
+                        }
+    
+    
+                        if ($ticket->inscripcions) {
+                            foreach ($ticket->inscripcions as $inscripcion) {
                                 if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado<4) {
-                                    if ($total>15) {
+                                    if (($total-$superado)>15) {
                                         if($inscripcion->estado==2){
                                             $inscripcion->estado=1;
                                             $inscripcion->save();
@@ -399,9 +416,9 @@ class StravaController extends Controller
                                                     break;
                                                 }
                                             }
-
+    
                                         }
-
+    
                                         $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
                                         //TOKEN QUE NOS DA FACEBOOK
                                 
@@ -439,11 +456,11 @@ class StravaController extends Controller
                                             Haz superado con éxito el desafio de 30Km ft. Strava",
                                             'type'=>'enviado']);
                                         }
-
+    
                                     }
                                 }
                                 if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado<4) {
-                                    if ($total>30) {
+                                    if (($total-$superado)>30) {
                                         if($inscripcion->estado==2){
                                             $inscripcion->estado=1;
                                             $inscripcion->save();
@@ -477,13 +494,13 @@ class StravaController extends Controller
                                                 'pedidoable_type'=> 'App\Models\Socio']);
                                             $pedido->status=5;
                                             $pedido->save();
-
+                                            
                                             $orden= Orden::create([
                                                     'producto_id'=> 55,
                                                     'name'=>'Etapa 30 km',
                                                     'pedido_id'=>$pedido->id
                                                 ]);
-
+    
                                             try {
                                                 $token = env('WS_TOKEN');
                                                 $phoneid= env('WS_PHONEID');
@@ -545,7 +562,7 @@ class StravaController extends Controller
                                                 }
                                             }
                                         }
-
+    
                                         $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
                                         //TOKEN QUE NOS DA FACEBOOK
                                 
@@ -583,11 +600,11 @@ class StravaController extends Controller
                                             Haz superado con éxito el desafio de 30Km ft. Strava",
                                             'type'=>'enviado']);
                                         }
-
+    
                                     }
                                 }
                                 if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado<4) {
-                                    if ($total>50) {
+                                    if (($total-$superado)>50) {
                                         if($inscripcion->estado==2){
                                             $inscripcion->estado=1;
                                             $inscripcion->save();
@@ -626,7 +643,7 @@ class StravaController extends Controller
                                                     'name'=>'Etapa 50 km',
                                                     'pedido_id'=>$pedido->id
                                                 ]);
-
+    
                                             try {
                                                 $token = env('WS_TOKEN');
                                                 $phoneid= env('WS_PHONEID');
@@ -688,7 +705,7 @@ class StravaController extends Controller
                                                 }
                                             }
                                         }
-
+    
                                         $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
                                         //TOKEN QUE NOS DA FACEBOOK
                                 
@@ -735,7 +752,7 @@ class StravaController extends Controller
                                             'mensaje'=>"ERROR al enviar Mentaje => ¡Felicidades!Haz superado con éxito el desafio de 30Km ft. Strava",
                                             'type'=>'enviado']);
                                         }
-
+    
                                     }
                                 }
                             }

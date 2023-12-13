@@ -138,7 +138,7 @@
                                                                             @if ($ticket->pedido)
                                                                                 <a href="{{route('vendedor.pedido.editing',$ticket->pedido)}}" class="btn btn-success h-10 my-auto mt-2">Pedido Nro: {{$ticket->pedido->id}}</a>
                                                                             @else
-                                                                                <a wire:click="realizarpedido({{$ticket->id}})" class="btn bg-gray-200 h-10 my-auto">Realizar Pedido</a>
+                                                                                <a wire:click="realizarpedido({{$ticket->id}})" class="btn bg-gray-200 hover:bg-gray-100 h-10 my-auto cursor-pointer">Realizar Pedido</a>
                                                                             @endif
 
                                                                             @break

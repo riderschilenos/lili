@@ -48,14 +48,21 @@
                                                     Invitado
                                                 </span>
                                         </div>
-                                        <p class="ml-auto mr-4"><b>Rut:  </b>{{$invitado->rut}}</p>
+                                        <p class="ml-auto mr-4"><b>Rut:  </b> {{$invitado->rut}}</p>
 
                                         @if ($invitado->fono)
-                                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola">
+                                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola" target="_blank" >
                                             <p class="ml-auto mr-4"><b>Fono:  </b>{{$invitado->fono}}</p>
                                         </a>
                                         @endif
                                             
+
+                                        </div>
+                                        <div>
+                                            @if ($invitado->email)
+                                                <p class="mr-4"><b>Email: </b> {{$invitado->email}}</p>
+                                            @endif
+                                                
 
                                         </div>
                                     </div>
@@ -79,12 +86,18 @@
                                             <div>
                                             <p class="mr-4"><b>Rut: </b>{{$socio->rut}}</p>
                                             @if ($socio->fono)
-                                            <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola">
-                                                <p class="mr-4"><b>Fono: </b>{{$socio->fono}}</p>
-                                            </a>
+                                                <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola">
+                                                    <p class="mr-4"><b>Fono: </b>{{$socio->fono}}</p>
+                                                </a>
                                             @endif
                                                 
 
+                                            </div>
+                                            <div>
+                                                <p class="mr-4"><b>email: </b>{{$socio->user->email}}</p>
+                                              
+                                                    
+    
                                             </div>
                                         </div>
                                     </div>

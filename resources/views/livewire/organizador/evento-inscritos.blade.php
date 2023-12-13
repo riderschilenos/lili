@@ -129,10 +129,16 @@
                                                                         @if ($ticket->status==3)
 
                                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}} PAGADO</a>
+                                                                           
                                                                             
                                                                             @break
                                                                         @else
                                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} COBRADO</a>
+                                                                            
+                                                                            @if ($ticket->pedido)
+                                                                                <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto mt-2">Pedido Nro: {{$ticket->pedido->id}}</a>
+                                                                            @endif
+
                                                                             @break
                                                                         @endif
 

@@ -50,6 +50,10 @@ class Ticket extends Model
     return $this->belongsTo('App\Models\Evento');
     }
 
+    public function pedido(){
+        return $this->belongsTo('App\Models\Pedido');
+    }
+
     public function socio(){
         return $this->belongsTo('App\Models\Socio');
         }

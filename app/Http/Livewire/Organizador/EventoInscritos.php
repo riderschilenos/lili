@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Organizador;
 use App\Models\Evento;
 use App\Models\Inscripcion;
 use App\Models\Invitado;
+use App\Models\Orden;
+use App\Models\Pedido;
 use App\Models\Retiro;
 use App\Models\Socio;
 use App\Models\Ticket;
@@ -195,6 +197,61 @@ class EventoInscritos extends Component
         
         }
         
+    }
+
+    public function realizarpedido(Ticket $ticket){
+        if ($ticket->inscripcions) {
+            foreach ($ticket->inscripcions as $inscripcion) {
+                if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado>=4) {
+                    $pedido = Pedido::create([
+                        'user_id'=> $ticket->user->id,
+                        'transportista_id'=> 4,
+                        'pedidoable_id'=> $ticket->user->socio->id,
+                        'status'=> 4,
+                        'pedidoable_type'=> 'App\Models\Socio']);
+                    $pedido->status=5;
+                    $pedido->save();
+                    $orden= Orden::create([
+                            'producto_id'=> 54,
+                            'name'=>'Etapa 15 km',
+                            'pedido_id'=>$pedido->id
+                        ]);
+                }
+                if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado>=4) {
+                    $pedido = Pedido::create([
+                        'user_id'=> $ticket->user->id,
+                        'transportista_id'=> 4,
+                        'pedidoable_id'=> $ticket->user->socio->id,
+                        'status'=> 4,
+                        'pedidoable_type'=> 'App\Models\Socio']);
+                    $pedido->status=5;
+                    $pedido->save();
+                    
+                    $orden= Orden::create([
+                            'producto_id'=> 55,
+                            'name'=>'Etapa 30 km',
+                            'pedido_id'=>$pedido->id
+                        ]);
+                }
+                if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado>=4) {
+                    $pedido = Pedido::create([
+                        'user_id'=> $ticket->user->id,
+                        'transportista_id'=> 4,
+                        'pedidoable_id'=> $ticket->user->socio->id,
+                        'status'=> 4,
+                        'pedidoable_type'=> 'App\Models\Socio']);
+                    $pedido->status=5;
+                    $pedido->save();
+                    $orden= Orden::create([
+                            'producto_id'=> 56,
+                            'name'=>'Etapa 50 km',
+                            'pedido_id'=>$pedido->id
+                        ]);
+                }
+            }
+            $ticket->pedido_id=$pedido->id;
+            $ticket->save();
+        }
     }
 
 }

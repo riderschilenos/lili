@@ -205,7 +205,7 @@ class PremiacionDesafio extends Command
                                         $inscripcion->save();
                                         $pedido = Pedido::create([
                                             'user_id'=> $ticket->user->id,
-                                            'transportista_id'=> 1,
+                                            'transportista_id'=> 4,
                                             'pedidoable_id'=> $ticket->user->socio->id,
                                             'status'=> 4,
                                             'pedidoable_type'=> 'App\Models\Socio']);
@@ -349,7 +349,7 @@ class PremiacionDesafio extends Command
                                         $inscripcion->save();
                                         $pedido = Pedido::create([
                                             'user_id'=> $ticket->user->id,
-                                            'transportista_id'=> 1,
+                                            'transportista_id'=> 4,
                                             'pedidoable_id'=> $ticket->user->socio->id,
                                             'status'=> 4,
                                             'pedidoable_type'=> 'App\Models\Socio']);
@@ -493,7 +493,7 @@ class PremiacionDesafio extends Command
                                         $inscripcion->save();
                                         $pedido = Pedido::create([
                                             'user_id'=> $ticket->user->id,
-                                            'transportista_id'=> 1,
+                                            'transportista_id'=> 4,
                                             'pedidoable_id'=> $ticket->user->socio->id,
                                             'status'=> 4,
                                             'pedidoable_type'=> 'App\Models\Socio']);

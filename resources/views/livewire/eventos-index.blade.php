@@ -241,42 +241,42 @@
                                                                 </div>
                                                             </a>
                     
-                                                            <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
+                                                            <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-my-auto">
                                                                 @php
                                                                     $n=0;
                                                                 @endphp
-                                                            @foreach ($evento->fechas as $fecha)
-                                                                
-                                                                @if ($fecha->fecha>=now()->subDays(1))
-                                                                    <li class="text-center">
-                                                                        <div class=" bg-red-600 text-white py-2 rounded-lg">
-                                                                            @php
-                                                                                $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-                                                                            @endphp
-                                                                            <a href="{{route('ticket.evento.show', $evento)}}">
-                                                                                @if ($fecha->name=='keyname')
-                                                                                <div class="flex">
-                                                                                    <p class="font-bold text-white mx-4 my-auto items-center">¿Cuando?</p>
-                                                                                    <p class="sm:hidden font-bold text-white ml-auto mr-4"> 
-                                                                                    {{date('d/m/Y', strtotime($fecha->fecha))}}
-                                                                                    </p>
-                                                                                    <p class="hidden sm:block font-bold text-white ml-auto mr-4"> 
-                                                                                        {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
-                                                                                    </p>
+                                                                    @foreach ($evento->fechas as $fecha)
+                                                                        
+                                                                        @if ($fecha->fecha>=now()->subDays(1))
+                                                                            <li class="text-center">
+                                                                                <div class=" bg-red-600 text-white py-2 rounded-lg">
+                                                                                    @php
+                                                                                        $dias=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+                                                                                    @endphp
+                                                                                    <a href="{{route('ticket.evento.show', $evento)}}">
+                                                                                        @if ($fecha->name=='keyname')
+                                                                                        <div class="flex">
+                                                                                            <p class="font-bold text-white mx-4 my-auto items-center">¿Cuando?</p>
+                                                                                            <p class="sm:hidden font-bold text-white ml-auto mr-4"> 
+                                                                                            {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                                                                            </p>
+                                                                                            <p class="hidden sm:block font-bold text-white ml-auto mr-4"> 
+                                                                                                {{$dias[date('N', strtotime($fecha->fecha))-1]}} {{date('d/m/Y', strtotime($fecha->fecha))}}
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    
+                                                                                        @else
+                                                                                            <p class="text-base leading-none dark:text-white font-bold"> {{$fecha->name}}</p>
+                                                                                        @endif
+                                                                                    </a>
                                                                                 </div>
-                                                                            
-                                                                                @else
-                                                                                    <p class="text-base leading-none dark:text-white font-bold"> {{$fecha->name}}</p>
-                                                                                @endif
-                                                                            </a>
-                                                                        </div>
-                                                                    </li>
-                                                                
-                                                                    @php
-                                                                        $n+=1;
-                                                                    @endphp
-                                                                @endif
-                                                            @endforeach
+                                                                            </li>
+                                                                        
+                                                                            @php
+                                                                                $n+=1;
+                                                                            @endphp
+                                                                        @endif
+                                                                    @endforeach
                                                                     @if ($n==0)
                                                                         <div class="text-center">
                                                                             <div class="flex items-center justify-center pb-5 bg-red-600 p-2 text-white py-2 rounded-lg mx-auto text-center font-bold">
@@ -289,7 +289,7 @@
                                                                             </div>
                                                                         </div>
                                                                     @endif
-                                                        </ul>
+                                                            </ul>
                     
                     
                     

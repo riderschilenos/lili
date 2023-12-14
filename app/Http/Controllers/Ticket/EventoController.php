@@ -295,6 +295,7 @@ class EventoController extends Controller
                         ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
                         ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
                         ->orderBy('tickets.ticketable_type', 'desc')
+                        ->orderBy('tickets.id', 'desc')
                         ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
                         ->distinct()
                         ->get();

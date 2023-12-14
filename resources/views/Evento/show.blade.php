@@ -304,24 +304,46 @@
                                                                         
                                                                         @foreach ($item->inscripcions as $inscripcion)
                                                                                         
-                                                                                              <div class="flex justify-center">
+                                                                                              <div class="flex justify-between">
                                                                                                 @if ($item->user)
                                                                                                     <a href="{{route('socio.show', $item->user->socio)}}">
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                     
-                                                                                                        {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
-                                                                                                         <br>
-                                                                                                         {{$inscripcion->fecha->name}}
+                                                                                                            {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                            <br>
+                                                                                                            {{$inscripcion->fecha->name}}
                                                                                                         
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            @if ($inscripcion->estado>=4)
+                                                                                                                <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
+                                                                                                                    SUPERADO <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                                                                                                                    </svg>
+                                                                                                                </span>
+                                                                                                            @else
+                                                                                                                
+                                                                                                            @endif    
                                                                                                         </div>
                                                                                                     </a>
                                                                                                 @else
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                         
-                                                                                                        {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
-                                                                                                        <br>
-                                                                                                        {{$inscripcion->fecha->name}}                                                                                     
+                                                                                                            {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                            <br>
+                                                                                                            {{$inscripcion->fecha->name}}                                                                                     
                                                                                                         
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                            @if ($inscripcion->estado>=4)
+                                                                                                                <span class="text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
+                                                                                                                    SUPERADO <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                                                                                                                    </svg>
+                                                                                                                </span>
+                                                                                                            @else
+                                                                                                                
+                                                                                                            @endif  
                                                                                                         </div>
                                                                                                     
                                                                                                 @endif

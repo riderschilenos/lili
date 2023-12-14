@@ -304,7 +304,7 @@
                                                                         
                                                                         @foreach ($item->inscripcions as $inscripcion)
                                                                                         
-                                                                                              <div class="flex justify-between">
+                                                                                              <div class="flex justify-between items-center">
                                                                                                 @if ($item->user)
                                                                                                    
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">

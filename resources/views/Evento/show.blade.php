@@ -306,7 +306,7 @@
                                                                                         
                                                                                               <div class="flex justify-between">
                                                                                                 @if ($item->user)
-                                                                                                    <a href="{{route('socio.show', $item->user->socio)}}">
+                                                                                                   
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                     
                                                                                                             {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
@@ -327,7 +327,7 @@
                                                                                                                 @endif   
                                                                                                             @endif 
                                                                                                         </div>
-                                                                                                    </a>
+                                                                                                   
                                                                                                 @else
                                                                                                         <div class="px-2 py-4 whitespace-nowrap">
                                                                                                         

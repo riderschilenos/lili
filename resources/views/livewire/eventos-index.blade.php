@@ -241,7 +241,7 @@
                                                                 </div>
                                                             </a>
                     
-                                                            <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 my-auto">
+                                                            <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-6">
                                                                 @php
                                                                     $n=0;
                                                                 @endphp

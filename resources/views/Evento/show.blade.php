@@ -198,7 +198,7 @@
                                             
                                                 <tr>
                                                   
-                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <td class="px-3 py-4 whitespace-nowrap">
                                                         @if ($item->ticketable_type=='App\Models\Socio')
                                                             @if ($item->user)
                                                                 <div class="flex items-center">

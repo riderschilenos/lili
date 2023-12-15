@@ -253,7 +253,7 @@
                                         </tr>
                                 @endforeach
                                 @can('Super admin')
-                                    <tr>
+                                    <tr class="hidden">
                                         <td> Hola mundo</td>
                                     </tr>
                                 @endcan

@@ -538,7 +538,7 @@
                         </div>
                         <div class="hidden sm:flex items-center">
                         
-                            <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Debito o Credito</p>
+                            <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
                         </div>
                     
                         <div class="cho-container mt-2 mb-4">
@@ -549,7 +549,7 @@
                
                 <div class="flex justify-center sm:hidden items-center">
                    
-                    <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Debito o Credito</p>
+                    <p class="text-base my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
                 </div>
                
             </div>

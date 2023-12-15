@@ -252,6 +252,11 @@
                                             </td>
                                         </tr>
                                 @endforeach
+                                @can('Super admin')
+                                    <tr>
+                                        <td> Hola mundo</td>
+                                    </tr>
+                                @endcan
                                 @foreach ($atletas_stravas7dias2 as $user)   
                                         <tr >
                                             <td class="px-3 py-4 whitespace-nowrap">

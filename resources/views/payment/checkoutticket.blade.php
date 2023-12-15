@@ -535,7 +535,7 @@
                     <img class="h-full w-40  object-contain" src="{{asset('img/mercadopago.png')}}" alt="">
                 
                 </div>
-                <div class="items-center">
+                <div class="hidden sm:flex items-center">
                    
                     <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Debito o Credito</p>
                 </div>

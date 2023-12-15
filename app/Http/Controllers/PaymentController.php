@@ -19,6 +19,7 @@ use App\Models\Vehiculo;
 use App\Models\Vendedor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class PaymentController extends Controller
@@ -415,6 +416,12 @@ class PaymentController extends Controller
             $vehiculo->slug=$qr->first()->slug;
 
             $vehiculo->save();
+
+            $vehiculo->status=6;
+
+            $vehiculo->save();
+    
+            Cache::flush();
 
             return redirect()->route('garage.inscripcion',$vehiculo);
         }

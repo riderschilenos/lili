@@ -529,10 +529,22 @@
                     <p class="text-2xl font-bold leading-normal text-right text-gray-800 ">${{number_format($ticket->inscripcion)}}</p>
                     </div>
                 </div>
-
-                <div class="cho-container flex justify-center mt-2 mb-4">
+            <div class="flex justify-between max-w-4xl bg-white rounded-xl shadow-md py-6 px-8 items-center">
+               
+                <div class="items-center">
+                    <img class="h-full w-40  object-contain" src="{{asset('img/mercadopago.png')}}" alt="">
+                
+                </div>
+                <div class="items-center">
+                   
+                    <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Debito o Credito</p>
+                </div>
+               
+                <div class="cho-container mt-2 mb-4">
                     <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
                 </div>
+            </div>
+                  
 
                 @can('Super admin')
                     <div>

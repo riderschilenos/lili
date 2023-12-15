@@ -380,7 +380,7 @@
                         </div>
                     @else
 
-                        <div class="max-w-4xl px-10 py-2">
+                        <div class="max-w-4xl sm:px-10 py-2">
                                 
                                 @livewire('organizador.ticket-inscripcion', ['ticket' => $ticket], key($ticket->id))
 

@@ -417,7 +417,7 @@ class PaymentController extends Controller
 
             $vehiculo->save();
 
-            $vehiculo->status=6;
+            $vehiculo->status=5;
 
             $vehiculo->save();
     

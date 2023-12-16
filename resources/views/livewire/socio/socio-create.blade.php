@@ -86,38 +86,26 @@
                                                 @csrf
                                                 <article class="flex justify-center grid-cols-2 gap-4">
             
-                                                    <div>
-                                                        <div class="grid grid-cols-1 gap-4">
-                                                            
-                                                                <div>
-                                                                    {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
-                                                                    @error('foto')
-                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                    @enderror
-                                                                </div>
-                                                           
-                                                        </div>
-                                                    </div>
+                                                   
                                                    
                                                     
-                                                    
-                                                
-                                        
-                                        
-                                                </article>
                                                     @if($socio->carnet || $socio->foto )
                                                         @if(is_null($socio->carnet) || is_null($socio->foto))
                                                             <div class="flex justify-center">
                                                                 {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                             </div>
                                                         @endif
-            
+                    
                                                     @else
                                                         <div class="flex justify-center">
                                                             {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                         </div>
-                                                    @endif                                
-                                             {!! Form::close() !!}
+                                                    @endif   
+                                                
+                                        
+                                        
+                                                </article>
+                                                
                                             </div>                                            
                                         @endcan
 
@@ -137,6 +125,19 @@
                                         
                                     </div>
                                 </div>
+                                <div>
+                                    <div class="grid grid-cols-1 gap-4 mt-2">
+                                        
+                                            <div>
+                                                {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                @error('foto')
+                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                @enderror
+                                            </div>
+                                       
+                                    </div>
+                                </div>                
+                                {!! Form::close() !!}
                                 <div class="">
                                   
                                 </div>

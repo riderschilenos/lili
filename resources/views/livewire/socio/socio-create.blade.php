@@ -162,17 +162,17 @@
                                         <div class="p-2">
                                           
                                           
-                                            <div class="full-w sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 rounded-b-lg">
+                                            <div class="full-w sm:px-2 lg:px-6 py-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-0 rounded-b-lg">
                                                 
 
                                                 <div>
-                                                    <p class="font-bold mr-2s">Comuna: </p>{{$socio->direccion->comuna}}
+                                                    <p class="font-bold mr-2">Comuna: </p>{{$socio->direccion->comuna}}
                                                 </div>
                                                 <div>
-                                                    <p class="font-bold mr-2s">Calle: </p>{{$socio->direccion->calle}}
+                                                    <p class="font-bold mr-2">Calle: </p>{{$socio->direccion->calle}}
                                                 </div>
                                                 <div>
-                                                    <p class="font-bold mr-2s">Nro: </p>{{$socio->direccion->numero}}
+                                                    <p class="font-bold mr-2">Nro: </p>{{$socio->direccion->numero}}
                                                 </div>
                                                 <div>
                                                     <p class="font-bold mr-2">{{$socio->direccion->region}}</p>

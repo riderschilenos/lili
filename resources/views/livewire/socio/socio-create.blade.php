@@ -140,7 +140,7 @@
                                             <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
                                             <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle" wire:click="destroydireccion({{$socio->direccion}})" alt="Eliminar"></i>
                                         </header>
-                                        <div class="p-4 ">
+                                        <div class="p-2">
                                           
                                           
                                             <div class="full-w sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 rounded-b-lg">
@@ -188,7 +188,7 @@
                                             <button  class="font-semibold text-blue-500 py-2 px-4 justify-center cursor-pointer ml-auto" x-on:click="direccion=!direccion">omitir</button>
                                                 
                                         </header>
-                                        <div class="p-4 ">
+                                        <div class="p-2">
                                             <h1 class="text-base text-gray-700 text-center my-6 mx-4"> Debes ingresar una dirección de despacho para recibir tu credencial Física</h1>
                         
                                             <div name="formulariodireccioninvitados" x-show="direccion" class="mx-4">

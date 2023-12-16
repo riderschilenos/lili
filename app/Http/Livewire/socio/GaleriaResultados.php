@@ -32,7 +32,7 @@ class GaleriaResultados extends Component
                         ->orWhere('users.email', 'LIKE', '%' . $search . '%');
                 });
         })
-        ->orderByDesc('resultados.fecha') // Ordenar por la columna 'fecha' de forma descendente
+        ->orderByDesc('resultados.created_at') // Ordenar por la columna 'fecha' de forma descendente
         ->paginate($this->perPagesoc);
     
     

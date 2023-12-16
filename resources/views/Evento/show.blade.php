@@ -98,7 +98,7 @@
 
         <div class="container grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div class="order-2 md:col-span-2 lg:order-1 mb-24 pb-24">
+            <div class="order-2 md:col-span-2 lg:order-1">
 
               
 

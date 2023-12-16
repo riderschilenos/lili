@@ -146,8 +146,8 @@
                                         <div class="p-2">
                                           
                                           
-                                            <div class="min-w-full sm:px-2 lg:px-6 py-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-0 rounded-b-lg">
-                                                
+                                            <div class="pb-2 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+                                
 
                                                 <div>
                                                     <p class="font-bold mr-2">Comuna: </p>{{$socio->direccion->comuna}}

@@ -38,7 +38,7 @@
                 <div class="card-body">
                     
                     <div class="bg-white font-sans flex items-center justify-center">
-                        <div class="p-8">
+                        <div class="px-2 sm:px-8 py-8">
                             <div class="max-w-md mx-auto">
                                 <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
                                     <h2 class="text-2xl font-semibold mb-2 text-blue-600">Hola {{Auth()->user()->name}}</h2>

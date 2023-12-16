@@ -37,17 +37,15 @@
             <div class="card pb-8">
                 <div class="card-body">
                     
-
-                    <div class="justify-between mt-2 grid grid-cols-1 lg:grid-cols-3 gap-4">
-                
-                        <div>
-
+                    <div class="bg-white font-sans flex items-center justify-center">
+                        <div class="p-8">
+                            <div class="max-w-md mx-auto">
+                                <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
+                                    <h2 class="text-2xl font-semibold mb-2 text-blue-600">Hola {{Auth()->user()->name}}</h2>
+                                    <p class="text-gray-700">¡Excelentes noticias! Su perfil ha sido creado exitosamente. Ahora puede comenzar a subir su foto y seguir completando la información de tu vida Rider.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h1 class="text-2xl font-bold pb-4 text-center">Registro Nacional de Riders Chilenos</h1>
-                            
-                        </div>
-                    
                     </div>
 
          

@@ -180,7 +180,7 @@
                     
                     <div x-data="{direccion: true}">
                         <div class="bg-white font-sans flex items-center justify-center">
-                                <div class="max-w-lg lg:max-w-xl mx-auto">
+                                <div class="w-full mx-auto">
                                     <div class="transition-all duration-300 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
                                                     
                                         <header class="border border-gray-200 px-4 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between">

@@ -100,23 +100,27 @@
                                     </div>
                                 </div>
                                 <div >
-                                    <form wire:submit.prevent="imageupdate">
-                                        <div class="items-center" >
-                                            <input wire:model="file" type="file" class="form-input bg-gray-200"> 
-                                            <div class="flex justify-center mt-2">
-                                              <button type="submit" class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm ml-2" >Guardar</button>
+                                    @can('Super admin')
+                                            
+                                        <form wire:submit.prevent="imageupdate">
+                                            <div class="items-center" >
+                                                <input wire:model="file" type="file" class="form-input bg-gray-200"> 
+                                                <div class="flex justify-center mt-2">
+                                                <button type="submit" class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm ml-2" >Guardar</button>
+                                                </div>
+                                            
                                             </div>
-                                          
-                                        </div>
-                
-                                        <div class="text-red-500  text-sm font-bold mt-1" wire:loading wire:target="file ">
-                                            CARGANDO ...
-                                        </div>
-                
-                                        @error('file')
-                                            <span class="text-xs text-red-500">{{$message}}</span>
-                                        @enderror
-                                    </form>
+                    
+                                            <div class="text-red-500  text-sm font-bold mt-1" wire:loading wire:target="file ">
+                                                CARGANDO ...
+                                            </div>
+                    
+                                            @error('file')
+                                                <span class="text-xs text-red-500">{{$message}}</span>
+                                            @enderror
+                                        </form>
+                                        
+                                    @endcan
                                 </div>
                             </div>
                         </div>

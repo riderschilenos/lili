@@ -34,7 +34,7 @@
         <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-2 gap-y-8">
             <div class="md: col-span-1 lg:col-span-3">
                 
-                <div class="bg-white font-sans flex items-center justify-center">
+                <div class="bg-white font-sans flex items-center justify-center hidden">
                     <div class="">
                         <div class="max-w-lg lg:max-w-xl mx-auto">
                             <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">

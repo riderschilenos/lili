@@ -12,6 +12,7 @@ use App\Models\Pedido;
 use App\Models\Producto;
 use App\Models\Serie;
 use App\Models\Socio;
+use App\Models\User;
 use App\Models\Vehiculo;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -507,6 +508,30 @@ class HomeController extends Controller
         Cache::flush();
 
         return redirect()->route('socio.edit',$socio)->with('info','La información se actualizo con éxito.');
+
+    }
+
+    public function updatefoto(Request $request, User $user)
+    {   
+        $request->validate([
+            'file'=>'required|image'
+        ]);
+
+        $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+        $ruta = public_path().'/storage/profile-photos/'.$nombre;
+        Image::make($request->file('file'))->orientate()
+                ->resize(600, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($ruta);
+                
+        $user->forceFill([
+                'profile_photo_path'=>'profile-photos/'.$nombre
+                    ])->save();
+            Cache::flush();
+
+
+        return redirect()->route('socio.create');
 
     }
 

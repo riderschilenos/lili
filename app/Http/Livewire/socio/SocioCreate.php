@@ -40,52 +40,5 @@ class SocioCreate extends Component
 
     }
 
-    public function imageupdate()
-    {   
-        $this->validate([
-            'file'=>'required|image|max:2048'
-        ]);
-
-       
-        
-        if(auth()->user()->profile_photo_url){
-            Storage::delete($this->socio->user->profile_photo_url);
-
-            $nombre = Str::random(10).$this->file->getClientOriginalName();
-            $rutafoto = public_path().'/storage/profile-photos/'.$nombre;
-            $img=Image::make($this->file)->orientate()
-                ->resize(400, null , function($constraint){
-                $constraint->aspectRatio();
-                })
-                ->save($rutafoto);
-            $img->orientate();
-            
-        
-            auth()->user->forceFill([
-                'profile_photo_path'=>'profile-photos/'.$nombre
-                    ])->save();
-            Cache::flush();
-
-        }
-        else{
-            $nombre = Str::random(10).$this->file->getClientOriginalName();
-            $rutafoto = public_path().'/storage/profile-photos/'.$nombre;
-            $img=Image::make($this->file)->orientate()
-                ->resize(400, null , function($constraint){
-                $constraint->aspectRatio();
-                })
-                ->save($rutafoto);
-            $img->orientate();
-            
-        
-            auth()->user->forceFill([
-                'profile_photo_path'=>'profile-photos/'.$nombre
-                    ])->save();
-            Cache::flush();
-        }
-
-        $this->reset(['socioimage']);
-
-        $this->reset(['file']);
-    }
+   
 }

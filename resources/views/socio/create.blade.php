@@ -6,6 +6,7 @@
         
     </x-slot>
 
+
     <x-fast-view :riders="$riders" :autos="$autos" :series="$series" :socio2="$socio2" :disciplinas="$disciplinas">
                     
                 
@@ -64,7 +65,8 @@
             
             <script src="{{asset('js/socio/form.js')}}"></script>
             
-            
+          
+          
         </x-slot>
         
     </x-fast-view>

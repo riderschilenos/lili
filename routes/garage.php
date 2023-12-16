@@ -27,7 +27,6 @@ Route::get('{vehiculo}/editusados', [VehiculoController::class,'editusados'])->n
 
 Route::post('{vehiculo}/update',[VehiculoController::class, 'update'])->name('vehiculo.update');
 
-
 Route::post('{vehiculo}/upload', [VehiculoController::class,'upload'])->name('upload');
 
 Route::post('{resultado}/uploadresult', [VehiculoController::class,'uploadres'])->name('uploadresultado');

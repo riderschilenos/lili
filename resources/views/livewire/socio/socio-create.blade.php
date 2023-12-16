@@ -1,4 +1,6 @@
 <div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     @php
                 // SDK de Mercado Pago
                 require base_path('/vendor/autoload.php');
@@ -78,7 +80,46 @@
                                                     @endif
                                         </div>
 
-                                    
+                                        @can('Super admin')
+                                            <div class="flex justify-center">
+                                                {!! Form::open(['route'=>['update.foto',$socio->user],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
+                                                @csrf
+                                                <article class="flex justify-center grid-cols-2 gap-4">
+            
+                                                    <div>
+                                                        <div class="grid grid-cols-1 gap-4">
+                                                            
+                                                                <div>
+                                                                    {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                                    @error('foto')
+                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                    @enderror
+                                                                </div>
+                                                           
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    
+                                                    
+                                                
+                                        
+                                        
+                                                </article>
+                                                    @if($socio->carnet || $socio->foto )
+                                                        @if(is_null($socio->carnet) || is_null($socio->foto))
+                                                            <div class="flex justify-center">
+                                                                {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                            </div>
+                                                        @endif
+            
+                                                    @else
+                                                        <div class="flex justify-center">
+                                                            {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                        </div>
+                                                    @endif                                
+                                             {!! Form::close() !!}
+                                            </div>                                            
+                                        @endcan
 
                                             @if($socio->user->vendedor) 
                                                 @if($socio->user->vendedor->estado==2) 
@@ -96,28 +137,8 @@
                                         
                                     </div>
                                 </div>
-                                <div class="hidden">
-                                    @can('Super admin')
-                                            
-                                        <form wire:submit.prevent="imageupdate">
-                                            <div class="items-center" >
-                                                <input wire:model="file" type="file" class="form-input bg-gray-200"> 
-                                                <div class="flex justify-center mt-2">
-                                                <button type="submit" class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm ml-2" >Guardar</button>
-                                                </div>
-                                            
-                                            </div>
-                    
-                                            <div class="text-red-500  text-sm font-bold mt-1" wire:loading wire:target="file ">
-                                                CARGANDO ...
-                                            </div>
-                    
-                                            @error('file')
-                                                <span class="text-xs text-red-500">{{$message}}</span>
-                                            @enderror
-                                        </form>
-                                        
-                                    @endcan
+                                <div class="">
+                                  
                                 </div>
 
                             </div>
@@ -253,73 +274,73 @@
                                 
                                 </article>
                                 {!! Form::open(['route'=>['socio.fotos',$socio],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                                @csrf
-                                <h1 class="text-xl font-bold text-center">Solicita tu Credencial de Socio (Gratis)</h1>
-                                <article class="flex justify-center grid-cols-2 gap-4">
+                                    @csrf
+                                    <h1 class="text-xl font-bold text-center">Solicita tu Credencial de Socio (Gratis)</h1>
+                                    <article class="flex justify-center grid-cols-2 gap-4">
 
-                                    <div>
-                                        <h1 class="text-md text-center">Foto Rostro del Rider</h1>
-                                        <div class="grid grid-cols-1 gap-4">
-                                            <figure class="flex justify-center">
-                                                @if($socio->foto)
-                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->foto)}}" alt="">
-                                                    @else
-                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
+                                        <div>
+                                            <h1 class="text-md text-center">Foto Rostro del Rider</h1>
+                                            <div class="grid grid-cols-1 gap-4">
+                                                <figure class="flex justify-center">
+                                                    @if($socio->foto)
+                                                        <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->foto)}}" alt="">
+                                                        @else
+                                                        <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
+                                                        
                                                     
-                                                
+                                                    @endif
+                                                </figure>
+                                                @if(is_null($socio->foto) || is_null($socio->carnet) )
+                                                    <div>
+                                                        {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                                                        @error('foto')
+                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                        @enderror
+                                                    </div>
                                                 @endif
-                                            </figure>
-                                            @if(is_null($socio->foto) || is_null($socio->carnet) )
-                                                <div>
-                                                    {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
-                                                    @error('foto')
-                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                    @enderror
-                                                </div>
-                                            @endif
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-md text-center">Foto Frontal del Carnet</h1>
-                                        <div class="grid grid-cols-1 gap-4">
-                                            <figure class="flex justify-center">
-                                                @isset($socio->carnet)
-                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->carnet)}}" alt="">
-                                                    @else
-                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
+                                        <div>
+                                            <h1 class="text-md text-center">Foto Frontal del Carnet</h1>
+                                            <div class="grid grid-cols-1 gap-4">
+                                                <figure class="flex justify-center">
+                                                    @isset($socio->carnet)
+                                                        <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($socio->carnet)}}" alt="">
+                                                        @else
+                                                        <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
+                                                        
                                                     
-                                                
-                                                @endisset
-                                            </figure>
-                                            @if(is_null($socio->foto) || is_null($socio->carnet))
-                                                <div>
-                                                    {!! Form::file('carnet', ['class'=>'form-input w-full'.($errors->has('carnet')?' border-red-600':''), 'id'=>'carnet','accept'=>'image/*']) !!}
-                                                    @error('carnet')
-                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                    @enderror
+                                                    @endisset
+                                                </figure>
+                                                @if(is_null($socio->foto) || is_null($socio->carnet))
+                                                    <div>
+                                                        {!! Form::file('carnet', ['class'=>'form-input w-full'.($errors->has('carnet')?' border-red-600':''), 'id'=>'carnet','accept'=>'image/*']) !!}
+                                                        @error('carnet')
+                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                        @enderror
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    
+                            
+                            
+                                    </article>
+                                        @if($socio->carnet || $socio->foto )
+                                            @if(is_null($socio->carnet) || is_null($socio->foto))
+                                                <div class="flex justify-center">
+                                                    {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                 </div>
                                             @endif
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                
-                        
-                        
-                                </article>
-                                @if($socio->carnet || $socio->foto )
-                                    @if(is_null($socio->carnet) || is_null($socio->foto))
-                                        <div class="flex justify-center">
-                                            {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
-                                        </div>
-                                    @endif
 
-                                @else
-                                <div class="flex justify-center">
-                                    {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
-                                </div>
-                            
-                                @endif                                {!! Form::close() !!}
+                                        @else
+                                            <div class="flex justify-center">
+                                                {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                            </div>
+                                        @endif                                
+                                 {!! Form::close() !!}
                 
                             </div>
                         
@@ -419,6 +440,23 @@
         <script src="https://sdk.mercadopago.com/js/v2"></script>
         <script src="{{asset('js/socio/form.js')}}"></script>
   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+        <script>
+          
+          Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+            headers:{
+              'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
+            },
+            acceptedFiles: "image/*",
+            maxFiles: 6,
+            
+    
+              
+              };
+             
+              
+          
+        </script>
         <script>
         // Agrega credenciales de SDK
           const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {

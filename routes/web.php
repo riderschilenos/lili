@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Organizador\TicketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SerieController;
+use App\Http\Controllers\Socio\HomeController as SocioHomeController;
 use App\Http\Controllers\StravaController;
 use App\Http\Controllers\Ticket\EventoController;
 use App\Http\Controllers\UsadoController;
@@ -91,3 +92,5 @@ Route::get('/login-google', [GoogleController::class,'login']);
 Route::get('/google-callback', [GoogleController::class,'callback']);
 
 Route::get('/redireccion-strava', [StravaController::class,'handleAuthorization']);
+
+Route::post('user/{user}/updatefoto', [SocioHomeController::class,'updatefoto'])->name('update.foto');

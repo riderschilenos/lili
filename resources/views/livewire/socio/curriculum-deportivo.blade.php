@@ -59,7 +59,7 @@
                                                             
                                                                 <img class="w-full h-32 object-contain content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="" x-on:click="slr=!slr">
                                                             @else
-                                                                <img class="w-full h-32 object-contain content-center items-center " src="{{asset('img/copa.png')}}" alt="" x-on:click="slr=!slr">
+                                                                <img class="w-full h-32 object-contain content-center items-center " src="{{asset('img/copa.png')}}" alt="">
                                                              
                                                             @endif    
                                                             

@@ -395,7 +395,7 @@
                         </header>
                         <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
                            
-                                @if (!auth()->user()->AtletaStrava)
+                                @if (auth()->user()->AtletaStrava)
                                                 <div class=" bg-green-50 p-6 rounded shadow-md items-center ">
                                                         
                                                     <div class="flex items-center justify-between">

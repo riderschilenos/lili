@@ -155,10 +155,48 @@
                         </div>
                     </div>
 
-                    @if($socio->suscripcions->count())
+                  
+                    
+                @else
+                    
+                    <div x-data="{direccion: true}">
+                        <header class="border border-gray-200 px-4 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between">
+                            <h1 class="font-bold text-lg text-gray-800 mt-2">Dirección</h1>
+                            <button  class="font-semibold rounded-lg hover:bg-gray-100 text-blue-500 py-2 px-4 justify-center cursor-pointer ml-auto" x-on:click="direccion=false">Saltar</button>
+                                  
+                        </header>
+                            <h1 class="text-base text-gray-700 text-center my-6 mx-4"> Debes ingresar una dirección de despacho para recibir tu credencial Física</h1>
+        
+                            <div name="formulariodireccioninvitados" x-show="direccion" class="mx-4">
+                               
+                                
+                                {!! Form::open(['route' => 'vendedor.direccions.store']) !!}
+        
+                                {!! Form::hidden('pedido_id', 'suscripcion' ) !!}
+                        
+                                {!! Form::hidden('direccionable_id', $socio->id ) !!}
+        
+                                {!! Form::hidden('direccionable_type','App\Models\Socio') !!}
+                                
+                                @include('vendedor.pedidos.partials.formdirection')
+                        
+                        
+                                <div class="flex justify-between">
+                                    <button x-on:click="direccion=false" class="font-semibold rounded-lg hover:bg-gray-100 text-blue-500 py-2 px-4 justify-center cursor-pointer ml-2">Saltar</button>
+                                    {!! Form::submit('Agregar Dirección', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center cursor-pointer ml-2']) !!}
+                                </div>
+                        
+                                {!! Form::close() !!}
+                            </div>  
+                     
+                    </div>
 
-                        @foreach ($socio->suscripcions as $suscripcion)
-                            
+                @endif
+
+                @if($socio->suscripcions->count())
+
+                    @foreach ($socio->suscripcions as $suscripcion)
+                        
                         
                         <div class="mt-6">
 
@@ -181,7 +219,7 @@
                                             <p class="pt-2 ml-auto items-center">{{date('d-m-Y', strtotime($suscripcion->end_date))}} </p>
                                         
                                         
-                                   
+                                
                                 
                                 </article>
                                 {!! Form::open(['route'=>['socio.fotos',$socio],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
@@ -236,7 +274,7 @@
                                     
                                     
                                 
-                           
+                        
                         
                                 </article>
                                 @if($socio->carnet || $socio->foto )
@@ -250,106 +288,77 @@
                                 <div class="flex justify-center">
                                     {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                 </div>
-                              
+                            
                                 @endif                                {!! Form::close() !!}
                 
                             </div>
                         
                         </div>
 
-                        @endforeach 
-                        
-                    @else
-                        
-                    
-                        <div class="mt-6">
-
-                            <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
-                                <h1 class="font-bold text-lg text-gray-800 text-center">PAGO</h1>
-                            </header>
-                            <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
-                                
-                                <div class="flex justify-center sm:hidden">
-                                    <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
-                                    <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
-                                </div>
-                                <article class="flex items-center grid-cols-6">
-
-                                    <img class="h-24 w-24 object-cover mr-2" src="{{asset('img/socio/promo.jpeg')}}" alt="">
-
-                                    <div>
-                                       
-                                        <div class="hidden sm:flex">
-                                            <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
-                                            <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
-                                        </div>
-                                       
-                                    </div>
-                                <p class="text-xl font-bold ml-auto">$11.990</p>
-                                </article>
-                                
-                                <div class="max-w-4xl bg-white rounded-xl shadow-md pt-6 pb-4 px-2 sm:px-8 ">
-                                    <div class="max-w-4xl flex justify-between items-center">
-                                    
-                                        <div class="items-center">
-                                            <img class="h-full w-40  object-contain" src="{{asset('img/mercadopago.png')}}" alt="">
-                                        
-                                        </div>
-                                        <div class="hidden sm:flex items-center">
-                                        
-                                            <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
-                                        </div>
-                                    
-                                        <div class="cho-container mt-2 mb-4">
-                                            <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
-                                        </div>
-                                    </div>
-                            
-                                
-                                    <div class="flex justify-center sm:hidden items-center">
-                                    
-                                        <p class="text-base my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
-                                    </div>
-                                
-                                </div>
-                
-                                <hr>
-                
-                                <p class="text-sm mt-4">El pago de la suscripción anual activara tu perfil y te permitira hacer uso de las distintas secciones de el, donde se destaca la posibilidad de poder INSCRIBIR tu vehiculo rider y llevar registro de mantenciones y sercicios relacionados, la asignacion es automatica y una vez sea activado tu perfil nosotros realizaremos tu credencial de socio, la cual lleva un codigo QR que enlaza con el perfil que puedes ver a un costado de esta página. <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
-                            
-                            </div>
-                        
-                        </div>
-                    
-                    @endif
+                    @endforeach 
                     
                 @else
+                    
+                
+                    <div class="mt-6">
 
-                    <div name="formulariodireccioninvitados">
-                        <h1 class="text-xl font-bold text-red-500 text-center mb-6"> Debes ingresar una dirección de despacho para recibir tu credencial Física</h1>
+                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg">
+                            <h1 class="font-bold text-lg text-gray-800 text-center">PAGO</h1>
+                        </header>
+                        <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
+                            
+                            <div class="flex justify-center sm:hidden">
+                                <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
+                                <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
+                            </div>
+                            <article class="flex items-center grid-cols-6">
 
+                                <img class="h-24 w-24 object-cover mr-2" src="{{asset('img/socio/promo.jpeg')}}" alt="">
+
+                                <div>
+                                
+                                    <div class="hidden sm:flex">
+                                        <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
+                                        <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
+                                    </div>
+                                
+                                </div>
+                            <p class="text-xl font-bold ml-auto">$11.990</p>
+                            </article>
+                            
+                            <div class="max-w-4xl bg-white rounded-xl shadow-md pt-6 pb-4 px-2 sm:px-8 ">
+                                <div class="max-w-4xl flex justify-between items-center">
+                                
+                                    <div class="items-center">
+                                        <img class="h-full w-40  object-contain" src="{{asset('img/mercadopago.png')}}" alt="">
+                                    
+                                    </div>
+                                    <div class="hidden sm:flex items-center">
+                                    
+                                        <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
+                                    </div>
+                                
+                                    <div class="cho-container mt-2 mb-4">
+                                        <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
+                                    </div>
+                                </div>
                         
-                        {!! Form::open(['route' => 'vendedor.direccions.store']) !!}
-
-                        {!! Form::hidden('pedido_id', 'suscripcion' ) !!}
-                
-                        {!! Form::hidden('direccionable_id', $socio->id ) !!}
-
-                        {!! Form::hidden('direccionable_type','App\Models\Socio') !!}
+                            
+                                <div class="flex justify-center sm:hidden items-center">
+                                
+                                    <p class="text-base my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
+                                </div>
+                            
+                            </div>
+            
+                            <hr>
+            
+                            <p class="text-sm mt-4">El pago de la suscripción anual activara tu perfil y te permitira hacer uso de las distintas secciones de el, donde se destaca la posibilidad de poder INSCRIBIR tu vehiculo rider y llevar registro de mantenciones y sercicios relacionados, la asignacion es automatica y una vez sea activado tu perfil nosotros realizaremos tu credencial de socio, la cual lleva un codigo QR que enlaza con el perfil que puedes ver a un costado de esta página. <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
                         
-                        @include('vendedor.pedidos.partials.formdirection')
-                
-                
-                        <div class="flex justify-end">
-                            <button type="button" class="btn btn-danger text-sm ml-2" wire:click="cancel" >Cancelar</button>
-                            {!! Form::submit('Agregar Dirección', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center cursor-pointer ml-2']) !!}
                         </div>
-                
-                        {!! Form::close() !!}
+                    
                     </div>
-
-
-
+                
                 @endif
             </div>
         

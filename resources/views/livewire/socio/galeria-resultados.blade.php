@@ -149,7 +149,7 @@
         </div>
 
         
-        <h1 class="text-center text-xs text-gray-400 py-12 mb-12">Todos Los derechos Reservados</h1>
+        <h1 class="text-center text-xs text-gray-400 py-6 mb-12">Todos Los derechos Reservados</h1>
         
 
             <script>

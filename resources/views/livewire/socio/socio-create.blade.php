@@ -395,6 +395,7 @@
                 
                 @endif
             </div>
+        </div>
         
         @else
             {!! Form::open(['route'=>'socio.store','files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}

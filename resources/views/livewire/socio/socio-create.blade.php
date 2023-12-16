@@ -133,9 +133,7 @@
 
             <div class="md: col-span-2 lg:col-span-3">
                 @if (!is_null($socio->direccion))
-                    <div>
                         <div class="bg-white font-sans flex items-center justify-center">
-                            <div class="">
                                 <div class="max-w-lg lg:max-w-xl mx-auto">
                                     <div class="transition-all duration-300 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
                                                     
@@ -171,11 +169,9 @@
                                             
                                     </div>
                                 </div>
-                            </div>
+                            
                         </div>
                         
-
-                    </div>
 
                   
                     
@@ -183,7 +179,6 @@
                     
                     <div x-data="{direccion: true}">
                         <div class="bg-white font-sans flex items-center justify-center">
-                            <div class="">
                                 <div class="max-w-lg lg:max-w-xl mx-auto">
                                     <div class="transition-all duration-300 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
                                                     
@@ -220,7 +215,7 @@
                                             
                                     </div>
                                 </div>
-                            </div>
+                          
                         </div>
                      
                     </div>

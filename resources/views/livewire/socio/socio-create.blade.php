@@ -119,6 +119,7 @@
                                         
                                     @endcan
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -129,30 +130,47 @@
             <div class="md: col-span-2 lg:col-span-3">
                 @if (!is_null($socio->direccion))
                     <div>
-                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex">
-                            <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
-                            <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle" wire:click="destroydireccion({{$socio->direccion}})" alt="Eliminar"></i>
-                        </header>
-                        <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 shadow-lg rounded-b-lg">
-                            
+                        <div class="bg-white font-sans flex items-center justify-center">
+                            <div class="">
+                                <div class="max-w-lg lg:max-w-xl mx-auto">
+                                    <div class="transition-all duration-300 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
+                                                    
+                                        
+                                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex">
+                                            <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
+                                            <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle" wire:click="destroydireccion({{$socio->direccion}})" alt="Eliminar"></i>
+                                        </header>
+                                        <div class="p-4 ">
+                                          
+                                          
+                                            <div class="full-w sm:px-2 lg:px-6 py-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-0 rounded-b-lg">
+                                                
 
-                            <div>
-                                <p class="font-bold mr-2s">Comuna: </p>{{$socio->direccion->comuna}}
-                            </div>
-                            <div>
-                                <p class="font-bold mr-2s">Calle: </p>{{$socio->direccion->calle}}
-                            </div>
-                            <div>
-                                <p class="font-bold mr-2s">Nro: </p>{{$socio->direccion->numero}}
-                            </div>
-                            <div>
-                                <p class="font-bold mr-2">{{$socio->direccion->region}}</p>
-                            </div>
+                                                <div>
+                                                    <p class="font-bold mr-2s">Comuna: </p>{{$socio->direccion->comuna}}
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold mr-2s">Calle: </p>{{$socio->direccion->calle}}
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold mr-2s">Nro: </p>{{$socio->direccion->numero}}
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold mr-2">{{$socio->direccion->region}}</p>
+                                                </div>
 
-                            <div>
+                                                <div>
 
-                            </div>    
+                                                </div>    
+                                            </div>
+                                        </div>
+                                            
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        
+
                     </div>
 
                   
@@ -160,34 +178,46 @@
                 @else
                     
                     <div x-data="{direccion: true}">
-                        <header class="border border-gray-200 px-4 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between">
-                            <h1 class="font-bold text-lg text-gray-800 mt-2">Dirección</h1>
-                            <button  class="font-semibold text-blue-500 py-2 px-4 justify-center cursor-pointer ml-auto" x-on:click="direccion=false">omitir</button>
-                                  
-                        </header>
-                            <h1 class="text-base text-gray-700 text-center my-6 mx-4"> Debes ingresar una dirección de despacho para recibir tu credencial Física</h1>
-        
-                            <div name="formulariodireccioninvitados" x-show="direccion" class="mx-4">
-                               
-                                
-                                {!! Form::open(['route' => 'vendedor.direccions.store']) !!}
-        
-                                {!! Form::hidden('pedido_id', 'suscripcion' ) !!}
+                        <div class="bg-white font-sans flex items-center justify-center">
+                            <div class="">
+                                <div class="max-w-lg lg:max-w-xl mx-auto">
+                                    <div class="transition-all duration-300 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
+                                                    
+                                        <header class="border border-gray-200 px-4 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between">
+                                            <h1 class="font-bold text-lg text-gray-800 mt-2">Dirección</h1>
+                                            <button  class="font-semibold text-blue-500 py-2 px-4 justify-center cursor-pointer ml-auto" x-on:click="direccion=!direccion">omitir</button>
+                                                
+                                        </header>
+                                        <div class="p-4 ">
+                                            <h1 class="text-base text-gray-700 text-center my-6 mx-4"> Debes ingresar una dirección de despacho para recibir tu credencial Física</h1>
                         
-                                {!! Form::hidden('direccionable_id', $socio->id ) !!}
-        
-                                {!! Form::hidden('direccionable_type','App\Models\Socio') !!}
-                                
-                                @include('vendedor.pedidos.partials.formdirection')
+                                            <div name="formulariodireccioninvitados" x-show="direccion" class="mx-4">
+                                            
+                                                
+                                                {!! Form::open(['route' => 'vendedor.direccions.store']) !!}
                         
+                                                {!! Form::hidden('pedido_id', 'suscripcion' ) !!}
+                                        
+                                                {!! Form::hidden('direccionable_id', $socio->id ) !!}
                         
-                                <div class="flex justify-between">
-                                    <button x-on:click="direccion=false" class="font-semibold rounded-lg hover:bg-gray-100 text-blue-500 py-2 px-4 justify-center cursor-pointer ml-2">omitir</button>
-                                    {!! Form::submit('Agregar Dirección', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center cursor-pointer ml-2']) !!}
+                                                {!! Form::hidden('direccionable_type','App\Models\Socio') !!}
+                                                
+                                                @include('vendedor.pedidos.partials.formdirection')
+                                        
+                                        
+                                                <div class="flex justify-between">
+                                                    <button x-on:click="direccion=false" class="font-semibold rounded-lg hover:bg-gray-100 text-blue-500 py-2 px-4 justify-center cursor-pointer ml-2">omitir</button>
+                                                    {!! Form::submit('Agregar Dirección', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center cursor-pointer ml-2']) !!}
+                                                </div>
+                                        
+                                                {!! Form::close() !!}
+                                            </div>  
+                                        </div>
+                                            
+                                    </div>
                                 </div>
-                        
-                                {!! Form::close() !!}
-                            </div>  
+                            </div>
+                        </div>
                      
                     </div>
 

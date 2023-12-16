@@ -171,10 +171,10 @@
 
                         <x-table-responsive>
                             {{-- comment
-                            <div class="px-6 py-4">
-                                <input wire:model="search" class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Buscar Rider...">
-                            </div>
-                     --}}
+                                    <div class="px-6 py-4">
+                                        <input wire:model="search" class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Buscar Rider...">
+                                    </div>
+                            --}}
                             @if ($tickets->count())
                     
                                 <table class="min-w-full divide-y divide-gray-200">
@@ -385,25 +385,16 @@
                     
                         </x-table-responsive>
 
-                        {{-- comment
-                        <ul class="sm:px-6 lg:px-8 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-6 mt-8">
-                            @foreach ($evento->Inscritos->reverse() as $sponsor)
-                                @if ($sponsor->socio)
-                                    <li><a class="text-blue-400 text-sm font-bold" href="{{route('socio.show', $sponsor->socio)}}"><img class="flex ml-3 h-12 w-12 rounded-full object-cover" src="{{ $sponsor->profile_photo_url }}" alt=""  />{{ Str::limit($sponsor->name, 10) }}</a>  </li>
-                            
-                                @else
-                                    <li><img class="flex ml-3 h-12 w-12 rounded-full object-cover" src="{{ $sponsor->profile_photo_url }}" alt=""  />{{ Str::limit($sponsor->name, 10) }}</li>
-                            
-                                @endif    
-                            @endforeach
-                        </ul>
-                         --}}
+                 
                     </div>
                 </section>
-                <div class="mb-12 py-20">
+               
                     {{-- comment
-                    @livewire('eventos-reviews',['evento' => $evento]) --}}
-                </div>
+                        <div class="mb-12 py-20">
+                            @livewire('eventos-reviews',['evento' => $evento])
+                        </div>
+                    --}}
+               
             </div>
 
 

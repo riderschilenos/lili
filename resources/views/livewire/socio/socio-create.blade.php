@@ -285,12 +285,29 @@
                                 <p class="text-xl font-bold ml-auto">$11.990</p>
                                 </article>
                                 
-                                <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
-                                </div>
-
-                                <div class="cho-container flex justify-center mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
+                                <div class="max-w-4xl bg-white rounded-xl shadow-md pt-6 pb-4 px-2 sm:px-8 ">
+                                    <div class="max-w-4xl flex justify-between items-center">
+                                    
+                                        <div class="items-center">
+                                            <img class="h-full w-40  object-contain" src="{{asset('img/mercadopago.png')}}" alt="">
+                                        
+                                        </div>
+                                        <div class="hidden sm:flex items-center">
+                                        
+                                            <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
+                                        </div>
+                                    
+                                        <div class="cho-container mt-2 mb-4">
+                                            <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
+                                        </div>
+                                    </div>
+                            
+                                
+                                    <div class="flex justify-center sm:hidden items-center">
+                                    
+                                        <p class="text-base my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
+                                    </div>
+                                
                                 </div>
                 
                                 <hr>

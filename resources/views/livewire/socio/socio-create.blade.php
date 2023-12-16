@@ -89,19 +89,16 @@
                                                    
                                                    
                                                     
-                                                    @if($socio->user->profile_photo_path )
-                                                       
-                                                            <div class="flex justify-center">
-                                                                {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
-                                                            </div>
-                                                       
-                    
+                                                    @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
+                                                        <div class="flex justify-center">
+                                                            {!! Form::submit('Subir Foto', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                        </div>
                                                     @else
                                                         <div class="flex justify-center">
-                                                            {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                            {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                         </div>
-                                                    @endif   
-                                                
+        
+                                                    @endif
                                         
                                         
                                                 </article>

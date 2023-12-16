@@ -146,7 +146,7 @@
                                         <div class="p-2">
                                           
                                           
-                                            <div class="w-full sm:px-2 lg:px-6 py-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-0 rounded-b-lg">
+                                            <div class="min-w-full sm:px-2 lg:px-6 py-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-0 rounded-b-lg">
                                                 
 
                                                 <div>

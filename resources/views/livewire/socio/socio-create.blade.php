@@ -31,68 +31,78 @@
         @if ($socio)
         
 
-        <div class="mx-auto px-4 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-2 gap-y-8">
+        <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-2 gap-y-8">
             <div class="md: col-span-1 lg:col-span-2">
-            
-                <div class="flex">
-                    <div class="content-center items-center">
-                        <div class="image overflow-hidden" x-on:click="fullview=true">
-                            @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
-                                <img class="h-44 w-40 mx-auto object-cover"
-                                src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
-                                alt="Rider Chileno">
-                            @else
-                                <img class="h-44 w-42 object-cover"
-                                src="{{ $socio->user->profile_photo_url }}"
-                                alt="{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}">
-
-                            @endif
-                           
-                        </div>
-                        
-                        @can('perfil_propio', $socio)
-                            <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
-                        @endcan
-                    </div>
-                    <div class="col-spam-3 px-4 w-full">
-                        <a href="{{route('socio.show', $socio)}}">
-                            <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1">{{ '@'.$socio->slug }}</h1>
-                        </a>  
-                        <div class="flex content-center">
-                            <div class="px-2 py-2 text-red-500 font-semibold content-center">
-                                <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>
-                            </div>
-                            <div class="px-2 py-2 text-sm">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
-                        </div>
-                    
-                        <div class="flex items-center content-center">
-                                    @if($socio->direccion)
-                                        <div class="px-2 py-2 text-red-500 font-semibold content-center">
-                                        <i class="fa fa-map-marker my-auto py-auto" aria-hidden="true"></i>
-                                    </div>
+                
+                <div class="bg-white font-sans flex items-center justify-center">
+                    <div class="">
+                        <div class="max-w-md mx-auto">
+                            <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
                                     
-                                        <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
-                                    @endif
-                        </div>
+                                <div class="flex">
+                                    <div class="content-center items-center">
+                                        <div class="image overflow-hidden" x-on:click="fullview=true">
+                                            @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
+                                                <img class="h-44 w-40 mx-auto object-cover"
+                                                src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
+                                                alt="Rider Chileno">
+                                            @else
+                                                <img class="h-44 w-42 object-cover"
+                                                src="{{ $socio->user->profile_photo_url }}"
+                                                alt="{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}">
 
-                     
-
-                            @if($socio->user->vendedor) 
-                                @if($socio->user->vendedor->estado==2) 
-                                    @if($socio->fono) 
-                                        <div >
-                                            <a href="{{route('socio.store.show', $socio)}}">
-                                                <button class="hidden bg-red-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:shadow-outline focus:bg-red-500 hover:shadow-xs p-3 my-4">TIENDA ONLINE</button>
-                                            </a>
+                                            @endif
+                                        
                                         </div>
-                                    @endif
-                                @endif
-                            @endif
-                    
+                                        
+                                        @can('perfil_propio', $socio)
+                                            <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
+                                        @endcan
+                                    </div>
+                                    <div class="col-spam-3 px-4 w-full">
+                                        <a href="{{route('socio.show', $socio)}}">
+                                            <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1">{{ '@'.$socio->slug }}</h1>
+                                        </a>  
+                                        <div class="flex content-center">
+                                            <div class="px-2 py-2 text-red-500 font-semibold content-center">
+                                                <i class="fas fa-birthday-cake content-arount" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="px-2 py-2 text-sm">{{date('d-m-Y', strtotime($socio->born_date))}}</div>
+                                        </div>
+                                    
+                                        <div class="flex items-center content-center">
+                                                    @if($socio->direccion)
+                                                        <div class="px-2 py-2 text-red-500 font-semibold content-center">
+                                                        <i class="fa fa-map-marker my-auto py-auto" aria-hidden="true"></i>
+                                                    </div>
+                                                    
+                                                        <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
+                                                    @endif
+                                        </div>
 
-                        
+                                    
+
+                                            @if($socio->user->vendedor) 
+                                                @if($socio->user->vendedor->estado==2) 
+                                                    @if($socio->fono) 
+                                                        <div >
+                                                            <a href="{{route('socio.store.show', $socio)}}">
+                                                                <button class="hidden bg-red-600 block w-full text-white text-sm font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:shadow-outline focus:bg-red-500 hover:shadow-xs p-3 my-4">TIENDA ONLINE</button>
+                                                            </a>
+                                                        </div>
+                                                    @endif
+                                                @endif
+                                            @endif
+                                    
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="md: col-span-2 lg:col-span-3">

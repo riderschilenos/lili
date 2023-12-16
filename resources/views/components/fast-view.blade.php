@@ -935,166 +935,174 @@
                     
               
 
-                    <div class="mt-2 mb-6 flex justify-center">
-                        <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
-        
-                                @if (auth()->user()->tickets->where('status',3)->first())
-                                    <div class="items-center my-auto">
-                                     
-                                        <h1 class="text-center">Desafío ft Strava Activo <div class="h-2 w-2 rounded-full"></div></h1>
-                                        @if (auth()->user()->AtletaStrava)
+                        <div class="mt-2 mb-6 flex justify-center">
+                            <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
+            
+                                    @if (auth()->user()->tickets->where('status',3)->first())
+                                        <div class="items-center my-auto">
                                         
-                                            @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
-                                    
-                                        @else
+                                            <h1 class="text-center">Desafío ft Strava Activo <div class="h-2 w-2 rounded-full"></div></h1>
+                                            @if (auth()->user()->AtletaStrava)
                                             
-                                            
-        
-                                            <div class="bg-white p-6 rounded shadow-md">
-                                                <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
-                                                <div class="my-2">
-                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
-                                                </div>
-                                                <p class="text-gray-600">Conecta tu cuenta de Strava y comienza a participar.</p>
-                                                <div class="flex justify-center">
-                                                    <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
-                                                        Enlazar con Strava
-                                                    </a>
-                                                </div>
+                                                @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
+                                        
+                                            @else
                                                 
-                                                <p class="mt-4 text-sm text-gray-500">
-                                                    Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
-                                                </p>
-                                            </div>
-                                        @endif       
-                                    </div>
-                                @endif
-                                
-                                 
-                                @can('perfil_propio', auth()->user()->socio)
-                                        @if (auth()->user()->AtletaStrava)
-                                            <div class="hidden md:block bg-green-50 p-6 rounded shadow-md items-center ">
-                                                    
-                                                <div class="flex items-center justify-between">
-                                                    <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                                    </svg>
-                                                    <div>
-                                                        <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
-                                                        <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes en eventos virtuales!</p>
+                                                
+            
+                                                <div class="bg-white p-6 rounded shadow-md">
+                                                    <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
+                                                    <div class="my-2">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
                                                     </div>
+                                                    <p class="text-gray-600">Conecta tu cuenta de Strava y comienza a participar.</p>
+                                                    <div class="flex justify-center">
+                                                        <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                                            Enlazar con Strava
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <p class="mt-4 text-sm text-gray-500">
+                                                        Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
+                                                    </p>
                                                 </div>
-                                                <div class="mt-4 flex justify-between">
-                                                    <a href="#" class="text-blue-500 hover:underline hover:text-blue-600 transition duration-300 ml-4">
-                                                        Desconectar Perfil
-                                                    </a>
-                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-6">
-                                                </div>
-                                            
-                                            </div>
+                                            @endif       
+                                        </div>
+                                    @endif
                                     
-                                        @else
-                                            
-                                            
-
-                                            <div class="bg-white p-6 rounded shadow-md">
-                                                <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
-                                                <div class="my-2">
-                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
-                                                </div>
-                                                <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
-                                                <div class="flex justify-center">
-                                                    <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
-                                                        Enlazar con Strava
-                                                    </a>
-                                                </div>
+                                    
+                                    @can('perfil_propio', auth()->user()->socio)
+                                            @if (auth()->user()->AtletaStrava)
+                                                <div class="hidden md:block bg-green-50 p-6 rounded shadow-md items-center ">
+                                                        
+                                                    <div class="flex items-center justify-between">
+                                                        <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                                        </svg>
+                                                        <div>
+                                                            <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
+                                                            <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes en eventos virtuales!</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-4 flex justify-between">
+                                                        <a href="#" class="text-blue-500 hover:underline hover:text-blue-600 transition duration-300 ml-4">
+                                                            Desconectar Perfil
+                                                        </a>
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-6">
+                                                    </div>
                                                 
-                                                <p class="mt-4 text-sm text-gray-500">
-                                                    Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
-                                                </p>
-                                            </div>
-                                        @endif
-                                @endcan
+                                                </div>
+                                        
+                                            @else
+                                                <div class="bg-white p-6 rounded shadow-md">
+                                                    <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
+                                                    <div class="my-2">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
+                                                    </div>
+                                                    <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades.</p>
+                                                    <div class="flex justify-center">
+                                                        <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                                            Enlazar con Strava
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <p class="mt-4 text-sm text-gray-500">
+                                                        Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
+                                                    </p>
+                                                </div>
+                                            @endif
+                                    @endcan
+
+                            </div>
 
                         </div>
 
-                    </div>
-                         
+                            <div class="pb-2 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
+                                <div class="bg-white  font-sans flex items-center justify-center">
+                                  
+                                        <div class="w-full mx-auto">
+                                            <a href="{{route('socio.create')}}">
+                                                <div class="transition-all duration-300 bg-white hover:bg-gray-100 cursor-pointer rounded-lg shadow-md border-b-4 border-blue-600 p-6 flex justify-center items-center">
+                                                            
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                                                    </svg>
+                                                    
+                                                    <h1 class="text-center ml-2">Mis Datos</h1>
+                                                </div>
+                                            </a>
+                                        </div>
+                                  
+                                </div>
+
+                            </div>
+                       
+                            
                 
                      
                         
-                     
-           
-                   
-                                                  
-                  
-                                    {{-- commen
-                                                        <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
-                                                            <img class="h-full w-full object-cover object-center" src="{{asset('img/home/mariocross2.png')}}" alt="">
-                                                        </a>
-                                    t --}}
                 @else
                    {{-- comment 
                     <a class="hidden" href="https://riderschilenos.cl/eventos/mariocross">
                         <img class="h-full w-full object-cover object-center mt-4" src="{{asset('img/home/mariocross2.png')}}" alt="">
                     </a>
                     --}}
-                <div class="flex justify-center max-w-7xl mx-auto">
-                    <div class="grid grid-cols-5 mx-auto">
-                        <div class="col-span-5 sm:col-span-2 flex justify-center ">
-                            <div class="  bg-white mx-auto px-6 pt-2 mb-4 mt-6 shadow-lg rounded-xl">
+                    <div class="flex justify-center max-w-7xl mx-auto">
+                        <div class="grid grid-cols-5 mx-auto">
+                            <div class="col-span-5 sm:col-span-2 flex justify-center ">
+                                <div class="  bg-white mx-auto px-6 pt-2 mb-4 mt-6 shadow-lg rounded-xl">
 
-                                <div class="photo-wrapper flex justify-center mt-2">
-                                        <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="">
-                                </div>
-                                <h1 class="text-center my-2 font-bold">¡Hola!</h1>
-                                <h1 class="text-center my-2 font-bold">Bienvenidos a Riders Chilenos</h1>
-                                <h1 class="text-center my-2 text-md">Ingresa a tu Perfil Online</h1>
+                                    <div class="photo-wrapper flex justify-center mt-2">
+                                            <img loading="lazy" class="cursor-pointer h-44 w-44 object-cover rounded-md mx-auto" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="">
+                                    </div>
+                                    <h1 class="text-center my-2 font-bold">¡Hola!</h1>
+                                    <h1 class="text-center my-2 font-bold">Bienvenidos a Riders Chilenos</h1>
+                                    <h1 class="text-center my-2 text-md">Ingresa a tu Perfil Online</h1>
 
-                                <div class="flex justify-center mt-2 ">
+                                    <div class="flex justify-center mt-2 ">
 
-                                    <a href="https://riderschilenos.cl/login-google">
-                                        <button class="flex btn bg-blue-500 text-white w-full items-center justify-items-center mr-2 mt-2"><svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>Ingresar Con Google<div></div></button>
-                                    </a>
-                                
-                                </div>
-                                <div class="flex justify-center mt-2 mb-6">
-
-                                    <a href="{{route('register')}}">
-                                        <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mr-2 mt-2">REGISTRO</button>
-                                    </a>
-                                    <a href="{{route('login')}}">
-                                        <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-span-5 sm:col-span-3 flex justify-center items-center">
-                            <div class="px-4 py-2 bg-white">
-                                <a href="{{route('socio.ranking.strava')}}">
-                                    @livewire('socio.strava-count-total')
-                                </a>
-                                <div class="w-full mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
-                         
-                                                
-                                        
-                                    <article>
-
-                                        <figure>
-                                            <a href="{{route('socio.create')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/registroriders.png')}}" alt=""></a>
-                                        </figure>
-                    
+                                        <a href="https://riderschilenos.cl/login-google">
+                                            <button class="flex btn bg-blue-500 text-white w-full items-center justify-items-center mr-2 mt-2"><svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>Ingresar Con Google<div></div></button>
+                                        </a>
                                     
-                                    </article>
-                    
-                                
-                            </div>
-                            </div>
-                        </div>
+                                    </div>
+                                    <div class="flex justify-center mt-2 mb-6">
 
+                                        <a href="{{route('register')}}">
+                                            <button class="btn btn-danger w-full max-w-xs items-center justify-items-center mr-2 mt-2">REGISTRO</button>
+                                        </a>
+                                        <a href="{{route('login')}}">
+                                            <button class="btn btn-danger w-full max-w-xs items-center justify-items-center ml-2 mt-2">INICIAR SESION</button>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-5 sm:col-span-3 flex justify-center items-center">
+                                <div class="px-4 py-2 bg-white">
+                                    <a href="{{route('socio.ranking.strava')}}">
+                                        @livewire('socio.strava-count-total')
+                                    </a>
+                                    <div class="w-full mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-8 mb-6 mt-2">
+                            
+                                                    
+                                            
+                                        <article>
+
+                                            <figure>
+                                                <a href="{{route('socio.create')}}"><img class="rounded-xl h-35 w-55 object-cover" src="{{asset('img/home/registroriders.png')}}" alt=""></a>
+                                            </figure>
+                        
+                                        
+                                        </article>
+                        
+                                    
+                                </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
 
                     @if (IS_NULL(auth()->user()))
                                 <div class="hidden mt-2 mb-6 flex justify-center">

@@ -80,7 +80,7 @@
                                                     @endif
                                         </div>
 
-                                        @can('Super admin')
+                                       
                                             <div class="flex justify-center">
                                                 {!! Form::open(['route'=>['update.foto',$socio->user],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
                                                 @csrf
@@ -107,7 +107,7 @@
                                                 </article>
                                                 
                                             </div>                                            
-                                        @endcan
+                                       
 
                                             @if($socio->user->vendedor) 
                                                 @if($socio->user->vendedor->estado==2) 

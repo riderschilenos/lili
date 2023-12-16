@@ -1018,7 +1018,9 @@
                         </div>
 
                             <div class="pb-2 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
-                                <div class="bg-white  font-sans flex items-center justify-center">
+                                
+                                @if (auth()->user()->socio)
+                                    <div class="bg-white  font-sans flex items-center justify-center">
                                   
                                         <div class="w-full mx-auto">
                                             <a href="{{route('socio.create')}}">
@@ -1033,8 +1035,8 @@
                                             </a>
                                         </div>
                                   
-                                </div>
-
+                                    </div>
+                                @endif
                             </div>
                        
                             

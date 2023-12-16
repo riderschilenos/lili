@@ -36,7 +36,7 @@
                 
                 <div class="bg-white font-sans flex items-center justify-center">
                     <div class="">
-                        <div class="max-w-xl mx-auto">
+                        <div class="max-w-lg lg:max-w-xl mx-auto">
                             <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
                                     
                                 <div class="flex">
@@ -55,6 +55,7 @@
                                         
                                         </div>
                                         
+
                                         @can('perfil_propio', $socio)
                                             <h1 class="text-gray-400 font-bold text-xs leading-8 my-1 ml-auto"><a href="{{ route('profile.show') }}">Editar Foto</a></h1>
                                         @endcan
@@ -97,6 +98,25 @@
 
                                         
                                     </div>
+                                </div>
+                                <div >
+                                    <form wire:submit.prevent="imageupdate">
+                                        <div class="items-center" >
+                                            <input wire:model="file" type="file" class="form-input bg-gray-200"> 
+                                            <div class="flex justify-center mt-2">
+                                              <button type="submit" class="font-bold py-2 px-4 rounded bg-blue-500 text-white text-sm ml-2" >Guardar</button>
+                                            </div>
+                                          
+                                        </div>
+                
+                                        <div class="text-red-500  text-sm font-bold mt-1" wire:loading wire:target="file ">
+                                            CARGANDO ...
+                                        </div>
+                
+                                        @error('file')
+                                            <span class="text-xs text-red-500">{{$message}}</span>
+                                        @enderror
+                                    </form>
                                 </div>
                             </div>
                         </div>

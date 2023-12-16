@@ -18,7 +18,7 @@ class SocioAuspiciadores extends Component
 
     use AuthorizesRequests;
 
-    public $socio , $socioid, $current=NULL, $formulario=FALSE;
+    public $socio , $socioid, $current=NULL, $formulario=FALSE, $file;
 
     public function mount(Socio $socio){
         $this->socio= $socio;}

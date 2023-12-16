@@ -92,7 +92,7 @@
                             </article>
                             <article class="grid grid-cols-6">
                             
-                                <div class="col-span-2 items-center content-center my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2">
+                                <div class="col-span-2 items-center content-center my-auto text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" x-show="!slr">
                                  
                                       
                                                             @if($resultado->image->first())

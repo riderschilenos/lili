@@ -39,7 +39,7 @@
                     
                     <div class="bg-white font-sans flex items-center justify-center">
                         <div class="px-2 sm:px-8 py-8">
-                            <div class="max-w-md mx-auto">
+                            <div class="max-w-lg mx-auto">
                                 <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
                                     <h2 class="text-2xl font-semibold mb-2 text-blue-600">Hola {{Auth()->user()->name}}</h2>
                                     <p class="text-gray-700">¡Excelentes noticias! Su perfil ha sido creado exitosamente. Ahora puede comenzar a subir su foto y seguir completando la información de tu vida Rider.</p>

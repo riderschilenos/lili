@@ -32,22 +32,22 @@
         
 
         <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-2 gap-y-8">
-            <div class="md: col-span-1 lg:col-span-2">
+            <div class="md: col-span-1 lg:col-span-3">
                 
                 <div class="bg-white font-sans flex items-center justify-center">
                     <div class="">
-                        <div class="max-w-md mx-auto">
+                        <div class="max-w-xl mx-auto">
                             <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
                                     
                                 <div class="flex">
                                     <div class="content-center items-center">
                                         <div class="image overflow-hidden" x-on:click="fullview=true">
                                             @if (str_contains($socio->user->profile_photo_url,'https://ui-'))
-                                                <img class="h-44 w-40 mx-auto object-cover"
+                                                <img class="h-36 mx-auto object-cover"
                                                 src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg"
                                                 alt="Rider Chileno">
                                             @else
-                                                <img class="h-44 w-42 object-cover"
+                                                <img class="h-36   object-cover"
                                                 src="{{ $socio->user->profile_photo_url }}"
                                                 alt="{{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }}">
 

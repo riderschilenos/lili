@@ -162,7 +162,7 @@
                     <div x-data="{direccion: true}">
                         <header class="border border-gray-200 px-4 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between">
                             <h1 class="font-bold text-lg text-gray-800 mt-2">Dirección</h1>
-                            <button  class="font-semibold rounded-lg hover:bg-gray-100 text-blue-500 py-2 px-4 justify-center cursor-pointer ml-auto" x-on:click="direccion=false">Saltar</button>
+                            <button  class="font-semibold text-blue-500 py-2 px-4 justify-center cursor-pointer ml-auto" x-on:click="direccion=false">omitir</button>
                                   
                         </header>
                             <h1 class="text-base text-gray-700 text-center my-6 mx-4"> Debes ingresar una dirección de despacho para recibir tu credencial Física</h1>
@@ -182,7 +182,7 @@
                         
                         
                                 <div class="flex justify-between">
-                                    <button x-on:click="direccion=false" class="font-semibold rounded-lg hover:bg-gray-100 text-blue-500 py-2 px-4 justify-center cursor-pointer ml-2">Saltar</button>
+                                    <button x-on:click="direccion=false" class="font-semibold rounded-lg hover:bg-gray-100 text-blue-500 py-2 px-4 justify-center cursor-pointer ml-2">omitir</button>
                                     {!! Form::submit('Agregar Dirección', ['class'=>'font-semibold rounded-lg bg-green-600 hover:bg-green-500 text-white py-2 px-4 justify-center cursor-pointer ml-2']) !!}
                                 </div>
                         

@@ -139,7 +139,7 @@
                                     <div class="transition-all duration-300 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
                                                     
                                         
-                                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex w-full">
+                                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex justify-between w-full">
                                             <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
                                             <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle" wire:click="destroydireccion({{$socio->direccion}})" alt="Eliminar"></i>
                                         </header>

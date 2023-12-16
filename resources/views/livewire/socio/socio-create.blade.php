@@ -208,7 +208,7 @@
                                                 
                                         </header>
                                         <div class="p-2">
-                                            <h1 class="text-base text-gray-700 text-center my-6 mx-4"> Debes ingresar una dirección de despacho para recibir tu credencial Física</h1>
+                                            <h1 class="text-base text-gray-700 text-center my-6 mx-4"> Debes ingresar una dirección de despacho para recibir tus Compras o Premios</h1>
                         
                                             <div name="formulariodireccioninvitados" x-show="direccion" class="mx-4">
                                             

@@ -99,7 +99,7 @@
                                         
                                     </div>
                                 </div>
-                                <div >
+                                <div class="hidden">
                                     @can('Super admin')
                                             
                                         <form wire:submit.prevent="imageupdate">

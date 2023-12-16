@@ -21,6 +21,13 @@
                     @foreach ($resultados as $resultado)
                         
                             <li class="bg-gray-100 rounded-lg px-2 py-1 my-2 mx-1 shadow-lg" x-data="{slr: false}">
+                               
+                                <div class="flex justify-start  rounded-lg p-1 items-center">
+                                    <h3 class="text-lg font-semibold text-gray-700 cursor-pointer" wire:click="setresultado({{$resultado->id}})">
+                                          
+                                          {{$resultado->titulo}}</h3>
+                                 
+                                </div>
                                 @if ($resultadoid==$resultado->id)
                                     
                                     <div>
@@ -49,43 +56,54 @@
                                     </div>
                                 
                                 @endif
-                                <div class="flex justify-start  rounded-lg p-1 items-center">
-                                    <h3 class="text-lg font-semibold text-gray-700 cursor-pointer" wire:click="setresultado({{$resultado->id}})">
-                                          
-                                          {{$resultado->titulo}}</h3>
-                                 
-                                </div>
                                 <article class="grid grid-cols-6">
-                                
-                                    <div class="col-span-2 items-center content-center my-auto">
-                                     
-                                          
-                                                                @if($resultado->image->first())
-                                                                
-                                                                    <img class="w-full h-32 object-contain content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="" wire:click="setresultado({{$resultado->id}})">
-                                                                @else
-                                                                    <img class="w-full h-32 object-contain content-center items-center " src="{{asset('img/copa.png')}}" alt="" wire:click="setresultado({{$resultado->id}})">
-                                                                 
-                                                                @endif    
-                                                                
-                                                           
-                                                  
-                                         
-                                    </div>
-                                    <div class="px-2 py-2 col-span-4 ">
-                                        <div class="flex justify-start ">
-                                            <div class="items-center my-2">
-                                                <div wire:click="setresultado({{$resultado->id}})">
-                                                    <p class="text-gray-500 text-base font-bold cursor-pointer">{{$resultado->descripcion}}</p>
-                                                </div>
-                                                <a href="{{route('socio.show', $resultado->user->socio)}}">
-                                                    <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1 mt-2">{{ '@'.$resultado->user->socio->slug }}</h1>
-                                                </a>  
-                                            </div>
+                                    @if ($resultadoid!=$resultado->id)
+                                        <div class="col-span-2 items-center content-center my-auto">
+                                        
+                                            
+                                                                    @if($resultado->image->first())
+                                                                    
+                                                                        <img class="w-full h-32 object-contain content-center items-center " src=" {{Storage::url($resultado->image->first()->url)}}" alt="" wire:click="setresultado({{$resultado->id}})">
+                                                                    @else
+                                                                        <img class="w-full h-32 object-contain content-center items-center " src="{{asset('img/copa.png')}}" alt="" wire:click="setresultado({{$resultado->id}})">
+                                                                    
+                                                                    @endif    
+                                                                    
+                                                            
+                                                    
+                                            
                                         </div>
-                                    
-                                    </div>
-                                    
+                                    @endif
+                                    @if ($resultadoid!=$resultado->id)
+                                        
+                                        <div class="px-2 py-2 col-span-4 ">
+                                            <div class="flex justify-start ">
+                                                <div class="items-center my-2">
+                                                    <div wire:click="setresultado({{$resultado->id}})">
+                                                        <p class="text-gray-500 text-base font-bold cursor-pointer">{{$resultado->descripcion}}</p>
+                                                    </div>
+                                                    <a href="{{route('socio.show', $resultado->user->socio)}}">
+                                                        <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1 mt-2">{{ '@'.$resultado->user->socio->slug }}</h1>
+                                                    </a>  
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    @elseif ($resultadoid==$resultado->id)
+                                        <div class="px-2 py-2 col-span-6 ">
+                                            <div class="flex justify-center ">
+                                                <div class="items-center my-2">
+                                                    <div wire:click="setresultado({{$resultado->id}})">
+                                                        <p class="text-gray-500 text-base font-bold cursor-pointer">{{$resultado->descripcion}}</p>
+                                                    </div>
+                                                    <a href="{{route('socio.show', $resultado->user->socio)}}">
+                                                        <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1 mt-2">{{ '@'.$resultado->user->socio->slug }}</h1>
+                                                    </a>  
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    @endif
                                 
                                 </article>
                                 <article class="grid grid-cols-6">

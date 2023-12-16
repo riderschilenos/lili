@@ -269,16 +269,19 @@
                             </header>
                             <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
                                 
-
+                                <div class="flex justify-center sm:hidden">
+                                    <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
+                                    <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
+                                </div>
                                 <article class="flex items-center grid-cols-6">
 
                                     <img class="h-24 w-24 object-cover mr-2" src="{{asset('img/socio/promo.jpeg')}}" alt="">
 
                                     <div>
-                                        <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
-                                        <div class="flex">
-                                            
-                                            <h1 class="text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
+                                       
+                                        <div class="hidden sm:flex">
+                                            <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
+                                            <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
                                         </div>
                                        
                                     </div>

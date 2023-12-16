@@ -62,7 +62,7 @@
                                     <div class="col-spam-3 px-4 w-full">
                                         
                                         
-                                        <p class="text-gray-700">¡Dale vida a tu perfil con una foto! Comienza a compartir tu Vida Rider ahora mismo.</p>
+                                        <p class="text-gray-700">¡Dale vida a tu perfil con una foto! Comienza a compartir tu vida Rider ahora mismo.</p>
                                 
 
                                        

@@ -38,7 +38,7 @@
                 
                 <div class="bg-white font-sans flex items-center justify-center">
                     <div class="">
-                        <div class="max-w-lg lg:max-w-xl mx-auto">
+                        <div class="w-full md:max-w-xl mx-auto">
                             <div class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
                                     
                                 <div class="flex">
@@ -149,17 +149,17 @@
                                             <div class="pb-2 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                                 
 
-                                                <div>
-                                                    <p class="font-bold mr-2">Comuna: </p>{{$socio->direccion->comuna}}
+                                                <div class="items-center my-auto">
+                                                    <p class="font-bold my-auto mr-2">Comuna: </p>{{$socio->direccion->comuna}}
                                                 </div>
-                                                <div>
-                                                    <p class="font-bold mr-2">Calle: </p>{{$socio->direccion->calle}}
+                                                <div class="items-center my-auto">
+                                                    <p class="font-bold my-auto mr-2">Calle: </p>{{$socio->direccion->calle}}
                                                 </div>
-                                                <div>
-                                                    <p class="font-bold mr-2">Nro: </p>{{$socio->direccion->numero}}
+                                                <div class="items-center my-auto">
+                                                    <p class="font-bold my-auto mr-2">Nro: </p>{{$socio->direccion->numero}}
                                                 </div>
-                                                <div>
-                                                    <p class="font-bold mr-2">{{$socio->direccion->region}}</p>
+                                                <div class="items-center my-auto">
+                                                    <p class="font-bold my-auto mr-2">{{$socio->direccion->region}}</p>
                                                 </div>
 
                                                 <div>
@@ -336,26 +336,26 @@
                             <h1 class="font-bold text-lg text-gray-800 text-center">PRODUCTOS RCH</h1>
                         </header>
                         <div class="full-w px-4 sm:px-2 lg:px-6 py-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mt-0 shadow-lg rounded-b-lg">
-                            
-                            <div class="flex justify-center sm:hidden">
-                                <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
-                                <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
-                            </div>
-                            <article class="flex items-center grid-cols-6">
-
-                                <img class="h-24 w-24 object-cover mr-2" src="{{asset('img/socio/promo.jpeg')}}" alt="">
-
-                                <div>
-                                
-                                    <div class="hidden sm:flex">
-                                        <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
-                                        <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
-                                    </div>
-                                
+                            <div class="p-3 border-2 rounded-lg">
+                                <div class="flex justify-center sm:hidden">
+                                    <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
+                                    <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
                                 </div>
-                            <p class="text-xl font-bold ml-auto">$11.990</p>
-                            </article>
-                            
+                                <article class="flex items-center grid-cols-6">
+
+                                    <img class="h-24 w-24 object-cover mr-2" src="{{asset('img/socio/promo.jpeg')}}" alt="">
+
+                                    <div>
+                                    
+                                        <div class="hidden sm:flex">
+                                            <h1 class="text-center">CREDENCIAL FÍSICA + GORRO REGALO</h1>
+                                            <h1 class="hidden text-lg ml-4">+ Activación Perfil<i class="fas fa-calendar-check text-white-800"></i></h1>
+                                        </div>
+                                    
+                                    </div>
+                                    <p class="text-xl font-bold ml-auto">$11.990</p>
+                                </article>
+                            </div>
                             <div class="max-w-4xl bg-white rounded-xl shadow-md pt-6 pb-4 px-2 sm:px-8 ">
                                 <div class="max-w-4xl flex justify-between items-center">
                                 
@@ -381,13 +381,14 @@
                             
                             </div>
             
-                            <hr>
-            
-                            <p class="text-sm mt-4">El pago de la suscripción anual activara tu perfil y te permitira hacer uso de las distintas secciones de el, donde se destaca la posibilidad de poder INSCRIBIR tu vehiculo rider y llevar registro de mantenciones y sercicios relacionados, la asignacion es automatica y una vez sea activado tu perfil nosotros realizaremos tu credencial de socio, la cual lleva un codigo QR que enlaza con el perfil que puedes ver a un costado de esta página. <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
-                        
+                          
                         </div>
                     
                     </div>
+                    
+                    <hr>
+            
+                    <p class="text-sm mt-4 hidden">El pago de la suscripción anual activara tu perfil y te permitira hacer uso de las distintas secciones de el, donde se destaca la posibilidad de poder INSCRIBIR tu vehiculo rider y llevar registro de mantenciones y sercicios relacionados, la asignacion es automatica y una vez sea activado tu perfil nosotros realizaremos tu credencial de socio, la cual lleva un codigo QR que enlaza con el perfil que puedes ver a un costado de esta página. <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
                 
                 @endif
             </div>

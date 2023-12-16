@@ -168,7 +168,7 @@ class PedidosCreate extends Component
     public function updatedselecteddespacho($selecteddespacho){
         
         if($selecteddespacho==1){
-            $this->transportistas = Transportista::where('id',1)->pluck('name','id');
+            $this->transportistas = Transportista::where('id',1)->orwhere('id',4)->pluck('name','id');
         }
 
         if($selecteddespacho==2){

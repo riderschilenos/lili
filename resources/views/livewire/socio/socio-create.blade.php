@@ -31,7 +31,7 @@
         @if ($socio)
         
 
-        <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-2 gap-y-8">
+        <div class="mx-auto px-2 sm:px-2 lg:px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-2 gap-y-4">
             <div class="md: col-span-1 lg:col-span-3">
                 
                 <div class="bg-white font-sans flex items-center justify-center">

@@ -95,7 +95,7 @@
                                                         </div>
                                                     @else
                                                         <div class="flex justify-center">
-                                                            {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                            {!! Form::submit('Actualizar Foto', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                         </div>
         
                                                     @endif
@@ -329,13 +329,13 @@
                                         @if($socio->carnet || $socio->foto )
                                             @if(is_null($socio->carnet) || is_null($socio->foto))
                                                 <div class="flex justify-center">
-                                                    {!! Form::submit('Actualizar Foto', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                    {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                 </div>
                                             @endif
 
                                         @else
                                             <div class="flex justify-center">
-                                                {!! Form::submit('Subir Foto', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
+                                                {!! Form::submit('Enviar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                             </div>
                                         @endif                                
                                  {!! Form::close() !!}

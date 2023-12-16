@@ -89,12 +89,12 @@
                                                    
                                                    
                                                     
-                                                    @if($socio->carnet || $socio->foto )
-                                                        @if(is_null($socio->carnet) || is_null($socio->foto))
+                                                    @if($socio->user->profile_photo_path )
+                                                       
                                                             <div class="flex justify-center">
                                                                 {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white cursor-pointer mt-4']) !!}
                                                             </div>
-                                                        @endif
+                                                       
                     
                                                     @else
                                                         <div class="flex justify-center">

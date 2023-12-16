@@ -96,7 +96,7 @@
 
        
 
-        <div class="container mb-20 pb-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="container  pb-20 grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <div class="order-2 md:col-span-2 lg:order-1 mb-24 pb-24">
 
@@ -765,7 +765,7 @@
 
         </div>
 
-        <h1 class="text-center text-xs text-gray-400 py-12">Todos Los derechos Reservados</h1>
+        <h1 class="text-center text-xs text-gray-400 py-12 mb-12">Todos Los derechos Reservados</h1>
         
     </x-fast-view>
     

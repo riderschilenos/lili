@@ -133,19 +133,20 @@
 
             <div class="md: col-span-2 lg:col-span-3">
                 @if (!is_null($socio->direccion))
+                    <div>
                         <div class="bg-white font-sans flex items-center justify-center">
                                 <div class="max-w-xl mx-auto">
                                     <div class="transition-all duration-300 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
                                                     
                                         
-                                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex">
+                                        <header class="border border-gray-200 px-4 pt-2 cursor bg-gray-200 mt-6 rounded-t-lg flex w-full">
                                             <h1 class="font-bold text-lg text-gray-800">Dirección</h1>
                                             <i class="fas fa-trash cursor-pointer text-red-500 ml-auto align-middle" wire:click="destroydireccion({{$socio->direccion}})" alt="Eliminar"></i>
                                         </header>
                                         <div class="p-2">
                                           
                                           
-                                            <div class="full-w sm:px-2 lg:px-6 py-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-0 rounded-b-lg">
+                                            <div class="sm:px-2 lg:px-6 py-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-0 rounded-b-lg">
                                                 
 
                                                 <div>
@@ -171,7 +172,7 @@
                                 </div>
                             
                         </div>
-                        
+                    </div>
 
                   
                     

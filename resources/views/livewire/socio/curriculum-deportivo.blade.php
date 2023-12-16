@@ -17,6 +17,14 @@
                 @foreach ($resultados as $resultado)
                     
                         <li class="bg-gray-100 rounded-lg px-2 py-1 my-2 mx-1 shadow-lg" x-data="{slr: false}">
+                            
+
+                            <div class="flex justify-start  rounded-lg p-1 items-center" x-on:click="slr=!slr">
+                                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-900 cursor-pointer">
+                                      
+                                      {{$resultado->titulo}}</h3>
+                               
+                            </div>
                             <div x-show="slr">
                                 <ul class="raider snap-mandatory flex overflow-x-auto gap-0 snap-x before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw]" style='z-index: 1 ; ' x-on:click="slr=!slr">
                                     @if ($resultado->image)
@@ -24,9 +32,10 @@
                                         $n=1;
                                     @endphp
                                         @foreach ($resultado->image as $image)
-                                            <li class="shrink-0 snap-center w-full snap-mandatory">       
+                                            <li class="shrink-0 snap-center w-full snap-mandatory">    
+                                                <p class="text-right">({{$n.'/'.$resultado->image->count()}})</p>   
                                                 <img class="" src="{{Storage::url($image->url)}}" alt="" style="scroll-snap-align: center;">
-                                                <p class="text-center">({{$n.'/'.$resultado->image->count()}})</p>
+                                               
                                             </li>
                                             @php
                                                 $n+=1;
@@ -41,15 +50,9 @@
                                                         
                                 </ul>
                             </div>
-                            <div class="flex justify-start  rounded-lg p-1 items-center" x-on:click="slr=!slr">
-                                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-900 cursor-pointer">
-                                      
-                                      {{$resultado->titulo}}</h3>
-                               
-                            </div>
                             <article class="grid grid-cols-6" >
                             
-                                <div class="col-span-2 items-center content-center my-auto">
+                                <div class="col-span-2 items-center content-center my-auto" x-show="!slr">
                                  
                                       
                                                             @if($resultado->image->first())
@@ -64,8 +67,18 @@
                                               
                                      
                                 </div>
-                                <div class="px-2 py-2 col-span-4 ">
+                                <div class="px-2 py-2 col-span-4" x-show="!slr">
                                     <div class="flex justify-start ">
+                                        <div class="items-center my-2">
+                                            <div x-on:click="slr=!slr">
+                                                <p class="text-gray-500 text-base font-bold cursor-pointer">{{$resultado->descripcion}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="px-2 py-2 col-span-6 " x-show="slr">
+                                    <div class="flex justify-center ">
                                         <div class="items-center my-2">
                                             <div x-on:click="slr=!slr">
                                                 <p class="text-gray-500 text-base font-bold cursor-pointer">{{$resultado->descripcion}}</p>

@@ -26,7 +26,7 @@
                 <p class="text-sm text-white">Lugar</p>
             </div>
             <div class="ml-4">
-            <div class="uppercase tracking-wide text-lg text-indigo-500 font-semibold">Ranking Strava en Vivo</div>
+            <div class="uppercase tracking-wide text-lg text-indigo-500 font-semibold whitespace-nowrap">Ranking Strava en Vivo</div>
             
                 <p class="mt-2 text-gray-500">Revisa el Ranking Completo Aquí</p>
         

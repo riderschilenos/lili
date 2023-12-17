@@ -935,65 +935,15 @@
                     
               
 
-                        <div class="mt-2 mb-6 flex justify-center">
-                            <div class="max-w-6xl px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-4 mx-4">
-            
-                                    @if (auth()->user()->tickets->where('status',3)->first())
-                                        <div class="items-center my-auto">
-                                        
-                                            <h1 class="text-center">Desafío ft Strava Activo <div class="h-2 w-2 rounded-full"></div></h1>
-                                            @if (auth()->user()->AtletaStrava)
-                                            
-                                                @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
-                                        
-                                            @else
-                                                
-                                                
-            
-                                                <div class="bg-white p-6 rounded shadow-md">
-                                                    <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
-                                                    <div class="my-2">
-                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
-                                                    </div>
-                                                    <p class="text-gray-600">Conecta tu cuenta de Strava y comienza a participar.</p>
-                                                    <div class="flex justify-center">
-                                                        <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
-                                                            Enlazar con Strava
-                                                        </a>
-                                                    </div>
-                                                    
-                                                    <p class="mt-4 text-sm text-gray-500">
-                                                        Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
-                                                    </p>
-                                                </div>
-                                            @endif       
-                                        </div>
-                                    @endif
-                                    
+                        <div class="pb-2 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-2 gap-y-2">
                                     
                                     @can('perfil_propio', auth()->user()->socio)
-                                            @if (auth()->user()->AtletaStrava)
-                                                <div class="hidden md:block bg-green-50 p-6 rounded shadow-md items-center ">
-                                                        
-                                                    <div class="flex items-center justify-between">
-                                                        <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                                        </svg>
-                                                        <div>
-                                                            <h2 class="text-lg font-semibold">Perfil de Strava Conectado</h2>
-                                                            <p class="text-gray-600 mt-1">¡Tu perfil de Strava ya está conectado y listo para que participes en eventos virtuales!</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt-4 flex justify-between">
-                                                        <a href="#" class="text-blue-500 hover:underline hover:text-blue-600 transition duration-300 ml-4">
-                                                            Desconectar Perfil
-                                                        </a>
-                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-6">
-                                                    </div>
+                                        @if (auth()->user()->AtletaStrava)
+                                    
                                                 
-                                                </div>
+                                              @livewire('socio.strava-lugar-personal')
                                         
-                                            @else
+                                        @else
                                                 <div class="bg-white p-6 rounded shadow-md">
                                                     <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
                                                     <div class="my-2">
@@ -1010,10 +960,45 @@
                                                         Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
                                                     </p>
                                                 </div>
-                                            @endif
+                                        @endif
                                     @endcan
+                                    @if (auth()->user()->tickets->where('status',3)->first())
+                                        <div class="flex justify-center items-center my-auto order-2 md:order-1">
+                                            <div>
+                                                <h1 class="text-center">Desafío ft Strava Activo <div class="h-2 w-2 rounded-full"></div></h1>
+                                                @if (auth()->user()->AtletaStrava)
+                                                
+                                                    @livewire('admin.strava-count', ['ticket' => auth()->user()->tickets->where('status',3)->first()], key(auth()->user()->tickets->where('type','desafio')->where('status',3)->first()->id))
+                                            
+                                                @else
+                                                    
+                                                    
+                
+                                                    <div class="bg-white p-6 rounded shadow-md">
+                                                        <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
+                                                        <div class="my-2">
+                                                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
+                                                        </div>
+                                                        <p class="text-gray-600">Conecta tu cuenta de Strava y comienza a participar.</p>
+                                                        <div class="flex justify-center">
+                                                            <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
+                                                                Enlazar con Strava
+                                                            </a>
+                                                        </div>
+                                                        
+                                                        <p class="mt-4 text-sm text-gray-500">
+                                                            Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.
+                                                        </p>
+                                                    </div>
+                                                @endif  
+                                            </div>     
+                                        </div>
+                                    @endif
+                                    
+                                    
+                                    
 
-                            </div>
+                           
 
                         </div>
 

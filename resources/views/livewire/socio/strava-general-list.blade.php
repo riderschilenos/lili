@@ -17,6 +17,9 @@
                             @can('perfil_propio', auth()->user()->socio)
                                 <div class="md:hidden">
                                     @livewire('socio.strava-count-total')
+                                    @if (auth()->user()->AtletaStrava)
+                                        @livewire('socio.strava-lugar-personal')
+                                    @endif
                                 </div>
                                     @if (auth()->user()->AtletaStrava)
                                         <div class="hidden md:block bg-green-50 p-6 rounded shadow-md items-center ">
@@ -94,6 +97,10 @@
                             </div>
                             <div class="md:hidden">
                                 @livewire('socio.strava-count-total')
+                                @if (auth()->user()->AtletaStrava)
+                                    @livewire('socio.strava-lugar-personal')
+                                @endif
+                                    
                             </div>
                         @endif
 

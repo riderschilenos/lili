@@ -8,6 +8,12 @@
                     
                         <div class="hidden md:flex justify-center my-auto items-center w-full max-w-sm">
                             @livewire('socio.strava-count-total')
+                                @if (auth()->user())
+                                    @if (auth()->user()->AtletaStrava)
+                                        @livewire('socio.strava-lugar-personal')
+                                    @endif
+                                @endif
+                                
                         </div>
                     
                 

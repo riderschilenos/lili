@@ -1,5 +1,5 @@
 
-<div class="max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-7xl my-auto order-1 md:order-2">
+<div class="w-full bg-white rounded-xl shadow-md overflow-hidden my-auto order-1 md:order-2">
     @php
         $lugar=0;
         $n=1;
@@ -20,7 +20,7 @@
     @endphp
 
     <a href="{{route('socio.ranking.strava')}}">
-        <div class="p-4 flex items-center">
+        <div class="p-4 flex items-center w-full">
             <div class="px-2 bg-red-500 p-2 rounded-lg text-center">
                 <p class="text-4xl font-bold text-white">{{$lugar}}°</p>
                 <p class="text-sm text-white">Lugar</p>

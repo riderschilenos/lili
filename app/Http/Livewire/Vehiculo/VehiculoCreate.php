@@ -27,6 +27,7 @@ class VehiculoCreate extends Component
         }
 
         if($vehiculo_type==9 or $vehiculo_type==10 or $vehiculo_type==11 or $vehiculo_type==17){
+            
             $disciplina_id=2;
         }
         

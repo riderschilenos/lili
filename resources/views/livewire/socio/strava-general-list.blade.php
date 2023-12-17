@@ -97,9 +97,7 @@
                             </div>
                             <div class="md:hidden">
                                 @livewire('socio.strava-count-total')
-                                @if (auth()->user()->AtletaStrava)
-                                    @livewire('socio.strava-lugar-personal')
-                                @endif
+                               
                                     
                             </div>
                         @endif

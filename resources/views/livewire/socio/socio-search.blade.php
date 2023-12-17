@@ -23,7 +23,7 @@
     <div class="grid grid-cols-3"> 
         <div class="col-span-3 md:col-span-2 flex justify-center items-center mx-auto">
             <a href="{{route('socio.ranking.strava')}}">
-                <div class="bg-white w-full max-w-5xl mx-auto px-2 lg:px-2 py-2 my-2 shadow-md rounded-md flex flex-col lg:flex-row justify-center items-center cursor-pointer">
+                <div class="bg-white w-full max-w-5xl mx-auto py-2 my-2 shadow-md rounded-md flex flex-col lg:flex-row justify-center items-center cursor-pointer">
                     <div class="w-full lg:w-1/2 lg:pr-8 lg:border-r-2 lg:border-slate-300 flex justify-center items-center my-auto">
                     
                         <div class="hidden md:flex justify-center my-auto items-center w-full max-w-sm h-36" style="perspective:1000px">
@@ -38,8 +38,8 @@
                     
                 
                     </div>
-                    <div class="w-full lg:w-1/2 lg:pl-8">
-                    @livewire('socio.strava-count-total')
+                    <div class="w-full lg:w-1/2 lg:pl-2">
+                        @livewire('socio.strava-count-total')
                     </div>
                 
                 

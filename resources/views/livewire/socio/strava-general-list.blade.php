@@ -19,7 +19,7 @@
                                     @livewire('socio.strava-count-total')
                                 </div>
                                     @if (auth()->user()->AtletaStrava)
-                                        <div class="block px-6 rounded items-center ">
+                                        <div class="block rounded items-center ">
                                                 
                                             <div class="flex justify-center my-auto items-center w-full">
                                                

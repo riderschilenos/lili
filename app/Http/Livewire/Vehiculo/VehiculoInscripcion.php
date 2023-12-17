@@ -24,11 +24,11 @@ class VehiculoInscripcion extends Component
 
     public function updatedselectedvehiculotype($vehiculo_type){
         
-        if($vehiculo_type==1 or $vehiculo_type==2 or $vehiculo_type==3 or $vehiculo_type==7 or $vehiculo_type==15){
+       if($vehiculo_type==1 or $vehiculo_type==2 or $vehiculo_type==3 or $vehiculo_type==7 or $vehiculo_type==15){
             $disciplina_id=1;
         }
 
-        if($vehiculo_type==9 or $vehiculo_type==10 or $vehiculo_type==11){
+        if($vehiculo_type==9 or $vehiculo_type==10 or $vehiculo_type==11 or $vehiculo_type==17){
             $disciplina_id=2;
         }
 
@@ -38,6 +38,7 @@ class VehiculoInscripcion extends Component
         if($vehiculo_type==16){
             $disciplina_id=13;
         }
+
 
         
 

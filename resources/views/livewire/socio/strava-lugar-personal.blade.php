@@ -21,7 +21,7 @@
 
     <a href="{{route('socio.ranking.strava')}}">
         <div class="p-4 flex items-center">
-            <div class="px-2 bg-blue-500 p-2 rounded-lg text-center">
+            <div class="px-2 bg-red-500 p-2 rounded-lg text-center">
                 <p class="text-4xl font-bold text-white">{{$lugar}}°</p>
                 <p class="text-sm text-white">Lugar</p>
             </div>

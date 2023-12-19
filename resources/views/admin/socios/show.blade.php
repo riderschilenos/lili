@@ -22,15 +22,15 @@
                 </span><span> </span>
                 @isset($socio->foto)
 
-                <img id="picture" class="h-56 w-100 object-contain object-center mt-8"src="{{Storage::url($socio->foto)}}" alt="">
+                    <img id="picture" class="h-56 w-100 object-contain object-center mt-8"src="{{Storage::url($socio->foto)}}" alt="">
                 @else
-                <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
+                    <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
                 @endif
 
                 @isset($socio->carnet)
-                <img id="picture" class="h-56 w-100 object-contain object-center mt-8"src="{{Storage::url($socio->carnet)}}" alt="">
+                    <img id="picture" class="h-56 w-100 object-contain object-center mt-8"src="{{Storage::url($socio->carnet)}}" alt="">
                 @else
-                <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
+                    <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
                 @endisset
                 
         
@@ -43,8 +43,8 @@
                     <h4 class="text-right">Información de perfil</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nombre</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                    <div class="col-md-6"><label class="labels">Apellido</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                    <div class="col-md-6"><label class="labels">Nombre: {{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }} </label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                    
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Fono</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
@@ -52,7 +52,7 @@
                     <div class="col-md-12"><label class="labels">Dirección 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                     <div class="col-md-12"><label class="labels">Localidad</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                     <div class="col-md-12"><label class="labels">Región</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Disciplina</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                    <div class="col-md-12"><label class="labels">Disciplina: {{$socio->disciplina->name}}</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                     <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
                 </div>
                 <div class="row mt-3">

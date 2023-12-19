@@ -62,11 +62,11 @@
                     <a  href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola" target="_blank">
                        {{ $socio->fono }}
                     </a> 
-                    
+
                 </label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
                     <div class="col-md-12"><label class="labels">
                         @if($socio->direccion)
-                           {{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}
+                           {{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,50)}}
                         @else
                             Sin Dirección
                         @endif    

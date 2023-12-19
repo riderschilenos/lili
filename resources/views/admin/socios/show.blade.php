@@ -58,7 +58,12 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Disciplina: {{$socio->disciplina->name}}</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Fono</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                    <div class="col-md-12"><label class="labels">Fono:  
+                    <a  href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola" target="_blank">
+                       {{ $socio->fono }}
+                    </a> 
+                    
+                </label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
                     <div class="col-md-12"><label class="labels">
                         @if($socio->direccion)
                            {{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}

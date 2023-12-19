@@ -19,7 +19,7 @@
                         <li class="bg-gray-100 rounded-lg px-2 py-1 my-2 mx-1 shadow-lg" x-data="{slr: false}">
                             
 
-                            <div class="flex justify-start  rounded-lg p-1 items-center" x-on:click="slr=!slr">
+                            <div class="flex justify-center  rounded-lg p-1 items-center" x-on:click="slr=!slr">
                                 <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-900 cursor-pointer">
                                       
                                       {{$resultado->titulo}}</h3>

@@ -32,7 +32,7 @@
                 </span><span> </span>
                 @isset($socio->foto)
 
-                    <img id="picture" class="h-56 w-90 object-contain object-center mt-8"src="{{Storage::url($socio->foto)}}" alt="">
+                    <img id="picture" class="h-56 w-100 object-contain object-center mt-8"src="{{Storage::url($socio->foto)}}" alt="">
                 @else
                     <img id="picture" class="h-56 w-100 object-contain object-center"src="https://st4.depositphotos.com/5575514/23597/v/600/depositphotos_235978748-stock-illustration-neutral-profile-picture.jpg" alt="">
                     {!! Form::open(['route'=>['socio.fotos',$socio],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
@@ -49,7 +49,7 @@
                     <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
                     {!! Form::open(['route'=>['socio.fotos',$socio],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
                         @csrf
-                        {!! Form::file('carnet', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
+                        {!! Form::file('foto', ['class'=>'form-input w-full'.($errors->has('foto')?' border-red-600':''), 'id'=>'foto','accept'=>'image/*']) !!}
                         {!! Form::submit('Enviar', ['class'=>'btn btn-primary']) !!}
                                             
                     {!! Form::close() !!}

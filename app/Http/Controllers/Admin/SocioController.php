@@ -18,7 +18,7 @@ class SocioController extends Controller
     {   
         $slug=$socio->slug;
         
-        QrCode::format('svg')->size('125')->generate('https://riderschilenos.cl/'.$slug, '../public/storage/qrcodes/'.$slug.'.svg');
+        QrCode::format('svg')->size('130')->generate('https://riderschilenos.cl/'.$slug, '../public/storage/qrcodes/'.$slug.'.svg');
 
         return view('admin.socios.show',compact('socio'));
     }

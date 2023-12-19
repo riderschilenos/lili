@@ -20,7 +20,7 @@
                             
 
                             <div class="flex justify-center  rounded-lg p-1 items-center" x-on:click="slr=!slr">
-                                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-900 cursor-pointer">
+                                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-900 cursor-pointer text-center">
                                       
                                       {{$resultado->titulo}}</h3>
                                

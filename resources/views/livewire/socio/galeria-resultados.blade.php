@@ -23,7 +23,7 @@
                             <li class="bg-gray-100 rounded-lg px-2 py-1 my-2 mx-1 shadow-lg" x-data="{slr: false}">
                                
                                 <div class="flex justify-center  rounded-lg p-1 items-center">
-                                    <h3 class="text-lg font-semibold text-gray-700 cursor-pointer" wire:click="setresultado({{$resultado->id}})">
+                                    <h3 class="text-lg font-semibold text-gray-700 cursor-pointer text-center" wire:click="setresultado({{$resultado->id}})">
                                           
                                           {{$resultado->titulo}}</h3>
                                  

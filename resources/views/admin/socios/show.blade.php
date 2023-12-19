@@ -8,6 +8,16 @@
 
 @section('content')
 
+<style>
+    .centered-image {
+        display: block;
+        margin: auto;
+        margin-top: 40px; /* Ajusta la distancia del objeto de arriba según lo necesites */
+        max-width: 80%; /* Ajusta el ancho máximo de la imagen */
+    }
+</style>
+
+
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
@@ -67,6 +77,13 @@
                 <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
                 <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
                 <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+            
+                <!-- Luego, dentro de tu HTML -->
+                <img id="picture" class="centered-image" src="{{ Storage::url('qrcodes/'.$socio->slug.'.svg') }}" alt="">
+                
+                
+            
+
             </div>
         </div>
     </div>

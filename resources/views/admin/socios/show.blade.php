@@ -43,7 +43,7 @@
                     <h4 class="text-right">Información de perfil</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nombre: {{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }} </label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                    <div class="col-md-12"><label class="labels">Nombre: {{ $socio->name." ".$socio->second_name }} {{ $socio->last_name }} </label><input type="text" class="form-control" placeholder="first name" value=""></div>
                     
                 </div>
                 <div class="row mt-3">

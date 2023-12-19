@@ -592,7 +592,7 @@ class HomeController extends Controller
            
 
 
-            return redirect()->route('socio.create');
+            return redirect()->back();
 
         
         

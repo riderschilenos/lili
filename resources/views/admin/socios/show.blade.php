@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="mt-5 object-cover" width="250px" src="{{ $socio->user->profile_photo_url }}">
+                <img class="mt-5 object-cover" width="50px" src="{{ $socio->user->profile_photo_url }}">
                 
                 <span class="font-weight-bold">{{$socio->name}}</span><span class="text-black-50">
                 @if ($socio->user)

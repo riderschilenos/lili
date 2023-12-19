@@ -59,8 +59,13 @@
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Disciplina: {{$socio->disciplina->name}}</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                     <div class="col-md-12"><label class="labels">Fono</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                    <div class="col-md-12"><label class="labels">Dirección 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Dirección 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                    <div class="col-md-12"><label class="labels">
+                        @if($socio->direccion)
+                           {{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}
+                        @else
+                            Sin Dirección
+                        @endif    
+                    </label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
                     <div class="col-md-12"><label class="labels">Localidad</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                     <div class="col-md-12"><label class="labels">Región</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                     <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>

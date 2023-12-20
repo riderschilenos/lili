@@ -684,7 +684,7 @@
                                 @endif
                                 @if ($evento->user->vendedor)
                                     @if ($evento->user->vendedor->fono)
-                                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->vendedor->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre" target="_blank" class="btn btn-success mt-4 btn-block">
+                                        <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->vendedor->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20{{str_replace(' ', '%20', $evento->titulo)}}" target="_blank" class="btn btn-success mt-4 btn-block">
                                             Contactar al Whatsapp
                                         </a>
                                     @endif

@@ -234,7 +234,7 @@ class HomeController extends Controller
                 
                 'type'=>'template',
                     'template'=>[
-                        'name'=>'rider_creado',
+                        'name'=>'nuevo_rider',
                         'language'=>[
                             'code'=>'es'],
                         'components'=>[ 
@@ -244,6 +244,14 @@ class HomeController extends Controller
                                     [   //Socio
                                         'type'=>'text',
                                         'text'=> $socio->user->name
+                                    ],
+                                    [   //Socio
+                                        'type'=>'text',
+                                        'text'=> '+'.$fono
+                                    ],
+                                    [   //Socio
+                                        'type'=>'text',
+                                        'text'=> $socio->disciplina->name
                                     ]
                                 ]
                             ]

@@ -324,8 +324,21 @@
                                                                                                                     </span>
                                                                                                                 @else
                                                                                                                 @php
-                                                                                                                $total=0;
-                                                                                                            @endphp
+                                                                                                                 if ($inscripcion->fecha->name=='Etapa 15 km') {
+                                                                                                                         $distancia=15;                                                                                                                    }
+                                                                                                                    if ($inscripcion->fecha->name=='Etapa 30 Km') {
+                                                                                                                        $distancia=30;
+                                                                                                                    }
+                                                                                                                    if ($inscripcion->fecha->name=='Etapa 50Km') {
+                                                                                                                        $distancia=50;
+                                                                                                                    }
+                                                                                                                    if ($inscripcion->fecha->name=='Etapa 100Km') {
+                                                                                                                        $distancia=100;
+                                                                                                                    }
+                                                                                                                   
+                                                                                                                    
+                                                                                                                    $total=0;
+                                                                                                                @endphp
                                                                                                                 @if ($inscripcion->ticket->user->activities)
                                                                                                                     @foreach ($inscripcion->ticket->user->activities as $activitie)
                                                                                                                         @php
@@ -345,10 +358,10 @@
                                                                                                                     @endforeach
                                                                                                                 @endif
 
-                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> {{$total}}% completado </p>
+                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> {{$total/$distance}}% completado </p>
                                                                                                                     <div class="relative pt-1 pb-4">
                                                                                                                         <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
-                                                                                                                        <div style="width: {{$total}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                        <div style="width: {{$total/$distance}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
                                                                                                                             </div>
                                                                                                                         </div>
                                                                                                                     </div>

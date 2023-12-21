@@ -361,7 +361,7 @@
                                                                                                                         <p class="text-gray-600 text-sm mt-4 "> {{$total*100/$distancia}}% completado </p>
                                                                                                                         <div class="relative pt-1 pb-4">
                                                                                                                             <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
-                                                                                                                            <div style="width: {{$total*100/$distancia}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                            <div style="width: {{$total*100/$distancia}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-600 transition-all duration-500">
                                                                                                                                 </div>
                                                                                                                             </div>
                                                                                                                         </div>

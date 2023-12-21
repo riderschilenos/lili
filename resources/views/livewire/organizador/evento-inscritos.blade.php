@@ -229,7 +229,7 @@
                                                                                                                         
                                                                                                                     
                                                                                                                     </span>
-                                                                                                                    <i class="fas fa-bike fa-2x text-blue-500 my-auto"></i>
+                                                                                                                    <i class="fas fa-clock fa-2x text-blue-500 my-auto"></i>
                                                                                                                    
                                                                                                                 </div>
                                                                                                         @endif

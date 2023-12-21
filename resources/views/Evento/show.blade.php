@@ -335,7 +335,6 @@
                                                                                                                     
                                                                                                 
                                                                                                                         
-                                                                                                                        <h1 class="block my-2 text-xl font-bold">T23/24</h1>
                                                                                                                     
                                                                                                                     </div>
                                                                                                                   

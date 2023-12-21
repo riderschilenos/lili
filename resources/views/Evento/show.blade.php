@@ -325,15 +325,15 @@
                                                                                                                 @else
                                                                                                                 @php
                                                                                                                  if ($inscripcion->fecha->name=='Etapa 15 km') {
-                                                                                                                         $distancia=15;                                                                                                                    }
-                                                                                                                    if ($inscripcion->fecha->name=='Etapa 30 Km') {
+                                                                                                                         $distancia=15;  
+                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 30 Km') {
                                                                                                                         $distancia=30;
-                                                                                                                    }
-                                                                                                                    if ($inscripcion->fecha->name=='Etapa 50Km') {
+                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 50Km') {
                                                                                                                         $distancia=50;
-                                                                                                                    }
-                                                                                                                    if ($inscripcion->fecha->name=='Etapa 100Km') {
+                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 100Km') {
                                                                                                                         $distancia=100;
+                                                                                                                    }else{
+                                                                                                                        $distancia=1;
                                                                                                                     }
                                                                                                                    
                                                                                                                     

@@ -323,10 +323,32 @@
                                                                                                                         </svg>
                                                                                                                     </span>
                                                                                                                 @else
-                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> 55% completado </p>
+                                                                                                                @php
+                                                                                                                $total=0;
+                                                                                                            @endphp
+                                                                                                                @if ($inscripcion->ticket->user->activities)
+                                                                                                                    @foreach ($inscripcion->ticket->user->activities as $activitie)
+                                                                                                                        @php
+                                                                                                                            $date1=date($activitie->start_date_local);
+                                                                                                                            $date2=date($inscripcion->ticket->updated_at);
+                                                                                                                        @endphp
+                                                                                                                        {{-- comment
+                                                                                                                        {{$date1}}<br>
+                                                                                                                        {{$date2}} <br> --}}
+                                                                                                                    
+                                                                                                                        @if ($date1>$date2 && $activitie->type=='Ride')
+                                                                                                                            @php
+                                                                                                                                    $total+=floatval($activitie->distance);
+                                                                                                                            @endphp
+                                                                                                                        @endif
+                                                                                                                    
+                                                                                                                    @endforeach
+                                                                                                                @endif
+
+                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> {{$total}}% completado </p>
                                                                                                                     <div class="relative pt-1 pb-4">
                                                                                                                         <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
-                                                                                                                        <div style="width: 55%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                        <div style="width: {{$total}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
                                                                                                                             </div>
                                                                                                                         </div>
                                                                                                                     </div>

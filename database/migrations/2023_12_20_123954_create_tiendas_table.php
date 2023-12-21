@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->text('ubicación');
             $table->text('cord-x')->Nullable();
-            $table->text('cord-x')->Nullable();
+            $table->text('cord-y')->Nullable();
 
             $table  ->foreignId('disciplina_id')
             ->nullable()
@@ -35,8 +35,10 @@ return new class extends Migration
             $table->string('rut')->Nullable();
             $table->string('banco')->Nullable();
             
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set nut');
+            $table  ->foreignId('user_id')
+            ->nullable()
+            ->constrained()
+            ->onDelete('set null');
 
             $table->timestamps();
         });

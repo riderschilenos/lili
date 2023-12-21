@@ -201,7 +201,7 @@
                                                                                                                 <p class="mx-4 text-center"> {{$total}} Kms</p>
 
                                                                                                                 <div class="flex justify-between">
-                                                                                                                    <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
+                                                                                                                    <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900 my-auto">
                                                                                                                         <div class="flex items-center">
                                                                                                                             @if (($total)>0)
                                                                                                                                 <h1 class="block my-2 text-xl font-bold">{{number_format($total,1)}}%</h1>
@@ -229,7 +229,7 @@
                                                                                                                         
                                                                                                                     
                                                                                                                     </span>
-                                                                                                                    <i class="fas fa-ship fa-2x text-blue-500"></i>
+                                                                                                                    <i class="fas fa-bike fa-2x text-blue-500 my-auto"></i>
                                                                                                                    
                                                                                                                 </div>
                                                                                                         @endif

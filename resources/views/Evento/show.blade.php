@@ -324,7 +324,29 @@
                                                                                                                     </span>
                                                                                                                 @else
 
-                                                                                                                  
+                                                                                                                   <div class="flex justify-between">
+                                                                                                                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900 my-auto">
+                                                                                                                            <div class="flex items-center">
+                                                                                                                                    <h1 class="block my-2 text-xl font-bold">{{number_format(50,1)}}%</h1>
+                                                                                                                                    <div class="relative py-2 w-full mx-4">
+                                                                                                                                        <div class="w-full overflow-hidden h-4 text-4xl flex rounded bg-gray-200">
+                                                                                                                                            <div style="width:50%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500 transition-all duration-500">
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                
+                                                                                                                                
+
+                                                                                                                                
+                                                                                                                            
+                                                                                                                            
+                                                                                                                        </div>
+                                                                                                                            
+                                                                                                                        
+                                                                                                                        </span>
+                                                                                                                        <i class="fas fa-clock fa-2x text-blue-500 my-auto"></i>
+                                                                                                                    
+                                                                                                                    </div>
                                                                                                                 @endif   
                                                                                                             @endif 
                                                                                                         </div>
@@ -346,7 +368,29 @@
                                                                                                                         </svg>
                                                                                                                     </span>
                                                                                                                 @else
+                                                                                                                     <div class="flex justify-between">
+                                                                                                                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900 my-auto">
+                                                                                                                            <div class="flex items-center">
+                                                                                                                                    <h1 class="block my-2 text-xl font-bold">{{number_format(50,1)}}%</h1>
+                                                                                                                                    <div class="relative py-2 w-full mx-4">
+                                                                                                                                        <div class="w-full overflow-hidden h-4 text-4xl flex rounded bg-gray-200">
+                                                                                                                                            <div style="width:50%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500 transition-all duration-500">
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                
+                                                                                                                                
+
+                                                                                                                                
+                                                                                                                            
+                                                                                                                            
+                                                                                                                        </div>
+                                                                                                                            
+                                                                                                                        
+                                                                                                                        </span>
+                                                                                                                        <i class="fas fa-clock fa-2x text-blue-500 my-auto"></i>
                                                                                                                     
+                                                                                                                    </div>
                                                                                                                     
                                                                                                                 @endif 
                                                                                                             @endif  

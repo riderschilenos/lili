@@ -229,7 +229,6 @@
                                                                                                                         
                                                                                                                     
                                                                                                                     </span>
-                                                                                                                    <i class="fas fa-ship fa-2x mb-4 "></i>
                                                                                                                     <i class="fa-solid fa-bicycle fa-2x text-blue-500"></i>
                                                                                                                 </div>
                                                                                                         @endif

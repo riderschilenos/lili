@@ -204,7 +204,7 @@
                                                                                                                     <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900 my-auto">
                                                                                                                         <div class="flex items-center">
                                                                                                                                 <h1 class="block my-2 text-xl font-bold">{{number_format($total,1)}}%</h1>
-                                                                                                                                <div class="relative py-2 w-full mx-4">
+                                                                                                                                <div class="py-2 w-full mx-4">
                                                                                                                                     <div class="w-full overflow-hidden h-4 text-4xl flex rounded bg-gray-200">
                                                                                                                                         <div style="width:{{$total}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500 transition-all duration-500">
                                                                                                                                         </div>

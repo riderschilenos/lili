@@ -332,7 +332,7 @@
                                                                                                                         $distancia=50;
                                                                                                                 }elseif ($inscripcion->fecha->name=='Etapa 100Km') {
                                                                                                                         $distancia=100;
-                                                                                                                    }else{
+                                                                                                                }else{
                                                                                                                         $distancia=1;
                                                                                                                     }
                                                                                                                    
@@ -358,10 +358,10 @@
                                                                                                                     @endforeach
                                                                                                                 @endif
 
-                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> {{$total/$distance}}% completado </p>
+                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> {{$total/$distancia}}% completado </p>
                                                                                                                     <div class="relative pt-1 pb-4">
                                                                                                                         <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
-                                                                                                                        <div style="width: {{$total/$distance}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                        <div style="width: {{$total/$distancia}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
                                                                                                                             </div>
                                                                                                                         </div>
                                                                                                                     </div>

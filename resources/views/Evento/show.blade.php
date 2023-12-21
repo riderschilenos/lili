@@ -330,7 +330,7 @@
                                                                                                                         $distancia=30;
                                                                                                                 }elseif ($inscripcion->fecha->name=='Etapa 50Km') {
                                                                                                                         $distancia=50;
-                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 100Km') {
+                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 100KM') {
                                                                                                                         $distancia=100;
                                                                                                                 }else{
                                                                                                                         $distancia=1;

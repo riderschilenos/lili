@@ -314,7 +314,7 @@
                                                                                                                 {{$inscripcion->fecha->name}}
                                                                                                             
                                                                                                             </div>
-                                                                                                            <div class="max-w-5xl mx-2 md:mx-6">
+                                                                                                            <div class="w-full mx-2 md:mx-6">
                                                                                                                 @if($evento->type=='desafio')
                                                                                                                     @if ($inscripcion->estado>=4)
                                                                                                                         <span class="ml-2 text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">

@@ -323,7 +323,13 @@
                                                                                                                         </svg>
                                                                                                                     </span>
                                                                                                                 @else
-                                                                                                                    
+                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> 55% completado </p>
+                                                                                                                    <div class="relative pt-1 pb-4">
+                                                                                                                        <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
+                                                                                                                        <div style="width: 55%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
                                                                                                                   
                                                                                                                 @endif   
                                                                                                             @endif 
@@ -346,13 +352,7 @@
                                                                                                                         </svg>
                                                                                                                     </span>
                                                                                                                 @else
-                                                                                                                <p class="text-gray-600 text-sm mt-4 "> 55% completado </p>
-                                                                                                                <div class="relative pt-1 pb-4">
-                                                                                                                    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
-                                                                                                                      <div style="width: 55%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                                                                                                </div>
+                                                                                                               
                                                                                                                     
                                                                                                                 @endif 
                                                                                                             @endif  

@@ -304,96 +304,96 @@
                                                                         
                                                                         @foreach ($item->inscripcions as $inscripcion)
                                                                                         
-                                                                                              <div class="flex justify-between items-center">
-                                                                                                @if ($item->user)
-                                                                                                   
-                                                                                                        <div class="px-2 py-4 whitespace-nowrap">
+                                                                                              <div class="flex items-center">
+                                                                                                    @if ($item->user)
                                                                                                     
-                                                                                                            {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
-                                                                                                            <br>
-                                                                                                            {{$inscripcion->fecha->name}}
+                                                                                                            <div class="px-2 py-4 whitespace-nowrap">
                                                                                                         
-                                                                                                        </div>
-                                                                                                        <div class="justify-start">
-                                                                                                            @if($evento->type=='desafio')
-                                                                                                                @if ($inscripcion->estado>=4)
-                                                                                                                    <span class="ml-2 text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
-                                                                                                                        SUPERADO <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
-                                                                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
-                                                                                                                        </svg>
-                                                                                                                    </span>
-                                                                                                                @else
-                                                                                                                @php
-                                                                                                                 if ($inscripcion->fecha->name=='Etapa 15 km') {
-                                                                                                                         $distancia=15;  
-                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 30 Km') {
-                                                                                                                        $distancia=30;
-                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 50Km') {
-                                                                                                                        $distancia=50;
-                                                                                                                }elseif ($inscripcion->fecha->name=='Etapa 100KM') {
-                                                                                                                        $distancia=100;
-                                                                                                                }else{
-                                                                                                                        $distancia=1;
-                                                                                                                    }
-                                                                                                                   
+                                                                                                                {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                                <br>
+                                                                                                                {{$inscripcion->fecha->name}}
+                                                                                                            
+                                                                                                            </div>
+                                                                                                            <div class="justify-start">
+                                                                                                                @if($evento->type=='desafio')
+                                                                                                                    @if ($inscripcion->estado>=4)
+                                                                                                                        <span class="ml-2 text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
+                                                                                                                            SUPERADO <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                                                                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                                                                                                                            </svg>
+                                                                                                                        </span>
+                                                                                                                    @else
+                                                                                                                    @php
+                                                                                                                    if ($inscripcion->fecha->name=='Etapa 15 km') {
+                                                                                                                            $distancia=15;  
+                                                                                                                    }elseif ($inscripcion->fecha->name=='Etapa 30 Km') {
+                                                                                                                            $distancia=30;
+                                                                                                                    }elseif ($inscripcion->fecha->name=='Etapa 50Km') {
+                                                                                                                            $distancia=50;
+                                                                                                                    }elseif ($inscripcion->fecha->name=='Etapa 100KM') {
+                                                                                                                            $distancia=100;
+                                                                                                                    }else{
+                                                                                                                            $distancia=1;
+                                                                                                                        }
                                                                                                                     
-                                                                                                                    $total=0;
-                                                                                                                @endphp
-                                                                                                                @if ($inscripcion->ticket->user->activities)
-                                                                                                                    @foreach ($inscripcion->ticket->user->activities as $activitie)
-                                                                                                                        @php
-                                                                                                                            $date1=date($activitie->start_date_local);
-                                                                                                                            $date2=date($inscripcion->ticket->updated_at);
-                                                                                                                        @endphp
-                                                                                                                        {{-- comment
-                                                                                                                        {{$date1}}<br>
-                                                                                                                        {{$date2}} <br> --}}
-                                                                                                                    
-                                                                                                                        @if ($date1>$date2 && $activitie->type=='Ride')
+                                                                                                                        
+                                                                                                                        $total=0;
+                                                                                                                    @endphp
+                                                                                                                    @if ($inscripcion->ticket->user->activities)
+                                                                                                                        @foreach ($inscripcion->ticket->user->activities as $activitie)
                                                                                                                             @php
-                                                                                                                                    $total+=floatval($activitie->distance);
+                                                                                                                                $date1=date($activitie->start_date_local);
+                                                                                                                                $date2=date($inscripcion->ticket->updated_at);
                                                                                                                             @endphp
-                                                                                                                        @endif
-                                                                                                                    
-                                                                                                                    @endforeach
-                                                                                                                @endif
+                                                                                                                            {{-- comment
+                                                                                                                            {{$date1}}<br>
+                                                                                                                            {{$date2}} <br> --}}
+                                                                                                                        
+                                                                                                                            @if ($date1>$date2 && $activitie->type=='Ride')
+                                                                                                                                @php
+                                                                                                                                        $total+=floatval($activitie->distance);
+                                                                                                                                @endphp
+                                                                                                                            @endif
+                                                                                                                        
+                                                                                                                        @endforeach
+                                                                                                                    @endif
 
-                                                                                                                    <p class="text-gray-600 text-sm mt-4 "> {{$total*100/$distancia}}% completado </p>
-                                                                                                                    <div class="relative pt-1 pb-4">
-                                                                                                                        <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
-                                                                                                                        <div style="width: {{$total*100/$distancia}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                        <p class="text-gray-600 text-sm mt-4 "> {{$total*100/$distancia}}% completado </p>
+                                                                                                                        <div class="relative pt-1 pb-4">
+                                                                                                                            <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
+                                                                                                                            <div style="width: {{$total*100/$distancia}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                                </div>
                                                                                                                             </div>
                                                                                                                         </div>
-                                                                                                                    </div>
-                                                                                                                  
-                                                                                                                @endif   
-                                                                                                            @endif 
-                                                                                                        </div>
-                                                                                                   
-                                                                                                @else
-                                                                                                        <div class="px-2 py-4 whitespace-nowrap">
-                                                                                                        
-                                                                                                            {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
-                                                                                                            <br>
-                                                                                                            {{$inscripcion->fecha->name}}                                                                                     
-                                                                                                        
-                                                                                                        </div>
-                                                                                                        <div>
-                                                                                                            @if($evento->type=='desafio')
-                                                                                                                @if ($inscripcion->estado>=4)
-                                                                                                                    <span class="ml-2 text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
-                                                                                                                        SUPERADO <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
-                                                                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
-                                                                                                                        </svg>
-                                                                                                                    </span>
-                                                                                                                @else
-                                                                                                               
                                                                                                                     
+                                                                                                                    @endif   
                                                                                                                 @endif 
-                                                                                                            @endif  
-                                                                                                        </div>
+                                                                                                            </div>
                                                                                                     
-                                                                                                @endif
+                                                                                                    @else
+                                                                                                            <div class="px-2 py-4 whitespace-nowrap">
+                                                                                                            
+                                                                                                                {{-- comment   {{$fecha->name}} --}} {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                                                <br>
+                                                                                                                {{$inscripcion->fecha->name}}                                                                                     
+                                                                                                            
+                                                                                                            </div>
+                                                                                                            <div>
+                                                                                                                @if($evento->type=='desafio')
+                                                                                                                    @if ($inscripcion->estado>=4)
+                                                                                                                        <span class="ml-2 text-center align-baseline inline-flex px-2 py-1 mr-auto items-center font-semibold text-base/none text-success bg-success-light rounded-lg">
+                                                                                                                            SUPERADO <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                                                                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                                                                                                                            </svg>
+                                                                                                                        </span>
+                                                                                                                    @else
+                                                                                                                
+                                                                                                                        
+                                                                                                                    @endif 
+                                                                                                                @endif  
+                                                                                                            </div>
+                                                                                                        
+                                                                                                    @endif
                                                                                                  
                                                                                                 
                                                                                                     

@@ -346,9 +346,12 @@
                                                                                                                         </svg>
                                                                                                                     </span>
                                                                                                                 @else
-                                                                                                                <div class="mb-1 text-base font-medium dark:text-white">55%</div>
-                                                                                                                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                                                                                                                  <div class="bg-blue-600 h-2.5 rounded-full dark:bg-blue-500" style="width: 55%"></div>
+                                                                                                                <p class="text-gray-600 text-sm mt-4 "> 55% completado</p>
+                                                                                                                <div class="relative pt-1 pb-4">
+                                                                                                                    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
+                                                                                                                      <div style="width: 55%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500">
+                                                                                                                        </div>
+                                                                                                                    </div>
                                                                                                                 </div>
                                                                                                                     
                                                                                                                 @endif 

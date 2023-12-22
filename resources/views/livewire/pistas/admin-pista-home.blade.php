@@ -113,13 +113,7 @@
                             
                                 </div>
                             </a>
-                            <div class="flex justify-center">
-                                <div>
-                                    @foreach ($pista->staffs as $item)
-                                    <div><p>  {{$item->user->name}} / {{$item->rol}}</p></div>
-                                    @endforeach
-                                </div>
-                            </div>
+                           
                             <div class="flex justify-center"> 
                                 <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                                     <button class="btn btn-danger ml-2 text-center text-lg mt-4">
@@ -135,6 +129,13 @@
                             
                                 <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>
                             
+                            </div>
+                            <div class="flex justify-center">
+                                <div>
+                                    @foreach ($pista->staffs as $item)
+                                        <div> <button wire:click="delete_staff({{$item->id}})" class="btn btn-danger ml-2 text-center text-lg mt-4">{{$item->user->name}} - {{$item->rol}} (X)</button></div>
+                                    @endforeach
+                                </div>
                             </div>
                             <div x-show="open">
                                 <div class="px-6 pt-4">
@@ -358,6 +359,13 @@
                                     
                                         <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>
                                     
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <div>
+                                            @foreach ($pista->staffs as $item)
+                                                <div> <button class="btn btn-danger ml-2 text-center text-lg mt-4">{{$item->user->name}} - {{$item->rol}}</button></div>
+                                            @endforeach
+                                        </div>
                                     </div>
                                     <div x-show="open">
                                         <div class="px-6 pt-4">

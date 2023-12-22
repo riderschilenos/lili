@@ -679,7 +679,8 @@
                                 <div class="flex justify-center">
                                     <div>
                                         @foreach ($pista->staffs as $item)
-                                        <div><p>  {{$item->user->name}} / {{$item->rol}}</p></div>
+                                        <div> <button class="btn btn-danger ml-2 text-center text-lg mt-4">{{$item->user->name}} / {{$item->rol}}</button></div>
+                                       
                                         @endforeach
                                     </div>
                                 </div>

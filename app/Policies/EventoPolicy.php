@@ -38,7 +38,7 @@ class EventoPolicy
 
     public function administred(User $user, Evento $evento){
        
-        if (Pista_staff::where('user_id', $user->id)->where('evento_id',$evento->id)->where('rol','admin')->count()){
+        if (Pista_staff::where('user_id', $user->id)->where('evento_id',$evento->id)->where('rol','admin')->count()>0){
             return true;
         }else{
             return false;
@@ -47,7 +47,7 @@ class EventoPolicy
     
     public function cobrar(User $user, Evento $evento){
        
-        if (Pista_staff::where('user_id', $user->id)->where('evento_id',$evento->id)->where('rol','cobrar')->count()){
+        if (Pista_staff::where('user_id', $user->id)->where('evento_id',$evento->id)->where('rol','cobrar')->count()>0){
             return true;
         }else{
             return false;

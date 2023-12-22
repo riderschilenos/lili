@@ -1002,6 +1002,10 @@
 
                         </div>
 
+                        <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
+                            @livewire('pistas.admin-pista-home')
+                        </div>
+
                             <div class="pb-2 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2">
                                 
                                 @if (auth()->user()->socio)
@@ -1634,6 +1638,7 @@
                                 </div>
                             @endcan  
                             @livewire('vendedor.pedidos-index')
+
                             <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
                                 @livewire('pistas.admin-pista-home')
                             </div>

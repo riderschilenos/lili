@@ -495,7 +495,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 md:grid-cols-3 xl:grid-cols-3 gap-x-2 items-center content-center">
+                            <div class="grid grid-cols-1 gap-x-2 items-center content-center">
                             
 
                             

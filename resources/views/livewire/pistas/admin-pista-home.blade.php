@@ -659,13 +659,7 @@
                                 
                                     </div>
                                 </a>
-                                <div class="flex justify-center">
-                                    <div>
-                                        @foreach ($pista->staffs as $item)
-                                        <div><p>  {{$item->user->name}} / {{$item->rol}}</p></div>
-                                        @endforeach
-                                    </div>
-                                </div>
+                               
                                 <div class="flex justify-center"> 
                                     <a href="{{route('organizador.eventos.fechas.fast',$pista)}}">
                                         <button class="btn btn-danger ml-2 text-center text-lg mt-4">
@@ -681,7 +675,15 @@
                                 
                                     <button class="btn btn-danger ml-2 text-center text-lg mt-4" wire:click="set_pista({{$pista->id}})" x-on:click="open=!open">STAFF</button>
                                 
+                                </div> 
+                                <div class="flex justify-center">
+                                    <div>
+                                        @foreach ($pista->staffs as $item)
+                                        <div><p>  {{$item->user->name}} / {{$item->rol}}</p></div>
+                                        @endforeach
+                                    </div>
                                 </div>
+
                                 <div x-show="open">
                                     <div class="px-6 pt-4">
                                         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese el nombre, rut, fono o email del usuario">

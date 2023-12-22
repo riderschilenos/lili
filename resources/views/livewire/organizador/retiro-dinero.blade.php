@@ -285,7 +285,7 @@
                                     
                                 </td>
                                 
-                                @if ($tick->ticketable_type=='App\Models\Socio')
+                                @if ($ticket->ticketable_type=='App\Models\Socio')
 
                                
 
@@ -322,7 +322,7 @@
                                                     
                                             
                                         @php
-                                            if($tick->ticketable_id==$item->id){
+                                            if($ticket->ticketable_id==$item->id){
                                                 $sponsor=$item;
                                             }else{
                                                 $sponsor=null;

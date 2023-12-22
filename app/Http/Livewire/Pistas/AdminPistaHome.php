@@ -60,6 +60,14 @@ class AdminPistaHome extends Component
         ]);
        
     }
+
+    public function delete_staff(Pista_staff $pista_staff){
+     
+       $pista_staff->delete();
+       $this->pistas=Evento::where('status','<',2)->orderBy('updated_at', 'desc')->get();
+       
+    }
+
     public function set_pista($id){
         $this->pista=Evento::find($id);
     }

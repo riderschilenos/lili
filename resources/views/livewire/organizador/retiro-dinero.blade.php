@@ -280,12 +280,15 @@
                                     <div class="text-sm text-gray-900 text-center">
                                        
                                                     <a href="" class="btn btn-success h-10 my-auto">{{$ticket->id}}</a>
-                                                  
-                                        
                                     
                                     </div>
                                     
                                 </td>
+                                
+                                @if ($tick->ticketable_type=='App\Models\Socio')
+
+                               
+
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10">
@@ -312,6 +315,59 @@
                                         <div class="text-sm text-gray-900 text">{{$ticket->user->socio->rut}}</div>
                                     @endif
                                 </td>
+
+                                @else
+
+                                    @foreach ($invitados as $item)
+                                                    
+                                            
+                                        @php
+                                            if($tick->ticketable_id==$item->id){
+                                                $sponsor=$item;
+                                            }else{
+                                                $sponsor=null;
+                                            }
+                                        @endphp  
+
+                                        @if ($sponsor)
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                 
+                                                        <img class="h-11 w-11 object-cover object-center rounded-full" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="">
+                                                 
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        {{$sponsor->name}} (Invitado)<br>
+                                                        {{$sponsor->email}}<br>
+                                                    
+                                                            @if ($sponsor->fono)
+                                                                {{$sponsor->fono}}
+                                                            @endif
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                             
+                                                </div>
+                                               
+                                            </div>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            @if ($sponsor->rut)
+                                                <div class="text-sm text-gray-900 text">{{$sponsor->rut}}</div>
+                                            @endif
+                                        
+                                            
+                                        </td>
+
+                                        @endif
+                                    @endforeach
+
+                                @endif
                                 
                                 <td class="px-6 py-4 whitespace-nowrap text-center">
                                     <div class="text-sm text-gray-900 text-center">

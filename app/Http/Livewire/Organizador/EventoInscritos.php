@@ -249,6 +249,21 @@ class EventoInscritos extends Component
                             'pedido_id'=>$pedido->id
                         ]);
                 }
+                if ($inscripcion->fecha->name=='Etapa 100Km' && $inscripcion->estado>=4) {
+                    $pedido = Pedido::create([
+                        'user_id'=> $ticket->user->id,
+                        'transportista_id'=> 4,
+                        'pedidoable_id'=> $ticket->user->socio->id,
+                        'status'=> 4,
+                        'pedidoable_type'=> 'App\Models\Socio']);
+                    $pedido->status=5;
+                    $pedido->save();
+                    $orden= Orden::create([
+                            'producto_id'=> 58,
+                            'name'=>'Etapa 100 km',
+                            'pedido_id'=>$pedido->id
+                        ]);
+                }
             }
             $ticket->pedido_id=$pedido->id;
             $ticket->save();

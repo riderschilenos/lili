@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                            
-                       @else
+                       @elseif($n==0 || $n>1)
                             <div class="flex ml-auto whitespace-nowrap">
                                 <div class="py-2">{{$n}} Registros</div>
                                 <div class="p-2 py-2 text-red-500 font-semibold content-center">

@@ -655,7 +655,7 @@ class PremiacionDesafio extends Command
                                         $pedido->status=5;
                                         $pedido->save();
                                         $orden= Orden::create([
-                                                'producto_id'=> 56,
+                                                'producto_id'=> 58,
                                                 'name'=>'Etapa 100 km',
                                                 'pedido_id'=>$pedido->id
                                             ]);

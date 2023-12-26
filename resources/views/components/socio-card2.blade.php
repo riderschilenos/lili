@@ -17,7 +17,7 @@
         </div>
         <div class="px-2 py-2 col-span-4 bg-white">
             <a href="{{ route('socio.show', $socio) }}">
-                <p class="text-gray-500 text-base font-bold mt-auto">{{ strtoupper(Str::limit($socio->name, 13)) }}</p>
+                <p class="text-gray-500 text-base font-bold mt-auto">{{ strtoupper(Str::limit($socio->name, 20)) }}</p>
             </a>
             
             <div class="flex items-center content-center">

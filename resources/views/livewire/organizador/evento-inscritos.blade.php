@@ -184,7 +184,13 @@
                                                                                                                         @foreach ($ticket->user->activities as $activitie)
                                                                                                                             @php
                                                                                                                                 $date1=date($activitie->start_date_local);
-                                                                                                                                $date2=date($ticket->updated_at);
+                                                                                                                                if ($ticket->status>=4) {
+                                                                                                                                    $date2=date($ticket->created_at);
+                                                                                                                                } else {
+                                                                                                                                    $date2=date($ticket->updated_at);
+                                                                                                                                }
+                                                                                                                                
+                                                                                                                               
                                                                                                                             @endphp
                                                                                                                             {{-- comment
                                                                                                                             {{$date1}}<br>

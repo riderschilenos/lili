@@ -33,7 +33,9 @@
             <div class="flex justify-betten items-center content-center mt-auto">
 
                 <span class="">
-                    <span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span>
+                    <a href="{{ route('socio.show', $socio) }}">
+                        <span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span>
+                    </a>
                 </span>
                
                                                     
@@ -48,7 +50,7 @@
                         @endif
                     @endforeach
                   
-                  
+                    <a href="{{ route('socio.show', $socio) }}" class="flex ml-auto whitespace-nowrap">
                        @if ($n==1)
                             <div class="flex ml-auto whitespace-nowrap">
                                 <div class="py-2">{{$n}} Registro</div>
@@ -71,6 +73,7 @@
                                 </div>
                             </div>
                        @endif
+                    </a>
                     
             </div>
            

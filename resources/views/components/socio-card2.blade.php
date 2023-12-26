@@ -50,7 +50,7 @@
                   
                   
                        
-                    <div class="flex ml-auto">
+                    <div class="flex ml-auto whitespace-nowrap">
                         <div class="py-2">{{$n}} Registros</div>
                         <div class="p-2 py-2 text-red-500 font-semibold content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

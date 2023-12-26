@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col-span-2 md:col-span-3 flex items-center">
-                        <h2 class="text-xl font-semibold items-center my-auto">¿Cuanto Kilómetros Hemos Pedaleado?</h2>
+                        <h2 class="text-xl font-semibold items-center my-auto">¿Cuantos Kilómetros Hemos Pedaleado?</h2>
                     </div>
 
                 </div>

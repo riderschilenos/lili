@@ -53,7 +53,7 @@
                                     <div class="flex flex-col w-full pb-2 mx-auto bg-cover" style="background-image: url({{asset('img/despacho/textura.jpeg')}})" >
                                             <div class="flex justify-between ">
                                                 <div class="flex flex-col w-full mx-auto">
-                                                    <div class="flex @if($pedido->transportista->id == 1 ) bg-green-500 @elseif($pedido->transportista->id == 2) bg-yellow-500 @endif px-4 pt-1">
+                                                    <div class="flex @if($pedido->transportista->id == 1 ) bg-green-500 @elseif($pedido->transportista->id == 2) bg-yellow-500 @elseif($pedido->transportista->id == 4) bg-blue-500 @endif px-4 pt-1">
                                                             @switch($pedido->transportista->id)
                                                                 @case(1)
                                                                     
@@ -65,6 +65,12 @@
                                                                     
                                                                     @break
                                                                 @case(3)
+                                                                    
+                                                                    <h1 class="text-white mr-2 font-bold">{{$pedido->transportista->name}}</h1>
+                                                                    
+                                                                    @break
+
+                                                                @case(4)
                                                                     
                                                                     <h1 class="text-white mr-2 font-bold">{{$pedido->transportista->name}}</h1>
                                                                     

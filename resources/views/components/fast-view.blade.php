@@ -529,7 +529,7 @@
                                                         <li>
                                                             <div class="flex items-center">
                                                                 <span class="text-yellow-600">
-                                                                    @if ($activity->type=='Ride')
+                                                                    @if ($activity->type=='Ride'|| $activity->type=='VirtualRide')
                                                                         <i class="fas fa-bicycle text-white-800"></i>
                                                                         @elseif($activity->type=='Velomobile')
                                                                             <i class="fas fa-bicycle text-white-800"></i>
@@ -542,7 +542,7 @@
                                                                 </span>
                                                                 <div class="ml-4">
                                                                     <div class="text-teal-600"> 
-                                                                        @if ($activity->type=='Ride')
+                                                                        @if ($activity->type=='Ride' || $activity->type=='VirtualRide')
                                                                             {{ number_format($activity->distance)}}   km Bicicleta
                                                                         @elseif($activity->type=='Velomobile')
                                                                             {{ number_format($activity->distance)}}   km Velomobil

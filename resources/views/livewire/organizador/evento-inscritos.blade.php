@@ -190,7 +190,7 @@
                                                                                                                             {{$date1}}<br>
                                                                                                                             {{$date2}} <br> --}}
                                                                                                                         
-                                                                                                                            @if ($date1>$date2 && $activitie->type=='Ride')
+                                                                                                                            @if ($date1>$date2 && ($activitie->type=='Ride' or $activitie->type=='VirtualRide'))
                                                                                                                                 @php
                                                                                                                                         $total+=floatval($activitie->distance);
                                                                                                                                 @endphp

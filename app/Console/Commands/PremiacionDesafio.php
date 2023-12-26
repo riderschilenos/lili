@@ -264,6 +264,7 @@ class PremiacionDesafio extends Command
                                         foreach($ticket->inscripcions as $inscripcion){
                                             if($inscripcion->estado==4){
                                                 $ticket->status=4;
+                                                $ticket->pedido_id=$pedido->id;
                                                 $ticket->save();
                                                 $evento=Evento::find($ticket->evento_id);
                                                 if ($ticket->user) {
@@ -409,6 +410,7 @@ class PremiacionDesafio extends Command
                                         foreach($ticket->inscripcions as $inscripcion){
                                             if($inscripcion->estado==4){
                                                 $ticket->status=4;
+                                                $ticket->pedido_id=$pedido->id;
                                                 $ticket->save();
                                                 $evento=Evento::find($ticket->evento_id);
                                                 if ($ticket->user) {
@@ -552,6 +554,7 @@ class PremiacionDesafio extends Command
                                         foreach($ticket->inscripcions as $inscripcion){
                                             if($inscripcion->estado==4){
                                                 $ticket->status=4;
+                                                $ticket->pedido_id=$pedido->id;
                                                 $ticket->save();
                                                 $evento=Evento::find($ticket->evento_id);
                                                 if ($ticket->user) {
@@ -704,6 +707,7 @@ class PremiacionDesafio extends Command
                                         foreach($ticket->inscripcions as $inscripcion){
                                             if($inscripcion->estado==4){
                                                 $ticket->status=4;
+                                                $ticket->pedido_id=$pedido->id;
                                                 $ticket->save();
                                                 $evento=Evento::find($ticket->evento_id);
                                                 if ($ticket->user) {

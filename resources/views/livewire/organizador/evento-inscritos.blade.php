@@ -67,7 +67,7 @@
                                                         @endif
                                                             </div>
                                                             <div class="ml-4">
-                                                            <a href="{{route('ticket.historial.view',$sponsor->user)}}">
+                                                            <a href="{{route('ticket.historial.view',$sponsor->user)}}" target="_blank">
                                                                 <div class="text-sm font-medium text-gray-900">
                                                                     {{$sponsor->name.' '.$sponsor->last_name}}<br>
                                                                     {{$sponsor->user->email}}<br>
@@ -136,7 +136,7 @@
                                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} COBRADO</a>
 
                                                                             @if ($ticket->pedido)
-                                                                                <a href="{{route('vendedor.pedidos.edit',$ticket->pedido)}}" class="btn btn-success h-10 my-auto mt-2">Pedido Nro: {{$ticket->pedido->id}}</a>
+                                                                                <a href="{{route('vendedor.pedidos.edit',$ticket->pedido)}}" target="_blank" class="btn btn-success h-10 my-auto mt-2">Pedido Nro: {{$ticket->pedido->id}}</a>
                                                                             @else
                                                                                 <a wire:click="realizarpedido({{$ticket->id}})" class="btn bg-gray-200 hover:bg-gray-100 h-10 my-auto cursor-pointer">Realizar Pedido</a>
                                                                             @endif

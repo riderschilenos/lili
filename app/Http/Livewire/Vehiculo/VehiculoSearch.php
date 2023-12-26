@@ -42,7 +42,7 @@ class VehiculoSearch extends Component
                                 ->orWhere('vehiculos.modelo', 'LIKE', '%' . $this->search . '%')
                                 ->orWhere('vehiculos.nro_serie', 'LIKE', '%' . $this->search . '%');
                         })
-                        ->whereNotIn('vehiculos.vehiculo_type_id', [9, 10, 11]) // Condición para vehiculo_type_id
+                        ->whereNotIn('vehiculos.vehiculo_type_id', [9, 10, 11,16,17]) // Condición para vehiculo_type_id
                         ->orderBy('updated_at', 'desc') // Ordenar por fecha de modificación más reciente
                         ->paginate($this->perPage);
         $vehiculosbici =Vehiculo::join('users', 'vehiculos.user_id', '=', 'users.id')
@@ -54,7 +54,7 @@ class VehiculoSearch extends Component
                                 ->orWhere('vehiculos.modelo', 'LIKE', '%' . $this->search . '%')
                                 ->orWhere('vehiculos.nro_serie', 'LIKE', '%' . $this->search . '%');
                         })
-                        ->whereIn('vehiculos.vehiculo_type_id', [9, 10, 11]) // Condición para vehiculo_type_id
+                        ->whereIn('vehiculos.vehiculo_type_id', [9, 10, 11,17]) // Condición para vehiculo_type_id
                         ->orderBy('updated_at', 'desc') // Ordenar por fecha de modificación más reciente
                         ->paginate($this->perPage);
     

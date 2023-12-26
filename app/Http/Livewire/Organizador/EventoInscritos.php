@@ -42,7 +42,7 @@ class EventoInscritos extends Component
                             ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
                             ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
                             ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
-                            ->orderBy('tickets.status', 'desc')
+                            ->orderBy('tickets.status', 'asc')
                             ->orderBy('tickets.pedido_id', 'asc')
                             ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
                             ->distinct()

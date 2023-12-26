@@ -626,7 +626,7 @@
                                                                 </span>
                                                                 <div class="ml-4">
                                                                     <div class="text-teal-600"> 
-                                                                        @if ($activity->type=='Ride')
+                                                                        @if ($activity->type=='Ride' || $activity->type=='VirtualRide')
                                                                             {{ number_format($activity->distance)}}   km Bicicleta
                                                                         @elseif($activity->type=='Velomobile')
                                                                             {{ number_format($activity->distance)}}   km Velomobil

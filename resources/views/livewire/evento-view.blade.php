@@ -5,7 +5,16 @@
   <div class="flex justify-center">
     
     <div class="max-w-4xl"> 
-      <h1 class="text-center font-bold text-2xl text-white my-4 md:my-12">Historial {{$user->name}}</h1>
+      <h1 class="text-center font-bold text-2xl text-white my-4 md:my-12">Historial 
+        @if ($user->socio)
+          <a href="{{route('socio.show',$user->socio)}}">
+            {{$user->name}}
+          </a>
+        @else
+          {{$user->name}}
+        @endif
+        
+      </h1>
       @if ($tickets->count())
         <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2 mx-2 md:mx-4"> 
            

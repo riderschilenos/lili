@@ -249,7 +249,7 @@ class EventoInscritos extends Component
                             'pedido_id'=>$pedido->id
                         ]);
                 }
-                if ($inscripcion->fecha->name=='Etapa 100Km' && $inscripcion->estado>=4) {
+                if ($inscripcion->fecha->name=='Etapa 100KM' && $inscripcion->estado>=4) {
                     $pedido = Pedido::create([
                         'user_id'=> $ticket->user->id,
                         'transportista_id'=> 4,

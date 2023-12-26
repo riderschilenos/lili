@@ -19,6 +19,9 @@
             <a href="{{ route('socio.show', $socio) }}">
                 <p class="text-gray-500 text-base font-bold mt-auto">{{ strtoupper(Str::limit($socio->name, 20)) }}</p>
             </a>
+            <span class="mx-auto">
+                <span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span>
+            </span>
             
             <div class="flex items-center content-center">
                 @if($socio->direccion)
@@ -29,14 +32,13 @@
                     <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
                 @endif
             </div>
+           
             <!-- Aquí puedes añadir más detalles del socio si es necesario -->
             <!-- Sigue el formato similar al perfil del vehículo -->
             <!-- Recuerda reemplazar $socio con la variable correcta -->
         </div>
         <div class="col-span-2 items-center content-center my-auto px-1 py-1 flex justify-center">
-            <span class="mx-auto">
-                <span class="bg-red-500 py-1 px-2 rounded text-white text-sm">{{$socio->disciplina->name}}</span>
-            </span>
+          
         </div>
         <div class="px-2 col-span-4 bg-white">
             <div class="flex justify-end items-center content-center">

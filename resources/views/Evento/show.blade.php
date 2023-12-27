@@ -44,9 +44,16 @@
             }
             </style>
        
-        <section class="bg-white py-4 mb-8 ">
-            <div class="container grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div class="flex justify-center">
+        <section class="bg-white md:py-4 mb-8 ">
+            <div class=" max-w-7xl mx-auto sm:px-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="flex sm:hidden justify-center">
+                    @isset($evento->image)
+                        <img class="w-full object-center object-contain"  src="{{Storage::url($evento->image->url)}}" alt="">
+                    @else
+                        <img class="w-full object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                    @endisset
+                </div>
+                <div class="hidden sm:flex justify-center">
                     @isset($evento->image)
                         <img class="h-72 w-72 object-center object-contain"  src="{{Storage::url($evento->image->url)}}" alt="">
                     @else

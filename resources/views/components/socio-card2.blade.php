@@ -30,6 +30,22 @@
                     <div class="px-2 py-2">{{Str::limit($socio->direccion->comuna.', '.$socio->direccion->region,20)}}</div>
                 @endif
             </div>
+
+            @php
+                $now = config('app.now_global');
+                $borndate = strtotime($socio->born_date);
+                // Calcula la diferencia en segundos
+                $diferencia_segundos = strtotime($now) - $borndate;
+                $diferencia_anios = floor($diferencia_segundos / (365 * 24 * 60 * 60));
+            @endphp
+            <div class="text-sm text-gray-500 flex justify-start">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 mr-2">
+                    {{$diferencia_anios}} Años
+                </span>
+            
+            </div>
+
+            
             <div class="flex justify-betten items-center content-center mt-auto">
 
                 <span class="">

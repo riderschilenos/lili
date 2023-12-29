@@ -67,6 +67,8 @@
                             </a>
                         </div>
                         @endif
+                  
+
                         <a href="{{route('socio.show', $socio)}}" class="flex justify-center hidden">
                             <table class="text-xs mt-auto">
                                 <tbody>

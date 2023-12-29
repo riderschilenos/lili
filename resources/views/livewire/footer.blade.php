@@ -1,5 +1,5 @@
 <div>
-    <footer class="text-white body-font bg-main-color pb-12">
+    <footer class="text-white body-font bg-main-color pb-16">
         <div class="px-5 md:py-12 mx-auto md:items-center lg:items-start grid grid-cols-2 md:grid-cols-4 md:grid-cols-6">
           <div class="flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10 bg-white hover:shadow-xl rounded-lg shadow-md p-4 col-span-2 lg:col-span-1 mb-6">
             <a href="https://api.whatsapp.com/send?phone=56963176726&text=Hola" target="_blank" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">

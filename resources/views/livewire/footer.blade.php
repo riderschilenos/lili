@@ -10,7 +10,7 @@
                 <p class="mt-2 text-sm text-gray-500">Estamos para ayudarte y resolver tus dudas.</p>
             </a>
           </div>
-          <div class="flex flex-wrap md:pr-20 -mb-10 md:text-left text-center md:order-first col-span-4">
+          <div class="flex flex-wrap md:pr-20 -mb-10 md:text-left text-center md:order-first col-span-4 pb-4">
             <div class="lg:w-1/4 w-1/2 px-4">
               <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATÁLOGO PRODUCTOS</h2>
               <nav class="list-none mb-10">
@@ -77,7 +77,7 @@
         </div>
         <div class="bg-gray-100">
           <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-            <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 Footer —
+            <p class="text-gray-500 text-sm text-center sm:text-left">© 2024 RidersChilenos —
               <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-white ml-1" target="_blank">@MrsRobbot</a>
             </p>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">

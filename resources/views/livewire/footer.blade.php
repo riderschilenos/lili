@@ -27,7 +27,7 @@
               </nav>
             </div>
             <div class="lg:w-1/4 w-1/2 px-4">
-              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">PORTAL WEB</h2>
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SECCIONES DEL PORTAL WEB</h2>
               <nav class="list-none mb-10">
                 <li>
                   <a class="text-white hover:text-gray-800" href="{{route('socio.index')}}">Regístro de Riders</a>

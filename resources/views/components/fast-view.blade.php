@@ -1350,7 +1350,7 @@
         
         </section>
 
-       
+       @livewire('footer')
 
        
     </div>

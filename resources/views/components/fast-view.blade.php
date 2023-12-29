@@ -1586,7 +1586,7 @@
                         <div x-show="activeTab===0">
                             
                             @livewire('vendedor.public-show')
-                    
+                            @livewire('footer')
                    
                         </div>
                         <div x-show="activeTab===1">

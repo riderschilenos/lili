@@ -54,6 +54,18 @@
     <section id="#seccion-product">
         <h1 class="text-center text-2xl font-bold text-gray-800 mt-2">Tienda RidersChilenos</h1>
     </section>
+    @can('Super admin')
+        
+    <a class="flex justify-center mt-4" href="{{route('garage.vehiculo.create')}}">
+                              
+        <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mb-2">
+        
+            Inscribe tu Tienda
+
+        </button>
+    </a>
+    
+    @endcan
     <div class="px-6 my-4">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese nombre, categoria o descripción del producto que busca" required autofocus autocomplete="off">
     </div>

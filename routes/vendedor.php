@@ -4,12 +4,15 @@ use App\Http\Controllers\Vendedor\DireccionController;
 use App\Http\Controllers\Vendedor\PedidoController;
 use App\Http\Controllers\Vendedor\HomeController;
 use App\Http\Controllers\Vendedor\PagoController;
+use App\Http\Controllers\Vendedor\TiendaControllerr;
 use Illuminate\Support\Facades\Route;
 
 
 Route::resource('/', HomeController::class)->names('home');
 
 Route::resource('pedido', PedidoController::class)->names('pedidos');
+
+Route::resource('tienda', TiendaControllerr::class)->names('tiendas');
 
 Route::resource('pago', PagoController::class)->names('pagos');
 

@@ -77,8 +77,7 @@
         </div>
         <div class="">
           <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-            <p class="text-white text-sm text-center sm:text-left">© 2024 RidersChilenos — Sitio Web Construido a la Medida por
-              <a href="" class="text-white ml-1" target="_blank">Gonzalo Peñaloza</a> (+56963176726)
+            <p class="text-white text-sm text-center sm:text-left">© 2024 RidersChilenos 
             </p>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
             

@@ -21,6 +21,9 @@
                   <a class="text-white hover:text-gray-800" href="https://riderschilenos.cl/catalogos/polerones.pdf">Polerones Personalizados</a>
                 </li>
                 <li>
+                  <a class="text-white hover:text-gray-800" href="https://riderschilenos.cl/catalogos/catalogopolerasmx_compressed.pdf">Poleras</a>
+                </li>
+                <li>
                   <a class="text-white hover:text-gray-800" href="https://clubriderschilenos.cl/catalogoportanumero.pdf">Stickers, Llaveros y Collares de Portanumeros</a>
                 </li>
                 

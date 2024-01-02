@@ -134,6 +134,11 @@
                                         <div>
                                             <p class="font-bold mr-2s">Calle: </p>{{$invitado->direccion->calle}}
                                         </div>
+                                        @if ($invitado->direccion->block)
+                                            <div>
+                                                <p class="font-bold mr-2s">Block: </p>{{$invitado->direccion->calle}}
+                                            </div>
+                                        @endif
                                         <div>
                                             <p class="font-bold mr-2s">Nro: </p>{{$invitado->direccion->numero}}
                                         </div>
@@ -212,6 +217,11 @@
                                             <div>
                                                 <p class="font-bold mr-2s">Calle: </p>{{$socio->direccion->calle}}
                                             </div>
+                                            @if ($socio->direccion->block)
+                                            <div>
+                                                <p class="font-bold mr-2s">block: </p>{{$socio->direccion->block}}
+                                            </div>
+                                            @endif
                                             <div>
                                                 <p class="font-bold mr-2s">Nro: </p>{{$socio->direccion->numero}}
                                             </div>

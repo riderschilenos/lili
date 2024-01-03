@@ -76,12 +76,19 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required|unique:disciplinas'
+            'name'=>'required',
+            'precio'=>'required'
         ]);
 
-        $producto = Producto::create($request->all());
-
-        return redirect()->route('admin.products.index')->with('info','El producto se creo con éxito.');
+        $producto = Producto::create([  'name'=>$request->name,
+                                        'precio'=>$request->precio,
+                                        'tienda_id'=>$request->tienda_id,
+                                        'sku'=>$request->sku,]);
+        if($request->creacion==1){
+            return redirect()->route('tiendas.productos.edit',$producto);
+        }else{
+            return redirect()->route('admin.products.index')->with('info','El producto se creo con éxito.');
+        }
     }
 
     /**
@@ -113,9 +120,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Producto $producto)
     {
-        //
+        $producto->update($request->all());
+
+        return redirect()->back()->with('info','El producto se actualizó con éxito.');
     }
 
     /**

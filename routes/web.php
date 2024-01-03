@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Ticket\EventoController;
 use App\Http\Controllers\UsadoController;
 use App\Http\Controllers\Vendedor\HomeController as VendedorHomeController;
 use App\Http\Controllers\Vendedor\PedidoController;
+use App\Http\Controllers\Vendedor\TiendaControllerr;
 use App\Http\Controllers\WebhooksController;
 use App\Http\Controllers\WhatsappController;
 use App\Http\Livewire\EventoView;
@@ -94,3 +96,17 @@ Route::get('/google-callback', [GoogleController::class,'callback']);
 Route::get('/redireccion-strava', [StravaController::class,'handleAuthorization']);
 
 Route::post('user/{user}/updatefoto', [SocioHomeController::class,'updatefoto'])->name('update.foto');
+
+Route::resource('tienda', TiendaControllerr::class)->names('tiendas');
+
+Route::get('tienda/{tienda}/productos', [TiendaControllerr::class,'productos'])->name('tiendas.productos');
+
+Route::get('tienda/{tienda}/productos/intelligence', [TiendaControllerr::class,'inteligente'])->name('tiendas.productos.inteligente');
+
+Route::get('tienda/{tienda}/productos/manual', [TiendaControllerr::class,'manual'])->name('tiendas.productos.manual');
+
+Route::get('tienda/{producto}/productos/productoedit', [TiendaControllerr::class,'producto'])->name('tiendas.productos.edit');
+
+Route::get('tienda/{tienda}/pedidos', [TiendaControllerr::class,'pedidos'])->name('tiendas.pedidos');
+
+Route::post('{producto}/updatingall',[ProductController::class, 'update'])->name('producto.update');

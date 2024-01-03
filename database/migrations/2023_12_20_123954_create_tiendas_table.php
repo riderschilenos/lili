@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Tienda;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,23 +18,26 @@ return new class extends Migration
             $table->id();
 
             $table->text('nombre');
-            $table->text('descripcion')->Nullable();
-            $table->text('logo')->Nullable();
-            $table->text('tour360')->Nullable();
+            $table->string('slug');
+            $table->text('descripcion')->nullable();
+            $table->text('logo')->nullable();
+            $table->text('fono')->nullable();
+            $table->text('tour360')->nullable();
+            $table->enum('status',[Tienda::BORRADOR,Tienda::REVISION,Tienda::PUBLICADO])->default(Tienda::BORRADOR);
 
-            $table->text('ubicación');
-            $table->text('cord-x')->Nullable();
-            $table->text('cord-y')->Nullable();
+            $table->text('ubicacion');
+            $table->text('cord-x')->nullable();
+            $table->text('cord-y')->nullable();
 
             $table  ->foreignId('disciplina_id')
             ->nullable()
             ->constrained()
             ->onDelete('set null');
 
-            $table->string('nro_cuenta')->Nullable();
-            $table->string('tipo_cuenta')->Nullable();
-            $table->string('rut')->Nullable();
-            $table->string('banco')->Nullable();
+            $table->string('nro_cuenta')->nullable();
+            $table->string('tipo_cuenta')->nullable();
+            $table->string('rut')->nullable();
+            $table->string('banco')->nullable();
             
             $table  ->foreignId('user_id')
             ->nullable()

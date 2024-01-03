@@ -12,8 +12,6 @@ Route::resource('/', HomeController::class)->names('home');
 
 Route::resource('pedido', PedidoController::class)->names('pedidos');
 
-Route::resource('tienda', TiendaControllerr::class)->names('tiendas');
-
 Route::resource('pago', PagoController::class)->names('pagos');
 
 Route::resource('direccion', DireccionController::class)->names('direccions');

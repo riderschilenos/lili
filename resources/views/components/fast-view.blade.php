@@ -942,6 +942,7 @@
                                     
                                                 
                                               @livewire('socio.strava-lugar-personal')
+                                              
                                         
                                         @else
                                                 <div class="bg-white p-6 rounded shadow-md">

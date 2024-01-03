@@ -47,25 +47,74 @@
     </a>
 </div>
     
-  <div class="bg-white">
+  <div class="bg-white p-4">
     {{-- comment
     @livewire('vendedor.catalogo-productos')
  --}}
-    <section id="#seccion-product">
-        <h1 class="text-center text-2xl font-bold text-gray-800 mt-2">Tienda RidersChilenos</h1>
-    </section>
-    @can('Super admin')
-        
-    <a class="flex justify-center mt-4" href="{{route('garage.vehiculo.create')}}">
-                              
-        <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mb-2">
-        
-            Inscribe tu Tienda
-
-        </button>
-    </a>
+   
     
-    @endcan
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <div>
+
+            </div>
+            <div> 
+                <section id="#seccion-product">
+                    <h1 class="text-center text-2xl font-bold text-gray-800 mt-2">Tienda RidersChilenos</h1>
+                </section>
+                @can('Super admin')
+                    <a class="flex justify-center mt-4" href="{{route('tiendas.create')}}">
+                                            
+                        <button class="btn max-w-sm btn-block bg-red-600 shadow h-10 px-4 rounded-lg text-white mb-2">
+                        
+                            Inscribe tu Tienda
+
+                        </button>
+                    </a>
+                @endcan
+            </div>
+            
+                @if (auth()->user())
+                    @if (auth()->user()->tiendas)
+                        @foreach (auth()->user()->tiendas as $tienda)
+                            <div class="flex flex-col ml-6 p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl">
+                                <div class="flex">
+                                    <img src="https://images.unsplash.com/photo-1575390730294-dfc5efa5250b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80" alt="Just a flower" class=" w-16  object-fit  h-16 rounded-2xl">
+                                    <div class="flex flex-col justify-center w-full px-2 py-1">
+                                        <div class="flex justify-between items-center ">
+                                        <div class="flex flex-col">
+                                            <a href="{{route('tiendas.edit',$tienda)}}">
+                                                <h2 class="font-medium leading-none text-gray-100">{{$tienda->nombre}}</h2>
+                                            </a>
+                                        </div>
+                                        <a href="{{route('tiendas.edit',$tienda)}}">
+                                            <p class="text-gray-400 hover:text-green-400 cursor-pointer">
+                                                Ver más
+                                            </p>
+                                        </a>
+                                        </div>
+                                        <div class="flex pt-2  text-sm text-gray-500">
+                                        <div class="flex items-center mr-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                            </svg>
+                                            <p class="font-normal">4.5</p>
+                                        </div>
+                                        <div class="flex items-center font-medium text-gray-300 ">
+                                            $1800
+                                            <span class="text-gray-600 text-sm font-normal"> /wk</span>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                                
+                    @endif
+                    
+                @endif
+        </div>
+    
     <div class="px-6 my-4">
         <input wire:keydown="limpiar_page" wire:model="search"  class="form-input flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Ingrese nombre, categoria o descripción del producto que busca" required autofocus autocomplete="off">
     </div>
@@ -186,7 +235,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+            </div>
            
         @endif 
    

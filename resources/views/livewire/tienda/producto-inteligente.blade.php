@@ -23,9 +23,10 @@
                        <input type="text" wire:model="search" wire:keydown.enter="findProduct" placeholder="Escanear SKU" class="bg-gray-50 outline-none ml-1 block" autofocus>
                        
                     </div>
-                    <div class="flex ml-auto">
-                        <button class="bg-gray-300 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Venta ${{number_format($ventatotal)}}</button>
-                        <button class="bg-gray-300 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Inversión ${{number_format($total)}}</button>
+                    <div class="flex ml-auto text-white">
+                        <button class="bg-blue-500 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Venta ${{number_format($ventatotal)}}</button>
+                        <button class="bg-red-500 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Inversión ${{number_format($total)}}</button>
+                        <button class="bg-green-500 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Ganancia ${{number_format($ventatotal-$total)}}</button>
                     </div>
                             <div class="flex ml-auto">
                                 

@@ -1,4 +1,12 @@
 <div>
+    @php
+        $total=0;
+        foreach ($productos as $producto) {
+            if (intval($producto->costo)>0 && intval($producto->stock)>0){
+                    $total+=$producto->costo*$producto->stock;
+                        }
+        }
+    @endphp
     <div class="">
         <div class="bg-white p-4 rounded-md w-full">
              
@@ -13,7 +21,10 @@
                        <input type="text" wire:model="search" wire:keydown.enter="findProduct" placeholder="Escanear SKU" class="bg-gray-50 outline-none ml-1 block" autofocus>
                        
                     </div>
-                    
+                    <div class="flex ml-auto">
+                                
+                        <button class="bg-gray-300 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">INVERSIÓN:${{number_format($total)}}</button>
+                    </div>
                             <div class="flex ml-auto">
                                 
                                 <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer ml-2">Nuevo Producto</button>

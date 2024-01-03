@@ -83,7 +83,10 @@ class ProductController extends Controller
         $producto = Producto::create([  'name'=>$request->name,
                                         'precio'=>$request->precio,
                                         'tienda_id'=>$request->tienda_id,
-                                        'sku'=>$request->sku,]);
+                                        'sku'=>$request->sku,
+                                        'costo'=>$request->costo,
+                                        'personalizable'=>$request->personalizable,]);
+                                        
         if($request->creacion==1){
             return redirect()->route('tiendas.productos.edit',$producto);
         }else{

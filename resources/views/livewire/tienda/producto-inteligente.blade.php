@@ -1,9 +1,11 @@
 <div>
     @php
         $total=0;
+        $ventatotal=0;
         foreach ($productos as $producto) {
             if (intval($producto->costo)>0 && intval($producto->stock)>0){
                     $total+=$producto->costo*$producto->stock;
+                    $ventatotal+=$producto->precio*$producto->stock;
                         }
         }
     @endphp
@@ -22,8 +24,8 @@
                        
                     </div>
                     <div class="flex ml-auto">
-                                
-                        <button class="bg-gray-300 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">INVERSIÓN:${{number_format($total)}}</button>
+                        <button class="bg-gray-300 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Venta ${{number_format($ventatotal)}}</button>
+                        <button class="bg-gray-300 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Inversión ${{number_format($total)}}</button>
                     </div>
                             <div class="flex ml-auto">
                                 

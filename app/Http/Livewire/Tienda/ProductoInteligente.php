@@ -25,7 +25,7 @@ class ProductoInteligente extends Component
        
     }
     public function render()
-    {   if ($this->producto) {
+    {   if ($this->product) {
                 $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
                     ->where('tienda_id',$this->product->tienda->id)
                     ->orderByRaw("CASE 

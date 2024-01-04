@@ -30,7 +30,7 @@ class ProductosSearch extends Component
                 $query->whereHas('producto', function ($queryProducto) {
                     $queryProducto->where('tienda_id', $this->tienda->id);
                 });
-            })->where('status', '>=', 4)->get();
+            })->where('status', '>=', $this->tienda->id)->get();
 
         $pedidos30=Pedido::whereHas('ordens.producto', function ($queryProducto) {
                 $queryProducto->where('tienda_id', 4);
@@ -41,7 +41,7 @@ class ProductosSearch extends Component
         $pagos = Pago::whereHas('pedidos', function ($query) {
                 $query->whereHas('ordens.producto', function ($queryProducto) {
                     $queryProducto->where('tienda_id', $this->tienda->id);
-                })->where('status', '>=', 4);
+                })->where('status', '>=', $this->tienda->id);
             })
             ->where('created_at', '>=', now()->subDays(365))
             ->get();

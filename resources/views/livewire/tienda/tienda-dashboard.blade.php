@@ -1,4 +1,26 @@
 <div>
+    @php
+        $total=0;
+        $total7=0;
+        $total30=0;
+    @endphp
+
+@foreach ($pagos as $pago)
+@php
+       $total+=$pago->cantidad;
+@endphp
+@endforeach
+@foreach ($pagos7 as $pago)
+@php
+       $total7+=$pago->cantidad;
+@endphp
+@endforeach
+@foreach ($pagos30 as $pago)
+@php
+       $total30+=$pago->cantidad;
+@endphp
+@endforeach
+
     <div class="pt-6 px-4">
                         
             @if ($tienda->productos)
@@ -6,7 +28,7 @@
                     <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex-shrink-0">
-                                <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">$45,385</span>
+                                <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">${{number_format($total30)}}</span>
                                 <h3 class="text-base font-normal text-gray-500">Ventas del mes</h3>
                             </div>
                             <div class="flex items-center justify-end flex-1 text-green-500 text-base font-bold">

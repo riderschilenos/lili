@@ -104,9 +104,11 @@
                                             <p class="text-gray-900 whitespace-no-wrap">@if ($producto->stock)
                                                 {{$producto->stock}}
                                             @else
-                                                <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                                <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                                <span class="relative">Pendiente</span>
+                                                <a href="{{route('tiendas.productos.edit',$producto)}}">
+                                                    <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                                                    <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                                                    <span class="relative">Pendiente</span>
+                                                </a>
                                             @endif</p>
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -119,9 +121,11 @@
                                                 @if ($producto->costo)
                                                 ${{number_format($producto->costo)}}
                                             @else
+                                                <a href="{{route('tiendas.productos.edit',$producto)}}">
                                                     <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
                                                     <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
                                                     <span class="relative">Pendiente</span>
+                                                </a>
                                             @endif
                                             </p>
                                             </td>

@@ -504,6 +504,26 @@ class PedidosProduccion extends Component
             'estado'=> 1,
             'cantidad'=> $valor,
             'gastotype_id'=> 3 ]);
+
+            $pedidos= Pedido::where('user_id',$pedido->user_id)
+            ->where('status',7)
+            ->orderby('status','DESC')
+            ->latest('id')
+            ->get();
+
+            $comisiones=0;
+            foreach($pedidos as $item){
+                foreach ($item->ordens as $orden){
+                        
+                    if($item->pedidoable_type=="App\Models\Socio"){
+                            $comisiones+=$orden->producto->comision_socio;
+                        }
+                    if($item->pedidoable_type=="App\Models\Invitado"){
+                            $comisiones+=$orden->producto->comision_invitado;
+                    }
+                }
+            }
+
     
         foreach ($pedido->ordens as $orden){
             $gasto->ordens()->attach($orden);

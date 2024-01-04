@@ -207,7 +207,7 @@ class PremiacionDesafio extends Command
                                         $inscripcion->estado=4;
                                         $inscripcion->save();
                                         $pedido = Pedido::create([
-                                            'user_id'=> $ticket->user->id,
+                                            'user_id'=> null,
                                             'transportista_id'=> 4,
                                             'pedidoable_id'=> $ticket->user->socio->id,
                                             'status'=> 4,
@@ -352,7 +352,7 @@ class PremiacionDesafio extends Command
                                         $inscripcion->estado=4;
                                         $inscripcion->save();
                                         $pedido = Pedido::create([
-                                            'user_id'=> $ticket->user->id,
+                                            'user_id'=> null,
                                             'transportista_id'=> 4,
                                             'pedidoable_id'=> $ticket->user->socio->id,
                                             'status'=> 4,
@@ -497,7 +497,7 @@ class PremiacionDesafio extends Command
                                         $inscripcion->estado=4;
                                         $inscripcion->save();
                                         $pedido = Pedido::create([
-                                            'user_id'=> $ticket->user->id,
+                                            'user_id'=> null,
                                             'transportista_id'=> 4,
                                             'pedidoable_id'=> $ticket->user->socio->id,
                                             'status'=> 4,
@@ -650,7 +650,7 @@ class PremiacionDesafio extends Command
                                         $inscripcion->estado=4;
                                         $inscripcion->save();
                                         $pedido = Pedido::create([
-                                            'user_id'=> $ticket->user->id,
+                                            'user_id'=> null,
                                             'transportista_id'=> 4,
                                             'pedidoable_id'=> $ticket->user->socio->id,
                                             'status'=> 4,

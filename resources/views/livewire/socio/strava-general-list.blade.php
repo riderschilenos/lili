@@ -180,6 +180,17 @@
                                                             </div>
                                                         @endif
                                                     </div>
+                                                    @can('Super admin')
+                                                        <div class="ml-auto">
+                                                            {!! Form::open(['route'=>['atleta.sync',$user->atletaStrava] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'POST' ,'target' => '_blank']) !!}
+
+                                                            {!! Form::hidden('cantidad', 36 ) !!}
+                                                            
+                                                            {!! Form::submit('Sincronizar actividad', ['class'=>'link-button text-center mt-6 text-xs mx-2 text-blue-600 cursor-pointer']) !!}
+                                                                
+                                                            {!! Form::close() !!}
+                                                        </div>
+                                                    @endcan
                                                 </div>
                                                 </a>
                                             </td>

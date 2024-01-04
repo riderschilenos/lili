@@ -12,6 +12,10 @@
                        </svg>
                        <input class="bg-gray-50 outline-none ml-1 block " type="text" name="" id="" placeholder="search...">
                     </div>
+                    <div class="mx-auto flex justify-center">
+                     
+                        {{$pedidos->count()}} Pedidos
+                    </div>
                        <div class="flex ml-auto">
                           <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New Report</button>
                           <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer ml-2">Nuevo Pedido</button>
@@ -48,19 +52,48 @@
                           </thead>
                           <tbody>
 
-                            @foreach ($pedidos as $item)
+                            @foreach ($pedidos as $pedido)
                                 <tr>
                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                       <div class="flex items-center">
-                                         <div class="flex-shrink-0 w-10 h-10">
+                                        id:{{$pedido->id}}
+                                         <div class="flex-shrink-0 w-10 h-10 ml-4">
+                                           
                                             <img class="w-full h-full rounded-full"
                                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
                                                            alt="" />
                                                   </div>
                                             <div class="ml-3">
                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                  Vera Carpenter
+                                                @if($pedido->pedidoable_type=='App\Models\Socio')
+                                                @foreach ($socios as $socio)
+                                                        
+                                                        @if($socio->id == $pedido->pedidoable_id)
+                                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                {{$socio->user->name}}
+                                                            
+                                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                    Socio
+                                                                </span>
+                                                        
+                                                        @endif
+                                                @endforeach
+                                            @endif
+                                            @if($pedido->pedidoable_type=='App\Models\Invitado')
+                                                @foreach ($invitados as $invitado)
+                                                        
+                                                        @if($invitado->id == $pedido->pedidoable_id)
+                                                    
+                                                            {{$invitado->name}} 
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                                Invitado
+                                                            </span>
+                                                    
+                                                        @endif
+                                                @endforeach
+                                            @endif
                                                </p>
+                                            
                                             </div>
                                          </div>
                                    </td>

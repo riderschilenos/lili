@@ -16,36 +16,26 @@ class ProductoInteligente extends Component
     public $busqueda;
     public $product, $tienda;
 
-    public function mount($producto){
+    public function mount($producto,$tienda){
         if ($producto) {
             $this->product=Producto::find($producto);
+            $this->tienda=Tienda::find($tienda);
         }else{
             $this->product=null;
+            $this->tienda=Tienda::find($tienda);
         }
        
     }
     public function render()
-    {   if ($this->product) {
-                $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
-                    ->where('tienda_id',$this->product->tienda_id)
-                    ->orderByRaw("CASE 
-                                        WHEN personalizable = 'no' THEN 1 
-                                        WHEN personalizable = 'sí' THEN 2 
-                                        ELSE 3 
-                                    END")
-                    ->orderByDesc('stock') // Orden descendente por la columna 'stock'
-                    ->paginate(100);
-        }else{
-            $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
-            ->orderByRaw("CASE 
-                                WHEN personalizable = 'no' THEN 1 
-                                WHEN personalizable = 'sí' THEN 2 
-                                ELSE 3 
-                            END")
-            ->orderByDesc('stock') // Orden descendente por la columna 'stock'
-            ->paginate(100);
-        }
-      
+    {  $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
+        ->where('tienda_id',$this->tienda->id)
+        ->orderByRaw("CASE 
+                            WHEN personalizable = 'no' THEN 1 
+                            WHEN personalizable = 'sí' THEN 2 
+                            ELSE 3 
+                        END")
+        ->orderByDesc('stock') // Orden descendente por la columna 'stock'
+        ->paginate(100);
         
         $disciplinas=Disciplina::pluck('name','id');
         $category_products=Category_product::pluck('name','id');

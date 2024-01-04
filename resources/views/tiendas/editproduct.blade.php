@@ -1,7 +1,7 @@
 <x-tienda-layout :tienda="$tienda">
   
          <main class="pr-10">
-          @livewire('tienda.producto-inteligente',['producto'=>$producto->id])
+          @livewire('tienda.producto-inteligente',['producto'=>$producto->id,'tienda'=>$tienda->id])
           <div class="flex justify-end">
             <div class="max-w-7xl">
               <div class="grid grid-cols-3 w-full gap-x-2 mx-6 mb-2">

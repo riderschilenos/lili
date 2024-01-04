@@ -2,10 +2,11 @@
 
 namespace App\View\Components;
 
+use App\Models\Pedido;
 use Illuminate\View\Component;
 
 class TiendaLayout extends Component
-{   public $tienda;
+{   public $tienda,$pedidos;
     /**
      * Create a new component instance.
      *
@@ -14,6 +15,11 @@ class TiendaLayout extends Component
     public function __construct($tienda)
     {
         $this->tienda = $tienda;
+        $this->pedidos =$pedidos = Pedido::whereHas('ordens', function ($query) {
+            $query->whereHas('producto', function ($queryProducto) {
+                $queryProducto->where('tienda_id', $this->tienda->id);
+            });
+        })->where('status', '>=', 4)->get();
     }
 
     /**

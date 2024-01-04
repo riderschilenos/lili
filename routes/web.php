@@ -112,3 +112,5 @@ Route::get('tienda/{tienda}/pedidos', [TiendaControllerr::class,'pedidos'])->nam
 Route::post('{producto}/updatingall',[ProductController::class, 'update'])->name('producto.update');
 
 Route::post('{producto}/skugenerate',[ProductController::class, 'skugenerate'])->name('producto.skugenerate');
+
+Route::post('print/{producto}/sku', [ProductController::class,'printsku'])->name('producto.printsku');

@@ -138,6 +138,11 @@ class ProductController extends Controller
         return redirect()->back()->with('info','SKU generado con éxito.');
     }
 
+    public function printsku(Request $request, Producto $producto)
+    {   $arrayNumeros = range(1, $request->cantidad);
+        return view('admin.pedidos.etiquetasku', compact ('producto','arrayNumeros'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *

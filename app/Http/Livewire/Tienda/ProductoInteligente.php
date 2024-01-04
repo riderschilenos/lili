@@ -25,12 +25,13 @@ class ProductoInteligente extends Component
        
     }
     public function render()
-    {   $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
+    {  $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
         ->orderByRaw("CASE 
                             WHEN personalizable = 'no' THEN 1 
                             WHEN personalizable = 'sí' THEN 2 
                             ELSE 3 
                         END")
+        ->orderByDesc('stock') // Orden descendente por la columna 'stock'
         ->paginate(100);
         
         $disciplinas=Disciplina::pluck('name','id');

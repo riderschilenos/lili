@@ -25,15 +25,27 @@ class ProductoInteligente extends Component
        
     }
     public function render()
-    {  $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
-        ->where('tienda_id',$this->product->tienda->id)
-        ->orderByRaw("CASE 
-                            WHEN personalizable = 'no' THEN 1 
-                            WHEN personalizable = 'sí' THEN 2 
-                            ELSE 3 
-                        END")
-        ->orderByDesc('stock') // Orden descendente por la columna 'stock'
-        ->paginate(100);
+    {   if ($this->producto) {
+                $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
+                    ->where('tienda_id',$this->product->tienda->id)
+                    ->orderByRaw("CASE 
+                                        WHEN personalizable = 'no' THEN 1 
+                                        WHEN personalizable = 'sí' THEN 2 
+                                        ELSE 3 
+                                    END")
+                    ->orderByDesc('stock') // Orden descendente por la columna 'stock'
+                    ->paginate(100);
+        }else{
+            $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
+            ->orderByRaw("CASE 
+                                WHEN personalizable = 'no' THEN 1 
+                                WHEN personalizable = 'sí' THEN 2 
+                                ELSE 3 
+                            END")
+            ->orderByDesc('stock') // Orden descendente por la columna 'stock'
+            ->paginate(100);
+        }
+      
         
         $disciplinas=Disciplina::pluck('name','id');
         $category_products=Category_product::pluck('name','id');

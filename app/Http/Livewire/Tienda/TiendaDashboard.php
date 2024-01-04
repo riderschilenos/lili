@@ -22,7 +22,7 @@ class TiendaDashboard extends Component
             })->where('status', '>=', 4)->get();
 
         $pedidos = Pedido::whereHas('ordens.producto', function ($queryProducto) {
-                $queryProducto->where('tienda_id', 4);
+                $queryProducto->where('tienda_id', $this->tienda->id);
             })->where('status', '>=', 4)
             ->where('created_at', '>=', now()->subDays(30))
             ->get();

@@ -221,7 +221,7 @@
                                 <h3 class="text-base font-normal text-gray-500">Pedidos del mes</h3>
                             </div>
                             <div class="ml-5 w-0 flex items-center justify-end flex-1 text-green-500 text-base font-bold">
-                                @if ($pedidostotal>0)
+                                @if ($pedidostotal->count()>0)
                                     {{number_format(($pedidos->count())*100/$pedidostotal->count(),2)}}
                                     %
                                 @else

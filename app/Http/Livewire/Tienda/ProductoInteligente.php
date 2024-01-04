@@ -46,6 +46,14 @@ class ProductoInteligente extends Component
        
     }
 
+    public function set_personalizadooff(Producto $producto){
+        $producto->personalizable='no';
+        $producto->save();
+    }
+    public function set_personalizadoon(Producto $producto){
+        $producto->personalizable='si';
+        $producto->save();
+    }
     public function findProduct()
     {   if ($this->search) {
             $this->product = Producto::where('sku', $this->search)->first();

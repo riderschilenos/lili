@@ -143,6 +143,23 @@
                                                                     <span aria-hidden
                                                                         class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
                                                     <span class="relative">NO</span>
+                                                @else
+                                                <div class="flex justify-center">
+                                                    <div  wire:click="set_personalizadoon({{$producto->id}})" class="cursor-pointer">
+                                                    <span
+                                                                class="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
+                                                                <span aria-hidden
+                                                                    class="absolute inset-0 bg-gray-200 opacity-50 rounded-full"></span>
+                                                <span class="relative">SI</span>
+                                            </div>
+                                            <div wire:click="set_personalizadooff({{$producto->id}})" class="cursor-pointer">
+                                                                            <span
+                                                                            class="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
+                                                                            <span aria-hidden
+                                                                                class="absolute inset-0 bg-gray-200 opacity-50 rounded-full"></span>
+                                                            <span class="relative">NO</span>
+                                                        </div>
+                                                        </div>
                                                 @endif
                                                
                                                 </span>

@@ -14,7 +14,7 @@
                     </div>
                     <div class="mx-auto flex justify-center">
                      
-                        {{$pedidos->count()}} Pedidos
+                        {{$pedidos30->count()}} Pedidos del mes
                     </div>
                        <div class="flex ml-auto">
                           <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New Report</button>

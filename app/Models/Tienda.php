@@ -30,4 +30,8 @@ class Tienda extends Model
     public function user(){
         return $this->belongsTo('App\Models\User','user_id');
     }
+
+    public function productos(){
+        return $this->hasMany('App\Models\Producto');
+    }
 }

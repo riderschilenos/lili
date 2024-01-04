@@ -32,6 +32,10 @@ class Producto extends Model
         return $this->belongsTo('App\Models\Disciplina');
     }
 
+    public function tienda(){
+        return $this->belongsTo('App\Models\Tienda');
+    }
+
     public function category_product(){
         return $this->belongsTo('App\Models\Category_product');
     }

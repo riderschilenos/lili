@@ -98,22 +98,22 @@
                                          </div>
                                    </td>
                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    @foreach ($pedido->ordens->reverse() as $orden)
-                                       <div class="flex justify-center">
-                                          @if($orden->smartphone)
-                                             <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                {{Str::limit($orden->producto->name,6)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
-                                                
-                                             </span>
-                                                
-                                             @else
+                                       @foreach ($pedido->ordens->reverse() as $orden)
+                                          <div class="flex justify-center">
+                                             @if($orden->smartphone)
                                                 <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                                   {{$orden->producto->name}}
+                                                   {{Str::limit($orden->producto->name,6)." (".$orden->smartphone->marcasmartphone->name."; ".$orden->smartphone->modelo.")"}}
+                                                   
                                                 </span>
-                                                
-                                             @endif
-                                       </div>
-                                    @endforeach
+                                                   
+                                                @else
+                                                   <span class="whitespace-nowrap mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                      {{$orden->producto->name}}
+                                                   </span>
+                                                   
+                                                @endif
+                                          </div>
+                                       @endforeach
                                    </td>
                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                       <p class="text-gray-900 whitespace-no-wrap">

@@ -32,6 +32,28 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
     @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
 
        @if ($pedido->status>=7)
+        @if ($pedido->transportista_id==1)
+            <div class="min-w-screen flex items-center py-2 lg:p-10 overflow-hidden relative">
+              <div class="w-full max-w-6xl rounded bg-white shadow-xl p-2 lg:px-20 py-4 mx-auto text-gray-800 relative md:text-left">
+                  <div class="md:flex items-center mx-10  p-2">
+                      <div class="w-full md:w-1/4 md:mb-0">
+                          <div class="flex w-full">
+                              <img src="https://gptw-web-site.s3.amazonaws.com/assets/uploads/2021/08/18115944/bLUE-EXPRESS-1.png" class="w-full z-10 object-contain" alt="">
+                          </div>
+                      </div>
+                      <div class="w-full md:w-3/4 px-2">
+                          <div class="ml-4">
+                              <h1 class="font-bold uppercase text-lg text-center">¡Buenas noticias! Tu pedido ha sido despachado por BluExpress y está en camino hacia ti. Puedes hacer seguimiento del paquete a través del siguiente enlace mágico:</h1>
+                              <div class="flex justify-center">
+                                <a href="https://tracking-unificado.blue.cl/?n_seguimiento={{$pedido->seguimiento}}" target="_blank" class="text-center text-blue-500 my-4">https://tracking-unificado.blue.cl/?n_seguimiento={{$pedido->seguimiento}}</a>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+            </div>
+        @else
           @if ($pedido->image)
               <div class="min-w-screen flex items-center py-2 lg:p-10 overflow-hidden relative">
                 <div class="w-full max-w-6xl rounded bg-white shadow-xl p-2 lg:p-20 mx-auto text-gray-800 relative md:text-left">
@@ -39,7 +61,6 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                         <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
                             <div class="relative">
                                 <img src="{{Storage::url($pedido->image->url)}}" class="h-48 relative z-10" alt="">
-                                <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
                             </div>
                         </div>
                         <div class="w-full md:w-1/2 px-10">
@@ -53,6 +74,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
                 </div>
               </div>
           @endif
+        @endif
        @endif
       
 

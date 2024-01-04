@@ -160,11 +160,18 @@ class PedidosProduccion extends Component
     {   $this->validate([
             'search'=>'required'
         ]);
+
+        $nro = substr($this->search, 5);
+
+        // Seleccionar los próximos 10 dígitos
+        $nextDigits = substr($nro, 0, 10);
         
             $pedido->update([
-                'seguimiento'=>$this->search
+                'seguimiento'=>$nextDigits
             ]);
 
+        $this->search="";
+            
 
         $pedido->status=7;
         $pedido->save();
@@ -302,8 +309,6 @@ class PedidosProduccion extends Component
 
         }
 
-        
-         $this->resetSearch(); // Llama a la función para limpiar el campo de búsqueda
     }
 
     public function resetSearch()

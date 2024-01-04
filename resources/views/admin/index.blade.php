@@ -92,7 +92,8 @@
                                 <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
                                 <td>
                                 
-                                    {!! Form::submit('Aprobar', ['class'=>'btn bg-blue-500 text-white']) !!}
+                                    <button class="btn btn-primary mb-2 btn-sm" type="submit"> APROBAR </button>
+
                                 {!! Form::close() !!} 
                                 <form action="{{route('admin.pagos.destroy',$pago)}}" method="POST">
                                     @csrf

@@ -270,11 +270,11 @@ class PagoController extends Controller
                     Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
                     
                     WhatsappMensaje::create(['numero'=> $fono,
-                                'mensaje'=>'Hola '.$cliente->name.' Su pedido a sido ingresado a nuestro sistema, pronto recibirá el diseño para su aprobación antes de ser enviado al area de producción, en el siguiente link podra hacer seguimiento de su pedido https://riderschilenos.cl/seguimiento/'.$pedido->id.' Recuerde que cualquier duda que tenga solo debe contáctanos al whatsapp +56963176726',
+                                'mensaje'=>'Hola '.$cliente->name.' Su pedido a sido ingresado a nuestro sistema, pronto recibirá el diseño para su aprob.......',
                                 'type'=>'enviado']);
                 } catch (\Throwable $th) {
                     WhatsappMensaje::create(['numero'=> $fono,
-                                'mensaje'=>'ERROR al enviar Mentaje => Hola '.$cliente->name.' Su pedido a sido ingresado a nuestro sistema, pronto recibirá el diseño para su aprobación antes de ser enviado al area de producción, en el siguiente link podra hacer seguimiento de su pedido https://riderschilenos.cl/seguimiento/'.$pedido->id.' Recuerde que cualquier duda que tenga solo debe contáctanos al whatsapp +56963176726',
+                                'mensaje'=>'ERROR al enviar Mentaje => Hola '.$cliente->name.' Su pedido a sido ingresado a nuestro sistema, pronto recibirá el diseño para su aprob.......',
                                 'type'=>'enviado']);
                 }
                 

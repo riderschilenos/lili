@@ -229,12 +229,26 @@
                                         </a>
                                     </div>
                                     @if ($pedido->status==6)
-                                        <input wire:model="file" type="file" class="form-input bg-gray-200 mt-4">
-                                         <br>
-                                         <div class="flex justify-center mt-2">
-                                            <a class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="despachado({{$pedido->id}})">Despachado</a>
-                                            <a class="ml-2 btn btn-danger cursor-pointer text-center mt-1"  wire:click="retirado({{$pedido->id}})">Retirado</a>
-                                         </div>
+
+                                        @if ($pedido->transportista_id==1)
+                                            <div class="flex justify-center">
+                                                <input type="text" wire:model="search" placeholder="Escanear SKU" class="bg-gray-50 outline-none ml-1 block" autofocus id="searchInput">
+                                            </div>
+                                            
+                                            <div class="flex justify-center mt-2">
+                                                <a id="btnDespachado" class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="enviarblue({{$pedido->id}})">Despachado</a>
+                                            </div>
+                                        @else
+                                            <input wire:model="file" type="file" class="form-input bg-gray-200 mt-4">
+                                            <br>
+                                            <div class="flex justify-center mt-2">
+                                               <a class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="despachado({{$pedido->id}})">Despachado</a>
+                                               <a class="ml-2 btn btn-danger cursor-pointer text-center mt-1"  wire:click="retirado({{$pedido->id}})">Retirado</a>
+                                            </div>
+                                        @endif
+                                          
+
+                                        
                                         <div class="text-white  text-md font-bold px-4" wire:loading wire:target="file">
                                             <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                                         </div>
@@ -838,5 +852,13 @@ No hay ningun retiro realizado
   
 </div>
  
-    
+<script>
+    document.getElementById("searchInput").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("btnDespachado").click();
+        }
+    });
+</script>
+
 </div>

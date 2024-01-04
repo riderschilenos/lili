@@ -29,8 +29,9 @@
                         <button class="bg-green-500 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer ml-2">Ganancia ${{number_format($ventatotal-$total)}}</button>
                     </div>
                             <div class="flex ml-auto">
-                                
-                                <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer ml-2">Nuevo Producto</button>
+                                <a href="{{route('tiendas.productos.manual',$tienda)}}">
+                                    <button class="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer ml-2">Nuevo Producto</button>
+                                </a>
                             </div>
                        
                     </div>

@@ -102,18 +102,26 @@
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900 whitespace-no-wrap">
-                                                @if ($producto->stock)
-                                                    {{$producto->stock}}
-                                                @elseif($producto->stock==null)
-                                                    <a href="{{route('tiendas.productos.edit',$producto)}}">
-                                                        <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                                        <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                                        <span class="relative">Pendiente</span>
-                                                    </a>
+                                                @if ($producto->personalizable=='si')
+                                                    <span class="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight text-xs">
+                                                    <span aria-hidden class="absolute inset-0 bg-gray-200 opacity-50 rounded-full"></span>
+                                                    <span class="relative">Personalizable</span>
                                                 @else
-                                                    <a href="{{route('tiendas.productos.edit',$producto)}}">
-                                                    0
-                                                    </a>
+                                                    @if ($producto->stock)
+                                                        {{$producto->stock}}
+                                                    @elseif($producto->stock==null)
+                                                        <a href="{{route('tiendas.productos.edit',$producto)}}">
+                                                            <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                                                            <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+                                                            <span class="relative">Pendiente</span>
+                                                        </a>
+                                                    @else
+                                                        <a href="{{route('tiendas.productos.edit',$producto)}}">
+                                                        0
+                                                        </a>
+                                                    @endif
+                                                
+                                                    
                                                 @endif
                                             </p>
                                             </td>
@@ -137,11 +145,21 @@
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                @if (intval($producto->costo)>0 && intval($producto->stock)>0)
-                                                    ${{number_format($producto->costo*$producto->stock)}}
+                                                    @if ($producto->personalizable=='si')
+                                                    <span class="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight text-xs">
+                                                    <span aria-hidden class="absolute inset-0 bg-gray-200 opacity-50 rounded-full"></span>
+                                                    <span class="relative">Personalizable</span>
                                                 @else
-                                                    $0
+                                                    
+                                                    @if (intval($producto->costo)>0 && intval($producto->stock)>0)
+                                                        ${{number_format($producto->costo*$producto->stock)}}
+                                                    @else
+                                                        $0
+                                                    @endif
+                                                
+                                                    
                                                 @endif
+                                                
                                                 </p>
                                                 </td>
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">

@@ -22,10 +22,12 @@ class ProductosSearch extends Component
     {   $invitados= Invitado::all();
         $socios= Socio::all();
         $pedidos = Pedido::whereHas('ordens', function ($query) {
-                $query->whereHas('producto', function ($queryProducto) {
-                    $queryProducto->where('tienda_id', $this->tienda->id);
-                });
-            })->where('status', '>=', 4)->paginate(50);
+            $query->whereHas('producto', function ($queryProducto) {
+                $queryProducto->where('tienda_id', $this->tienda->id);
+            });
+                })->where('status', '>=', 4)
+                ->orderBy('id', 'desc')
+                ->paginate(50);
         $pedidosall = Pedido::whereHas('ordens', function ($query) {
                 $query->whereHas('producto', function ($queryProducto) {
                     $queryProducto->where('tienda_id', $this->tienda->id);

@@ -39,7 +39,7 @@
             <!-- Page Content -->
             <main>
                     <div>
-                    <h1 class="text-center pt-12"> CODIGOS DE BARRA {{$producto->name}}</h1>
+                    <h1 class="text-center pt-8"> CODIGOS DE BARRA {{$producto->name}}</h1>
                     <div class="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8 grid grid-cols-6 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 gap-x-4 gap-y-2">
                      
                                     

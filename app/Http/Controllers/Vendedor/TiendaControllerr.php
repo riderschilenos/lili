@@ -7,10 +7,12 @@ use App\Models\Category_product;
 use App\Models\Disciplina;
 use App\Models\Producto;
 use App\Models\Tienda;
+use App\Models\WhatsappMensaje;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 use Illuminate\support\Str;
+use Illuminate\Support\Facades\Http;
 
 class TiendaControllerr extends Controller
 {
@@ -71,6 +73,79 @@ class TiendaControllerr extends Controller
                         'logo'=>'tiendas/'.$nombre
                     ]);
             }
+
+        $fono='569'.substr(str_replace(' ', '', $tienda->fono), -8);
+        try {
+            $token = env('WS_TOKEN');
+            $phoneid= env('WS_PHONEID');
+            $version='v16.0';
+            $url="https://riderschilenos.cl/";
+            $wsload=[
+                    'messaging_product' => 'whatsapp',
+                    "preview_url"=> false,
+                    'to'=>'56963176726',
+                    
+                    'type'=>'template',
+                        'template'=>[
+                            'name'=>'nueva_tienda',
+                            'language'=>[
+                                'code'=>'es'],
+                            'components'=>[ 
+                                [
+                                    'type'=>'body',
+                                    'parameters'=>[
+                                        [   //nombre
+                                            'type'=>'text',
+                                            'text'=> $tienda->nombre
+                                        ],
+                                        [   //nombre
+                                            'type'=>'text',
+                                            'text'=> $tienda->user->name
+                                        ],
+                                        [   //nombre
+                                            'type'=>'text',
+                                            'text'=> $fono
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                        
+                    
+                ];
+                
+            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+            
+            $token = env('WS_TOKEN');
+            $phoneid= env('WS_PHONEID');
+            $version='v16.0';
+            $url="https://riderschilenos.cl/";
+            $payload=[
+                'messaging_product' => 'whatsapp',
+                "preview_url"=> false,
+                'to'=>$fono,
+                
+                'type'=>'template',
+                    'template'=>[
+                        'name'=>'confirmacion_tienda',
+                        'language'=>[
+                            'code'=>'es'],
+                    
+                    ]
+                
+            ];
+            
+            Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+            
+            WhatsappMensaje::create(['numero'=> $fono,
+            'mensaje'=>"¡Felicidades! Tu tienda ha sido registrada con éxito.",
+            'type'=>'enviado']);
+
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+       
 
         return redirect()->route('tiendas.edit',$tienda);
     }

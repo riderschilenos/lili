@@ -127,7 +127,15 @@ class ProductController extends Controller
     {
         $producto->update($request->all());
 
-        return redirect()->back()->with('info','El producto se actualizó con éxito.');
+        return redirect()->back()->with('info','Producto actualizado con éxito.');
+    }
+
+    public function skugenerate(Request $request, Producto $producto)
+    {   
+        $slug=mt_rand(1000000000, 9999999999);
+        $producto->update(['sku'=>$slug]);
+
+        return redirect()->back()->with('info','SKU generado con éxito.');
     }
 
     /**

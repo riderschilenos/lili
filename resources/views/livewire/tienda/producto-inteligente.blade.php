@@ -89,8 +89,12 @@
                                                             </div>
                                                     <div class="ml-3 cursor-pointer">
                                                         <a href="{{route('tiendas.productos.edit',$producto)}}">
-                                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                            <p class="text-gray-900 whitespace-no-wrap text-left">
                                                             {{$producto->name}}
+                                                            @if ($producto->sku)
+                                                                <br>sku: {{$producto->sku}}
+                                                            @endif
+                                                        
                                                             </p>
                                                         </a>
                                                     </div>

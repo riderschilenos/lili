@@ -110,3 +110,5 @@ Route::get('tienda/{producto}/productos/productoedit', [TiendaControllerr::class
 Route::get('tienda/{tienda}/pedidos', [TiendaControllerr::class,'pedidos'])->name('tiendas.pedidos');
 
 Route::post('{producto}/updatingall',[ProductController::class, 'update'])->name('producto.update');
+
+Route::post('{producto}/skugenerate',[ProductController::class, 'skugenerate'])->name('producto.skugenerate');

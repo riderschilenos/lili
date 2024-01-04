@@ -4,8 +4,15 @@
           @livewire('tienda.producto-inteligente',['producto'=>$producto->id])
           <div class="flex justify-end">
             <div class="max-w-7xl">
-              <div class="grid grid-cols-3 w-full gap-x-2 mx-6 mt-6">
-                
+              <div class="flex justify-end">
+                {!! Form::open(['route'=>['producto.skugenerate',$producto] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'POST']) !!}
+                  
+                  {!! Form::submit('(Gnerar SKU)', ['class'=>'link-button text-center mt-6 text-xs mx-2 text-blue-600 cursor-pointer']) !!}
+                    
+                {!! Form::close() !!}
+              </div>
+              <div class="grid grid-cols-3 w-full gap-x-2 mx-6">
+               
                   <div class="mx-auto w-full bg-white col-span-2 py-4 px-6" x-data="{alert:true}">
                   @if (session('info'))
                     <div x-show="alert" class="font-regular relative block w-full max-w-screen-md rounded-lg bg-green-500 px-4 py-4 text-base text-white mb-4" data-dismissible="alert">
@@ -26,7 +33,7 @@
                         </div>
                         <div class="ml-8 mr-12">
                           <h5 class="block font-sans text-xl font-semibold leading-snug tracking-normal text-white antialiased">
-                            Producto actualizado con éxito.
+                           {{session('info')}}
                           </h5>
                         
                         </div>
@@ -52,7 +59,7 @@
                         </div>
                     </div>
                   @endif
-               
+                 
                     {!! Form::model($producto, ['route'=>['producto.update',$producto],'method' => 'POST', 'files'=> true , 'autocomplete'=>'off']) !!}
                     
                     <div class="flex items-center mb-4">
@@ -145,6 +152,8 @@
                 
                       </div>
                       {!! Form::close() !!}
+
+                     
                 </div>
 
             

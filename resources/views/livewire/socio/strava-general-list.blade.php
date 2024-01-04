@@ -189,6 +189,7 @@
                                                             {!! Form::submit('Sincronizar actividad', ['class'=>'link-button text-center mt-6 text-xs mx-2 text-blue-600 cursor-pointer']) !!}
                                                                 
                                                             {!! Form::close() !!}
+                                                            id:{{$user->atletaStrava->id}}
                                                         </div>
                                                     @endcan
                                                 </div>

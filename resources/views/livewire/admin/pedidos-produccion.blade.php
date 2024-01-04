@@ -230,7 +230,7 @@
                                     </div>
                                     @if ($pedido->status==6)
 
-                                        @if ($pedido->transportista_id==1)
+                                        @if ($pedido->transportista_id==4)
                                             <div class="flex justify-center">
                                                 <input type="text" wire:model="search" placeholder="Escanear SKU" class="bg-gray-50 outline-none ml-1 block" autofocus id="searchInput">
                                             </div>

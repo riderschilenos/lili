@@ -32,7 +32,7 @@ window.load = setTimeout("document.body.removeChild(aviso)", 2000);
     @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
 
        @if ($pedido->status>=7)
-        @if ($pedido->transportista_id==1)
+        @if ($pedido->transportista_id==4)
             <div class="min-w-screen flex items-center py-2 lg:p-10 overflow-hidden relative">
               <div class="w-full max-w-6xl rounded bg-white shadow-xl p-2 lg:px-20 py-4 mx-auto text-gray-800 relative md:text-left">
                   <div class="md:flex items-center mx-10  p-2">

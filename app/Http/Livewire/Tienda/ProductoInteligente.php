@@ -26,6 +26,7 @@ class ProductoInteligente extends Component
     }
     public function render()
     {  $productos = Producto::where('name', 'LIKE', '%' . $this->search . '%')
+        ->where('tienda_id',$this->product->tienda->id)
         ->orderByRaw("CASE 
                             WHEN personalizable = 'no' THEN 1 
                             WHEN personalizable = 'sí' THEN 2 

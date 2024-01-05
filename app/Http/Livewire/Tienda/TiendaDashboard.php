@@ -36,14 +36,14 @@ class TiendaDashboard extends Component
             })
             ->get();
         if($this->tienda->id==4){
-            $tickets=Ticket::where('evento_id',13)
+            $tickets30=Ticket::where('evento_id',13)
             ->where('created_at', '>=', now()->subDays(29))
             ->where('status','>=',3)->get();
             $suscripcions30=Suscripcion::where('suscripcionable_type','App\Models\Socio')
             ->where('created_at', '>=', now()->subDays(29))
             ->get();
         }else{
-            $tickets=null;
+            $tickets30=null;
             $suscripcions=null;
         }
         $pagos7=Pago::whereHas('pedidos', function ($query) {
@@ -79,6 +79,6 @@ class TiendaDashboard extends Component
 
         $now=now();
 
-        return view('livewire.tienda.tienda-dashboard',compact('now','tickets','suscripcions30','pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
+        return view('livewire.tienda.tienda-dashboard',compact('now','tickets30','suscripcions30','pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
     }
 }

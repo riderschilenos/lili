@@ -10,8 +10,8 @@
        $total+=$pago->cantidad;
 @endphp
 @endforeach
-@if ($tickets)
-@foreach ($tickets as $ticket)
+@if ($tickets30)
+@foreach ($tickets30 as $ticket)
 @php
        $total30+=$ticket->inscripcion;
 @endphp
@@ -521,6 +521,11 @@
             foreach ($suscripcions30 as $suscripcion){
                 if (intval($suscripcion->created_at->format('d')) == $day) {
                     $totaldia+=$suscripcion->precio;
+                }
+            }
+            foreach ($tickets30 as $ticket){
+                if (intval($ticket->created_at->format('d')) == $day) {
+                    $totaldia+=$ticket->inscripcion;
                 }
             }
        

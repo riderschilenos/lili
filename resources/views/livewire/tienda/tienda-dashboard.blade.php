@@ -18,6 +18,14 @@
 @endforeach
 @endif
 
+@if ($suscripcions)
+@foreach ($suscripcions as $suscripcion)
+@php
+       $total30+=$suscripcion->precio;
+@endphp
+@endforeach
+@endif
+
 
 @foreach ($pagos7 as $pago)
 @php

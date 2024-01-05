@@ -108,74 +108,80 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white">
-                                        @foreach ($latest7 as $item)
+                                        @if ($latest7)
+                                            @foreach ($latest7 as $item)
 
-                                            <tr>
-                                                <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                    @if ($item->type=='Pago')
-                                                        @foreach ($item->pedidos as $pedido)
-                                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
-                                                                @if ($pedido->pedidoable_type=='App\Models\Socio')
-                                                                    Pedido de #{{$pedido->id}}<span class="font-semibold"> {{$pedido->invitado->name}}</span>
-                                                                @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                    Pedido de #{{$pedido->id}}<span class="font-semibold"> {{$pedido->invitado->name}}</span>
-                                                                @endif
-                                                            </a>
-                                                        @endforeach   
-                                                    @elseif ($item->type=='Suscripcion')
-                                                    
-                                                            Credencial de <span class="font-semibold">{{$item->socio->name}}</span>
-                                                    @elseif ($item->type=='Desafio')
-                                                    
-                                                            @if ($item->ticketable_type=='App\Models\Socio')
-                                                                Inscripción #{{$item->id}} de 
-                                                            <span class="font-semibold">
-                                                                
-                                                                @if ($item->socio)
-                                                                    {{$item->socio->name}}
-                                                                @endif
-                                                            </span>
-                                                            @elseif ($item->ticketable_type=='App\Models\Invitado')
-                                                                Inscripción #{{$item->id}} de 
+                                                <tr>
+                                                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                                        @if ($item->type=='Pago')
+                                                            @foreach ($item->pedidos as $pedido)
+                                                                <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                                    @if ($pedido->pedidoable_type=='App\Models\Socio')
+                                                                        Pedido de #{{$pedido->id}}<span class="font-semibold"> {{$pedido->invitado->name}}</span>
+                                                                    @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
+                                                                        Pedido de #{{$pedido->id}}<span class="font-semibold"> {{$pedido->invitado->name}}</span>
+                                                                    @endif
+                                                                </a>
+                                                            @endforeach   
+                                                        @elseif ($item->type=='Suscripcion')
+                                                        
+                                                                Credencial de <span class="font-semibold">{{$item->socio->name}}</span>
+                                                        @elseif ($item->type=='Desafio')
+                                                        
+                                                                @if ($item->ticketable_type=='App\Models\Socio')
+                                                                    Inscripción #{{$item->id}} de 
                                                                 <span class="font-semibold">
                                                                     
-                                                                    {{$item->invitado->name}}
+                                                                    @if ($item->socio)
+                                                                        {{$item->socio->name}}
+                                                                    @endif
                                                                 </span>
-                                                            @endif
-                                                    @endif
-                                                   
-                                                </td>
-                                                <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                    {{$item->created_at}}
-                                                </td>
-                                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                    @if ($item->type=='Pago')
-                                                        @foreach ($item->pedidos as $pedido)
-                                                            @if ($pedido->pedidoable_type=='App\Models\Socio')
-                                                                ${{number_format($pago->cantidad)}}
-                                                            @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                ${{number_format($pago->cantidad)}}
-                                                            @endif
-                                                            
-                                                        @endforeach   
-                                                    @elseif ($item->type=='Suscripcion')
+                                                                @elseif ($item->ticketable_type=='App\Models\Invitado')
+                                                                    Inscripción #{{$item->id}} de 
+                                                                    <span class="font-semibold">
+                                                                        
+                                                                        {{$item->invitado->name}}
+                                                                    </span>
+                                                                @endif
+                                                        @endif
                                                     
-                                                           ${{number_format($item->precio)}}
-                                                    
-                                                    @elseif ($item->type=='Desafio')
-                                                    
-                                                            @if ($item->ticketable_type=='App\Models\Socio')
-                                                                ${{number_format($item->inscripcion)}}
-                                                            @elseif ($item->ticketable_type=='App\Models\Invitado')
-                                                                ${{number_format($item->inscripcion)}}
-                                                            @endif
-                                                    @endif
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
+                                                        {{$item->created_at}}
+                                                    </td>
+                                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                                        @if ($item->type=='Pago')
+                                                            @foreach ($item->pedidos as $pedido)
+                                                                @if ($pedido->pedidoable_type=='App\Models\Socio')
+                                                                    ${{number_format($pago->cantidad)}}
+                                                                @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
+                                                                    ${{number_format($pago->cantidad)}}
+                                                                @endif
+                                                                
+                                                            @endforeach   
+                                                        @elseif ($item->type=='Suscripcion')
+                                                        
+                                                            ${{number_format($item->precio)}}
+                                                        
+                                                        @elseif ($item->type=='Desafio')
+                                                        
+                                                                @if ($item->ticketable_type=='App\Models\Socio')
+                                                                    ${{number_format($item->inscripcion)}}
+                                                                @elseif ($item->ticketable_type=='App\Models\Invitado')
+                                                                    ${{number_format($item->inscripcion)}}
+                                                                @endif
+                                                        @endif
+                                                    </td>
+                                                </tr>
 
-                                           
                                             
-                                        @endforeach
+                                                
+                                            @endforeach
+                                        @else
+                                                
+                                        @endif
+
+                                        
                                       
                                     </tbody>
                                     </table>

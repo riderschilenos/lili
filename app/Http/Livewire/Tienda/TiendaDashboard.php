@@ -35,7 +35,9 @@ class TiendaDashboard extends Component
             })
             ->get();
         if(auth()->user()->id==1){
-            $tickets=Ticket::where('evento_id',13)->where('status','>=',3)->get();
+            $tickets=Ticket::where('evento_id',13)
+            ->where('created_at', '>=', now()->subDays(29))
+            ->where('status','>=',3)->get();
         }else{
             $tickets=null;
         }

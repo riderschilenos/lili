@@ -13,7 +13,7 @@
 @if ($tickets)
 @foreach ($tickets as $ticket)
 @php
-       $total+=$ticket->inscripcion;
+       $total30+=$ticket->inscripcion;
 @endphp
 @endforeach
 @endif

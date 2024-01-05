@@ -108,9 +108,9 @@
                                                         @foreach ($item->pedidos as $pedido)
                                                             <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
                                                                 @if ($pedido->pedidoable_type=='App\Models\Socio')
-                                                                    Pedido de #{{$pedido->id}}<span class="font-semibold">{{$pedido->invitado->name}}</span>
+                                                                    Pedido de #{{$pedido->id}}<span class="font-semibold"> {{$pedido->invitado->name}}</span>
                                                                 @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                    Pedido de #{{$pedido->id}}<span class="font-semibold">{{$pedido->invitado->name}}</span>
+                                                                    Pedido de #{{$pedido->id}}<span class="font-semibold"> {{$pedido->invitado->name}}</span>
                                                                 @endif
                                                             </a>
                                                         @endforeach   

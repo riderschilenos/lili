@@ -62,8 +62,11 @@
             @elseif ($item->type=='Desafio')
                Inscripcón de 
                @if ($item->socio)
-                {{$item->socio->name}}<br>
+                    {{$item->socio->name}}<br>
                @endif
+               @if ($item->invitado)
+                    {{$item->invitado->name}}<br>
+                @endif
             @endif
             
         @endforeach

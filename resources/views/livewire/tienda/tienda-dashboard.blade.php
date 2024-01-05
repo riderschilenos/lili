@@ -60,7 +60,7 @@
                     Credencial de <b>{{$item->socio->name}}</b> - {{$item->precio}}<br>
               
             @elseif ($item->type=='Desafio')
-                {{$item->socio}}<br>
+               Inscripcón de {{$item->socio}}<br>
             @endif
             
         @endforeach

@@ -55,8 +55,12 @@ class Ticket extends Model
     }
 
     public function socio(){
-        return $this->belongsTo('App\Models\Socio');
-        }
+        return $this->morphTo('ticketable', 'ticketable_type', 'ticketable_id');
+    }
+    
+    public function invitado(){
+        return $this->morphTo('ticketable', 'ticketable_type', 'ticketable_id');
+    }
 
     public function user(){
         return $this->belongsTo('App\Models\User','user_id');

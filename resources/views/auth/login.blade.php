@@ -40,8 +40,8 @@
             </div>
 
             <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
+                <label for="remember_me" class="flex items-center hidden">
+                    <x-jet-checkbox id="remember_me" name="remember" checked />
                     <span class="ml-2 text-sm text-gray-600">{{ __('Recordar mi cuenta') }}</span>
                 </label>
             </div>

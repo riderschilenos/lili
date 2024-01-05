@@ -1,7 +1,7 @@
 <x-tienda-layout :tienda="$tienda">
          <main class="pr-10">
            
-            <div class="grid grid-cols-3 w-full gap-x-2 m-6">
+            <div class="grid grid-cols-2 md:grid-cols-3 w-full gap-x-2 m-6">
                                 
                <div class="mx-auto w-full bg-white col-span-2 py-4 px-6">
                 @if (session('sku'))
@@ -80,7 +80,7 @@
                         @enderror
                     </div>
       
-                     <div class="mb-6 pt-4" >
+                     <div class="mb-6 pt-4 hidden" >
                         <div class="flex justify-between">
                            <label class="mb-5 block text-xl font-semibold text-[#07074D]">
                            Fotos del Producto
@@ -125,7 +125,7 @@
                      
 
                </div>
-               <div class="mx-auto w-full bg-white py-4 px-6 mr-6">
+               <div class="mx-auto w-full bg-white col-span-2 md:col-span-1 py-4 px-6 mr-6">
                   
                     <div class="mb-5">
                      <div class="mb-4">
@@ -184,10 +184,7 @@
                     </div>
                   </form>
                </div>
-
-           
-
-          </div>
+            </div>
    
          </main>
 

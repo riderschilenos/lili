@@ -2,39 +2,37 @@
   
          <main class="pr-10">
           @livewire('tienda.producto-inteligente',['producto'=>$producto->id,'tienda'=>$tienda->id])
-          <div class="flex justify-end">
+          <div class="flex justify-end mr-12">
             <div class="max-w-7xl">
-              <div class="grid grid-cols-3 w-full gap-x-2 mx-6 mb-2">
-               
-                <div class="mx-auto w-full col-span-2 px-6" x-data="{alert:true}">
-                </div>
-                <div class="mx-auto w-full px-6 mr-6">
-                  <div class="flex justify-between">
-                    <div>
-                      {!! Form::open(['route'=>['producto.skugenerate',$producto] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'POST']) !!}
-                        
-                        {!! Form::submit('(Gnerar SKU)', ['class'=>'link-button text-center mt-6 text-xs mx-2 text-blue-600 cursor-pointer']) !!}
-                          
-                      {!! Form::close() !!}
-                    </div>
-                    @if ($producto->sku)
-                        
-                    
+              <div class="grid grid-cols-2 md:grid-cols-3 w-full gap-x-2 mx-6 mb-2">
+                  <div class="mx-auto w-full col-span-2 px-6" x-data="{alert:true}">
+                  </div>
+                  <div class="mx-auto w-full col-span-2 md:col-span-1 px-6 mr-6">
+                    <div class="flex justify-between">
                       <div>
-                        {!! Form::open(['route'=>['producto.printsku',$producto] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'POST' ,'target' => '_blank']) !!}
-
-                        {!! Form::hidden('cantidad', 36 ) !!}
+                        {!! Form::open(['route'=>['producto.skugenerate',$producto] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'POST']) !!}
                           
-                          {!! Form::submit('Imprimir Etiquetas', ['class'=>'link-button text-center mt-6 text-xs mx-2 text-blue-600 cursor-pointer']) !!}
+                          {!! Form::submit('(Gnerar SKU)', ['class'=>'link-button text-center mt-6 text-xs mx-2 text-blue-600 cursor-pointer']) !!}
                             
                         {!! Form::close() !!}
                       </div>
-                    @endif  
+                      @if ($producto->sku)
+                          
+                      
+                        <div>
+                          {!! Form::open(['route'=>['producto.printsku',$producto] ,'files'=>true , 'autocomplete'=>'off', 'method'=>'POST' ,'target' => '_blank']) !!}
+
+                          {!! Form::hidden('cantidad', 36 ) !!}
+                            
+                            {!! Form::submit('Imprimir Etiquetas', ['class'=>'link-button text-center mt-6 text-xs mx-2 text-blue-600 cursor-pointer']) !!}
+                              
+                          {!! Form::close() !!}
+                        </div>
+                      @endif  
+                    </div>
                   </div>
-                </div>
               </div>
-              <div class="grid grid-cols-3 w-full gap-x-2 mx-6">
-               
+              <div class="grid grid-cols-2 md:grid-cols-3 w-full gap-x-2 mx-6">
                   <div class="mx-auto w-full bg-white col-span-2 py-4 px-6" x-data="{alert:true}">
                       @if (session('info'))
                         <div x-show="alert" class="font-regular relative block w-full max-w-screen-md rounded-lg bg-green-500 px-4 py-4 text-base text-white mb-4" data-dismissible="alert">
@@ -121,79 +119,75 @@
                       
 
                   </div>
-                <div class="mx-auto w-full bg-white py-4 px-6 mr-6">
-                    
-                      <div class="mb-5">
-                      <div class="mb-4">
+                  <div class="mx-auto w-full col-span-2 md:col-span-1 bg-white py-4 px-6 mr-6">
                       
-                       
+                        <div class="mb-5">
+                        <div class="mb-4">
+                        
+                        
 
-  
-                          {!! Form::label('sku', 'Sku:') !!}
-                          {!! Form::text('sku', null , ['class' => 'form-input block w-full mt-1'.($errors->has('comision_invitado')?' border-red-600':''),'step' => '0.5']) !!}
-                          @if ($producto->sku)
-                            <div class="flex justify-center mt-4">
-                              <img class="w-full" src="data:image/png;base64,{{DNS1D::getBarcodePNG($producto->sku, 'C39',2,70,array(1,1,1), true)}}" alt="barcode"   />
-                            </div>
-                          @endif  
-                          @error('sku')
-                              <strong class="text-xs text-red-600">{{$message}}</strong>
-                          @enderror
-                      </div>
-                      <div class="mb-4">
-                          {!! Form::label('precio', 'Precio:') !!}
-                          {!! Form::number('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('precio')?' border-red-600':''),'step' => '0.5']) !!}
-      
-                          @error('precio')
-                              <strong class="text-xs text-red-600">{{$message}}</strong>
-                          @enderror
-                      </div>
-                      <div class="mb-4">
-                        {!! Form::label('costo', 'Costo:') !!}
-                        {!! Form::number('costo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('costo')?' border-red-600':''),'step' => '0.5']) !!}
     
-                        @error('costo')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                    </div>
+                            {!! Form::label('sku', 'Sku:') !!}
+                            {!! Form::text('sku', null , ['class' => 'form-input block w-full mt-1'.($errors->has('comision_invitado')?' border-red-600':''),'step' => '0.5']) !!}
+                            @if ($producto->sku)
+                              <div class="flex justify-center mt-4">
+                                <img class="w-full" src="data:image/png;base64,{{DNS1D::getBarcodePNG($producto->sku, 'C39',2,70,array(1,1,1), true)}}" alt="barcode"   />
+                              </div>
+                            @endif  
+                            @error('sku')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            {!! Form::label('precio', 'Precio:') !!}
+                            {!! Form::number('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('precio')?' border-red-600':''),'step' => '0.5']) !!}
+        
+                            @error('precio')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                          {!! Form::label('costo', 'Costo:') !!}
+                          {!! Form::number('costo', null , ['class' => 'form-input block w-full mt-1'.($errors->has('costo')?' border-red-600':''),'step' => '0.5']) !!}
+      
+                          @error('costo')
+                              <strong class="text-xs text-red-600">{{$message}}</strong>
+                          @enderror
+                      </div>
+                        </div>
+                        <div class="mb-4">
+                          {!! Form::label('disciplina_id', 'Disciplina') !!}
+                          {!! Form::select('disciplina_id', $disciplinas, $tienda->disciplina_id , ['class'=>'form-input block w-full mt-1']) !!}
                       </div>
                       <div class="mb-4">
-                        {!! Form::label('disciplina_id', 'Disciplina') !!}
-                        {!! Form::select('disciplina_id', $disciplinas, $tienda->disciplina_id , ['class'=>'form-input block w-full mt-1']) !!}
-                    </div>
-                    <div class="mb-4">
-                        {!! Form::label('personalizable', 'Personalizable') !!}
-                        <div class="flex items-center mt-1">
-                            <label class="inline-flex items-center mr-4">
-                                {!! Form::radio('personalizable', 'si', $tienda->disciplina_id == 'si', ['class'=>'form-radio']) !!}
-                                <span class="ml-2">Sí</span>
-                            </label>
-                            <label class="inline-flex items-center">
-                                {!! Form::radio('personalizable', 'no', $tienda->disciplina_id == 'no', ['class'=>'form-radio']) !!}
-                                <span class="ml-2">No</span>
-                            </label>
-                        </div>
-                    </div>
-                
-                
-                
-                      <div>
-                        {!! Form::submit('Actualizar Producto', ['class'=>'hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none']) !!}
-                
+                          {!! Form::label('personalizable', 'Personalizable') !!}
+                          <div class="flex items-center mt-1">
+                              <label class="inline-flex items-center mr-4">
+                                  {!! Form::radio('personalizable', 'si', $tienda->disciplina_id == 'si', ['class'=>'form-radio']) !!}
+                                  <span class="ml-2">Sí</span>
+                              </label>
+                              <label class="inline-flex items-center">
+                                  {!! Form::radio('personalizable', 'no', $tienda->disciplina_id == 'no', ['class'=>'form-radio']) !!}
+                                  <span class="ml-2">No</span>
+                              </label>
+                          </div>
                       </div>
-                      {!! Form::close() !!}
+                  
+                  
+                  
+                        <div>
+                          {!! Form::submit('Actualizar Producto', ['class'=>'hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none']) !!}
+                  
+                        </div>
+                        {!! Form::close() !!}
+
+                        
 
                       
-
-                     
-                </div>
-
-            
-
                   </div>
-                  <div class="grid grid-cols-3 w-full gap-x-2 mx-6">
-                                        
-                    <div class="mx-auto w-full bg-white col-span-2 py-4 px-6">
+              </div>
+              <div class="grid grid-cols-2 md:grid-cols-3 w-full gap-x-2 mx-6">
+                  <div class="mx-auto w-full bg-white col-span-2 py-4 px-6">
 
                           <div class="mb-6 pt-4" >
                             <div class="flex justify-between">
@@ -278,13 +272,9 @@
                           
                           
 
-                    </div>
-                    <div class="mx-auto w-full bg-white py-4 px-6 mr-6">
-                      
-                    </div>
-
-                
-
+                  </div>
+                  <div class="mx-auto w-full col-span-2 md:col-span-1 bg-white py-4 px-6 mr-6">
+                  </div>
               </div>
             </div>
           </div>

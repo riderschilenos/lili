@@ -286,7 +286,14 @@
 
                                   </div>
                               </td>
-                              <td class="text-center text-sm">{{$pedido->vendedor->name}}</td>
+                              <td class="text-center text-sm">
+                                @if ($pedido->vendedor)
+                                     {{$pedido->vendedor->name}}
+                                @else
+                                    -
+                                @endif
+                               
+                            </td>
                                 
                                 <td class="text-center text-sm">+56966996699 <br>Vendedor</td>
                                 

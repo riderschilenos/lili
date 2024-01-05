@@ -178,7 +178,7 @@
                                                 
                                             @endforeach
                                         @else
-                                                
+
                                         @endif
 
                                         
@@ -535,22 +535,27 @@
         $ventas=[];
         foreach ($dias as $day) {
             $totaldia=0;
-            foreach ($pagos30 as $pago) {
-                if (intval($pago->created_at->format('d')) == $day) {
-                    $totaldia+=$pago->cantidad;
+            if($pagos30){
+                foreach ($pagos30 as $pago) {
+                    if (intval($pago->created_at->format('d')) == $day) {
+                        $totaldia+=$pago->cantidad;
+                    }
                 }
             }
-            foreach ($suscripcions30 as $suscripcion){
-                if (intval($suscripcion->created_at->format('d')) == $day) {
-                    $totaldia+=$suscripcion->precio;
+            if($suscripcions30){
+                foreach ($suscripcions30 as $suscripcion){
+                    if (intval($suscripcion->created_at->format('d')) == $day) {
+                        $totaldia+=$suscripcion->precio;
+                    }
                 }
             }
-            foreach ($tickets30 as $ticket){
-                if (intval($ticket->created_at->format('d')) == $day) {
-                    $totaldia+=$ticket->inscripcion;
+            if(tickets30){
+                foreach ($tickets30 as $ticket){
+                    if (intval($ticket->created_at->format('d')) == $day) {
+                        $totaldia+=$ticket->inscripcion;
+                    }
                 }
             }
-       
             $ventas[]=$totaldia;
             }
     @endphp

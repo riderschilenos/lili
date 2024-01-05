@@ -549,7 +549,7 @@
                     }
                 }
             }
-            if(tickets30){
+            if($tickets30){
                 foreach ($tickets30 as $ticket){
                     if (intval($ticket->created_at->format('d')) == $day) {
                         $totaldia+=$ticket->inscripcion;

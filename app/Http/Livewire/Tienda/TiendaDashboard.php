@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tienda;
 
 use App\Models\Pago;
 use App\Models\Pedido;
+use App\Models\Ticket;
 use App\Models\Tienda;
 use Livewire\Component;
 
@@ -33,6 +34,8 @@ class TiendaDashboard extends Component
                 })->where('status', '>=', 4);
             })
             ->get();
+        
+        $tickets=Ticket::where('evento_id',13)->where('status','>=',3)->get();
       
         $pagos7=Pago::whereHas('pedidos', function ($query) {
                 $query->whereHas('ordens.producto', function ($queryProducto) {

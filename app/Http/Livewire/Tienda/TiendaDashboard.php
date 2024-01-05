@@ -39,7 +39,7 @@ class TiendaDashboard extends Component
             $tickets=Ticket::where('evento_id',13)
             ->where('created_at', '>=', now()->subDays(29))
             ->where('status','>=',3)->get();
-            $suscripcions=Suscripcion::where('suscripcionable_type','App\Models\Socio')
+            $suscripcions30=Suscripcion::where('suscripcionable_type','App\Models\Socio')
             ->where('created_at', '>=', now()->subDays(29))
             ->get();
         }else{
@@ -77,7 +77,8 @@ class TiendaDashboard extends Component
             ->where('created_at', '<', now()->subDays(330))
             ->get();
 
+        $now=now();
 
-        return view('livewire.tienda.tienda-dashboard',compact('tickets','suscripcions','pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
+        return view('livewire.tienda.tienda-dashboard',compact('now','tickets','suscripcions30','pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
     }
 }

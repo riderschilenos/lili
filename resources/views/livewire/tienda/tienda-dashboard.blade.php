@@ -18,8 +18,8 @@
 @endforeach
 @endif
 
-@if ($suscripcions)
-@foreach ($suscripcions as $suscripcion)
+@if ($suscripcions30)
+@foreach ($suscripcions30 as $suscripcion)
 @php
        $total30+=$suscripcion->precio;
 @endphp
@@ -38,12 +38,18 @@
 @endphp
 @endforeach
 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
     <div class="pt-6 px-4">
                         
             @if ($tienda->productos)
                 <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
                     <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center justify-between mb-6">
                             <div class="flex-shrink-0">
                                 <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">${{number_format($total30)}}</span>
                                 <h3 class="text-base font-normal text-gray-500">Ventas del mes</h3>
@@ -61,7 +67,9 @@
                                 </svg>
                             </div>
                         </div>
-                        <div id="main-chart"></div>
+                        <figure class="highcharts-figure" class="mt-8">
+                            <div id="grafico"></div>
+                        </figure>
                     </div>
                     <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                         <div class="mb-4 flex items-center justify-between">
@@ -485,4 +493,94 @@
                 </div>
             </div>
     </div>
+
+    @php
+        $final=$now->format('d')+date('t', strtotime($now."- 1 month"));
+        $inicio=$now->format('d')+1;
+        $dias=[];
+
+        foreach (range($inicio,($final)) as $number) {
+              
+                if($number>date('t', strtotime($now."- 1 month"))){
+                   $nro=($number- date('t', strtotime($now."- 1 month")));
+                }else{
+                   $nro=$number;
+                }  
+               $dias[]=$nro;
+            }
+        
+
+        $ventas=[];
+        foreach ($dias as $day) {
+            $totaldia=0;
+            foreach ($pagos30 as $pago) {
+                if (intval($pago->created_at->format('d')) == $day) {
+                    $totaldia+=$pago->cantidad;
+                }
+            }
+            foreach ($suscripcions30 as $suscripcion){
+                if (intval($suscripcion->created_at->format('d')) == $day) {
+                    $totaldia+=$suscripcion->precio;
+                }
+            }
+       
+            $ventas[]=$totaldia;
+            }
+    @endphp
+    <script>
+        var ventas = <?php echo json_encode($ventas) ?>;
+        var dias = <?php echo json_encode($dias) ?>;
+   
+           Highcharts.chart('grafico', {
+            chart: {
+                    type: 'areaspline'
+                },
+            
+            title: {
+                        text: ''},
+            exporting: {
+                enabled: false // Esto deshabilita el menú contextual
+            },
+                       
+            yAxis: {
+                title: {
+                    text: 'Pesos Chilenos'
+                }
+                                },
+            colors: ['#01c600','#cd2300'],
+            xAxis: {
+                    categories: dias
+                    },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            plotOptions: {
+                
+            },
+
+            series: [{
+                name: 'Ventas',
+                data: ventas
+            }],
+
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+
+            });
+    </script>
 </div>

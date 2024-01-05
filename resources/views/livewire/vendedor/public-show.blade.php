@@ -76,7 +76,7 @@
                 @if (auth()->user())
                     @if (auth()->user()->tiendas)
                         @foreach (auth()->user()->tiendas as $tienda)
-                            <div class="flex flex-col ml-6 p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl">
+                            <div class="flex flex-col md:ml-6 p-4 bg-gray-800 border-gray-800 shadow-md hover:shodow-lg rounded-2xl">
                                 <div class="flex">
                                     <img src="https://images.unsplash.com/photo-1575390730294-dfc5efa5250b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80" alt="Just a flower" class=" w-16  object-fit  h-16 rounded-2xl">
                                     <div class="flex flex-col justify-center w-full px-2 py-1">

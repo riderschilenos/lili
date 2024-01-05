@@ -44,8 +44,16 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-    <div class="pt-6 px-4">
-                        
+    <div class="py-3 px-4">
+        <div class="flex justify-end pb-3">
+            <a href="{{route('vendedor.pedidos.create')}}" class="inline-flex sm:hidden ml-5 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+             </svg>
+             
+             Nuevo Pedido
+          </a>
+        </div>           
             @if ($tienda->productos)
                 <div class="w-full grid grid-cols-1 xl:grid-cols-3 gap-4">
                     <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">

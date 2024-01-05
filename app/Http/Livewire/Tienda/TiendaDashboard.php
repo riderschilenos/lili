@@ -72,7 +72,7 @@ class TiendaDashboard extends Component
 
         }else{
             $tickets30=null;
-            $suscripcions=null;
+            $suscripcions30=null;
             $latest7 =null;
         }
         

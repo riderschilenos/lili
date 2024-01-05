@@ -10,11 +10,14 @@
        $total+=$pago->cantidad;
 @endphp
 @endforeach
+@if ($tickets)
 @foreach ($tickets as $ticket)
 @php
        $total+=$ticket->inscripcion;
 @endphp
 @endforeach
+@endif
+
 
 @foreach ($pagos7 as $pago)
 @php

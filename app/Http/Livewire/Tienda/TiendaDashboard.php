@@ -34,9 +34,11 @@ class TiendaDashboard extends Component
                 })->where('status', '>=', 4);
             })
             ->get();
-        
-        $tickets=Ticket::where('evento_id',13)->where('status','>=',3)->get();
-      
+        if(auth()->user()->id==1){
+            $tickets=Ticket::where('evento_id',13)->where('status','>=',3)->get();
+        }else{
+            $tickets=null;
+        }
         $pagos7=Pago::whereHas('pedidos', function ($query) {
                 $query->whereHas('ordens.producto', function ($queryProducto) {
                     $queryProducto->where('tienda_id', $this->tienda->id);

@@ -69,6 +69,6 @@ class TiendaDashboard extends Component
             ->get();
 
 
-        return view('livewire.tienda.tienda-dashboard',compact('pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
+        return view('livewire.tienda.tienda-dashboard',compact('tickets','pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
     }
 }

@@ -62,13 +62,13 @@
             @elseif ($item->type=='Desafio')
               
                     @if ($item->ticketable_type=='App\Models\Socio')
-                         Inscripcón de <b>
+                         Inscripcón #{{$item->id}} de <b>
                             @if ($item->socio)
                                 {{$item->socio->name}}
                             @endif
                         </b> - {{$item->inscripcion}}<br>
                     @elseif ($item->ticketable_type=='App\Models\Invitado')
-                         Inscripcón de <b>{{$item->invitado->name}}</b> - {{$item->inscripcion}}<br>
+                         Inscripcón #{{$item->id}} de <b>{{$item->invitado->name}}</b> - {{$item->inscripcion}}<br>
                     @endif
             @endif
             

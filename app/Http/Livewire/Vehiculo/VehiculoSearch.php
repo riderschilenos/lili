@@ -15,9 +15,9 @@ class VehiculoSearch extends Component
     public $perPage = 8;
     public $loadedCount = 4;
 
-    public function loadMore()
+    public function loadMore($loadedCount)
     {
-        $this->perPage += $this->loadedCount;
+        $this->perPage += $loadedCount;
     }
 
     public function render()

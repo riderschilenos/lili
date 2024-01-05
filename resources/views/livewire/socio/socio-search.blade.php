@@ -122,7 +122,7 @@
         @if ($socios->count())
 
        
-            <section class="mb-4 pt-2 pb-12" wire:poll.3000ms="loadMore">
+            <section class="mb-4 pt-2 pb-12">
                
                  
                       

@@ -45,34 +45,6 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
     <div class="pt-6 px-4">
-        @foreach ($latest7 as $item)
-            @if ($item->type=='Pago')
-                @foreach ($item->pedidos as $pedido)
-                    @if ($pedido->pedidoable_type=='App\Models\Socio')
-                        Pago de <b>{{$pedido->socio->name}}</b> - {{$pago->cantidad}}<br>
-                    @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
-                        Pago de <b>{{$pedido->invitado->name}}</b> - {{$pago->cantidad}}<br>
-                    @endif
-                      
-                @endforeach   
-            @elseif ($item->type=='Suscripcion')
-               
-                    Credencial de <b>{{$item->socio->name}}</b> - {{$item->precio}}<br>
-              
-            @elseif ($item->type=='Desafio')
-              
-                    @if ($item->ticketable_type=='App\Models\Socio')
-                         Inscripcón #{{$item->id}} de <b>
-                            @if ($item->socio)
-                                {{$item->socio->name}}
-                            @endif
-                        </b> - {{$item->inscripcion}}<br>
-                    @elseif ($item->ticketable_type=='App\Models\Invitado')
-                         Inscripcón #{{$item->id}} de <b>{{$item->invitado->name}}</b> - {{$item->inscripcion}}<br>
-                    @endif
-            @endif
-            
-        @endforeach
                         
             @if ($tienda->productos)
                 <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
@@ -128,83 +100,74 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white">
-                                        <tr>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                Payment from <span class="font-semibold">Bonnie Green</span>
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 23 ,2021
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                $2300
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50">
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900 rounded-lg rounded-left">
-                                                Payment refund to <span class="font-semibold">#00910</span>
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 23 ,2021
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                -$670
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                Payment failed from <span class="font-semibold">#087651</span>
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 18 ,2021
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                $234
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50">
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900 rounded-lg rounded-left">
-                                                Payment from <span class="font-semibold">Lana Byrd</span>
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 15 ,2021
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                $5000
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                Payment from <span class="font-semibold">Jese Leos</span>
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 15 ,2021
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                $2300
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-gray-50">
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900 rounded-lg rounded-left">
-                                                Payment from <span class="font-semibold">THEMESBERG LLC</span>
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 11 ,2021
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                $560
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                Payment from <span class="font-semibold">Lana Lysle</span>
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 6 ,2021
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                $1437
-                                            </td>
-                                        </tr>
+                                        @foreach ($latest7 as $item)
+
+                                            <tr>
+                                                <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                                    @if ($item->type=='Pago')
+                                                        @foreach ($item->pedidos as $pedido)
+                                                            @if ($pedido->pedidoable_type=='App\Models\Socio')
+                                                                Pedido de <span class="font-semibold">{{$pedido->invitado->name}}</span>
+                                                            @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
+                                                                Pedido de <span class="font-semibold">{{$pedido->invitado->name}}</span>
+                                                            @endif
+                                                            
+                                                        @endforeach   
+                                                    @elseif ($item->type=='Suscripcion')
+                                                    
+                                                            Credencial de <span class="font-semibold">{{$item->socio->name}}</span>
+                                                    @elseif ($item->type=='Desafio')
+                                                    
+                                                            @if ($item->ticketable_type=='App\Models\Socio')
+                                                                Inscripcón #{{$item->id}} de 
+                                                            <span class="font-semibold">
+                                                                
+                                                                @if ($item->socio)
+                                                                    {{$item->socio->name}}
+                                                                @endif
+                                                            </span>
+                                                            @elseif ($item->ticketable_type=='App\Models\Invitado')
+                                                                Inscripcón #{{$item->id}} de 
+                                                                <span class="font-semibold">
+                                                                    
+                                                                    {{$item->invitado->name}}
+                                                                </span>
+                                                            @endif
+                                                    @endif
+                                                   
+                                                </td>
+                                                <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
+                                                    {{$item->created_at}}
+                                                </td>
+                                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                                    @if ($item->type=='Pago')
+                                                        @foreach ($item->pedidos as $pedido)
+                                                            @if ($pedido->pedidoable_type=='App\Models\Socio')
+                                                                ${{number_format($pago->cantidad)}}
+                                                            @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
+                                                                ${{number_format($pago->cantidad)}}
+                                                            @endif
+                                                            
+                                                        @endforeach   
+                                                    @elseif ($item->type=='Suscripcion')
+                                                    
+                                                           ${{number_format($item->precio)}}
+                                                    
+                                                    @elseif ($item->type=='Desafio')
+                                                    
+                                                            @if ($item->ticketable_type=='App\Models\Socio')
+                                                                ${{number_format($item->inscripcion)}}
+                                                            @elseif ($item->ticketable_type=='App\Models\Invitado')
+                                                                ${{number_format($item->inscripcion)}}
+                                                            @endif
+                                                    @endif
+                                                </td>
+                                            </tr>
+
+                                           
+                                            
+                                        @endforeach
+                                      
                                     </tbody>
                                     </table>
                                 </div>

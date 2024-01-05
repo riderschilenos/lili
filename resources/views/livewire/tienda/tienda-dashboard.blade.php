@@ -60,13 +60,12 @@
                     Credencial de <b>{{$item->socio->name}}</b> - {{$item->precio}}<br>
               
             @elseif ($item->type=='Desafio')
-               Inscripcón de 
-               @if ($item->socio)
-                    {{$item->socio->name}}<br>
-               @endif
-               @if ($item->invitado)
-                    {{$item->invitado->name}}<br>
-                @endif
+              
+                    @if ($item->ticketable_type=='App\Models\Socio')
+                         Inscripcón de <b>{{$item->socio->name}}</b> - {{$item->inscripcion}}<br>
+                    @elseif ($item->ticketable_type=='App\Models\Invitado')
+                         Inscripcón de <b>{{$item->invitado->name}}</b> - {{$item->inscripcion}}<br>
+                    @endif
             @endif
             
         @endforeach

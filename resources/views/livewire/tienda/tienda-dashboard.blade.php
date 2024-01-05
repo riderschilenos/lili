@@ -544,7 +544,7 @@
                        
             yAxis: {
                 title: {
-                    text: 'Pesos Chilenos'
+                    text: ''
                 }
                                 },
             colors: ['#01c600','#cd2300'],

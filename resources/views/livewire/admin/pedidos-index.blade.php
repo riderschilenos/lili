@@ -84,7 +84,11 @@
                         @foreach ($pedidos->reverse() as $pedido)
                             <tr>
                                 <td>{{$pedido->id}}</td>
-                                <td>{{$pedido->vendedor->name}}</td>
+                                <td>
+                                @if ($pedido->vendedor)
+                                    {{$pedido->vendedor->name}} <br>
+                                @endif    
+                                </td>
                                 <td class="text-center">
                                     @switch($pedido->status)
                                       @case(1)

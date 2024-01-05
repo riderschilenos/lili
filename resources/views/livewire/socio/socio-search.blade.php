@@ -165,7 +165,9 @@
                        
                    
                    
-        
+                        <div class="hidden md:flex justify-center mt-4">
+                            <a class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="loadMore(10)">Ver Más</a>
+                          </div>
                
             
             </section>
@@ -200,7 +202,7 @@
             document.addEventListener('livewire:load', function () {
                 window.addEventListener('scroll', function() {
                     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                        @this.loadMore(); // Invocar un método para cargar más registros
+                        @this.loadMore(5); // Invocar un método para cargar más registros
                     }
                 });
             });

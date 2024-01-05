@@ -16,9 +16,9 @@ class SocioSearch extends Component
     public $perPagesoc = 10;
     public $loadedCount = 5;
 
-    public function loadMore()
+    public function loadMore($loadedCount)
     {
-        $this->perPagesoc += $this->loadedCount;
+        $this->perPagesoc += $loadedCount;
     }
 
     public function render()

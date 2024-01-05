@@ -47,8 +47,8 @@
     <div class="pt-6 px-4">
                         
             @if ($tienda->productos)
-                <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
-                    <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
+                <div class="w-full grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex-shrink-0">
                                 <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">${{number_format($total30)}}</span>

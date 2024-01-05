@@ -66,9 +66,13 @@ class Pedido extends Model
     }
 
     
-
+    public function socio(){
+        return $this->morphTo('pedidoable', 'pedidoable_type', 'pedidoable_id');
+    }
     
-
+    public function invitado(){
+        return $this->morphTo('pedidoable', 'pedidoable_type', 'pedidoable_id');
+    }
 
 
 }

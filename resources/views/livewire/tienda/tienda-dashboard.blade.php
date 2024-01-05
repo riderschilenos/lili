@@ -45,6 +45,25 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
     <div class="pt-6 px-4">
+        @foreach ($latest7 as $item)
+            @if ($item->type=='Pago')
+                @foreach ($item->pedidos as $pedido)
+                    @if ($pedido->pedidoable_type=='App\Models\Socio')
+                        Pago de <b>{{$pedido->socio->name}}</b> - {{$pago->cantidad}}<br>
+                    @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
+                        Pago de <b>{{$pedido->invitado->name}}</b> - {{$pago->cantidad}}<br>
+                    @endif
+                      
+                @endforeach   
+            @elseif ($item->type=='Suscripcion')
+               
+                    Credencial de <b>{{$item->socio->name}}</b> - {{$item->precio}}<br>
+              
+            @elseif ($item->type=='Desafio')
+                {{$item}}<br>
+            @endif
+            
+        @endforeach
                         
             @if ($tienda->productos)
                 <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">

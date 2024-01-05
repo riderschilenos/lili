@@ -14,5 +14,9 @@ class Suscripcion extends Model
     public function suscripcionable(){
         return $this->morphTo();
     }
+
+    public function socio(){
+        return $this->morphTo('suscripcionable', 'suscripcionable_type', 'suscripcionable_id');
+    }
     
 }

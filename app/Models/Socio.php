@@ -50,9 +50,9 @@ class Socio extends Model
 
         //relacion uno a uno polimorfica
 
-        public function pedidos(){
-            return $this->MorphMany('App\Models\Pedido','pedidoable');
-        }
+    public function pedidos(){
+        return $this->MorphMany('App\Models\Pedido','pedidoable');
+    }
     
 
 

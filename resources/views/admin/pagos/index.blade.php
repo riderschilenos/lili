@@ -38,7 +38,9 @@
                             <td>{{$pago->id}}</td>
                             <td> 
                                 @foreach ($pago->pedidos as $pedido)
-                                    {{$pedido->vendedor->name}} <br>
+                                    @if ($pedido->vendedor)
+                                        {{$pedido->vendedor->name}} <br>
+                                    @endif
                                 @endforeach
                                 
                             </td>
@@ -111,7 +113,9 @@
                             <td>{{$pago->id}}</td>
                             <td> 
                                 @foreach ($pago->pedidos as $pedido)
-                                    {{$pedido->vendedor->name}} <br>
+                                    @if ($pedido->vendedor)
+                                        {{$pedido->vendedor->name}} <br>
+                                    @endif
                                 @endforeach
                                 
                             </td>

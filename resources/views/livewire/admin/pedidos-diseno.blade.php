@@ -189,7 +189,11 @@
                                         <div class="text-sm text-gray-900">{{$pedido->created_at->format('d-m-Y')}}</div>    
                                     </td>
 
-                                    <td class="text-center text-sm">{{$pedido->vendedor->name}}<br>
+                                    <td class="text-center text-sm">
+                                        @if ($pedido->vendedor)
+                                            {{$pedido->vendedor->name}} <br>
+                                        @endif
+                                        
                                         +56966996699 <br>Vendedor
                                     
                                     </td>

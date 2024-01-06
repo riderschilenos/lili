@@ -153,9 +153,9 @@
                                                         @if ($item->type=='Pago')
                                                             @foreach ($item->pedidos as $pedido)
                                                                 @if ($pedido->pedidoable_type=='App\Models\Socio')
-                                                                    ${{number_format($pago->cantidad)}}
+                                                                    ${{number_format($item->cantidad)}}
                                                                 @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                    ${{number_format($pago->cantidad)}}
+                                                                    ${{number_format($item->cantidad)}}
                                                                 @endif
                                                                 
                                                             @endforeach   

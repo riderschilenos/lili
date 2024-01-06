@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 
 class ProductosSearch extends Component
 {   use WithPagination;
-    public $tienda;
+    public $tienda, $search;
 
     public function mount($tienda){
         $this->tienda=Tienda::find($tienda);
@@ -21,13 +21,23 @@ class ProductosSearch extends Component
     public function render()
     {   $invitados= Invitado::all();
         $socios= Socio::all();
-        $pedidos = Pedido::whereHas('ordens', function ($query) {
-            $query->whereHas('producto', function ($queryProducto) {
+        $pedidos = $pedidos = Pedido::where('status', '>=', 4)
+            ->whereHas('ordens.producto', function ($queryProducto) {
                 $queryProducto->where('tienda_id', $this->tienda->id);
-            });
-                })->where('status', '>=', 4)
-                ->orderBy('id', 'desc')
-                ->paginate(50);
+            })
+            ->where(function ($query) {
+                $query->whereHasMorph('socio', [Socio::class], function ($q) {
+                    $q->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('fono', 'like', '%' . $this->search . '%');
+                })->orWhereHasMorph('invitado', [Invitado::class], function ($q) {
+                    $q->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('fono', 'like', '%' . $this->search . '%');
+                });
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(50);
+    
+
         $pedidosall = Pedido::whereHas('ordens', function ($query) {
                 $query->whereHas('producto', function ($queryProducto) {
                     $queryProducto->where('tienda_id', $this->tienda->id);
@@ -49,5 +59,9 @@ class ProductosSearch extends Component
             ->get();
 
         return view('livewire.tienda.productos-search',compact('pedidos','pedidosall','pedidos30','pagos','invitados','socios'));
+    }
+
+    public function limpiar_page(){
+        $this->resetPage();
     }
 }

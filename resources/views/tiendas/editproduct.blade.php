@@ -236,7 +236,7 @@
                                             @if ($producto->image)
                                               <img src="{{Storage::url($image->url)}}" class="h-64 md:h-80  " alt="">
                                             @else
-                                              <img src="https://broxtechnology.com/images/iconos/box.png" class="h-80 md:h-92  " alt="">
+                                              <img src="https://broxtechnology.com/images/iconos/box.png" class="h-64 md:h-80  " alt="">
                                             @endif
                                               
                                             </div>

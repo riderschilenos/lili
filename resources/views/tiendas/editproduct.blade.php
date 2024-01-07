@@ -250,7 +250,7 @@
                                    
                                   </div>
                         
-                                  <div class="flex mx-2 mb-4">
+                                  <div class="grid grid-cols-4 mx-2 mb-4">
                                       @php
                                           $nf2=1;
                                       @endphp
@@ -258,7 +258,7 @@
                                         <div class="flex-1 px-2">
                                           <button x-on:click="image = {{$nf2}}" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === {{$nf2}} }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
                                               <div class="flex justify-center p-3">
-                                                  <img src="{{Storage::url($item->url)}}" class="p-2 object-contain h-14 md:h-20" alt="">
+                                                  <img src="{{Storage::url($item->url)}}" class="p-2 " alt="">
                                               </div>
                                           </button>
                                         </div>

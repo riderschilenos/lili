@@ -41,6 +41,8 @@ Route::resource('users', UserController::class)->only(['index','edit','update'])
 
 Route::resource('products', ProductController::class)->names('products');
 
+Route::post('{product}/addimage/producto', [ProductController::class,'upload'])->name('upload');
+
 Route::resource('disciplinas', DisciplinaController::class )->names('disciplinas');
 
 Route::resource('pedidos', PedidoController::class )->names('pedidos');

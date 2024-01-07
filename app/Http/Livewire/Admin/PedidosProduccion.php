@@ -25,7 +25,7 @@ class PedidosProduccion extends Component
 
     public $selectedetiquetas=[];
 
-    public $paginate=4,$search;
+    public $paginate=4,$search,$search2;
 
     use WithFileUploads;
 
@@ -136,6 +136,42 @@ class PedidosProduccion extends Component
         }
 
         $this->reset(['selected','file']);
+        
+    }
+
+    public function encaja2($orden)
+    {   
+
+        $orden=Orden::find($orden);
+
+        $foto=$orden->producto->image;
+
+
+   
+            $orden->status = 3;
+            $orden->save();
+ 
+                $orden->images()->create([
+                    'url'=>$foto
+                ]);
+         
+
+            foreach($orden->pedido->ordens as $orden){
+
+                if($orden->status==3){
+                    $orden->pedido->status=6;
+                    $orden->pedido->save();
+    
+                }else{
+                    $orden->pedido->status=5;
+                    $orden->pedido->save();
+                    break;
+                }
+
+            } 
+        
+
+        $this->reset(['search2']);
         
     }
 

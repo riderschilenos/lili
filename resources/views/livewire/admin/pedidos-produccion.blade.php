@@ -397,9 +397,17 @@
                                             <tr>
                                                     <td class="text-center">
                                                         @if($orden->images)
-                                                            <label>
-                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" id="{{$orden->id}}" class="mr-4 mt-2">
-                                                            </label>
+                                                            
+                                                            @if ($orden->producto->personalizable=='no')
+                                                                <div class="flex justify-center">
+                                                                    <input type="text" wire:model="search2" placeholder="Escanear SKU" class="bg-gray-50 outline-none ml-1 block" autofocus id="searchInput2">
+                                                                </div>
+                                                                <a id="btnDespachado2" class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="encaja2({{$orden->id}})">Despachado</a>
+                                                            @else
+                                                                <label>
+                                                                    <input type="checkbox" wire:model="selected" value="{{$orden->id}}" id="{{$orden->id}}" class="mr-4 mt-2">
+                                                                </label>
+                                                            @endif
                                                             @foreach ($orden->images as $image)
                                                                 <div class="flex justify-center">
                                                                     <img class="h-18 w-20 object-contain" src=" {{Storage::url($image->url)}}" alt="">
@@ -867,6 +875,14 @@ No hay ningun retiro realizado
         if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("btnDespachado").click();
+        }
+    });
+</script>
+<script>
+    document.getElementById("searchInput2").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("btnDespachado2").click();
         }
     });
 </script>

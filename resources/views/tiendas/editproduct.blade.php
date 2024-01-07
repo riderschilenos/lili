@@ -1,9 +1,13 @@
 <x-tienda-layout :tienda="$tienda">
+
+  @section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  @endsection
   
          <main class="pr-10">
           @livewire('tienda.producto-inteligente',['producto'=>$producto->id,'tienda'=>$tienda->id])
           <div class="flex justify-end mr-12">
-            <div class="max-w-7xl">
+            <div class="max-w-6xl">
               <div class="grid grid-cols-2 md:grid-cols-3 w-full gap-x-2 mx-6 mb-2">
                   <div class="mx-auto w-full col-span-2 px-6" x-data="{alert:true}">
                   </div>
@@ -196,6 +200,16 @@
                                 </label>
                                             
                             </div>
+                            <form action=""
+                            method="POST"
+                            class="dropzone"
+                            id="my-awesome-dropzone">
+                            <div class="dz-message " data-dz-message>
+                              <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
+                              <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
+                            </div>
+                            </form>
+
                             <div class="md:flex-1 px-4">
                               <div x-data="{ image: 1 }" x-cloak>
                                 <div class="h-80 md:h-92 rounded-lg bg-gray-100 mb-4">
@@ -279,8 +293,26 @@
             </div>
           </div>
          </main>
+     
 
         <x-slot name="js">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+          <script>
+            
+            Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+              headers:{
+                'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
+              },
+              acceptedFiles: "image/*",
+              maxFiles: 6,
+              
+      
+                
+                };
+               
+                
+            
+          </script>
             <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
            <script>
                               

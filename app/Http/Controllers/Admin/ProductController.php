@@ -26,6 +26,43 @@ class ProductController extends Controller
         return view('admin.products.index',compact('productos'));
     }
 
+    public function upload(Request $request, Producto $vehiculo)
+    {   
+        //$this->authorize('dicatated',$serie);
+      /*    
+        
+        $request->validate([
+            'file'=>'required|image|max: 9216'
+        ]);
+
+        $images = $request->file('file')->store('vehiculos');
+
+        //$url = Storage::url($images);
+
+        $vehiculo->image()->create([
+            'url'=>$images
+        ]);
+
+        return redirect()->route('garage.image',$vehiculo);
+     */
+        $request->validate([
+            'file'=>'required|image'
+        ]);
+        $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
+        $ruta = public_path().'/storage/vehiculos/'.$nombre;
+        Image::make($request->file('file'))->orientate()
+                ->resize(600, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($ruta);
+        $vehiculo->image()->create([
+                    'url'=>'vehiculos/'.$nombre
+                ]);   
+
+        return redirect()->route('garage.image',$vehiculo);
+
+    }
+
     public function image(Request $request, Producto $producto)
     {   
         //$this->authorize('dicatated',$serie);

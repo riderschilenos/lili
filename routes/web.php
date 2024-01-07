@@ -116,3 +116,5 @@ Route::post('{producto}/updatingall',[ProductController::class, 'update'])->name
 Route::post('{producto}/skugenerate',[ProductController::class, 'skugenerate'])->name('producto.skugenerate');
 
 Route::post('print/{producto}/sku', [ProductController::class,'printsku'])->name('producto.printsku');
+
+Route::post('upimage/{producto}', [ProductController::class,'upload'])->name('productos.upload');

@@ -58,7 +58,7 @@
                                 
                             @else
                             {!! Form::open(['route'=>['admin.producto.imageup',$producto],'files'=>true , 'autocomplete'=>'off', 'method'=> 'POST' ]) !!}
-                            @csrf
+                                @csrf
 
                               
                                     {!! Form::file('file', ['class'=>'form-input w-full mt-6'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}

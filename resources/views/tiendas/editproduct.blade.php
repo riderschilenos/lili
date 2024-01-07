@@ -200,78 +200,80 @@
                                   </label>
                                               
                               </div>
-                              <form action=""
-                              method="POST"
-                              class="dropzone"
-                              id="my-awesome-dropzone">
-                              <div class="dz-message " data-dz-message>
-                                <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
-                                <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
-                              </div>
+                              <form action="{{route('admin.productos.upload',$producto)}}"
+                                  method="POST"
+                                  class="dropzone"
+                                  id="my-awesome-dropzone">
+                                  <div class="dz-message " data-dz-message>
+                                    <h1 class="text-xl font-bold">Seleccione Imágenes</h1>
+                                    <span>Utiliza fotos sacadas de dia donde puedas mostrar todos los detalles importantes de tu Vehiculo</span>
+                                  </div>
                               </form>
 
                               <div class="md:flex-1 px-4">
                                 <div x-data="{ image: 1 }" x-cloak>
                                   <div class="h-80 md:h-92 rounded-lg bg-gray-100 mb-4">
-                                    <div x-show="image === 1" class="h-80 md:h-92   rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                                        
-                                        <div class="flex justify-center">
-                                          @if ($producto->image)
-                                            <img src="{{Storage::url($producto->image)}}" class="h-80 md:h-92  " alt="">
-                                          @else
-                                            <img src="https://broxtechnology.com/images/iconos/box.png" class="h-80 md:h-92  " alt="">
-                                          @endif
-                                            
-                                          </div>
-                                    </div>
-                        
-                                    <div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                                      <span class="text-5xl">2</span>
-                                    </div>
-                        
-                                    <div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                                      <span class="text-5xl">3</span>
-                                    </div>
-                        
-                                    <div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                                      <span class="text-5xl">4</span>
-                                    </div>
+                                    @php
+                                        $nf=1;
+                                    @endphp
+                                    @foreach ($producto->images as $image)
+                                      @if ($nf==1)
+                                        <div x-show="image === {{$nf}}" class="h-80 md:h-92   rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                                              
+                                            <div class="flex justify-center">
+                                              @if ($producto->image)
+                                                <img src="{{Storage::url($image->url)}}" class="h-80 md:h-92  " alt="">
+                                              @else
+                                                <img src="https://broxtechnology.com/images/iconos/box.png" class="h-80 md:h-92  " alt="">
+                                              @endif
+                                                
+                                              </div>
+                                        </div>
+                                      @else
+                                        <div x-show="image === {{$nf}}" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                                           
+                                          <div class="flex justify-center">
+                                            @if ($producto->image)
+                                              <img src="{{Storage::url($image->url)}}" class="h-80 md:h-92  " alt="">
+                                            @else
+                                              <img src="https://broxtechnology.com/images/iconos/box.png" class="h-80 md:h-92  " alt="">
+                                            @endif
+                                              
+                                            </div>
+                                        </div>
+                                          
+                                      @endif
+                                        @php
+                                            $nf+=1;
+                                        @endphp
+                                    @endforeach
+                                   
                                   </div>
                         
                                   <div class="flex mx-2 mb-4">
-                                    <template x-for="i in 4">
-                                      <div class="flex-1 px-2">
-                                        <button x-on:click="image = i" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === i }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
-                                            <div class="flex justify-center p-3">
-                                                <img src="{{Storage::url($producto->image)}}" class="p-2" alt="">
-                                            </div>
-                                        </button>
-                                      </div>
-                                    </template>
+                                      @php
+                                          $nf2=1;
+                                      @endphp
+                                      @foreach ($producto->images as $item)
+                                        <div class="flex-1 px-2">
+                                          <button x-on:click="image = {{$nf2}}" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === {{$nf2}} }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
+                                              <div class="flex justify-center p-3">
+                                                  <img src="{{Storage::url($item->url)}}" class="p-2" alt="">
+                                              </div>
+                                          </button>
+                                        </div>
+                                        @php
+                                            $nf2+=1;
+                                        @endphp
+                                      @endforeach
+                                    
+
                                   </div>
                                 </div>
                               </div>
                               
                               <div class="mb-8">
-                                <input type="file" name="file" id="file" class="sr-only" />
-                                <label
-                                  for="file"
-                                  class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
-                                >
-                                  <div>
-                                    <span class="mb-2 block text-xl font-semibold text-[#07074D]">
-                                      Drop files here
-                                    </span>
-                                    <span class="mb-2 block text-base font-medium text-[#6B7280]">
-                                      Or
-                                    </span>
-                                    <span
-                                      class="inline-flex rounded border border-[#e0e0e0] py-2 px-7 text-base font-medium text-[#07074D]"
-                                    >
-                                      Browse
-                                    </span>
-                                  </div>
-                                </label>
+                              
                               </div>
                       
                             
@@ -294,25 +296,26 @@
             </div>
          </main>
      
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+         <script>
+           
+           Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+             headers:{
+               'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
+             },
+             acceptedFiles: "image/*",
+             maxFiles: 6,
+             
+     
+               
+               };
+              
+               
+           
+         </script>
 
         <x-slot name="js">
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
-          <script>
-            
-            Dropzone.options.myGreatDropzone = { // camelized version of the `id`
-              headers:{
-                'X-CSRF-TOKEN' : "{!! csrf_token() !!}"
-              },
-              acceptedFiles: "image/*",
-              maxFiles: 6,
-              
-      
-                
-                };
-               
-                
-            
-          </script>
+         
             <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
            <script>
                               

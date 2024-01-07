@@ -39,4 +39,10 @@ class Producto extends Model
     public function category_product(){
         return $this->belongsTo('App\Models\Category_product');
     }
+
+    //relacion uno a uno polimorfica
+    public function images(){
+        return $this->morphMany('App\Models\Image','imageable');
+    }
+
 }

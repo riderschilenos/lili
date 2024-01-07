@@ -26,7 +26,7 @@ class ProductController extends Controller
         return view('admin.products.index',compact('productos'));
     }
 
-    public function upload(Request $request, Producto $vehiculo)
+    public function upload(Request $request, Producto $producto)
     {   
         //$this->authorize('dicatated',$serie);
       /*    
@@ -48,18 +48,24 @@ class ProductController extends Controller
         $request->validate([
             'file'=>'required|image'
         ]);
+        
         $nombre = Str::random(10).$request->file('file')->getClientOriginalName();
-        $ruta = public_path().'/storage/vehiculos/'.$nombre;
+        $ruta = public_path().'/storage/productos/'.$nombre;
         Image::make($request->file('file'))->orientate()
                 ->resize(600, null , function($constraint){
                 $constraint->aspectRatio();
                 })
                 ->save($ruta);
-        $vehiculo->image()->create([
-                    'url'=>'vehiculos/'.$nombre
+        $producto->images()->create([
+                    'url'=>'productos/'.$nombre
                 ]);   
+        if (IS_NULL($producto->image)) {
+            $producto->update([
+                'image'=>'productos/'.$nombre,
+            ]);    
+        }
 
-        return redirect()->route('garage.image',$vehiculo);
+        return redirect()->route('tiendas.productos.edit',$producto);
 
     }
 

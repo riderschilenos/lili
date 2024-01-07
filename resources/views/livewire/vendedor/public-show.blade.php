@@ -250,7 +250,7 @@
         <article  wire:click="set_product({{$producto->id}})" class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
           
             <div class="flex justify-center rounded-xl">
-                <img src="{{Storage::url($producto->image)}}" class="h-44" alt="{{$producto->name}}" />
+                <img src="{{Storage::url($producto->image)}}" class="h-44 object-contain" alt="{{$producto->name}}" />
                
             </div>
     

@@ -130,7 +130,7 @@
                         <div x-show="image === 1" class="h-80 md:h-92   rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
                             
                             <div class="flex justify-center">
-                                <img src="{{Storage::url($product->image)}}" class="h-80 md:h-92  " alt="">
+                                <img src="{{Storage::url($product->image)}}" class="h-80 md:h-92 object-contain" alt="">
                              </div>
                         </div>
             

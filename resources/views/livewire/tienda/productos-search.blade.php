@@ -69,7 +69,7 @@
                                                 @foreach ($socios as $socio)
                                                         
                                                         @if($socio->id == $pedido->pedidoable_id)
-                                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                            <a href="{{route('vendedor.pedidos.edit',$pedido)}}" target="_blank">
                                                                 {{$socio->user->name}}
                                                             
                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -83,7 +83,7 @@
                                                 @foreach ($invitados as $invitado)
                                                         
                                                         @if($invitado->id == $pedido->pedidoable_id)
-                                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}">
+                                                        <a href="{{route('vendedor.pedidos.edit',$pedido)}}"  target="_blank">
                                                             {{$invitado->name}} 
                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                                                 Invitado

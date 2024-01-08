@@ -210,7 +210,7 @@
                             <div class="mb-6 pt-4" >
                               <div class="flex justify-between">
                                   <label class="mb-5 block text-xl font-semibold text-[#07074D]">
-                                  Fotos del Producto
+                                  Carga masiva de fotos
                                   </label>
                                               
                               </div>

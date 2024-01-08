@@ -277,7 +277,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{route('tiendas.productos',$tienda)}}">
+                <a href="{{route('tiendas.productos.inteligente',$tienda)}}">
                     <div class="bg-white hover:bg-gray-100 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
@@ -293,7 +293,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{route('tiendas.productos',$tienda)}}">
+                <a href="{{route('tiendas.productos.inteligente',$tienda)}}">
                     <div class="bg-white hover:bg-gray-100 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">

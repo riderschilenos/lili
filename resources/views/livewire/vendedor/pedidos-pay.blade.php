@@ -78,14 +78,14 @@
                                 <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
                                 <td>
                                 
-                                    <button class="btn btn-primary mb-2 btn-sm" type="submit"> APROBAR </button>
+                                    <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-2 btn-sm" type="submit"> APROBAR </button>
 
                                 {!! Form::close() !!} 
                                 <form action="{{route('admin.pagos.destroy',$pago)}}" method="POST">
                                     @csrf
                                     @method('delete')
 
-                                    <button class="btn btn-danger btn-sm" type="submit"> RECHAZAR </button>
+                                    <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" type="submit"> RECHAZAR </button>
                                 </form>
                             </td>
                                 

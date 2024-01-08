@@ -281,7 +281,7 @@ class PagoController extends Controller
 
             }
 
-            return redirect()->route('admin.pagos.index');
+            return redirect()->back();
     
     }
 

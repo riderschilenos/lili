@@ -80,15 +80,17 @@
                         @enderror
                     </div>
       
-                     <div class="mb-6 pt-4 hidden" >
+                     <div class="mb-6" >
                         <div class="flex justify-between">
-                           <label class="mb-5 block text-xl font-semibold text-[#07074D]">
-                           Fotos del Producto
+                           <label class=" block text-xl font-semibold text-[#07074D]">
+                           Foto del producto
                            </label>
-                           <div>
-                              <a rel="noopener noreferrer" href="{{route('tiendas.productos',$tienda)}}"><button class="focus-visible:ring-ring ring-offset-background inline-flex h-10 items-center justify-center rounded-md bg-[#248046] px-4 py-2 text-sm font-medium text-[#e9ffec] transition-colors hover:bg-[#1a6334] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">SUBIR FOTOS</button></a>
-                           </div>                
+                                      
                         </div>
+
+                        {!! Form::file('file', ['class'=>'form-input w-full mt-6'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                            
+                        
 
                         <div class="mb-8 hidden">
                           <input type="file" name="file" id="file" class="sr-only" />
@@ -128,18 +130,7 @@
                <div class="mx-auto w-full bg-white col-span-2 md:col-span-1 py-4 px-6 mr-6">
                   
                     <div class="mb-5">
-                     <div class="mb-4">
-                        {!! Form::label('sku', 'Sku:') !!}
-                        @if (session('sku'))
-                            {!! Form::number('sku', session('sku') , ['class' => 'form-input block w-full mt-1'.($errors->has('comision_invitado')?' border-red-600':''),'step' => '0.5']) !!}
-                        @else
-                            {!! Form::number('sku', null , ['class' => 'form-input block w-full mt-1'.($errors->has('comision_invitado')?' border-red-600':''),'step' => '0.5']) !!}
-                        @endif
-                        
-                        @error('sku')
-                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                        @enderror
-                    </div>
+                     
                      <div class="mb-4">
                         {!! Form::label('precio', 'Precio:') !!}
                         {!! Form::number('precio', null , ['class' => 'form-input block w-full mt-1'.($errors->has('precio')?' border-red-600':''),'step' => '0.5']) !!}
@@ -158,9 +149,24 @@
                     </div>
                     </div>
                     <div class="mb-4">
+                      {!! Form::label('sku', 'Sku:') !!}
+                      @if (session('sku'))
+                          {!! Form::number('sku', session('sku') , ['class' => 'form-input block w-full mt-1'.($errors->has('comision_invitado')?' border-red-600':''),'step' => '0.5']) !!}
+                      @else
+                          {!! Form::number('sku', null , ['class' => 'form-input block w-full mt-1'.($errors->has('comision_invitado')?' border-red-600':''),'step' => '0.5']) !!}
+                      @endif
+                      
+                      @error('sku')
+                          <strong class="text-xs text-red-600">{{$message}}</strong>
+                      @enderror
+                  </div>
+
+                   <div class="mb-4">
                      {!! Form::label('disciplina_id', 'Disciplina') !!}
                      {!! Form::select('disciplina_id', $disciplinas, $tienda->disciplina_id , ['class'=>'form-input block w-full mt-1']) !!}
                  </div>
+
+                 
                  
                   <div class="mb-4">
                     {!! Form::label('personalizable', 'Personalizable') !!}

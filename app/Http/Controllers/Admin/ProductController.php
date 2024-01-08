@@ -121,7 +121,8 @@ class ProductController extends Controller
         $request->validate([
             'name'=>'required',
             'precio'=>'required'
-        ]);
+        ]); 
+        
 
         $producto = Producto::create([  'name'=>$request->name,
                                         'precio'=>$request->precio,
@@ -129,6 +130,25 @@ class ProductController extends Controller
                                         'sku'=>$request->sku,
                                         'costo'=>$request->costo,
                                         'personalizable'=>$request->personalizable,]);
+        
+        if($request->file){
+            if($producto->image){
+                Storage::delete($producto->image);
+            }
+                                    
+            $foto = Str::random(10).$request->file('file')->getClientOriginalName();
+            $rutafoto = public_path().'/storage/productos/'.$foto;
+            $img=Image::make($request->file('file'))->orientate()
+                ->resize(600, null , function($constraint){
+                $constraint->aspectRatio();
+                })
+                ->save($rutafoto);
+            $img->orientate();
+    
+            $producto->update([
+                'image'=>'productos/'.$foto,
+            ]);   
+        }
                                         
         if($request->creacion==1){
             return redirect()->route('tiendas.productos.edit',$producto);

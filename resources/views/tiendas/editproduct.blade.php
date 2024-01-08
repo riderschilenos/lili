@@ -120,6 +120,9 @@
                                 <strong class="text-xs text-red-600">{{$message}}</strong>
                             @enderror
                         </div>
+
+                        {!! Form::file('file', ['class'=>'form-input w-full mt-6'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                            
                         
 
                     </div>
@@ -210,67 +213,8 @@
                                   </div>
                               </form>
 
-                              <div class="md:flex-1 px-4">
-                                <div x-data="{ image: 1 }" x-cloak>
-                                  <div class="h-80 md:h-92 rounded-lg bg-gray-100 mb-4">
-                                    @php
-                                        $nf=1;
-                                    @endphp
-                                    @foreach ($producto->images as $image)
-                                      @if ($nf==1)
-                                        <div x-show="image === {{$nf}}" class="h-80 md:h-92   rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                                              
-                                            <div class="flex justify-center">
-                                              @if ($producto->image)
-                                                <img src="{{Storage::url($image->url)}}" class="h-80 md:h-92  " alt="">
-                                              @else
-                                                <img src="https://broxtechnology.com/images/iconos/box.png" class="h-80 md:h-92  " alt="">
-                                              @endif
-                                                
-                                              </div>
-                                        </div>
-                                      @else
-                                        <div x-show="image === {{$nf}}" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                                           
-                                          <div class="flex justify-center">
-                                            @if ($producto->image)
-                                              <img src="{{Storage::url($image->url)}}" class="h-64 md:h-80  " alt="">
-                                            @else
-                                              <img src="https://broxtechnology.com/images/iconos/box.png" class="h-64 md:h-80  " alt="">
-                                            @endif
-                                              
-                                            </div>
-                                        </div>
-                                          
-                                      @endif
-                                        @php
-                                            $nf+=1;
-                                        @endphp
-                                    @endforeach
-                                   
-                                  </div>
-                        
-                                  <div class="grid grid-cols-4 mx-2 mb-4">
-                                      @php
-                                          $nf2=1;
-                                      @endphp
-                                      @foreach ($producto->images as $item)
-                                        <div class="flex-1 px-2">
-                                          <button x-on:click="image = {{$nf2}}" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === {{$nf2}} }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
-                                              <div class="flex justify-center p-3">
-                                                  <img src="{{Storage::url($item->url)}}" class="p-2 " alt="">
-                                              </div>
-                                          </button>
-                                        </div>
-                                        @php
-                                            $nf2+=1;
-                                        @endphp
-                                      @endforeach
-                                    
-
-                                  </div>
-                                </div>
-                              </div>
+                              @livewire('tienda.producto-image', ['producto_id' => $producto->id])
+                             
                               
                               <div class="mb-8">
                               

@@ -396,18 +396,11 @@
 
                                             <tr>
                                                     <td class="text-center">
-                                                        @if($orden->images)
-                                                            
-                                                            @if ($orden->producto->personalizable=='no')
-                                                                <div class="flex justify-center">
-                                                                    <input type="text" wire:model="search2" placeholder="Escanear SKU" class="bg-gray-50 outline-none ml-1 block" autofocus id="searchInput2">
-                                                                </div>
-                                                                <a id="btnDespachado2" class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="encaja2({{$orden->id}})">Despachado</a>
-                                                            @else
-                                                                <label>
-                                                                    <input type="checkbox" wire:model="selected" value="{{$orden->id}}" id="{{$orden->id}}" class="mr-4 mt-2">
-                                                                </label>
-                                                            @endif
+                                                        @if($orden->images->count())
+
+                                                           
+                                                                
+
                                                             @foreach ($orden->images as $image)
                                                                 <div class="flex justify-center">
                                                                     <img class="h-18 w-20 object-contain" src=" {{Storage::url($image->url)}}" alt="">
@@ -418,9 +411,17 @@
                                                             @endforeach()
                                                         
                                                         @elseif($orden->status>=2)
-                                                            <label>
-                                                                <input type="checkbox" wire:model="selected" value="{{$orden->id}}" id="{{$orden->id}}" class="mr-4 mt-2">
-                                                            </label>
+                                                           
+                                                            @if ($orden->producto->personalizable=='no')
+                                                                    <div class="flex justify-center">
+                                                                        <input type="text" wire:model="search2" placeholder="Escanear SKU" class="bg-gray-50 outline-none ml-1 block" autofocus id="searchInput2">
+                                                                    </div>
+                                                                    <a id="btnDespachado2" class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="encaja2({{$orden->id}})">Despachado</a>
+                                                            @else
+                                                                <label>
+                                                                    <input type="checkbox" wire:model="selected" value="{{$orden->id}}" id="{{$orden->id}}" class="mr-4 mt-2">
+                                                                </label>
+                                                            @endif
                                                         @endif
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right @if($orden->status==2)bg-yellow-200 @else bg-green-200 @endif">

@@ -197,12 +197,17 @@
                       
                       </div>
                         <div class="flex flex-col items-center w-full">
-                            <button class="block w-full mb-2 h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
-                                Agregar al Carro
-                            </button>
-                            <button class="block w-full h-14 px-6 py-2 font-semibold rounded-xl bg-red-600 hover:bg-red-500 text-white">
-                                Comprar
-                            </button>
+                            <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->vendedor->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20{{str_replace(' ', '%20', $product->name)}}" target="_blank" class="btn btn-success mt-4 btn-block">
+                                
+                                <button class="block w-full mb-2 h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
+                                    Agregar al Carro
+                                </button>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->vendedor->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20{{str_replace(' ', '%20', $product->name)}}" target="_blank" class="btn btn-success mt-4 btn-block">
+                                <button class="block w-full h-14 px-6 py-2 font-semibold rounded-xl bg-red-600 hover:bg-red-500 text-white">
+                                    Comprar
+                                </button>
+                            </a>
                         </div>
                     </div>
                     

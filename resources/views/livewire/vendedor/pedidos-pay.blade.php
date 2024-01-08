@@ -3,99 +3,100 @@
     @if ($pagosadmin->count())
         <div class="card">
             <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Vendedor</th>
-                            <th>Pedidos</th>
-                            <th>Metodo</th>
-                            <th>Cantidad</th>
-                            <th>Comprobante</th>
-                            <th></th>
-                            <th></th>
-
-
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        @foreach ($pagosadmin as $pago)
+                <x-table-responsive>
+                    <table class="min-w-full divide-y divide-gray-200 mt-4">
+                        <thead>
                             <tr>
-                                <td>{{$pago->id}}</td>
-                                <td> 
-                                    @foreach ($pago->pedidos as $pedido)
-                                        @if ($pedido->vendedor)
-                                            {{$pedido->vendedor->name}} <br>
-                                        @endif
-                                    
-                                    @endforeach
-                                    
-                                </td>
-                                <td> 
-                                    @foreach ($pago->pedidos as $pedido)
-                                        @php
-                                        $subtotal=0;
-                                        @endphp
-            
-                                        @if($pedido->pedidoable_type=="App\Models\Socio")
-                                        @foreach ($pedido->ordens as $orden)
-                                        @php
-                                            
-                                            $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
-            
-                                        @endphp    
-                                        @endforeach
-            
-                                        @endif
-                                        @if($pedido->pedidoable_type=="App\Models\Invitado")
-                                        @foreach ($pedido->ordens as $orden)
-                                        @php
-                                            
-                                            $subtotal+=$orden->producto->precio;
-            
-                                        @endphp    
-                                        @endforeach
-            
-                                        @endif
+                                <th>ID</th>
+                                <th>Vendedor</th>
+                                <th>Pedidos</th>
+                                <th>Metodo</th>
+                                <th>Cantidad</th>
+                                <th>Comprobante</th>
+                                <th></th>
+                                <th></th>
 
-                                        Pedido {{$pedido->id}} - ${{$subtotal}} <br>
-                                    @endforeach
-                                    
-                                </td>
-                                <td>{{$pago->metodo}}</td>
-                                {!! Form::model($pago,['route'=>['admin.pago.approved',$pago], 'method'=>'post']) !!}
-                        
-                                
-                        
-                            
-                                <td>{!! Form::text('cantidad',null, ['class'=>'form-control','placeholder'=>'Verifique el monto']) !!}
-                                </td>
-                                <td>
-                                    <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
-                                
-                                </td>
-                                <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
-                                <td>
-                                
-                                    <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-2 btn-sm" type="submit"> APROBAR </button>
 
-                                {!! Form::close() !!} 
-                                <form action="{{route('admin.pagos.destroy',$pago)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-
-                                    <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" type="submit"> RECHAZAR </button>
-                                </form>
-                            </td>
-                                
                             </tr>
-                            
-                        @endforeach
+                        </thead>
 
-                    </tbody>
-                </table>
+                        <tbody>
+                            @foreach ($pagosadmin as $pago)
+                                <tr>
+                                    <td>{{$pago->id}}</td>
+                                    <td> 
+                                        @foreach ($pago->pedidos as $pedido)
+                                            @if ($pedido->vendedor)
+                                                {{$pedido->vendedor->name}} <br>
+                                            @endif
+                                        
+                                        @endforeach
+                                        
+                                    </td>
+                                    <td> 
+                                        @foreach ($pago->pedidos as $pedido)
+                                            @php
+                                            $subtotal=0;
+                                            @endphp
                 
+                                            @if($pedido->pedidoable_type=="App\Models\Socio")
+                                            @foreach ($pedido->ordens as $orden)
+                                            @php
+                                                
+                                                $subtotal+=$orden->producto->precio-$orden->producto->descuento_socio;
+                
+                                            @endphp    
+                                            @endforeach
+                
+                                            @endif
+                                            @if($pedido->pedidoable_type=="App\Models\Invitado")
+                                            @foreach ($pedido->ordens as $orden)
+                                            @php
+                                                
+                                                $subtotal+=$orden->producto->precio;
+                
+                                            @endphp    
+                                            @endforeach
+                
+                                            @endif
+
+                                            Pedido {{$pedido->id}} - ${{$subtotal}} <br>
+                                        @endforeach
+                                        
+                                    </td>
+                                    <td>{{$pago->metodo}}</td>
+                                    {!! Form::model($pago,['route'=>['admin.pago.approved',$pago], 'method'=>'post']) !!}
+                            
+                                    
+                            
+                                
+                                    <td>{!! Form::text('cantidad',null, ['class'=>'form-control','placeholder'=>'Verifique el monto']) !!}
+                                    </td>
+                                    <td>
+                                        <img class="object-cover object-center" width="60px" src="{{Storage::url($pago->comprobante)}}" alt="">
+                                    
+                                    </td>
+                                    <td>{{$pago->created_at->format('d-m-Y H:i:s')}}</td>
+                                    <td>
+                                    
+                                        <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-2 btn-sm" type="submit"> APROBAR </button>
+
+                                    {!! Form::close() !!} 
+                                    <form action="{{route('admin.pagos.destroy',$pago)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+
+                                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" type="submit"> RECHAZAR </button>
+                                    </form>
+                                </td>
+                                    
+                                </tr>
+                                
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </x-table-responsive>
             </div>
 
             <div class="card-footer">

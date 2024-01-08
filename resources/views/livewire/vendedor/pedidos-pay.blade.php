@@ -1,6 +1,6 @@
 <div class="container py-8">
 @can('Super admin')
-    @if ($pagos->count())
+    @if ($pagosadmin->count())
         <div class="card">
             <div class="card-body">
                 <table class="table table-striped">
@@ -20,7 +20,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($pagos as $pago)
+                        @foreach ($pagosadmin as $pago)
                             <tr>
                                 <td>{{$pago->id}}</td>
                                 <td> 
@@ -99,7 +99,7 @@
             </div>
 
             <div class="card-footer">
-                {{$pagos->links('vendor.pagination.bootstrap-4')}}
+                {{$pagosadmin->links('vendor.pagination.bootstrap-4')}}
             </div>
         </div>
     @endif

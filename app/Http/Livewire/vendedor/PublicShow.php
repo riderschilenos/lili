@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class PublicShow extends Component
 {   use WithPagination;
 
-
+    
     public $search, $product;
 
     public function render()

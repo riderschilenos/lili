@@ -121,9 +121,20 @@
                             @enderror
                         </div>
 
-                        {!! Form::file('file', ['class'=>'form-input w-full mt-6'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                                            
-                        
+                        <div class="mb-6" >
+                          <div class="flex justify-between">
+                             <label class=" block text-xl font-semibold text-[#07074D]">
+                             Foto del producto
+                             </label>
+                                        
+                          </div>
+  
+                          {!! Form::file('file', ['class'=>'form-input w-full mt-6'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                              
+                          
+  
+                       
+                        </div>
 
                     </div>
                     <div class="mx-auto w-full col-span-2 md:col-span-1 bg-white py-4 px-6 mr-6">

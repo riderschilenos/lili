@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Gasto;
 use App\Models\Lote;
 use App\Models\Orden;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 
 class LoteController extends Controller
@@ -18,6 +19,17 @@ class LoteController extends Controller
     public function index()
     {
         //
+    }
+
+    public function loteview(Lote $lote)
+    {
+        $filePath = storage_path('app/public/'.$lote->resource->url);
+
+        if (file_exists($filePath)) {
+            return response()->file($filePath, ['Content-Type' => 'application/pdf']);
+        } else {
+            return response()->json(['message' => 'El archivo PDF no existe.']);
+        }
     }
 
     /**

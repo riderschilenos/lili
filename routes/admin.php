@@ -63,6 +63,8 @@ Route::resource('diseno',DisenoController::class)->names('disenos');
 
 Route::resource('lote',LoteController::class)->names('lotes');
 
+Route::get('{lote}/loteview',[LoteController::class, 'loteview'])->name('lote.view');
+
 Route::resource('gastos', GastoController::class)->names('gastos');
 
 Route::resource('catalogos', CatalogoController::class)->names('catalogos');

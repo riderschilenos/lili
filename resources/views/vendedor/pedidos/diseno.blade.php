@@ -41,13 +41,13 @@
                             @foreach ($pedido->ordens as $orden)
                         
                                 @foreach ($orden->lotes as $lote)
-                                    <a href="{{route('admin.lote.view',$lote)}}" target="_blank">
+                                   
                                             <label class="w-full flex flex-col px-4 pb-4 pt-2 mb-3 bg-white text-blue rounded-lg shadow-lg  uppercase border border-blue hover:bg-blue ">
-                                                
+                                                <a href="{{route('admin.lote.view',$lote)}}" target="_blank">
                                                 <svg class="w-8 h-8 cursor-pointer hover:text-gray-500 mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" wire:click="download({{$lote}})">
                                                     <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                                                 </svg>
-                                                
+                                                  </a>
                                                 <span class="mt-2 text-base leading-normal text-center">Lote N° {{$lote->id}}</span>
                                                 <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-2">
                                                     @foreach($lote->ordens as $orden)
@@ -58,7 +58,7 @@
                                                 </div>
                                                 
                                             </label>
-                                        </a>
+                                      
                                 @endforeach
                                 
                                 

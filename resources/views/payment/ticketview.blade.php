@@ -66,7 +66,7 @@
                         <div class="bg-white p-6 rounded shadow-md">
                           <h2 class="text-lg font-semibold mb-2">Enlazar perfil de Strava</h2>
                           <div class="my-2">
-                              <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Strava.png" alt="Logo de Strava" class="object-cover h-14">
+                              <img src="{{asset('img/devstrava.png')}}" alt="Logo de Strava" class="object-cover h-14">
                           </div>
                           <p class="text-gray-600">Conecta tu cuenta de Strava y comienza a participar.</p>
                           <div class="flex justify-center">

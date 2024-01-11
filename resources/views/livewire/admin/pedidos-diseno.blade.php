@@ -159,7 +159,7 @@
                                                 @foreach ($socios as $socio)
                                                         
                                                         @if($socio->id == $pedido->pedidoable_id)
-                                                        <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{mb_substr(str_replace(' ', '', $socio->fono), -9)}}&text=Hola%20que%20tal" target="_blank">
+                                                        <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{mb_substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
                                                             {{str_replace(' ', '', $socio->fono)}}
                                                         </a>
                                                         <p class="text-xs mt-3"> Cliente </p>
@@ -170,7 +170,7 @@
                                                 @foreach ($invitados as $invitado)
                                                         
                                                         @if($invitado->id == $pedido->pedidoable_id)
-                                                        <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{mb_substr(str_replace(' ', '', $invitado->fono), -9)}}&text=Hola%20que%20tal" target="_blank">
+                                                        <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=569{{mb_substr(str_replace(' ', '', $invitado->fono), -8)}}&text=Hola%20que%20tal" target="_blank">
                                                             {{str_replace(' ', '', $invitado->fono)}} 
                                                         </a> 
                                                         <p class="text-xs mt-3"> Cliente </p>

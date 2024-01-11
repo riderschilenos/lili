@@ -151,14 +151,9 @@
                                                     </td>
                                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
                                                         @if ($item->type=='Pago')
-                                                            @foreach ($item->pedidos as $pedido)
-                                                                @if ($pedido->pedidoable_type=='App\Models\Socio')
+                                                           
                                                                     ${{number_format($item->cantidad)}}
-                                                                @elseif ($pedido->pedidoable_type=='App\Models\Invitado')
-                                                                    ${{number_format($item->cantidad)}}
-                                                                @endif
-                                                                
-                                                            @endforeach   
+                                                               
                                                         @elseif ($item->type=='Suscripcion')
                                                         
                                                             ${{number_format($item->precio)}}

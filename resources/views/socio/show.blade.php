@@ -467,10 +467,10 @@
                                                     </div>
                                                    <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades y saber la distancia que haz recorrido.</p>
                                                     <div class="flex justify-center">
-                                                <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all">
-                                                    <img src="{{asset('img/btn_strava.png')}}" alt="Logo de Strava" class="object-cover h-10">
-                                                </a>
-                                            </div>
+                                                        <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all">
+                                                            <img src="{{asset('img/btn_strava.png')}}" alt="Logo de Strava" class="object-cover h-10">
+                                                        </a>
+                                                    </div>
                                                     
                                                     <p class="mt-4 text-sm text-gray-500">
                                                         Al hacer clic en "Enlazar con Strava", serás redirigido a Strava para autorizar la conexión.

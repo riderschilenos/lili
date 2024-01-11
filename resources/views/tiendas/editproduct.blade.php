@@ -175,7 +175,7 @@
                           </div>
                           <div class="mb-4">
                             {!! Form::label('disciplina_id', 'Disciplina') !!}
-                            {!! Form::select('disciplina_id', $disciplinas,   ['class'=>'form-input block w-full mt-1']) !!}
+                            {!! Form::select('disciplina_id', $disciplinas, null ['class'=>'form-input block w-full mt-1']) !!}
                         </div>
                         <div class="mb-4">
                             {!! Form::label('personalizable', 'Personalizable') !!}

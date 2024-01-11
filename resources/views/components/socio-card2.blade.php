@@ -21,8 +21,8 @@
                     <p class="text-gray-500 text-base font-bold mt-auto">{{ strtoupper(Str::limit($socio->name, 20)) }}</p>
                 </a>
                 <div class="flex mx-2 items-center">
-                    @if ($socio->user->resultados->count()>0)
-                        {{ $socio->user->resultados->count()}}  <img class="w-3 h-3 mx-1" src="{{asset('img/copa.png')}}" alt="">
+                    @if ($socio->user->resultados->where('status',2)->count()>0)
+                        {{ $socio->user->resultados->where('status',2)->count()}}  <img class="w-3 h-3 mx-1" src="{{asset('img/copa.png')}}" alt="">
                     @else
                         0 <img class="w-3 h-3 mx-1" src="{{asset('img/copa.png')}}" alt="">
                     @endif

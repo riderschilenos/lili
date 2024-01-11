@@ -20,7 +20,7 @@
                 <a href="{{ route('socio.show', $socio) }}">
                     <p class="text-gray-500 text-base font-bold mt-auto">{{ strtoupper(Str::limit($socio->name, 20)) }}</p>
                 </a>
-                <div class="flex mx-2 items-center">
+                <div class="flex mx-2 items-center hidden">
                     @if ($socio->user->resultados->count()>0)
                         {{ $socio->user->resultados->count()}}  <img class="w-3 h-3 mx-1" src="{{asset('img/copa.png')}}" alt="">
                     @else

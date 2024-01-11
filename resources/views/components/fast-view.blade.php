@@ -980,10 +980,10 @@
                                                         <div class="my-2">
                                                             <img src="{{asset('img/devstrava.png')}}" alt="Logo de Strava" class="object-cover h-14">
                                                         </div>
-                                                        <p class="text-gray-600">Conecta tu cuenta de Strava y comienza a participar.</p>
+                                                        <p class="text-gray-600">Conecta tu cuenta de Strava para acceder a tus actividades y saber la distancia que haz recorrido.</p>
                                                         <div class="flex justify-center">
-                                                            <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all" class=" bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out">
-                                                                Enlazar con Strava
+                                                            <a href="https://www.strava.com/oauth/authorize?client_id=112140&response_type=code&redirect_uri=https://riderschilenos.cl/redireccion-strava&scope=profile:read_all,activity:read_all">
+                                                                <img src="{{asset('img/btn_strava.png')}}" alt="Logo de Strava" class="object-cover h-10">
                                                             </a>
                                                         </div>
                                                         

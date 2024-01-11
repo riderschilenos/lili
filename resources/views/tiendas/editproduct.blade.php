@@ -175,17 +175,17 @@
                           </div>
                           <div class="mb-4">
                             {!! Form::label('disciplina_id', 'Disciplina') !!}
-                            {!! Form::select('disciplina_id', $disciplinas, $tienda->disciplina_id , ['class'=>'form-input block w-full mt-1']) !!}
+                            {!! Form::select('disciplina_id', $disciplinas,   ['class'=>'form-input block w-full mt-1']) !!}
                         </div>
                         <div class="mb-4">
                             {!! Form::label('personalizable', 'Personalizable') !!}
                             <div class="flex items-center mt-1">
                                 <label class="inline-flex items-center mr-4">
-                                    {!! Form::radio('personalizable', 'si', $tienda->disciplina_id == 'si', ['class'=>'form-radio']) !!}
+                                    {!! Form::radio('personalizable', 'si', $tienda->personalizable == 'si', ['class'=>'form-radio']) !!}
                                     <span class="ml-2">Sí</span>
                                 </label>
                                 <label class="inline-flex items-center">
-                                    {!! Form::radio('personalizable', 'no', $tienda->disciplina_id == 'no', ['class'=>'form-radio']) !!}
+                                    {!! Form::radio('personalizable', 'no', $tienda->personalizable == 'no', ['class'=>'form-radio']) !!}
                                     <span class="ml-2">No</span>
                                 </label>
                             </div>

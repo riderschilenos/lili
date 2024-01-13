@@ -206,7 +206,7 @@
                                                 <div class="px-4 py-2 font-semibold">Nro. Contacto</div>
                                                 
                                                 @can('Ver dashboard')
-                                                    <a  href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola" target="_blank">
+                                                    <a  href="https://api.whatsapp.com/send?phone=569{{mb_substr(str_replace(' ', '', $socio->fono), -8)}}&text=Hola" target="_blank">
                                                         <div class="px-4 py-2">{{ $socio->fono }}</div>
                                                     </a> 
                                                 @endcan

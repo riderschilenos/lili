@@ -516,7 +516,7 @@ class StravaController extends Controller
     
                                         }
     
-                                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                        $fono='569'.mb_substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
                                         //TOKEN QUE NOS DA FACEBOOK
                                 
                                         try {
@@ -660,7 +660,7 @@ class StravaController extends Controller
                                             }
                                         }
     
-                                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                        $fono='569'.mb_substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
                                         //TOKEN QUE NOS DA FACEBOOK
                                 
                                         try {
@@ -803,7 +803,7 @@ class StravaController extends Controller
                                             }
                                         }
     
-                                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                        $fono='569'.mb_substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
                                         //TOKEN QUE NOS DA FACEBOOK
                                 
                                         try {
@@ -956,7 +956,7 @@ class StravaController extends Controller
                                             }
                                         }
     
-                                        $fono='569'.substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
+                                        $fono='569'.mb_substr(str_replace(' ', '', $ticket->user->socio->fono), -8);
                                         //TOKEN QUE NOS DA FACEBOOK
                                 
                                         try {

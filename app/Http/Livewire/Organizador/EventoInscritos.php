@@ -68,7 +68,7 @@ class EventoInscritos extends Component
         $ticket=User::find($ticket_id);
         if ($ticket->inscripcions) {
             foreach ($ticket->inscripcions as $inscripcion) {
-                    if ($inscripcion->fecha->name=='Etapa 15 km' && $inscripcion->estado<4) {
+                    if ($inscripcion->fecha->name=='Etapa 15 km') {
                        
                         
                             try {
@@ -155,7 +155,7 @@ class EventoInscritos extends Component
                             'type'=>'enviado']);
                         }
                     }
-                if ($inscripcion->fecha->name=='Etapa 30 Km' && $inscripcion->estado<4) {
+                if ($inscripcion->fecha->name=='Etapa 30 Km') {
                        
                          
 
@@ -262,7 +262,7 @@ class EventoInscritos extends Component
                 }
                     
                 
-                if ($inscripcion->fecha->name=='Etapa 50Km' && $inscripcion->estado<4) {
+                if ($inscripcion->fecha->name=='Etapa 50Km') {
                     
                           
                             try {
@@ -357,7 +357,7 @@ class EventoInscritos extends Component
                         }
                 }
 
-                if ($inscripcion->fecha->name=='Etapa 100KM' && $inscripcion->estado<4) {
+                if ($inscripcion->fecha->name=='Etapa 100KM') {
                    
                         
                            

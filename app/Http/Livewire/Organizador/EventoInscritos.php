@@ -65,7 +65,7 @@ class EventoInscritos extends Component
     }
 
     public function strava_wtsp($ticket_id){
-        $ticket=User::find($ticket_id);
+        $ticket=Ticket::find($ticket_id);
         if ($ticket->inscripcions) {
             foreach ($ticket->inscripcions as $inscripcion) {
                     if ($inscripcion->fecha->name=='Etapa 15 km') {

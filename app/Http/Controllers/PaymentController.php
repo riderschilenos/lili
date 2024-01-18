@@ -76,7 +76,18 @@ class PaymentController extends Controller
             $ticket->save();
         $fech = Fecha::where('evento_id',$evento->id)->first();
 
-        return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento','fech'));
+        $now = now(); // Obtiene la fecha y hora actual
+        $createdAtThreshold = $now->subMinutes(10); // Resta 10 minutos a la fecha actual
+
+        // Verifica si la fecha de creación del ticket es anterior a $createdAtThreshold
+        if ($ticket->created_at->lt($createdAtThreshold)) {
+            $ticket->delete();
+            return redirect()->route('checkout.evento',$evento);
+        } else {
+            return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento','fech'));
+        }
+
+       
     }
 
     public function ticket(Ticket $ticket, Request $request){

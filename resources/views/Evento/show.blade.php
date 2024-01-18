@@ -64,6 +64,9 @@
                 <div class="text-gray-100 items-center my-auto bg-gray-700 p-4 rounded-2xl mx-2">
                     <h1 class="text-4xl">{{$evento->titulo}}</h1>
                     <h2 class="text xl mb-3">{{$evento->subtitulo}}</h2>
+                    @if ($evento->limite>0)
+                        <p class="mb-2"><i class="fas fa-users"></i> {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos disponibles    </p>
+                    @endif
                         @if ($evento->type=='pista')
                             <p class="mb-2"><i class="fas fa-calendar"></i> <b>+ {{$evento->fechas_count}}</b> Entrenamientos Realizados</p>
                         @else
@@ -86,9 +89,12 @@
                             
                             </p>
                         @endif
-                        
+                   
+                   
                     <p class="mb-2"><i class="fas fa-biking"></i> Disciplina: {{$evento->disciplina->name}}</p>
                     <p class="mb-2"><i class="fas fa-user"></i> Organizador: {{$evento->user->name}}</p>
+
+                    
                     {{-- comment 
                     @if ($evento->type!='pista')
                         <p class="mb-2"><i class="fas fa-users"></i> Inscritos:    {{$evento->tickets->where('status','>=',3)->count()}}</p>
@@ -632,6 +638,27 @@
                             </a>
 
                         @endif
+                        @php
+                            $min=0;
+                            $max=0;
+                        @endphp
+                        @foreach ($fechas as $fecha)
+                            @foreach($fecha->categorias as $categoria)
+                                @php
+                                    if ($min==0) {
+                                        $min=$categoria->inscripcion;
+                                        $max=$categoria->inscripcion;
+                                    }else{
+                                        if ($categoria->inscripcion<$min) {
+                                            $min=$categoria->inscripcion;
+                                        }elseif($categoria->inscripcion>$max){
+                                            $max=$categoria->inscripcion;
+                                        }
+                                    }
+                                
+                                @endphp    
+                            @endforeach
+                        @endforeach
                         @can('enrolled', $evento)
                                 @if (auth()->user()->tickets->where('user_id',auth()->user()->id)->where('evento_id',$evento->id)->where('status',1)->first())
                                     @if($evento->type=='pista')
@@ -656,30 +683,78 @@
                                         @endif
                                     </a>
                                 @endif
-                            
+                                @if ($min == 0 && $max==0)
+                                    @if ($evento->type=='pista')
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entrada GRATIS</p>
+                                    @else
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripcion GRATIS</p>
+                                    @endif
+                                @elseif($min==$max)
+                                    @if ($evento->type=='pista')
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                                    @else
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                    @endif
+                                        
+                                    <div class="grid grid-cols-3 gap-x-2 gap-y-2 mx-auto mb-4 w-full  px-4">
+                                        @foreach ($fech->categorias as $item)
+                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2 items-center">
+                                                @if ($item->inscripcion==0)
+                                                    <p class=" text-gray-500 font-bold text-center">Gratis</p>
+                                                @else
+                                                    <p class=" text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
+                                                @endif
+                                                <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
+                                            </div>
+                                        @endforeach
+
+                                        <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1">
+                                            @if ($max==0)
+                                                <p class="mt-2 text-gray-500 font-bold text-center">Gratis</p>
+                                            @else
+                                                <p class="mt-2 text-gray-500 font-bold text-center">${{number_format($max)}}</p>
+                                            @endif
+                                        
+                                            <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                        </div>
+                                        
+                                    </div>
+
+                                @else
+                                    @if ($evento->type=='pista')
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Entradas</p>
+                                    @else
+                                        <p class="text-center text-gray-500 text-sm mb-1 mt-2">Inscripciones</p>
+                                    @endif
+                                    <div class="grid grid-cols-3 gap-x-2 gap-y-2 mx-auto mb-4 w-full  px-4 items-center my-auto">
+                                        @foreach ($fech->categorias as $item)
+                                            <div class="bg-gray-100 p-1 rounded-3xl w-full mx-2 items-center my-auto">
+                                                @if ($item->inscripcion==0)
+                                                    <p class=" text-gray-500 font-bold text-center">Gratis</p>
+                                                @else
+                                                    <p class=" text-gray-500 font-bold text-center">${{number_format($item->inscripcion)}}</p>
+                                                @endif
+                                                <p class="text-gray-500 text-sm text-center">{{$item->categoria->name}}</p> 
+                                            </div>
+                                        @endforeach
+
+                                        <div class="hidden bg-gray-100 p-1 rounded-3xl w-full mx-1 items-center my-auto">
+                                            @if ($max==0)
+                                                <p class="text-gray-500 font-bold text-center">Gratis</p>
+                                            @else
+                                                <p class="text-gray-500 font-bold text-center">${{number_format($max)}}</p>
+                                            @endif
+                                        
+                                            <p class="text-gray-500 text-sm text-center">Adultos</p> 
+                                        </div>
+                                        
+                                    </div>
+                                
+
+                                @endif
                         @else 
 
-                                @php
-                                    $min=0;
-                                    $max=0;
-                                @endphp
-                                @foreach ($fechas as $fecha)
-                                    @foreach($fecha->categorias as $categoria)
-                                        @php
-                                            if ($min==0) {
-                                                $min=$categoria->inscripcion;
-                                                $max=$categoria->inscripcion;
-                                            }else{
-                                                if ($categoria->inscripcion<$min) {
-                                                    $min=$categoria->inscripcion;
-                                                }elseif($categoria->inscripcion>$max){
-                                                    $max=$categoria->inscripcion;
-                                                }
-                                            }
-                                        
-                                        @endphp    
-                                    @endforeach
-                                @endforeach
+                               
 
                                 @if ($min == 0 && $max==0)
                                     @if ($evento->type=='pista')
@@ -753,6 +828,7 @@
                                   
 
                                 @endif
+
                                 @if ($evento->user->vendedor)
                                     @if ($evento->user->vendedor->fono)
                                         <a href="https://api.whatsapp.com/send?phone=569{{substr(str_replace(' ', '', $evento->user->vendedor->fono), -8)}}&text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20{{str_replace(' ', '%20', $evento->titulo)}}" target="_blank" class="btn btn-success mt-4 btn-block">

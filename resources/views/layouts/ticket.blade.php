@@ -106,7 +106,7 @@
                         @case(2)
                             <div class="card text-gray-500">
                                 <div class="card-body">
-                                    Esta curso se encuentra en revisión
+                                    El evento se encuentra en revisión
                                 </div>
 
                             </div>
@@ -116,7 +116,7 @@
 
                             <div class="card text-gray-500">
                                 <div class="card-body">
-                                    Esta curso se encuentra en publicado
+                                    El evento se encuentra en publicado
                                 </div>
 
                             </div>

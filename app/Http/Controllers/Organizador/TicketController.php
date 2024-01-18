@@ -133,9 +133,12 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Ticket $ticket)
+    {   $evento=$ticket->evento;
+        $ticket->delete();
+        
+        return redirect()->route('checkout.evento',$evento)->with('info','Tiempo agotado, debes volver a inscribirte.');
+
     }
 
     public function enrolled(Ticket $ticket){

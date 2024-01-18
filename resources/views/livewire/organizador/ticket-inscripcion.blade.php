@@ -7,7 +7,10 @@
                 @else
                     <p class="text-base leading-none my-auto mx-auto text-center">En que categoria deseas competir?</p>
                 @endif
-                <div id="liveClock" class="text-base mt-4 mx-auto text-center"></div>
+                @if ($evento->eliminable=='si')
+                    <div id="liveClock" class="text-base mt-4 mx-auto text-center"></div>
+                @endif
+               
             </div>
               
 

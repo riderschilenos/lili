@@ -22,7 +22,10 @@
                             @endif
                             <p class="text-gray-500 text-sm mt-auto">Disciplina: {{$evento->disciplina->name}}</p> 
                             <p class="text-gray-500 text-sm mb-2">Organizador: {{$evento->user->name}}</p>
-                            <p class="text-gray-500 text-sm mb-2 "><b>{{$evento->fechas_count}}</b> Fechas </p> 
+                            @if ($evento->fechas_count>1)
+                                <p class="text-gray-500 text-sm mb-2 "><b>{{$evento->fechas_count}}</b> Fechas </p> 
+                            @endif
+                            
                             
 
                             </a>

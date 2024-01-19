@@ -77,8 +77,8 @@
                                 Fecha 
                             @endif
 
-                            @if ($evento->fechas)
-                                @foreach ($evento->fechas as $fecha)       
+                            @if ($fechas->count()>1)
+                                @foreach ($fechas as $fecha)       
                                     @if ($fecha->fecha>=now()->subDays(1))
                                         @if ($fecha->fecha)
                                            ( {{date('d/m/Y', strtotime($fecha->fecha))}} )
@@ -491,7 +491,7 @@
                                             @php
                                                 $n=0;
                                             @endphp
-                                        @foreach ($evento->fechas as $fecha)
+                                        @foreach ($fechas as $fecha)
                                             
                                             @if ($fecha->fecha>=now()->subDays(1))
                                                 <li class="text-center">
@@ -550,7 +550,7 @@
                                             @php
                                                 $n=0;
                                             @endphp
-                                        @foreach ($evento->fechas as $fecha)
+                                        @foreach ($fechas as $fecha)
                                             
                                             @if ($fecha->fecha>=now()->subDays(1))
                                                 <li class="text-center">
@@ -628,14 +628,36 @@
                                         Finalizar Inscripción
                                     @endif
                                 </a>
+                        @else
+
+                            @if($fechas->where('start_sell','!=',null)->count()>0)
+                                @if ($fechas->where('start_sell','!=',null)->first()->start_sell>now())
+                                    
+                                    <div id="countdownClock" class="btn btn-danger btn-block">
+                                        Faltan 00:00:00 para el inicio de las ventas
+                                    </div>
+                                @else
+                                
+                                    <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">
+                                        @if ($evento->type=='pista')
+                                            Comprar
+                                        @else
+                                            Inscribirme
+                                        @endif
+                                    </a>
+                                    
+                                @endif
+                            
                             @else
+                         
                                 <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">
                                     @if ($evento->type=='pista')
                                         Comprar
                                     @else
                                         Inscribirme
                                     @endif
-                            </a>
+                                </a>
+                            @endif
 
                         @endif
                         @php
@@ -906,5 +928,38 @@
         <h1 class="text-center text-xs text-gray-400 py-12 mb-12">Todos Los derechos Reservados</h1>
         
     </x-fast-view>
-    
+    @if($fechas->where('start_sell','!=',null)->count()>0)
+        <script>
+            function updateCountdownClock() {
+                var startSellTime = new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}");
+                var currentTime = new Date();
+
+                var difference = startSellTime - currentTime;
+
+                if (difference > 0) {
+                    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                    document.getElementById("countdownClock").innerHTML =
+                        "Falta " +
+                        days +
+                        "d " +
+                        hours +
+                        "h " +
+                        minutes +
+                        "m " +
+                        seconds +
+                        "s para el inicio de las ventas";
+                } else {
+                    document.getElementById("countdownClock").innerHTML = "¡La venta ya ha comenzado!";
+                }
+
+                setTimeout(updateCountdownClock, 1000);
+            }
+
+            window.onload = updateCountdownClock;
+        </script>
+    @endif
 </x-evento-layout>

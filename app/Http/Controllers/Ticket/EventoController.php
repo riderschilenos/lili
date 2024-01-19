@@ -265,7 +265,7 @@ class EventoController extends Controller
 
     $disciplinas= Disciplina::pluck('name','id');
     
-    $fechas= Fecha::where('evento_id',$evento->id)->paginate();
+    $fechas= Fecha::where('evento_id',$evento->id)->get();
         
         $similares = Evento::where('disciplina_id',$evento->disciplina_id)
                             ->where('id','!=',$evento->id)

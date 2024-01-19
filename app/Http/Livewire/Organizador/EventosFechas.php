@@ -15,7 +15,7 @@ class EventosFechas extends Component
 
     use AuthorizesRequests;
 
-    public $evento;
+    public $evento, $fecha_edit_id=0;
 
     public $selectedcategoria=[];
 
@@ -29,6 +29,7 @@ class EventosFechas extends Component
         return view('livewire.organizador.eventos-fechas',compact('now','categorias'));
     }
 
+
     public function selectedcategoria($categoria){
         
         $this->selectedcategoria=[$this->selectedcategoria,$categoria];
@@ -36,5 +37,9 @@ class EventosFechas extends Component
 
     public function destroy(Fecha $fecha){
         $fecha->delete();
+    }
+
+    public function set_fecha_edit($fecha_id){
+        $this->fecha_edit_id=$fecha_id;
     }
 }

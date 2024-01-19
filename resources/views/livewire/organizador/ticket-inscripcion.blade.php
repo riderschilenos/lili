@@ -2,6 +2,20 @@
     <div class="grid grid-cols-1 md:grid-cols-2">
         <div class="flex justify-center items-center">
             <div>
+                <div class="pr-4 bg-blue-500 p-2 rounded-lg text-center mb-4">
+                    @php
+                        $lugar=1;
+                        foreach ($evento->tickets()->where('status', 1)->orderBy('id', 'asc')->get() as $item) {
+                            if ($item->id==$ticket->id) {
+                                break;
+                            }
+                            $lugar+=1;
+                        }
+                    @endphp
+                    <p class="text-4xl font-bold text-white">{{$evento->tickets()->where('status', '>=', 3)->count()+$lugar}}</p>
+                    <p class="text-sm text-white">Nro reservado</p>
+                </div>
+
                 @if ($evento->type=='pista')
                     <p class="text-base leading-none my-auto mx-auto text-center">En qué Cilindrada vas entrenar?</p>
                 @else

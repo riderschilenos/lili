@@ -27,152 +27,202 @@
           </a>
         @endif
         
-          
-        <div x-show="open">
-              <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es la fecha?</h2>
+        @if ($fecha_edit_id==0)
+            
+          <div x-show="open">
+                <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es la fecha?</h2>
 
-              {!! Form::open(['route'=>'organizador.fechas.store','files'=>true , 'autocomplete'=>'off']) !!}
+                {!! Form::open(['route'=>'organizador.fechas.store','files'=>true , 'autocomplete'=>'off']) !!}
+                        
+                        {!! Form::hidden('evento_id',$evento->id) !!}
+
+                        {!! Form::label('fecha', 'Fecha:') !!}
+                        {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
+                        
+                    
+
+                        @if ($evento->type=='pista')
+                            {!! Form::hidden('name','keyname') !!}
+                            {!! Form::hidden('lugar','keyname') !!}
+                        @else
+                            
                       
-                      {!! Form::hidden('evento_id',$evento->id) !!}
+                                <div class="my-4">
+                                  {!! Form::label('name', 'Nombre de la Fecha') !!}
+                                  {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
 
-                      {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
-                      
+                                  @error('name')
+                                      <strong class="text-xs text-red-600">{{$message}}</strong>
+                                  @enderror
+                                </div>
 
-                      @if ($evento->type=='pista')
-                          {!! Form::hidden('name','keyname') !!}
-                          {!! Form::hidden('lugar','keyname') !!}
-                      @else
-                          
-                     
-                              <div class="my-4">
-                                {!! Form::label('name', 'Nombre de la Fecha') !!}
-                                {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+                                <div class="my-4">
+                                  {!! Form::label('lugar', 'Lugar') !!}
+                                  {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
 
-                                @error('name')
+                                  @error('lugar')
+                                      <strong class="text-xs text-red-600">{{$message}}</strong>
+                                  @enderror
+                                </div>
+
+                                {!! Form::label('start_sell', 'Inicio venta de inscripciones') !!}
+                                {!! Form::datetimeLocal('start_sell', null, ['class' => 'form-input block w-full mt-1' . ($errors->has('start_sell') ? ' border-red-600' : ''), 'autocomplete' => 'off']) !!}
+                                
+                                {!! Form::label('end_sell', 'Fin venta de inscripciones') !!}
+                                {!! Form::datetimeLocal('end_sell', null , ['class' => 'form-input block w-full mt-1'.($errors->has('end_sell')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
+                                
+
+                                <div class="my-4">
+                                  {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
+                                  <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
+                                  {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+
+                                  @error('inscripcion')
+                                      <strong class="text-xs text-red-600">{{$message}}</strong>
+                                  @enderror
+                                </div>
+                        @endif
+
+                        <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <figure>
+                                @isset($evento->image)
+                                    <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
+                                    @else
+                                    <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                    
+                                
+                                @endisset
+                                </figure>
+                            <div>
+                                <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
+                                {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                @error('file')
                                     <strong class="text-xs text-red-600">{{$message}}</strong>
                                 @enderror
-                              </div>
+                            </div>
+                        </div>
 
-                              <div class="my-4">
-                                {!! Form::label('lugar', 'Lugar') !!}
-                                {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+                        <div class="flex justify-center mt-2">
+                            <button href="" class="btn btn-danger mx-4" x-on:click="open=!open">Cancelar</button>
+                            {!! Form::submit('Siguiente', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
+                        </div>
+                {!! Form::close() !!}
 
-                                @error('lugar')
-                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                @enderror
-                              </div>
+                
+            
 
-                              <div class="my-4">
-                                {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
-                                <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
-                                {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+          </div>
 
-                                @error('inscripcion')
-                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                @enderror
-                              </div>
-                      @endif
-
-                      <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
-                      <div class="grid grid-cols-2 gap-4">
-                          <figure>
-                              @isset($evento->image)
-                                  <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
-                                  @else
-                                  <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
-                                  
-                              
-                              @endisset
-                              </figure>
-                          <div>
-                              <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
-                              {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                              @error('file')
-                                  <strong class="text-xs text-red-600">{{$message}}</strong>
-                              @enderror
-                          </div>
-                      </div>
-
-                      <div class="flex justify-center mt-2">
-                          <button href="" class="btn btn-danger mx-4" x-on:click="open=!open">Cancelar</button>
-                          {!! Form::submit('Agregar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
-                      </div>
-              {!! Form::close() !!}
-
-        </div>
-
+        @endif
         @foreach ($evento->fechas->reverse() as $fecha)
 
             <div>
 
-                @if (IS_NULL($fecha->fecha))
-
-                    <h2 class="text-lg font-medium text-gray-900 text-center">¿Cuando es su evento?</h2>
-                
-                {!! Form::model($fecha, ['route'=>['organizador.fechas.update',$fecha],'method' => 'put', 'files'=> true , 'autocomplete'=>'off']) !!}
-
-                    {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}
-                    
-                    <div class="my-4">
-
-                      
-                      @if ($evento->type=='carrera')
-                          {!! Form::label('name', 'Nombre de la Carrera') !!}
-                      @else
-                          {!! Form::label('name', 'Nombre de la Fecha') !!}
-                      @endif
-                      {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
-
-                      @error('name')
-                          <strong class="text-xs text-red-600">{{$message}}</strong>
-                      @enderror
-                    </div>
-
-                    <div class="my-4">
-                      {!! Form::label('lugar', 'Lugar') !!}
-                      {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
-
-                      @error('lugar')
-                          <strong class="text-xs text-red-600">{{$message}}</strong>
-                      @enderror
-                    </div>
-
-                    <div class="my-4">
-                      {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
-                      <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
-                      {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
-
-                      @error('inscripcion')
-                          <strong class="text-xs text-red-600">{{$message}}</strong>
-                      @enderror
-                    </div>
-
-                    <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
-                    <div class="grid grid-cols-2 gap-4">
-                        <figure>
-                            @isset($evento->image)
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
-                                @else
-                                <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
-                                
+                @if ($fecha_edit_id==$fecha->id)
+                    <div class="bg-gray-100 p-6 mt-6" x-data="{open: false}">
+                      <header class="flex justify-between item-center"  >
+                        <div x-on:click="open=!open" class="">
+                          @if ($fecha->name=='keyname')
                             
-                            @endisset
-                            </figure>
+                              <h1 class="cursor-pointer"> Entrenamiento {{$fecha->fecha}}</h1>
+                          @else
+                              <h1 class="cursor-pointer"><strong>Fecha:</strong> {{$fecha->name}}</h1>
+                          @endif
+                          @if ($fecha->fecha>=now()->subDays(1))
+                            <span class="ml-10 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                              Activo
+                            </span>
+                          @else
+                              <span class="ml-10 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                  Pasado
+                              </span>
+                          @endif
+                          
+                        </div>
                         <div>
-                            <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
-                            {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                            @error('file')
+                            <i class="fas fa-eye cursor-pointer text-blue-500 mr-2" x-on:click="open=!open" ></i>
+                            <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar" wire:click="destroy({{$fecha}})"></i>
+                        </div>
+                      </header>
+
+                      {!! Form::model($fecha, ['route'=>['organizador.fechas.update',$fecha],'method' => 'put', 'files'=> true , 'autocomplete'=>'off']) !!}
+
+                          {!! Form::date('fecha', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fecha')?' border-red-600':''),'autocomplete'=>"off"]) !!}
+                          
+                          <div class="my-4">
+
+                            
+                            @if ($evento->type=='carrera')
+                                {!! Form::label('name', 'Nombre de la Carrera') !!}
+                            @else
+                                {!! Form::label('name', 'Nombre de la Fecha') !!}
+                            @endif
+                            {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+
+                            @error('name')
                                 <strong class="text-xs text-red-600">{{$message}}</strong>
                             @enderror
-                        </div>
-                    </div>
-                    <div class="flex justify-center mt-2">
-                        {!! Form::submit('Siguiente', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
-                    </div>
-                
-                {!! Form::close() !!}
+                          </div>
 
-                @elseif($fecha->fecha)
+                          <div class="my-4">
+                            {!! Form::label('lugar', 'Lugar') !!}
+                            {!! Form::text('lugar', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+
+                            @error('lugar')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                          </div>
+
+                          <div class="my-4">
+                            {!! Form::label('inscripcion', 'Valor Inscripcion:') !!}
+                            <p>Si deseas cobrar a todas las categorias el mismo valor de inscripción puedes ingresarlo en esta casilla, de lo contrario tendrás que agregar el valor de cada categoría en el siguiente paso</p>
+                            {!! Form::number('inscripcion', null , ['class' => 'form-input block w-full mt-1'.($errors->has('lugar')?' border-red-600':'')]) !!}
+
+                            @error('inscripcion')
+                                <strong class="text-xs text-red-600">{{$message}}</strong>
+                            @enderror
+                          </div>
+
+                          {!! Form::label('start_sell', 'Inicio venta de inscripciones') !!}
+                          {!! Form::datetimeLocal('start_sell', $fecha->start_sell, ['class' => 'form-input block w-full mt-1' . ($errors->has('start_sell') ? ' border-red-600' : ''), 'autocomplete' => 'off']) !!}
+                          
+                          {!! Form::label('end_sell', 'Fin venta de inscripciones') !!}
+                          {!! Form::datetimeLocal('end_sell', $fecha->end_sell , ['class' => 'form-input block w-full mt-1'.($errors->has('end_sell')?' border-red-600':''),'autocomplete'=>"off"]) !!}     
+                         
+
+                          <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del evento</h1>
+                          <div class="grid grid-cols-2 gap-4">
+                              <figure>
+                                  @isset($evento->image)
+                                      <img id="picture" class="w-full h-64 object-cover object-center"src="{{Storage::url($evento->image->url)}}" alt="">
+                                      @else
+                                      <img id="picture" class="w-full h-64 object-cover object-center"src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
+                                      
+                                  
+                                  @endisset
+                                  </figure>
+                              <div>
+                                  <p class="mb-2">Carga una imagen  que muestre el contenido de tu evento. Una buena imagen se destaca del resto y llama la atención.</p>
+                                  {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                  @error('file')
+                                      <strong class="text-xs text-red-600">{{$message}}</strong>
+                                  @enderror
+                              </div>
+                          </div>
+                          <div class="flex justify-center mt-2">
+                            <button wire:click="set_fecha_edit(0)" class="btn bg-red-500 text-white justify-center mt-2">
+                              Cancelar
+                            </button>
+                        
+                              {!! Form::submit('Actualizar', ['class'=>'font-bold py-2 px-4 rounded bg-blue-500 text-white']) !!}
+                          </div>
+
+                        
+                      {!! Form::close() !!}
+
+                    </div>
+                @else
 
                     <div class="bg-gray-100 p-6 mt-6" x-data="{open: false}">
                       <header class="flex justify-between item-center"  >
@@ -192,6 +242,7 @@
                                   Pasado
                               </span>
                           @endif
+                          
                         </div>
                         <div>
                             <i class="fas fa-eye cursor-pointer text-blue-500 mr-2" x-on:click="open=!open" ></i>
@@ -200,444 +251,433 @@
                       </header>
                       
                       <div x-show="open">
-                        <h1 class="font-bold mt-4"><strong>Lugar:</strong> {{$fecha->lugar}}</h1>
-                        <h1 class="font-bold mt-4"><strong>Fecha:</strong> {{$fecha->fecha}}</h1>
-
                         
+            
+                        <button wire:click="set_fecha_edit({{$fecha->id}})" class="btn bg-blue-800 text-white justify-center mt-2">
+                          editar
+                        </button>
 
                                                
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+                        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-<div class="flex justify-center items-center h-screen">
-	<!--actual component start-->
-  <div>
-    <div class="flex" x-on:click="categoria=!categoria">
-      <div class="max-w-lg mx-auto">
+                        <div class="flex justify-center items-center">
+                          <!--actual component start-->
+                          <div>
+                            <div class="flex" x-on:click="categoria=!categoria">
+                              <div class="max-w-lg mx-auto">
 
-       
-          <div class="text-center mt-12">
-            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-            <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
-            <div class="flex">
-              <div class="max-w-2xl mx-auto">
-                <div class="text-center mt-2">
-                  <div class="flex justify-center" >
-                    <a href="{{route('organizador.eventos.categorias',$fecha)}}">
-                      <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2" >Agregar Categoria</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
-          </div>
-          <div class="font-bold py-2 px-4 rounded bg-blue-500 text-white">
-            <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
-        </div>
-          
-      </div>
-      
-  </div>
-  
-</div>
-
-	<div x-data="setup()" class="hidden">
-
-		<ul class="flex justify-center items-center my-4">
-			<template x-for="(tab, index) in tabs" :key="index">
-				<li class="cursor-pointer py-3 px-4 rounded transition"
-					:class="activeTab===index ? 'bg-green-500 text-white' : ' text-gray-500'" @click="activeTab = index"
-					x-text="tab"></li>
-			</template>
-		</ul>
-                <div x-show="activeTab===0">
-                        <div class="flex" x-on:click="categoria=!categoria">
-                          <div class="max-w-lg mx-auto">
-
-                            <div class="font-bold py-2 px-4 rounded bg-blue-500 text-white">
-                                <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
-                            </div>
-                              <div class="text-center mt-12">
-                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                                </svg>
-                                <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
-                                <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
+                              
+                                  <div class="text-center mt-12">
+                                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                    <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
+                                    <div class="flex">
+                                      <div class="max-w-2xl mx-auto">
+                                        <div class="text-center mt-2">
+                                          <div class="flex justify-center" >
+                                            <a href="{{route('organizador.eventos.categorias',$fecha)}}">
+                                              <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2" >Agregar Categoria</button>
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
+                                  </div>
+                                  <div class="font-bold py-2 px-4 rounded bg-blue-500 text-white">
+                                    <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
+                                </div>
+                                  
                               </div>
                               
-                              
                           </div>
                           
-                      </div>
-                      <div class="flex">
-                        <div class="max-w-2xl mx-auto">
-                          <div class="text-center mt-2">
-                            <div class="flex justify-center" >
-                              <a href="{{route('organizador.eventos.categorias',$fecha)}}">
-                                <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" >Agregar Categoria</button>
-                              </a>
+                        </div>
+
+                        <div x-data="setup()" class="hidden">
+
+                          <ul class="flex justify-center items-center my-4">
+                            <template x-for="(tab, index) in tabs" :key="index">
+                              <li class="cursor-pointer py-3 px-4 rounded transition"
+                                :class="activeTab===index ? 'bg-green-500 text-white' : ' text-gray-500'" @click="activeTab = index"
+                                x-text="tab"></li>
+                            </template>
+                          </ul>
+                                      <div x-show="activeTab===0">
+                                              <div class="flex" x-on:click="categoria=!categoria">
+                                                <div class="max-w-lg mx-auto">
+
+                                                  <div class="font-bold py-2 px-4 rounded bg-blue-500 text-white">
+                                                      <h1 class="text-center">{{$fecha->categorias->count()}} CATEGORIAS REGISTRADAS EN TU FECHA</h1>
+                                                  </div>
+                                                    <div class="text-center mt-12">
+                                                      <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                      </svg>
+                                                      <h2 class="mt-2 text-lg font-medium text-gray-900">Agrega Una Categoria</h2>
+                                                      <p class="mt-1 text-sm text-gray-500">Si necesitas incluir una categoria que no esta en las opciones que te ofrecemos puedes ingresarla a continuación.</p>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="flex">
+                                              <div class="max-w-2xl mx-auto">
+                                                <div class="text-center mt-2">
+                                                  <div class="flex justify-center" >
+                                                    <a href="{{route('organizador.eventos.categorias',$fecha)}}">
+                                                      <button type="submit" class="btn bg-blue-800 text-white justify-center mt-2 mr-4" >Agregar Categoria</button>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                    </div>
+                      
+                          <div class="w-full bg-white p-16 h-72 text-center mx-auto mt-4">
+                            <div x-show="activeTab===0">
+                                
+                            </div>
+                            <div x-show="activeTab===1">     
+                              
+                              <x-table-responsive>
+                                              
+
+                                  @if ($fecha->categorias->count())
+                                  
+                                      <table class="min-w-full divide-y divide-gray-200 mt-4">
+                                          <thead class="bg-gray-50">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    ID 
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Categoria             
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Valor Inscripción             
+                                              </th>
+                                              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actualizar          
+                                            </th>
+                                              
+                                            </tr>
+                                          </thead>
+                                          <tbody class="bg-white divide-y divide-gray-200">
+
+                                            @foreach ($fecha->categorias as $item)
+
+                                                
+
+                                                        <tr>
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div class="flex h-10 w-10">
+                                                                        
+                                              
+                                                  
+
+                                                  <label>
+                                                    {{$item->categoria->id}}
+                                                  </label>
+
+                                    
+                                                                                
+                                                                        
+                                                                            
+                                                                        
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                    
+
+                                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <div class="flex">
+                                                                        
+                                                                    
+                                                                            
+                                                                            <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                                        
+                                                                            <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
+                                                            </td>
+                                                            <td class="text-center">
+                                                      
+                                                                
+                                                                          <div class="text-sm text-gray-900 text-center">{{$item->inscripcion}}</div>
+                                                              
+                                                          
+                                                              
+                                                              
+                                                          </td>
+                                                          <td class="text-center">
+                                                        
+                                                              
+                                                                    
+                                                                        <div class="text-sm text-gray-900 text-center">{{$item->inscripcion}}</div>
+                                                      
+                                                            
+                                                            
+                                                        </td>
+                                                            
+                                                        
+                                                        </tr>
+                                                        
+                                            @endforeach
+                                          
+                                          </tbody>
+
+                                      </table>
+                                  @else
+                                      <div class="px-6 py-4">
+                                          No hay pedidos pendientes de pago
+                                      </div>
+                                  @endif 
+                              
+                              </x-table-responsive>
+                            </div>
+
+                            <div x-show="activeTab===2">
+                              <x-table-responsive>
+                                              
+
+                                @if ($fecha->categorias->count())
+                                
+                                    <table class="min-w-full divide-y divide-gray-200 mt-4">
+                                        <thead class="bg-gray-50">
+                                          <tr>
+                                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  ID 
+                                              </th>
+                                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Categoria             
+                                              </th>
+                                              <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Limite de Inscritos         
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                              Actualizar          
+                                          </th>
+                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+
+                                          @foreach ($fecha->categorias as $item)
+
+                                              
+
+                                                      <tr>
+                                                          <td class="px-6 py-4 whitespace-nowrap">
+                                                              <div class="flex items-center">
+                                                                  <div class="flex h-10 w-10">
+                                                                      
+                                            
+                                                
+
+                                                <label>
+                                                  {{$item->categoria->id}}
+                                                </label>
+
+                                  
+                                                                              
+                                                                      
+                                                                          
+                                                                      
+                                                                      
+                                                                  </div>
+                                                              </div>
+                                                          </td>
+
+                                                  
+
+                                                          <td class="px-6 py-4 whitespace-nowrap">
+                                                              <div class="flex items-center">
+                                                                  <div class="flex">
+                                                                      
+                                                                  
+                                                                          
+                                                                          <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                                      
+                                                                          <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
+                                                                      
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              
+                                                          </td>
+                                                        <td class="text-center">
+                                                      
+                                                                
+                                                            <div class="text-sm text-gray-900 text-center">{{$item->limite}}</div>
+                                                
+                                            
+                                                
+                                                
+                                                        </td>
+                                                        <td class="text-center">
+                                          
+                                                
+                                                      
+                                                          <div class="text-sm text-gray-900 text-center">{{$item->limite}}</div>
+                                        
+                                              
+                                              
+                                                        </td>
+                                                          
+                                                      
+                                                      </tr>
+                                                      
+                                          @endforeach
+                                        
+                                        </tbody>
+
+                                    </table>
+                                @else
+                                    <div class="px-6 py-4">
+                                        No hay pedidos pendientes de pago
+                                    </div>
+                                @endif 
+                            
+                            </x-table-responsive>
+                            </div>
+                            <div x-show="activeTab===3">
+                              <x-table-responsive>
+                                              
+
+                                @if ($fecha->categorias->count())
+                                
+                                    <table class="min-w-full divide-y divide-gray-200 mt-4">
+                                        <thead class="bg-gray-50">
+                                          <tr>
+                                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  ID 
+                                              </th>
+                                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Categoria             
+                                              </th>
+                                            
+                                            <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Quitar          
+                                          </th>
+                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+
+                                          @foreach ($fecha->categorias as $item)
+
+                                              
+
+                                                      <tr>
+                                                          <td class="px-6 py-4 whitespace-nowrap">
+                                                              <div class="flex items-center">
+                                                                  <div class="flex h-10 w-10">
+                                                                      
+                                            
+                                                
+
+                                                <label>
+                                                  {{$item->categoria->id}}
+                                                </label>
+
+                                  
+                                                                              
+                                                                      
+                                                                          
+                                                                      
+                                                                      
+                                                                  </div>
+                                                              </div>
+                                                          </td>
+
+                                                  
+
+                                                          <td class="px-6 py-4 whitespace-nowrap">
+                                                              <div class="flex items-center">
+                                                                  <div class="flex">
+                                                                      
+                                                                  
+                                                                          
+                                                                          <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
+                                                                      
+                                                                          <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
+                                                                      
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              
+                                                          </td>
+                                                    
+                                                        <td class="text-center">
+                                          
+                                                
+                                                      
+                                                          <div class="text-sm text-gray-900 text-center">
+                                                              <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar"></i>
+                                                          </div>
+                                        
+                                              
+                                              
+                                                        </td>
+                                                          
+                                                      
+                                                      </tr>
+                                                      
+                                          @endforeach
+                                        
+                                        </tbody>
+
+                                    </table>
+                                @else
+                                    <div class="px-6 py-4">
+                                        No hay pedidos pendientes de pago
+                                    </div>
+                                @endif 
+                            
+                            </x-table-responsive>
                             </div>
                           </div>
+
+                          
+                          <div class="flex gap-4 justify-center p-4">
+                            <button
+                              class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
+                              @click="activeTab--" x-show="activeTab>0"
+                              >Anterior</button>
+                            <button
+                              class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
+                              @click="activeTab++" x-show="activeTab<tabs.length-1"
+                              >Siguiente</button>
+                          </div>
                         </div>
+                        <!--actual component end-->
+
                       </div>
-              </div>
- 
-		<div class="w-full bg-white p-16 h-72 text-center mx-auto mt-4">
-      <div x-show="activeTab===0">
-           
-      </div>
-			<div x-show="activeTab===1">     
-        
-        <x-table-responsive>
-                        
 
-            @if ($fecha->categorias->count())
-            
-                <table class="min-w-full divide-y divide-gray-200 mt-4">
-                    <thead class="bg-gray-50">
-                      <tr>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                              ID 
-                          </th>
-                          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                              Categoria             
-                          </th>
-                          <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Valor Inscripción             
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Actualizar          
-                      </th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-
-                      @foreach ($fecha->categorias as $item)
-
-                          
-
-                                  <tr>
-                                      <td class="px-6 py-4 whitespace-nowrap">
-                                          <div class="flex items-center">
-                                              <div class="flex h-10 w-10">
-                                                  
-                        
-                            
-
-                            <label>
-                              {{$item->categoria->id}}
-                            </label>
-
+                    <script>
+                      function setup() {
+                        return {
+                          activeTab: 0,
+                          tabs: [
+                              "Agregar Categoria",
+                              "Valor de Inscripción",
+                              "Limite de Inscritos",
+                              "Quitar Categoria",
+                          ]
+                        };
+                      };
+                    </script>
               
-                                                          
-                                                  
-                                                      
-                                                  
-                                                  
-                                              </div>
-                                          </div>
-                                      </td>
-
-                              
-
-                                      <td class="px-6 py-4 whitespace-nowrap">
-                                          <div class="flex items-center">
-                                              <div class="flex">
-                                                  
-                                              
-                                                      
-                                                      <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
-                                                  
-                                                      <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
-                                                  
-                                              </div>
-                                          </div>
-                                          
-                                          
-                                      </td>
-                                      <td class="text-center">
-                                
-                                           
-                                                    <div class="text-sm text-gray-900 text-center">{{$item->inscripcion}}</div>
-                                         
-                                     
-                                        
-                                        
-                                    </td>
-                                    <td class="text-center">
-                                  
-                                        
-                                              
-                                                  <div class="text-sm text-gray-900 text-center">{{$item->inscripcion}}</div>
-                                
-                                      
-                                      
-                                  </td>
-                                      
-                                  
-                                  </tr>
-                                  
-                      @endforeach
-                    
-                    </tbody>
-
-                </table>
-            @else
-                <div class="px-6 py-4">
-                    No hay pedidos pendientes de pago
-                </div>
-            @endif 
-        
-        </x-table-responsive>
-      </div>
-
-			<div x-show="activeTab===2">
-        <x-table-responsive>
-                        
-
-          @if ($fecha->categorias->count())
-          
-              <table class="min-w-full divide-y divide-gray-200 mt-4">
-                  <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            ID 
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Categoria             
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Limite de Inscritos         
-                      </th>
-                      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Actualizar          
-                    </th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-
-                    @foreach ($fecha->categorias as $item)
-
-                        
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex h-10 w-10">
-                                                
-                      
-                          
-
-                          <label>
-                            {{$item->categoria->id}}
-                          </label>
-
-            
-                                                        
-                                                
-                                                    
-                                                
-                                                
-                                            </div>
-                                        </div>
-                                    </td>
-
-                            
-
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex">
-                                                
-                                            
-                                                    
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
-                                                
-                                                    <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
-                                                
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </td>
-                                  <td class="text-center">
-                                
-                                           
-                                      <div class="text-sm text-gray-900 text-center">{{$item->limite}}</div>
-                           
-                       
-                          
-                          
-                                  </td>
-                                  <td class="text-center">
-                    
-                          
-                                
-                                    <div class="text-sm text-gray-900 text-center">{{$item->limite}}</div>
-                  
-                        
-                        
-                                  </td>
-                                    
-                                
-                                </tr>
-                                
-                    @endforeach
-                  
-                  </tbody>
-
-              </table>
-          @else
-              <div class="px-6 py-4">
-                  No hay pedidos pendientes de pago
-              </div>
-          @endif 
-      
-      </x-table-responsive>
-      </div>
-			<div x-show="activeTab===3">
-        <x-table-responsive>
-                        
-
-          @if ($fecha->categorias->count())
-          
-              <table class="min-w-full divide-y divide-gray-200 mt-4">
-                  <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            ID 
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Categoria             
-                        </th>
-                      
-                      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                       Quitar          
-                    </th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-
-                    @foreach ($fecha->categorias as $item)
-
-                        
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex h-10 w-10">
-                                                
-                      
-                          
-
-                          <label>
-                            {{$item->categoria->id}}
-                          </label>
-
-            
-                                                        
-                                                
-                                                    
-                                                
-                                                
-                                            </div>
-                                        </div>
-                                    </td>
-
-                            
-
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex">
-                                                
-                                            
-                                                    
-                                                    <img class="h-11 w-11 object-cover object-center rounded-full" src="{{asset('img/rider.jpg')}}" alt="">
-                                                
-                                                    <div class="text-sm text-gray-900 ml-3">{{$item->categoria->name}}</div>
-                                                
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </td>
-                              
-                                  <td class="text-center">
-                    
-                          
-                                
-                                    <div class="text-sm text-gray-900 text-center">
-                                        <i class="fas fa-trash cursor-pointer text-red-500" alt="Eliminar"></i>
-                                    </div>
-                  
-                        
-                        
-                                  </td>
-                                    
-                                
-                                </tr>
-                                
-                    @endforeach
-                  
-                  </tbody>
-
-              </table>
-          @else
-              <div class="px-6 py-4">
-                  No hay pedidos pendientes de pago
-              </div>
-          @endif 
-      
-      </x-table-responsive>
-      </div>
-		</div>
-
-		
-		<div class="flex gap-4 justify-center p-4">
-			<button
-				class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
-				@click="activeTab--" x-show="activeTab>0"
-				>Anterior</button>
-			<button
-				class="py-2 px-4 border rounded-md border-blue-600 text-blue-600 cursor-pointer uppercase text-sm font-bold hover:bg-blue-500 hover:text-white hover:shadow"
-				@click="activeTab++" x-show="activeTab<tabs.length-1"
-				>Siguiente</button>
-		</div>
-	</div>
-	<!--actual component end-->
-</div>
-
-<script>
-	function setup() {
-    return {
-      activeTab: 0,
-      tabs: [
-          "Agregar Categoria",
-          "Valor de Inscripción",
-          "Limite de Inscritos",
-          "Quitar Categoria",
-      ]
-    };
-  };
-</script>
-
-<!--
-# Changelog:
-
-## [1.1] - 2021-05-01
-### Added
- - Back/Next buttons
-
-## [1.0] - 2021-05-01
-### Added
- - Nav bar with two styles
- - Set tabs title dynamically and render on page
--->
-                        
                       
                       </div>
                       

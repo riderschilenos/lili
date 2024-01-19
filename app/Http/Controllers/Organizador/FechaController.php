@@ -43,7 +43,6 @@ class FechaController extends Controller
         $request->validate([
             'name'=>'required',
             'fecha'=>'required',
-            'lugar'=>'required',
             'file'=>'image'
         ]);
 

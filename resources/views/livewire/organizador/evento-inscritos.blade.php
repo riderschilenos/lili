@@ -135,13 +135,16 @@
                                                                         @else
                                                                      
                                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn btn-danger h-10 my-auto">Nro: {{$ticket->id}} COBRADO</a>
-                                                                            <button wire:click="strava_wtsp({{$ticket->id}})" class="btn bg-green-200 my-auto text-xs">REENVIAR WHATSAP</button>
-                                                                      
-                                                                            @if ($ticket->pedido)
-                                                                                <a href="{{route('vendedor.pedidos.edit',$ticket->pedido)}}" target="_blank" class="btn btn-success h-10 my-auto mt-2">Pedido Nro: {{$ticket->pedido->id}}</a>
-                                                                            @else
-                                                                                <a wire:click="realizarpedido({{$ticket->id}})" class="btn bg-gray-200 hover:bg-gray-100 h-10 my-auto cursor-pointer">Realizar Pedido</a>
+
+                                                                            @if ($ticket->evento->type=='desafio')
+                                                                                <button wire:click="strava_wtsp({{$ticket->id}})" class="btn bg-green-200 my-auto text-xs">REENVIAR WHATSAP</button>
+                                                                                @if ($ticket->pedido)
+                                                                                    <a href="{{route('vendedor.pedidos.edit',$ticket->pedido)}}" target="_blank" class="btn btn-success h-10 my-auto mt-2">Pedido Nro: {{$ticket->pedido->id}}</a>
+                                                                                @else
+                                                                                    <a wire:click="realizarpedido({{$ticket->id}})" class="btn bg-gray-200 hover:bg-gray-100 h-10 my-auto cursor-pointer">Realizar Pedido</a>
+                                                                                @endif
                                                                             @endif
+                                                                          
 
                                                                             @break
                                                                         @endif

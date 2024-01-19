@@ -346,10 +346,12 @@
                     </div>
                     
                 </div>
-                <div>
-                    @if ($ticket->evento->limite>0)
-                        {{$ticket->evento->limite-$ticket->evento->tickets()->where('status', '>=', 1)->count()}} Cupos 
-                    @endif
+                <div class="items-center">
+                    <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">
+                        @if ($ticket->evento->limite>0)
+                            {{$ticket->evento->limite-$ticket->evento->tickets()->where('status', '>=', 1)->count()}} Cupos 
+                        @endif
+                    </h2>
                 </div>
 
             

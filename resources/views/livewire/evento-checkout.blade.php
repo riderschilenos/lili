@@ -153,6 +153,7 @@
                                             {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos 
                                         @endif
                                     </h2>
+                                    
                                 </div>
                             </div>
                         </div>

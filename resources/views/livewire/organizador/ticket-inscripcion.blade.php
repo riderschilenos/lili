@@ -29,7 +29,7 @@
               
 
         </div>    
-    <div class="grid grid-cols-1 justify-center">
+    <div class="grid grid-cols-1 justify-center items-center">
         @if (IS_NULL($categoria_id))
             @foreach ($fecha->categorias as $item)
                     
@@ -79,8 +79,9 @@
 
             @endforeach
         @else
+
             @if ($fechacategoria->limite==0)
-                <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4 flex justify-between items-center">
+                <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4">
                     {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}} 
                 </button>
             @else

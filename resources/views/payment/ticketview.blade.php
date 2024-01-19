@@ -177,7 +177,7 @@
                                         <div class="font-semibold text-center">
                                             {!! Form::open(['route'=>['ticket.inscripcions.update',$inscripcion], 'method'=> 'PUT' ]) !!}
                                                 @csrf
-                                            {!! Form::submit('COBRAR', ['class'=>'font-semibold rounded bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 my-auto cursor-pointer']) !!}
+                                            {!! Form::submit('RATIFICAR', ['class'=>'font-semibold rounded bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 my-auto cursor-pointer']) !!}
                                             {!! Form::close() !!}
                                         </div>
                                       </div>
@@ -190,7 +190,7 @@
                                         <div class="font-semibold text-center">
                                             {!! Form::open(['route'=>['ticket.inscripcions.update',$inscripcion], 'method'=> 'PUT' ]) !!}
                                                 @csrf
-                                            {!! Form::submit('COBRAR', ['class'=>'font-semibold rounded bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 my-auto cursor-pointer']) !!}
+                                            {!! Form::submit('RATIFICAR', ['class'=>'font-semibold rounded bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 my-auto cursor-pointer']) !!}
                                             {!! Form::close() !!}
                                         </div>
                                       </div>

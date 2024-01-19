@@ -621,6 +621,14 @@
 
                        
                         @if ($ticket)
+                            @if ($fechas->where('end_sell','!=',null)->count()>0)
+                                    
+                                <div id="countdownClock2" class="text-center my-2">
+                                    Quedan 00:00:00 para inscribirse
+                                </div>
+
+                            @endif
+
                             <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">
                                     @if ($evento->type=='pista')
                                         Finalizar Compra
@@ -633,10 +641,18 @@
                             @if($fechas->where('start_sell','!=',null)->count()>0)
                                 @if ($fechas->where('start_sell','!=',null)->first()->start_sell>now())
                                     
-                                    <div id="countdownClock" class="btn btn-danger btn-block">
+                                    <div id="countdownClock" class="btn bg-blue-900 text-white btn-block cursor-wait">
                                         Faltan 00:00:00 para el inicio de las ventas
                                     </div>
                                 @else
+                                    
+                                    @if ($fechas->where('end_sell','!=',null)->count()>0)
+                                
+                                        <div id="countdownClock2" class="text-center my-2">
+                                            Quedan 00:00:00 para inscribirse
+                                        </div>
+                                        
+                                    @endif
                                 
                                     <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">
                                         @if ($evento->type=='pista')
@@ -649,7 +665,13 @@
                                 @endif
                             
                             @else
-                         
+                                @if ($fechas->where('end_sell','!=',null)->count()>0)
+                               
+                                    <div id="countdownClock2" class="text-center my-2">
+                                        Quedan 00:00:00 para inscribirse
+                                    </div>
+
+                                @endif
                                 <a href="{{route('checkout.evento',$evento)}}" class="btn btn-danger btn-block">
                                     @if ($evento->type=='pista')
                                         Comprar
@@ -954,6 +976,42 @@
                         "s para el inicio de las ventas";
                 } else {
                     document.getElementById("countdownClock").innerHTML = "¡La venta ya ha comenzado!";
+                    window.location.href = "{{ route('checkout.evento', $evento) }}";
+                }
+
+                setTimeout(updateCountdownClock, 1000);
+            }
+
+            window.onload = updateCountdownClock;
+        </script>
+    @endif
+    @if($fechas->where('end_sell','!=',null)->count()>0)
+        <script>
+            function updateCountdownClock() {
+                var startSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
+                var currentTime = new Date();
+
+                var difference = startSellTime - currentTime;
+
+                if (difference > 0) {
+                    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                    document.getElementById("countdownClock2").innerHTML =
+                        "Quedan " +
+                        days +
+                        "d " +
+                        hours +
+                        "h " +
+                        minutes +
+                        "m " +
+                        seconds +
+                        "s para inscribirse";
+                } else {
+                    document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
+                    window.location.href = "{{ route('checkout.evento', $evento) }}";
                 }
 
                 setTimeout(updateCountdownClock, 1000);

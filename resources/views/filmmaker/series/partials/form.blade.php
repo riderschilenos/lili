@@ -9,7 +9,11 @@
                     </div>
 
                     <div class="mb-4">
-                        {!! Form::label('slug', 'Slug') !!}
+
+                        <div class="hidden">
+                            {!! Form::label('slug', 'Slug') !!}
+                        </div>
+                        <h1>Email:</h1>
                         {!! Form::text('slug', null , ['readonly'=>'redonly','class' => 'form-input block w-full mt-1']) !!}
                     </div>
 

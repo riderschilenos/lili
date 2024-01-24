@@ -102,10 +102,30 @@
 
                                 <div class="flex mt-2">
                                     <p class="text-gray-500 text-md mb-2">INSCRITOS</p>
-                                    <p class="text-sm text-gray-500 ml-auto"> 
-                                        <i class="fas fa-users"></i>
-                                        ({{$evento->tickets->where('status','>=',3)->count()}})
-                                    </p>
+                                                        @if($evento->type=='desafio')
+                                                            @php
+                                                                $inscritos=0;
+                                                            @endphp
+                                                            @if ($evento->tickets->where('status','>=',3)->count()>0)
+                                                                @foreach ($evento->tickets->where('status','>=',3) as $ticket)
+                                                                    @php
+                                                                        $inscritos+=$ticket->inscripcions->count();
+                                                                    @endphp
+                                                                @endforeach
+                                                            @endif
+                                                               
+
+                                                            <p class="text-sm text-gray-500 ml-auto"> 
+                                                                <i class="fas fa-users"></i>
+                                                                ({{$inscritos}})
+                                                            </p>
+                                                        @else
+                                                            <p class="text-sm text-gray-500 ml-auto"> 
+                                                                <i class="fas fa-users"></i>
+                                                                ({{$evento->tickets->where('status','>=',3)->count()}})
+                                                            </p>
+                                                        @endif
+                                  
                                 </div>
 
                                 @can('enrolled', $evento)

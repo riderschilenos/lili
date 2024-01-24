@@ -67,6 +67,7 @@
                     @if ($evento->limite>0)
                         <p class="mb-2"><i class="fas fa-users"></i> {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos disponibles    </p>
                     @endif
+                    
                         @if ($evento->type=='pista')
                             <p class="mb-2"><i class="fas fa-calendar"></i> <b>+ {{$evento->fechas_count}}</b> Entrenamientos Realizados</p>
                         @else
@@ -174,7 +175,24 @@
                         @if ($evento->type=='pista')
                              <h1 class="font-bold text-lg text-gray-800">Riders Con Entrada</h1>
                         @else
-                             <h1 class="font-bold text-lg text-gray-800">{{$tickets->count()}} Riders Inscritos</h1>
+                            @if($evento->type=='desafio')
+                                @php
+                                    $inscritos=0;
+                                @endphp
+                                @if ($evento->tickets->where('status','>=',3)->count()>0)
+                                    @foreach ($evento->tickets->where('status','>=',3) as $ticket)
+                                        @php
+                                            $inscritos+=$ticket->inscripcions->count();
+                                        @endphp
+                                    @endforeach
+                                @endif
+                                
+
+                                <h1 class="font-bold text-lg text-gray-800">{{$inscritos}} Riders Inscritos</h1>
+                            @else
+                                <h1 class="font-bold text-lg text-gray-800">{{$tickets->count()}} Riders Inscritos</h1>
+                            @endif
+                            
                         @endif
                         
                     </header>

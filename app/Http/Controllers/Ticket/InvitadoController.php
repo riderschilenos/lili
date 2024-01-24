@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Ticket;
 use App\Http\Controllers\Controller;
 use App\Models\Evento;
 use App\Models\Invitado;
+use App\Models\Socio;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class InvitadoController extends Controller
 {
@@ -45,6 +48,16 @@ class InvitadoController extends Controller
                     'email'=>'required'
                     ]);
         }
+        if($request->pedidoable_type=='Pendiente'){
+                $request->validate([
+                    'name'=>'required',
+                    'last_name'=>'required',
+                    'born_date'=>'required',
+                    'rut'=>'required',
+                    'disciplina_id'=>'required',
+                    'email'=>'required'
+                    ]);
+        }
 
         $evento=Evento::find($request->evento_id);
 
@@ -63,6 +76,39 @@ class InvitadoController extends Controller
                 
         
             }
+            if($request->pedidoable_type == 'Pendiente'){
+
+                $sociosall=Socio::all();
+
+                $fecha_nacimiento = $request->born_date; // Asumiendo que $request->born_date contiene la fecha en algún formato reconocido por PHP
+
+                // Obtener el año de la fecha
+                $ano = date('Y', strtotime($fecha_nacimiento));
+
+                $user=User::create([
+                    'name'=> $request->name.' '.$request->second_name.' '.$request->last_name,
+                    'email'=> $request->email,
+                    'password' => Hash::make($ano),
+                ]);
+
+                $socio=Socio::create([
+                    'name'=> $request->name,
+                    'second_name'=> $request->second_name,
+                    'last_name'=> $request->last_name,
+                    'slug'=> 'rider'.$sociosall->count(),
+                    'born_date'=> $request->born_date,
+                    'fono'=> $request->fono,
+                    'rut'=> $request->rut,
+                    'disciplina_id'=> $request->disciplina_id,
+                    'user_id'=> $user->id]);
+                            
+              
+
+                return redirect()->route('checkout.evento.socio',compact('evento','socio'));
+                
+        
+            }
+
     }
 
     /**

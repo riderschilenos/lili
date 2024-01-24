@@ -883,7 +883,13 @@
                             </div>
                             <div>
                                 <a href="{{route('ticket.historial.view',auth()->user())}}">
-                                    <button class=" btn bg-white flex justify-end ml-auto  text-base">  <img src="{{asset('img/ticket.png')}}" class="w-6 mr-2 py-1"> Tickets</button>
+                                    <button class="relative bg-white px-3 font-bold py-2 rounded-lg text-sm uppercase tracking-tight overflow-visible">
+                                        <div class="flex">   <img src="{{asset('img/ticket.png')}}" class="w-6 mr-2 py-1"> 
+                                        Tickets </div>
+                                        <div class="absolute -top-3 -right-3 px-2.5 py-0.5 bg-red-500 rounded-full text-xs">
+                                           {{auth()->user()->tickets->where('status','=',3)->count()}}
+                                        </div>
+                                    </button>
                                 </a>
                                 @if(auth()->user()->vendedor) 
                                     @if(auth()->user()->vendedor->estado==2)

@@ -59,7 +59,7 @@ class PaymentController extends Controller
             $socio = Invitado::find($ticket->ticketable_id);
         
         }else{
-            $socio = Socio::where('user_id',auth()->user()->id)->first();
+            $socio = Socio::find($ticket->ticketable_id);
         }
 
         $disciplinas= Disciplina::pluck('name','id');

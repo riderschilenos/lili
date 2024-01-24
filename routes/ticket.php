@@ -22,7 +22,7 @@ Route::resource('inscripcion', InscripcionController::class)->names('inscripcion
 
 Route::get('pistas/create',[EventoController::class, 'pista_create'])->name('pistas.create');
 
-Route::post('invitado/store', [InvitadoController::class,'store'])->name('invitado.store');
+Route::post('invitado/store', [InvitadoController::class,'store'])->name('notlog.store');
 
 Route::get('ticket/view/{ticket}',[EventoController::class, 'ticket_view'])->name('view');
 

@@ -38,7 +38,7 @@ class TicketInscripcion extends Component
                 $socio = Invitado::find($this->ticket->ticketable_id);
             
             }else{
-                $socio = Socio::where('user_id',auth()->user()->id)->first();
+                $socio = Socio::find($this->ticket->ticketable_id);
             }
             
     

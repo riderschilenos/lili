@@ -10,8 +10,8 @@
     </x-slot>
     
    
-    @livewire('evento-checkout', ['evento' => $evento,'id'=>$id,'type'=>$type], key('evento-checkout.'.$evento->slug))
-    
+    @livewire('evento-checkout', ['evento' => $evento,'id'=>$socio->id,'type'=>$type], key('evento-checkout.'.$evento->slug))
+                
              
 
 

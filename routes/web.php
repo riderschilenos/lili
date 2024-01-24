@@ -69,6 +69,8 @@ Route::get('checkout/{evento}', [EventoController::class,'preticket'])->name('ch
 
 Route::get('checkout/{evento}/{invitado}', [EventoController::class,'preticketinv'])->name('checkout.evento.invitado');
 
+Route::get('checkout/socio/{evento}/{socio}', [EventoController::class,'preticketsocio'])->name('checkout.evento.socio');
+
 Route::get('/catalogocarcasas',[VendedorHomeController::class, 'catalogoscarcasas'])->name('catalogo.carcasas');
 
 Route::post('ticket/{ticket}/enrolled', [TicketController::class, 'enrolled'])->middleware('auth')->name('ticket.enrolled');

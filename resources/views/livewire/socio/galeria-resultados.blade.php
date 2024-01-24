@@ -66,9 +66,15 @@
                                                     <div wire:click="setresultado({{$resultado->id}})">
                                                         <p class="text-gray-500 text-base font-bold cursor-pointer">{{$resultado->descripcion}}</p>
                                                     </div>
-                                                    <a href="{{route('socio.show', $resultado->user->socio)}}">
-                                                        <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1 mt-2">{{ '@'.$resultado->user->socio->slug }}</h1>
-                                                    </a>  
+                                                    @if ($resultado->user)
+                                                        @if ($resultado->user->socio)
+                                                            <a href="{{route('socio.show', $resultado->user->socio)}}">
+                                                            </a>  
+                                                        @else
+                                                            -
+                                                        @endif
+                                                    @endif
+                                                    
                                                 </div>
                                             </div>
                                         

@@ -15,12 +15,16 @@ use Livewire\Component;
 
 class EventoCheckout extends Component
 {   
-    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro, $invitado, $search;
+    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro, $invitado, $name, $type;
 
 
-    public function mount(Evento $evento,$invitado){
-        if($invitado){
-            $this->invitado=Invitado::find($invitado->id);
+    public function mount(Evento $evento,$id,$type){
+        if($type=='Invitado'){
+            $this->type=$type;
+            $this->invitado=Invitado::find($id);
+        }elseif($type=='Socio'){
+            $this->type=$type;
+            $this->invitado=Socio::find($id);
         }
 
         $this->evento =$evento;        
@@ -53,10 +57,18 @@ class EventoCheckout extends Component
     }
 
     public function getInvitadosProperty(){
-        return  Invitado::where('rut','LIKE','%'. $this->search .'%')
-        ->orwhere('email','LIKE','%'. $this->search .'%')
-        ->orwhere('name','LIKE','%'. $this->search .'%')
-        ->orwhere('fono','LIKE','%'. $this->search .'%')
+        return  Invitado::where('rut','LIKE','%'. $this->name .'%')
+        ->orwhere('email','LIKE','%'. $this->name .'%')
+        ->orwhere('name','LIKE','%'. $this->name .'%')
+        ->orwhere('fono','LIKE','%'. $this->name .'%')
+        ->latest('id')
+        ->paginate(3);
+    }
+
+    public function getSociosProperty(){
+        return  Socio::where('rut','LIKE','%'. $this->name .'%')
+        ->orwhere('name','LIKE','%'. $this->name .'%')
+        ->orwhere('fono','LIKE','%'. $this->name .'%')
         ->latest('id')
         ->paginate(3);
     }

@@ -2,21 +2,24 @@
                     <h1 class="text-xl pb-4 text-center">Datos Personales</h1>
                     <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-4 gap-y-8">
                         <div class="md: col-span-3 lg:col-span-3 ">
-                            <div class="mb-4">
-                                {!! Form::label('name', 'Primer Nombre *') !!}
-                                {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                            <div class="grid grid-cols-2 gap-x-2">
+                                <div class="mb-4">
+                                    {!! Form::label('name', 'Primer Nombre *') !!}
+                                    {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
-                                @error('name')
-                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                {!! Form::label('second_name', 'Segundo/Tercer Nombre (Opcional)') !!}
-                                {!! Form::text('second_name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+                                    @error('name')
+                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                    @enderror
+                                </div>
+                                <div class="mb-4">
+                                    {!! Form::label('second_name', 'Segundo/Tercer Nombre (Opcional)') !!}
+                                    {!! Form::text('second_name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
 
-                                @error('second_name')
-                                    <strong class="text-xs text-red-600">{{$message}}</strong>
-                                @enderror
+                                    @error('second_name')
+                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                    @enderror
+                                </div>
+
                             </div>
                             <div class="mb-4">
                                 {!! Form::label('last_name', 'Apellidos*') !!}

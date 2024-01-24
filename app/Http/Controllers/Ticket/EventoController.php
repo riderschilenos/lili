@@ -376,18 +376,23 @@ class EventoController extends Controller
                     if($ticket->evento->inscritos->contains(auth()->user()->id)){
                         return redirect()->route('ticket.view',$ticket);
                     }else{
-                        return view('Evento.preticket',compact('evento','invitado'));
+                        $id=null;
+                        $type=null;
+                        return view('Evento.preticket',compact('evento','invitado','id','type'));
                     }
                 }
             
 
             }else{
-            
-                return view('Evento.preticket',compact('evento','invitado'));
+                $id=null;
+                $type=null;
+                return view('Evento.preticket',compact('evento','invitado','id','type'));
             }  
         }else{
             $invitado=null;
-            return view('Evento.preticket',compact('evento','invitado'));
+            $id=null;
+            $type=null;
+            return view('Evento.preticket',compact('evento','invitado','id','type'));
         } 
         
         
@@ -398,13 +403,13 @@ class EventoController extends Controller
 
            
            
-                $ticket1=Ticket::where('ticketable_id', $invitado->id)->where('status',3)->where('evento_id',$evento->id)->first();
+                $ticket1=Ticket::where('ticketable_id', $invitado->id)->where('ticketable_type','App\Models\Invitado')->where('status',3)->where('evento_id',$evento->id)->first();
                 
                 if($ticket1){
                     return redirect()->route('ticket.view',$ticket1);
                 }
 
-            $ticket=Ticket::where('ticketable_id', $invitado->id)->where('status',1)->where('evento_id',$evento->id)->first();
+            $ticket=Ticket::where('ticketable_id', $invitado->id)->where('ticketable_type','App\Models\Invitado')->where('status',1)->where('evento_id',$evento->id)->first();
             
             if ($ticket){
                 if ($ticket->status==1) {
@@ -421,8 +426,45 @@ class EventoController extends Controller
             
 
             }else{
+                $type='Invitado';
+                $id=$invitado->id;
+                return view('Evento.preticket',compact('evento','invitado','type','id'));
+            }  
+       
+        
+    }
+    public function preticketsocio(Evento $evento, Socio $socio)
+    {   
+
+           
+           
+                $ticket1=Ticket::where('ticketable_id', $socio->id)->where('ticketable_type','App\Models\Socio')->where('status',3)->where('evento_id',$evento->id)->first();
+                
+                if($ticket1){
+                    return redirect()->route('ticket.view',$ticket1);
+                }
+
+            $ticket=Ticket::where('ticketable_id', $socio->id)->where('ticketable_type','App\Models\Socio')->where('status',1)->where('evento_id',$evento->id)->first();
             
-                return view('Evento.preticket',compact('evento','invitado'));
+            if ($ticket){
+                if ($ticket->status==1) {
+                    return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+                }else{
+                    if($ticket->evento->inscritos->contains(auth()->user()->id)){
+                        return redirect()->route('ticket.view',$ticket);
+                    }else{
+                        $type='Socio';
+                        $id=$socio->id;
+                        return view('Evento.preticket',compact('evento','id','type'));
+
+                    }
+                }
+            
+
+            }else{
+                $type='Socio';
+                $id=$socio->id;
+                return view('Evento.preticket',compact('evento','type','id'));
             }  
        
         

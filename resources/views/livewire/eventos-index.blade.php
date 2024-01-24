@@ -231,6 +231,30 @@
                     
                                                                 @endif                                  
                                                         @endif
+                                                                  
+                                                        @if($evento->type=='desafio')
+                                                            @php
+                                                                $inscritos=0;
+                                                            @endphp
+                                                            @if ($evento->tickets->where('status','>=',3)->count()>0)
+                                                                @foreach ($evento->tickets->where('status','>=',3) as $ticket)
+                                                                    @php
+                                                                        $inscritos+=$ticket->inscripcions->count();
+                                                                    @endphp
+                                                                @endforeach
+                                                            @endif
+                                                               
+
+                                                            <a href="{{route('ticket.evento.show', $evento)}}">
+                                                                <div class="flex mt-2">
+                                                                    <p class="text-gray-500 text-md ">Riders Inscritos</p>
+                                                                    <p class="text-sm text-gray-500 ml-auto"> 
+                                                                        <i class="fas fa-users"></i>
+                                                                        ({{$inscritos}})
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        @else
                                                             <a href="{{route('ticket.evento.show', $evento)}}">
                                                                 <div class="flex mt-2">
                                                                     <p class="text-gray-500 text-md ">Riders Inscritos</p>
@@ -240,6 +264,10 @@
                                                                     </p>
                                                                 </div>
                                                             </a>
+                                                        
+                                                        @endif
+
+                                                           
                     
                                                             <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-6">
                                                                 @php

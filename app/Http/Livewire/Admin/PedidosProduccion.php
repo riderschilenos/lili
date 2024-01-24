@@ -150,6 +150,12 @@ class PedidosProduccion extends Component
    
             $orden->status = 3;
             $orden->save();
+            
+            if($orden->producto->stock>0){
+                $orden->producto->stock=$orden->producto->stock-1;
+                $orden->producto->save();
+            }
+
  
                 $orden->images()->create([
                     'url'=>$foto

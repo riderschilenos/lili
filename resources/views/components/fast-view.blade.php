@@ -883,7 +883,7 @@
                             </div>
                             <div class="text-right">
                                 <a href="{{ route('ticket.historial.view', auth()->user()) }}">
-                                    <button class="relative bg-white px-3 font-bold py-2 rounded-lg text-sm uppercase tracking-tight overflow-visible">
+                                    <button class="relative bg-white px-3 font-bold py-2 rounded-lg text-sm uppercase tracking-tight overflow-visible w-28">
                                         <div class="flex">
                                             <img src="{{ asset('img/ticket.png') }}" class="w-6 mr-2 py-1">
                                             Tickets

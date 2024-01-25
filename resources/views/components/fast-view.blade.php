@@ -881,24 +881,28 @@
                                 @endif
                                 
                             </div>
-                            <div>
-                                <a href="{{route('ticket.historial.view',auth()->user())}}">
+                            <div class="text-right">
+                                <a href="{{ route('ticket.historial.view', auth()->user()) }}">
                                     <button class="relative bg-white px-3 font-bold py-2 rounded-lg text-sm uppercase tracking-tight overflow-visible">
-                                        <div class="flex">   <img src="{{asset('img/ticket.png')}}" class="w-6 mr-2 py-1"> 
-                                        Tickets </div>
-                                        <div class="absolute -top-3 -right-3 px-2.5 py-0.5 bg-red-500 rounded-full text-xs">
-                                           {{auth()->user()->tickets->where('status','=',3)->count()}}
+                                        <div class="flex">
+                                            <img src="{{ asset('img/ticket.png') }}" class="w-6 mr-2 py-1">
+                                            Tickets
+                                        </div>
+                                        <div class="absolute -top-3 -right-3 px-2.5 py-0.5 bg-red-500 rounded-full text-xs text-white">
+                                            {{ auth()->user()->tickets->where('status', '=', 3)->count() }}
                                         </div>
                                     </button>
                                 </a>
-                                @if(auth()->user()->vendedor) 
-                                    @if(auth()->user()->vendedor->estado==2)
-                                        <a href="{{route('vendedor.pedidos.create')}}">
+                                
+                                @if(auth()->user()->vendedor)
+                                    @if(auth()->user()->vendedor->estado == 2)
+                                        <a href="{{ route('vendedor.pedidos.create') }}">
                                             <button class="btn btn-success mt-2 text-center text-base">Nuevo Pedido</button>
                                         </a>
                                     @endif
                                 @endif
                             </div>
+                            
                         </div>
                     </div>
 

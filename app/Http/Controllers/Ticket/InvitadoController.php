@@ -9,6 +9,7 @@ use App\Models\Socio;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class InvitadoController extends Controller
 {
@@ -101,10 +102,103 @@ class InvitadoController extends Controller
                     'rut'=> $request->rut,
                     'disciplina_id'=> $request->disciplina_id,
                     'user_id'=> $user->id]);
+
+                    $fono='569'.substr(str_replace(' ', '', $socio->fono), -8);
+                    //TOKEN QUE NOS DA FACEBOOK
                             
+                    try {
+                        $token = env('WS_TOKEN');
+                        $phoneid= env('WS_PHONEID');
+                        $version='v16.0';
+                        $url="https://riderschilenos.cl/";
+                        $wsload=[
+                            'messaging_product' => 'whatsapp',
+                            "preview_url"=> false,
+                            'to'=>'56963176726',
+                            
+                            'type'=>'template',
+                                'template'=>[
+                                    'name'=>'nuevo_rider',
+                                    'language'=>[
+                                        'code'=>'es'],
+                                    'components'=>[ 
+                                        [
+                                            'type'=>'body',
+                                            'parameters'=>[
+                                                [   //Socio
+                                                    'type'=>'text',
+                                                    'text'=> $socio->user->name
+                                                ],
+                                                [   //Socio
+                                                    'type'=>'text',
+                                                    'text'=> '+'.$fono
+                                                ],
+                                                [   //Socio
+                                                    'type'=>'text',
+                                                    'text'=> $socio->disciplina->name
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                                
+                            
+                        ];
+                        
+                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                        
+                        //TOKEN QUE NOS DA FACEBOOK
+                        $token = env('WS_TOKEN');
+                        $phoneid= env('WS_PHONEID');
+                        $version='v16.0';
+                        $url="https://riderschilenos.cl/";
+                        $payload=[
+                            'messaging_product' => 'whatsapp',
+                            "preview_url"=> false,
+                            'to'=>$fono,
+                            
+                            'type'=>'template',
+                                'template'=>[
+                                    'name'=>'bienvenida_credenciales',
+                                    'language'=>[
+                                        'code'=>'es'],
+                                    'components'=>[ 
+                                        [
+                                            'type'=>'body',
+                                            'parameters'=>[
+                                                [   //Socio
+                                                    'type'=>'text',
+                                                    'text'=> $socio->name
+                                                ],
+                                                [   //Socio
+                                                    'type'=>'text',
+                                                    'text'=> $request->email
+                                                ],
+                                                [   //Socio
+                                                    'type'=>'text',
+                                                    'text'=> $ano
+                                                ],
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                                
+                            
+                        ];
+                        
+                        Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+                
+            
+                        return redirect()->route('checkout.evento.socio',compact('evento','socio'));
+
+                    } catch (\Throwable $th) {
+            
+                        return redirect()->route('checkout.evento.socio',compact('evento','socio'));
+                        
+                    }
               
 
-                return redirect()->route('checkout.evento.socio',compact('evento','socio'));
+              
                 
         
             }

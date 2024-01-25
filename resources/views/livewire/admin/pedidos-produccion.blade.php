@@ -21,7 +21,7 @@
         <h1 class="text-right pb-2 cursor-pointer" wire:click="updatepaginate">(Resume)</h1>
     @endif
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 ">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-6 lg:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 hidden">
 
         @foreach ($lotes as $lote)
         
@@ -238,8 +238,8 @@
                                             </div>
                                             
                                             <div class="flex justify-center mt-2">
-                                                <a id="btnDespachado" class="btn bg-blue-500 cursor-pointer text-center mt-1"  wire:click="enviarblue({{$pedido->id}})">Despachado</a>
-                                                <a class="ml-2 btn bg-blue-500 cursor-pointer text-center mt-1"  wire:click="retirado({{$pedido->id}})">Retirado</a>
+                                                <a id="btnDespachado" class="btn btn-danger cursor-pointer text-center mt-1"  wire:click="enviarblue({{$pedido->id}})">Despachado</a>
+                                                <a class="ml-2 btn btn-danger cursor-pointer text-center mt-1"  wire:click="retirado({{$pedido->id}})">Retirado</a>
                                             </div>
                                         @else
                                             <input wire:model="file" type="file" class="form-input bg-gray-200 mt-4">

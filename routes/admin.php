@@ -73,6 +73,8 @@ Route::resource('gastotypes', GastotypesController::class)->names('gastotypes');
 
 Route::get('produccion',[DisenoController::class, 'indexproduccion'])->name('disenos.produccion');
 
+Route::get('despacho',[DisenoController::class, 'indexdespacho'])->name('disenos.despacho');
+
 Route::resource('modelo',ModeloController::class)->names('modelos');
 
 Route::resource('suscripcion',SuscripcionController::class)->names('suscripcions');

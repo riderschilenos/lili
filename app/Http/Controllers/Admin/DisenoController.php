@@ -18,32 +18,35 @@ class DisenoController extends Controller
      */
     public function index()
     {   
-        $pedidos=Pedido::where('status',3)
-                ->orwhere('status',4)
-                ->orwhere('status',5)
-                ->paginate(100);
-        
         $users=User::all();
 
         $invitados= Invitado::all();
         $socios= Socio::all();
 
-        return view('admin.disenos.index',compact('pedidos','users','invitados','socios'));
+        return view('admin.disenos.index',compact('users','invitados','socios'));
     }
 
     public function indexproduccion()
     {   
-        $pedidos=Pedido::where('status',3)
-                ->orwhere('status',4)
-                ->orwhere('status',5)
-                ->paginate(100);
+       
         
         $users=User::all();
 
         $invitados= Invitado::all();
         $socios= Socio::all();
 
-        return view('admin.disenos.produccion',compact('pedidos','users','invitados','socios'));
+        return view('admin.disenos.produccion',compact('users','invitados','socios'));
+    }
+
+    public function indexdespacho()
+    {   
+        
+        $users=User::all();
+
+        $invitados= Invitado::all();
+        $socios= Socio::all();
+
+        return view('admin.disenos.despacho',compact('users','invitados','socios'));
     }
 
     /**

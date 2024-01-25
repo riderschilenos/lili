@@ -31,13 +31,26 @@ class PedidosProduccion extends Component
 
     use WithPagination;
 
-    public $selectedProduccion, $selectedDescartar,$produccion, $descartar, $file, $etiquetas;
+    public $selectedProduccion, $selectedDescartar,$produccion, $descartar, $file, $etiquetas, $type;
+
+    public function mount($type){
+        $this->type=$type;
+    }
 
     public function render()
-    {   $pedidos=Pedido::where('status',5)
-        ->orwhere('status',6)
-        ->orderby('status','DESC')
-            ->paginate(100);
+    {   if($this->type=='produccion'){
+            $pedidos=Pedido::where('status',5)
+            ->orderby('status','DESC')
+                ->paginate(100);
+        }
+        if($this->type=='despacho'){
+            $pedidos=Pedido::where('status',6)
+            ->orderby('status','DESC')
+                ->paginate(100);
+            
+        }
+       
+            
 
         $users=User::all();
 

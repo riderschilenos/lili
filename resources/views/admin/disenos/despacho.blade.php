@@ -6,7 +6,7 @@
         
     </x-slot>
     
-    @livewire('admin.pedidos-produccion',[$type="produccion"])
+    @livewire('admin.pedidos-produccion',[$type="despacho"])
 
     
 </x-app-layout>

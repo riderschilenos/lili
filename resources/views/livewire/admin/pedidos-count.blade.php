@@ -39,7 +39,7 @@
                </div>
             </a>
 
-            <a href="{{route('admin.disenos.produccion')}}">
+            <a href="{{route('admin.disenos.despacho')}}">
                <div class="max-w-xl  bg-white shadow rounded-lg p-2 sm:p-6 xl:p-8 my-2">
                   <div class="flex items-center">
                      <div class="flex-shrink-0">

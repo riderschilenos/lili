@@ -7,6 +7,7 @@ use App\Models\Evento;
 use App\Models\Invitado;
 use App\Models\Socio;
 use App\Models\User;
+use App\Models\WhatsappMensaje;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
@@ -187,12 +188,19 @@ class InvitadoController extends Controller
                         ];
                         
                         Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+
+                        WhatsappMensaje::create(['numero'=> $fono,
+                        'mensaje'=>"Credenciales Enviadas",
+                        'type'=>'enviado']);
                 
             
                         return redirect()->route('checkout.evento.socio',compact('evento','socio'));
 
                     } catch (\Throwable $th) {
             
+                        WhatsappMensaje::create(['numero'=> $fono,
+                        'mensaje'=>"Error al enviar Credenciales",
+                        'type'=>'enviado']);
                         return redirect()->route('checkout.evento.socio',compact('evento','socio'));
                         
                     }

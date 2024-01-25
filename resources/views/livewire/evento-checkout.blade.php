@@ -293,8 +293,10 @@
                            
                                                                 <div class="mb-4"  wire:ignore>
                                                                     {!! Form::label('email', 'Email') !!}
-                                                                    {!! Form::text('email', null , ['class' => 'w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm '.($errors->has('email')?' border-red-600':'')]) !!}
-        
+                                                                    {!! Form::text('email', null, [
+                                                                        'class' => 'w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm '.($errors->has('email')?' border-red-600':''),
+                                                                        'type' => 'email', // Agregar el atributo type con el valor 'email'
+                                                                    ]) !!}
                                                                     @error('email')
                                                                         <strong class="text-xs text-red-600">{{$message}}</strong>
                                                                     @enderror

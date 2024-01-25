@@ -134,7 +134,13 @@
                                                                 <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->rut}}</h1>
                                                                 <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->fono}}</h1>
                                                                 <h1 class="ml-4 bg-white mb-1 px-4 rounded-md"> {{$invitado->email}}</h1>
-                                                                <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->direccion->calle.' '.$invitado->direccion->numero.' '.$invitado->direccion->comuna.' '.$invitado->direccion->region}}</h1>
+
+                                                                @if ($invitado->direccion->block)
+                                                                    <h1 class="ml-4 bg-white mb-1 px-4 rounded-md"> {{$invitado->direccion->calle.' '.$invitado->direccion->numero.' '.$invitado->direccion->block.' '.$invitado->direccion->comuna.' '.$invitado->direccion->region}}</h1>
+                                                                @else
+                                                                    <h1 class="ml-4 bg-white mb-1 px-4 rounded-md">{{$invitado->direccion->calle.' '.$invitado->direccion->numero.' '.$invitado->direccion->comuna.' '.$invitado->direccion->region}}</h1>
+                                                                @endif
+                                                                
                                                                     
                                                                     
                                                              

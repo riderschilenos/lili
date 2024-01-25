@@ -67,7 +67,7 @@
                     @if ($evento->limite>0)
                         <p class="mb-2"><i class="fas fa-users"></i> {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos disponibles    </p>
                     @endif
-                    
+
                         @if ($evento->type=='pista')
                             <p class="mb-2"><i class="fas fa-calendar"></i> <b>+ {{$evento->fechas_count}}</b> Entrenamientos Realizados</p>
                         @else
@@ -180,9 +180,9 @@
                                     $inscritos=0;
                                 @endphp
                                 @if ($evento->tickets->where('status','>=',3)->count()>0)
-                                    @foreach ($evento->tickets->where('status','>=',3) as $ticket)
+                                    @foreach ($evento->tickets->where('status','>=',3) as $tkts)
                                         @php
-                                            $inscritos+=$ticket->inscripcions->count();
+                                            $inscritos+=$tkts->inscripcions->count();
                                         @endphp
                                     @endforeach
                                 @endif
@@ -647,7 +647,7 @@
 
                             @endif
 
-                            <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">
+                                <a href="{{route('payment.checkout.ticket', $ticket)}}" class="btn btn-danger btn-block">
                                     @if ($evento->type=='pista')
                                         Finalizar Compra
                                     @else

@@ -237,9 +237,9 @@
                                                                 $inscritos=0;
                                                             @endphp
                                                             @if ($evento->tickets->where('status','>=',3)->count()>0)
-                                                                @foreach ($evento->tickets->where('status','>=',3) as $ticket)
+                                                                @foreach ($evento->tickets->where('status','>=',3) as $tkts)
                                                                     @php
-                                                                        $inscritos+=$ticket->inscripcions->count();
+                                                                        $inscritos+=$tkts->inscripcions->count();
                                                                     @endphp
                                                                 @endforeach
                                                             @endif

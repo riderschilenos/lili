@@ -884,7 +884,7 @@
                             <div class="grid grid-cols-1 justify-end text-center">
                                 <a href="{{route('ticket.historial.view',auth()->user())}}">
                                     <button class="relative bg-white px-3 font-bold py-2 rounded-lg text-sm uppercase tracking-tight overflow-visible w-full md:w-32">
-                                        <div class="flex">   <img src="{{asset('img/ticket.png')}}" class="w-6 mr-2 py-1"> 
+                                        <div class="flex justify-center">   <img src="{{asset('img/ticket.png')}}" class="w-6 mr-2 py-1"> 
                                         Tickets </div>
                                         <div class="absolute -top-3 -right-3 px-2.5 py-0.5 bg-red-500 rounded-full text-xs text-white">
                                            {{auth()->user()->tickets->where('status','=',3)->count()}}

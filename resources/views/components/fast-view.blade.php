@@ -856,7 +856,7 @@
                     </section>
                 comment --}}
 
-        <section class="sm:mt-8">
+        <section class="mt-2 sm:mt-8">
             <div class="">
 
                 @if (auth()->user())

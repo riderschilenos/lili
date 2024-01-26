@@ -856,12 +856,12 @@
                     </section>
                 comment --}}
 
-        <section class="mt-2 sm:mt-8">
+        <section class="sm:mt-8">
             <div class="">
 
                 @if (auth()->user())
                     <div class="max-w-6xl mx-auto px-2 sm:px-6 mt-2 lg:px-8">
-                        <div  class="mt-4 text-2xl mb-4 sm:text-xl mx-1 leading-none font-bold text-gray-900 flex justify-between">
+                        <div  class="mt-6 text-2xl mb-4 sm:text-xl mx-1 leading-none font-bold text-gray-900 flex justify-between">
                             <div>
                                 <h1 class="text-xl mx-2 font-bold cursor-pointer flex items-center" @click="user = true; novedades=false; home = false; socio = false; evento = false; registro = false; vendedor = false; base = false" >Hola {{Auth()->user()->name}}</h1>
                                 @if (auth()->user()->socio)

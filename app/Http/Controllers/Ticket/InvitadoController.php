@@ -97,7 +97,7 @@ class InvitadoController extends Controller
                 Auth::login($user);
 
                 $socio=Socio::create([
-                    'name'=> $request->name.' ('.$evento->titulo.')',
+                    'name'=> $request->name,
                     'second_name'=> $request->second_name,
                     'last_name'=> $request->last_name,
                     'slug'=> 'rider'.$sociosall->count(),
@@ -131,7 +131,7 @@ class InvitadoController extends Controller
                                             'parameters'=>[
                                                 [   //Socio
                                                     'type'=>'text',
-                                                    'text'=> $socio->user->name
+                                                    'text'=> $socio->user->name.' ('.$evento->titulo.')'
                                                 ],
                                                 [   //Socio
                                                     'type'=>'text',

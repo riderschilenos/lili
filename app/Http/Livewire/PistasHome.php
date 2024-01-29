@@ -8,7 +8,7 @@ use Livewire\Component;
 class PistasHome extends Component
 {
     public function render()
-    {   $pistas=Evento::where('status', 1)
+    {   $pistas=Evento::where('status', 2)
         ->whereIn('type', ['pista', 'desafio', 'carrera'])
         ->latest('id')
         ->paginate(4);

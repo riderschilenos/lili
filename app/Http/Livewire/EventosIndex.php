@@ -27,7 +27,7 @@ class EventosIndex extends Component
     {   $disciplinas = Disciplina::all();
         $filmmakers = Filmmaker::all();
         
-        $eventos = Evento::where('status', 1)
+        $eventos = Evento::where('status', 2)
                             ->where(function($query) {
                                 $query->where('type', 'carrera')
                                     ->orWhere('type', 'campeonato')
@@ -38,7 +38,7 @@ class EventosIndex extends Component
                             ->latest('id')
                             ->paginate($this->perPagesoc);
         
-        $eventospasados = Evento::where('status', 2)
+        $eventospasados = Evento::where('status', 3)
                             ->where(function($query) {
                                 $query->where('type', 'carrera')
                                     ->orWhere('type', 'campeonato')

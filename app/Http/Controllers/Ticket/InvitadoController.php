@@ -94,7 +94,7 @@ class InvitadoController extends Controller
                 ]);
 
                 $socio=Socio::create([
-                    'name'=> $request->name,
+                    'name'=> $request->name.' ('.$evento->titulo.')',
                     'second_name'=> $request->second_name,
                     'last_name'=> $request->last_name,
                     'slug'=> 'rider'.$sociosall->count(),

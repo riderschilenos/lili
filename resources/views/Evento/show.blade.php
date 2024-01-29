@@ -1029,7 +1029,7 @@
                         "s para inscribirse";
                 } else {
                     document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
-                    window.location.href = "{{ route('checkout.evento', $evento) }}";
+                  //  window.location.href = "{{ route('checkout.evento', $evento) }}";
                 }
 
                 setTimeout(updateCountdownClock, 1000);

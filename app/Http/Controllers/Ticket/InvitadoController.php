@@ -9,6 +9,7 @@ use App\Models\Socio;
 use App\Models\User;
 use App\Models\WhatsappMensaje;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 
@@ -92,6 +93,8 @@ class InvitadoController extends Controller
                     'email'=> $request->email,
                     'password' => Hash::make($ano),
                 ]);
+
+                Auth::login($user);
 
                 $socio=Socio::create([
                     'name'=> $request->name.' ('.$evento->titulo.')',

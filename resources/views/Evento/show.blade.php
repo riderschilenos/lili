@@ -969,7 +969,7 @@
         <h1 class="text-center text-xs text-gray-400 py-12 mb-12">Todos Los derechos Reservados</h1>
         
     </x-fast-view>
-    @if($fechas->where('start_sell','!=',null)->count()>0)
+
         <script>
             function updateCountdownClock() {
                 var startSellTime = new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}");
@@ -1003,7 +1003,7 @@
 
             window.onload = updateCountdownClock;
         </script>
-    @endif
+        
     @if($fechas->where('end_sell','!=',null)->count()>0)
         <script>
             function updateCountdownClock() {

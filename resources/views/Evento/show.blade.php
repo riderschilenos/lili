@@ -660,7 +660,7 @@
                                 @if ($fechas->where('start_sell','!=',null)->first()->start_sell>now())
                                     
                                     <div id="countdownClock" class="btn bg-blue-900 text-white btn-block cursor-wait">
-                                        Faltan 00:00:00 para el inicio de las ventas
+                                        Faltan 00:00:00 para el inicio de las inscripciones
                                     </div>
                                 @else
                                     
@@ -991,7 +991,7 @@
                         minutes +
                         "m " +
                         seconds +
-                        "s para el inicio de las ventas";
+                        "s para el inicio de las inscripciones";
                 } else {
                     document.getElementById("countdownClock").innerHTML = "¡La venta ya ha comenzado!";
                     window.location.href = "{{ route('checkout.evento', $evento) }}";

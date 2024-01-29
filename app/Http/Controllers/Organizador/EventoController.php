@@ -73,12 +73,15 @@ class EventoController extends Controller
                     'url'=>'eventos/'.$nombre
                 ]);
         }
+
+        
+        /*
         if($request->type=="carrera"){
             Fecha::create([
                 'evento_id'=>$evento->id,
                 'name'=>$request->titulo
             ]);
-        }
+        }*/
 
 
         return redirect()->route('organizador.eventos.edit',$evento);

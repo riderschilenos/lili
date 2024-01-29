@@ -10,6 +10,7 @@
                     
                     {!! Form::hidden('user_id',auth()->user()->id) !!}
 
+                    {!! Form::hidden('status',4) !!}
 
                     <h1 class="text-center font-bold">Tipo de evento:</h1>
 

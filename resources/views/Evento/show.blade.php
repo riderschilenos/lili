@@ -662,6 +662,7 @@
                                     <div id="countdownClock" class="btn bg-blue-900 text-white btn-block cursor-wait">
                                         Faltan 00:00:00 para el inicio de las ventas
                                     </div>
+                                    
                                 @else
                                     
                                     @if ($fechas->where('end_sell','!=',null)->count()>0)

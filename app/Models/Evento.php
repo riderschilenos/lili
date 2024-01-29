@@ -13,10 +13,11 @@ class Evento extends Model
     
     protected $withCount = ['inscritos','fechas'];
 
-    const PUBLICADO =1;
-    const PASADO =2;
-    const OCULTO =3;
-    const BORRADOR =4;
+    const BORRADOR =1;
+    const PUBLICADO =2;
+    const PASADO =3;
+    const OCULTO =4;
+
 
     public function scopeDisciplina($query,$disciplina_id){
         if($disciplina_id){

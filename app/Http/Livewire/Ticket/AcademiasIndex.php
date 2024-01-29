@@ -17,7 +17,7 @@ class AcademiasIndex extends Component
     {   $disciplinas = Disciplina::all();
         $filmmakers = Filmmaker::all();
         
-        $eventos = Evento::where('status',1)
+        $eventos = Evento::where('status',2)
                         ->where('type','academia')
                         ->Disciplina($this->disciplina_id)
                         ->Organizador($this->filmmaker_id)

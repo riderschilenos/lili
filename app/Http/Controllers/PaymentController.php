@@ -80,12 +80,20 @@ class PaymentController extends Controller
         $createdAtThreshold = $now->subMinutes(10); // Resta 10 minutos a la fecha actual
 
         // Verifica si la fecha de creación del ticket es anterior a $createdAtThreshold
-        if ($ticket->created_at->lt($createdAtThreshold)) {
-            $ticket->delete();
-            return redirect()->route('checkout.evento',$evento);
+        if (IS_NULL($ticket->evento->eliminable)) {
+           
+                return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento','fech'));
+            
         } else {
-            return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento','fech'));
+            if ($ticket->created_at->lt($createdAtThreshold)) {
+                $ticket->delete();
+                return redirect()->route('checkout.evento',$evento);
+            } else {
+                return view('payment.checkoutticket',compact('ticket','disciplinas','fechas','socio','evento','fech'));
+            }
         }
+        
+      
 
        
     }

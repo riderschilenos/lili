@@ -59,7 +59,7 @@ class EventoInscritos extends Component
                             ->where('evento_id',$this->evento->id)
                             ->where('estado','>=',1)
                             ->orderby('categoria_id','DESC')
-                            ->paginate(50);
+                            ->paginate(500);
 
         return view('livewire.organizador.evento-inscritos',compact('sponsors','inscripciones','tickets','socios','invitados'));
     }

@@ -207,7 +207,7 @@
             @endif
         @endforeach
 
-    
+    @if (!IS_NULL($ticket->evento->eliminable))
         <script>
             // Función para actualizar el reloj en vivo
             function updateLiveClock() {
@@ -251,6 +251,7 @@
                         // Llamar a la función al cargar la página
             window.onload = updateLiveClock;
         </script>
+    @endif
             {{-- PREFICHA --}}
 
 </div>

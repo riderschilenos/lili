@@ -78,7 +78,7 @@ class EventoController extends Controller
         /*
         if($request->type=="carrera"){
             Fecha::create([
-                'evento_id'=>$evento->id,
+                'evento_id'=>$evento->id,edi
                 'name'=>$request->titulo
             ]);
         }*/

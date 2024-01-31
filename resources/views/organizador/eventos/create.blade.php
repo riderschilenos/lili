@@ -33,7 +33,13 @@
                                       Desafio
                                 </label>
                               </div>
-                        </div>
+                            </div>
+                            <div class="form-check ml-2">
+                                <input type="radio" name="type" id="type" value="sorteo">
+                                <label class="text-2xl mr-4" for="type">
+                                      Sorteo
+                                </label>
+                            </div>
 
 
                     @include('organizador.eventos.partials.form')

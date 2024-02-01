@@ -1121,7 +1121,7 @@
         <h1 class="text-center text-xs text-gray-400 py-12 mb-12">Todos Los derechos Reservados</h1>
         
     </x-fast-view>
-    @if($evento->fechas->where('start_sell','!=',null)->count()>0)
+    @if($fechas->where('start_sell','!=',null)->count()>0)
         <script>
             function updateCountdownClock() {
                 var startSellTime = new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}");
@@ -1156,7 +1156,7 @@
             window.onload = updateCountdownClock;
         </script>
     @endif
-    @if($evento->fechas->where('end_sell','!=',null)->count()>0)
+    @if($fechas->where('end_sell','!=',null)->count()>0)
         @if ($evento->type=='sorteo')
             <script>
                 function updateCountdownClock2() {
@@ -1193,7 +1193,7 @@
             </script>
         @else
              <script>
-                function updateCountdownClock2() {
+                function updateCountdownClock3() {
                     var startSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
                     var currentTime = new Date();
 
@@ -1220,10 +1220,10 @@
                  //       window.location.href = "{{ route('checkout.evento', $evento) }}";
                     }
 
-                    setTimeout(updateCountdownClock2, 1000);
+                    setTimeout(updateCountdownClock3, 1000);
                 }
 
-                window.onload = updateCountdownClock2;
+                window.onload = updateCountdownClock3;
             </script>
         @endif
            

@@ -102,29 +102,43 @@
                         <span class="">
                           @if ($evento->type=='pista')
                               Cilindrada
+                          @elseif ($evento->type=='sorteo')
+                              Nro Boleto
                           @else
                               Categoria
                           @endif
                         </span>
                         <div class="font-semibold">
-                          {{$inscripcion->fecha_categoria->categoria->name}}
+                          @if ($evento->type=='sorteo')
+                            {{$inscripcion->id}}
+                          @else
+                              {{$inscripcion->fecha_categoria->categoria->name}}
+                          @endif
+                        
                         </div>
 
                       </div>
                       <div class="flex flex-col mx-auto text-sm">
-                        <span class="">
+                        <span class="text-center">
                           @if ($evento->type=='pista')
                               Fecha
+                          @elseif ($evento->type=='sorteo')
+                              Sorteo
                           @else
                               Fecha
                           @endif
                         </span>
                         <div class="font-semibold">
-                          @if ($inscripcion->fecha->name=='keyname')
-                              {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}
+                          @if ($evento->type=='sorteo')
+                            {{$evento->titulo}}
                           @else
-                              {{$inscripcion->fecha->name}}
+                            @if ($inscripcion->fecha->name=='keyname')
+                                {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}
+                            @else
+                                {{$inscripcion->fecha->name}}
+                            @endif
                           @endif
+                            
                         </div>
 
                       </div>

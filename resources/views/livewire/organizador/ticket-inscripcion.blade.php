@@ -19,9 +19,11 @@
                 @endif
 
                 @if ($evento->type=='pista')
-                    <p class="text-base leading-none my-auto mx-auto text-center">En qué Cilindrada vas entrenar?</p>
+                    <p class="text-base leading-none my-auto mx-auto text-center">¿En qué Cilindrada vas entrenar?</p>
+                @elseif ($evento->type=='sorteo')
+                    <p class="text-base leading-none my-auto mx-auto text-center">¿Cuantos Números deseas?</p>
                 @else
-                    <p class="text-base leading-none my-auto mx-auto text-center">En que categoria deseas competir?</p>
+                    <p class="text-base leading-none my-auto mx-auto text-center">¿En que categoria deseas competir?</p>
                 @endif
                 @if ($evento->eliminable=='si')
                     <div id="liveClock" class="text-base mt-4 mx-auto text-center"></div>
@@ -35,17 +37,23 @@
         @if (IS_NULL($categoria_id))
             @foreach ($fecha->categorias as $item)
                     
-                    @if ($evento->datos!=null || $evento->type=='desafio' || $evento->fechas->count()>1)
+                    @if ($evento->datos!=null || $evento->type=='desafio' || $evento->type=='pista'|| $evento->type=='sorteo' || $evento->fechas->count()>1)
 
-                    @if ($item->limite==0)
-                        <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2">
-                            {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
-                        </button>
-                    @else
-                        <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2 flex justify-between items-center">
-                            {{$item->categoria->name}}-${{number_format($item->inscripcion)}}  <p class="text-xs">({{$item->limite}} Cupos Disponibles)</p>
-                        </button>
-                    @endif
+                        @if ($item->limite==0)
+                            <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2">
+                                @if ($evento->type=='sorteo')
+                                    {{$item->categoria->name}}
+                                @else
+                                     {{$item->categoria->name}}-${{number_format($item->inscripcion)}}
+                                @endif    
+                                   
+
+                            </button>
+                        @else
+                            <button wire:click="set_categoria({{$item->id}})" class="btn btn-danger text-white mx-2 text-md my-2 flex justify-between items-center">
+                                {{$item->categoria->name}}-${{number_format($item->inscripcion)}}  <p class="text-xs">({{$item->limite}} Cupos Disponibles)</p>
+                            </button>
+                        @endif
                       
                           
                       
@@ -83,13 +91,22 @@
         @else
 
             @if ($fechacategoria->limite==0)
-                <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4">
-                    {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}} 
-                </button>
+                
+                    <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4">
+                        {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}} 
+                    </button>
+                    
             @else
-                <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4 flex justify-between items-center">
-                    {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}} <p class="text-xs">({{$fechacategoria->limite}} Cupos Disponibles)</p>
-                </button>
+                @if ($evento->type=='sorteo')
+                    <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4 flex justify-between items-center">
+                        {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}} <p class="text-xs">({{$fechacategoria->limite}} Cupos Disponibles)</p>
+                    </button>
+                @else
+                    <button wire:click="categoria_clean" class="btn btn-danger text-white mx-2 text-md my-4 flex justify-between items-center">
+                        {{$fechacategoria->categoria->name}}-${{number_format($fechacategoria->inscripcion)}} <p class="text-xs">({{$fechacategoria->limite}} Cupos Disponibles)</p>
+                    </button>
+                @endif    
+                
             @endif
 
            
@@ -143,11 +160,25 @@
                             <img class="h-14" src="{{asset('img/cargando.gif')}}" alt="">
                         </div>
                         <div class="block">
-                            @if ($evento->type=='pista')
+                            @if ($evento->type=='pista' || $evento->type=='sorteo')
                                 
-                                    <p class="ml-4">Cuantas Motos? </p>
+                                @if ($evento->type=='sorteo')
+                                        <p class="ml-4">¿Estas seguro de agregar? </p>
+                                @else
+                                    <p class="ml-4">¿Cuantas Motos? </p>
+                                @endif
+
+                                @if ($evento->type=='sorteo')
+                                    <div class="flex items-center">
+                                        <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
+                               
+                                        <p class="ml-2">x ${{number_format($nro*2000)}} </p>
+                                    </div>
+                                @else
                                     <input wire:model="nro" type="number" class="w-24 border-2 border-gray-300 bg-white h-10 px-5 text-gray-900 ml-4 rounded-lg">
-                                    
+                                @endif
+
+
                                     <div class="text-white  text-md font-bold px-4" wire:loading wire:target="nro">
                                         <img class="h-5" src="{{asset('img/cargando.gif')}}" alt="">
                                     </div>
@@ -176,19 +207,20 @@
 
                     </div>
                     
-                    <form action="{{route('ticket.inscripcions.store')}}" method="POST">
-                        @csrf
+                        <form action="{{route('ticket.inscripcions.store')}}" method="POST">
+                            @csrf
+                            
+
+                            <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
+                            <input name="categoria_id" type="hidden" value="{{$categoria_id}}">
+                            <input name="fecha_categoria_id" type="hidden" value="{{$fechacategoria->id}}">
+                            <input name="nro" type="hidden" value="{{$nro}}">
+                            <input name="cantidad" type="hidden" value="{{$fechacategoria->inscripcion}}">
+                            <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
+
+                            <button class="btn bg-blue-500 text-white mt-2 ml-4" type="submit">Agregar</button>
+                        </form>   
                         
-
-                        <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                        <input name="categoria_id" type="hidden" value="{{$categoria_id}}">
-                        <input name="fecha_categoria_id" type="hidden" value="{{$fechacategoria->id}}">
-                        <input name="nro" type="hidden" value="{{$nro}}">
-                        <input name="cantidad" type="hidden" value="{{$fechacategoria->inscripcion}}">
-                        <input name="fecha_id" type="hidden" value="{{$fecha->id}}">
-
-                        <button class="btn bg-blue-500 text-white mt-2 ml-4" type="submit">Agregar</button>
-                    </form>   
                         <p wire:click="add({{$fecha}})" class="hidden font-bold py-2 px-4 rounded bg-blue-500 text-white">Agregar</p>
 
 

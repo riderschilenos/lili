@@ -154,7 +154,28 @@
                         <div class="items-center">
                             <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">
                                 @if ($evento->limite>0)
-                                    {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos 
+                                    
+                                    @if ($evento->type=='sorteo')
+                                        @php
+                                            $cantidinsc=0;
+                                        @endphp
+                                        @foreach ($evento->tickets as $ticket)
+                                            @foreach ($ticket->inscripcions as $inscripcion)
+                                                @php
+                                                    if ($inscripcion->estado==3) {
+                                                        $cantidinsc+=1;
+                                                    }
+                                                @endphp
+                                            @endforeach
+                                        @endforeach
+
+                                        {{$evento->limite-$cantidinsc}} Cupos  
+
+                                    @else
+                                        {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos 
+                                    @endif
+                                        
+
                                 @endif
                             </h2>
                             
@@ -348,6 +369,8 @@
                         <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">
                             @if ($evento->type=='pista')
                                 3) Entradas por Entrenamiento
+                            @elseif ($evento->type=='sorteo')
+                                3) Compra de Números
                             @else
                                 3) Inscripciones por Fecha
                             @endif
@@ -359,7 +382,28 @@
                 <div class="items-center">
                     <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">
                         @if ($ticket->evento->limite>0)
-                            {{$ticket->evento->limite-$ticket->evento->tickets()->where('status', '>=', 1)->count()}} Cupos 
+
+                                    @if ($evento->type=='sorteo')
+                                        @php
+                                            $cantidinsc=0;
+                                        @endphp
+                                        @foreach ($evento->tickets as $ticket)
+                                            @foreach ($ticket->inscripcions as $inscripcion)
+                                                @php
+                                                    if ($inscripcion->estado==3) {
+                                                        $cantidinsc+=1;
+                                                    }
+                                                @endphp
+                                            @endforeach
+                                        @endforeach
+
+                                        {{$evento->limite-$cantidinsc}} Cupos  
+
+                                    @else
+                                        {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos 
+                                    @endif
+
+                           
                         @endif
                     </h2>
                 </div>
@@ -410,13 +454,21 @@
                                             <thead class="bg-gray-50">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Detalles
+                                                    @if ($evento->type=='sorteo')
+                                                        Número
+                                                    @else
+                                                        Detalles
+                                                    @endif
                                                 </th>
                                                 
                                                     @if ($evento->type=='pista')
                                                         
                                                     @elseif ($evento->type=='desafio')
 
+                                                    @elseif ($evento->type=='sorteo')
+                                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Sorteo
+                                                        </th>
                                                     @else
                                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                             Categoria
@@ -438,7 +490,7 @@
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
                                                 
-                                                @foreach($ticket->inscripcions as $inscripcion)
+                                                                        @foreach($ticket->inscripcions as $inscripcion)
                                                                         
                                                                                 <tr>
                                                                                     <td class="px-6 py-4 whitespace-nowrap">
@@ -447,6 +499,8 @@
                                                                                             <label class=""> Entrenamiento {{date('d/m/Y', strtotime($inscripcion->fecha->fecha))}}</label>
                                                                                             <br>
                                                                                             {{$inscripcion->fecha_categoria->categoria->name}}
+                                                                                        @elseif($evento->type=='sorteo')
+                                                                                            <label class=""> {{$inscripcion->id}}</label>
                                                                                         @else
                                                                                             <label class=""> {{$inscripcion->fecha->name}}</label>
                                                                                         @endif
@@ -455,7 +509,13 @@
                                                                                     @if ($evento->type=='pista')
 
                                                                                     @elseif ($evento->type=='desafio')
-                            
+
+                                                                                    @elseif ($evento->type=='sorteo')
+                                                                                        <td class="px-6 py-4 whitespace-nowrap">
+                                                                                        
+                                                                                            {{$evento->titulo}}
+                                                                                        
+                                                                                        </td>
                                                                                     @else
                                                                                         <td class="px-6 py-4 whitespace-nowrap">
                                                                                     
@@ -473,6 +533,7 @@
                                                                                                 </div>
                                                                                             </td>
                                                                                         @endif
+
                                                                                         <td class="px-6 py-4 whitespace-nowrap">
                                                                                             <div class="items-center">
                                                                                                 
@@ -481,7 +542,9 @@
                                                                                                         @csrf
                                                                                                         @method('delete')
                                                                                                         <input name="ticket_id" type="hidden" value="{{$ticket->id}}">
-                                                                                                        <p class="mx-4 text-center" > ${{number_format($inscripcion->fecha_categoria->inscripcion)}} 
+
+                                                                                                            <p class="mx-4 text-center" > ${{number_format($inscripcion->cantidad)}} 
+
                                                                                                         <button class="" ><i class="fas fa-trash cursor-pointer text-red-500 ml-6" type="submit" alt="Eliminar"></i> </button>
                                                                                                         
                                                                                                     </form>
@@ -493,7 +556,29 @@
                                     
                                                                                 </tr>
                                                                         @endforeach
+                                                                        @if ($evento->type=='sorteo' && $ticket->inscripcions->count()>1)
+                                                                            <tr>
+                                                                                <td>
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    
+                                                                                </td>
+                                                                                <td class="">
+                                                                                    <form action="{{route('ticket.inscripcions.clean',$ticket)}}" method="POST">
+                                                                                        @csrf
+                                                                                        @method('delete')
+                                                                                       
+                                                                                            <p class="mx-4 text-center" > Eliminar todo 
+
+                                                                                        <button class="" ><i class="fas fa-trash cursor-pointer text-red-500 ml-6" type="submit" alt="Eliminar"></i> </button>
+                                                                                        
+                                                                                    </form>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endif
                                             </tbody>
+
                                         </table>
                             
                                 </x-table-responsive>
@@ -532,7 +617,11 @@
                     <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                         <div class="flex items-center justify-between px-8">
                             @if ($evento->type=='pista')
-                            <p class="text-base leading-none text-gray-800 ">Entradas</p>
+                                <p class="text-base leading-none text-gray-800 ">Entradas</p>
+                            @elseif ($evento->type=='sorteo')
+                                <p class="text-base leading-none text-gray-800 ">
+                                    Compra de {{$ticket->inscripcions->count()}} números
+                                </p>
                             @else
                                 <p class="text-base leading-none text-gray-800 ">Inscripción</p>
                             @endif

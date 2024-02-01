@@ -33,6 +33,8 @@
     
    
     {!! Form::model($evento, ['route'=>['organizador.eventos.update',$evento],'method' => 'put', 'files'=> true , 'autocomplete'=>'off']) !!}
+
+        @csrf
         
         @include('organizador.eventos.partials.form')
 

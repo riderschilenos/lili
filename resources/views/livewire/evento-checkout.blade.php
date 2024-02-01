@@ -637,6 +637,8 @@
                                     <h2 class="text-lg font-medium text-gray-900 sm:text-2xl ">
                                         @if ($evento->type=='pista')
                                             3) Entradas por Entrenamiento
+                                        @elseif ($evento->type=='sorteo')
+                                            3) Compra de Números
                                         @else
                                             3) Inscripciones por Fecha
                                         @endif

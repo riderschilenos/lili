@@ -110,7 +110,13 @@ class EventoController extends Controller
     {
         $disciplinas= Disciplina::pluck('name','id');
         
-        return view('organizador.eventos.edit', compact('evento','disciplinas'));
+        $estados = [
+                   1 => 'BORRADOR',
+                   2 => 'PUBLICADO',
+                   3 => 'PASADO'
+               ];
+        
+        return view('organizador.eventos.edit', compact('evento','disciplinas','estados'));
     }
 
     /**

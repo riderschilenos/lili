@@ -45,6 +45,29 @@
                             {!! Form::label('precio_id', 'Entrada niños') !!}
                             {!! Form::number('entrada_niño', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nro_serie')?' border-red-600':''),'step' => '0.5','placeholder'=>'$']) !!}                   
                         </div>
+                        @if(Route::currentRouteName() == 'organizador.eventos.edit')
+
+                            <div>
+                                {!! Form::label('status', 'Estado') !!}
+                                {!! Form::select('status', $estados, null , ['class'=>'form-input block w-full mt-1']) !!}
+                            </div>
+                        @endif
+
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 pt-3">
+                      
+                        <div>
+                            {!! Form::label('limite', '¿Limite de Inscritos?') !!}
+                            {!! Form::number('limite', null , ['class' => 'form-input block w-full mt-1'.($errors->has('limite')?' border-red-600':''),'step' => '1']) !!}
+                        </div>
+                        <div>
+                           
+                        </div>
+                      
+                        <div>
+                       
+                        </div>
+                       
 
                     </div>
                     <div class="py-4">

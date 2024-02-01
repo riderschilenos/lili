@@ -9,7 +9,7 @@ class Evento extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id','status'];
+    protected $guarded = ['id'];
     
     protected $withCount = ['inscritos','fechas'];
 

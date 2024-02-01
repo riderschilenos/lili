@@ -40,15 +40,25 @@ class InscripcionController extends Controller
     {
         $ticket=Ticket::where('id',$request->ticket_id)->first();
 
-        if($ticket->evento->type=='pista'){
+        if($ticket->evento->type=='pista' || $ticket->evento->type=='sorteo'){
             foreach(range(1,$request->nro) as $item){
-            $inscripcion = Inscripcion::create([
-                    'ticket_id'=>$request->ticket_id,
-                    'categoria_id'=>$request->categoria_id,
-                    'fecha_categoria_id'=>$request->fecha_categoria_id,
-                    'cantidad'=>$request->cantidad,
-                    'fecha_id'=>$request->fecha_id
-                            ]);
+                    if($ticket->evento->type=='sorteo'){
+                        $inscripcion = Inscripcion::create([
+                            'ticket_id'=>$request->ticket_id,
+                            'categoria_id'=>$request->categoria_id,
+                            'fecha_categoria_id'=>$request->fecha_categoria_id,
+                            'cantidad'=>2000,
+                            'fecha_id'=>$request->fecha_id
+                                    ]);
+                    }else{
+                        $inscripcion = Inscripcion::create([
+                            'ticket_id'=>$request->ticket_id,
+                            'categoria_id'=>$request->categoria_id,
+                            'fecha_categoria_id'=>$request->fecha_categoria_id,
+                            'cantidad'=>$request->cantidad,
+                            'fecha_id'=>$request->fecha_id
+                                    ]);
+                    }
             }
         }else{
             $inscripcion = Inscripcion::create([
@@ -187,7 +197,23 @@ class InscripcionController extends Controller
             $ticket->save();
 
         //return redirect()->route('checkout.evento',$evento);
-        return redirect(route('payment.checkout.ticket',$ticket).'/#pagando');
+        return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
+     
+    }
+    public function destroyall(Ticket $ticket,Request $request)
+    {
+        foreach($ticket->inscripcions as $inscripcion){
+            $inscripcion->delete();
+        }
+      
+        
+            $ticket->inscripcion=0;
+
+
+            $ticket->save();
+
+        //return redirect()->route('checkout.evento',$evento);
+        return redirect(route('payment.checkout.ticket',$ticket).'/#pago');
      
     }
 }

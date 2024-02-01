@@ -69,7 +69,7 @@ class PaymentController extends Controller
       
         foreach ($ticket->inscripcions as $inscripcion){
                     
-                            $alfa+=$inscripcion->fecha_categoria->inscripcion;
+                            $alfa+=$inscripcion->cantidad;
             }  
             
             $ticket->inscripcion=$alfa;

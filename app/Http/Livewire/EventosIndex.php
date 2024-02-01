@@ -31,7 +31,8 @@ class EventosIndex extends Component
                             ->where(function($query) {
                                 $query->where('type', 'carrera')
                                     ->orWhere('type', 'campeonato')
-                                    ->orWhere('type', 'desafio');
+                                    ->orWhere('type', 'desafio')
+                                    ->orWhere('type', 'sorteo');
                             })
                             ->Disciplina($this->disciplina_id)
                             ->Organizador($this->filmmaker_id)
@@ -42,7 +43,8 @@ class EventosIndex extends Component
                             ->where(function($query) {
                                 $query->where('type', 'carrera')
                                     ->orWhere('type', 'campeonato')
-                                    ->orWhere('type', 'desafio');
+                                    ->orWhere('type', 'desafio')
+                                    ->orWhere('type', 'sorteo');
                             })
                             ->Disciplina($this->disciplina_id)
                             ->Organizador($this->filmmaker_id)

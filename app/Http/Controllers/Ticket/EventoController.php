@@ -298,7 +298,7 @@ class EventoController extends Controller
                         ->orderBy('tickets.id', 'desc')
                         ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
                         ->distinct()
-                        ->get();
+                        ->paginate(250);
 
         $invitados=Invitado::all();
 
@@ -365,7 +365,13 @@ class EventoController extends Controller
             $invitado=null;
                 $ticket1=Ticket::where('user_id', auth()->user()->id)->where('status',3)->where('evento_id',$evento->id)->first();
                 if($ticket1){
-                    return redirect()->route('ticket.view',$ticket1);
+                    if($evento->type=='sorteo'){                        
+                        $id=null;
+                        $type=null;
+                        return view('Evento.preticket',compact('evento','invitado','id','type'));
+                    }else{
+                        return redirect()->route('ticket.view',$ticket1);
+                    }
                 }
 
             $ticket=Ticket::where('user_id', auth()->user()->id)->where('status',1)->where('evento_id',$evento->id)->first();

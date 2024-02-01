@@ -100,13 +100,20 @@
 
                     @switch($evento->status)
                         @case(1)
+
+                            <div class="card text-gray-500">
+                                <div class="card-body">
+                                    El evento se encuentra en Borrador
+                                </div>
+
+                            </div>
                            
                             @break
 
                         @case(2)
                             <div class="card text-gray-500">
                                 <div class="card-body">
-                                    El evento se encuentra en revisión
+                                    El evento se encuentra en publicado
                                 </div>
 
                             </div>
@@ -116,7 +123,18 @@
 
                             <div class="card text-gray-500">
                                 <div class="card-body">
-                                    El evento se encuentra en publicado
+                                    El evento fue realizado
+                                </div>
+
+                            </div>
+                            
+                            @break
+
+                        @case(4)
+
+                            <div class="card text-gray-500">
+                                <div class="card-body">
+                                    El evento se encuentra Oculto
                                 </div>
 
                             </div>
@@ -126,6 +144,12 @@
                         @default
                             
                     @endswitch
+
+                    <div class="flex justify-center mt-4">
+                        <a href="{{route('ticket.evento.show', $evento)}}" target="_blank">
+                            <button class="btn bg-blue-500 text-white" type="submit">Vista Previa</button>
+                        </a>
+                    </div> 
 
                     
         

@@ -54,6 +54,25 @@ class TicketInscripcion extends Component
 
     public function set_categoria($id){
         $this->fechacategoria=Fecha_categoria::find($id);
+        if($this->fechacategoria->categoria->name=='20 Números x $40.000'){
+            $this->nro=20;
+        }
+        if($this->fechacategoria->categoria->name=='15 Números x $30.000'){
+            $this->nro=15;
+        }
+        if($this->fechacategoria->categoria->name=='10 Números x $20.000'){
+            $this->nro=10;
+        }
+        if($this->fechacategoria->categoria->name=='5 Números x $10.000'){
+            $this->nro=5;
+        }
+        if($this->fechacategoria->categoria->name=='2 Números x $4.000'){
+            $this->nro=2;
+        }
+        if($this->fechacategoria->categoria->name=='1 Número x $2.000'){
+            $this->nro=1;
+        }
+
 
         $this->categoria_id = $this->fechacategoria->categoria_id;
     }

@@ -335,11 +335,11 @@
                                                                 </div>
                                                                 @if ($evento->type=='sorteo')
                                                                     @if ($item->inscripcions->count()==1)
-                                                                         <div>
+                                                                         <div class="text-center">
                                                                             {{$item->inscripcions->count()}} Boleto
                                                                         </div>
                                                                     @else
-                                                                         <div>
+                                                                         <div class="text-center">
                                                                             {{$item->inscripcions->count()}} Boletos
                                                                         </div>
                                                                     @endif

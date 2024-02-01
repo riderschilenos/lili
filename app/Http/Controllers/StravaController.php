@@ -184,6 +184,7 @@ class StravaController extends Controller
         $n=0;
         foreach ($atletas_stravas as $atletaStrava){
         
+            try {
                 
                 $accessTokenExpiresAt = $atletaStrava->token_expires_at;
                 if (now() >= $accessTokenExpiresAt) {
@@ -266,8 +267,10 @@ class StravaController extends Controller
                     
                     
         
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
             }
-
             
         }
         Sync::create([
@@ -497,6 +500,7 @@ class StravaController extends Controller
                                             foreach($ticket->inscripcions as $inscripcion){
                                                 if($inscripcion->estado==4){
                                                     $ticket->status=4;
+                                                    $ticket->pedido_id=$pedido->id;
                                                     $ticket->save();
                                                     $evento=Evento::find($ticket->evento_id);
                                                     if ($ticket->user) {
@@ -642,6 +646,7 @@ class StravaController extends Controller
                                             foreach($ticket->inscripcions as $inscripcion){
                                                 if($inscripcion->estado==4){
                                                     $ticket->status=4;
+                                                    $ticket->pedido_id=$pedido->id;
                                                     $ticket->save();
                                                     $evento=Evento::find($ticket->evento_id);
                                                     if ($ticket->user) {
@@ -785,6 +790,7 @@ class StravaController extends Controller
                                             foreach($ticket->inscripcions as $inscripcion){
                                                 if($inscripcion->estado==4){
                                                     $ticket->status=4;
+                                                    $ticket->pedido_id=$pedido->id;
                                                     $ticket->save();
                                                     $evento=Evento::find($ticket->evento_id);
                                                     if ($ticket->user) {

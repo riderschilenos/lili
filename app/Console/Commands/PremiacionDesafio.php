@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use PhpParser\Node\Stmt\TryCatch;
 
 class PremiacionDesafio extends Command
 {
@@ -52,9 +53,11 @@ class PremiacionDesafio extends Command
         $n=0;
     foreach ($atletas_stravas as $atletaStrava){
       
-            
+        try {
+       
             $accessTokenExpiresAt = $atletaStrava->token_expires_at;
             if (now() >= $accessTokenExpiresAt) {
+               
                 // El token de acceso ha caducado, solicita un nuevo token usando el token de actualización
             
                 // Realiza una solicitud POST para obtener un nuevo token de acceso usando el token de actualización
@@ -132,8 +135,10 @@ class PremiacionDesafio extends Command
                 
                 
        
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
-
         
     }
     Sync::create([

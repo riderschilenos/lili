@@ -132,9 +132,11 @@
 
                         @if ($evento->type=='pista')
                             <h1 class="font-bold text-xl my-4 text-gray-800">La Pista a Realizado {{$evento->fechas_count}} Entrenamientos.</h1>
+
+                        @elseif($evento->type=='sorteo')
                         
                         @elseif($evento->type=='desafio')
-                        <h1 class="font-bold text-xl my-4 text-gray-800">La organización estipula {{$evento->fechas_count}} etapas en este desafío.</h1>
+                            <h1 class="font-bold text-xl my-4 text-gray-800">La organización estipula {{$evento->fechas_count}} etapas en este desafío.</h1>
                         @else
                             <h1 class="font-bold text-xl my-4 text-gray-800">La organización estipula {{$evento->fechas_count}} fechas para este campeonato.</h1>
                         

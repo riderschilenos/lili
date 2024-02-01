@@ -656,7 +656,7 @@
                                     @if ($evento->type=='pista')
                                         <h1 class="font-bold text-2xl mb-2 text-gray-800">Próximos Entrenamientos</h1>
                                     @else
-                                        <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
+                                        <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Qué podrás disfrutar en este evento?</h1>
                                     @endif
                                     <ul class="grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-2 mt-4">
                                             @php

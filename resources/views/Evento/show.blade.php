@@ -1125,10 +1125,10 @@
         
     </x-fast-view>
     @if($fechas->where('start_sell','!=',null)->count()>0)
-        @if (strtotime($fechas->where('start_sell','!=',null)->first()->start_sell)>now())
+        @if (new DateTime($fechas->where('start_sell','!=',null)->first()->start_sell)>now())
             <script>
                 function updateCountdownClock() {
-                    var startSellTime = new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}");
+                    var startSellTime = new Date( <?php echo json_encode($evento->fechas->where('start_sell', '!=', null)->first()->start_sell) ?>);
                     var currentTime = new Date();
 
                     var difference = startSellTime - currentTime;
@@ -1151,7 +1151,7 @@
                             "s para comenzar";
                     } else {
                         document.getElementById("countdownClock").innerHTML = "¡La venta ya ha comenzado!";
-                        //window.location.href = "{{ route('checkout.evento', $evento) }}";
+                        window.location.href = "{{ route('checkout.evento', $evento) }}";
                     }
 
                     setTimeout(updateCountdownClock, 1000);

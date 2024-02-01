@@ -390,6 +390,7 @@
                                                                         @php
                                                                             $tot=0;
                                                                         @endphp
+
                                                                         <div class="@if($evento->type=='desafio')flex @elseif($evento->type=='sorteo')grid grid-cols-4 @else grid grid-cols-1 @endif gap-2 items-center mb-2 rounded-lg">
                                                                                           
                                                                             @foreach ($item->inscripcions->reverse() as $inscripcion)
@@ -494,7 +495,7 @@
                                                                                                     
                                                                                                         
                                                                                                 
-                                                                                                        
+                                                                                                        <br>
                                                                     
                                                         
                             

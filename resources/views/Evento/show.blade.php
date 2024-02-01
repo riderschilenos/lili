@@ -1121,78 +1121,74 @@
         <h1 class="text-center text-xs text-gray-400 py-12 mb-12">Todos Los derechos Reservados</h1>
         
     </x-fast-view>
-    @if($fechas->where('start_sell','!=',null)->count()>0)
-        <script>
-            function updateCountdownClock() {
+    @if($fechas->where('start_sell','!=',null)->count() > 0 || $fechas->where('end_sell','!=',null)->count() > 0)
+    <script>
+        function updateCountdownClock() {
+            @if($fechas->where('start_sell','!=',null)->count() > 0)
                 var startSellTime = new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}");
-                var currentTime = new Date();
+                var countdownClock = document.getElementById("countdownClock");
+            @endif
+            @if($fechas->where('end_sell','!=',null)->count() > 0)
+                var endSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
+                var countdownClock2 = document.getElementById("countdownClock2");
+            @endif
 
-                var difference = startSellTime - currentTime;
+            var currentTime = new Date();
 
-                if (difference > 0) {
-                    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            @if($fechas->where('start_sell','!=',null)->count() > 0)
+                var differenceStart = startSellTime - currentTime;
+            @endif
+            @if($fechas->where('end_sell','!=',null)->count() > 0)
+                var differenceEnd = endSellTime - currentTime;
+            @endif
 
-                    document.getElementById("countdownClock").innerHTML =
-                        "Falta " +
-                        days +
-                        "d " +
-                        hours +
-                        "h " +
-                        minutes +
-                        "m " +
-                        seconds +
-                        "s para comenzar";
-                } else {
-                    document.getElementById("countdownClock").innerHTML = "¡La venta ya ha comenzado!";
-                    window.location.href = "{{ route('checkout.evento', $evento) }}";
+            if (@if($fechas->where('start_sell','!=',null)->count() > 0) differenceStart > 0 @endif) {
+                var days = Math.floor(differenceStart / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((differenceStart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((differenceStart % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((differenceStart % (1000 * 60)) / 1000);
+
+                countdownClock.innerHTML =
+                    "Falta " +
+                    days +
+                    "d " +
+                    hours +
+                    "h " +
+                    minutes +
+                    "m " +
+                    seconds +
+                    "s para comenzar";
+            } else if (@if($fechas->where('end_sell','!=',null)->count() > 0) differenceEnd > 0 @endif) {
+                var days = Math.floor(differenceEnd / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((differenceEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((differenceEnd % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((differenceEnd % (1000 * 60)) / 1000);
+
+                countdownClock2.innerHTML =
+                    "Quedan " +
+                    days +
+                    "d " +
+                    hours +
+                    "h " +
+                    minutes +
+                    "m " +
+                    seconds +
+                    "s para finalizar";
+            } else {
+                if (@if($fechas->where('start_sell','!=',null)->count() > 0) differenceStart <= 0 @endif) {
+                    countdownClock.innerHTML = "¡La venta ya ha comenzado!";
                 }
-
-                setTimeout(updateCountdownClock, 1000);
+                if (@if($fechas->where('end_sell','!=',null)->count() > 0) differenceEnd <= 0 @endif) {
+                    countdownClock2.innerHTML = "¡La venta ya ha finalizado!";
+                }
+                // window.location.href = "{{ route('checkout.evento', $evento) }}";
             }
 
-            window.onload = updateCountdownClock;
-        </script>
-    @endif
-    @if($fechas->where('end_sell','!=',null)->count()>0)
-        
-             <script>
-                function updateCountdownClock2() {
-                    var startSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
-                    var currentTime = new Date();
+            setTimeout(updateCountdownClock, 1000);
+        }
 
-                    var difference = startSellTime - currentTime;
+        window.onload = updateCountdownClock;
+    </script>
+@endif
 
-                    if (difference > 0) {
-                        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                        document.getElementById("countdownClock2").innerHTML =
-                            "Quedan " +
-                            days +
-                            "d " +
-                            hours +
-                            "h " +
-                            minutes +
-                            "m " +
-                            seconds +
-                            "s para finalizar";
-                    } else {
-                        document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
-                 //       window.location.href = "{{ route('checkout.evento', $evento) }}";
-                    }
-
-                    setTimeout(updateCountdownClock2, 1000);
-                }
-
-                window.onload = updateCountdownClock2;
-            </script>
-      
-           
-
-    @endif
 </x-evento-layout>

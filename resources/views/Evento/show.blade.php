@@ -1124,39 +1124,53 @@
         <h1 class="text-center text-xs text-gray-400 py-12 mb-12">Todos Los derechos Reservados</h1>
         
     </x-fast-view>
-    @if($fechas->where('start_sell','!=',null)->count()>0)
-        <script>
-            function updateCountdownClock() {
-                var startSellTime = new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}");
-                var currentTime = new Date();
+    @if($fechas->where('start_sell','!=',null)->count() > 0)
+        @if ($fechas->where('start_sell','!=',null)->first()->start_sell > now())
+            <script>
+                function updateCountdownClock(isStartSell) {
+                    var startSellTime = isStartSell ? new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}") : new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
+                    var currentTime = new Date();
 
-                var difference = startSellTime - currentTime;
+                    var difference = startSellTime - currentTime;
 
-                if (difference > 0) {
-                    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                    if (difference > 0) {
+                        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-                    document.getElementById("countdownClock").innerHTML =
-                        "Falta " +
-                        days +
-                        "d " +
-                        hours +
-                        "h " +
-                        minutes +
-                        "m " +
-                        seconds +
-                        "s para comenzar";
-                } else {
-                    document.getElementById("countdownClock").innerHTML = "¡La venta ya ha comenzado!";
-                    window.location.href = "{{ route('checkout.evento', $evento) }}";
+                        var clockElementId = isStartSell ? "countdownClock" : "countdownClock2";
+
+                        document.getElementById(clockElementId).innerHTML =
+                            isStartSell ? "Falta " : "Quedan " +
+                            days +
+                            "d " +
+                            hours +
+                            "h " +
+                            minutes +
+                            "m " +
+                            seconds +
+                            "s " +
+                            (isStartSell ? "para comenzar" : "para finalizar");
+                    } else {
+                        document.getElementById(isStartSell ? "countdownClock" : "countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
+                        // Uncomment the following line if you want to redirect when the end_sell time is reached
+                        // if (!isStartSell) window.location.href = "{{ route('checkout.evento', $evento) }}";
+                    }
+
+                    setTimeout(function() {
+                        updateCountdownClock(isStartSell);
+                    }, 1000);
                 }
 
-                setTimeout(updateCountdownClock, 1000);
-            }
-
-            window.onload = updateCountdownClock;
-        </script>
+                window.onload = function() {
+                    updateCountdownClock(true); // Start sell countdown
+                    @if($fechas->where('end_sell','!=',null)->count() > 0)
+                        updateCountdownClock(false); // End sell countdown if available
+                    @endif
+                };
+            </script>
+        @endif
     @endif
+
 </x-evento-layout>

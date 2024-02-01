@@ -1204,10 +1204,10 @@
                     
                 <script>
                     function updateCountdownClock2() {
-                        var startSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
+                        var startSellTime2 = new Date( <?php echo json_encode($evento->fechas->where('end_sell', '!=', null)->first()->created_at->addHours(720)) ?>);
                         var currentTime = new Date();
 
-                        var difference = startSellTime - currentTime;
+                        var difference = startSellTime2 - currentTime;
 
                         if (difference > 0) {
                             var days = Math.floor(difference / (1000 * 60 * 60 * 24));

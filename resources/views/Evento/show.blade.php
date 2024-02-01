@@ -1192,7 +1192,9 @@
             setTimeout(updateCountdownClock, 1000);
         }
 
-        window.onload = updateCountdownClock;
+        document.addEventListener("DOMContentLoaded", updateCountdownClock);
+        window.addEventListener("resize", updateCountdownClock);
+  
     </script>
 @endif
 

@@ -1164,10 +1164,10 @@
                     
                 <script>
                     function updateCountdownClock2() {
-                        var startSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
+                        var startSellTime2 = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
                         var currentTime = new Date();
 
-                        var difference = startSellTime - currentTime;
+                        var difference = startSellTime2 - currentTime;
 
                         if (difference > 0) {
                             var days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -1186,7 +1186,7 @@
                                 seconds +
                                 "s para finalizar";
                         } else {
-                            document.getElementById("countdownClock2").innerHTML = currentTime;
+                            document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
                         //       window.location.href = "{{ route('checkout.evento', $evento) }}";
                         }
 

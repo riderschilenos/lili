@@ -1157,8 +1157,8 @@
         </script>
     @endif
     @if($fechas->where('end_sell','!=',null)->count()>0)
-        @if ($evento->type=='sorteo')
-            <script>
+        
+             <script>
                 function updateCountdownClock2() {
                     var startSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
                     var currentTime = new Date();
@@ -1180,10 +1180,10 @@
                             minutes +
                             "m " +
                             seconds +
-                            "s para el sorteo";
+                            "s para comenzar";
                     } else {
                         document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
-                     //   window.location.href = "{{ route('checkout.evento', $evento) }}";
+                 //       window.location.href = "{{ route('checkout.evento', $evento) }}";
                     }
 
                     setTimeout(updateCountdownClock2, 1000);
@@ -1191,41 +1191,7 @@
 
                 window.onload = updateCountdownClock2;
             </script>
-        @else
-             <script>
-                function updateCountdownClock3() {
-                    var startSellTime = new Date("{{ $evento->fechas->where('end_sell', '!=', null)->first()->end_sell }}");
-                    var currentTime = new Date();
-
-                    var difference = startSellTime - currentTime;
-
-                    if (difference > 0) {
-                        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                        document.getElementById("countdownClock2").innerHTML =
-                            "Quedan " +
-                            days +
-                            "d " +
-                            hours +
-                            "h " +
-                            minutes +
-                            "m " +
-                            seconds +
-                            "s para inscribirse";
-                    } else {
-                        document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
-                 //       window.location.href = "{{ route('checkout.evento', $evento) }}";
-                    }
-
-                    setTimeout(updateCountdownClock3, 1000);
-                }
-
-                window.onload = updateCountdownClock3;
-            </script>
-        @endif
+      
            
 
     @endif

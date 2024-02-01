@@ -1186,7 +1186,7 @@
                                 seconds +
                                 "s para finalizar";
                         } else {
-                            document.getElementById("countdownClock2").innerHTML = difference;
+                            document.getElementById("countdownClock2").innerHTML = currentTime;
                         //       window.location.href = "{{ route('checkout.evento', $evento) }}";
                         }
 

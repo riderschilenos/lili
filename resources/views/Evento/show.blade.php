@@ -66,8 +66,25 @@
                     <h2 class="text xl mb-3">{{$evento->subtitulo}}</h2>
                     @if ($evento->limite>0)
                         
-                            <p class="mb-2"><i class="fas fa-users"></i> {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos disponibles    </p>
+                    @if($evento->type=='sorteo')
+                        @php
+                            $inscritos=0;
+                        @endphp
+                        @if ($evento->tickets->where('status','>=',3)->count()>0)
+                            @foreach ($evento->tickets->where('status','>=',3) as $tkts)
+                                @php
+                                    $inscritos+=$tkts->inscripcions->count();
+                                @endphp
+                            @endforeach
+                        @endif
+                        
+                        <p class="mb-2"><i class="fas fa-users"></i> {{$evento->limite-$inscritos}} Números disponibles    </p>
+                        
 
+                    @else
+                        <p class="mb-2"><i class="fas fa-users"></i> {{$evento->limite-$evento->tickets()->where('status', '>=', 1)->count()}} Cupos disponibles    </p>
+                    @endif
+                       
                     @endif
 
                         @if ($evento->type=='pista')
@@ -124,9 +141,9 @@
                     <div class="card-body">
 
                         @if ($evento->type=='pista')
-                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en esta pista?</h1>
+                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Qué podrás disfrutar en esta pista?</h1>
                         @else
-                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Que podrás disfrutar en este evento?</h1>
+                            <h1 class="font-bold text-2xl mb-2 text-gray-800">¿Qué podrás disfrutar en este evento?</h1>
                         @endif
                         
                     

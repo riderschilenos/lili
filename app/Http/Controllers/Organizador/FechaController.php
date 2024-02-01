@@ -47,6 +47,7 @@ class FechaController extends Controller
         ]);
 
         $fecha = Fecha::create($request->all());
+        
         $evento = Evento::find($request->evento_id);
 
         if($request->file('file')){

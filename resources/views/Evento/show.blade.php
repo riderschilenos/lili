@@ -1180,7 +1180,7 @@
                                 seconds +
                                 "s para finalizar";
                         } else {
-                            document.getElementById("countdownClock2").innerHTML = difference;
+                            document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
                     //       window.location.href = "{{ route('checkout.evento', $evento) }}";
                         }
 
@@ -1192,11 +1192,5 @@
              @endif
         @endif
     @endif
-    @if($fechas->where('end_sell','!=',null)->count()>0)
-        
-         
-      
-           
-
-    @endif
+   
 </x-evento-layout>

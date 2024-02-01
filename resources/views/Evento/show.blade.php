@@ -1125,7 +1125,7 @@
         
     </x-fast-view>
     @if($fechas->where('start_sell','!=',null)->count()>0)
-        @if ($fechas->where('start_sell','!=',null)->first()->start_sell>now())
+        @if (new DateTime($fechas->where('start_sell','!=',null)->first()->start_sell)>now())
             <script>
                 function updateCountdownClock() {
                     var startSellTime = new Date("{{ $evento->fechas->where('start_sell', '!=', null)->first()->start_sell }}");
@@ -1164,7 +1164,7 @@
                     
                 <script>
                     function updateCountdownClock2() {
-                        var startSellTime2 = new Date( <?php echo json_encode($evento->fechas->where('end_sell', '!=', null)->first()->created_at) ?>);
+                        var startSellTime2 = new Date( <?php echo json_encode($evento->fechas->where('end_sell', '!=', null)->first()->created_at->addHours(720)) ?>);
                         var currentTime = new Date();
 
                         var difference = startSellTime2 - currentTime;

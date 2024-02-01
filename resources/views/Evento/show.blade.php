@@ -144,30 +144,35 @@
                         
                         @endif
                             
-                        <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
-                            @foreach ($fechas as $fecha)
-                                @if ($fecha->image)
-                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($fecha->image->url)}}" alt="">
-                                    @if ($fecha->name=='keyname')
-                                        Entrenamiento {{$fecha->fecha}}
-                                    @else
-                                        {{$fecha->name }} 
-                                    @endif
-                            
-                                </li>
-                                @else
-                                <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($evento->image->url)}}" alt=""> 
-                                    @if ($fecha->name=='keyname')
-                                        Entrenamiento {{$fecha->fecha}}
-                                    @else
-                                        {{$fecha->name }} 
-                                    @endif
-                                </li>
-                                @endif
+                        @if ($evento->type=='sorteo')
+
+                        @else
+                            <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mt-8">
+                                @foreach ($fechas as $fecha)
+                                    @if ($fecha->image)
+                                    <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($fecha->image->url)}}" alt="">
+                                        @if ($fecha->name=='keyname')
+                                            Entrenamiento {{$fecha->fecha}}
+                                        @else
+                                            {{$fecha->name }} 
+                                        @endif
                                 
-                                
-                            @endforeach
-                        </ul>
+                                    </li>
+                                    @else
+                                    <li class="text-center"><img class="h-40 w-full object-contain" src=" {{Storage::url($evento->image->url)}}" alt=""> 
+                                        @if ($fecha->name=='keyname')
+                                            Entrenamiento {{$fecha->fecha}}
+                                        @else
+                                            {{$fecha->name }} 
+                                        @endif
+                                    </li>
+                                    @endif
+                                    
+                                    
+                                @endforeach
+                            </ul>
+                        @endif
+
                     </div>
 
                 </section>

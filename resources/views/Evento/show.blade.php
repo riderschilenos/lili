@@ -1144,7 +1144,7 @@
                         minutes +
                         "m " +
                         seconds +
-                        "s para el inicio de las inscripciones";
+                        "s para comernzar";
                 } else {
                     document.getElementById("countdownClock").innerHTML = "¡La venta ya ha comenzado!";
                     window.location.href = "{{ route('checkout.evento', $evento) }}";
@@ -1180,7 +1180,7 @@
                             minutes +
                             "m " +
                             seconds +
-                            "s para comenzar";
+                            "s para finalizar";
                     } else {
                         document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
                  //       window.location.href = "{{ route('checkout.evento', $evento) }}";

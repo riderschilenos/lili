@@ -1186,7 +1186,7 @@
                                 seconds +
                                 "s para finalizar";
                         } else {
-                            document.getElementById("countdownClock2").innerHTML = "¡La venta ya ha comenzado!";
+                            document.getElementById("countdownClock2").innerHTML = startSellTime2;
                         //       window.location.href = "{{ route('checkout.evento', $evento) }}";
                         }
 

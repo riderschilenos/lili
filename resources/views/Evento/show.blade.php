@@ -409,7 +409,7 @@
                     
                                               
                                                     
-                                                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                                                    <td class="px-2 md:px-6 py-4 whitespace-nowrap text-center">
                                                         <div class="text-sm text-gray-900 text-center">
                                                                         @php
                                                                             $tot=0;

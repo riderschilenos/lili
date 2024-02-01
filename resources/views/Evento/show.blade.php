@@ -72,24 +72,26 @@
 
                         @if ($evento->type=='pista')
                             <p class="mb-2"><i class="fas fa-calendar"></i> <b>+ {{$evento->fechas_count}}</b> Entrenamientos Realizados</p>
-                        @else
-                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> 
-                            @if ($evento->fechas_count>1)
-                                Fechas
-                            @else
-                                Fecha 
-                            @endif
+                        @elseif ($evento->type=='sorteo')
 
-                            @if ($fechas->count()>1)
-                                @foreach ($fechas as $fecha)       
-                                    @if ($fecha->fecha>=now()->subDays(1))
-                                        @if ($fecha->fecha)
-                                           ( {{date('d/m/Y', strtotime($fecha->fecha))}} )
-                                        @endif 
-                                    @endif
-                                @endforeach
-                            @endif
-                            
+                        @else
+
+                            <p class="mb-2"><i class="fas fa-calendar"></i> <b>{{$evento->fechas_count}}</b> 
+                                @if ($evento->fechas_count>1)
+                                    Fechas
+                                @else
+                                    Fecha 
+                                @endif
+
+                                @if ($fechas->count()>1)
+                                    @foreach ($fechas as $fecha)       
+                                        @if ($fecha->fecha>=now()->subDays(1))
+                                            @if ($fecha->fecha)
+                                            ( {{date('d/m/Y', strtotime($fecha->fecha))}} )
+                                            @endif 
+                                        @endif
+                                    @endforeach
+                                @endif
                             </p>
                         @endif
                    

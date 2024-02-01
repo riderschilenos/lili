@@ -1180,7 +1180,7 @@
                                 seconds +
                                 "s para finalizar";
                         } else {
-                            document.getElementById("countdownClock2").innerHTML = "";
+                            document.getElementById("countdownClock2").innerHTML = difference;
                     //       window.location.href = "{{ route('checkout.evento', $evento) }}";
                         }
 

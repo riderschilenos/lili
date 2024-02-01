@@ -1192,7 +1192,6 @@
                     setTimeout(updateCountdownClock2, 1000);
                 }
 
-                window.onload = updateCountdownClock2;
             </script>
       
            

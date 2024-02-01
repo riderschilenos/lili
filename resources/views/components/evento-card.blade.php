@@ -102,7 +102,7 @@
 
                                 <div class="flex mt-2">
                                     <p class="text-gray-500 text-md mb-2">INSCRITOS</p>
-                                                        @if($evento->type=='desafio')
+                                                        @if($evento->type=='desafio' || $evento->type=='sorteo')
                                                             @php
                                                                 $inscritos=0;
                                                             @endphp

@@ -55,7 +55,7 @@
                 </div>
                 <div class="hidden sm:flex justify-center">
                     @isset($evento->image)
-                        <img class="h-72 w-72 object-center object-contain"  src="{{Storage::url($evento->image->url)}}" alt="">
+                        <img class="h-80 w-80  object-center object-contain"  src="{{Storage::url($evento->image->url)}}" alt="">
                     @else
                         <img class="h-72 w-72 object-center" src="https://raindance.org/wp-content/uploads/2019/10/filmmaking-1080x675-1.jpg" alt="">
                     @endisset

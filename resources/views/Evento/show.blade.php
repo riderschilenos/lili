@@ -234,7 +234,7 @@
                         </div>
                         @if ($evento->type=='sorteo')
                             <div class="w-full">
-                                <p class="text-gray-600 text-sm text-center"> {{number_format($inscritos*100/$evento->limite,2)}}% de la meta completada</p>
+                                <p class="text-gray-600 text-sm text-center"> {{number_format($inscritos*100/$evento->limite,1)}}% de la meta completada</p>
                                 <div class="relative pt-1 pb-4">
                                     <div class="overflow-hidden h-2 text-xs flex rounded bg-white">
                                     <div style="width:{{$inscritos*100/$evento->limite}}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-600 transition-all duration-500">

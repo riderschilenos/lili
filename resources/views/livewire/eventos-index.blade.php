@@ -232,7 +232,7 @@
                                                                 @endif                                  
                                                         @endif
                                                                   
-                                                        @if($evento->type=='desafio')
+                                                        @if($evento->type=='desafio' || $evento->type=='sorteo')
                                                             @php
                                                                 $inscritos=0;
                                                             @endphp
@@ -247,7 +247,11 @@
 
                                                             <a href="{{route('ticket.evento.show', $evento)}}">
                                                                 <div class="flex mt-2">
-                                                                    <p class="text-gray-500 text-md ">Riders Inscritos</p>
+                                                                    @if($evento->type=='sorteo')
+                                                                        <p class="text-gray-500 text-md ">Números Vendidos</p>
+                                                                    @else
+                                                                        <p class="text-gray-500 text-md ">Riders Inscritos</p>
+                                                                    @endif
                                                                     <p class="text-sm text-gray-500 ml-auto"> 
                                                                         <i class="fas fa-users"></i>
                                                                         ({{$inscritos}})

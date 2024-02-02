@@ -11,10 +11,6 @@ class Fecha extends Model
 
     protected $guarded = ['id'];
 
-    protected $dates = [
-        'end_sell' => 'timestamp'
-    ];
-
     // relacion uno a muchos inversa
     public function evento(){
         return $this->BelongsTo('App\Models\Evento');

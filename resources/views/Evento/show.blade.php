@@ -1183,7 +1183,7 @@
                     
                 <script>
                     function updateCountdownClock2() {
-                        var startSellTime2 = new Date( <?php echo json_encode($evento->fechas->where('end_sell', '!=', null)->first()->end_sell) ?>);
+                        var startSellTime2 = new Date( <?php echo json_encode($evento->fechas->where('end_sell', '!=', null)->first()->created_at->addHours(720)) ?>);
                         var currentTime = new Date();
 
                         var difference = startSellTime2 - currentTime;

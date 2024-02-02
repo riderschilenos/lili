@@ -278,187 +278,187 @@
             
                                                         {!! Form::hidden('name',$name) !!}
                                                         
-                                                    {!! Form::hidden('disciplina_id', $evento->disciplina_id ) !!}
+                                                        {!! Form::hidden('disciplina_id', $evento->disciplina_id ) !!}
 
-                                                       
+                                                                
+                                                                                                
                                                                                     
-                                                                        
-                                                                                    
-                                                <h1 class="text-xl pb-4 text-center">Datos Personales</h1>
-                                                <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-4 gap-y-8">
-                                                    <div class="md: col-span-3 lg:col-span-3 ">
+                                                                                                
+                                                            <h1 class="text-xl pb-4 text-center">Datos Personales</h1>
+                                                            <div class=" mx-auto px-2 sm:px-2 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-4 gap-y-8">
+                                                                <div class="md: col-span-3 lg:col-span-3 ">
 
-                                                        <div class="mb-4">
-                                                            <div class="grid grid-cols-2 gap-x-2">
-                           
-                                                                <div class="mb-4"  wire:ignore>
-                                                                    {!! Form::label('email', 'Email') !!}
-                                                                    {!! Form::text('email', null, [
-                                                                        'class' => 'w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm '.($errors->has('email')?' border-red-600':''),
-                                                                        'type' => 'email', // Agregar el atributo type con el valor 'email'
-                                                                    ]) !!}
-                                                                    @error('email')
-                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                    @enderror
-                                                                </div>
                                                                     <div class="mb-4">
-                                                                    {!! Form::label('nombre', 'Nombre') !!}
-                                                                    <input wire:model="name" class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm"
-                                                                    type="name" name="name" style="z-index: 10;" autocomplete="off">
-                                                    
-                                                                                    
-                                                                
-                                                                    @error('name')
-                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                    @enderror
-                                                                </div>
-                                                               
-                                                            </div>
-                                                            
-                                                          
-
-                                                            @if ($name)
-                                                            <div x-data="{sview: true}">
-                                                            <p class="text-center text-xs">Pincha sobre tu nombre si los datos coinciden con tu perfil <span x-on:click="sview=!sview" class="text-blue-500">(Ocultar/Mostrar)</span></p>
-                                                                
-                                                                <ul x-show="sview" class="relative z-1 left-0 w-full bg-white mt-1 rounded-lg overflow-hidden px-4">
-                                                                    @forelse ($this->invitados as $objet)
-                                                                        <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
-                                                                            <a href="{{route('checkout.evento.invitado', ['evento' => $evento, 'invitado' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}}</a>
-                                                                        </li>
-                                                                        @empty
-                                                                    
-                                                                            
-                                                                    
-                                                                    @endforelse
-                                                                    @forelse ($this->socios as $objet)
-                                                                        <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
-                                                                            <a href="{{route('checkout.evento.socio', ['evento' => $evento, 'socio' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}} (Rider)</a>
-                                                                        </li>
-                                                                        @empty
-                                                                    
-                                                                        
-                                                                
-                                                                    @endforelse
-                                                                
-                                                                    
-                                                                </ul>
-                                                            </div>
-                                                                
-                                                            @else
-                                                                
-                                                            @endif
-                                                        </div>
-                                                    
-                                                        <div class="mb-4"  wire:ignore>
-                                                            {!! Form::label('second_name', 'Segundo/Tercer Nombre (Opcional)') !!}
-                                                            {!! Form::text('second_name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
-
-                                                            @error('second_name')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-
-                                                
-                                                        <div class="mb-4"  wire:ignore>
-                                                            {!! Form::label('last_name', 'Apellidos*') !!}
-                                                            {!! Form::text('last_name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
-
-                                                            @error('last_name')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="mb-4"  wire:ignore>
-                                                            {!! Form::label('born_date', 'Fecha de nacimiento') !!}
-                                                            {!! Form::date('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}
+                                                                        <div class="grid grid-cols-2 gap-x-2">
                                     
-                                                            @error('born_date')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="mb-4"  wire:ignore>
-                                                            {!! Form::label('rut', 'Rut* (Sin puntos y con guión)') !!}
-                                                            {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':''), 'id' => 'rut-input']) !!}
-
-                                                            @error('rut')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="mb-4"  wire:ignore>
-                                                            {!! Form::label('fono', 'Fono*') !!}
-                                                            {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
-
-                                                            @error('fono')
-                                                                <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                        {{-- comment 
-                                                        
-                                                        <div>
-                                                            <h1 class="text-xl mb-2 text-center">Foto frontal del carnet</h1>
-                                                            <div class="grid grid-cols-1 gap-4">
-                                                                <figure>
-                                                                    @isset($serie->image)
-                                                                        <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($serie->image->url)}}" alt="">
-                                                                        @else
-                                                                        <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
+                                                                            <div class="mb-4"  wire:ignore>
+                                                                                {!! Form::label('email', 'Email') !!}
+                                                                                {!! Form::text('email', null, [
+                                                                                    'class' => 'w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm '.($errors->has('email')?' border-red-600':''),
+                                                                                    'type' => 'email', // Agregar el atributo type con el valor 'email'
+                                                                                ]) !!}
+                                                                                @error('email')
+                                                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                                @enderror
+                                                                            </div>
+                                                                                <div class="mb-4">
+                                                                                {!! Form::label('nombre', 'Nombre') !!}
+                                                                                <input wire:model="name" class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm"
+                                                                                type="name" name="name" style="z-index: 10;" autocomplete="off">
+                                                                
+                                                                                                
+                                                                            
+                                                                                @error('name')
+                                                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                                @enderror
+                                                                            </div>
+                                                                        
+                                                                        </div>
                                                                         
                                                                     
-                                                                    @endisset
-                                                                </figure>
 
-                                                                <div>
-                                                                    {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
-                                                                    @error('file')
-                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                    @enderror
+                                                                        @if ($name)
+                                                                        <div x-data="{sview: true}">
+                                                                        <p class="text-center text-xs">Pincha sobre tu nombre si los datos coinciden con tu perfil <span x-on:click="sview=!sview" class="text-blue-500">(Ocultar/Mostrar)</span></p>
+                                                                            
+                                                                            <ul x-show="sview" class="relative z-1 left-0 w-full bg-white mt-1 rounded-lg overflow-hidden px-4">
+                                                                                @forelse ($this->invitados as $objet)
+                                                                                    <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
+                                                                                        <a href="{{route('checkout.evento.invitado', ['evento' => $evento, 'invitado' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}}</a>
+                                                                                    </li>
+                                                                                    @empty
+                                                                                
+                                                                                        
+                                                                                
+                                                                                @endforelse
+                                                                                @forelse ($this->socios as $objet)
+                                                                                    <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
+                                                                                        <a href="{{route('checkout.evento.socio', ['evento' => $evento, 'socio' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}} (Rider)</a>
+                                                                                    </li>
+                                                                                    @empty
+                                                                                
+                                                                                    
+                                                                            
+                                                                                @endforelse
+                                                                            
+                                                                                
+                                                                            </ul>
+                                                                        </div>
+                                                                            
+                                                                        @else
+                                                                            
+                                                                        @endif
+                                                                    </div>
+                                                                
+                                                                    <div class="mb-4"  wire:ignore>
+                                                                        {!! Form::label('second_name', 'Segundo/Tercer Nombre (Opcional)') !!}
+                                                                        {!! Form::text('second_name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                                                                        @error('second_name')
+                                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                        @enderror
+                                                                    </div>
+
+                                                            
+                                                                    <div class="mb-4"  wire:ignore>
+                                                                        {!! Form::label('last_name', 'Apellidos*') !!}
+                                                                        {!! Form::text('last_name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                                                                        @error('last_name')
+                                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                        @enderror
+                                                                    </div>
+                                                                    <div class="mb-4"  wire:ignore>
+                                                                        {!! Form::label('born_date', 'Fecha de nacimiento') !!}
+                                                                        {!! Form::date('born_date', null , ['class' => 'form-input block w-full mt-1'.($errors->has('nacimiento')?' border-red-600':''),'autocomplete'=>"off"]) !!}
+                                                
+                                                                        @error('born_date')
+                                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                        @enderror
+                                                                    </div>
+                                                                    <div class="mb-4"  wire:ignore>
+                                                                        {!! Form::label('rut', 'Rut* (Sin puntos y con guión)') !!}
+                                                                        {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':''), 'id' => 'rut-input']) !!}
+
+                                                                        @error('rut')
+                                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                        @enderror
+                                                                    </div>
+                                                                    <div class="mb-4"  wire:ignore>
+                                                                        {!! Form::label('fono', 'Fono*') !!}
+                                                                        {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}
+
+                                                                        @error('fono')
+                                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                        @enderror
+                                                                    </div>
                                                                 </div>
+                                                                    {{-- comment 
+                                                                    
+                                                                    <div>
+                                                                        <h1 class="text-xl mb-2 text-center">Foto frontal del carnet</h1>
+                                                                        <div class="grid grid-cols-1 gap-4">
+                                                                            <figure>
+                                                                                @isset($serie->image)
+                                                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="{{Storage::url($serie->image->url)}}" alt="">
+                                                                                    @else
+                                                                                    <img id="picture" class="h-56 w-100 object-contain object-center"src="https://nyc3.digitaloceanspaces.com/archivos/elmauleinforma/wp-content/uploads/2021/02/01141319/Cedula-de-identidad-2.jpg" alt="">
+                                                                                    
+                                                                                
+                                                                                @endisset
+                                                                            </figure>
+
+                                                                            <div>
+                                                                                {!! Form::file('file', ['class'=>'form-input w-full'.($errors->has('file')?' border-red-600':''), 'id'=>'file','accept'=>'image/*']) !!}
+                                                                                @error('file')
+                                                                                    <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    --}}
                                                             </div>
-                                                        </div>
+                                                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-4">
+                                                            
+                                                            <p class="mb-2 mt-6 hidden">Los datos entregados en la seccion anterior en caso de ser necesario podrian ser validados al momento de querer comprar y vender un vehiculo.</p>
+                                                            
+                                                            <h1 class="hidden text-xl pb-4 text-center">Perfil Rider</h1>
 
-                                                        --}}
-                                                </div>
-                                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-4">
-                                                
-                                                <p class="mb-2 mt-6 hidden">Los datos entregados en la seccion anterior en caso de ser necesario podrian ser validados al momento de querer comprar y vender un vehiculo.</p>
-                                                
-                                                <h1 class="hidden text-xl pb-4 text-center">Perfil Rider</h1>
-
-                                           
-                                           
-                    
-                {{-- comment
-                                    <div class="mb-4">
-                                        {!! Form::label('nro', 'Numero Rider (Moto/Bicicleta)') !!}
-                                        {!! Form::text('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
-
-                                        @error('nro')
-                                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                                        @enderror
-                                    </div>
-                --}}
-                   
-
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const rutInput = document.getElementById('rut-input');
-                            
-                            rutInput.addEventListener('input', function () {
-                                // Remover todos los caracteres que no sean números o guiones
-                                const cleanedValue = this.value.replace(/[^0-9-]/g, '');
+                                                    
+                                                    
                                 
-                                // Aplicar el nuevo valor limpio al campo de entrada
-                                this.value = cleanedValue;
-                            });
-                        });
-                        </script>
-                        
-                        
-                        
-                 
-                    
-                </div>
+                                                            {{-- comment
+                                                                                <div class="mb-4">
+                                                                                    {!! Form::label('nro', 'Numero Rider (Moto/Bicicleta)') !!}
+                                                                                    {!! Form::text('nro', null , ['class' => 'form-input block w-full mt-1'.($errors->has('titulo')?' border-red-600':'')]) !!}
+
+                                                                                    @error('nro')
+                                                                                        <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                                    @enderror
+                                                                                </div>
+                                                            --}}
+                                                        
+
+                                                            <script>
+                                                                document.addEventListener("DOMContentLoaded", function () {
+                                                                    const rutInput = document.getElementById('rut-input');
+                                                                    
+                                                                    rutInput.addEventListener('input', function () {
+                                                                        // Remover todos los caracteres que no sean números o guiones
+                                                                        const cleanedValue = this.value.replace(/[^0-9-]/g, '');
+                                                                        
+                                                                        // Aplicar el nuevo valor limpio al campo de entrada
+                                                                        this.value = cleanedValue;
+                                                                    });
+                                                                });
+                                                            </script>
+                                                                
+                                                                
+                                                                
+                                                        
+                                                            
+                                                        </div>
                     
                                                         
                                                                 
@@ -547,8 +547,13 @@
                                             
                                             @if ($invitado)
     
-                                                {!! Form::hidden('ticketable_type','App\Models\Invitado') !!}
-                                                {!! Form::hidden('ticketable_id',$invitado->id) !!}
+                                                @if ($type=='Invitado')
+                                                    {!! Form::hidden('ticketable_type','App\Models\Invitado') !!}
+                                                    {!! Form::hidden('ticketable_id',$invitado->id) !!}
+                                                @else
+                                                    {!! Form::hidden('ticketable_type','App\Models\Socio') !!}
+                                                    {!! Form::hidden('ticketable_id',$invitado->id) !!}
+                                                @endif
     
                                             @else
                                                 {!! Form::hidden('ticketable_type','App\Models\Socio') !!}

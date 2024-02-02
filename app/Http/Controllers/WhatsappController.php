@@ -160,9 +160,9 @@ class WhatsappController extends Controller
 
     
 
-            foreach ($tickets as $ticket){
-                    if($ticket->status>=3){
-                            $total+=$ticket->inscripcion;
+            foreach ($tickets as $item){
+                    if($item->status>=3){
+                            $total+=$item->inscripcion;
                     }
                 
                 }

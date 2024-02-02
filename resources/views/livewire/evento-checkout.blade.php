@@ -570,9 +570,8 @@
                                     {!! Form::close() !!}
                                 @endif
                             @endif
-                        @endif
-                        @if ($invitado)
-                                @if (IS_NULL($ticket))
+                        @elseif ($invitado)
+                            @if (IS_NULL($ticket))
                                         <p class="text-sm mt-4">A continuacion encontrara los terminos y condiciones que la organizacion a estipulado para el evento:</a></p>
                                     
     
@@ -625,7 +624,7 @@
                                             @endif
     
                                     {!! Form::close() !!}
-                                @endif
+                            @endif
                             
                         @endif
                         

@@ -337,10 +337,12 @@
                                                                     @if ($item->inscripcions->count()==1)
                                                                          <div class="text-center">
                                                                             {{$item->inscripcions->count()}} Boleto
+                                                                            <br>Ticket: {{$item->id}}
                                                                         </div>
                                                                     @else
                                                                          <div class="text-center">
                                                                             {{$item->inscripcions->count()}} Boletos
+                                                                            <br>Ticket: {{$item->id}}
                                                                         </div>
                                                                     @endif
                                                                        

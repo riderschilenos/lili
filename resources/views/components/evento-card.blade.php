@@ -101,7 +101,12 @@
                             @endif
 
                                 <div class="flex mt-2">
-                                    <p class="text-gray-500 text-md mb-2">INSCRITOS</p>
+                                    @if ($evento->type=='sorteo')
+                                          <p class="text-gray-500 text-md mb-2">NÚMEROS VENDIDOS</p>
+                                    @else
+                                          <p class="text-gray-500 text-md mb-2">INSCRITOS</p>
+                                    @endif
+                                  
                                                         @if($evento->type=='desafio' || $evento->type=='sorteo')
                                                             @php
                                                                 $inscritos=0;

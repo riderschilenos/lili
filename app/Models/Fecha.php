@@ -12,8 +12,7 @@ class Fecha extends Model
     protected $guarded = ['id'];
 
     protected $dates = [
-        'start_sell' => 'timestamp',
-        'end_sell' => 'timestamp',
+        'end_sell' => 'datetime'
     ];
 
     // relacion uno a muchos inversa

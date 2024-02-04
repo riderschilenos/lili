@@ -443,16 +443,17 @@
                                                             <script>
                                                                 document.addEventListener("DOMContentLoaded", function () {
                                                                     const rutInput = document.getElementById('rut-input');
-                                                                    
+                                                            
                                                                     rutInput.addEventListener('input', function () {
-                                                                        // Remover todos los caracteres que no sean números o guiones
-                                                                        const cleanedValue = this.value.replace(/[^0-9-]/g, '');
-                                                                        
+                                                                        // Remover todos los caracteres que no sean números, guiones o la letra 'k' (mayúscula o minúscula)
+                                                                        const cleanedValue = this.value.replace(/[^0-9kK-]/g, '');
+                                                            
                                                                         // Aplicar el nuevo valor limpio al campo de entrada
-                                                                        this.value = cleanedValue;
+                                                                        this.value = cleanedValue.toUpperCase(); // Convertir 'k' a mayúscula si es necesario
                                                                     });
                                                                 });
                                                             </script>
+                                                            
                                                                 
                                                                 
                                                                 

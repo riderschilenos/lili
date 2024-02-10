@@ -25,7 +25,7 @@ class AdminPistaHome extends Component
                     ->select('inscripcions.*','tickets.evento_id')
                     ->where('estado','>=',3)
                     ->orderby('categoria_id','DESC')
-                   ->paginate(200);
+                   ->get();
         //$tickets = $this->pista->tickets()->where('status','>=',3)->get();
         //$retiros = Retiro::where('evento_id',$this->pista->id)->get();
         $socios=Socio::join('users','socios.user_id','=','users.id')

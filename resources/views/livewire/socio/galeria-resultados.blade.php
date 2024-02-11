@@ -69,6 +69,9 @@
                                                     @if ($resultado->user)
                                                         @if ($resultado->user->socio)
                                                             <a href="{{route('socio.show', $resultado->user->socio)}}">
+                                                                
+                                                                <h1 class="text-blue-400 font-bold text-lg leading-8 mb-1 mt-2">{{ '@'.$resultado->user->socio->slug }}</h1>
+                                                  
                                                             </a>  
                                                         @else
                                                             -

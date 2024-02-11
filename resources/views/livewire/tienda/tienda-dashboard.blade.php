@@ -17,6 +17,13 @@
 @endphp
 @endforeach
 @endif
+@if ($sortedTickets30)
+@foreach ($sortedTickets30 as $ticket)
+@php
+       $total30+=$ticket->inscripcion;
+@endphp
+@endforeach
+@endif
 
 @if ($suscripcions30)
 @foreach ($suscripcions30 as $suscripcion)
@@ -143,6 +150,23 @@
                                                                         {{$item->invitado->name}}
                                                                     </span>
                                                                 @endif
+                                                        @elseif ($item->type=='Sorteo')
+                                                        
+                                                                @if ($item->ticketable_type=='App\Models\Socio')
+                                                                    Ticket sorteo #{{$item->id}} de 
+                                                                <span class="font-semibold">
+                                                                    
+                                                                    @if ($item->socio)
+                                                                        {{$item->socio->name}}
+                                                                    @endif
+                                                                </span>
+                                                                @elseif ($item->ticketable_type=='App\Models\Invitado')
+                                                                    Ticket sorteo #{{$item->id}} de 
+                                                                    <span class="font-semibold">
+                                                                        
+                                                                        {{$item->invitado->name}}
+                                                                    </span>
+                                                                @endif
                                                         @endif
                                                     
                                                     </td>
@@ -158,7 +182,7 @@
                                                         
                                                             ${{number_format($item->precio)}}
                                                         
-                                                        @elseif ($item->type=='Desafio')
+                                                        @elseif ($item->type=='Desafio' ||$item->type=='Desafio')
                                                         
                                                                 @if ($item->ticketable_type=='App\Models\Socio')
                                                                     ${{number_format($item->inscripcion)}}
@@ -546,6 +570,13 @@
             }
             if($tickets30){
                 foreach ($tickets30 as $ticket){
+                    if (intval($ticket->created_at->format('d')) == $day) {
+                        $totaldia+=$ticket->inscripcion;
+                    }
+                }
+            }
+            if($sortedTickets30){
+                foreach ($sortedTickets30 as $ticket){
                     if (intval($ticket->created_at->format('d')) == $day) {
                         $totaldia+=$ticket->inscripcion;
                     }

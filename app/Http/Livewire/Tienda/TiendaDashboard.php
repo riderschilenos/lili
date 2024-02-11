@@ -46,29 +46,38 @@ class TiendaDashboard extends Component
 
         if($this->tienda->id==4){
             $tickets30=Ticket::where('evento_id',13)
-            ->where('created_at', '>=', now()->subDays(29))
-            ->where('status','>=',3)->get();
+                ->where('created_at', '>=', now()->subDays(29))
+                ->where('status','>=',3)->get();
+
             $suscripcions30=Suscripcion::where('suscripcionable_type','App\Models\Socio')
             ->where('created_at', '>=', now()->subDays(29))
             ->get();
             
+            $sortedTickets30 = Ticket::where('evento_id', 23)
+                ->where('created_at', '>=', now()->subDays(29))
+                ->where('status', '>=', 3)
+                ->get();
+
             $mergedResults = collect()
-                ->merge($tickets30->map(function ($ticket) {
-                    $ticket['type'] = 'Desafio';
-                    return $ticket;
-                }))
-                ->merge($suscripcions30->map(function ($suscripcion) {
-                    $suscripcion['type'] = 'Suscripcion';
-                    return $suscripcion;
-                }))
-                ->merge($pagos30->map(function ($pago) {
-                    $pago['type'] = 'Pago';
-                    return $pago;
-                }))
-                ->sortBy('created_at');
+                            ->merge($tickets30->map(function ($ticket) {
+                                $ticket['type'] = 'Desafio';
+                                return $ticket;
+                            }))
+                            ->merge($suscripcions30->map(function ($suscripcion) {
+                                $suscripcion['type'] = 'Suscripcion';
+                                return $suscripcion;
+                            }))
+                            ->merge($pagos30->map(function ($pago) {
+                                $pago['type'] = 'Pago';
+                                return $pago;
+                            }))
+                            ->merge($sortedTickets30->map(function ($ticket) {
+                                $ticket['type'] = 'Sorteo';
+                                return $ticket;
+                            }))
+                            ->sortBy('created_at');
 
-            $latest7 = $mergedResults->take(-7)->sortByDesc('created_at'); // Obtener los últimos 20 registros
-
+            $latest7 = $mergedResults->take(-7)->sortByDesc('created_at');
 
         }else{
             $tickets30=null;

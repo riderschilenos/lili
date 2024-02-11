@@ -10,6 +10,8 @@ Route::get('eventos', [EventoController::class,'index'])->name('evento.index');
 
 Route::get('eventos/{evento}',[EventoController::class,'show'])->name('evento.show');
 
+Route::get('eventos/{socio}/{evento}',[EventoController::class,'showsocio'])->name('evento.show.socio');
+
 Route::get('pista/{evento}',[EventoController::class, 'show'])->name('pista.show');
 
 Route::get('pistas',[EventoController::class,'pistas'])->name('pistas.index');

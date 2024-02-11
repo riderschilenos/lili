@@ -153,7 +153,7 @@
                                                         @elseif ($item->type=='Sorteo')
                                                         
                                                                 @if ($item->ticketable_type=='App\Models\Socio')
-                                                                    Ticket sorteo #{{$item->id}} de 
+                                                                    Sorteo #{{$item->id}} de 
                                                                 <span class="font-semibold">
                                                                     
                                                                     @if ($item->socio)
@@ -161,7 +161,7 @@
                                                                     @endif
                                                                 </span>
                                                                 @elseif ($item->ticketable_type=='App\Models\Invitado')
-                                                                    Ticket sorteo #{{$item->id}} de 
+                                                                    Sorteo #{{$item->id}} de 
                                                                     <span class="font-semibold">
                                                                         
                                                                         {{$item->invitado->name}}

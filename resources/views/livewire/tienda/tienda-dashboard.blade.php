@@ -170,9 +170,7 @@
                                                         @endif
                                                     
                                                     </td>
-                                                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                        {{$item->created_at}}
-                                                    </td>
+                                                   
                                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
                                                         @if ($item->type=='Pago')
                                                            
@@ -190,6 +188,9 @@
                                                                     ${{number_format($item->inscripcion)}}
                                                                 @endif
                                                         @endif
+                                                    </td>
+                                                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
+                                                        {{$item->created_at}}
                                                     </td>
                                                 </tr>
 

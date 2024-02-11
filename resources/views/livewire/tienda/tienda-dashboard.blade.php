@@ -182,7 +182,7 @@
                                                         
                                                             ${{number_format($item->precio)}}
                                                         
-                                                        @elseif ($item->type=='Desafio' ||$item->type=='Desafio')
+                                                        @elseif ($item->type=='Desafio' || $item->type=='Sorteo')
                                                         
                                                                 @if ($item->ticketable_type=='App\Models\Socio')
                                                                     ${{number_format($item->inscripcion)}}

@@ -302,7 +302,7 @@ class EventoController extends Controller
 
         $invitados=Invitado::all();
 
-        return view('Evento.show',compact('coach','invitados','tickets','evento','fechas','similares','ticket','fech','series','riders','autos','socio2','disciplinas'));
+        return view('Evento.show',compact('invitados','tickets','evento','fechas','similares','ticket','fech','series','riders','autos','socio2','disciplinas'));
     }
 
     public function showsocio(Evento $evento,Socio $socio)

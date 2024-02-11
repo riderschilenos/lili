@@ -81,6 +81,7 @@ class TiendaDashboard extends Component
 
         }else{
             $tickets30=null;
+            $sortedTickets30 =null;
             $suscripcions30=null;
             $latest7 =null;
         }
@@ -113,6 +114,6 @@ class TiendaDashboard extends Component
 
         $now=now();
 
-        return view('livewire.tienda.tienda-dashboard',compact('latest7','now','tickets30','suscripcions30','pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
+        return view('livewire.tienda.tienda-dashboard',compact('sortedTickets30','latest7','now','tickets30','suscripcions30','pedidostotal','pedidos','pagos','pagos7','pagos30','pagos_anual','pagos_anteanual'));
     }
 }

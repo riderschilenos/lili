@@ -490,22 +490,24 @@
                                                     
                                                     </div>
                                                     <div class="ml-4">
-                                                        <a href="{{route('ticket.historial.view',$inscripcion->ticket->user)}}">
-                                                            <div class="text-sm font-medium text-gray-900">
-                                                                @if ($inscripcion->ticket->user)
-                                                                    
-                                                            
-                                                                    {{$inscripcion->ticket->user->name}} (Rider)<br>
-                                                                    {{$inscripcion->ticket->user->email}}<br>
-                                                                    @if ($inscripcion->ticket->user->socio)
-                                                                        @if ($inscripcion->ticket->user->socio->fono)
-                                                                            {{$inscripcion->ticket->user->socio->fono}}
+                                                        @if ($inscripcion->ticket->user)
+                                                            <a href="{{route('ticket.historial.view',$inscripcion->ticket->user)}}">
+                                                                <div class="text-sm font-medium text-gray-900">
+                                                                
+                                                                        
+                                                                
+                                                                        {{$inscripcion->ticket->user->name}} (Rider)<br>
+                                                                        {{$inscripcion->ticket->user->email}}<br>
+                                                                        @if ($inscripcion->ticket->user->socio)
+                                                                            @if ($inscripcion->ticket->user->socio->fono)
+                                                                                {{$inscripcion->ticket->user->socio->fono}}
+                                                                            @endif
                                                                         @endif
-                                                                    @endif
-                                                                @endif
-                                                            
-                                                            </div>
-                                                        </a>
+                                                                
+                                                                
+                                                                </div>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </td>

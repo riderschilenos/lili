@@ -318,32 +318,32 @@
                                                                     
 
                                                                         @if ($name)
-                                                                        <div x-data="{sview: true}">
-                                                                        <p class="text-center text-xs">Pincha sobre tu nombre si los datos coinciden con tu perfil <span x-on:click="sview=!sview" class="text-blue-500">(Ocultar/Mostrar)</span></p>
-                                                                            
-                                                                            <ul x-show="sview" class="relative z-1 left-0 w-full bg-white mt-1 rounded-lg overflow-hidden px-4">
-                                                                                @forelse ($this->invitados as $objet)
-                                                                                    <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
-                                                                                        <a href="{{route('checkout.evento.invitado', ['evento' => $evento, 'invitado' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}}</a>
-                                                                                    </li>
-                                                                                    @empty
+                                                                            <div x-data="{sview: true}">
+                                                                                <p class="text-center text-xs">Pincha sobre tu nombre si los datos coinciden con tu perfil <span x-on:click="sview=!sview" class="text-blue-500">(Ocultar/Mostrar)</span></p>
                                                                                 
+                                                                                <ul x-show="sview" class="relative z-1 left-0 w-full bg-white mt-1 rounded-lg overflow-hidden px-4">
+                                                                                    @forelse ($this->invitados as $objet)
+                                                                                        <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
+                                                                                            <a href="{{route('checkout.evento.invitado', ['evento' => $evento, 'invitado' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}}</a>
+                                                                                        </li>
+                                                                                        @empty
+                                                                                    
+                                                                                            
+                                                                                    
+                                                                                    @endforelse
+                                                                                    @forelse ($this->socios as $objet)
+                                                                                        <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
+                                                                                            <a href="{{route('checkout.evento.socio', ['evento' => $evento, 'socio' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}} (Rider)</a>
+                                                                                        </li>
+                                                                                        @empty
+                                                                                    
                                                                                         
                                                                                 
-                                                                                @endforelse
-                                                                                @forelse ($this->socios as $objet)
-                                                                                    <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
-                                                                                        <a href="{{route('checkout.evento.socio', ['evento' => $evento, 'socio' => $objet])}}">{{$objet->name}}-{{$objet->rut}}-{{$objet->email}} (Rider)</a>
-                                                                                    </li>
-                                                                                    @empty
+                                                                                    @endforelse
                                                                                 
                                                                                     
-                                                                            
-                                                                                @endforelse
-                                                                            
-                                                                                
-                                                                            </ul>
-                                                                        </div>
+                                                                                </ul>
+                                                                            </div>
                                                                             
                                                                         @else
                                                                             

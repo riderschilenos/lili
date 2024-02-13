@@ -38,17 +38,32 @@ class EventoInscritos extends Component
 
     public function render()
     {   
-        $tickets =   $this->evento->tickets()
-                            ->select('tickets.*', 'categorias.name as categoria_name') // Agrega la columna necesaria para el ORDER BY
-                            ->where('status', '>=', 1)
-                            ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
-                            ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
-                            ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
-                            ->orderBy('tickets.pedido_id', 'asc')
-                            ->orderBy('tickets.status', 'desc')
-                            ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
-                            ->distinct()
-                            ->get();
+        $tickets = $this->evento->tickets()
+                ->select('tickets.*', 'categorias.name as categoria_name')
+                ->where('status', '>=', 1)
+                ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
+                ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
+                ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
+                ->orderBy('tickets.pedido_id', 'asc')
+                ->orderBy('tickets.status', 'desc')
+                ->orderBy('categoria_name', 'asc')
+                ->distinct();
+
+            // Aquí agregamos la condición de búsqueda
+            if (!empty($this->search)) {
+                $tickets->where(function($query) {
+                    $query->whereHas('socio', function($q) {
+                        $q->where('name', 'like', '%' . $this->search . '%')
+                        ->orWhere('fono', 'like', '%' . $this->search . '%');
+                    })->orWhereHas('invitado', function($q) {
+                        $q->where('name', 'like', '%' . $this->search . '%')
+                        ->orWhere('fono', 'like', '%' . $this->search . '%');
+                    });
+                });
+            }
+
+            $tickets = $tickets->get();
+
                         
         $socios=Socio::all();
         $invitados=Invitado::all();
@@ -663,6 +678,10 @@ class EventoInscritos extends Component
             $ticket->pedido_id=$pedido->id;
             $ticket->save();
         }
+    }
+    
+    public function limpiar_page(){
+        $this->resetPage();
     }
 
 }

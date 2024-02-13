@@ -1,13 +1,13 @@
 <div class="mb-6 pb-6">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <div x-data="setup()">
-    <ul class="flex justify-center items-center my-4">
-        <template x-for="(tab, index) in tabs" :key="index">
-            <li class="cursor-pointer py-3 px-4 rounded transition"
-                :class="activeTab===index ? 'bg-green-500 text-white' : ' text-gray-500'" @click="activeTab = index"
-                x-text="tab"></li>
-        </template>
-    </ul>
+    <div x-data="setup()" >
+        <ul class="flex justify-center items-center my-4" wire:ignore>
+            <template x-for="(tab, index) in tabs" :key="index">
+                <li class="cursor-pointer py-3 px-4 rounded transition"
+                    :class="activeTab===index ? 'bg-green-500 text-white' : ' text-gray-500'" @click="activeTab = index"
+                    x-text="tab"></li>
+            </template>
+        </ul>
     @php
         $gananciatotal=0;
     @endphp
@@ -433,7 +433,7 @@
         @endcan
        
     </div>
-    <div x-show="activeTab===1">
+    <div x-show="activeTab===1" wire:ignore>
         <x-table-responsive>
             <div class="px-6 py-4">
                 <input wire:model="search" class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg " placeholder="Buscar Rider...">

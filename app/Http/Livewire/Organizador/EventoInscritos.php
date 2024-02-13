@@ -55,7 +55,9 @@ class EventoInscritos extends Component
                 $query->where('tickets.id', $this->search) // Buscar por ID del ticket
                     ->orWhereHas('socio', function($q) {
                         $q->where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('last_name', 'like', '%' . $this->search . '%') // Buscar por apellido del socio
                             ->orWhere('fono', 'like', '%' . $this->search . '%');
+                            
                     })->orWhereHas('invitado', function($q) {
                         $q->where('name', 'like', '%' . $this->search . '%')
                             ->orWhere('fono', 'like', '%' . $this->search . '%');
@@ -71,12 +73,31 @@ class EventoInscritos extends Component
         $invitados=Invitado::all();
         $sponsors = $this->evento->inscritos()->where('name','LIKE','%'. $this->search .'%')->get();
 
-        $inscripciones = Inscripcion::join('tickets','inscripcions.ticket_id','=','tickets.id')
-                            ->select('inscripcions.*','tickets.evento_id')
-                            ->where('evento_id',$this->evento->id)
-                            ->where('estado','>=',1)
-                            ->orderby('categoria_id','DESC')
-                            ->paginate(500);
+        $inscripciones = Inscripcion::join('tickets', 'inscripcions.ticket_id', '=', 'tickets.id')
+            ->select('inscripcions.*', 'tickets.evento_id')
+            ->where('evento_id', $this->evento->id)
+            ->where('estado', '>=', 1)
+            ->orderBy('categoria_id', 'DESC');
+        
+        // Aquí agregamos la condición de búsqueda
+        if (!empty($this->search)) {
+            $inscripciones->where(function($query) {
+                $query->where('inscripcions.id', $this->search) // Buscar por ID de la inscripción
+                    ->orWhereHas('ticket', function($q) {
+                        $q->where('id', $this->search); // Buscar por ID del ticket
+                    })->orWhereHas('ticket.socio', function($q) {
+                        $q->where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('last_name', 'like', '%' . $this->search . '%') // Buscar por apellido del socio
+                            ->orWhere('fono', 'like', '%' . $this->search . '%');
+                    })->orWhereHas('ticket.invitado', function($q) {
+                        $q->where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('fono', 'like', '%' . $this->search . '%');
+                    });
+            });
+        }
+        
+        $inscripciones = $inscripciones->paginate(500);
+    
 
         return view('livewire.organizador.evento-inscritos',compact('sponsors','inscripciones','tickets','socios','invitados'));
     }

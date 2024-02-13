@@ -38,36 +38,30 @@ class EventoInscritos extends Component
 
     public function render()
     {   
-        $tickets = $this->evento->tickets()
-        ->select('tickets.*', 'categorias.name as categoria_name')
-        ->where('status', '>=', 1)
-        ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
-        ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
-        ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
-        ->orderBy('tickets.pedido_id', 'asc')
-        ->orderBy('tickets.status', 'desc')
-        ->orderBy('categoria_name', 'asc')
-        ->distinct();
-    
-    // Aquí agregamos la condición de búsqueda
-    if (!empty($this->search)) {
-        $tickets->where(function($query) {
-            $query->where('tickets.id', $this->search) // Buscar por ID del ticket
-                ->orWhereHas('socio', function($q) {
-                    $q->where('name', 'like', '%' . $this->search . '%')
-                        ->orWhere('fono', 'like', '%' . $this->search . '%')
-                        ->orWhere('rut', 'like', '%' . $this->search . '%'); // Buscar en last_name
-                })->orWhereHas('invitado', function($q) {
-                    $q->where('name', 'like', '%' . $this->search . '%')
-                        ->orWhere('fono', 'like', '%' . $this->search . '%');
-                });
-        });
-    }
-    
-    $tickets = $tickets->get();
-    
-    
-
+        $tickets = Ticket::select('tickets.*', 'categorias.name as categoria_name')
+            ->where('evento_id', $this->evento->id)
+            ->where('status', '>=', 1)
+            ->where(function($query) {
+                $query->where('tickets.id', $this->search)
+                    ->orWhereHas('socio', function($q) {
+                        $q->where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('fono', 'like', '%' . $this->search . '%')
+                            ->orWhere('rut', 'like', '%' . $this->search . '%');
+                    })
+                    ->orWhereHas('invitado', function($q) {
+                        $q->where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('fono', 'like', '%' . $this->search . '%');
+                    });
+            })
+            ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
+            ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
+            ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
+            ->orderBy('tickets.pedido_id', 'asc')
+            ->orderBy('tickets.status', 'desc')
+            ->orderBy('categoria_name', 'asc')
+            ->distinct()
+            ->get();
+        
                         
         $socios=Socio::all();
         $invitados=Invitado::all();

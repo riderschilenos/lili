@@ -49,23 +49,23 @@ class EventoInscritos extends Component
         ->orderBy('categoria_name', 'asc')
         ->distinct();
     
-        // Aquí agregamos la condición de búsqueda
-        if (!empty($this->search)) {
-            $tickets->where(function($query) {
-                $query->where('tickets.id', $this->search) // Buscar por ID del ticket
-                    ->orWhereHas('socio', function($q) {
-                        $q->where('name', 'like', '%' . $this->search . '%')
-                            ->orWhere('last_name', 'like', '%' . $this->search . '%') // Buscar por apellido del socio
-                            ->orWhere('fono', 'like', '%' . $this->search . '%');
-                            
-                    })->orWhereHas('invitado', function($q) {
-                        $q->where('name', 'like', '%' . $this->search . '%')
-                            ->orWhere('fono', 'like', '%' . $this->search . '%');
-                    });
-            });
-        }
-        
-        $tickets = $tickets->get();
+    // Aquí agregamos la condición de búsqueda
+    if (!empty($this->search)) {
+        $tickets->where(function($query) {
+            $query->where('tickets.id', $this->search) // Buscar por ID del ticket
+                ->orWhereHas('socio', function($q) {
+                    $q->where('name', 'like', '%' . $this->search . '%')
+                        ->orWhere('fono', 'like', '%' . $this->search . '%')
+                        ->orWhere('rut', 'like', '%' . $this->search . '%'); // Buscar en last_name
+                })->orWhereHas('invitado', function($q) {
+                    $q->where('name', 'like', '%' . $this->search . '%')
+                        ->orWhere('fono', 'like', '%' . $this->search . '%');
+                });
+        });
+    }
+    
+    $tickets = $tickets->get();
+    
     
 
                         
@@ -87,7 +87,6 @@ class EventoInscritos extends Component
                         $q->where('id', $this->search); // Buscar por ID del ticket
                     })->orWhereHas('ticket.socio', function($q) {
                         $q->where('name', 'like', '%' . $this->search . '%')
-                            ->orWhere('last_name', 'like', '%' . $this->search . '%') // Buscar por apellido del socio
                             ->orWhere('fono', 'like', '%' . $this->search . '%');
                     })->orWhereHas('ticket.invitado', function($q) {
                         $q->where('name', 'like', '%' . $this->search . '%')

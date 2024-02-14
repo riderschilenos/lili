@@ -159,8 +159,8 @@
                                         @php
                                             $cantidinsc=0;
                                         @endphp
-                                        @foreach ($evento->tickets as $ticket)
-                                            @foreach ($ticket->inscripcions as $inscripcion)
+                                        @foreach ($evento->tickets as $itemtic)
+                                            @foreach ($itemtic->inscripcions as $inscripcion)
                                                 @php
                                                     if ($inscripcion->estado==3) {
                                                         $cantidinsc+=1;
@@ -387,8 +387,8 @@
                                         @php
                                             $cantidinsc=0;
                                         @endphp
-                                        @foreach ($evento->tickets as $ticket)
-                                            @foreach ($ticket->inscripcions as $inscripcion)
+                                        @foreach ($evento->tickets as $itemtick)
+                                            @foreach ($itemtick->inscripcions as $inscripcion)
                                                 @php
                                                     if ($inscripcion->estado==3) {
                                                         $cantidinsc+=1;

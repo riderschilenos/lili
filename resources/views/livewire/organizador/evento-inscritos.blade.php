@@ -129,6 +129,8 @@
                                                                         @if ($ticket->status==3)
 
                                                                             <a href="{{route('ticket.view',$ticket)}}" class="btn btn-success h-10 my-auto">Nro: {{$ticket->id}} PAGADO</a>
+                                                                            
+                                                                            {{$ticket->inscripcion}}
                                                                            
                                                                             
                                                                             @break

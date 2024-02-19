@@ -88,6 +88,130 @@ class InvitadoController extends Controller
                 // Obtener el año de la fecha
                 $ano = date('Y', strtotime($fecha_nacimiento));
 
+                $checkuser=User::where('email',$request->email)->first();
+                if($checkuser->count()>0){
+                    
+                    if($checkuser->socio){
+                        $checksocio=$checkuser->socio;
+                        Auth::login($checkuser);
+                        return redirect()->route('checkout.evento.socio',compact('evento','checksocio'));
+                    }else{
+                        Auth::login($checkuser);
+
+                        $socio=Socio::create([
+                            'name'=> $request->name,
+                            'second_name'=> $request->second_name,
+                            'last_name'=> $request->last_name,
+                            'slug'=> 'rider'.$sociosall->count(),
+                            'born_date'=> $request->born_date,
+                            'fono'=> $request->fono,
+                            'rut'=> $request->rut,
+                            'disciplina_id'=> $request->disciplina_id,
+                            'user_id'=> $checkuser->id]);
+
+                            $fono='569'.substr(str_replace(' ', '', $socio->fono), -8);
+                            //TOKEN QUE NOS DA FACEBOOK
+                                    
+                            try {
+                                $token = env('WS_TOKEN');
+                                $phoneid= env('WS_PHONEID');
+                                $version='v16.0';
+                                $url="https://riderschilenos.cl/";
+                                $wsload=[
+                                    'messaging_product' => 'whatsapp',
+                                    "preview_url"=> false,
+                                    'to'=>'56963176726',
+                                    
+                                    'type'=>'template',
+                                        'template'=>[
+                                            'name'=>'nuevo_rider',
+                                            'language'=>[
+                                                'code'=>'es'],
+                                            'components'=>[ 
+                                                [
+                                                    'type'=>'body',
+                                                    'parameters'=>[
+                                                        [   //Socio
+                                                            'type'=>'text',
+                                                            'text'=> $socio->user->name.' ('.$evento->titulo.')'
+                                                        ],
+                                                        [   //Socio
+                                                            'type'=>'text',
+                                                            'text'=> '+'.$fono
+                                                        ],
+                                                        [   //Socio
+                                                            'type'=>'text',
+                                                            'text'=> $socio->disciplina->name
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                        
+                                    
+                                ];
+                                
+                                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$wsload)->throw()->json();
+                                
+                                //TOKEN QUE NOS DA FACEBOOK
+                                $token = env('WS_TOKEN');
+                                $phoneid= env('WS_PHONEID');
+                                $version='v16.0';
+                                $url="https://riderschilenos.cl/";
+                                $payload=[
+                                    'messaging_product' => 'whatsapp',
+                                    "preview_url"=> false,
+                                    'to'=>$fono,
+                                    
+                                    'type'=>'template',
+                                        'template'=>[
+                                            'name'=>'bienvenida_credenciales',
+                                            'language'=>[
+                                                'code'=>'es'],
+                                            'components'=>[ 
+                                                [
+                                                    'type'=>'body',
+                                                    'parameters'=>[
+                                                        [   //Socio
+                                                            'type'=>'text',
+                                                            'text'=> $socio->name
+                                                        ],
+                                                        [   //Socio
+                                                            'type'=>'text',
+                                                            'text'=> $request->email
+                                                        ],
+                                                        [   //Socio
+                                                            'type'=>'text',
+                                                            'text'=> $ano
+                                                        ],
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                        
+                                    
+                                ];
+                                
+                                Http::withToken($token)->post('https://graph.facebook.com/'.$version.'/'.$phoneid.'/messages',$payload)->throw()->json();
+        
+                                WhatsappMensaje::create(['numero'=> $fono,
+                                'mensaje'=>"Credenciales Enviadas",
+                                'type'=>'enviado']);
+                        
+                    
+                                return redirect()->route('checkout.evento.socio',compact('evento','socio'));
+        
+                            } catch (\Throwable $th) {
+                    
+                                WhatsappMensaje::create(['numero'=> $fono,
+                                'mensaje'=>"Error al enviar Credenciales",
+                                'type'=>'enviado']);
+                                return redirect()->route('checkout.evento.socio',compact('evento','socio'));
+                                
+                            }
+                    }
+                }
+
                 $user=User::create([
                     'name'=> $request->name.' '.$request->second_name.' '.$request->last_name,
                     'email'=> $request->email,

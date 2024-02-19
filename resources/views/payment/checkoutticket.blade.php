@@ -612,7 +612,7 @@
             
          
         </div>
-        @if ($ticket->inscripcions->count()>1)
+        @if ($ticket->inscripcions->count()>0)
             <section id="pagando">
                             <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
                                 <div class="flex items-center justify-between px-8">

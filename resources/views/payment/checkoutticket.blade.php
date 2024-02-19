@@ -638,9 +638,9 @@
                         @if ($ticket->inscripcion==0)
                             <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
                                 @csrf
-                            
-                                <button class="btn btn-danger mt-4" >Inscribirme ahora!</button>
-                                
+                                <div class="flex justify-center">
+                                    <button class="btn btn-danger mt-4" >Inscribirme ahora!</button>
+                                </div>
                             </form>
                         @else
                             <div class="max-w-4xl bg-white rounded-xl shadow-md pt-6 pb-4 px-2 sm:px-8 ">

@@ -646,10 +646,21 @@
                                 
                                     <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
                                 </div>
-                            
-                                <div class="cho-container mt-2 mb-4">
-                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
-                                </div>
+                                
+                                @if ($ticket->inscripcion==0)
+                                    <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
+                                        @csrf
+                                    
+                                        <button class="btn btn-danger mt-4" >Inscribirme ahora!</button>
+                                        
+                                    </form>
+                                @else
+                                    <div class="cho-container mt-2 mb-4">
+                                        <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
+                                    </div>
+                                @endif
+                                   
+
                             </div>
                 
                     

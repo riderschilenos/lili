@@ -639,7 +639,7 @@
                             <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
                                 @csrf
                                 <div class="flex justify-center">
-                                    <button class="btn btn-danger mt-4" >Inscribirme ahora!</button>
+                                    <button class="btn btn-danger mt-4" >¡Inscribirme ahora!</button>
                                 </div>
                             </form>
                         @else

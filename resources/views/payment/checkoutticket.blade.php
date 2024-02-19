@@ -612,80 +612,80 @@
             
          
         </div>
-        @if ($ticket->inscripcion)
-    <section id="pagando">
-                    <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
-                        <div class="flex items-center justify-between px-8">
-                            @if ($evento->type=='pista')
-                                <p class="text-base leading-none text-gray-800 ">Entradas</p>
-                            @elseif ($evento->type=='sorteo')
-                                <p class="text-base leading-none text-gray-800 ">
-                                    Compra de {{$ticket->inscripcions->count()}} números
-                                </p>
-                            @else
-                                <p class="text-base leading-none text-gray-800 ">Inscripción</p>
-                            @endif
-                        
-                        <p class="text-base leading-none text-gray-800 ">${{number_format($ticket->inscripcion)}}</p>
+        @if ($ticket->inscripcions->count()>1)
+            <section id="pagando">
+                            <div class="max-w-4xl px-10 mt-6 py-2 bg-gray-100">
+                                <div class="flex items-center justify-between px-8">
+                                    @if ($evento->type=='pista')
+                                        <p class="text-base leading-none text-gray-800 ">Entradas</p>
+                                    @elseif ($evento->type=='sorteo')
+                                        <p class="text-base leading-none text-gray-800 ">
+                                            Compra de {{$ticket->inscripcions->count()}} números
+                                        </p>
+                                    @else
+                                        <p class="text-base leading-none text-gray-800 ">Inscripción</p>
+                                    @endif
+                                
+                                <p class="text-base leading-none text-gray-800 ">${{number_format($ticket->inscripcion)}}</p>
+                                </div>
+                            </div>
+                        <div>
+                            <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
+                            <p class="text-2xl leading-normal text-gray-800 ">Total</p>
+                            <p class="text-2xl font-bold leading-normal text-right text-gray-800 ">${{number_format($ticket->inscripcion)}}</p>
+                            </div>
                         </div>
-                    </div>
-                <div>
-                    <div class="flex items-center pb-6 justify-between lg:pt-5 pt-2 px-8">
-                    <p class="text-2xl leading-normal text-gray-800 ">Total</p>
-                    <p class="text-2xl font-bold leading-normal text-right text-gray-800 ">${{number_format($ticket->inscripcion)}}</p>
-                    </div>
-                </div>
-                <div class="max-w-4xl bg-white rounded-xl shadow-md pt-6 pb-4 px-2 sm:px-8 ">
-                    <div class="max-w-4xl flex justify-between items-center">
-                    
-                        <div class="items-center">
-                            <img class="h-full w-40  object-contain" src="{{asset('img/mercadopago.png')}}" alt="">
-                        
-                        </div>
-                        <div class="hidden sm:flex items-center">
-                        
-                            <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
-                        </div>
-                    
-                        <div class="cho-container mt-2 mb-4">
-                            <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
-                        </div>
-                    </div>
-           
-               
-                <div class="flex justify-center sm:hidden items-center">
-                   
-                    <p class="text-base my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
-                </div>
-               
-            </div>
-                  
-
-                @can('Super admin')
-                    <div>
-                        <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
-                            @csrf
-                        
-                            <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white mt-4" >Agregar Gratis</button>
+                        <div class="max-w-4xl bg-white rounded-xl shadow-md pt-6 pb-4 px-2 sm:px-8 ">
+                            <div class="max-w-4xl flex justify-between items-center">
                             
-                        </form>
-
-                        <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
-                            @csrf
-                        
-                            <button class="btn btn-danger mt-4" >Agregar Simulación Pago</button>
+                                <div class="items-center">
+                                    <img class="h-full w-40  object-contain" src="{{asset('img/mercadopago.png')}}" alt="">
+                                
+                                </div>
+                                <div class="hidden sm:flex items-center">
+                                
+                                    <p class="text-lg my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
+                                </div>
                             
-                        </form>
+                                <div class="cho-container mt-2 mb-4">
+                                    <!-- Esto es <a href="" class="font-bold py-2 px-4 rounded bg-blue-500 text-white">Pagar</a> un comentario -->
+                                </div>
+                            </div>
+                
+                    
+                        <div class="flex justify-center sm:hidden items-center">
+                        
+                            <p class="text-base my-auto text-center">Paga Utilizando tarjeta de Crédito o Débito</p>
+                        </div>
+                    
                     </div>
-                @endcan
-            
+                        
+
+                        @can('Super admin')
+                            <div>
+                                <form action="{{route('ticket.enrolled',$ticket)}}" method="POST">
+                                    @csrf
+                                
+                                    <button class="font-bold py-2 px-4 rounded bg-blue-500 text-white mt-4" >Agregar Gratis</button>
+                                    
+                                </form>
+
+                                <form action="{{route('ticket.semipago',$ticket)}}" method="POST">
+                                    @csrf
+                                
+                                    <button class="btn btn-danger mt-4" >Agregar Simulación Pago</button>
+                                    
+                                </form>
+                            </div>
+                        @endcan
+                    
 
 
-                    <hr>
+                            <hr>
 
-        <p class="text-sm mt-4">Esta compra esta protegida por todos los protocolos asignados por mercado pago, una vez hecha el pago sera redireccionado hasta su entrada, no la comparta en redes sociales, para más detalles visite nuestros <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
-    </section>
-        
+                <p class="text-sm mt-4">Esta compra esta protegida por todos los protocolos asignados por mercado pago, una vez hecha el pago sera redireccionado hasta su entrada, no la comparta en redes sociales, para más detalles visite nuestros <a href="" class="text-red-500 font-bold">Terminos y Condiciones</a></p>
+            </section>
+                
             
         @endif
     </div>

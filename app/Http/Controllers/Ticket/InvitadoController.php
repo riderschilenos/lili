@@ -89,12 +89,13 @@ class InvitadoController extends Controller
                 $ano = date('Y', strtotime($fecha_nacimiento));
 
                 $checkuser=User::where('email',$request->email)->first();
+                
                 if($checkuser){
                     
                     if($checkuser->socio){
-                        $checksocio=Socio::find($checkuser->socio->id);
+                        $socio=Socio::find($checkuser->socio->id);
                         Auth::login($checkuser);
-                        return redirect()->route('checkout.evento.socio',compact('evento','checksocio'));
+                        return redirect()->route('checkout.evento.socio',compact('evento','socio'));
                     }else{
                         Auth::login($checkuser);
 

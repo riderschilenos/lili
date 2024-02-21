@@ -77,8 +77,11 @@
                                 @endphp
                             @endforeach
                         @endif
-                        
+
+                       
                         <p class="mb-2"><i class="fas fa-users"></i> {{$evento->limite-$inscritos}} Números disponibles    </p>
+                        <p class="mb-2"><i class="fas fa-users"></i> {{$evento->tickets->where('status','>=',3)->count()}} Participantes  </p>
+                        <p class="mb-2"><i class="fas fa-users"></i> {{$inscritos}} Boletos Vendidos  </p>
                         
 
                     @else

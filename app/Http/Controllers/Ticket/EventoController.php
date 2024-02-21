@@ -537,7 +537,15 @@ class EventoController extends Controller
                 $ticket1=Ticket::where('ticketable_id', $socio->id)->where('ticketable_type','App\Models\Socio')->where('status',3)->where('evento_id',$evento->id)->first();
                 
                 if($ticket1){
-                    return redirect()->route('ticket.view',$ticket1);
+                    if ($ticket1->evento->type=='sorteo') {
+                        $type='Socio';
+                        $id=$socio->id;
+                        return view('Evento.preticket',compact('evento','id','type'));
+                    } else {
+                        return redirect()->route('ticket.view',$ticket1);
+                    }
+                    
+                       
                 }
 
             $ticket=Ticket::where('ticketable_id', $socio->id)->where('ticketable_type','App\Models\Socio')->where('status',1)->where('evento_id',$evento->id)->first();

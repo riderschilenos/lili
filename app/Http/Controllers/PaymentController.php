@@ -138,8 +138,8 @@ class PaymentController extends Controller
 
         
 
-                foreach ($tickets as $ticket){
-                        if($ticket->status>=3){
+                foreach ($tickets as $item){
+                        if($item->status>=3){
                                 $total+=$ticket->inscripcion;
                         }
                     

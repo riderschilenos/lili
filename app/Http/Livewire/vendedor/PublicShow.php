@@ -14,6 +14,7 @@ class PublicShow extends Component
 
     public function render()
     {   $productos=Producto::where('name','LIKE','%'. $this->search .'%')
+                ->where('rch_view','SI')
                 ->where('image','!=','NULL')
                 ->latest('id')
                 ->paginate(16);

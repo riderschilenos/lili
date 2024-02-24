@@ -181,16 +181,22 @@ class TiendaControllerr extends Controller
     {
         return view('tiendas.cargainteligente',compact('tienda'));
     }
+
+    public function categorias(Tienda $tienda)
+    {
+        return view('tiendas.categorias',compact('tienda'));
+    }
+
     public function manual(Request $request, Tienda $tienda)
     {   $disciplinas=Disciplina::pluck('name','id');
-        $category_products=Category_product::pluck('name','id');
+        $category_products=Category_product::where('tienda',$tienda->id)->pluck('name','id');
         
         return view('tiendas.cargamanual',compact('disciplinas','category_products','tienda'));
     }
 
     public function producto(Producto $producto)
     {   $disciplinas=Disciplina::pluck('name','id');
-        $category_products=Category_product::pluck('name','id');
+        $category_products=Category_product::where('tienda',$producto->tienda->id)->pluck('name','id');
         if ($producto->tienda_id) {
             $tienda=Tienda::find($producto->tienda_id);
         } else {

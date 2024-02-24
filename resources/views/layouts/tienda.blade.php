@@ -228,7 +228,13 @@
                                        <span class="ml-3 flex-1 whitespace-nowrap">Productos</span>
                                     </a>
                                  </li>
-                                 @if(Route::currentRouteName() === 'tiendas.productos' || Route::currentRouteName() === 'tiendas.productos.inteligente' || Route::currentRouteName() == 'tiendas.productos.manual' || Route::currentRouteName() == 'tiendas.productos.edit') 
+                                 @if(Route::currentRouteName() === 'tiendas.productos' || Route::currentRouteName() === 'tiendas.productos.inteligente' || Route::currentRouteName() == 'tiendas.productos.manual' || Route::currentRouteName() == 'tiendas.productos.categorias' || Route::currentRouteName() == 'tiendas.productos.edit') 
+                                    <li>
+                                       <a href="{{route('tiendas.productos.categorias',$tienda)}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group @if(Route::currentRouteName() === 'tiendas.productos.categorias') bg-gray-200 @endif">
+                                          
+                                          <span class="ml-9 flex-1 whitespace-nowrap">Categorias</span>
+                                       </a>
+                                    </li>   
                                     <li>
                                        <a href="{{route('tiendas.productos.manual',$tienda)}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group @if(Route::currentRouteName() === 'tiendas.productos.manual') bg-gray-200 @endif">
                                           

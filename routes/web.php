@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\CategoryproductController;
 use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -103,9 +104,13 @@ Route::post('user/{user}/updatefoto', [SocioHomeController::class,'updatefoto'])
 
 Route::resource('tienda', TiendaControllerr::class)->names('tiendas');
 
+Route::resource('category_product', CategoryproductController::class)->names('category_products');
+
 Route::get('tienda/{tienda}/productos', [TiendaControllerr::class,'productos'])->name('tiendas.productos');
 
 Route::get('tienda/{tienda}/productos/intelligence', [TiendaControllerr::class,'inteligente'])->name('tiendas.productos.inteligente');
+
+Route::get('tienda/{tienda}/productos/categorias', [TiendaControllerr::class,'categorias'])->name('tiendas.productos.categorias');
 
 Route::get('tienda/{tienda}/productos/manual', [TiendaControllerr::class,'manual'])->name('tiendas.productos.manual');
 

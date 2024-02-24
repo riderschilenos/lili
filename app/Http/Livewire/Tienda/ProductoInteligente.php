@@ -38,7 +38,7 @@ class ProductoInteligente extends Component
         ->paginate(100);
         
         $disciplinas=Disciplina::pluck('name','id');
-        $category_products=Category_product::pluck('name','id');
+        $category_products=Category_product::where('tienda_id',$this->tienda->id)->pluck('name','id');
 
         return view('livewire.tienda.producto-inteligente',compact('productos','disciplinas','category_products'));
     }

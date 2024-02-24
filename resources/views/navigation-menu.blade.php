@@ -75,7 +75,7 @@
  ]   
 @endphp
 
-@if(Route::currentRouteName() == 'tiendas.edit' || Route::currentRouteName() == 'tiendas.productos' || Route::currentRouteName() == 'tiendas.pedidos' || Route::currentRouteName() == 'tiendas.productos.inteligente' || Route::currentRouteName() == 'tiendas.productos.manual' || Route::currentRouteName() == 'tiendas.productos.edit')
+@if(Route::currentRouteName() == 'tiendas.edit' || Route::currentRouteName() == 'tiendas.productos' || Route::currentRouteName() == 'tiendas.pedidos' || Route::currentRouteName() == 'tiendas.productos.inteligente' || Route::currentRouteName() == 'tiendas.productos.manual' || Route::currentRouteName() == 'tiendas.productos.categorias' || Route::currentRouteName() == 'tiendas.productos.edit')
     <nav x-data="{ open: false }" class=" border-gray-100 fixed" style="z-index: 20;">
         <!-- Primary Navigation Menu -->
         <div class="fixed sm:hidden top-0 bg-main-color w-full md:relative md:bg-white sm:pt-3" style="z-index: 20;">

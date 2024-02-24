@@ -34,4 +34,8 @@ class Tienda extends Model
     public function productos(){
         return $this->hasMany('App\Models\Producto');
     }
+
+    public function categorias(){
+        return $this->hasMany('App\Models\Category_product');
+    }
 }

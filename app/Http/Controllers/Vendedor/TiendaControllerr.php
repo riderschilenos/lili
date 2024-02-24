@@ -178,8 +178,15 @@ class TiendaControllerr extends Controller
     }
 
     public function inteligente(Tienda $tienda)
-    {
-        return view('tiendas.cargainteligente',compact('tienda'));
+    {   
+        $category_products=Category_product::where('tienda_id',$tienda->id)->pluck('name','id');
+        if ($category_products->count()>0) {
+            return view('tiendas.cargainteligente',compact('tienda'));
+        } else {
+            return redirect()->route('tiendas.productos.categorias',$tienda);
+        }
+
+       
     }
 
     public function categorias(Tienda $tienda)
@@ -191,7 +198,7 @@ class TiendaControllerr extends Controller
     {   $disciplinas=Disciplina::pluck('name','id');
         $category_products=Category_product::where('tienda_id',$tienda->id)->pluck('name','id');
 
-        if ($category_products) {
+        if ($category_products->count()>0) {
             return view('tiendas.cargamanual',compact('disciplinas','category_products','tienda'));
         } else {
             return redirect()->route('tiendas.productos.categorias',$tienda);

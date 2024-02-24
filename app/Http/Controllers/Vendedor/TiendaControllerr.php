@@ -190,8 +190,15 @@ class TiendaControllerr extends Controller
     public function manual(Request $request, Tienda $tienda)
     {   $disciplinas=Disciplina::pluck('name','id');
         $category_products=Category_product::where('tienda_id',$tienda->id)->pluck('name','id');
+
+        if ($category_products) {
+            return view('tiendas.cargamanual',compact('disciplinas','category_products','tienda'));
+        } else {
+            return redirect()->route('tiendas.productos.categorias',$tienda);
+        }
         
-        return view('tiendas.cargamanual',compact('disciplinas','category_products','tienda'));
+        
+       
     }
 
     public function producto(Producto $producto)

@@ -15,7 +15,7 @@ use Livewire\Component;
 
 class EventoCheckout extends Component
 {   
-    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro, $invitado, $name, $type;
+    public $evento, $selectedcategoria, $categoria_id, $categoria, $nro, $invitado, $rut, $type;
 
 
     public function mount(Evento $evento,$id,$type){
@@ -57,18 +57,18 @@ class EventoCheckout extends Component
     }
 
     public function getInvitadosProperty(){
-        return  Invitado::where('rut','LIKE','%'. $this->name .'%')
-        ->orwhere('email','LIKE','%'. $this->name .'%')
-        ->orwhere('name','LIKE','%'. $this->name .'%')
-        ->orwhere('fono','LIKE','%'. $this->name .'%')
+        return  Invitado::where('rut','LIKE','%'. $this->rut .'%')
+        ->orwhere('email','LIKE','%'. $this->rut .'%')
+        ->orwhere('name','LIKE','%'. $this->rut .'%')
+        ->orwhere('fono','LIKE','%'. $this->rut .'%')
         ->latest('id')
         ->paginate(3);
     }
 
     public function getSociosProperty(){
-        return  Socio::where('rut','LIKE','%'. $this->name .'%')
-        ->orwhere('name','LIKE','%'. $this->name .'%')
-        ->orwhere('fono','LIKE','%'. $this->name .'%')
+        return  Socio::where('rut','LIKE','%'. $this->rut .'%')
+        ->orwhere('name','LIKE','%'. $this->rut .'%')
+        ->orwhere('fono','LIKE','%'. $this->rut .'%')
         ->latest('id')
         ->paginate(3);
     }

@@ -276,7 +276,7 @@
                                             
                                                         {!! Form::hidden('evento_id',$evento->id) !!}
             
-                                                        {!! Form::hidden('name',$name) !!}
+                                                        {!! Form::hidden('rut',$rut) !!}
                                                         
                                                         {!! Form::hidden('disciplina_id', $evento->disciplina_id ) !!}
 
@@ -302,9 +302,9 @@
                                                                                 @enderror
                                                                             </div>
                                                                                 <div class="mb-4">
-                                                                                {!! Form::label('nombre', 'Nombre') !!}
-                                                                                <input wire:model="name" class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm"
-                                                                                type="name" name="name" style="z-index: 10;" autocomplete="off">
+                                                                                {!! Form::label('rut', 'Rut* (Sin puntos y con guión)') !!}
+                                                                                <input wire:model="rut" class="w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm"
+                                                                                type="rut" name="rut" style="z-index: 10;" autocomplete="off"  id='rut-input'>
                                                                 
                                                                                                 
                                                                             
@@ -317,7 +317,7 @@
                                                                         
                                                                     
 
-                                                                        @if ($name)
+                                                                        @if ($rut)
                                                                             <div x-data="{sview: true}">
                                                                                 <p class="text-center text-xs">Pincha sobre tu nombre si los datos coinciden con tu perfil <span x-on:click="sview=!sview" class="text-blue-500">(Ocultar/Mostrar)</span></p>
                                                                                 
@@ -349,6 +349,15 @@
                                                                             
                                                                         @endif
                                                                     </div>
+
+                                                                    <div class="mb-4"  wire:ignore>
+                                                                        {!! Form::label('name', 'Nombre') !!}
+                                                                        {!! Form::text('name', null , ['class' => 'form-input block w-full mt-1'.($errors->has('name')?' border-red-600':'')]) !!}
+
+                                                                        @error('name')
+                                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
+                                                                        @enderror
+                                                                    </div>
                                                                 
                                                                     <div class="mb-4"  wire:ignore>
                                                                         {!! Form::label('second_name', 'Segundo/Tercer Nombre (Opcional)') !!}
@@ -376,14 +385,7 @@
                                                                             <strong class="text-xs text-red-600">{{$message}}</strong>
                                                                         @enderror
                                                                     </div>
-                                                                    <div class="mb-4"  wire:ignore>
-                                                                        {!! Form::label('rut', 'Rut* (Sin puntos y con guión)') !!}
-                                                                        {!! Form::text('rut', null , ['class' => 'form-input block w-full mt-1'.($errors->has('rut')?' border-red-600':''), 'id' => 'rut-input']) !!}
-
-                                                                        @error('rut')
-                                                                            <strong class="text-xs text-red-600">{{$message}}</strong>
-                                                                        @enderror
-                                                                    </div>
+                                                                 
                                                                     <div class="mb-4"  wire:ignore>
                                                                         {!! Form::label('fono', 'Fono*') !!}
                                                                         {!! Form::text('fono', null , ['class' => 'form-input block w-full mt-1'.($errors->has('fono')?' border-red-600':'')]) !!}

@@ -288,11 +288,11 @@ class EventoController extends Controller
           
         $fech = Fecha::where('evento_id',$evento->id)->first();
         if ($evento->type=='sorteo') {
-            $tickets =   Ticket::where('status', '>=', 3)
-            ->where('evento_id',$evento->id)
-            ->orderBy('tickets.id', 'desc')
-            ->distinct()
-            ->paginate(500);
+            $tickets =  Ticket::where('status', '>=', 3)
+                        ->where('evento_id',$evento->id)
+                        ->orderBy('tickets.id', 'desc')
+                        ->distinct()
+                        ->paginate(500);
         } else {
             $tickets =   $evento->tickets()
             ->select('tickets.*', 'categorias.name as categoria_name') // Agrega la columna necesaria para el ORDER BY

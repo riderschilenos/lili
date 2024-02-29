@@ -287,7 +287,7 @@ class EventoController extends Controller
         }        
           
         $fech = Fecha::where('evento_id',$evento->id)->first();
-
+/*
         $tickets =   $evento->tickets()
                         ->select('tickets.*', 'categorias.name as categoria_name') // Agrega la columna necesaria para el ORDER BY
                         ->where('status', '>=', 3)
@@ -299,6 +299,18 @@ class EventoController extends Controller
                         ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
                         ->distinct()
                         ->paginate(500);
+*/
+        $tickets =   Ticket::where('status', '>=', 3)
+                        ->select('tickets.*', 'categorias.name as categoria_name') // Agrega la columna necesaria para el ORDER BY
+                        ->join('inscripcions', 'tickets.id', '=', 'inscripcions.ticket_id')
+                        ->join('fecha_categorias', 'inscripcions.fecha_categoria_id', '=', 'fecha_categorias.id')
+                        ->join('categorias', 'fecha_categorias.categoria_id', '=', 'categorias.id')
+                        ->orderBy('tickets.ticketable_type', 'desc')
+                        ->orderBy('tickets.id', 'desc')
+                        ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
+                        ->distinct()
+                        ->paginate(500);
+
 
         $invitados=Invitado::all();
 

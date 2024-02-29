@@ -298,7 +298,7 @@ class EventoController extends Controller
                         ->orderBy('tickets.id', 'desc')
                         ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
                         ->distinct()
-                        ->paginate(250);
+                        ->paginate(500);
 
         $invitados=Invitado::all();
 

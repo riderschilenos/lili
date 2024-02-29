@@ -297,7 +297,7 @@ class EventoController extends Controller
                         ->orderBy('tickets.ticketable_type', 'desc')
                         ->orderBy('tickets.id', 'desc')
                         ->orderBy('categoria_name', 'asc') // Ordena por la columna agregada en SELECT
-                        ->distinct('tickets.id')
+                        ->distinct()
                         ->paginate(500);
 /*
         $tickets =   Ticket:: ->where('status', '>=', 3)

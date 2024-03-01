@@ -1116,13 +1116,23 @@
                                     @endif
                                     
                                 @endif
-
-                             
-                                
                            
-                    @endcan
+                        @endcan
+
+                      
+                        
+                      
+
                     </div>
+
                 </section>
+                
+                @can('Super admin')
+               
+                        @livewire('ticket.ganador-sorteo', ['evento' => $evento], key($evento->id))
+                 
+               
+                @endcan
 
                 <aside class="hidden lg:block">
                     @foreach ($similares as $similar)

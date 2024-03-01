@@ -48,6 +48,10 @@ class Evento extends Model
         return $this->BelongsToMany('App\Models\User');
     }
 
+    public function ganadores(){
+        return $this->hasmany('App\Models\Ganadorsorteo');
+    }
+
     // relacion uno a muchos inversa
     public function organizador(){
         return $this->BelongsTo('App\Models\User','user_id');

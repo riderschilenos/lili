@@ -28,8 +28,8 @@
                         <h1 class="font-fold text-gray-500 text-lg">Ganador: {{ $ganador->name }}</h1>
                             @if ($ganador->inscripcion->ticket->user->socio)
                                 <a class="text-blue-400 text-sm font-bold" href="{{route('socio.show',$ganador->inscripcion->ticket->user->socio)}}">{{'@'.Str::slug($ganador->inscripcion->ticket->user->socio->slug,'')}}</a>
-                                
                             @endif
+                        <h1 class="font-fold text-gray-500 text-lg">Fecha de compra: {{ $ganador->inscripcion->updated_at }}</h1>
                     </div>
                 </div>
             </div>

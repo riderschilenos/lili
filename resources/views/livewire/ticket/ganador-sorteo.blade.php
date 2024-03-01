@@ -14,7 +14,8 @@
 
         <section class="card mb-4">
             <div class="card-body">
-                <h1 class="font-bold mb-6">  PREMIO: {{$ganador->premio}} - Boleto Ganador: #{{$ganador->nro_premio}} (Ticket #{{$ganador->inscripcion->ticket->id}})</h1>
+                <h1 class="font-bold">  PREMIO: {{$ganador->premio}}</h1>
+                <h1 class="font-semibold mb-2 text-sm whitespace-nowrap">Boleto Ganador: #{{$ganador->nro_premio}} (Ticket #{{$ganador->inscripcion->ticket->id}})</h1>
                 <div class="flex items-center mb-4">
                     @if (str_contains($ganador->inscripcion->ticket->user->profile_photo_url,'https://ui-'))
                         <img class="flex h-14 w-14 rounded-full shadow-lg object-cover" src="https://static.vecteezy.com/system/resources/previews/021/155/831/original/motocross-helmet-mascot-logo-racer-rider-cyclist-sport-concept-suitable-for-print-web-avatar-profile-and-more-vector.jpg" alt="{{ $evento->organizador->name }}"  />

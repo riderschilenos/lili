@@ -20,10 +20,12 @@ class GanadorSorteo extends Component
     }
 
     public function add_winner(){
-        $inscripcion=Inscripcion::whereHas('ticket', function ($query) {
-                        $query->where('evento_id', $this->evento->id);
+        $inscripcion = Inscripcion::whereHas('ticket', function ($query) {
+                        $query->where('evento_id', $this->evento->id)
+                            ->where('estado', 3); // Agregar condición de estado igual a 3
                     })->inRandomOrder()->first();
-
+        
+        
         ModelsGanadorsorteo::create(['inscripcion_id'=>$inscripcion->id,
                                 'name'=>$inscripcion->ticket->user->name,
                                 'nro_premio'=>$inscripcion->id,

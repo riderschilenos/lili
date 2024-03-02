@@ -542,7 +542,7 @@
                                                                                                                 <div class="px-4 py-4 whitespace-nowrap bg-gray-100">
 
                                                                                                                     @if($evento->type=='sorteo')
-                                                                                                                        <p class="text-base font-bold">
+                                                                                                                        <p class="text-base font-bold @if($inscripcion->estado==4) line-through @endif">
                                                                                                                             Boleto Nro:<br> {{$inscripcion->id}}
                                                                                                                         </p>
                                                                                                                     @else

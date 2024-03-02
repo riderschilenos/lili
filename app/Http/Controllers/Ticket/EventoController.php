@@ -290,7 +290,7 @@ class EventoController extends Controller
         if ($evento->type=='sorteo') {
             $tickets =  Ticket::where('status', '>=', 3)
                         ->where('evento_id',$evento->id)
-                        ->orderBy('tickets.id', 'desc')
+                        ->orderBy('tickets.updated_at', 'desc')
                         ->distinct()
                         ->paginate(500);
         } else {

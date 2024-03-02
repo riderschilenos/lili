@@ -30,12 +30,12 @@ class GanadorSorteo extends Component
                                 'nro_premio'=>$inscripcion->id,
                                 'premio'=>$this->premio,
                                 'evento_id'=>$inscripcion->ticket->evento_id]);
-                                
+
         $inscripcion->ticket->status=4;
         $inscripcion->ticket->save();
 
         foreach ($inscripcion->ticket->inscripcions as $item){
-            $item->estado==4;
+            $item->estado=4;
             $item->save();
            
         }

@@ -346,12 +346,12 @@
                                                                     @if ($item->inscripcions->count()==1)
                                                                          <div class="text-center">
                                                                             {{$item->inscripcions->count()}} Boleto
-                                                                            <br>Ticket: {{$item->id}}
+                                                                            <br>Ticket: {{$item->id}} @if($item->status==4) (Cerrado) @endif
                                                                         </div>
                                                                     @else
                                                                          <div class="text-center">
                                                                             {{$item->inscripcions->count()}} Boletos
-                                                                            <br>Ticket: {{$item->id}}
+                                                                            <br>Ticket: {{$item->id}} @if($item->status==4) (Cerrado) @endif
                                                                         </div>
                                                                     @endif
                                                                        
@@ -436,9 +436,11 @@
                                                                                                                 <div class="px-4 py-4 whitespace-nowrap bg-gray-100">
 
                                                                                                                     @if($evento->type=='sorteo')
-                                                                                                                        <p class="text-base font-bold">
+                                                                                                                        
+                                                                                                                        <p class="text-base font-bold @if($inscripcion->estado==4) line-through @endif">
                                                                                                                             Boleto Nro:<br> {{$inscripcion->id}}
                                                                                                                         </p>
+
                                                                                                                     @else
                                                                                                             
                                                                                                                         {{$inscripcion->fecha_categoria->categoria->name}}
@@ -1126,7 +1128,7 @@
                     </div>
 
                 </section>
-                
+
                 @can('Super admin')
                
                         @livewire('ticket.ganador-sorteo', ['evento' => $evento], key($evento->id))

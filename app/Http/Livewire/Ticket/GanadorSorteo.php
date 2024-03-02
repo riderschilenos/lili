@@ -24,22 +24,23 @@ class GanadorSorteo extends Component
                         $query->where('evento_id', $this->evento->id)
                             ->where('estado', 3); // Agregar condición de estado igual a 3
                     })->inRandomOrder()->first();
-        
-        ModelsGanadorsorteo::create(['inscripcion_id'=>$inscripcion->id,
-                                'name'=>$inscripcion->ticket->user->name,
-                                'nro_premio'=>$inscripcion->id,
-                                'premio'=>$this->premio,
-                                'evento_id'=>$inscripcion->ticket->evento_id]);
 
-        $inscripcion->ticket->status=4;
-        $inscripcion->ticket->save();
+        if($inscripcion){
+            ModelsGanadorsorteo::create(['inscripcion_id'=>$inscripcion->id,
+                                    'name'=>$inscripcion->ticket->user->name,
+                                    'nro_premio'=>$inscripcion->id,
+                                    'premio'=>$this->premio,
+                                    'evento_id'=>$inscripcion->ticket->evento_id]);
+                           
+            $inscripcion->ticket->status=4;
+            $inscripcion->ticket->save();
 
-        foreach ($inscripcion->ticket->inscripcions as $item){
-            $item->estado=4;
-            $item->save();
-           
+            foreach ($inscripcion->ticket->inscripcions as $item){
+                $item->estado=4;
+                $item->save();
+            
+            }
         }
-
         $this->reset(['premio']);
 
         $this->evento=Evento::find($this->evento->id);

@@ -76,7 +76,7 @@
             @if(Route::currentRouteName() == 'socio.ranking.strava')
                 <div class="ml-4">
                     <div class="uppercase tracking-wide text-lg text-gray-800 font-semibold whitespace-nowrap">{{$week}} Kms Ultimos 7 días</div>
-                    <p class="mt-2 text-gray-500">{{$total}} Kms en los ultimos 7 días</p>
+                    <p class="mt-2 text-gray-500">{{$total}} Kms en Total</p>
                 </div>
             @else
                 <div class="ml-4">

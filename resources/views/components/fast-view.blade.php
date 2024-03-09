@@ -896,6 +896,9 @@
                                         <a href="{{route('vendedor.pedidos.create')}}">
                                             <button class="btn btn-success mt-2 text-center text-base">Nuevo Pedido</button>
                                         </a>
+                                        <a href="{{route('organizador.tickets.create')}}">
+                                            <button class="btn btn-success mt-2 text-center text-base">Nuevo Número</button>
+                                        </a>
                                     @endif
                                 @endif
                             </div>

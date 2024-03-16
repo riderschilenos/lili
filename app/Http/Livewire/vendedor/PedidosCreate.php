@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Vendedor;
 
+use App\Models\Evento;
 use App\Models\Invitado;
 use App\Models\Socio;
 use App\Models\Transportista;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Clipboard;
 
 class PedidosCreate extends Component
 {   
-    public $invitados, $selectedSocios, $selectedInvitado, $selecteddespacho, $search, $socio_id, $invitado_id, $transportista_id, $transportistas;
+    public $type, $eventoid, $eventoselected, $invitados, $selectedSocios, $selectedInvitado, $selecteddespacho, $search, $socio_id, $invitado_id, $transportista_id, $transportistas;
     public $nombre = '';
     public $apellidos = '';
     public $rut = '';
@@ -24,6 +25,10 @@ class PedidosCreate extends Component
     use WithPagination;
 
     protected $listeners = ['actualizarTextoPortapapeles'];
+
+    public function mount($type){
+        $this->type=$type;
+    }
 
     public function actualizarTextoPortapapeles($text)
     {
@@ -144,11 +149,19 @@ class PedidosCreate extends Component
                     ->latest('id')
                     ->paginate(3);
 
-
+        $eventos= Evento::where('status', 2)
+                ->where(function($query) {
+                    $query->where('type', 'carrera')
+                        ->orWhere('type', 'campeonato')
+                        ->orWhere('type', 'desafio')
+                        ->orWhere('type', 'sorteo');
+                })
+                ->latest('id')
+                ->get();
 
         
 
-        return view('livewire.vendedor.pedidos-create',compact('socios','guess'));
+        return view('livewire.vendedor.pedidos-create',compact('socios','guess','eventos'));
     }
     
     public function updateselectedSocios(Socio $socio){
@@ -156,6 +169,13 @@ class PedidosCreate extends Component
         $this->selectedSocios= Socio::all();
         
         $this->reset(['invitados']);
+    }
+
+    public function set_eventoid($id){
+
+        $this->eventoid= $id;
+        $this->eventoselected=Evento::find($id);
+      
     }
 
     public function updateselectedInvitado(Socio $socio){

@@ -16,7 +16,7 @@
                     <h1 class="text-2xl font-bold text-center">CREAR NUEVO PEDIDO</h1>
                     <hr class="mt-2 mb-6">
                     
-                    @livewire('vendedor.pedidos-create')
+                    @livewire('vendedor.pedidos-create',['type'=>'pedido'])
                   
                 
                 </div>

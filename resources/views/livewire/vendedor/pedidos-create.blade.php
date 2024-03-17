@@ -95,10 +95,11 @@
                 
                 </div>
             </div>
-                
-            <div class="px-6 py-4">
-                <input wire:keydown="limpiar_page" wire:model="search"  class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Buscar..." required autofocus autocomplete="off">
-            </div>
+            @if ($type=='pedido')
+                <div class="px-6 py-4">
+                    <input wire:keydown="limpiar_page" wire:model="search"  class=" flex-1 w-full shadow-sm  border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg focus:outline-none" placeholder="Buscar..." required autofocus autocomplete="off">
+                </div>
+            @endif
             <div class="flex items-center justify-center mb-2" >
                 @if(is_null($selectedSocios))   
                     <a class="btn btn-danger form-control cursor-pointer" wire:click="updateselectedInvitado">Nuevo</a>    
